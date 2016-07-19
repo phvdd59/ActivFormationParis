@@ -1,6 +1,6 @@
-package com.formation.joca.exos;
+package com.formation.emma.exo;
 
-public class Exos {
+public class ExoSimple {
 
 	/**
 	 * Exemple tab = [1,5,7,6,8,9,4,2,3] résultat : 45
@@ -8,11 +8,16 @@ public class Exos {
 	 * @param tab
 	 * @return
 	 */
+
 	public int sumTableau(int[] tab) {
-		int result = 0;
+		int somme = 0;
 		for (int i = 0; i < tab.length; i++) {
-			result = result + tab[i];
+
+			somme = somme + tab[i];
+
 		}
-		return result;
+		return somme;
+
 	}
+
 }
