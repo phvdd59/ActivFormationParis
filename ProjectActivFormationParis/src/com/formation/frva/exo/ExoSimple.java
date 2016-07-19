@@ -11,6 +11,7 @@ public class ExoSimple {
 	 * @return
 	 */
 	public int sumTableau(int[] tab) {
+		//
 		return 0;
 	}
 }
