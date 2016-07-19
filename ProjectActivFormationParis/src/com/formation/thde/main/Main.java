@@ -1,11 +1,7 @@
 package com.formation.thde.main;
 
-public class IWannaBeTheVeryBest {
+public class Main {
 	//commentaire de thomas
-	// c'est la faute de thomas
-
-	// c'est la faute de thomas
-
 	// c'est la faute de thomas
 
 	public static void main(String[] args) {
