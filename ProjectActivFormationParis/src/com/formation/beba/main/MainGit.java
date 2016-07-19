@@ -12,12 +12,9 @@ public class MainGit {
 	private void init() {
 		// TODO Auto-generated method stub
 
-
 		int tab[] = { 1, 5, 7, 6, 8, 9, 4, 2, 3 };
-		ExoSimple exotab = new ExoSimple(tab);
+		ExoSimple exotab = new ExoSimple();
 		System.out.println(exotab.sumTableau(tab));
 	}
-
-
 
 }
