@@ -11,6 +11,10 @@ public class ExoSimple {
 	 * @return
 	 */
 	public int sumTableau(int[] tab) {
-		return 0;
+		int result = 0;
+		for (int i = 0; i < tab.length; i++) {
+			result=+tab[i];
+		}
+		return result;
 	}
 }
