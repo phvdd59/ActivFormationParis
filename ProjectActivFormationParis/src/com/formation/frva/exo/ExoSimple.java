@@ -1,6 +1,8 @@
 package com.formation.frva.exo;
 
-public class ExoSimple {
+import com.formation.phva.exo.InterExoSimple;
+
+public class ExoSimple implements InterExoSimple{
 
 	/**
 	 * Exemple 
@@ -11,7 +13,10 @@ public class ExoSimple {
 	 * @return
 	 */
 	public int sumTableau(int[] tab) {
-		//
-		return 0;
+		int retour = 0;
+		for (int valtab : tab) {
+			retour += valtab;
+		}
+		return retour;
 	}
 }
