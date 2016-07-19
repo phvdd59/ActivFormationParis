@@ -16,5 +16,4 @@ public class MainGit {
 		ExoSimple exotab = new ExoSimple();
 		System.out.println(exotab.sumTableau(tab));
 	}
-
 }

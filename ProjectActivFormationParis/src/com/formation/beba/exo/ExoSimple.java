@@ -18,5 +18,4 @@ public class ExoSimple {
 		}
 		return sum;
 	}
-
 }
