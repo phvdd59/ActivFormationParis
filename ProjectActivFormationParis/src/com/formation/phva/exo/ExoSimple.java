@@ -9,6 +9,10 @@ public class ExoSimple implements InterExoSimple {
 	 * @return
 	 */
 	public int sumTableau(int[] tab) {
-		return 0;
+		int sum = 0;
+		for (int i : tab) {
+			sum += i;
+		}
+		return sum;
 	}
 }
