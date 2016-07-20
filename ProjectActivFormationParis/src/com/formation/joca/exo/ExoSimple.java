@@ -1,4 +1,4 @@
-package com.formation.joca.exos;
+package com.formation.joca.exo;
 
 import com.formation.phva.exo.InterExoSimple;
 
