@@ -44,9 +44,9 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 */
 	public int[] intervertirDeuxElementsTableau(int[] tab, int i1, int i2) {
 		int[] nouveauTableau = tab.clone();
-		if ((i1>=0) && (i2>=0) && (i1<tab.length) && (i2<tab.length)) {
-			nouveauTableau[i1] = tab[i2];
-			nouveauTableau[i2] = tab[i1];
+		if ((i1>0) && (i2>0) && (i1<=tab.length) && (i2<=tab.length)) {
+			nouveauTableau[i1-1] = tab[i2-1];
+			nouveauTableau[i2-1] = tab[i1-1];
 		}
 		return nouveauTableau;
 	}
