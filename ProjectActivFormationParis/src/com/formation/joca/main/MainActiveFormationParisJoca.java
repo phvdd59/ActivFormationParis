@@ -1,6 +1,6 @@
 package com.formation.joca.main;
 
-import com.formation.joca.exos.Exos;
+import com.formation.joca.exo.ExoSimple;
 
 public class MainActiveFormationParisJoca {
 
@@ -11,7 +11,7 @@ public class MainActiveFormationParisJoca {
 
 	private void init() {
 		int[] tabTest = { 1, 5, 7, 6, 8, 9, 4, 2, 3 };
-		Exos exo1 = new Exos();
+		ExoSimple exo1 = new ExoSimple();
 		System.out.println(exo1.sumTableau(tabTest));
 
 	}
