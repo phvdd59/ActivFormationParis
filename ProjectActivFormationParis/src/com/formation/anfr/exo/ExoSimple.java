@@ -1,5 +1,4 @@
 package com.formation.anfr.exo;
-
 public class ExoSimple {
 
 	/**
@@ -8,28 +7,21 @@ public class ExoSimple {
 	 * @param tab
 	 * @return
 	 */
-	private int[] tab;
+	public static void main(String[] args) {
+		ExoSimple mainGit = new ExoSimple();
+		mainGit.init();
 
-	public ExoSimple() {
-		int[] tabDefaut = { 1, 5, 7, 6, 8, 9, 4, 2, 3 };
-		setTab(tabDefaut);
 	}
 	
-	public ExoSimple(int[] tab){
-		setTab(tab);
-	}
 	
-	public int[] getTab() {
-		return tab;
+	public void init() {
+		int[] tab = {1,5,7,6,8,9,4,2,3};
+		System.out.println("Résultat : " + sumTableau(tab));
+		 int[] tableau = {-1,3,5,9,5,14,28,3,6,9};
+		System.out.println("Résultat : " + sumTableau(tableau));
 	}
 
-	public void setTab(int[] tab) {
-		this.tab = tab;
-	}
-
-
-
-	public int sumTableau() {
+	public int sumTableau(int[] tab) {
 		int somme = 0;
 		for (int i = 0; i < tab.length; i++) {
 			somme = somme + tab[i];
