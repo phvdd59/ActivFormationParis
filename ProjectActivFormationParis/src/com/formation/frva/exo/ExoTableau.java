@@ -1,8 +1,8 @@
 package com.formation.frva.exo;
 
-import com.formation.phva.exo.InterExoTableau;
+import com.formation.phva.exo.InterExoTableau1;
 
-public class ExoTableau implements InterExoTableau {
+public class ExoTableau implements InterExoTableau1 {
 
 	/**
 	 * Exemple d=7 , n=5 p=3 --> [7,10,13,16,19]
