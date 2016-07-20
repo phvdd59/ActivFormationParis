@@ -15,6 +15,7 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 *            = pas entre chaque élément
 	 * @return = nouveau tableau rempli
 	 */
+
 	public int[] remplirTableau(int d, int n, int p) {
 		if (n < 0) {
 			System.err.println("taille négative");
@@ -40,25 +41,22 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 *            deuxième position pour l'interversion
 	 * @return
 	 */
+
 	public int[] intervertirDeuxElementsTableau(int[] tab, int i1, int i2) {
 		int tmpI1 = 0;
 		int tmpI2 = 0;
-		if (i1 < 0 || i1 > tab.length || i2 < 0 || i2 > tab.length) {
-			System.err.println("Indice en dehor de la taille du tableau");
-		} else {
-			for (int i = 0; i < tab.length; i++) {
-				if (i == i1) {
-					tmpI1 = tab[i];
-				} else if (i == i2) {
-					tmpI2 = tab[i];
-				}
+		for (int i = 0; i < tab.length; i++) {
+			if (i == i1) {
+				tmpI1 = tab[i];
+			} else if (i == i2) {
+				tmpI2 = tab[i];
 			}
-			for (int i = 0; i < tab.length; i++) {
-				if (i == i1) {
-					tab[i] = tmpI2;
-				} else if (i == i2) {
-					tab[i] = tmpI1;
-				}
+		}
+		for (int i = 0; i < tab.length; i++) {
+			if (i == i1) {
+				tab[i] = tmpI2;
+			} else if (i == i2) {
+				tab[i] = tmpI1;
 			}
 		}
 		return tab;
@@ -75,20 +73,16 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 *            valeur à ajouter
 	 * @return
 	 */
+
 	public int[] insererUnElementDansTableau(int[] tab, int p, int a) {
 		int[] tmpTab = new int[tab.length + 1];
 		int j = 0;
-		if (p < 0 || p >= tab.length) {
-			System.err.println("position en dehors du tableau");
-			return null;
-		} else {
-			for (int i = 0; i < tmpTab.length; i++) {
-				if (i != p) {
-					tmpTab[i] = tab[j];
-					j++;
-				} else {
-					tmpTab[i] = a;
-				}
+		for (int i = 0; i < tmpTab.length; i++) {
+			if (i != p) {
+				tmpTab[i] = tab[j];
+				j++;
+			} else {
+				tmpTab[i] = a;
 			}
 		}
 		tab = new int[tmpTab.length];
@@ -109,20 +103,16 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 *            tableau contenant les valeurs de remplacement
 	 * @return tableau
 	 */
+
 	public int[] insererUnTableauDansUnAutreAvecRemplacement(int[] tab, int p, int[] tab1) {
 		int j = 0;
 		int[] tmpTab = new int[tab.length];
-		if (p < 0 || p >= tab.length) {
-			System.err.println("position en dehors du tableau");
-			return null;
-		} else {
-			for (int i = 0; i < tmpTab.length; i++) {
-				if (i > p) {
-					tmpTab[i] = tab1[j];
-					j++;
-				} else {
-					tmpTab[i] = tab[i];
-				}
+		for (int i = 0; i < tmpTab.length; i++) {
+			if (i > p) {
+				tmpTab[i] = tab1[j];
+				j++;
+			} else {
+				tmpTab[i] = tab[i];
 			}
 		}
 		return tmpTab;
@@ -140,11 +130,8 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 *            tableau
 	 * @return
 	 */
+
 	public int[] rotationTableau(int[] tab, int p) {
-		if (p > tab.length) {
-			p = p % tab.length;
-			System.err.println("Attention rotation plus grande que la taille du tableau, division euclidienne effectuée");
-		}
 		int[] tmpTab = new int[tab.length];
 		for (int i = 0; i < tab.length; i++) {
 			if (i + p < tab.length) {
