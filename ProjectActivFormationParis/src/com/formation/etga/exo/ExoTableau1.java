@@ -1,11 +1,8 @@
-package com.formation.beba.exo; //en principe, c'est bon
-
-import java.util.Arrays;
+package com.formation.etga.exo;
 
 import com.formation.phva.exo.InterExoTableau1;
 
 public class ExoTableau1 implements InterExoTableau1 {
-	int tab[];
 
 	/**
 	 * Exemple d=7 , n=5 p=3 --> [7,10,13,16,19]
@@ -18,14 +15,14 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 *            = pas entre chaque élément
 	 * @return = nouveau tableau rempli
 	 */
+
+	private int[] tab;
+
 	public int[] remplirTableau(int d, int n, int p) {
-		int tab[] = new int[n];
-		if (n <= 0) { // la taille du tableau doit forcément etre supérieur ou
-						// égal à 1
-			n = 1;
-		}
-		for (int i = 0; i < tab.length; i++) {
-			tab[i] = d + i * p;
+		int[] tab = new int[n];
+		for (int i = 0; i < n; i++) {
+			tab[i] = d;
+			d = d + p;
 		}
 		return tab;
 	}
@@ -43,23 +40,10 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 * @return
 	 */
 	public int[] intervertirDeuxElementsTableau(int[] tab, int i1, int i2) {
-		if (i1 > tab.length - 1) {
-			i1 = tab.length - 1; // les interversions doivent appartenir au
-									// tableau
-		}
-		if (i2 > tab.length - 1) {
-			i2 = tab.length - 1;
-		}
-		if (i1 - 1 < 0) {
-			i1 = 0; // les interversions doivent appartenir au
-					// tableau
-		}
-		if (i2 - 1 < 0) {
-			i2 = 0;
-		}
-		int tampon = tab[i1 - 1];
-		tab[i1 - 1] = tab[i2 - 1];
-		tab[i2 - 1] = tampon;
+		int a = tab[i1];
+		int b = tab[i2];
+		tab[i1] = b;
+		tab[i2] = a;
 		return tab;
 	}
 
@@ -75,20 +59,11 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 * @return
 	 */
 	public int[] insererUnElementDansTableau(int[] tab, int p, int a) {
-		int tab2[] = new int[tab.length + 1];
-		if (p > tab.length || p < 0) { // l'insetion doit avoir lieu dans le
-										// tableau
-			p = 0;
-		}
-		tab2[p + 1] = a;
-		for (int i = 0; i < p; i++) {
-			tab2[i] = tab[i];
-		}
-		for (int i = p + 2; i < tab2.length; i++) {
-			tab2[i] = tab[i - 1];
-		}
-
-		return tab2;
+		a = tab[tab.length];
+		int b = tab[p];
+		tab[tab.length] = b;
+		tab[p] = a;
+		return tab;
 	}
 
 	/**
@@ -106,19 +81,13 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 */
 	public int[] insererUnTableauDansUnAutreAvecRemplacement(int[] tab, int p, int[] tab1) {
 		if (tab1.length < tab.length) {
-			if (p - 1 + tab1.length > tab.length) { // le tableau ajouté doit
-													// tenir dans le tableau
-				p = tab.length - tab1.length + 1;
-			}
-			int j = 0;
 			for (int i = p; i < tab1.length; i++) {
-				tab[i] = tab1[j];
-				j++;
+				tab[i] = tab1[p];
+				p++;
 			}
-		} else {
-			System.out.println("il n'est pas possible d'effectuer leremplacement: taille de tableau non compatibes");
+			return tab;
 		}
-		return tab;
+		return tab1;
 	}
 
 	/**
@@ -134,22 +103,14 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 * @return
 	 */
 	public int[] rotationTableau(int[] tab, int p) {
-		int tab2[] = new int[tab.length];
-		if (p > tab.length || p < 0) { // la possition doit appartenir au
-										// tableau
-			p = tab.length / 2;
+		int[] tab1 = tab;
+		for (int j = 0; j < tab.length; j++) {
+			while (j <= p) {
+				tab1[j] = tab[tab.length - p];
+			}
+			tab1[j] = tab[j - p];
+			return tab1;
 		}
-		for (int i = p; i < tab2.length; i++) {
-			tab2[i] = tab[i - p];
-		}
-		for (int i = 0; i < p - 1; i++) {
-			tab2[i] = tab[i];
-		}
-		return tab2;
-	}
-
-	@Override
-	public String toString() {
-		return "ExoTableau1 [tab=" + Arrays.toString(tab) + "]";
+		return tab;
 	}
 }

@@ -27,13 +27,17 @@ public class MainActiveFormationParis {
 		p = 2;
 		System.out.println(Arrays.toString(tab3));
 		System.out.println(Arrays.toString(tab4));
+		System.out.println("-----");
 		System.out.println(Arrays.toString(exo.insererUnTableauDansUnAutreAvecRemplacement(tab3, p, tab4)));
+		System.out.println("-----");
 		int[] tab5 = { 22, 11, 0, 77, 88, 99 };
 		int[] tab6 = { 3, 4, 5, 6 };
 		p = 2;
 		System.out.println(Arrays.toString(tab5));
 		System.out.println(Arrays.toString(tab6));
+		System.out.println("-----");
 		System.out.println(Arrays.toString(exo.insererUnTableauDansUnAutreAvecRemplacement(tab5, p, tab6)));
+		System.out.println("-----");
 		int[] tab7 = { 1, 4, 6, 2, 4, 6 };
 		p = 2;
 		System.out.println(Arrays.toString(tab7));

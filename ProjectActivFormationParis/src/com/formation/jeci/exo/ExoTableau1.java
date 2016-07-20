@@ -42,6 +42,18 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 * @return
 	 */
 	public int[] intervertirDeuxElementsTableau(int[] tab, int i1, int i2) {
+		if (i1 <= 0) {
+			i1 = 1;
+
+		} else if (i2 <= 0) {
+			i2 = 1;
+		} else if (i1 > tab.length + 1) {
+			i1 = tab.length + 1;
+
+		} else if (i2 > tab.length + 1) {
+			i2 = tab.length + 1;
+
+		}
 		int a = tab[i1 - 1];
 		tab[i1 - 1] = tab[i2 - 1];
 		tab[i2 - 1] = a;
@@ -60,6 +72,11 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 * @return
 	 */
 	public int[] insererUnElementDansTableau(int[] tab, int p, int a) {
+		if (p < 0 || p > tab.length) {
+			p = 0;
+
+		}
+
 		int[] tab1 = new int[tab.length + 1];
 		for (int i = 0; i < tab1.length; i++) {
 
@@ -90,6 +107,11 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 * @return tableau
 	 */
 	public int[] insererUnTableauDansUnAutreAvecRemplacement(int[] tab, int p, int[] tab1) {
+		if (p < 0 || p > tab.length) {
+			p = 0;
+
+		}
+
 		int[] tab2 = new int[tab.length];
 		for (int i = 0; i < tab.length; i++) {
 
@@ -120,6 +142,11 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 * @return
 	 */
 	public int[] rotationTableau(int[] tab, int p) {
+		if (p < 0 || p > tab.length) {
+			p = 0;
+
+		}
+
 		int[] tab3 = new int[tab.length - p];
 		int[] tab4 = new int[p];
 		int[] tab5 = new int[tab.length];
