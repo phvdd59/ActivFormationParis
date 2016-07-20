@@ -10,6 +10,7 @@ public class ExoSimple {
 	 * @param tab
 	 * @return
 	 */
+	
 	public int sumTableau(int[] tab) {
 		int result = 0;
 		for (int i = 0; i < tab.length; i++) {
