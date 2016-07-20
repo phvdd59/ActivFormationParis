@@ -23,7 +23,7 @@ public class MainActiveFormationParis {
 		System.out.println(Arrays.toString(tab2));
 		System.out.println(Arrays.toString(exo.insererUnElementDansTableau(tab2, p, a)));
 		int[] tab3 = { 1, 4, 6, 2, 4, 7 };
-		int[] tab4 = { 4, 3};
+		int[] tab4 = { 4, 9, 0 };
 		p = 2;
 		System.out.println(Arrays.toString(tab3));
 		System.out.println(Arrays.toString(tab4));
