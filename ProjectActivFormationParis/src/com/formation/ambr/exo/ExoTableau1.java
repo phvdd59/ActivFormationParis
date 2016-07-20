@@ -4,6 +4,9 @@ import com.formation.phva.exo.InterExoTableau1;
 
 public class ExoTableau1 implements InterExoTableau1 {
 
+	//0.Création de tableaux
+	//public int[] créerTableau
+
 	//1
 	/**
 	 * Exemple d=7 , n=5 p=3 --> [7,10,13,16,19]
@@ -24,11 +27,17 @@ public class ExoTableau1 implements InterExoTableau1 {
 
 	// 1.méthode remplirTableau
 	public int[] remplirTableau(int d, int n, int p) {
+		int[] tab1 = new int[n];
 		tab1[0] = d;
 		for (int i = 0; i < n; i++) {
-			tab1[i] = d + p;
+			if (tab1[i] == d) {
+				tab1[i] = d;
+			} else {
+				tab1[i] = d + (p * i);
+			}
+			//System.out.println(tab1[i]);
 		}
-		return tab;
+		return tab1;
 	}
 
 	//2
@@ -46,13 +55,15 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 */
 
 	// 2.variables
-	int[] tab;
+	//int[] tabOriginel = new  ;
 	int i1;
 	int i2;
 
 	// 2.méthode intervertirDeuxElementsTableau
-	public int[] intervertirDeuxElementsTableau(int[] tab, int i1, int i2) {
-		return null;
+	public int[] intervertirDeuxElementsTableau(int[] tabOriginel, int i1, int i2) {
+		int[] tabInterverti = new int[tabOriginel.length];
+
+		return tabInterverti;
 	}
 
 	//3

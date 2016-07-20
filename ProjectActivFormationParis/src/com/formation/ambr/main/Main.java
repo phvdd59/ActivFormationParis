@@ -23,12 +23,18 @@ public class Main {
 		/////////
 
 		//ExoTableau1
-		//1.remplirTableau
+		//1. remplirTableau
 
-		int[] tab1 = { 7, 10, 13, 16, 19 };
+		//int[] tab1 = { 7, 10, 13, 16, 19 };
 		ExoTableau1 tableauRempli = new ExoTableau1();
 		int[] monTableauRempli = tableauRempli.remplirTableau(7, 5, 3);
-		System.out.println(monTableauRempli);
+		for (int i = 0; i < monTableauRempli.length; i++) {
+			System.out.println(monTableauRempli[i]);
+		}
+
+		//2. intervertirDeuxElementsTableau
+		ExoTableau1 tab2 = new ExoTableau1();
+		//tab2 = tab1.intervertirDeuxElementsTableau()
 
 	}
 
