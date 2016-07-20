@@ -17,10 +17,6 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 */
 
 	public int[] remplirTableau(int d, int n, int p) {
-		if (n < 0) {
-			System.err.println("taille négative");
-			return null;
-		}
 		int[] tab = new int[n];
 		for (int i = 0; i < tab.length; i++) {
 			tab[i] = d;
