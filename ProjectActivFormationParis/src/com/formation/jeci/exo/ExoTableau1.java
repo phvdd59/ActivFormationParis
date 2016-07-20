@@ -1,4 +1,4 @@
-package com.formation.thcr.exo;
+package com.formation.jeci.exo;
 
 import com.formation.phva.exo.InterExoTableau1;
 
@@ -15,12 +15,16 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 *            = pas entre chaque élément
 	 * @return = nouveau tableau rempli
 	 */
-
 	public int[] remplirTableau(int d, int n, int p) {
 		int[] tab = new int[n];
 		for (int i = 0; i < tab.length; i++) {
-			tab[i] = d;
-			d = d + p;
+
+			if (i == 0) {
+				tab[i] = d;
+			} else {
+				tab[i] = d + i * p;
+			}
+
 		}
 		return tab;
 	}
@@ -37,24 +41,10 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 *            deuxième position pour l'interversion
 	 * @return
 	 */
-
 	public int[] intervertirDeuxElementsTableau(int[] tab, int i1, int i2) {
-		int tmpI1 = 0;
-		int tmpI2 = 0;
-		for (int i = 0; i < tab.length; i++) {
-			if (i == i1) {
-				tmpI1 = tab[i];
-			} else if (i == i2) {
-				tmpI2 = tab[i];
-			}
-		}
-		for (int i = 0; i < tab.length; i++) {
-			if (i == i1) {
-				tab[i] = tmpI2;
-			} else if (i == i2) {
-				tab[i] = tmpI1;
-			}
-		}
+		int a = tab[i1 - 1];
+		tab[i1 - 1] = tab[i2 - 1];
+		tab[i2 - 1] = a;
 		return tab;
 	}
 
@@ -69,21 +59,21 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 *            valeur à ajouter
 	 * @return
 	 */
-
 	public int[] insererUnElementDansTableau(int[] tab, int p, int a) {
-		int[] tmpTab = new int[tab.length + 1];
-		int j = 0;
-		for (int i = 0; i < tmpTab.length; i++) {
-			if (i != p) {
-				tmpTab[i] = tab[j];
-				j++;
+		int[] tab1 = new int[tab.length + 1];
+		for (int i = 0; i < tab1.length; i++) {
+
+			if (i == p) {
+				tab1[i] = a;
+
+			} else if (i < p) {
+				tab1[i] = tab[i];
 			} else {
-				tmpTab[i] = a;
+				tab1[i] = tab[i - 1];
 			}
 		}
-		tab = new int[tmpTab.length];
-		tab = tmpTab;
-		return tmpTab;
+
+		return tab1;
 	}
 
 	/**
@@ -99,19 +89,22 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 *            tableau contenant les valeurs de remplacement
 	 * @return tableau
 	 */
-
 	public int[] insererUnTableauDansUnAutreAvecRemplacement(int[] tab, int p, int[] tab1) {
-		int j = 0;
-		int[] tmpTab = new int[tab.length];
-		for (int i = 0; i < tmpTab.length; i++) {
-			if (i > p) {
-				tmpTab[i] = tab1[j];
-				j++;
+		int[] tab2 = new int[tab.length];
+		for (int i = 0; i < tab.length; i++) {
+
+			if (i >= p + tab1.length) {
+				tab2[i] = tab[i];
+
+			} else if (i < p) {
+				tab2[i] = tab[i];
 			} else {
-				tmpTab[i] = tab[i];
+				tab2[i] = tab1[i - p];
 			}
 		}
-		return tmpTab;
+
+		return tab2;
+
 	}
 
 	/**
@@ -126,16 +119,29 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 *            tableau
 	 * @return
 	 */
-
 	public int[] rotationTableau(int[] tab, int p) {
-		int[] tmpTab = new int[tab.length];
+		int[] tab3 = new int[tab.length - p];
+		int[] tab4 = new int[p];
+		int[] tab5 = new int[tab.length];
 		for (int i = 0; i < tab.length; i++) {
-			if (i + p < tab.length) {
-				tmpTab[i] = tab[i + p];
+
+			if (i < p) {
+				tab4[i] = tab[i];
+
 			} else {
-				tmpTab[i] = tab[(i + p) - tab.length];
+				tab3[i - p] = tab[i];
 			}
 		}
-		return tmpTab;
+		for (int i = 0; i < tab.length; i++) {
+			if (i < tab.length - p) {
+				tab5[i] = tab3[i];
+
+			} else {
+				tab5[i] = tab4[i - (tab.length - p)];
+			}
+
+		}
+
+		return tab5;
 	}
 }

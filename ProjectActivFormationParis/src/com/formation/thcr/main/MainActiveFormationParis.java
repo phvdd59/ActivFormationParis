@@ -38,7 +38,7 @@ public class MainActiveFormationParis {
 		p = 2;
 		System.out.println(Arrays.toString(tab7));
 		System.out.println(Arrays.toString(exo.rotationTableau(tab7, p)));
-		p = 9;
+		p = 4;
 		System.out.println(Arrays.toString(tab7));
 		System.out.println(Arrays.toString(exo.rotationTableau(tab7, p)));
 	}
