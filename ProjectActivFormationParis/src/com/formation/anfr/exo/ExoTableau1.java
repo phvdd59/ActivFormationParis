@@ -118,7 +118,7 @@ public class ExoTableau1 implements InterExoTableau1 {
 		int[] nouveauTableau = tab.clone();
 		if ((p<tab.length) && (p>0)){
 			for (int i = 0; i < nouveauTableau.length; i++) {
-				int entierDecalage = i +p +1;
+				int entierDecalage = i +p;
 				if (entierDecalage>=nouveauTableau.length){
 					entierDecalage -=nouveauTableau.length;
 				}
