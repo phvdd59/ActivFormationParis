@@ -1,9 +1,13 @@
-package com.formation.joca.exo;
+package com.formation.ambr.exo;
 
 import com.formation.phva.exo.InterExoTableau1;
 
 public class ExoTableau1 implements InterExoTableau1 {
 
+	//0.Création de tableaux
+	//public int[] créerTableau
+
+	//1
 	/**
 	 * Exemple d=7 , n=5 p=3 --> [7,10,13,16,19]
 	 * 
@@ -15,14 +19,28 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 *            = pas entre chaque élément
 	 * @return = nouveau tableau rempli
 	 */
+
+	// 1.Variables
+	int d;
+	int n;
+	int p;
+
+	// 1.méthode remplirTableau
 	public int[] remplirTableau(int d, int n, int p) {
-		int[] tab = new int[n];
+		int[] tab1 = new int[n];
+		tab1[0] = d;
 		for (int i = 0; i < n; i++) {
-			tab[i] = d + (i * p);
+			if (tab1[i] == d) {
+				tab1[i] = d;
+			} else {
+				tab1[i] = d + (p * i);
+			}
+			//System.out.println(tab1[i]);
 		}
-		return tab;
+		return tab1;
 	}
 
+	//2
 	/**
 	 * Exemple tab = [7,10,13,16,19,21,24,27,30] i1=3 , i2=8 tab =
 	 * [7,10,27,16,19,21,24,13,30]
@@ -35,18 +53,20 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 *            deuxième position pour l'interversion
 	 * @return
 	 */
-	public int[] intervertirDeuxElementsTableau(int[] tab, int i1, int i2) {
-		if (tab == null) {
-			return null;
-		} else {
 
-			int[] tabModif = tab.clone();
-			tabModif[i1 - 1] = tab[i2 - 1];
-			tabModif[i2 - 1] = tab[i1 - 1];
-			return tabModif;
-		}
+	// 2.variables
+	//int[] tabOriginel = new  ;
+	int i1;
+	int i2;
+
+	// 2.méthode intervertirDeuxElementsTableau
+	public int[] intervertirDeuxElementsTableau(int[] tabOriginel, int i1, int i2) {
+		int[] tabInterverti = new int[tabOriginel.length];
+
+		return tabInterverti;
 	}
 
+	//3
 	/**
 	 * Exemple [1,4,6,2,4,6] : p=3,a=8 --> [1,4,6,8,2,4,6]
 	 * 
@@ -58,24 +78,16 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 *            valeur à ajouter
 	 * @return
 	 */
+
+	// 3. méthode insererUnElementDansTableau
 	public int[] insererUnElementDansTableau(int[] tab, int p, int a) {
-		if (tab == null) {
-			return null;
-		} else {
-			int[] tabModif = new int[tab.length + 1];
-			for (int i = 0; i < tabModif.length; i++) {
-				if (i <= p - 1) {
-					tabModif[i] = tab[i];
-				} else if (i == p) {
-					tabModif[i] = a;
-				} else {
-					tabModif[i] = tab[i - 1];
-				}
-			}
-			return tabModif;
-		}
+		return null;
 	}
 
+	// 3.variables
+	int a;
+
+	//4
 	/**
 	 * Exemple 1 [1,4,6,2,4,7] : p=2, tab1=[4,9,0] --> [1,4,4,9,0,7] Exemple 2
 	 * [22,11,0,77,88,99] : p=2, tab1=[3,4,5,6] --> [22,11,3,4,5,6]
@@ -89,34 +101,16 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 *            tableau contenant les valeurs de remplacement
 	 * @return tableau
 	 */
+
+	// 4.méthode insererUnTableauDansUnAutreAvecRemplacement
 	public int[] insererUnTableauDansUnAutreAvecRemplacement(int[] tab, int p, int[] tab1) {
-		int[] tabModif;
-
-		if (tab == null) {
-			return null;
-		} else if (tab1 == null) {
-			return tab;
-		} else if (p >= tab.length) {
-			System.out.println("attention, on depasse la longueur de tab");
-			return tab;
-		} else {
-
-			tabModif = new int[tab.length];
-			if (p + tab1.length > tab.length) {
-				System.out.println("attention, insertion partielle de tab1 car tab n'est pas assez grand");
-			}
-			for (int i = 0; i < tabModif.length; i++) {
-				if (i >= p && i < p + tab1.length) {
-					tabModif[i] = tab1[i - p];
-				} else {
-					tabModif[i] = tab[i];
-				}
-			}
-			return tabModif;
-		}
-
+		return null;
 	}
 
+	// 4. variables
+	int[] tab1;
+
+	// 5
 	/**
 	 * Exemple 1 tab [1,4,6,2,4,6] : p = 2 --> tab résultat [4,6,1,4,6,2]
 	 * Exemple 2 tab [1,4,6,2,4,6] : p = 4 --> tab résultat [6,2,4,6,1,4]
@@ -129,19 +123,9 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 *            tableau
 	 * @return
 	 */
+
+	// 5.méthode rotationTableau
 	public int[] rotationTableau(int[] tab, int p) {
-		if (tab == null) {
-			return null;
-		} else {
-			int[] tabModif = tab.clone();
-			for (int i = 0; i < tabModif.length; i++) {
-				if ((i + p) < tabModif.length) {
-					tabModif[i + p] = tab[i];
-				} else {
-					tabModif[i - (tab.length - p)] = tab[i];
-				}
-			}
-			return tabModif;
-		}
+		return null;
 	}
 }
