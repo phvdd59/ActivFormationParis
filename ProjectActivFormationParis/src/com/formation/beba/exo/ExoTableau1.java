@@ -1,8 +1,11 @@
-package com.formation.thcr.exo;
+package com.formation.beba.exo;
+
+import java.util.Arrays;
 
 import com.formation.phva.exo.InterExoTableau1;
 
 public class ExoTableau1 implements InterExoTableau1 {
+	int tab[];
 
 	/**
 	 * Exemple d=7 , n=5 p=3 --> [7,10,13,16,19]
@@ -15,12 +18,13 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 *            = pas entre chaque élément
 	 * @return = nouveau tableau rempli
 	 */
-
 	public int[] remplirTableau(int d, int n, int p) {
-		int[] tab = new int[n];
+		int tab[] = new int[n];
+		if (n <= 0) {
+			n = 1;
+		}
 		for (int i = 0; i < tab.length; i++) {
-			tab[i] = d;
-			d = d + p;
+			tab[i] = d + i * p;
 		}
 		return tab;
 	}
@@ -37,24 +41,16 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 *            deuxième position pour l'interversion
 	 * @return
 	 */
-
 	public int[] intervertirDeuxElementsTableau(int[] tab, int i1, int i2) {
-		int tmpI1 = 0;
-		int tmpI2 = 0;
-		for (int i = 0; i < tab.length; i++) {
-			if (i == i1) {
-				tmpI1 = tab[i];
-			} else if (i == i2) {
-				tmpI2 = tab[i];
-			}
+		if (i1 - 1 > tab.length) {
+			i1 = tab.length + 1;
 		}
-		for (int i = 0; i < tab.length; i++) {
-			if (i == i1) {
-				tab[i] = tmpI2;
-			} else if (i == i2) {
-				tab[i] = tmpI1;
-			}
+		if (i2 - 1 > tab.length) {
+			i2 = tab.length + 1;
 		}
+		int tampon = tab[i1 - 1];
+		tab[i1 - 1] = tab[i2 - 1];
+		tab[i2 - 1] = tampon;
 		return tab;
 	}
 
@@ -69,21 +65,20 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 *            valeur à ajouter
 	 * @return
 	 */
-
 	public int[] insererUnElementDansTableau(int[] tab, int p, int a) {
-		int[] tmpTab = new int[tab.length + 1];
-		int j = 0;
-		for (int i = 0; i < tmpTab.length; i++) {
-			if (i != p) {
-				tmpTab[i] = tab[j];
-				j++;
-			} else {
-				tmpTab[i] = a;
-			}
+		int tab2[] = new int[tab.length + 1];
+		if (p > tab.length || p < 0) {
+			p = 0;
 		}
-		tab = new int[tmpTab.length];
-		tab = tmpTab;
-		return tmpTab;
+		tab2[p + 1] = a;
+		for (int i = 0; i < p; i++) {
+			tab2[i] = tab[i];
+		}
+		for (int i = p + 2; i < tab2.length; i++) {
+			tab2[i] = tab[i - 1];
+		}
+
+		return tab2;
 	}
 
 	/**
@@ -99,19 +94,20 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 *            tableau contenant les valeurs de remplacement
 	 * @return tableau
 	 */
-
 	public int[] insererUnTableauDansUnAutreAvecRemplacement(int[] tab, int p, int[] tab1) {
-		int j = 0;
-		int[] tmpTab = new int[tab.length];
-		for (int i = 0; i < tmpTab.length; i++) {
-			if (i > p) {
-				tmpTab[i] = tab1[j];
-				j++;
-			} else {
-				tmpTab[i] = tab[i];
+		if (tab1.length < tab.length) {
+			if (p - 1 + tab1.length > tab.length) {
+				p = tab.length - tab1.length + 1;
 			}
+			int j = 0;
+			for (int i = p; i < tab1.length; i++) {
+				tab[i] = tab1[j];
+				j++;
+			}
+		} else {
+			System.out.println("il n'est pas possible d'effectuer leremplacement: taille de tableau non compatibes");
 		}
-		return tmpTab;
+		return tab;
 	}
 
 	/**
@@ -126,16 +122,22 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 *            tableau
 	 * @return
 	 */
-
 	public int[] rotationTableau(int[] tab, int p) {
-		int[] tmpTab = new int[tab.length];
-		for (int i = 0; i < tab.length; i++) {
-			if (i + p < tab.length) {
-				tmpTab[i] = tab[i + p];
-			} else {
-				tmpTab[i] = tab[(i + p) - tab.length];
-			}
+		int tab2[] = new int[tab.length];
+		if (p > tab.length || p < 0) {
+			p = tab.length / 2;
 		}
-		return tmpTab;
+		for (int i = p; i < tab2.length; i++) {
+			tab2[i] = tab[i - p];
+		}
+		for (int i = 0; i < p - 1; i++) {
+			tab2[i] = tab[i];
+		}
+		return tab2;
+	}
+
+	@Override
+	public String toString() {
+		return "ExoTableau1 [tab=" + Arrays.toString(tab) + "]";
 	}
 }
