@@ -88,12 +88,12 @@ public class ExoTableau1 implements InterExoTableau1 {
 	public int[] insererUnTableauDansUnAutreAvecRemplacement(int[] tab, int p, int[] tab1) {
 		int[] tableauinverse = tab;
 		int k = 0;
-		for (int i = p; i < tab1.length + p; i++) {
+		for (int i = p; i < tab.length + p; i++) {
 			tableauinverse[i] = tab1[k];
 			k++;
 		}
 		for (int i = 0; i < tableauinverse.length; i++) {
-			System.out.println(tableauinverse[i]);
+			// System.out.println(tableauinverse[i]);
 		}
 		return tableauinverse;
 	}
@@ -108,6 +108,16 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 * @return
 	 */
 	public int[] rotationTableau(int[] tab, int p) {
-		return null;
+		int[] tableaurot = new int[tab.length];
+		for (int i = p; i < tableaurot.length; i++) {
+			tableaurot[i] = tab[i - p];
+		}
+		for (int i = 0; i < p; i++) {
+			tableaurot[i] = tab[tab.length - p + i];
+		}
+		for (int i = 0; i < tableaurot.length; i++) {
+			// System.out.println(tableaurot[i]);
+		}
+		return tableaurot;
 	}
 }
