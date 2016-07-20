@@ -1,8 +1,8 @@
-package com.formation.joca.exos;
+package com.formation.soka.exo;
 
 import com.formation.phva.exo.InterExoSimple;
 
-public class Exos implements InterExoSimple {
+public class ExoSimple implements InterExoSimple {
 
 	/**
 	 * Exemple tab = [1,5,7,6,8,9,4,2,3] résultat : 45
@@ -11,10 +11,10 @@ public class Exos implements InterExoSimple {
 	 * @return
 	 */
 	public int sumTableau(int[] tab) {
-		int result = 0;
-		for (int i = 0; i < tab.length; i++) {
-			result = result + tab[i];
+		int sum = 0;
+		for (int i : tab) {
+			sum += i;
 		}
-		return result;
+		return sum;
 	}
 }
