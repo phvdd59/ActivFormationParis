@@ -42,10 +42,15 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 * @return
 	 */
 	public int[] intervertirDeuxElementsTableau(int[] tab, int i1, int i2) {
-		int temp = tab[i1 - 1];
-		tab[i1 - 1] = tab[i2 - 1];
-		tab[i2 - 1] = temp;
-		return tab;
+		if (i1 < 0 || i2 < 0 || i1 > tab.length || i2 > tab.length) {
+			System.out.println("probleme !");
+			return tab;
+		} else {
+			int temp = tab[i1 - 1];
+			tab[i1 - 1] = tab[i2 - 1];
+			tab[i2 - 1] = temp;
+			return tab;
+		}
 	}
 	//____________________________________________________
 
@@ -61,17 +66,22 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 * @return
 	 */
 	public int[] insererUnElementDansTableau(int[] tab, int p, int a) {
-		int[] tab2 = new int[tab.length + 1];
-		for (int i = 0; i < tab2.length; i++) {
-			if (i < p) {
-				tab2[i] = tab[i];
-			} else if (i == p) {
-				tab2[i] = a;
-			} else {
-				tab2[i] = tab[i - 1];
+		if (p < 0 || p > tab.length) {
+			System.out.println("probleme !");
+			return tab;
+		} else {
+			int[] tab2 = new int[tab.length + 1];
+			for (int i = 0; i < tab2.length; i++) {
+				if (i < p) {
+					tab2[i] = tab[i];
+				} else if (i == p) {
+					tab2[i] = a;
+				} else {
+					tab2[i] = tab[i - 1];
+				}
 			}
+			return tab2;
 		}
-		return tab2;
 	}
 	//____________________________________________________
 
@@ -89,12 +99,17 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 * @return tableau
 	 */
 	public int[] insererUnTableauDansUnAutreAvecRemplacement(int[] tab, int p, int[] tab1) {
-		int k = 0;
-		for (int i = p; i <= p + tab1.length - 1; i++) {
-			tab[i] = tab1[k];
-			k++;
+		if (p < 0 || p > tab.length || tab1.length > tab.length) {
+			System.out.println("probleme !");
+			return tab;
+		} else {
+			int k = 0;
+			for (int i = p; i <= p + tab1.length - 1; i++) {
+				tab[i] = tab1[k];
+				k++;
+			}
+			return tab;
 		}
-		return tab;
 	}
 	//____________________________________________________
 
@@ -111,16 +126,20 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 * @return
 	 */
 	public int[] rotationTableau(int[] tab, int p) {
-		int[] tab2 = new int[tab.length];
-		for (int i = 0; i < tab.length; i++) {
-			if (i < p) {
-				tab2[i] = tab[i + (tab.length - p)];
-			} else {
-				tab2[i] = tab[i - p];
+		if (p < 0 || p > tab.length) {
+			System.out.println("probleme !");
+			return tab;
+		} else {
+			int[] tab2 = new int[tab.length];
+			for (int i = 0; i < tab.length; i++) {
+				if (i < p) {
+					tab2[i] = tab[i + (tab.length - p)];
+				} else {
+					tab2[i] = tab[i - p];
+				}
+
 			}
-
+			return tab2;
 		}
-
-		return tab2;
 	}
 }
