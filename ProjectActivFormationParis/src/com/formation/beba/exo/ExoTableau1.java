@@ -1,4 +1,4 @@
-package com.formation.beba.exo;				//en principe, c'est bon
+package com.formation.beba.exo; //en principe, c'est bon
 
 import java.util.Arrays;
 
@@ -20,7 +20,8 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 */
 	public int[] remplirTableau(int d, int n, int p) {
 		int tab[] = new int[n];
-		if (n <= 0) {
+		if (n <= 0) { // la taille du tableau doit forcément etre supérieur ou
+						// égal à 1
 			n = 1;
 		}
 		for (int i = 0; i < tab.length; i++) {
@@ -42,11 +43,19 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 * @return
 	 */
 	public int[] intervertirDeuxElementsTableau(int[] tab, int i1, int i2) {
-		if (i1 - 1 > tab.length) {
-			i1 = tab.length + 1;
+		if (i1 > tab.length - 1) {
+			i1 = tab.length - 1; // les interversions doivent appartenir au
+									// tableau
 		}
-		if (i2 - 1 > tab.length) {
-			i2 = tab.length + 1;
+		if (i2 > tab.length - 1) {
+			i2 = tab.length - 1;
+		}
+		if (i1 - 1 < 0) {
+			i1 = 0; // les interversions doivent appartenir au
+					// tableau
+		}
+		if (i2 - 1 < 0) {
+			i2 = 0;
 		}
 		int tampon = tab[i1 - 1];
 		tab[i1 - 1] = tab[i2 - 1];
@@ -67,7 +76,8 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 */
 	public int[] insererUnElementDansTableau(int[] tab, int p, int a) {
 		int tab2[] = new int[tab.length + 1];
-		if (p > tab.length || p < 0) {
+		if (p > tab.length || p < 0) { // l'insetion doit avoir lieu dans le
+										// tableau
 			p = 0;
 		}
 		tab2[p + 1] = a;
@@ -96,7 +106,8 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 */
 	public int[] insererUnTableauDansUnAutreAvecRemplacement(int[] tab, int p, int[] tab1) {
 		if (tab1.length < tab.length) {
-			if (p - 1 + tab1.length > tab.length) {
+			if (p - 1 + tab1.length > tab.length) { // le tableau ajouté doit
+													// tenir dans le tableau
 				p = tab.length - tab1.length + 1;
 			}
 			int j = 0;
@@ -124,7 +135,8 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 */
 	public int[] rotationTableau(int[] tab, int p) {
 		int tab2[] = new int[tab.length];
-		if (p > tab.length || p < 0) {
+		if (p > tab.length || p < 0) { // la possition doit appartenir au
+										// tableau
 			p = tab.length / 2;
 		}
 		for (int i = p; i < tab2.length; i++) {
