@@ -1,4 +1,6 @@
-package com.formation.issa.exo;
+package com.formation.issa.main;
+
+import com.formation.issa.exo.ExoSimple;
 
 public class MainIsma {
 
