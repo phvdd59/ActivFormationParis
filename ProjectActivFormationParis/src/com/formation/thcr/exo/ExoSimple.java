@@ -16,7 +16,7 @@ public class ExoSimple implements InterExoSimple{
 	public int sumTableau(int[] tab) {
 		int result = 0;
 		for (int i = 0; i < tab.length; i++) {
-			result=+tab[i];
+			result+=tab[i];
 		}
 		return result;
 	}
