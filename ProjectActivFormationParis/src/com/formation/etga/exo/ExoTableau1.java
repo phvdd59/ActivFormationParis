@@ -1,5 +1,7 @@
 package com.formation.etga.exo;
 
+import com.formation.phva.exo.InterExoTableau1;
+
 public class ExoTableau1 implements InterExoTableau1 {
 
 	/**
@@ -106,7 +108,7 @@ public class ExoTableau1 implements InterExoTableau1 {
 			while (j <= p) {
 				tab1[j] = tab[tab.length - p];
 			}
-			tab1[j] = tab[i - p];
+			tab1[j] = tab[j - p];
 			return tab1;
 		}
 		return tab;
