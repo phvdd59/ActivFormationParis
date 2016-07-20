@@ -1,4 +1,4 @@
-package com.formation.beba.exo;
+package com.formation.beba.exo;				//en principe, c'est bon
 
 import java.util.Arrays;
 
