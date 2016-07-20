@@ -36,10 +36,15 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 * @return
 	 */
 	public int[] intervertirDeuxElementsTableau(int[] tab, int i1, int i2) {
-		int[] tabModif = tab.clone();
-		tabModif[i1 - 1] = tab[i2 - 1];
-		tabModif[i2 - 1] = tab[i1 - 1];
-		return tabModif;
+		if (tab == null) {
+			return null;
+		} else {
+
+			int[] tabModif = tab.clone();
+			tabModif[i1 - 1] = tab[i2 - 1];
+			tabModif[i2 - 1] = tab[i1 - 1];
+			return tabModif;
+		}
 	}
 
 	/**
@@ -54,17 +59,21 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 * @return
 	 */
 	public int[] insererUnElementDansTableau(int[] tab, int p, int a) {
-		int[] tabModif = new int[tab.length + 1];
-		for (int i = 0; i < tabModif.length; i++) {
-			if (i <= p - 1) {
-				tabModif[i] = tab[i];
-			} else if (i == p) {
-				tabModif[i] = a;
-			} else {
-				tabModif[i] = tab[i - 1];
+		if (tab == null) {
+			return null;
+		} else {
+			int[] tabModif = new int[tab.length + 1];
+			for (int i = 0; i < tabModif.length; i++) {
+				if (i <= p - 1) {
+					tabModif[i] = tab[i];
+				} else if (i == p) {
+					tabModif[i] = a;
+				} else {
+					tabModif[i] = tab[i - 1];
+				}
 			}
+			return tabModif;
 		}
-		return tabModif;
 	}
 
 	/**
@@ -81,11 +90,21 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 * @return tableau
 	 */
 	public int[] insererUnTableauDansUnAutreAvecRemplacement(int[] tab, int p, int[] tab1) {
-		int[] tabModif = new int[tab.length];
-		if (p + tab1.length > tab.length) {
-			System.out.println("attention, on depasse la longueur du tableau de depart");
+		int[] tabModif;
+
+		if (tab == null) {
 			return null;
+		} else if (tab1 == null) {
+			return tab;
+		} else if (p >= tab.length) {
+			System.out.println("attention, on depasse la longueur de tab");
+			return tab;
 		} else {
+
+			tabModif = new int[tab.length];
+			if (p + tab1.length > tab.length) {
+				System.out.println("attention, insertion partielle de tab1 car tab n'est pas assez grand");
+			}
 			for (int i = 0; i < tabModif.length; i++) {
 				if (i >= p && i < p + tab1.length) {
 					tabModif[i] = tab1[i - p];
@@ -95,6 +114,7 @@ public class ExoTableau1 implements InterExoTableau1 {
 			}
 			return tabModif;
 		}
+
 	}
 
 	/**
@@ -110,14 +130,18 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 * @return
 	 */
 	public int[] rotationTableau(int[] tab, int p) {
-		int[] tabModif = tab.clone();
-		for (int i = 0; i < tabModif.length; i++) {
-			if ((i + p) < tabModif.length) {
-				tabModif[i + p] = tab[i];
-			} else {
-				tabModif[i - (tab.length - p)] = tab[i];
+		if (tab == null) {
+			return null;
+		} else {
+			int[] tabModif = tab.clone();
+			for (int i = 0; i < tabModif.length; i++) {
+				if ((i + p) < tabModif.length) {
+					tabModif[i + p] = tab[i];
+				} else {
+					tabModif[i - (tab.length - p)] = tab[i];
+				}
 			}
+			return tabModif;
 		}
-		return tabModif;
 	}
 }
