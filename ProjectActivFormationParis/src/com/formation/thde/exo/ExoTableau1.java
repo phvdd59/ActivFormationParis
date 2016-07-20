@@ -99,12 +99,17 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 * @return tableau
 	 */
 	public int[] insererUnTableauDansUnAutreAvecRemplacement(int[] tab, int p, int[] tab1) {
-		int k = 0;
-		for (int i = p; i <= p + tab1.length - 1; i++) {
-			tab[i] = tab1[k];
-			k++;
+		if (p < 0 || p > tab.length || tab1.length > tab.length) {
+			System.out.println("probleme !");
+			return tab;
+		} else {
+			int k = 0;
+			for (int i = p; i <= p + tab1.length - 1; i++) {
+				tab[i] = tab1[k];
+				k++;
+			}
+			return tab;
 		}
-		return tab;
 	}
 	//____________________________________________________
 
