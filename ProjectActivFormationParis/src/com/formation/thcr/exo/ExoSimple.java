@@ -1,6 +1,8 @@
 package com.formation.thcr.exo;
 
-public class ExoSimple {
+import com.formation.phva.exo.InterExoSimple;
+
+public class ExoSimple implements InterExoSimple{
 
 	/**
 	 * Exemple 
