@@ -1,5 +1,7 @@
 package com.formation.thde.exo;
 
+import com.formation.phva.exo.InterExoSimple;
+
 /**
  * Exemple tab = [1,5,7,6,8,9,4,2,3] résultat : 45
  * 
@@ -7,9 +9,8 @@ package com.formation.thde.exo;
  * @return
  */
 
-public class ExoSimple {
+public class ExoSimple implements InterExoSimple {
 	private int[] tab = { 1, 5, 7, 6, 8, 9, 4, 2, 3 };
-
 	public static void main(String[] args) {
 		ExoSimple exoSimple = new ExoSimple();
 		exoSimple.init();
