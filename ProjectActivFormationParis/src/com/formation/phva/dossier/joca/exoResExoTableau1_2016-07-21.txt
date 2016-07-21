@@ -1,0 +1,35 @@
+joca
+
+joca insererUnTableauDansUnAutreAvecRemplacement0 (2/2):    | exo.insererUnTableauDansUnAutreAvecRemplacement(taba, 2, tabb)
+joca insererUnTableauDansUnAutreAvecRemplacement1 (2/2):    | exo.insererUnTableauDansUnAutreAvecRemplacement(tab, 3, tab1)
+joca insererUnTableauDansUnAutreAvecRemplacement2 (0/1): KO | exo.insererUnTableauDansUnAutreAvecRemplacement(tab, -3, tab1)
+joca insererUnTableauDansUnAutreAvecRemplacement3 (1/1):    | exo.insererUnTableauDansUnAutreAvecRemplacement(tab, 3000, tab1)
+joca intervertirDeuxElementsTableau0 (2/2):    | exo.intervertirDeuxElementsTableau(tab0, 3, 8)
+joca intervertirDeuxElementsTableau1 (2/2):    | exo.intervertirDeuxElementsTableau(tab, 3, 8)
+joca intervertirDeuxElementsTableau2 (0/1): KO | exo.intervertirDeuxElementsTableau(tab, -3, 8)
+-4
+joca intervertirDeuxElementsTableau3 (0/1): KO | exo.intervertirDeuxElementsTableau(tab, 3, 44448)
+44447
+joca intervertirDeuxElementsTableau4 (0/1): KO | exo.intervertirDeuxElementsTableau(tab, 34444, 8)
+34443
+joca intervertirDeuxElementsTableau5 (0/1): KO | exo.intervertirDeuxElementsTableau(tab, 3, -8)
+-9
+joca remplirTableau0 (2/2):    | exo.remplirTableau(7, 5, 3)
+joca remplirTableau1 (2/2):    | exo.remplirTableau(-120, 125, 7)
+joca remplirTableau2 (0/1): KO | exo.remplirTableau(0x7FFFFFF0, 16, 8)
+joca remplirTableau3 (0/1): KO | exo.remplirTableau(-0x7FFFFFF0, 16, -8)
+joca rotationTableau0 (2/2):    | exo.rotationTableau(tabA, 2)
+joca rotationTableau1 (2/2):    | exo.rotationTableau(tab, 3)
+joca rotationTableau2 (0/1): KO | exo.rotationTableau(tab, -3)
+-3
+joca rotationTableau3 (0/1): KO | exo.rotationTableau(tab, 3000)
+2048
+joca rotationTableau4 (0/1): KO | exo.rotationTableau(tab, -777)
+-777
+joca insererUnElementDansTableau0 (2/2):    | exo.insererUnElementDansTableau(tab1, 3, 8)
+joca insererUnElementDansTableau1 (2/2):    | exo.insererUnElementDansTableau(tab, 3, 8)
+joca insererUnElementDansTableau2 (0/1): KO | exo.insererUnElementDansTableau(tab, -3, 8)
+-1
+joca insererUnElementDansTableau3 (0/1): KO | exo.insererUnElementDansTableau(tab, 33333, 8)
+2048
+joca NOTE : (21 / 36) = 11 / 20

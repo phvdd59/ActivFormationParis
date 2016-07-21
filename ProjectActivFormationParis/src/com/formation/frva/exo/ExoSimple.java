@@ -2,7 +2,7 @@ package com.formation.frva.exo;
 
 import com.formation.phva.exo.InterExoSimple;
 
-public class ExoSimple implements InterExoSimple{
+public class ExoSimple implements InterExoSimple {
 
 	/**
 	 * Exemple 

@@ -1,0 +1,37 @@
+soka
+
+soka insererUnTableauDansUnAutreAvecRemplacement0 (2/2):    | exo.insererUnTableauDansUnAutreAvecRemplacement(taba, 2, tabb)
+soka insererUnTableauDansUnAutreAvecRemplacement1 (2/2):    | exo.insererUnTableauDansUnAutreAvecRemplacement(tab, 3, tab1)
+soka insererUnTableauDansUnAutreAvecRemplacement2 (0/1): KO | exo.insererUnTableauDansUnAutreAvecRemplacement(tab, -3, tab1)
+soka insererUnTableauDansUnAutreAvecRemplacement3 (1/1):    | exo.insererUnTableauDansUnAutreAvecRemplacement(tab, 3000, tab1)
+soka intervertirDeuxElementsTableau0 (2/2):    | exo.intervertirDeuxElementsTableau(tab0, 3, 8)
+soka intervertirDeuxElementsTableau1 (0/2): KO | exo.intervertirDeuxElementsTableau(tab, 3, 8)
+soka intervertirDeuxElementsTableau2 (0/1): KO | exo.intervertirDeuxElementsTableau(tab, -3, 8)
+-3
+soka intervertirDeuxElementsTableau3 (0/1): KO | exo.intervertirDeuxElementsTableau(tab, 3, 44448)
+44448
+soka intervertirDeuxElementsTableau4 (0/1): KO | exo.intervertirDeuxElementsTableau(tab, 34444, 8)
+34444
+soka intervertirDeuxElementsTableau5 (0/1): KO | exo.intervertirDeuxElementsTableau(tab, 3, -8)
+-8
+soka remplirTableau0 (2/2):    | exo.remplirTableau(7, 5, 3)
+soka remplirTableau1 (2/2):    | exo.remplirTableau(-120, 125, 7)
+soka remplirTableau2 (0/1): KO | exo.remplirTableau(0x7FFFFFF0, 16, 8)
+soka remplirTableau3 (0/1): KO | exo.remplirTableau(-0x7FFFFFF0, 16, -8)
+soka rotationTableau0 (0/2): KO | exo.rotationTableau(tabA, 2)
+6
+soka rotationTableau1 (0/2): KO | exo.rotationTableau(tab, 3)
+2048
+soka rotationTableau2 (0/1): KO | exo.rotationTableau(tab, -3)
+-3
+soka rotationTableau3 (0/1): KO | exo.rotationTableau(tab, 3000)
+-952
+soka rotationTableau4 (0/1): KO | exo.rotationTableau(tab, -777)
+-777
+soka insererUnElementDansTableau0 (2/2):    | exo.insererUnElementDansTableau(tab1, 3, 8)
+soka insererUnElementDansTableau1 (2/2):    | exo.insererUnElementDansTableau(tab, 3, 8)
+soka insererUnElementDansTableau2 (0/1): KO | exo.insererUnElementDansTableau(tab, -3, 8)
+-1
+soka insererUnElementDansTableau3 (0/1): KO | exo.insererUnElementDansTableau(tab, 33333, 8)
+2048
+soka NOTE : (15 / 36) = 8 / 20

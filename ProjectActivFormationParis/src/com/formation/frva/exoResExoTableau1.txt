@@ -1,0 +1,48 @@
+frva insererUnTableauDansUnAutreAvecRemplacement0 (0/2): KO | exo.insererUnTableauDansUnAutreAvecRemplacement(taba, 2, tabb)
+null
+frva insererUnTableauDansUnAutreAvecRemplacement1 (0/2): KO | exo.insererUnTableauDansUnAutreAvecRemplacement(tab, 3, tab1)
+null
+frva insererUnTableauDansUnAutreAvecRemplacement2 (0/1): KO | exo.insererUnTableauDansUnAutreAvecRemplacement(tab, -3, tab1)
+null
+frva insererUnTableauDansUnAutreAvecRemplacement3 (0/1): KO | exo.insererUnTableauDansUnAutreAvecRemplacement(tab, 3000, tab1)
+null
+frva intervertirDeuxElementsTableau0 (0/2): KO | exo.intervertirDeuxElementsTableau(tab0, 3, 8)
+null
+frva intervertirDeuxElementsTableau1 (0/2): KO | exo.intervertirDeuxElementsTableau(tab, 3, 8)
+null
+frva intervertirDeuxElementsTableau2 (0/1): KO | exo.intervertirDeuxElementsTableau(tab, -3, 8)
+null
+frva intervertirDeuxElementsTableau3 (0/1): KO | exo.intervertirDeuxElementsTableau(tab, 3, 44448)
+null
+frva intervertirDeuxElementsTableau4 (0/1): KO | exo.intervertirDeuxElementsTableau(tab, 34444, 8)
+null
+frva intervertirDeuxElementsTableau5 (0/1): KO | exo.intervertirDeuxElementsTableau(tab, 3, -8)
+null
+frva intervertirDeuxElementsTableau6 (0/1): KO | exo.intervertirDeuxElementsTableau(null, 3, -8)
+null
+frva remplirTableau0 (0/2): KO | exo.remplirTableau(7, 5, 3)
+null
+frva remplirTableau1 (0/2): KO | exo.remplirTableau(-120, 125, 7)
+null
+frva remplirTableau2 (0/1): KO | exo.remplirTableau(0x7FFFFFF0, 16, 8)
+null
+frva remplirTableau3 (0/1): KO | exo.remplirTableau(-0x7FFFFFF0, 16, -8)
+null
+frva rotationTableau0 (0/2): KO | exo.rotationTableau(tabA, 2)
+null
+frva rotationTableau1 (0/2): KO | exo.rotationTableau(tab, 3)
+null
+frva rotationTableau2 (0/1): KO | exo.rotationTableau(tab, -3)
+null
+frva rotationTableau3 (0/1): KO | exo.rotationTableau(tab, 3000)
+null
+frva rotationTableau4 (0/1): KO | exo.rotationTableau(tab, -777)
+null
+frva insererUnElementDansTableau0 (0/2): KO | exo.insererUnElementDansTableau(tab1, 3, 8)
+null
+frva insererUnElementDansTableau1 (0/2): KO | exo.insererUnElementDansTableau(tab, 3, 8)
+null
+frva insererUnElementDansTableau2 (0/1): KO | exo.insererUnElementDansTableau(tab, -3, 8)
+null
+frva insererUnElementDansTableau3 (0/1): KO | exo.insererUnElementDansTableau(tab, 33333, 8)
+null
