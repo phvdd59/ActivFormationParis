@@ -62,7 +62,7 @@ public abstract class Wagon implements Comparable<Wagon>{
 	
 	@Override
 	public int compareTo(Wagon w) {
-		int[] ordreDeTri = { Wagon.WAGON_SIMPLE2, Wagon.WAGON_DOUBLE, Wagon.WAGON_SIMPLE1, Wagon.WAGON_RESTO };
+		int[] ordreDeTri = { 3, 2, 0, 1};
 		if (ordreDeTri[getType()] < ordreDeTri[w.getType()]) {
 			return -1;
 		} else if (ordreDeTri[getType()] > ordreDeTri[w.getType()]) {
@@ -70,5 +70,8 @@ public abstract class Wagon implements Comparable<Wagon>{
 		} else {
 			return 0;
 		}
+//		return toString().compareTo(w.toString());
+	//	return Float.valueOf(getLng()).compareTo(Float.valueOf(w.getLng()));
+	
 	}
 }
