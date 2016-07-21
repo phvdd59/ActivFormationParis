@@ -65,27 +65,40 @@ public class Entrepot extends ArrayList<Wagon> {
 		nbTypeWagons[e.getType()]++;
 		return super.add(e);
 	}
-	
 
+	public void permuter1en1(int indice1) {
+		add(indice1, remove(indice1 + 1));
+	}
 
-	public void tri() {
+	public void tri1() {
+		boolean permuteAuMoinsUneFois = true;
+		while (permuteAuMoinsUneFois) {
+			permuteAuMoinsUneFois = false;
+			for (int i = 0; i < this.size() - 1; i++) {
+				if (this.get(i).compareTo(get(i + 1)) == 1) {
+					permuter1en1(i);
+					permuteAuMoinsUneFois = true;
+				}
+			}
+		}
+	}
+
+	public void tri2() {
 		int[] ordreDeTri = { Wagon.WAGON_SIMPLE2, Wagon.WAGON_DOUBLE, Wagon.WAGON_SIMPLE1, Wagon.WAGON_RESTO };
-		int entierTri = 0;
-		int wagonATrier = ordreDeTri[entierTri];
-		for (int cpt = 0; cpt < this.size()-1; cpt++) {
-			if (this.get(cpt).getType() != wagonATrier) {
+		// int entierTri = 0;
+		int cpt = 0;
+		for (int entierTri = 0; entierTri < ordreDeTri.length - 1; entierTri++) {
+			if (this.get(cpt).getType() != ordreDeTri[entierTri]) {
 				for (int i = cpt + 1; i < this.size(); i++) {
-					if (this.get(i).getType() == wagonATrier) {
+					if (this.get(i).getType() == ordreDeTri[entierTri]) {
 						add(cpt, remove(i));
-						break;
-					} else if ( (i ==  this.size() -1) && (entierTri !=ordreDeTri.length)) {
-						wagonATrier = ordreDeTri[++entierTri];
-						cpt--;
-						break;
+						cpt++;
+						i--;
 					}
 				}
 			}
 		}
+
 	}
 
 	@Override
@@ -101,6 +114,4 @@ public class Entrepot extends ArrayList<Wagon> {
 		return super.remove(index);
 	}
 
-	
-	
 }

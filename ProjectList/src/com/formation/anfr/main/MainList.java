@@ -1,6 +1,7 @@
 package com.formation.anfr.main;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import com.formation.anfr.metier.Entrepot;
 import com.formation.anfr.metier.RER;
@@ -15,12 +16,17 @@ public class MainList {
 
 	public void init() {
 		Entrepot entrepotParis = new Entrepot();
-		entrepotParis.fabrique(20);
-		entrepotParis.fabrique(12);
-/*		for (int i = 0; i < entrepotParis.size(); i++) {
+		entrepotParis.fabrique(10);
+		for (int i = 0; i < entrepotParis.size(); i++) {
 			System.out.println(entrepotParis.get(i).toString());
-		}*/
-		entrepotParis.tri();
+		}
+		System.out.println("");
+		/*
+		 * for (int i = 0; i < entrepotParis.size(); i++) {
+		 * System.out.println(entrepotParis.get(i).toString()); }
+		 */
+		// entrepotParis.tri1();
+		Collections.sort(entrepotParis);
 		for (int i = 0; i < entrepotParis.size(); i++) {
 			System.out.println(entrepotParis.get(i).toString());
 		}
@@ -59,7 +65,7 @@ public class MainList {
 		list.clear();
 		System.out.println("list = " + list);
 		for (int val : tab) {
-			//list.add(Integer.valueOf(val));
+			// list.add(Integer.valueOf(val));
 			list.add(val);
 		}
 		list.clear();
