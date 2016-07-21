@@ -40,6 +40,23 @@ public class ExoTableau1 implements InterExoTableau1 {
 		return tab1;
 	}
 
+	// correction thomas
+	public int[] remplirTableau(int d, int n, int p) {
+		int[] tab = null;
+		tab[0] = d;
+
+		if ((long)d + (long)p * n > Integer.MAX_VALUE || (long)d + (long)p * n < Integer.MIN_VALUE) {
+
+		} else {
+			tab = new int[n];
+			tab[0] = d;
+			for (int i = 1; i < tab.length; i++) {
+				tab[i] = tab[i - 1] + p;
+			}
+		}
+		return tab;
+	}
+
 	//2
 	/**
 	 * Exemple tab = [7,10,13,16,19,21,24,27,30] i1=3 , i2=8 tab =
@@ -55,15 +72,37 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 */
 
 	// 2.variables
-	//int[] tabOriginel = new  ;
+	int[] tabOriginel;
 	int i1;
 	int i2;
 
 	// 2.méthode intervertirDeuxElementsTableau
 	public int[] intervertirDeuxElementsTableau(int[] tabOriginel, int i1, int i2) {
+		int[] tab1 = new int[n];
+		int[] tab2 = new int[n];
+		public int[] tab1.remplirTableau(int d, int n, int p);
+		
+		
+		
+		
 		int[] tabInterverti = new int[tabOriginel.length];
 
 		return tabInterverti;
+	}
+
+	//correction thomas
+	public int[] intervertirDeuxElementsTableau(int[] tab, int i1, int i2) {
+		int[] tab2 = null;
+		if (tab == null) {
+
+		} else if (i1 < 0 || i2 < 0 || i1 >= tab.length || i2 >= tab.length) {
+
+		} else {
+			//clone tab2 pour pas
+			tab2 = tab.clone();
+			tab2[i1 - 1] = tab2[i2 - 1];
+			tab2[i2 - 1] = tab[i1 - 1];
+		}
 	}
 
 	//3

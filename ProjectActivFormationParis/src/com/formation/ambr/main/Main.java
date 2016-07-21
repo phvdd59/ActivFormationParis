@@ -33,8 +33,13 @@ public class Main {
 		}
 
 		//2. intervertirDeuxElementsTableau
-		ExoTableau1 tab2 = new ExoTableau1();
-		//tab2 = tab1.intervertirDeuxElementsTableau()
+		ExoTableau1 tableauRempli2 = new ExoTableau1();
+		ExoTableau1 tableauRempli3 = new ExoTableau1();
+		int[] tab2 = tableauRempli2.remplirTableau(7, 9, 3);
+		int[] tab3 = tableauRempli3.remplirTableau(7, 9, 3);
+
+		int[] tabOriginel = tableauRempli2.remplirTableau(7, 9, 3);
+		int[] tabInterverti = tableauRempli2.intervertirDeuxElementsTableau(tableauRempli2, 3, 8);
 
 	}
 
