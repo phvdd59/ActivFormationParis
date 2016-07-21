@@ -63,13 +63,18 @@ public class ExoTableau1 implements InterExoTableau1 {
 			return null;
 		} else {
 			int[] tabModif = new int[tab.length + 1];
-			for (int i = 0; i < tabModif.length; i++) {
-				if (i <= p - 1) {
-					tabModif[i] = tab[i];
-				} else if (i == p) {
-					tabModif[i] = a;
-				} else {
-					tabModif[i] = tab[i - 1];
+			if (!(p >= 0 && p < tab.length)) {
+				return tab;
+			} else {
+
+				for (int i = 0; i < tabModif.length; i++) {
+					if (i <= p - 1) {
+						tabModif[i] = tab[i];
+					} else if (i == p) {
+						tabModif[i] = a;
+					} else {
+						tabModif[i] = tab[i - 1];
+					}
 				}
 			}
 			return tabModif;
