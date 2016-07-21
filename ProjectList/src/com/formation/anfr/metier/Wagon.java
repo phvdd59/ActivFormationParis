@@ -1,6 +1,6 @@
 package com.formation.anfr.metier;
 
-public abstract class Wagon {
+public abstract class Wagon implements Comparable<Wagon>{
 	public static final int WAGON_RESTO = 0;
 	public static final int WAGON_SIMPLE1 = 1;
 	public static final int WAGON_SIMPLE2 = 2;
@@ -59,4 +59,16 @@ public abstract class Wagon {
 	}
 
 	public abstract int getType();
+	
+	@Override
+	public int compareTo(Wagon w) {
+		int[] ordreDeTri = { Wagon.WAGON_SIMPLE2, Wagon.WAGON_DOUBLE, Wagon.WAGON_SIMPLE1, Wagon.WAGON_RESTO };
+		if (ordreDeTri[getType()] < ordreDeTri[w.getType()]) {
+			return -1;
+		} else if (ordreDeTri[getType()] > ordreDeTri[w.getType()]) {
+			return 1;
+		} else {
+			return 0;
+		}
+	}
 }
