@@ -2,9 +2,9 @@ package com.formation.joca.main;
 
 import java.util.ArrayList;
 
-import com.formation.phva.metier.Entrepot;
-import com.formation.phva.metier.RER;
-import com.formation.phva.metier.WagonResto;
+import com.formation.joca.metier.Entrepot;
+import com.formation.joca.metier.RER;
+import com.formation.joca.metier.WagonResto;
 
 public class MainList {
 
@@ -21,9 +21,12 @@ public class MainList {
 			System.out.println(entrepotParis.get(i).toString());
 		}
 		RER rer = new RER();
-		rer.add(entrepotParis.remove(0));
-		rer.ajoutWagon(entrepotParis);
-		entrepotParis.add(new WagonResto());
+		System.out.println("");
+		entrepotParis.trier();
+
+		for (int i = 0; i < entrepotParis.size(); i++) {
+			System.out.println(entrepotParis.get(i).toString());
+		}
 
 	}
 
@@ -59,7 +62,7 @@ public class MainList {
 		list.clear();
 		System.out.println("list = " + list);
 		for (int val : tab) {
-			//list.add(Integer.valueOf(val));
+			// list.add(Integer.valueOf(val));
 			list.add(val);
 		}
 		list.clear();

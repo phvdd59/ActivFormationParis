@@ -53,7 +53,7 @@ public class Entrepot extends ArrayList<Wagon> {
 		int indexDeRetour = -1;
 		for (int i = size() - 1; i >= 0; i--) {
 			if (get(i).getType() == type) {
-				indexDeRetour=i;
+				indexDeRetour = i;
 				break;
 			}
 		}
@@ -64,5 +64,34 @@ public class Entrepot extends ArrayList<Wagon> {
 	public boolean add(Wagon e) {
 		nbTypeWagons[e.getType()]++;
 		return super.add(e);
+	}
+
+	public void trier() {
+		ArrayList<Wagon> listWagonResto = new ArrayList<Wagon>();
+		ArrayList<Wagon> listWagonSimple1 = new ArrayList<Wagon>();
+		ArrayList<Wagon> listWagonSimple2 = new ArrayList<Wagon>();
+		ArrayList<Wagon> listWagonDouble = new ArrayList<Wagon>();
+
+		for (int i = 0; i < this.size(); i++) {
+			switch (this.get(i).getType()) {
+			case 0:
+				listWagonResto.add(this.get(i));
+				break;
+			case 1:
+				listWagonSimple1.add(this.get(i));
+				break;
+			case 2:
+				listWagonSimple2.add(this.get(i));
+				break;
+			case 3:
+				listWagonDouble.add(this.get(i));
+				break;
+			}
+		}
+		this.clear();
+		this.addAll(listWagonSimple2);
+		this.addAll(listWagonDouble);
+		this.addAll(listWagonSimple1);
+		this.addAll(listWagonResto);
 	}
 }
