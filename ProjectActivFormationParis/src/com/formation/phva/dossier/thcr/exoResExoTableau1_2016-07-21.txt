@@ -1,0 +1,32 @@
+thcr
+
+thcr insererUnTableauDansUnAutreAvecRemplacement0 (2/2):    | exo.insererUnTableauDansUnAutreAvecRemplacement(taba, 2, tabb)
+thcr insererUnTableauDansUnAutreAvecRemplacement1 (2/2):    | exo.insererUnTableauDansUnAutreAvecRemplacement(tab, 3, tab1)
+thcr insererUnTableauDansUnAutreAvecRemplacement2 (0/1): KO | exo.insererUnTableauDansUnAutreAvecRemplacement(tab, -3, tab1)
+-3
+thcr insererUnTableauDansUnAutreAvecRemplacement3 (1/1):    | exo.insererUnTableauDansUnAutreAvecRemplacement(tab, 3000, tab1)
+thcr intervertirDeuxElementsTableau0 (2/2):    | exo.intervertirDeuxElementsTableau(tab0, 3, 8)
+thcr intervertirDeuxElementsTableau1 (2/2):    | exo.intervertirDeuxElementsTableau(tab, 3, 8)
+thcr intervertirDeuxElementsTableau2 (1/1):    | exo.intervertirDeuxElementsTableau(tab, -3, 8)
+thcr intervertirDeuxElementsTableau3 (1/1):    | exo.intervertirDeuxElementsTableau(tab, 3, 44448)
+thcr intervertirDeuxElementsTableau4 (1/1):    | exo.intervertirDeuxElementsTableau(tab, 34444, 8)
+thcr intervertirDeuxElementsTableau5 (1/1):    | exo.intervertirDeuxElementsTableau(tab, 3, -8)
+thcr remplirTableau0 (2/2):    | exo.remplirTableau(7, 5, 3)
+thcr remplirTableau1 (2/2):    | exo.remplirTableau(-120, 125, 7)
+thcr remplirTableau2 (0/1): KO | exo.remplirTableau(0x7FFFFFF0, 16, 8)
+thcr remplirTableau3 (0/1): KO | exo.remplirTableau(-0x7FFFFFF0, 16, -8)
+thcr rotationTableau0 (0/2): KO | exo.rotationTableau(tabA, 2)
+thcr rotationTableau1 (0/2): KO | exo.rotationTableau(tab, 3)
+thcr rotationTableau2 (0/1): KO | exo.rotationTableau(tab, -3)
+-3
+thcr rotationTableau3 (0/1): KO | exo.rotationTableau(tab, 3000)
+2048
+thcr rotationTableau4 (0/1): KO | exo.rotationTableau(tab, -777)
+-777
+thcr insererUnElementDansTableau0 (2/2):    | exo.insererUnElementDansTableau(tab1, 3, 8)
+thcr insererUnElementDansTableau1 (2/2):    | exo.insererUnElementDansTableau(tab, 3, 8)
+thcr insererUnElementDansTableau2 (0/1): KO | exo.insererUnElementDansTableau(tab, -3, 8)
+2048
+thcr insererUnElementDansTableau3 (0/1): KO | exo.insererUnElementDansTableau(tab, 33333, 8)
+2048
+thcr NOTE : (21 / 36) = 11 / 20

@@ -103,14 +103,14 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 * @return
 	 */
 	public int[] rotationTableau(int[] tab, int p) {
-		int[] tab1 = tab;
-		for (int j = 0; j < tab.length; j++) {
-			while (j <= p) {
-				tab1[j] = tab[tab.length - p];
-			}
-			tab1[j] = tab[j - p];
-			return tab1;
-		}
+//		int[] tab1 = tab;
+//		for (int j = 0; j < tab.length; j++) {
+//			while (j <= p) {
+//				tab1[j] = tab[tab.length - p];
+//			}
+//			tab1[j] = tab[j - p];
+//			return tab1;
+//		}
 		return tab;
 	}
 }
