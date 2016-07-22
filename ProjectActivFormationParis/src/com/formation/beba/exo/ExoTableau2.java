@@ -61,19 +61,23 @@ public class ExoTableau2 implements InterExoTableau2 {
 	 */
 	public int[] insererUnTableauDansUnAutre(int[] tab, int p, int[] tab1) {
 		int[] tab2;
-		if (tab == null) {
+		if (p < 0) {
 			tab2 = null;
-		} else if (tab1 == null) {
-			tab2 = tab;
 		} else {
-			tab2 = new int[tab.length + tab1.length];
-			for (int i = 0; i < tab2.length; i++) {
-				if (i < p) {
-					tab2[i] = tab[i];
-				} else if (i >= p && i < p + tab1.length) {
-					tab2[i] = tab1[i - p];
-				} else {
-					tab2[i] = tab[i - p - 1];
+			if (tab == null) {
+				tab2 = null;
+			} else if (tab1 == null) {
+				tab2 = tab;
+			} else {
+				tab2 = new int[tab.length + tab1.length];
+				for (int i = 0; i < tab2.length; i++) {
+					if (i < p) {
+						tab2[i] = tab[i];
+					} else if (i >= p && i < p + tab1.length) {
+						tab2[i] = tab1[i - p];
+					} else {
+						tab2[i] = tab[i - p - 1];
+					}
 				}
 			}
 		}
