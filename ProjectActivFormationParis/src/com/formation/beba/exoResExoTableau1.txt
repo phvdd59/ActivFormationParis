@@ -26,4 +26,4 @@ beba insererUnElementDansTableau0 (0/2): KO | exo.insererUnElementDansTableau(ta
 beba insererUnElementDansTableau1 (0/2): KO | exo.insererUnElementDansTableau(tab, 3, 8)
 beba insererUnElementDansTableau2 (0/1): KO | exo.insererUnElementDansTableau(tab, -3, 8)
 beba insererUnElementDansTableau3 (0/1): KO | exo.insererUnElementDansTableau(tab, 33333, 8)
-beba NOTE : (9 / 36) = 5 / 20
+beba NOTE : (9 / 33) = 5 / 20

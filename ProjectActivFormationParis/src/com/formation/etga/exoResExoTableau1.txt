@@ -1,9 +1,8 @@
 etga
 
-etga insererUnTableauDansUnAutreAvecRemplacement0 (0/2): KO | exo.insererUnTableauDansUnAutreAvecRemplacement(taba, 2, tabb)
-etga insererUnTableauDansUnAutreAvecRemplacement1 (0/2): KO | exo.insererUnTableauDansUnAutreAvecRemplacement(tab, 3, tab1)
-etga insererUnTableauDansUnAutreAvecRemplacement2 (0/1): KO | exo.insererUnTableauDansUnAutreAvecRemplacement(tab, -3, tab1)
--3
+etga insererUnTableauDansUnAutreAvecRemplacement0 (2/2):    | exo.insererUnTableauDansUnAutreAvecRemplacement(taba, 2, tabb)
+etga insererUnTableauDansUnAutreAvecRemplacement1 (2/2):    | exo.insererUnTableauDansUnAutreAvecRemplacement(tab, 3, tab1)
+etga insererUnTableauDansUnAutreAvecRemplacement2 (1/1):    | exo.insererUnTableauDansUnAutreAvecRemplacement(tab, -3, tab1)
 etga insererUnTableauDansUnAutreAvecRemplacement3 (1/1):    | exo.insererUnTableauDansUnAutreAvecRemplacement(tab, 3000, tab1)
 etga intervertirDeuxElementsTableau0 (2/2):    | exo.intervertirDeuxElementsTableau(tab0, 3, 8)
 etga intervertirDeuxElementsTableau1 (2/2):    | exo.intervertirDeuxElementsTableau(tab, 3, 8)
@@ -19,17 +18,13 @@ etga remplirTableau0 (2/2):    | exo.remplirTableau(7, 5, 3)
 etga remplirTableau1 (2/2):    | exo.remplirTableau(-120, 125, 7)
 etga remplirTableau2 (0/1): KO | exo.remplirTableau(0x7FFFFFF0, 16, 8)
 etga remplirTableau3 (0/1): KO | exo.remplirTableau(-0x7FFFFFF0, 16, -8)
-etga rotationTableau0 (0/2): KO | exo.rotationTableau(tabA, 2)
-etga rotationTableau1 (0/2): KO | exo.rotationTableau(tab, 3)
+etga rotationTableau0 (2/2):    | exo.rotationTableau(tabA, 2)
+etga rotationTableau1 (2/2):    | exo.rotationTableau(tab, 3)
 etga rotationTableau2 (0/1): KO | exo.rotationTableau(tab, -3)
-etga rotationTableau3 (0/1): KO | exo.rotationTableau(tab, 3000)
+etga rotationTableau3 (1/1):    | exo.rotationTableau(tab, 3000)
 etga rotationTableau4 (0/1): KO | exo.rotationTableau(tab, -777)
-etga insererUnElementDansTableau0 (0/2): KO | exo.insererUnElementDansTableau(tab1, 3, 8)
-6
-etga insererUnElementDansTableau1 (0/2): KO | exo.insererUnElementDansTableau(tab, 3, 8)
-2048
+etga insererUnElementDansTableau0 (2/2):    | exo.insererUnElementDansTableau(tab1, 3, 8)
+etga insererUnElementDansTableau1 (2/2):    | exo.insererUnElementDansTableau(tab, 3, 8)
 etga insererUnElementDansTableau2 (0/1): KO | exo.insererUnElementDansTableau(tab, -3, 8)
-2048
 etga insererUnElementDansTableau3 (0/1): KO | exo.insererUnElementDansTableau(tab, 33333, 8)
-2048
-etga NOTE : (9 / 36) = 5 / 20
+etga NOTE : (23 / 33) = 13 / 20

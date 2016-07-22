@@ -49,6 +49,8 @@ public class ExoTableau1 implements InterExoTableau1 {
 				tabModif = tab.clone();
 				tabModif[i1] = tab[i2];
 				tabModif[i2] = tab[i1];
+			} else {
+				tabModif = tab;
 			}
 		}
 		return tabModif;
@@ -109,8 +111,9 @@ public class ExoTableau1 implements InterExoTableau1 {
 		} else if (tab1 == null) {
 			return tab;
 		} else if (p >= tab.length || p < 0) {
-			System.out.println("attention, on depasse la longueur de tab");
-			return tab;
+			tabModif = new int[tab.length];
+			tabModif = tab;
+			return tabModif;
 		} else {
 
 			tabModif = new int[tab.length];
@@ -146,15 +149,25 @@ public class ExoTableau1 implements InterExoTableau1 {
 			return null;
 		} else {
 			int[] tabModif = tab.clone();
-			if (p >= 0 && p <= tab.length) {
+			int pas = p % tab.length;
+			if (pas >= 0) {
 				for (int i = 0; i < tabModif.length; i++) {
-					if ((i + p) < tabModif.length) {
-						tabModif[i + p] = tab[i];
+					if ((i + pas) < tabModif.length) {
+						tabModif[i + pas] = tab[i];
 					} else {
-						tabModif[i - (tab.length - p)] = tab[i];
+						tabModif[i - (tab.length - pas)] = tab[i];
+					}
+				}
+			} else {
+				for (int i = 0; i < tabModif.length; i++) {
+					if ((i + pas) >= 0) {
+						tabModif[i + pas] = tab[i];
+					} else {
+						tabModif[tab.length + i + pas] = tab[i];
 					}
 				}
 			}
+
 			return tabModif;
 		}
 	}

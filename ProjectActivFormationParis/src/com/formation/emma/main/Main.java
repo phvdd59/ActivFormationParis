@@ -1,5 +1,10 @@
 package com.formation.emma.main;
 
+import java.util.ArrayList;
+
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane.SystemMenuBar;
+
+import com.formation.emma.exo.ExoArrayList1;
 import com.formation.emma.exo.ExoSimple;
 import com.formation.emma.exo.ExoTableau1;
 
@@ -90,5 +95,63 @@ public class Main {
 				System.out.println(tableau5[i]);
 			}
 		}
+
+		System.out.println("exo arrayliste");
+
+		System.out.println("exo1 ");
+		int dl = 3;
+		int nl = 5;
+		int pl = 4;
+		ExoArrayList1 exoList1 = new ExoArrayList1();
+		System.out.println(exoList1.remplirTableau(dl, nl, pl));
+
+		System.out.println("exo2 ");
+		ArrayList listTabl = new ArrayList();
+		int[] tabl = { 7, 10, 13, 16, 19, 21, 24, 27, 30 };
+		int i1l = -3;
+		int i2l = 8;
+		for (int j = 0; j < tabl.length; j++) {
+			listTabl.add(tabl[j]);
+		}
+		System.out.println(listTabl);
+		ExoArrayList1 exoList2 = new ExoArrayList1();
+		System.out.println(exoList2.intervertirDeuxElementsTableau(listTabl, i1l, i2l));
+
+		System.out.println("exo3 ");
+		ArrayList listTab2l = new ArrayList();
+		int[] tab2l = { 1, 4, 6, 2, 4, 6 };
+		int al = 6;
+		int p1l = 3;
+		for (int j = 0; j < tab2l.length; j++) {
+			listTab2l.add(tab2l[j]);
+		}
+		ExoArrayList1 exoList3 = new ExoArrayList1();
+		System.out.println(exoList3.insererUnElementDansTableau(listTab2l, p1l, al));
+
+		System.out.println("exo4 ");
+		ArrayList listTab3l = new ArrayList();
+		ArrayList listTab4l = new ArrayList();
+		int[] tab3l = { 1, 4, 6, 2, 4, 7 };
+		int[] tab4l = { 4, 9, 0 };
+		int p3l = 3;
+		for (int j = 0; j < tab3l.length; j++) {
+			listTab3l.add(tab3l[j]);
+		}
+		for (int j = 0; j < tab4l.length; j++) {
+			listTab4l.add(tab4l[j]);
+		}
+		ExoArrayList1 exoList4 = new ExoArrayList1();
+		System.out.println(exoList4.insererUnTableauDansUnAutreAvecRemplacement(listTab3l, p3l, listTab4l));
+
+		System.out.println("exo5 ");
+		ArrayList listTab5l = new ArrayList();
+		int[] tab5l = { 1, 4, 6, 2, 4, 6 };
+		int p4l = 1;
+		for (int j = 0; j < tab5l.length; j++) {
+			listTab5l.add(tab5l[j]);
+		}
+		ExoArrayList1 exoList5 = new ExoArrayList1();
+		System.out.println(exoList5.rotationTableau(listTab5l, p4l));
+
 	}
 }

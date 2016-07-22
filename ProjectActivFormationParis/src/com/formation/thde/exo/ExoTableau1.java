@@ -46,7 +46,9 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 */
 	public int[] intervertirDeuxElementsTableau(int[] tab, int i1, int i2) {
 		int[] tab2 = null;
-		if (tab == null || i1 < 0 || i2 < 0 || i1 >= tab.length || i2 >= tab.length) {
+		if (tab == null) {
+		} else if (i1 < 0 || i2 < 0 || i1 >= tab.length || i2 >= tab.length) {
+			tab2 = tab.clone();
 		} else {
 			tab2 = tab.clone();
 			tab2[i1 - 1] = tab[i2 - 1];
@@ -69,7 +71,9 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 */
 	public int[] insererUnElementDansTableau(int[] tab, int p, int a) {
 		int tab2[] = null;
-		if (tab == null || p < 0 || p >= tab.length) {
+		if (tab == null) {
+		} else if (p < 0 || p >= tab.length) {
+			tab2 = tab.clone();
 		} else {
 			tab2 = new int[tab.length + 1];
 			for (int i = 0; i < tab2.length; i++) {
@@ -101,7 +105,9 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 */
 	public int[] insererUnTableauDansUnAutreAvecRemplacement(int[] tab, int p, int[] tab1) {
 		int[] tab2 = null;
-		if (tab == null || tab1 == null || p < 0 || p > tab.length - tab1.length || tab1.length > tab.length) {
+		if (tab == null) {
+		} else if (tab1 == null || p < 0 || p > tab.length - tab1.length || tab1.length > tab.length) {
+			tab2 = tab.clone();
 		} else {
 			int k = 0;
 			tab2 = tab.clone();
@@ -128,17 +134,33 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 */
 	public int[] rotationTableau(int[] tab, int p) {
 		int[] tab2 = null;
-		if (tab == null || p < 0) {
+		int p2 = p;
+		if (tab == null) {
 		} else {
-			if (p >= tab.length) {
-				p = p % tab.length;
-			}
-			tab2 = new int[tab.length];
-			for (int i = 0; i < tab2.length; i++) {
-				if (i < p) {
-					tab2[i] = tab[i + (tab.length - p)];
-				} else {
-					tab2[i] = tab[i - p];
+			if (p < 0) {
+				p2 = -p;
+				if (p2 >= tab.length) {
+					p2 = p2 % tab.length;
+				}
+				tab2 = new int[tab.length];
+				for (int i = 0; i < tab2.length; i++) {
+					if (i < tab.length - p2) {
+						tab2[i] = tab[i + p2];
+					} else {
+						tab2[i] = tab[i - (tab2.length - p2)];
+					}
+				}
+			} else {
+				if (p2 >= tab.length) {
+					p2 = p2 % tab.length;
+				}
+				tab2 = new int[tab.length];
+				for (int i = 0; i < tab2.length; i++) {
+					if (i < p2) {
+						tab2[i] = tab[i + (tab.length - p2)];
+					} else {
+						tab2[i] = tab[i - p2];
+					}
 				}
 			}
 		}

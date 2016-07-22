@@ -24,27 +24,35 @@ public class Main {
 		System.out.print("\n");
 		int[] test = { 7, 10, 13, 16, 19, 21, 24, 27, 30 };
 		int[] tab2 = exo1.intervertirDeuxElementsTableau(test, 3, 8);
-		for (int i = 0; i < tab2.length; i++) {
-			System.out.print(tab2[i] + ", ");
+		if (tab2 != null) {
+			for (int i = 0; i < tab2.length; i++) {
+				System.out.print(tab2[i] + ", ");
+			}
 		}
 		System.out.print("\n");
 		int[] test2 = { 1, 4, 6, 2, 4, 6 };
 		int[] tab3 = exo1.insererUnElementDansTableau(test2, 3, 8);
-		for (int i = 0; i < tab3.length; i++) {
-			System.out.print(tab3[i] + ", ");
+		if (tab3 != null) {
+			for (int i = 0; i < tab3.length; i++) {
+				System.out.print(tab3[i] + ", ");
+			}
 		}
 		System.out.print("\n");
 		int[] test3 = { 22, 11, 0, 77, 88, 99 };
 		int[] test4 = { 3, 4, 5, 6 };
 		int[] tab4 = exo1.insererUnTableauDansUnAutreAvecRemplacement(test3, 2, test4);
-		for (int i = 0; i < tab4.length; i++) {
-			System.out.print(tab4[i] + " ");
+		if (tab4 != null) {
+			for (int i = 0; i < tab4.length; i++) {
+				System.out.print(tab4[i] + " ");
+			}
 		}
 		System.out.print("\n");
 		int[] test5 = { 1, 4, 6, 2, 4, 6 };
-		int[] tab5 = exo1.rotationTableau(test5, 2);
-		for (int i = 0; i < tab5.length; i++) {
-			System.out.print(tab5[i] + ", ");
+		int[] tab5 = exo1.rotationTableau(test5, 3);
+		if (tab5 != null) {
+			for (int i = 0; i < tab5.length; i++) {
+				System.out.print(tab5[i] + ", ");
+			}
 		}
 	}
 

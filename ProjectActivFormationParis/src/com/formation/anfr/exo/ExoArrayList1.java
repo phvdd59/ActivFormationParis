@@ -1,4 +1,4 @@
-package com.formation.thcr.exo;
+package com.formation.anfr.exo;
 
 import java.util.ArrayList;
 
@@ -18,17 +18,17 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 	 * @return = nouveau tableau rempli
 	 */
 	public ArrayList<Integer> remplirTableau(int d, int n, int p) {
-		// protéger pour remplir tableau sur l'overflow, vérifier à priori.
-		ArrayList<Integer> list = new ArrayList<Integer>();
-		if ((long) d + (long) (p * n) > Integer.MAX_VALUE || (long) d + (long) (p * n) < Integer.MIN_VALUE) {
-		} else {
+		ArrayList<Integer> listCree = new ArrayList<Integer>();
+		if ((n > 0) && (((long) d * (long) p * n) < Integer.MAX_VALUE)
+				&& (((long) d * (long) p * n) > Integer.MIN_VALUE)) {
 			for (int i = 0; i < n; i++) {
-				list.add(d);
-				d = d + p;
+				listCree.add(d + i * p);
 			}
+		} else {
+			listCree.add(d);
 		}
-		return list;
 
+		return listCree;
 	}
 
 	/**
@@ -44,12 +44,17 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 	 * @return
 	 */
 	public ArrayList<Integer> intervertirDeuxElementsTableau(ArrayList<Integer> tab, int i1, int i2) {
-		ArrayList<Integer> tmpTab = new ArrayList<Integer>();
-		if (i1 > 0 && i1 < tab.size() && i2 > 0 && i2 < tab.size()) {
-			tmpTab.addAll(tab);
-			tmpTab.add(i2, tab.get(i1));
+		ArrayList<Integer> nouvelleListe = new ArrayList<Integer>();
+		nouvelleListe.addAll(tab);
+		if (tab != null) {
+
+			if ((i1 > 0) && (i2 > 0) && (i1 <= tab.size()) && (i2 <= tab.size())) {
+				nouvelleListe.set(i2 - 1, tab.get(i1 - 1));
+				nouvelleListe.set(i1 - 1, tab.get(i2 - 1));
+			}
+
 		}
-		return tmpTab;
+		return nouvelleListe;
 	}
 
 	/**
@@ -64,12 +69,14 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 	 * @return
 	 */
 	public ArrayList<Integer> insererUnElementDansTableau(ArrayList<Integer> tab, int p, int a) {
-		ArrayList<Integer> tmpTab = new ArrayList<Integer>();
-		if (p >= 0 && p < tab.size()) {
-			tmpTab.add(p, a);
+		ArrayList<Integer> nouvelleListe = new ArrayList<Integer>();
+		nouvelleListe.addAll(tab);
+		if (tab != null) {
+			if ((p >= 0) && (p < tab.size())) {
+				nouvelleListe.add(p, a);
+			}
 		}
-		return tmpTab;
-
+		return nouvelleListe;
 	}
 
 	/**
@@ -87,27 +94,16 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 	 */
 	public ArrayList<Integer> insererUnTableauDansUnAutreAvecRemplacement(ArrayList<Integer> tab, int p,
 			ArrayList<Integer> tab1) {
-		ArrayList<Integer> tmpTab = new ArrayList<Integer>();
-		if (p < 0 || p >= tab.size()) {
-		} else {
-			if (tab.size() - p > tab1.size()) {
-				for (int i = 0; i < p; i++)
-					tmpTab.add(i, tab.get(i));
-				for (int i = p; i < tab1.size()+p; i++)
-					tmpTab.add(i, tab1.get(i - p));
-				for (int i = p + tab1.size(); i < tab.size(); i++)
-					tmpTab.add(i, tab.get(i));
-			} else {
-				for (int i = 0; i < tab.size(); i++) {
-					if (i < p) {
-						tmpTab.add(i, tab.get(i));
-					} else {
-						tmpTab.add(i, tab1.get(i - p));
-					}
+		ArrayList<Integer> nouvelleListe = new ArrayList<Integer>();
+		nouvelleListe.addAll(tab);
+		if (tab != null) {
+			if ((p >= 0) && (p < (tab.size() - tab1.size()))) {
+				for (int i = 0; i < tab1.size(); i++) {
+					nouvelleListe.set(i + p, tab1.get(i));
 				}
 			}
 		}
-		return tmpTab;
+		return nouvelleListe;
 	}
 
 	/**
@@ -123,28 +119,23 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 	 * @return
 	 */
 	public ArrayList<Integer> rotationTableau(ArrayList<Integer> tab, int p) {
-		ArrayList<Integer> tmpTab = new ArrayList<Integer>();
-		if (Math.abs(p) >= tab.size()) {
-			p = p % tab.size();
-		} else if (p >= 0) {
-			tmpTab.addAll(tab);
-			for (int i = 0; i < tab.size(); i++) {
-				if (i + p < tab.size()) {
-					tmpTab.set(i + p, tab.get(i));
-				} else {
-					tmpTab.set(i + p - tab.size(), tab.get(i));
+		ArrayList<Integer> nouvelleListe = new ArrayList<Integer>();
+		nouvelleListe.addAll(tab);
+		if (tab != null) {
+			int decalageCorrige = p % tab.size();
+			if (p > 0) {
+				for (int i = 0; i < decalageCorrige; i++) {
+					int valeur = nouvelleListe.remove(tab.size() - 1);
+					nouvelleListe.add(0, valeur);
 				}
-			}
-		} else if (p < 0) {
-			tmpTab.addAll(tab);
-			for (int i = 0; i < tab.size(); i++) {
-				if (i + p < 0 || i - p < tab.size()) {
-					tmpTab.set(i, tab.get(i - p));
-				} else {
-					tmpTab.set(i, tab.get(i - p - tab.size()));
+			} else if (p < 0) {
+				for (int i = 0; i < -decalageCorrige; i++) {
+					int valeur = nouvelleListe.remove(0);
+					nouvelleListe.add(valeur);
 				}
 			}
 		}
-		return tmpTab;
+
+		return nouvelleListe;
 	}
 }
