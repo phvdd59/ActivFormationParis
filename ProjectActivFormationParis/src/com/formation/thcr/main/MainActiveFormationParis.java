@@ -19,7 +19,7 @@ public class MainActiveFormationParis {
 		list1 = exo.remplirTableau(3, 10, 2);
 		System.out.println(list1);
 		ArrayList<Integer> list2 = new ArrayList<Integer>();
-		list2 = exo.remplirTableau(0, 10, 3);
+		list2 = exo.remplirTableau(0, 20, 3);
 		System.out.println(list2);
 		System.out.println(exo.insererUnTableauDansUnAutreAvecRemplacement(list1, 3, list2));
 		System.out.println(exo.rotationTableau(list1, -2));

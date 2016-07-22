@@ -90,11 +90,20 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 		ArrayList<Integer> tmpTab = new ArrayList<Integer>();
 		if (p < 0 || p >= tab.size()) {
 		} else {
-			for (int i = 0; i < tab.size(); i++) {
-				if (i < p) {
+			if (tab.size() - p > tab1.size()) {
+				for (int i = 0; i < p; i++)
 					tmpTab.add(i, tab.get(i));
-				} else {
+				for (int i = p; i < tab1.size()+p; i++)
 					tmpTab.add(i, tab1.get(i - p));
+				for (int i = p + tab1.size(); i < tab.size(); i++)
+					tmpTab.add(i, tab.get(i));
+			} else {
+				for (int i = 0; i < tab.size(); i++) {
+					if (i < p) {
+						tmpTab.add(i, tab.get(i));
+					} else {
+						tmpTab.add(i, tab1.get(i - p));
+					}
 				}
 			}
 		}

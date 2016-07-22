@@ -49,7 +49,7 @@ public class ExoTableau1 implements InterExoTableau1 {
 		int tmpI2 = 0;
 		int[] tab2 = null;
 		if (tab == null) {
-			return tab2;
+			return tab;
 		} else if (i1 > 0 && i1 < tab.length && i2 > 0 && i2 < tab.length) {
 			tab2 = tab.clone();
 			for (int i = 0; i < tab.length; i++) {
@@ -85,7 +85,7 @@ public class ExoTableau1 implements InterExoTableau1 {
 	public int[] insererUnElementDansTableau(int[] tab, int p, int a) {
 		int[] tmpTab = null;
 		if (tab == null || (tab instanceof int[] != true)) {
-			return tmpTab;
+			return tab;
 		} else if (p >= 0 && p < tab.length) {
 			tmpTab = new int[tab.length + 1];
 			int j = 0;
@@ -118,7 +118,7 @@ public class ExoTableau1 implements InterExoTableau1 {
 	public int[] insererUnTableauDansUnAutreAvecRemplacement(int[] tab, int p, int[] tab1) {
 		int[] tmpTab = null;
 		if (tab == null || tab1 == null || (tab instanceof int[] != true) || (tab1 instanceof int[] != true)) {
-			return tmpTab;
+			return tab;
 		} else if (p >= 0 && p < tab.length) {
 			int j = 0;
 			tmpTab = new int[tab.length];
@@ -163,7 +163,7 @@ public class ExoTableau1 implements InterExoTableau1 {
 	public int[] rotationTableau(int[] tab, int p) {
 		int[] tmpTab = null;
 		if (tab == null || (tab instanceof int[] != true)) {
-			return tmpTab;
+			return tab;
 		} else if (Math.abs(p) > tab.length) {
 			p = p % tab.length;
 		} else if (p >= 0 && p < tab.length) {
