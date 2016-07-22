@@ -15,17 +15,13 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 * @return = nouveau tableau rempli
 	 */
 	public int[] remplirTableau(int d, int n, int p) {
-		int[] tab;
+		int[] tab = null;
 		if ((n > 0) && (((long) d * (long) p * n) < Integer.MAX_VALUE) && (((long) d * (long) p * n) > Integer.MIN_VALUE)) {
 			tab = new int[n];
 			for (int i = 0; i < tab.length; i++) {
 				tab[i] = d + i * p;
 			}
-		} else {
-			tab = new int[1];
-			tab[0] = d;
-		}
-
+		} 
 		return tab;
 	}
 
