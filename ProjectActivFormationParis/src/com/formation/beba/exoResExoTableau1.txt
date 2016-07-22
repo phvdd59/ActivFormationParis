@@ -2,8 +2,8 @@ beba
 
 beba insererUnTableauDansUnAutreAvecRemplacement0 (2/2):    | exo.insererUnTableauDansUnAutreAvecRemplacement(taba, 2, tabb)
 beba insererUnTableauDansUnAutreAvecRemplacement1 (2/2):    | exo.insererUnTableauDansUnAutreAvecRemplacement(tab, 3, tab1)
-beba insererUnTableauDansUnAutreAvecRemplacement2 (0/1): KO | exo.insererUnTableauDansUnAutreAvecRemplacement(tab, -3, tab1)
-beba insererUnTableauDansUnAutreAvecRemplacement3 (0/1): KO | exo.insererUnTableauDansUnAutreAvecRemplacement(tab, 3000, tab1)
+beba insererUnTableauDansUnAutreAvecRemplacement2 (1/1):    | exo.insererUnTableauDansUnAutreAvecRemplacement(tab, -3, tab1)
+beba insererUnTableauDansUnAutreAvecRemplacement3 (1/1):    | exo.insererUnTableauDansUnAutreAvecRemplacement(tab, 3000, tab1)
 beba intervertirDeuxElementsTableau0 (2/2):    | exo.intervertirDeuxElementsTableau(tab0, 3, 8)
 beba intervertirDeuxElementsTableau1 (2/2):    | exo.intervertirDeuxElementsTableau(tab, 3, 8)
 beba intervertirDeuxElementsTableau2 (1/1):    | exo.intervertirDeuxElementsTableau(tab, -3, 8)
@@ -21,6 +21,6 @@ beba rotationTableau3 (1/1):    | exo.rotationTableau(tab, 3000)
 beba rotationTableau4 (1/1):    | exo.rotationTableau(tab, -777)
 beba insererUnElementDansTableau0 (2/2):    | exo.insererUnElementDansTableau(tab1, 3, 8)
 beba insererUnElementDansTableau1 (2/2):    | exo.insererUnElementDansTableau(tab, 3, 8)
-beba insererUnElementDansTableau2 (0/1): KO | exo.insererUnElementDansTableau(tab, -3, 8)
-beba insererUnElementDansTableau3 (0/1): KO | exo.insererUnElementDansTableau(tab, 33333, 8)
-beba NOTE : (29 / 33) = 17 / 20
+beba insererUnElementDansTableau2 (1/1):    | exo.insererUnElementDansTableau(tab, -3, 8)
+beba insererUnElementDansTableau3 (1/1):    | exo.insererUnElementDansTableau(tab, 33333, 8)
+beba NOTE : (33 / 33) = 20 / 20

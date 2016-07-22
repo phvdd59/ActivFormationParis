@@ -27,6 +27,11 @@ public class ExoTableau1 implements InterExoTableau1 {
 
 	// 1.méthode remplirTableau
 	public int[] remplirTableau(int d, int n, int p) {
+		// protection: si on donne un n négatif, ça ne fonctionne pas
+		if (n < 0) {
+			return null;
+		}
+		// fin de la protection. N.B.: si n=0, la méthode nous sort un tableau avec 0 éléments. Ca existe, il a un pointeur, mais il est vide
 		int[] tab1 = new int[n];
 		for (int i = 0; i < n; i++) {
 			tab1[i] = d + (p * i);
@@ -87,6 +92,14 @@ public class ExoTableau1 implements InterExoTableau1 {
 
 	// 2.méthode intervertirDeuxElementsTableau
 	public int[] intervertirDeuxElementsTableau(int[] tabOrig, int i1, int i2) {
+		//protection
+		if (i1 > tabOrig.length || i2 > tabOrig.length) {
+			return null;
+		}
+		if (i1 < 0 || i2 < 0) {
+			return null;
+		}
+		//fin protection
 		int[] tabInterv = new int[tabOrig.length];
 		for (int i = 0; i < tabInterv.length; i++) {
 			if (i == i1 - 1) {
@@ -143,7 +156,11 @@ public class ExoTableau1 implements InterExoTableau1 {
 	// 3. méthode insererUnElementDansTableau
 	public int[] insererUnElementDansTableau(int[] tabOrig2, int p, int a) {
 		int[] tabRes2 = new int[tabOrig2.length + 1];
-
+		//protection
+		if (p < 0 || p > tabOrig2.length) {
+			return null;
+		}
+		//fin protection
 		for (int i = 0; i <= p; i++) {
 
 			if (i == p) {
@@ -185,6 +202,17 @@ public class ExoTableau1 implements InterExoTableau1 {
 	public int[] insererUnTableauDansUnAutreAvecRemplacement(int[] tabOrig3, int p, int[] tabDeRemp) {
 		int[] tabRes3 = new int[tabOrig3.length]; // comment faire pour faire une longueur cumulative?
 
+		// contrôles
+		if (p < 0 || p > tabOrig3.length - 1) {
+			return null;
+		} else {
+			if (tabDeRemp.length > tabOrig3.length - p) {
+				return null;
+			}
+
+		}
+		//fin contrôles
+
 		for (int i = 0; i < p; i++) {
 			tabRes3[i] = tabOrig3[i];
 		}
@@ -219,6 +247,11 @@ public class ExoTableau1 implements InterExoTableau1 {
 	// 5.méthode rotationTableau
 	public int[] rotationTableau(int[] tabOrig4, int p) {
 		int[] tabRota = new int[tabOrig4.length];
+		//protection
+		if (p > tabOrig4.length) {
+			return null;
+		}
+		//fin protection
 		for (int i = 0; i < p; i++) {
 			tabRota[i] = tabOrig4[tabOrig4.length - p + i];
 		}

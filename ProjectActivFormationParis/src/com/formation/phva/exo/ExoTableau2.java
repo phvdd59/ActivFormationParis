@@ -41,8 +41,8 @@ public class ExoTableau2 implements InterExoTableau2 {
 	 *                        [2,4,6] 
 	 *                    
 	 * @param tab tableau en entrée
-	 * @param d dimension de base 
-	 * @return tableau de n dimensions de base  
+	 * @param d : nb d'element de la 1ere dimension  
+	 * @return tableau de 2 dimensions  
 	 */
 	public int[][] changerDimensionTableau(int[] tab, int d) {
 		return null;

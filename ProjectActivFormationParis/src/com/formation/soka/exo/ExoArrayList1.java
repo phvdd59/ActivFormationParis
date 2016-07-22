@@ -34,9 +34,8 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 	 * [7,10,27,16,19,21,24,13,30]
 	 * 
 	 * @param tab
-	 *            tableau en entrée
-//	 * @param i1
-	 *            première position pour l'interversion
+	 *            tableau en entrée // * @param i1 première position pour
+	 *            l'interversion
 	 * @param i2
 	 *            deuxième position pour l'interversion
 	 * @return
@@ -117,8 +116,14 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 	 */
 	public ArrayList<Integer> rotationTableau(ArrayList<Integer> tab, int p) {
 		ArrayList<Integer> tab2 = (ArrayList<Integer>) tab.clone();
-		if (p >= tab.size() || p == 0 || tab == null) {
-		} else if (p > 0) {
+		if (tab == null) {
+		} else if ((p == 0)) {
+			tab2.addAll(tab);
+		} else {
+			while (p >= tab.size())
+				p = p - tab.size();
+		}
+		if (p > 0) {
 			for (int i = 0; i < p; i++) {
 				tab2.add(0, tab2.remove(tab2.size() - 1));
 			}

@@ -23,8 +23,7 @@ public class ExoTableau1 implements InterExoTableau1 {
 		if (n <= 0) { // la taille du tableau doit forcément etre supérieur ou
 						// égal à 1
 			tab = null;
-		}
-		if (((long) d + (long) n * p) > Integer.MAX_VALUE || ((long) d + (long) n * p) < Integer.MIN_VALUE) {
+		} else if (((long) d + (long) n * p) > Integer.MAX_VALUE || ((long) d + (long) n * p) < Integer.MIN_VALUE) {
 			tab = null;
 		} else {
 			for (int i = 0; i < tab.length; i++) {
@@ -76,7 +75,7 @@ public class ExoTableau1 implements InterExoTableau1 {
 	public int[] insererUnElementDansTableau(int[] tab, int p, int a) {
 		int tab2[];
 		if (p > tab.length || p < 0) { // l'insetion doit avoir lieu dans le
-			tab2 = null; // tableau
+			tab2 = tab.clone(); // tableau
 		} else {
 			tab2 = new int[tab.length + 1];
 			tab2[p] = a;
@@ -106,7 +105,7 @@ public class ExoTableau1 implements InterExoTableau1 {
 	public int[] insererUnTableauDansUnAutreAvecRemplacement(int[] tab, int p, int[] tab1) {
 		int[] tabT;
 		if (tab1.length > tab.length || tab1.length + p > tab.length || p < 0) {
-			tabT = null;
+			tabT = tab.clone();
 		} else {
 			tabT = tab.clone();
 

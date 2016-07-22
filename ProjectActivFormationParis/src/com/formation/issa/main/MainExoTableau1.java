@@ -16,7 +16,8 @@ public class MainExoTableau1 {
 	private void init() {
 		ExoTableau1 exoTableau1=new ExoTableau1();
 		
-		System.out.println(exoTableau1.remplirTableau(7, 6, 3));
+		
+		System.out.println(exoTableau1.remplirTableau(7, -6, 3));
 		
 		
 	}
