@@ -30,7 +30,7 @@ public class ExoAlgo1 implements ImpAlgo1 {
 	 *  d'equilibre si il existe.
 	 *  sinon retourner -1
 	 */
-	public int solution(int[] tab, int n) {
+	public int solution(int[] tab) {
 		return 0;
 	}
 
