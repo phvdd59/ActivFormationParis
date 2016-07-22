@@ -179,7 +179,7 @@ public class ExoTableau1 implements InterExoTableau1 {
 				if (i + p < 0 && i - p < tab.length) {
 					tmpTab[i] = tab[i - p];
 				} else {
-					tmpTab[i] = tab[tab.length + p + i];
+					tmpTab[i] = tab[-tab.length - p + i];
 				}
 			}
 		}
