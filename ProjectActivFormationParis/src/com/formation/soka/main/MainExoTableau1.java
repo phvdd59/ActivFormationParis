@@ -12,16 +12,16 @@ public class MainExoTableau1 {
 
 	private void init() {
 		ExoTableau1 exoTableau1 = new ExoTableau1();
-		//exoTableau1.remplirTableau(7, 5, 3);
+		exoTableau1.remplirTableau(7, 5, 3);
 		int[] tablo = { 7, 10, 13, 16, 19, 21, 24, 27, 30 };
-		//exoTableau1.intervertirDeuxElementsTableau(tablo, 3, 8);
+//		exoTableau1.intervertirDeuxElementsTableau(tablo, 3, 8);
 		int[] tab = { 1, 4, 6, 2, 4, 6 };
-		exoTableau1.insererUnElementDansTableau(tab, -0x7FFFFFF0, 0x7FFFFFF0);
+//		exoTableau1.insererUnElementDansTableau(tab, 2, 5);
 		int[] tabo = { 1, 4, 6, 2, 4, 7, 23, 255, 897 };
 		int[] tab1 = { 4, 9, 0 };
-		//exoTableau1.insererUnTableauDansUnAutreAvecRemplacement(tabo, 2, tab1);
+//		exoTableau1.insererUnTableauDansUnAutreAvecRemplacement(tabo, 2, tab1);
 		int[] nuevoTablo = { 1, 4, 6, 2, 4, 6 };
-		//exoTableau1.rotationTableau(nuevoTablo, -2);
+//		exoTableau1.rotationTableau(nuevoTablo, -2);
 	}
 
 }

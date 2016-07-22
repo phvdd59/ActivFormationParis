@@ -75,11 +75,11 @@ public class MainActiveFormationParisJoca {
 		for (int i = 0; i < tab2.length; i++) {
 			list2.add(tab2[i]);
 		}
-		this.afficherListe(list2);
+		// this.afficherListe(list2);
 
 		ExoArrayList1 exo4 = new ExoArrayList1();
 
-		ArrayList<Integer> list3 = exo4.remplirTableau(7, 5, 3);
+		ArrayList<Integer> list3 = exo4.remplirTableau(8, 16, -8);
 		this.afficherListe(list3);
 
 		list3.clear();
@@ -91,7 +91,7 @@ public class MainActiveFormationParisJoca {
 		this.afficherListe(list3);
 
 		list3.clear();
-		list3 = exo4.insererUnTableauDansUnAutreAvecRemplacement(list1, 7, list2);
+		list3 = exo4.insererUnTableauDansUnAutreAvecRemplacement(list1, -7, list2);
 		this.afficherListe(list3);
 
 		list3.clear();

@@ -49,6 +49,8 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 		ArrayList<Integer> list = null;
 
 		if (i1 < 0 || i1 > tab.size() || i2 < 0 || i2 > tab.size() || tab == null) {
+			list = new ArrayList();
+			list.addAll(tab);
 		} else {
 			list = new ArrayList();
 			list.addAll(tab);
@@ -75,6 +77,8 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 		ArrayList<Integer> list = null;
 
 		if (p < 0 || p > tab.size() || tab == null) {
+			list = new ArrayList();
+			list.addAll(tab);
 		} else {
 			list = new ArrayList();
 			list.addAll(tab);
@@ -100,6 +104,8 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 		ArrayList<Integer> list = null;
 
 		if (tab1 == null || tab == null || p < 0 || p > tab.size() || p - 1 + tab1.size() >= tab.size()) {
+			list = new ArrayList();
+			list.addAll(tab);
 		} else {
 			list = new ArrayList();
 			list.addAll(tab);
@@ -131,6 +137,8 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 		int k = 0;
 
 		if (p < 0 || p > tab.size() || tab == null) {
+			list = new ArrayList();
+			list.addAll(tab);
 		} else {
 			list = new ArrayList();
 

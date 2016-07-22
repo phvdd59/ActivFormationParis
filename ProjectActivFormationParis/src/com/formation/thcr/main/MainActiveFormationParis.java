@@ -10,7 +10,7 @@ public class MainActiveFormationParis {
 
 	public static void main(String[] args) {
 		MainActiveFormationParis main = new MainActiveFormationParis();
-		main.init2();
+		main.init();
 	}
 
 	private void init() {
@@ -22,6 +22,7 @@ public class MainActiveFormationParis {
 		list2 = exo.remplirTableau(0, 10, 3);
 		System.out.println(list2);
 		System.out.println(exo.insererUnTableauDansUnAutreAvecRemplacement(list1, 3, list2));
+		System.out.println(exo.rotationTableau(list1, -2));
 
 	}
 

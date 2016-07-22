@@ -164,6 +164,8 @@ public class ExoTableau1 implements InterExoTableau1 {
 		int[] tmpTab = null;
 		if (tab == null || (tab instanceof int[] != true)) {
 			return tmpTab;
+		} else if (Math.abs(p) > tab.length) {
+			p = p % tab.length;
 		} else if (p >= 0 && p < tab.length) {
 			tmpTab = tab.clone();
 			for (int i = 0; i < tab.length; i++) {
@@ -176,7 +178,7 @@ public class ExoTableau1 implements InterExoTableau1 {
 		} else if (p <= 0 && p < tab.length) {
 			tmpTab = tab.clone();
 			for (int i = 0; i < tab.length; i++) {
-				if (i + p < 0 && i - p < tab.length) {
+				if (i - p < tab.length) {
 					tmpTab[i] = tab[i - p];
 				} else {
 					tmpTab[i] = tab[-tab.length - p + i];
