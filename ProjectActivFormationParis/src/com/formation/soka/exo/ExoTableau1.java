@@ -98,10 +98,11 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 */
 	public int[] insererUnTableauDansUnAutreAvecRemplacement(int[] tab, int p, int[] tab1) {
 		if (tab == null || tab1 == null || p >= tab.length || p < 0) {
-		}
-		for (int i = 0; i < tab.length; i++) {
-			if (i >= p && i < p + tab1.length) {
-				tab[i] = tab1[i - p];
+		} else {
+			for (int i = 0; i < tab.length; i++) {
+				if (i >= p && i < p + tab1.length) {
+					tab[i] = tab1[i - p];
+				}
 			}
 		}
 		return tab;
