@@ -9,5 +9,7 @@ public class MainGasp {
 
 	private void init() {
 
+		System.out.println(Integer.MAX_VALUE);
+		System.out.println(Integer.MIN_VALUE);
 	}
 }
