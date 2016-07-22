@@ -92,6 +92,14 @@ public class ExoTableau1 implements InterExoTableau1 {
 
 	// 2.méthode intervertirDeuxElementsTableau
 	public int[] intervertirDeuxElementsTableau(int[] tabOrig, int i1, int i2) {
+		//protection
+		if (i1 > tabOrig.length || i2 > tabOrig.length) {
+			return null;
+		}
+		if (i1 < 0 || i2 < 0) {
+			return null;
+		}
+		//fin protection
 		int[] tabInterv = new int[tabOrig.length];
 		for (int i = 0; i < tabInterv.length; i++) {
 			if (i == i1 - 1) {
@@ -148,7 +156,11 @@ public class ExoTableau1 implements InterExoTableau1 {
 	// 3. méthode insererUnElementDansTableau
 	public int[] insererUnElementDansTableau(int[] tabOrig2, int p, int a) {
 		int[] tabRes2 = new int[tabOrig2.length + 1];
-
+		//protection
+		if (p < 0 || p > tabOrig2.length) {
+			return null;
+		}
+		//fin protection
 		for (int i = 0; i <= p; i++) {
 
 			if (i == p) {
@@ -235,6 +247,11 @@ public class ExoTableau1 implements InterExoTableau1 {
 	// 5.méthode rotationTableau
 	public int[] rotationTableau(int[] tabOrig4, int p) {
 		int[] tabRota = new int[tabOrig4.length];
+		//protection
+		if (p > tabOrig4.length) {
+			return null;
+		}
+		//fin protection
 		for (int i = 0; i < p; i++) {
 			tabRota[i] = tabOrig4[tabOrig4.length - p + i];
 		}
