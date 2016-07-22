@@ -50,7 +50,7 @@ public class MainActiveFormationParisJoca {
 		tabTest = exo2.insererUnTableauDansUnAutreAvecRemplacement(tabTest, 2000, tab2);
 		this.afficherTableau(tabTest);
 
-		// tabTest = exo2.rotationTableau(tabTest, 2);
+		tabTest = exo2.rotationTableau(tabTest, 2);
 		// this.afficherTableau(tabTest);
 	}
 
