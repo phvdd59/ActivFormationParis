@@ -49,6 +49,8 @@ public class ExoTableau1 implements InterExoTableau1 {
 				tabModif = tab.clone();
 				tabModif[i1] = tab[i2];
 				tabModif[i2] = tab[i1];
+			} else {
+				tabModif = tab;
 			}
 		}
 		return tabModif;
