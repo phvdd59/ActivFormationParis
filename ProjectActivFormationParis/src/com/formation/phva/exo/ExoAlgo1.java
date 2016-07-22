@@ -25,6 +25,10 @@ public class ExoAlgo1 implements ImpAlgo1 {
 	 *  
 	 *  n [0 --> 100000]
 	 *  chaque element du tableau est un int
+	 *  
+	 *  la solution doit retourner la position d'un point 
+	 *  d'equilibre si il existe.
+	 *  sinon retourner -1
 	 */
 	public int solution(int[] tab, int n) {
 		return 0;
