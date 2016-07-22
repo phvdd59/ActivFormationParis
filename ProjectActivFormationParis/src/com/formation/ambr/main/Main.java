@@ -41,7 +41,7 @@ public class Main {
 		for (int i = 0; i < tabOrig.length; i++) {
 			System.out.println(tabOrig[i]);
 		}
-		int[] tabInterv = exoTableau2.intervertirDeuxElementsTableau(tabOrig, 3, 8);
+		int[] tabInterv = exoTableau2.intervertirDeuxElementsTableau(tabOrig, 5, 7);
 		System.out.println("Tableau Interverti");
 		for (int i = 0; i < tabInterv.length; i++) {
 			System.out.println(tabInterv[i]);
