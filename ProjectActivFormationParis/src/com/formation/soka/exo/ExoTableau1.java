@@ -49,7 +49,7 @@ public class ExoTableau1 implements InterExoTableau1 {
 			tab2[i1] = tab[i2];
 			tab2[i2] = tab[i1];
 		}
-		return tab;
+		return tab2;
 	}
 
 	/**
