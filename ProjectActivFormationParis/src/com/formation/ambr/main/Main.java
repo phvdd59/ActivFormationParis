@@ -23,14 +23,22 @@ public class Main {
 		/////////
 
 		//ExoTableau1
+		System.out.println("-----ExoTableau1-----");
+
 		//1. remplirTableau
 
 		System.out.println("*Tableau Rempli*");
 		ExoTableau1 exoTableau1 = new ExoTableau1();
 		int[] tableauRempli = exoTableau1.remplirTableau(7, 5, 3);
-		for (int i = 0; i < tableauRempli.length; i++) {
-			System.out.println(tableauRempli[i]);
+		//faut protéger ça aussi
+		if (tableauRempli == null) {
+			System.out.println("Y'a un problème");
+		} else {
+			for (int i = 0; i < tableauRempli.length; i++) {
+				System.out.print(tableauRempli[i] + " ");
+			}
 		}
+		System.out.println("\r");
 
 		//2. intervertirDeuxElementsTableau
 		System.out.println("*Intervertion de tableaux*");
@@ -39,12 +47,18 @@ public class Main {
 		int[] tabOrig = { 7, 10, 13, 16, 19, 21, 24, 27, 30 };
 		System.out.println("Tableau Originel");
 		for (int i = 0; i < tabOrig.length; i++) {
-			System.out.println(tabOrig[i]);
+			System.out.print(tabOrig[i] + " ");
 		}
-		int[] tabInterv = exoTableau2.intervertirDeuxElementsTableau(tabOrig, 5, 7);
+		System.out.println("\r");
+		int[] tabInterv = exoTableau2.intervertirDeuxElementsTableau(tabOrig, 3, 7);
 		System.out.println("Tableau Interverti");
-		for (int i = 0; i < tabInterv.length; i++) {
-			System.out.println(tabInterv[i]);
+		if (tabInterv == null) {
+			System.out.println("Y'a un problème");
+		} else {
+			for (int i = 0; i < tabInterv.length; i++) {
+				System.out.print(tabInterv[i] + " ");
+			}
+			System.out.println("\r");
 		}
 
 		//3. insererUnElementDansTableau
@@ -53,13 +67,19 @@ public class Main {
 		int[] tabOrig2 = { 1, 4, 6, 2, 4, 6 };
 		System.out.println("Tableau Originel");
 		for (int i = 0; i < tabOrig2.length; i++) {
-			System.out.println(tabOrig2[i]);
+			System.out.print(tabOrig2[i] + " ");
 		}
+		System.out.println("\r");
 		int[] tabRes2 = exoTableau3.insererUnElementDansTableau(tabOrig2, 3, 8);
 		System.out.println("Tableau Résultat");
-		for (int i = 0; i < tabRes2.length; i++) {
-			System.out.println(tabRes2[i]);
+		if (tabRes2 == null) {
+			System.out.println("Y'a un problème");
+		} else {
+			for (int i = 0; i < tabRes2.length; i++) {
+				System.out.print(tabRes2[i] + " ");
+			}
 		}
+		System.out.println("\r");
 
 		//4. insererUnTableauDansUnAutreAvecRemplacement
 		System.out.println("*insererUnTableauDansUnAutreAvecRemplacement*");
@@ -67,17 +87,24 @@ public class Main {
 		int[] tabOrig3 = { 1, 4, 6, 2, 4, 7 };
 		System.out.println("Tableau Originel");
 		for (int i = 0; i < tabOrig3.length; i++) {
-			System.out.println(tabOrig3[i]);
+			System.out.print(tabOrig3[i] + " ");
 		}
+		System.out.println("\r");
 		int[] tabDeRemp = { 4, 9, 0 };
 		System.out.println("Tableau de remplacement");
 		for (int i = 0; i < tabDeRemp.length; i++) {
-			System.out.println(tabDeRemp[i]);
+			System.out.print(tabDeRemp[i] + " ");
 		}
+		System.out.println("\r");
 		int[] tabRes3 = exoTableau4.insererUnTableauDansUnAutreAvecRemplacement(tabOrig3, 2, tabDeRemp);
 		System.out.println("Tableau Résultat");
-		for (int i = 0; i < tabRes3.length; i++) {
-			System.out.println(tabRes3[i]);
+		if (tabRes3 == null) {
+			System.out.println("Y'a un problème");
+		} else {
+			for (int i = 0; i < tabRes3.length; i++) {
+				System.out.print(tabRes3[i] + " ");
+			}
+			System.out.println("\r");
 		}
 
 		//5. rotationTableau
@@ -86,14 +113,30 @@ public class Main {
 		int[] tabOrig4 = { 1, 4, 6, 2, 4, 6 };
 		System.out.println("Tableau Originel");
 		for (int i = 0; i < tabOrig4.length; i++) {
-			System.out.println(tabOrig4[i]);
+			System.out.print(tabOrig4[i] + " ");
 		}
-		System.out.println("Tableau Rotaté");
-		int[] tabRota=exoTableau5.rotationTableau(tabOrig4, 2);
-		for (int i = 0; i < tabRota.length; i++) {
-			System.out.println(tabRota[i]);
+		System.out.println("\r");
+		System.out.println("Tableau après rotation");
+		int[] tabRota = exoTableau5.rotationTableau(tabOrig4, 2);
+		if (tabRota == null) {
+			System.out.println("Y'a un problème");
+		} else {
+			for (int i = 0; i < tabRota.length; i++) {
+				System.out.print(tabRota[i] + " ");
+			}
 		}
-		
-	}
+		System.out.println("\r");
 
+		////////////////
+
+		//ExoArrayList1
+		//		System.out.println("-----ExoArrayList1-----");
+
+		//1. remplirTableau
+		//		System.out.println("*remplirTableau*");
+		//		ExoArrayList1 exoArrayList1 = new ExoArrayList1();
+		//		ArrayList<Integer> list1 = new ArrayList<Integer>();
+		//		list1.add(7);
+
+	}
 }

@@ -83,24 +83,26 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 * @return
 	 */
 	public int[] insererUnElementDansTableau(int[] tab, int p, int a) {
+		int[] tab1 = null;
+
 		if (p < 0 || p > tab.length) {
-			p = 0;
+			tab1 = null;
 
-		}
+		} else {
 
-		int[] tab1 = new int[tab.length + 1];
-		for (int i = 0; i < tab1.length; i++) {
+			tab1 = new int[tab.length + 1];
+			for (int i = 0; i < tab1.length; i++) {
 
-			if (i == p) {
-				tab1[i] = a;
+				if (i == p) {
+					tab1[i] = a;
 
-			} else if (i < p) {
-				tab1[i] = tab[i];
-			} else {
-				tab1[i] = tab[i - 1];
+				} else if (i < p) {
+					tab1[i] = tab[i];
+				} else {
+					tab1[i] = tab[i - 1];
+				}
 			}
 		}
-
 		return tab1;
 	}
 
@@ -128,8 +130,9 @@ public class ExoTableau1 implements InterExoTableau1 {
 		} else if (p + tab1.length > tab.length) {
 			tab2 = null;
 		} else {
+			tab2 = new int[tab.length];
 			for (int i = 0; i < tab.length; i++) {
-				tab2 = new int[tab.length];
+
 				if (i >= p + tab1.length) {
 					tab2[i] = tab[i];
 
@@ -167,32 +170,33 @@ public class ExoTableau1 implements InterExoTableau1 {
 			tab5 = null;
 		} else if (p >= 0) {
 			m = p % tab.length;
-			tab3 = new int[tab.length - p];
-			tab4 = new int[p];
+			tab3 = new int[tab.length - m];
+			tab4 = new int[m];
 			tab5 = new int[tab.length];
 			for (int i = 0; i < tab.length; i++) {
 
 				if (i < tab.length - m) {
-					tab4[i] = tab[i];
+					tab3[i] = tab[i];
 
 				} else {
-					tab3[i - (tab.length - m)] = tab[i];
+					tab4[i - (tab.length - m)] = tab[i];
 				}
 			}
 			for (int i = 0; i < tab.length; i++) {
-				if (i < tab.length - m) {
-					tab5[i] = tab3[i];
+				if (i <  m) {
+					tab5[i] = tab4[i];
 
 				} else {
-					tab5[i] = tab4[i - (tab.length - m)];
+					tab5[i] = tab3[i -  m];
 				}
 
 			}
 		} else if (p < 0) {
-			tab3 = new int[tab.length - p];
-			tab4 = new int[p];
-			tab5 = new int[tab.length];
 			m = -p % tab.length;
+			tab3 = new int[tab.length - m];
+			tab4 = new int[m];
+			tab5 = new int[tab.length];
+			
 			for (int i = 0; i < tab.length; i++) {
 
 				if (i < m) {

@@ -45,11 +45,10 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 */
 	public int[] intervertirDeuxElementsTableau(int[] tab, int i1, int i2) {
 		int[] tableauinversé = null;
-		if (i1 < 0 || i1 > tab.length || i2 > tab.length || i2 < 0) {
-			// System.out.println("i1 et i2 sont des int positifs, et inférieurs à la longueur du tableau.");
+		if (i1 < 0 || i1 > tab.length || i2 > tab.length || i2 < 0 || tab == null) {
+			tableauinversé = tab;// System.out.println("i1 et i2 sont des int positifs, et inférieurs à la longueur du tableau.");
 		} else {
 			tableauinversé = tab.clone();
-
 			int variabletemp = tab[i1 - 1]; // on creer une variable temporaire pour stocker la valeur du tableau indice i1
 			tab[i1 - 1] = tableauinversé[i2 - 1];
 			tableauinversé[i2 - 1] = variabletemp;
@@ -71,8 +70,8 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 */
 	public int[] insererUnElementDansTableau(int[] tab, int p, int a) {
 		int[] tableauajout = null;
-		if (p > tab.length || p < 0) {
-			// System.out.println("P compris entre0 et la longueur du tableau");
+		if (p > tab.length || p < 0 || tab == null) {
+			tableauajout = tab;// System.out.println("P compris entre0 et la longueur du tableau");
 		} else {
 			tableauajout = new int[tab.length + 1];
 			int temp = 0;
@@ -106,8 +105,9 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 */
 	public int[] insererUnTableauDansUnAutreAvecRemplacement(int[] tab, int p, int[] tab1) {
 		int[] tableaufinal = null;
-		if (tab1.length > tab.length || p < 0 || (tab1.length == tab.length && p != 0) || tab1.length + p >= tab.length) {
-			// System.out.println("pas les bonnes valeurs");
+		if (tab1.length > tab.length || p < 0 || (tab1.length == tab.length && p != 0) || tab1.length + p > tab.length) {
+			tableaufinal = tab;
+			System.out.println("pas les bonnes valeurs");
 		} else {
 			tableaufinal = tab.clone();
 			int k = 0;
@@ -116,7 +116,7 @@ public class ExoTableau1 implements InterExoTableau1 {
 				k++;
 			}
 			for (int i = 0; i < tableaufinal.length; i++) {
-				// System.out.println(tableaufinal[i]);
+				System.out.println(tableaufinal[i]);
 			}
 		}
 		return tableaufinal;
@@ -144,7 +144,7 @@ public class ExoTableau1 implements InterExoTableau1 {
 				tableaurot[i] = tab[tab.length - reste - tab.length + i];
 			}
 			for (int i = 0; i < tableaurot.length; i++) {
-				//System.out.println(tableaurot[i]);
+				// System.out.println(tableaurot[i]);
 			}
 		}
 		if (reste == 0) {
@@ -158,7 +158,7 @@ public class ExoTableau1 implements InterExoTableau1 {
 				tableaurot[i] = tab[tab.length - reste + i];
 			}
 			for (int i = 0; i < tableaurot.length; i++) {
-				//System.out.println(tableaurot[i]);
+				// System.out.println(tableaurot[i]);
 			}
 		}
 		return tableaurot;

@@ -136,16 +136,25 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 		ArrayList<Integer> list = null;
 		int k = 0;
 
-		if (p < 0 || p > tab.size() || tab == null) {
+		if (tab == null) {
 			list = new ArrayList();
 			list.addAll(tab);
 		} else {
 			list = new ArrayList();
-
+			if (p > tab.size()) {
+				while (p >  tab.size()) {
+					p = p -  tab.size();
+				}
+			} else if (p < 0) {
+				while (p < 0) {
+					p =  tab.size() + p;
+				}
+			}
+			int m=p;
 			for (int i = 0; i < tab.size(); i++) {
-				if (p != 0) {
-					list.add(i, tab.get(tab.size() - p));
-					p--;
+				if (i + p < tab.size()) {
+					list.add(i, tab.get(m));
+					m++;
 				} else {
 					list.add(i, tab.get(k));
 					k++;

@@ -19,8 +19,10 @@ public class InsererTab {
 		
 	
 		int tabResultat[]={1, 4, 6, 2, 4, 6,9,5};
+		int p=7;
+		int a=12;
 		
-		int[] tabres=exoInsertion.insererUnElementDansTableau(tabResultat, 3, 8);
+		int[] tabres=exoInsertion.insererUnElementDansTableau(tabResultat, p, a);
 			
 		
 		System.out.println(tabres);

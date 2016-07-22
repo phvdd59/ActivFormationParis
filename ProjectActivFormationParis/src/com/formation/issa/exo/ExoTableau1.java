@@ -17,8 +17,11 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 * @return = nouveau tableau rempli
 	 */
 	public int[] remplirTableau(int d, int n, int p) {
+
+		if (n < 0) {
+			return null;
+		}
 		int[] tab = new int[n];
-		tab[0] = d;
 
 		if ((long) d + (long) p * n > Integer.MAX_VALUE || (long) d + (long) p * n < Integer.MIN_VALUE) {
 
@@ -46,10 +49,23 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 * @return
 	 */
 	public int[] intervertirDeuxElementsTableau(int[] tab, int i1, int i2) {
-		i1 = 3;
-		i2 = 8;
 
-		return null;
+		if (i1 < 0 || i2 < 0 || i1 >= tab.length || i2 >= tab.length) {
+			return tab;
+		}
+
+		int[] tab1 = new int[tab.length];
+		for (int i = 0; i < tab1.length; i++) {
+			if (i == i1) {
+				tab1[i1] = tab[i2];
+			} else if (i == i2) {
+				tab1[i2] = tab[i1];
+			} else {
+				tab1[i] = tab[i];
+			}
+		}
+
+		return tab1;
 	}
 
 	/**
@@ -57,27 +73,28 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 * 
 	 * @param tabOrigine
 	 *            tableau de départ
-	 * @param p
+	 * @param positionOrigine
 	 *            position après laquelle il faut ajouter la valeur a
-	 * @param a
+	 * @param valeurOrigine
 	 *            valeur à ajouter
 	 * @return
 	 */
-	public int[] insererUnElementDansTableau(int[] tabOrigine, int p, int a) {
-		
-		
+	public int[] insererUnElementDansTableau(int[] tabOrigine, int positionOrigine, int valeurOrigine) {
 
-		int tabResultat[] = new int[tabOrigine.length+1];
+		if (positionOrigine < 0 || positionOrigine > tabOrigine.length) {
+			return tabOrigine;
+		}
 
-		p = 3;
-		tabResultat[p] = a;
+		int tabResultat[] = new int[tabOrigine.length + 1];
 
-		for (int i = 0; i < p; i++) {
+		tabResultat[positionOrigine] = valeurOrigine;
+
+		for (int i = 0; i < positionOrigine; i++) {
 
 			tabResultat[i] = tabOrigine[i];
 		}
 
-		for (int i = 4; i < tabResultat.length; i++) {
+		for (int i = positionOrigine + 1; i < tabResultat.length; i++) {
 			tabResultat[i] = tabOrigine[i - 1];
 
 		}
@@ -101,9 +118,28 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 */
 	public int[] insererUnTableauDansUnAutreAvecRemplacement(int[] tab, int p, int[] tab1) {
 
-		p = 2;
+		if (p < 0 || p > tab.length || p + tab1.length > tab.length) {
+			return tab;
+		}
+		if (tab == null || tab1 == null) {
+			return tab;
+		}
 
-		return null;
+		int[] tabF = new int[tab.length];
+
+		for (int i = 0; i < p; i++) {
+
+			tabF[i] = tab[i];
+		}
+		for (int j = p; j < tab1.length + p; j++) {
+			tabF[j] = tab1[j - p];
+		}
+
+		for (int j = p + tab1.length; j < tabF.length; j++) {
+			tabF[j] = tab[j];
+		}
+
+		return tabF;
 	}
 
 	/**
@@ -118,7 +154,23 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 *            tableau
 	 * @return
 	 */
-	public int[] rotationTableau(int[] tab, int p) {
-		return null;
+	public int[] rotationTableau(int[] tabOrigine, int positionOrigine) {
+
+		if (positionOrigine > tabOrigine.length) {
+			positionOrigine = tabOrigine.length % positionOrigine;
+			}
+		
+		int[] tabResultat = new int[tabOrigine.length];
+
+		for (int i = 0; i < tabResultat.length; i++) {
+			if (i-positionOrigine < 0) {
+				tabResultat[i] = tabOrigine[i - positionOrigine + tabResultat.length];
+			} else {
+
+				tabResultat[i] = tabOrigine[i - positionOrigine];
+			}
+		}
+
+		return tabResultat;
 	}
 }
