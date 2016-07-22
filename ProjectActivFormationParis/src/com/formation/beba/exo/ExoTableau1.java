@@ -142,7 +142,7 @@ public class ExoTableau1 implements InterExoTableau1 {
 		for (int i = 0; i < tab.length; i++) {
 			if (i < p) {
 				tab2[i] = tab[i + tab.length - p];
-
+				// test
 			}
 			if (i >= p) {
 				tab2[i] = tab[i - p];
