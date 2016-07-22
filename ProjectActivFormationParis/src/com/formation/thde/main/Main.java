@@ -11,7 +11,7 @@ public class Main {
 
 	private void init() {
 		ExoTableau1 exo1 = new ExoTableau1();
-		int[] tab1 = exo1.remplirTableau(0x7FFFFFF0, 20, 16);
+		int[] tab1 = exo1.remplirTableau(7, 5, 3);
 		if (tab1 != null) {
 			for (int i = 0; i < tab1.length; i++) {
 				System.out.print(tab1[i] + ", ");
