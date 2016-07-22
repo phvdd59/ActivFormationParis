@@ -1,7 +1,7 @@
 jeci
 
-jeci insererUnTableauDansUnAutreAvecRemplacement0 (0/2): KO | exo.insererUnTableauDansUnAutreAvecRemplacement(taba, 2, tabb)
-jeci insererUnTableauDansUnAutreAvecRemplacement1 (0/2): KO | exo.insererUnTableauDansUnAutreAvecRemplacement(tab, 3, tab1)
+jeci insererUnTableauDansUnAutreAvecRemplacement0 (2/2):    | exo.insererUnTableauDansUnAutreAvecRemplacement(taba, 2, tabb)
+jeci insererUnTableauDansUnAutreAvecRemplacement1 (2/2):    | exo.insererUnTableauDansUnAutreAvecRemplacement(tab, 3, tab1)
 jeci insererUnTableauDansUnAutreAvecRemplacement2 (0/1): KO | exo.insererUnTableauDansUnAutreAvecRemplacement(tab, -3, tab1)
 jeci insererUnTableauDansUnAutreAvecRemplacement3 (0/1): KO | exo.insererUnTableauDansUnAutreAvecRemplacement(tab, 3000, tab1)
 jeci intervertirDeuxElementsTableau0 (2/2):    | exo.intervertirDeuxElementsTableau(tab0, 3, 8)
@@ -14,18 +14,13 @@ jeci remplirTableau0 (2/2):    | exo.remplirTableau(7, 5, 3)
 jeci remplirTableau1 (2/2):    | exo.remplirTableau(-120, 125, 7)
 jeci remplirTableau2 (1/1):    | exo.remplirTableau(0x7FFFFFF0, 16, 8)
 jeci remplirTableau3 (1/1):    | exo.remplirTableau(-0x7FFFFFF0, 16, -8)
-jeci rotationTableau0 (0/2): KO | exo.rotationTableau(tabA, 2)
-2
-jeci rotationTableau1 (0/2): KO | exo.rotationTableau(tab, 3)
-3
-jeci rotationTableau2 (0/1): KO | exo.rotationTableau(tab, -3)
-null
-jeci rotationTableau3 (0/1): KO | exo.rotationTableau(tab, 3000)
-null
-jeci rotationTableau4 (0/1): KO | exo.rotationTableau(tab, -777)
-null
+jeci rotationTableau0 (2/2):    | exo.rotationTableau(tabA, 2)
+jeci rotationTableau1 (2/2):    | exo.rotationTableau(tab, 3)
+jeci rotationTableau2 (1/1):    | exo.rotationTableau(tab, -3)
+jeci rotationTableau3 (1/1):    | exo.rotationTableau(tab, 3000)
+jeci rotationTableau4 (1/1):    | exo.rotationTableau(tab, -777)
 jeci insererUnElementDansTableau0 (2/2):    | exo.insererUnElementDansTableau(tab1, 3, 8)
 jeci insererUnElementDansTableau1 (2/2):    | exo.insererUnElementDansTableau(tab, 3, 8)
 jeci insererUnElementDansTableau2 (0/1): KO | exo.insererUnElementDansTableau(tab, -3, 8)
 jeci insererUnElementDansTableau3 (0/1): KO | exo.insererUnElementDansTableau(tab, 33333, 8)
-jeci NOTE : (18 / 33) = 10 / 20
+jeci NOTE : (29 / 33) = 17 / 20

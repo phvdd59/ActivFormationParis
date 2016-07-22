@@ -12,8 +12,8 @@ anfr intervertirDeuxElementsTableau4 (1/1):    | exo.intervertirDeuxElementsTabl
 anfr intervertirDeuxElementsTableau5 (1/1):    | exo.intervertirDeuxElementsTableau(tab, 3, -8)
 anfr remplirTableau0 (2/2):    | exo.remplirTableau(7, 5, 3)
 anfr remplirTableau1 (2/2):    | exo.remplirTableau(-120, 125, 7)
-anfr remplirTableau2 (0/1): KO | exo.remplirTableau(0x7FFFFFF0, 16, 8)
-anfr remplirTableau3 (0/1): KO | exo.remplirTableau(-0x7FFFFFF0, 16, -8)
+anfr remplirTableau2 (1/1):    | exo.remplirTableau(0x7FFFFFF0, 16, 8)
+anfr remplirTableau3 (1/1):    | exo.remplirTableau(-0x7FFFFFF0, 16, -8)
 anfr rotationTableau0 (2/2):    | exo.rotationTableau(tabA, 2)
 anfr rotationTableau1 (2/2):    | exo.rotationTableau(tab, 3)
 anfr rotationTableau2 (1/1):    | exo.rotationTableau(tab, -3)
@@ -23,4 +23,4 @@ anfr insererUnElementDansTableau0 (2/2):    | exo.insererUnElementDansTableau(ta
 anfr insererUnElementDansTableau1 (2/2):    | exo.insererUnElementDansTableau(tab, 3, 8)
 anfr insererUnElementDansTableau2 (1/1):    | exo.insererUnElementDansTableau(tab, -3, 8)
 anfr insererUnElementDansTableau3 (1/1):    | exo.insererUnElementDansTableau(tab, 33333, 8)
-anfr NOTE : (31 / 33) = 18 / 20
+anfr NOTE : (33 / 33) = 20 / 20
