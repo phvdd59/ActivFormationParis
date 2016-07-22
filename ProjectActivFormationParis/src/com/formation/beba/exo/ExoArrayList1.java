@@ -49,9 +49,8 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 			list = null;
 		} else {
 			// list.addAll(tab);
-			Integer tampon = list.get(i1);
 			list.set(i1, tab.get(i2));
-			list.set(i2, tampon);
+			list.set(i2, tab.get(i1));
 		}
 		return list;
 	}
