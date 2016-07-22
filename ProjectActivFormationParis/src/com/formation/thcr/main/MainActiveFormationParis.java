@@ -12,8 +12,8 @@ public class MainActiveFormationParis {
 		MainActiveFormationParis main = new MainActiveFormationParis();
 		main.init2();
 	}
-	
-	private void init(){
+
+	private void init() {
 		ExoArrayList1 exo = new ExoArrayList1();
 		ArrayList<Integer> list1 = new ArrayList<Integer>();
 		list1 = exo.remplirTableau(3, 10, 2);
@@ -22,7 +22,7 @@ public class MainActiveFormationParis {
 		list2 = exo.remplirTableau(0, 10, 3);
 		System.out.println(list2);
 		System.out.println(exo.insererUnTableauDansUnAutreAvecRemplacement(list1, 3, list2));
-		
+
 	}
 
 	private void init2() {
