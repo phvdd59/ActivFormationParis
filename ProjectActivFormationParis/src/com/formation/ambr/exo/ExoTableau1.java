@@ -90,9 +90,9 @@ public class ExoTableau1 implements InterExoTableau1 {
 		int[] tabInterv = new int[tabOrig.length];
 		for (int i = 0; i < tabInterv.length; i++) {
 			if (i == i1 - 1) {
-				tabInterv[i] = tabOrig[i + 5];
+				tabInterv[i] = tabOrig[i + i2 - i1];
 			} else if (i == i2 - 1) {
-				tabInterv[i] = tabOrig[i - 5];
+				tabInterv[i] = tabOrig[i - (i2 - i1)];
 			} else {
 				tabInterv[i] = tabOrig[i];
 			}
@@ -144,13 +144,15 @@ public class ExoTableau1 implements InterExoTableau1 {
 	public int[] insererUnElementDansTableau(int[] tabOrig2, int p, int a) {
 		int[] tabRes2 = new int[tabOrig2.length + 1];
 
-		for (int i = 0; i <= p + 1; i++) {
-			tabRes2[i] = tabOrig2[i];
-			if (i == p + 1) {
-				tabRes2[i + 1] = a;
+		for (int i = 0; i <= p; i++) {
+
+			if (i == p) {
+				tabRes2[i] = a;
+			} else {
+				tabRes2[i] = tabOrig2[i];
 			}
 		}
-		for (int i = p + 2; i < tabRes2.length; i++) {
+		for (int i = p + 1; i < tabRes2.length; i++) {
 			tabRes2[i] = tabOrig2[i - 1];
 		}
 		return tabRes2;
@@ -182,11 +184,15 @@ public class ExoTableau1 implements InterExoTableau1 {
 	// 4.méthode insererUnTableauDansUnAutreAvecRemplacement
 	public int[] insererUnTableauDansUnAutreAvecRemplacement(int[] tabOrig3, int p, int[] tabDeRemp) {
 		int[] tabRes3 = new int[tabOrig3.length]; // comment faire pour faire une longueur cumulative?
-		for (int i = 0; i <= p; i++) {
+
+		for (int i = 0; i < p; i++) {
 			tabRes3[i] = tabOrig3[i];
 		}
-		for (int i = p + 1; i < tabRes3.length; i++) {
-			tabRes3[i] = tabDeRemp[p - 2];
+		for (int i = p; i < p + tabDeRemp.length; i++) {
+			tabRes3[i] = tabDeRemp[i - p];
+		}
+		for (int i = p + tabDeRemp.length; i < tabRes3.length; i++) {
+			tabRes3[i] = tabOrig3[i];
 		}
 		return tabRes3;
 	}
@@ -214,12 +220,20 @@ public class ExoTableau1 implements InterExoTableau1 {
 	public int[] rotationTableau(int[] tabOrig4, int p) {
 		int[] tabRota = new int[tabOrig4.length];
 		for (int i = 0; i < p; i++) {
-			tabRota[i] = tabOrig4[i];
+			tabRota[i] = tabOrig4[tabOrig4.length - p + i];
 		}
 		for (int i = p; i < tabRota.length; i++) {
-			tabRota[p] = tabRota[i - 2]; // pas fini
-
+			tabRota[i] = tabOrig4[i - p];
 		}
+
+		// ancienne méthode
+		//		for (int i = 0; i < p; i++) {
+		//			tabRota[i] = tabOrig4[i];
+		//		}
+		//		for (int i = p; i < tabRota.length; i++) {
+		//			tabRota[p] = tabRota[i - 2]; // pas fini
+		//
+		//		}
 
 		return tabRota;
 	}
