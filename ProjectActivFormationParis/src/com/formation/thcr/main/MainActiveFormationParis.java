@@ -10,7 +10,7 @@ public class MainActiveFormationParis {
 
 	public static void main(String[] args) {
 		MainActiveFormationParis main = new MainActiveFormationParis();
-		main.init();
+		main.init2();
 	}
 	
 	private void init(){
@@ -56,7 +56,7 @@ public class MainActiveFormationParis {
 		p = 2;
 		System.out.println(Arrays.toString(tab7));
 		System.out.println(Arrays.toString(exo.rotationTableau(tab7, p)));
-		p = 4;
+		p = -4;
 		System.out.println(Arrays.toString(tab7));
 		System.out.println(Arrays.toString(exo.rotationTableau(tab7, p)));
 	}
