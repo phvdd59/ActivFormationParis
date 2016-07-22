@@ -115,14 +115,24 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 	 */
 	public ArrayList<Integer> rotationTableau(ArrayList<Integer> tab, int p) {
 		ArrayList<Integer> tmpTab = new ArrayList<Integer>();
-		if (p < 0 || p >= tab.size()) {
-		} else {
+		if (Math.abs(p) >= tab.size()) {
+			p = p % tab.size();
+		} else if (p >= 0) {
 			tmpTab.addAll(tab);
 			for (int i = 0; i < tab.size(); i++) {
 				if (i + p < tab.size()) {
 					tmpTab.set(i + p, tab.get(i));
 				} else {
 					tmpTab.set(i + p - tab.size(), tab.get(i));
+				}
+			}
+		} else if (p < 0) {
+			tmpTab.addAll(tab);
+			for (int i = 0; i < tab.size(); i++) {
+				if (i + p < 0 || i - p < tab.size()) {
+					tmpTab.set(i, tab.get(i - p));
+				} else {
+					tmpTab.set(i, tab.get(i - p - tab.size()));
 				}
 			}
 		}
