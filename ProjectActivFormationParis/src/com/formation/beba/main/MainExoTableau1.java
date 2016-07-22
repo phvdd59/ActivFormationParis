@@ -24,6 +24,10 @@ public class MainExoTableau1 {
 		int[] test2 = exoTab.insererUnElementDansTableau(tab, 4, 2);
 		System.out.println(Arrays.toString(test2));
 
+		int[] tab6 = { 1, 2, 3 };
+		int[] test4 = exoTab.insererUnTableauDansUnAutreAvecRemplacement(tab, 2, tab6);
+		System.out.println("eeeee"+Arrays.toString(test4));
+
 		int[] test3 = exoTab.rotationTableau(tab, 5);
 		System.out.println(Arrays.toString(test3));
 	}
