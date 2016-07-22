@@ -29,7 +29,7 @@ public class Main {
 
 		System.out.println("*Tableau Rempli*");
 		ExoTableau1 exoTableau1 = new ExoTableau1();
-		int[] tableauRempli = exoTableau1.remplirTableau(7, 5, 3);
+		int[] tableauRempli = exoTableau1.remplirTableau(0x7FFFFFF0, 16, 8);
 		//faut protéger ça aussi
 		if (tableauRempli == null) {
 			System.out.println("Y'a un problème");

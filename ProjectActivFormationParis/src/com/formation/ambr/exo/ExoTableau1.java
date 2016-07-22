@@ -27,8 +27,11 @@ public class ExoTableau1 implements InterExoTableau1 {
 
 	// 1.méthode remplirTableau
 	public int[] remplirTableau(int d, int n, int p) {
-		// protection: si on donne un n négatif, ça ne fonctionne pas
+		// protection: e.g. si on donne un n négatif, ça ne fonctionne pas
 		if (n < 0) {
+			return null;
+		}
+		if ((long) d + (long) n * p > Integer.MAX_VALUE || (long) d + (long) n * p < Integer.MIN_VALUE) {
 			return null;
 		}
 		// fin de la protection. N.B.: si n=0, la méthode nous sort un tableau avec 0 éléments. Ca existe, il a un pointeur, mais il est vide
