@@ -1,5 +1,8 @@
 package com.formation.ambr.main;
 
+import java.util.ArrayList;
+
+import com.formation.ambr.exo.ExoArrayList1;
 import com.formation.ambr.exo.ExoSimple;
 import com.formation.ambr.exo.ExoTableau1;
 
@@ -23,13 +26,20 @@ public class Main {
 		/////////
 
 		//ExoTableau1
+		System.out.println("**ExoTableau1**");
+
 		//1. remplirTableau
 
 		System.out.println("*Tableau Rempli*");
 		ExoTableau1 exoTableau1 = new ExoTableau1();
-		int[] tableauRempli = exoTableau1.remplirTableau(7, 5, 3);
-		for (int i = 0; i < tableauRempli.length; i++) {
-			System.out.println(tableauRempli[i]);
+		int[] tableauRempli = exoTableau1.remplirTableau(7, -1, 3);
+		//faut protéger ça aussi
+		if (tableauRempli == null) {
+			System.out.println("Y'a un problème");
+		} else {
+			for (int i = 0; i < tableauRempli.length; i++) {
+				System.out.println(tableauRempli[i]);
+			}
 		}
 
 		//2. intervertirDeuxElementsTableau
@@ -76,8 +86,12 @@ public class Main {
 		}
 		int[] tabRes3 = exoTableau4.insererUnTableauDansUnAutreAvecRemplacement(tabOrig3, 2, tabDeRemp);
 		System.out.println("Tableau Résultat");
-		for (int i = 0; i < tabRes3.length; i++) {
-			System.out.println(tabRes3[i]);
+		if (tabRes3 == null) {
+			System.out.println("Y'a un problème");
+		} else {
+			for (int i = 0; i < tabRes3.length; i++) {
+				System.out.println(tabRes3[i]);
+			}
 		}
 
 		//5. rotationTableau
@@ -89,11 +103,21 @@ public class Main {
 			System.out.println(tabOrig4[i]);
 		}
 		System.out.println("Tableau Rotaté");
-		int[] tabRota=exoTableau5.rotationTableau(tabOrig4, 2);
+		int[] tabRota = exoTableau5.rotationTableau(tabOrig4, 2);
 		for (int i = 0; i < tabRota.length; i++) {
 			System.out.println(tabRota[i]);
 		}
-		
-	}
 
+		////////////////
+
+		//ExoArrayList1
+		System.out.println("**ExoArrayList1**");
+
+		//1. remplirTableau
+		System.out.println("*remplirTableau*");
+		ExoArrayList1 exoArrayList1 = new ExoArrayList1();
+		ArrayList<Integer> list1 = new ArrayList<Integer>();
+		list1.add(7);
+
+	}
 }

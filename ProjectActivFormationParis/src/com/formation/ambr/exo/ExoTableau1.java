@@ -27,6 +27,11 @@ public class ExoTableau1 implements InterExoTableau1 {
 
 	// 1.méthode remplirTableau
 	public int[] remplirTableau(int d, int n, int p) {
+		// protection: si on donne un n négatif, ça ne fonctionne pas
+		if (n < 0) {
+			return null;
+		}
+		// fin de la protection. N.B.: si n=0, la méthode nous sort un tableau avec 0 éléments. Ca existe, il a un pointeur, mais il est vide
 		int[] tab1 = new int[n];
 		for (int i = 0; i < n; i++) {
 			tab1[i] = d + (p * i);
@@ -184,6 +189,17 @@ public class ExoTableau1 implements InterExoTableau1 {
 	// 4.méthode insererUnTableauDansUnAutreAvecRemplacement
 	public int[] insererUnTableauDansUnAutreAvecRemplacement(int[] tabOrig3, int p, int[] tabDeRemp) {
 		int[] tabRes3 = new int[tabOrig3.length]; // comment faire pour faire une longueur cumulative?
+
+		// contrôles
+		if (p < 0 || p > tabOrig3.length - 1) {
+			return null;
+		} else {
+			if (tabDeRemp.length > tabOrig3.length - p) {
+				return null;
+			}
+
+		}
+		//fin contrôles
 
 		for (int i = 0; i < p; i++) {
 			tabRes3[i] = tabOrig3[i];
