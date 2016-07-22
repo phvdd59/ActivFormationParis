@@ -112,6 +112,7 @@ public class ExoTableau1 implements InterExoTableau1 {
 			return tab;
 		} else if (p >= tab.length || p < 0) {
 			tabModif = new int[tab.length];
+			tabModif = tab;
 			return tabModif;
 		} else {
 
