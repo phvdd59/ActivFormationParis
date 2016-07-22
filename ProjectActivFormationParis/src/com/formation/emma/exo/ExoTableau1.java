@@ -53,6 +53,7 @@ public class ExoTableau1 implements InterExoTableau1 {
 		// avant de cloner on construit un tableau null
 		int[] tab2 = null;
 		if (i1 < 0 || i1 > tab.length || i2 < 0 || i2 > tab.length || tab == null) {
+			tab2 = tab;
 		} else {
 			tab2 = tab.clone();
 			int a = tab2[i1];
@@ -79,6 +80,7 @@ public class ExoTableau1 implements InterExoTableau1 {
 		int[] tableauFinal = null;
 
 		if (p < 0 || p > tab.length || tab == null) {
+			tableauFinal = tab;
 		} else {
 			tableauFinal = new int[tab.length + 1];
 			for (int i = 0; i < tableauFinal.length; i++) {
@@ -114,6 +116,7 @@ public class ExoTableau1 implements InterExoTableau1 {
 		int[] tableauFinal = null;
 
 		if (tab1 == null || tab == null || p < 0 || p > tab.length || p - 1 + tab1.length >= tab.length) {
+			tableauFinal = tab;
 		} else {
 			tableauFinal = new int[tab.length];
 
@@ -155,6 +158,7 @@ public class ExoTableau1 implements InterExoTableau1 {
 		int k = 0;
 		int[] tableauFinal = null;
 		if (p < 0 || p > tab.length || tab == null) {
+			tableauFinal = tab;
 		} else {
 			tableauFinal = new int[tab.length];
 
