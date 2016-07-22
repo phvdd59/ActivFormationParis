@@ -112,20 +112,30 @@ public class ExoTableau2 implements InterExoTableau2 {
 	 * @return tableau représentant cette valeur mais en binaire
 	 */
 	public int[] tabBaseDeux(int v) {
-		int[] tabModif = new int[16];
+		int[] tabModif = new int[32];
 		if (v >= 0) {
 			int temp = Math.abs(v);
 			tabModif[0] = 0;
 			for (int i = 1; i < tabModif.length; i++) {
-				tabModif[i] = temp / ((int) Math.pow(2, 15 - i));
-				temp = temp % ((int) Math.pow(2, 15 - i));
+				tabModif[i] = temp / ((int) Math.pow(2, 31 - i));
+				temp = temp % ((int) Math.pow(2, 31 - i));
 			}
+			int p = 0;
+			while (tabModif[p] == 0) {
+				p++;
+			}
+			int[] tabFinal = new int[32 - p];
+			for (int i = 0; i < tabFinal.length; i++) {
+				tabFinal[i] = tabModif[32 - tabFinal.length + i];
+			}
+			tabModif = tabFinal;
+
 		} else {
 			int temp = Math.abs(v) - 1;
 			tabModif[0] = 1;
 			for (int i = 1; i < tabModif.length; i++) {
-				tabModif[i] = temp / ((int) Math.pow(2, 15 - i));
-				temp = temp % ((int) Math.pow(2, 15 - i));
+				tabModif[i] = temp / ((int) Math.pow(2, 31 - i));
+				temp = temp % ((int) Math.pow(2, 31 - i));
 				if (tabModif[i] == 1) {
 					tabModif[i] = 0;
 				} else if (tabModif[i] == 0) {

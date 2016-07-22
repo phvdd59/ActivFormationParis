@@ -72,19 +72,17 @@ public class MainActiveFormationParisJoca {
 		// tabResult = exo3.insererUnTableauDansUnAutre(tabTest, 2, tabTest2);
 		// this.afficherTableau(tabResult);
 
-		/*tabResult2 = exo3.changerDimensionTableau(tabTest, 3);
-		for (int i = 0; i < 2; i++) {
-			System.out.println(" ");
-			for (int j = 0; j < 3; j++) {
-				System.out.print(tabResult2[i][j]);
-			}
-		}*/
-		
-		tabResult = exo3.tabBaseDeux(18);
+		/*
+		 * tabResult2 = exo3.changerDimensionTableau(tabTest, 3); for (int i =
+		 * 0; i < 2; i++) { System.out.println(" "); for (int j = 0; j < 3; j++)
+		 * { System.out.print(tabResult2[i][j]); } }
+		 */
+
+		tabResult = exo3.tabBaseDeux(75189);
 		afficherTableau(tabResult);
-		tabResult = exo3.tabBaseDeux(17);
+		tabResult = exo3.tabBaseDeux(75188);
 		afficherTableau(tabResult);
-		tabResult = exo3.tabBaseDeux(-18);
+		tabResult = exo3.tabBaseDeux(-75189);
 		afficherTableau(tabResult);
 
 	}
