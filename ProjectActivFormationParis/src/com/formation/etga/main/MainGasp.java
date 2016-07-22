@@ -5,6 +5,7 @@ import java.util.Arrays;
 
 import com.formation.etga.exo.ExoArrayList1;
 import com.formation.etga.exo.ExoTableau1;
+import com.formation.etga.exo.ExoTableau2;
 
 public class MainGasp {
 
@@ -12,6 +13,7 @@ public class MainGasp {
 		MainGasp mainGasp = new MainGasp();
 		mainGasp.init1();
 		mainGasp.init2();
+		mainGasp.init3();
 	}
 
 	private void init1() {
@@ -80,5 +82,47 @@ public class MainGasp {
 		ArrayList<Integer> listFinal5 = exoArrayList1.rotationTableau(list, 2);
 		System.out.print(listFinal5 + ", ");
 		System.out.print("\n");
+
+		System.out.println("");
+		System.out.println("");
+	}
+
+	private void init3() {
+		ExoTableau2 exoTableau2 = new ExoTableau2();
+		int[] tab = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+		int[] tab1 = { 10, 11, 12 };
+		int a = 3; // valeur à ajouter à la fin
+		int p = 3; // position à laquelle le tab1 doit être inserer dans tab
+		int d = 3; // en combien on divise le tab
+		int v = 15; // nombre à convertir en binaire
+
+		int[] tabFinal1 = exoTableau2.inverserTableau(tab);
+		for (int i = 0; i < tabFinal1.length; i++) {
+			System.out.print(tabFinal1[i] + ", ");
+		}
+		System.out.print("\n");
+
+		int[] tabFinal2 = exoTableau2.rallongerTableauDeUnElement(tab, a);
+		for (int i = 0; i < tabFinal2.length; i++) {
+			System.out.print(tabFinal2[i] + ", ");
+		}
+		System.out.print("\n");
+
+		int[] tabFinal3 = exoTableau2.insererUnTableauDansUnAutre(tab, p, tab1);
+		for (int i = 0; i < tabFinal3.length; i++) {
+			System.out.print(tabFinal3[i] + ", ");
+		}
+		System.out.print("\n");
+
+		int[][] tabFinal4 = exoTableau2.changerDimensionTableau(tab, d);
+		for (int i = 0; i < (tab.length / d); i++) {
+			for (int j = 0; j < d; j++) {
+				System.out.print(tabFinal4[i][j]);
+			}
+			System.out.print("\n");
+		}
+
+		int[] tabFinal5 = exoTableau2.tabBaseDeux(v);
+		System.out.print(tabFinal5[v]);
 	}
 }
