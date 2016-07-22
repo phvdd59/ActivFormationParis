@@ -2,18 +2,65 @@ package com.formation.thcr.main;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Scanner;
 
 import com.formation.thcr.exo.ExoArrayList1;
 import com.formation.thcr.exo.ExoTableau1;
+import com.formation.thcr.exo.ExoTableau2;
 
 public class MainActiveFormationParis {
 
 	public static void main(String[] args) {
 		MainActiveFormationParis main = new MainActiveFormationParis();
-		main.init2();
+		main.test();
 	}
 
+	private void test(){
+		ExoTableau2 exo = new ExoTableau2();
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Rentrer une valeur");
+		int v = (int) sc.nextInt();
+		System.out.println(Arrays.toString(exo.tabBaseDeux(v)));
+		
+		
+	}
+	
 	private void init() {
+		ExoTableau2 exo = new ExoTableau2();
+		System.out.println("inverserTableau");
+		int[] tab = { 1, 4, 6, -5, 7, 5 };
+		System.out.println(Arrays.toString(tab));
+		System.out.println(Arrays.toString(exo.inverserTableau(tab)));
+		System.out.println("rallongerTableauDeUnElement");
+		int[] tab2 = { 1, 4, 6, 2, 4, 6 };
+		System.out.println(Arrays.toString(tab2));
+		System.out.println(Arrays.toString(exo.rallongerTableauDeUnElement(tab2, 8)));
+		System.out.println("insererUnTableauDansUnAutre");
+		int[] tab31 = {1,4,6,2,4,6};
+		int[] tab32 = {4,9,1};
+		System.out.println(Arrays.toString(tab31));
+		System.out.println(Arrays.toString(tab32));
+		System.out.println(Arrays.toString(exo.insererUnTableauDansUnAutre(tab31, 2, tab32)));
+		System.out.println("changerDimensionTableau");
+		int[] tab4 = {1,7,8,2,4,6};
+		int d = 2;
+		System.out.println(Arrays.toString(tab4));
+		int[][] result = new int[d][tab4.length/d];
+		result = exo.changerDimensionTableau(tab4, d);
+		for (int i = 0; i < tab4.length/d; i++) {
+			System.out.println(Arrays.toString(result[i]));
+		}
+		d = 3;
+		result = exo.changerDimensionTableau(tab4, d);
+		for (int i = 0; i < tab4.length/d; i++) {
+			System.out.println(Arrays.toString(result[i]));
+		}
+		System.out.println("tabBaseDeux");
+		int v = 0x80_00_00_00;
+		System.out.println(Arrays.toString(exo.tabBaseDeux(v)));
+	}
+
+	private void init2() {
 		ExoArrayList1 exo = new ExoArrayList1();
 		ArrayList<Integer> list1 = new ArrayList<Integer>();
 		list1 = exo.remplirTableau(3, 10, 2);
@@ -26,7 +73,7 @@ public class MainActiveFormationParis {
 
 	}
 
-	private void init2() {
+	private void init3() {
 		ExoTableau1 exo = new ExoTableau1();
 		System.out.println("remplirTableau");
 		System.out.println(Arrays.toString(exo.remplirTableau(0x7F_FF_FF_FF, 10, 2)));
