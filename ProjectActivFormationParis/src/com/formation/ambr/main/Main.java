@@ -1,8 +1,5 @@
 package com.formation.ambr.main;
 
-import java.util.ArrayList;
-
-import com.formation.ambr.exo.ExoArrayList1;
 import com.formation.ambr.exo.ExoSimple;
 import com.formation.ambr.exo.ExoTableau1;
 
@@ -133,13 +130,13 @@ public class Main {
 		////////////////
 
 		//ExoArrayList1
-		System.out.println("-----ExoArrayList1-----");
+		//		System.out.println("-----ExoArrayList1-----");
 
 		//1. remplirTableau
-		System.out.println("*remplirTableau*");
-		ExoArrayList1 exoArrayList1 = new ExoArrayList1();
-		ArrayList<Integer> list1 = new ArrayList<Integer>();
-		list1.add(7);
+		//		System.out.println("*remplirTableau*");
+		//		ExoArrayList1 exoArrayList1 = new ExoArrayList1();
+		//		ArrayList<Integer> list1 = new ArrayList<Integer>();
+		//		list1.add(7);
 
 	}
 }
