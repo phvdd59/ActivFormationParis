@@ -65,4 +65,14 @@ public class Entrepot extends ArrayList<Wagon> {
 		nbTypeWagons[e.getType()]++;
 		return super.add(e);
 	}
+	
+	/**
+	 * Wagon simple2
+	 * Wagon double
+	 * Wagon simple1
+	 * Wagon resto
+	 */
+	public void tri() {
+		
+	}
 }

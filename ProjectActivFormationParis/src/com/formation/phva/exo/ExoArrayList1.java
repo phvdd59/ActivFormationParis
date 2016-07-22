@@ -1,8 +1,8 @@
-package com.formation.issa.exo;
+package com.formation.phva.exo;
 
-import com.formation.phva.exo.InterExoTableau1;
+import java.util.ArrayList;
 
-public class ExoTableau1 implements InterExoTableau1 {
+public class ExoArrayList1 implements InterExoArrayList1 {
 
 	/**
 	 * Exemple d=7 , n=5 p=3 --> [7,10,13,16,19]
@@ -13,24 +13,10 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 *            = nb d'élément
 	 * @param p
 	 *            = pas entre chaque élément
-	 * @param
 	 * @return = nouveau tableau rempli
 	 */
-	public int[] remplirTableau(int d, int n, int p) {
-		int[] tab = new int[n];
-		tab[0] = d;
-
-		if ((long) d + (long) p * n > Integer.MAX_VALUE || (long) d + (long) p * n < Integer.MIN_VALUE) {
-
-		} else {
-			tab = new int[n];
-			tab[0] = d;
-			for (int i = 1; i < tab.length; i++) {
-				tab[i] = tab[i - 1] + p;
-			}
-		}
-
-		return tab;
+	public ArrayList<Integer> remplirTableau(int d, int n, int p) {
+		return null;
 	}
 
 	/**
@@ -45,17 +31,14 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 *            deuxième position pour l'interversion
 	 * @return
 	 */
-	public int[] intervertirDeuxElementsTableau(int[] tab, int i1, int i2) {
-		i1 = 3;
-		i2 = 8;
-
+	public ArrayList<Integer> intervertirDeuxElementsTableau(ArrayList<Integer> tab, int i1, int i2) {
 		return null;
 	}
 
 	/**
 	 * Exemple [1,4,6,2,4,6] : p=3,a=8 --> [1,4,6,8,2,4,6]
 	 * 
-	 * @param tabOrigine
+	 * @param tab
 	 *            tableau de départ
 	 * @param p
 	 *            position après laquelle il faut ajouter la valeur a
@@ -63,27 +46,8 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 *            valeur à ajouter
 	 * @return
 	 */
-	public int[] insererUnElementDansTableau(int[] tabOrigine, int p, int a) {
-		
-		
-
-		int tabResultat[] = new int[tabOrigine.length+1];
-
-		p = 3;
-		tabResultat[p] = a;
-
-		for (int i = 0; i < p; i++) {
-
-			tabResultat[i] = tabOrigine[i];
-		}
-
-		for (int i = 4; i < tabResultat.length; i++) {
-			tabResultat[i] = tabOrigine[i - 1];
-
-		}
-
-		return tabResultat;
-
+	public ArrayList<Integer> insererUnElementDansTableau(ArrayList<Integer> tab, int p, int a) {
+		return null;
 	}
 
 	/**
@@ -99,10 +63,7 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 *            tableau contenant les valeurs de remplacement
 	 * @return tableau
 	 */
-	public int[] insererUnTableauDansUnAutreAvecRemplacement(int[] tab, int p, int[] tab1) {
-
-		p = 2;
-
+	public ArrayList<Integer> insererUnTableauDansUnAutreAvecRemplacement(ArrayList<Integer> tab, int p, ArrayList<Integer> tab1) {
 		return null;
 	}
 
@@ -118,7 +79,7 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 *            tableau
 	 * @return
 	 */
-	public int[] rotationTableau(int[] tab, int p) {
+	public ArrayList<Integer> rotationTableau(ArrayList<Integer> tab, int p) {
 		return null;
 	}
 }

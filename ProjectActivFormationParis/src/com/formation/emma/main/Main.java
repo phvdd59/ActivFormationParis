@@ -20,52 +20,75 @@ public class Main {
 		System.out.println(somme);
 
 		System.out.println("exo1 tableau1");
-		int d = 7;
-		int n = 5;
-		int p = 3;
+		int d = 3;
+		int n = 16;
+		int p = -8;
 		ExoTableau1 exoTableau1 = new ExoTableau1();
 		int[] tableau = exoTableau1.remplirTableau(d, n, p);
-		for (int i = 0; i < tableau.length; i++) {
-			System.out.println(tableau[i]);
+
+		//faire if car boucle for ne fonctionne pas si tableau nul
+		if (tableau == null) {
+			System.out.println(tableau);
+		} else {
+			for (int i = 0; i < tableau.length; i++) {
+				System.out.println(tableau[i]);
+			}
 		}
 
 		System.out.println("exo2 tableau1");
+
 		int[] tab1 = { 7, 10, 13, 16, 19, 21, 24, 27, 30 };
-		int i1 = 2;
-		int i2 = 7;
+		int i1 = 3;
+		int i2 = 8;
 		ExoTableau1 exo2Tableau1 = new ExoTableau1();
 		int[] tableau2 = exo2Tableau1.intervertirDeuxElementsTableau(tab1, i1, i2);
-		for (int i = 0; i < tableau2.length; i++) {
-			System.out.println(tableau2[i]);
+		if (tableau2 == null) {
+			System.out.println(tableau2);
+		} else {
+			for (int i = 0; i < tableau2.length; i++) {
+				System.out.println(tableau2[i]);
+			}
 		}
 
 		System.out.println("exo3 tableau1");
 		int[] tab2 = { 1, 4, 6, 2, 4, 6 };
-		int a = 8;
+		int a = 3;
 		int p1 = 3;
 		ExoTableau1 exo3Tableau1 = new ExoTableau1();
 		int[] tableau3 = exo3Tableau1.insererUnElementDansTableau(tab2, p1, a);
-		for (int i = 0; i < tableau3.length; i++) {
-			System.out.println(tableau3[i]);
+		if (tableau3 == null) {
+			System.out.println(tableau3);
+		} else {
+			for (int i = 0; i < tableau3.length; i++) {
+				System.out.println(tableau3[i]);
+			}
 		}
 
 		System.out.println("exo4 tableau1");
 		int[] tab3 = { 1, 4, 6, 2, 4, 7 };
 		int[] tab4 = { 4, 9, 0 };
-		int p3 = 2;
+		int p3 = 3;
 		ExoTableau1 exo4Tableau1 = new ExoTableau1();
 		int[] tableau4 = exo4Tableau1.insererUnTableauDansUnAutreAvecRemplacement(tab3, p3, tab4);
-		for (int i = 0; i < tableau4.length; i++) {
-			System.out.println(tableau4[i]);
+		if (tableau4 == null) {
+			System.out.println(tableau4);
+		} else {
+			for (int i = 0; i < tableau4.length; i++) {
+				System.out.println(tableau4[i]);
+			}
 		}
 
 		System.out.println("exo5 tableau1");
 		int[] tab6 = { 1, 4, 6, 2, 4, 6 };
-		int p4 = 4;
+		int p4 = 3;
 		ExoTableau1 exo5Tableau1 = new ExoTableau1();
 		int[] tableau5 = exo5Tableau1.rotationTableau(tab6, p4);
-		for (int i = 0; i < tableau5.length; i++) {
-			System.out.println(tableau5[i]);
+		if (tableau5 == null) {
+			System.out.println(tableau5);
+		} else {
+			for (int i = 0; i < tableau5.length; i++) {
+				System.out.println(tableau5[i]);
+			}
 		}
 	}
 }

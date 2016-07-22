@@ -15,13 +15,20 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 *            = pas entre chaque élément
 	 * @return = nouveau tableau rempli
 	 */
+
+	//	Remplir tableau conditions validées
 	public int[] remplirTableau(int d, int n, int p) {
-		int[] tableau = new int[n];
-		tableau[0] = d;
+		int[] tableau = null;
+
 		int k = 1;
-		for (int i = 0; i < n - 1; i++) {
-			tableau[k] = tableau[i] + p;
-			k++;
+		if ((long) d + (long) n * p > Integer.MAX_VALUE || (long) d + (long) n * p < Integer.MIN_VALUE) { // valeur max et min de int
+		} else {
+			tableau = new int[n];
+			tableau[0] = d;
+			for (int i = 0; i < n - 1; i++) {
+				tableau[k] = tableau[i] + p;
+				k++;
+			}
 		}
 
 		return tableau;
@@ -39,12 +46,20 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 *            deuxième position pour l'interversion
 	 * @return
 	 */
-	public int[] intervertirDeuxElementsTableau(int[] tab, int i1, int i2) {
-		int a = tab[i1];
-		tab[i1] = tab[i2];
-		tab[i2] = a;
 
-		return tab;
+	//	Remplir tableau conditions validées
+	public int[] intervertirDeuxElementsTableau(int[] tab, int i1, int i2) {
+		// ne doit pas changer les valeurs du tableau initial, prend un nouveau tableau
+		// avant de cloner on construit un tableau null
+		int[] tab2 = null;
+		if (i1 < 0 || i1 > tab.length || i2 < 0 || i2 > tab.length || tab == null) {
+		} else {
+			tab2 = tab.clone();
+			int a = tab2[i1];
+			tab2[i1] = tab2[i2];
+			tab2[i2] = a;
+		}
+		return tab2;
 	}
 
 	/**
@@ -58,17 +73,23 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 *            valeur à ajouter
 	 * @return
 	 */
+
+	//	Remplir tableau conditions validées
 	public int[] insererUnElementDansTableau(int[] tab, int p, int a) {
-		int[] tableauFinal = new int[tab.length + 1];
+		int[] tableauFinal = null;
 
-		for (int i = 0; i < tableauFinal.length; i++) {
-			if (i < p) {
-				tableauFinal[i] = tab[i];
-			} else if (i == p) {
-				tableauFinal[i] = a;
-			} else if (i > p) {
-				tableauFinal[i] = tab[i - 1];
+		if (p < 0 || p > tab.length || tab == null) {
+		} else {
+			tableauFinal = new int[tab.length + 1];
+			for (int i = 0; i < tableauFinal.length; i++) {
+				if (i < p) {
+					tableauFinal[i] = tab[i];
+				} else if (i == p) {
+					tableauFinal[i] = a;
+				} else if (i > p) {
+					tableauFinal[i] = tab[i - 1];
 
+				}
 			}
 		}
 		return tableauFinal;
@@ -87,21 +108,30 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 *            tableau contenant les valeurs de remplacement
 	 * @return tableau
 	 */
+
+	//	Remplir tableau conditions validées
 	public int[] insererUnTableauDansUnAutreAvecRemplacement(int[] tab, int p, int[] tab1) {
-		int[] tableauFinal = new int[tab.length];
+		int[] tableauFinal = null;
 
-		for (int i = 0; i < tableauFinal.length; i++) {
-			if (i < p) {
-				tableauFinal[i] = tab[i];
-			} else if (i == p) {
-				for (int j = 0; j < tab1.length; j++) {
-					tableauFinal[i] = tab1[j];
-					i++;
+		if (tab1 == null || tab == null || p < 0 || p > tab.length || p - 1 + tab1.length >= tab.length) {
+		} else {
+			tableauFinal = new int[tab.length];
+
+			for (int i = 0; i < tableauFinal.length; i++) {
+				if (i < p) {
+					tableauFinal[i] = tab[i];
+				} else if (i == p) {
+
+					for (int j = 0; j < tab1.length; j++) {
+						tableauFinal[i] = tab1[j];
+						i++;
+					}
+					i--;
+				} else if (i > p) {
+
+					tableauFinal[i] = tab[i];
+
 				}
-				i--;
-			} else if (i > p) {
-				tableauFinal[i] = tab[i];
-
 			}
 		}
 		return tableauFinal;
@@ -119,19 +149,26 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 *            tableau
 	 * @return
 	 */
+
+	//	Remplir tableau conditions validées
 	public int[] rotationTableau(int[] tab, int p) {
-		int[] tableauFinal = new int[tab.length];
 		int k = 0;
-		for (int i = 0; i < tableauFinal.length; i++) {
-			if (i + p < tab.length) {
-				tableauFinal[i + p] = tab[i];
-			} else {
-				tableauFinal[k] = tab[i];
-				k++;
+		int[] tableauFinal = null;
+		if (p < 0 || p > tab.length || tab == null) {
+		} else {
+			tableauFinal = new int[tab.length];
+
+			for (int i = 0; i < tableauFinal.length; i++) {
+				if (i + p < tab.length) {
+					tableauFinal[i + p] = tab[i];
+				} else {
+					tableauFinal[k] = tab[i];
+					k++;
+				}
+
 			}
 
 		}
-
 		return tableauFinal;
 	}
 }
