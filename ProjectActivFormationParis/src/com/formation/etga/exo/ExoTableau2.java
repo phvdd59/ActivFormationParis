@@ -96,9 +96,9 @@ public class ExoTableau2 {
 	 *                valeur en entrée
 	 * @return tableau représentant cette valeur mais en binaire
 	 */
+
 	public int[] tabBaseDeux(int v) {
-		int[] tabFinal = new int[32];
-		System.out.println("A MORT LOUIS [1 0 0 0] !");
-		return tabFinal;
+		return null;
+
 	}
 }
