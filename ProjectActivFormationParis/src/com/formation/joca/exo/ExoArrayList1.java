@@ -68,7 +68,7 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 	 */
 	public ArrayList<Integer> insererUnElementDansTableau(ArrayList<Integer> tab, int p, int a) {
 		if (tab == null) {
-			return null;
+			return tab;
 		} else {
 			ArrayList<Integer> tabModif = new ArrayList<Integer>();
 			tabModif.addAll(tab);
@@ -98,7 +98,7 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 			ArrayList<Integer> tab1) {
 		ArrayList<Integer> tabModif = new ArrayList<Integer>();
 		if (tab == null) {
-			return null;
+			return tab;
 		} else if (tab1 == null) {
 			tabModif.addAll(tab);
 			return tabModif;
@@ -133,7 +133,7 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 	 */
 	public ArrayList<Integer> rotationTableau(ArrayList<Integer> tab, int p) {
 		if (tab == null) {
-			return null;
+			return tab;
 		} else {
 			ArrayList<Integer> tabModif = new ArrayList<Integer>();
 			tabModif.addAll(tab);
