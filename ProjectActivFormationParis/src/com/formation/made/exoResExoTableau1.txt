@@ -1,39 +1,26 @@
 made
 
 made insererUnTableauDansUnAutreAvecRemplacement0 (0/2): KO | exo.insererUnTableauDansUnAutreAvecRemplacement(taba, 2, tabb)
-3
 made insererUnTableauDansUnAutreAvecRemplacement1 (0/2): KO | exo.insererUnTableauDansUnAutreAvecRemplacement(tab, 3, tab1)
-15
 made insererUnTableauDansUnAutreAvecRemplacement2 (0/1): KO | exo.insererUnTableauDansUnAutreAvecRemplacement(tab, -3, tab1)
--3
 made insererUnTableauDansUnAutreAvecRemplacement3 (0/1): KO | exo.insererUnTableauDansUnAutreAvecRemplacement(tab, 3000, tab1)
-3000
 made intervertirDeuxElementsTableau0 (2/2):    | exo.intervertirDeuxElementsTableau(tab0, 3, 8)
 made intervertirDeuxElementsTableau1 (2/2):    | exo.intervertirDeuxElementsTableau(tab, 3, 8)
 made intervertirDeuxElementsTableau2 (0/1): KO | exo.intervertirDeuxElementsTableau(tab, -3, 8)
--4
 made intervertirDeuxElementsTableau3 (0/1): KO | exo.intervertirDeuxElementsTableau(tab, 3, 44448)
-44447
 made intervertirDeuxElementsTableau4 (0/1): KO | exo.intervertirDeuxElementsTableau(tab, 34444, 8)
-34443
 made intervertirDeuxElementsTableau5 (0/1): KO | exo.intervertirDeuxElementsTableau(tab, 3, -8)
--9
 made remplirTableau0 (2/2):    | exo.remplirTableau(7, 5, 3)
 made remplirTableau1 (2/2):    | exo.remplirTableau(-120, 125, 7)
-made remplirTableau2 (0/1): KO | exo.remplirTableau(0x7FFFFFF0, 16, 8)
-made remplirTableau3 (0/1): KO | exo.remplirTableau(-0x7FFFFFF0, 16, -8)
+made remplirTableau2 (1/1):    | exo.remplirTableau(0x7FFFFFF0, 16, 8)
+made remplirTableau3 (1/1):    | exo.remplirTableau(-0x7FFFFFF0, 16, -8)
 made rotationTableau0 (2/2):    | exo.rotationTableau(tabA, 2)
 made rotationTableau1 (2/2):    | exo.rotationTableau(tab, 3)
-made rotationTableau2 (0/1): KO | exo.rotationTableau(tab, -3)
--3
-made rotationTableau3 (0/1): KO | exo.rotationTableau(tab, 3000)
--952
-made rotationTableau4 (0/1): KO | exo.rotationTableau(tab, -777)
--777
+made rotationTableau2 (1/1):    | exo.rotationTableau(tab, -3)
+made rotationTableau3 (1/1):    | exo.rotationTableau(tab, 3000)
+made rotationTableau4 (1/1):    | exo.rotationTableau(tab, -777)
 made insererUnElementDansTableau0 (2/2):    | exo.insererUnElementDansTableau(tab1, 3, 8)
 made insererUnElementDansTableau1 (2/2):    | exo.insererUnElementDansTableau(tab, 3, 8)
 made insererUnElementDansTableau2 (0/1): KO | exo.insererUnElementDansTableau(tab, -3, 8)
--3
 made insererUnElementDansTableau3 (0/1): KO | exo.insererUnElementDansTableau(tab, 33333, 8)
-2048
-made NOTE : (16 / 36) = 8 / 20
+made NOTE : (21 / 33) = 12 / 20

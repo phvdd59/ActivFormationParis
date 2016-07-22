@@ -1,26 +1,37 @@
 ambr
 
-ambr insererUnTableauDansUnAutreAvecRemplacement0 (0/2): KO | exo.insererUnTableauDansUnAutreAvecRemplacement(taba, 2, tabb)
-ambr insererUnTableauDansUnAutreAvecRemplacement1 (0/2): KO | exo.insererUnTableauDansUnAutreAvecRemplacement(tab, 3, tab1)
+ambr insererUnTableauDansUnAutreAvecRemplacement0 (2/2):    | exo.insererUnTableauDansUnAutreAvecRemplacement(taba, 2, tabb)
+ambr insererUnTableauDansUnAutreAvecRemplacement1 (2/2):    | exo.insererUnTableauDansUnAutreAvecRemplacement(tab, 3, tab1)
 ambr insererUnTableauDansUnAutreAvecRemplacement2 (0/1): KO | exo.insererUnTableauDansUnAutreAvecRemplacement(tab, -3, tab1)
+-3
 ambr insererUnTableauDansUnAutreAvecRemplacement3 (0/1): KO | exo.insererUnTableauDansUnAutreAvecRemplacement(tab, 3000, tab1)
-ambr intervertirDeuxElementsTableau0 (0/2): KO | exo.intervertirDeuxElementsTableau(tab0, 3, 8)
-ambr intervertirDeuxElementsTableau1 (0/2): KO | exo.intervertirDeuxElementsTableau(tab, 3, 8)
+2048
+ambr intervertirDeuxElementsTableau0 (2/2):    | exo.intervertirDeuxElementsTableau(tab0, 3, 8)
+ambr intervertirDeuxElementsTableau1 (2/2):    | exo.intervertirDeuxElementsTableau(tab, 3, 8)
 ambr intervertirDeuxElementsTableau2 (0/1): KO | exo.intervertirDeuxElementsTableau(tab, -3, 8)
+-4
 ambr intervertirDeuxElementsTableau3 (0/1): KO | exo.intervertirDeuxElementsTableau(tab, 3, 44448)
+44447
 ambr intervertirDeuxElementsTableau4 (0/1): KO | exo.intervertirDeuxElementsTableau(tab, 34444, 8)
+34443
 ambr intervertirDeuxElementsTableau5 (0/1): KO | exo.intervertirDeuxElementsTableau(tab, 3, -8)
+-9
 ambr remplirTableau0 (2/2):    | exo.remplirTableau(7, 5, 3)
 ambr remplirTableau1 (2/2):    | exo.remplirTableau(-120, 125, 7)
 ambr remplirTableau2 (0/1): KO | exo.remplirTableau(0x7FFFFFF0, 16, 8)
 ambr remplirTableau3 (0/1): KO | exo.remplirTableau(-0x7FFFFFF0, 16, -8)
-ambr rotationTableau0 (0/2): KO | exo.rotationTableau(tabA, 2)
-ambr rotationTableau1 (0/2): KO | exo.rotationTableau(tab, 3)
+ambr rotationTableau0 (2/2):    | exo.rotationTableau(tabA, 2)
+ambr rotationTableau1 (2/2):    | exo.rotationTableau(tab, 3)
 ambr rotationTableau2 (0/1): KO | exo.rotationTableau(tab, -3)
+-3
 ambr rotationTableau3 (0/1): KO | exo.rotationTableau(tab, 3000)
+-952
 ambr rotationTableau4 (0/1): KO | exo.rotationTableau(tab, -777)
-ambr insererUnElementDansTableau0 (0/2): KO | exo.insererUnElementDansTableau(tab1, 3, 8)
-ambr insererUnElementDansTableau1 (0/2): KO | exo.insererUnElementDansTableau(tab, 3, 8)
+-777
+ambr insererUnElementDansTableau0 (2/2):    | exo.insererUnElementDansTableau(tab1, 3, 8)
+ambr insererUnElementDansTableau1 (2/2):    | exo.insererUnElementDansTableau(tab, 3, 8)
 ambr insererUnElementDansTableau2 (0/1): KO | exo.insererUnElementDansTableau(tab, -3, 8)
+-3
 ambr insererUnElementDansTableau3 (0/1): KO | exo.insererUnElementDansTableau(tab, 33333, 8)
-ambr NOTE : (4 / 36) = 2 / 20
+2048
+ambr NOTE : (20 / 33) = 12 / 20

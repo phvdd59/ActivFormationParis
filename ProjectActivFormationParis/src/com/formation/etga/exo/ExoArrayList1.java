@@ -28,8 +28,6 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 				list.add(d);
 				d = d + p;
 			}
-		} else {
-			System.out.println("Les valeurs sont incorrectes");
 		}
 		return list;
 	}
@@ -54,8 +52,6 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 		if ((list != null) && (0 <= i1) && (0 <= i2) && (i1 < list.size()) && (i2 < list.size())) {
 			listFinal.set(i1, b);
 			listFinal.set(i2, a);
-		} else {
-			System.out.println("Les valeurs sont incorrectes");
 		}
 		return listFinal;
 	}
@@ -83,8 +79,6 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 					listFinal.set(i, list.get(i - 1));
 				}
 			}
-		} else {
-			System.out.println("Les valeurs sont incorrectes");
 		}
 		return listFinal;
 	}
@@ -106,12 +100,11 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 		ArrayList<Integer> listFinal = new ArrayList<Integer>();
 		listFinal.addAll(list);
 		if ((list != null) && (list1 != null) && (0 <= p) && (list1.size() <= list.size()) && (p <= (list.size() - list1.size()))) {
-			for (int i = p; i < list1.size(); i++) {
-				listFinal.set(i, list1.get(p));
-				p++;
+			int j = 0;
+			for (int i = p; i < (p + list1.size()); i++) {
+				listFinal.set(i, list1.get(j));
+				j++;
 			}
-		} else {
-			System.out.println("Les valeurs sont incorrectes");
 		}
 		return listFinal;
 	}
@@ -142,10 +135,7 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 					listFinal.set(i, list.get(i - p));
 				}
 			}
-		} else {
-			System.out.println("Les valeurs sont incorrectes");
 		}
-
 		return listFinal;
 	}
 }

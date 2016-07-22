@@ -16,12 +16,11 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 */
 	public int[] remplirTableau(int d, int n, int p) {
 		int[] tab;
-		if (n > 0) {
+		if ((n > 0) && (((long) d * (long) p * n) < Integer.MAX_VALUE) && (((long) d * (long) p * n) > Integer.MIN_VALUE)) {
 			tab = new int[n];
 			for (int i = 0; i < tab.length; i++) {
 				tab[i] = d + i * p;
 			}
-
 		} else {
 			tab = new int[1];
 			tab[0] = d;
@@ -94,7 +93,7 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 */
 	public int[] insererUnTableauDansUnAutreAvecRemplacement(int[] tab, int p, int[] tab1) {
 		int[] nouveauTableau = tab.clone();
-		if ((p >= 0) && (p < tab.length) && (tab1.length == (tab.length - p))) {
+		if ((p >= 0) && (p < (tab.length - tab1.length))) {
 			for (int i = 0; i < tab1.length; i++) {
 				nouveauTableau[i + p] = tab1[i];
 			}
@@ -116,14 +115,15 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 */
 	public int[] rotationTableau(int[] tab, int p) {
 		int[] nouveauTableau = tab.clone();
-		if ((p < tab.length) && (p > 0)) {
 			for (int i = 0; i < nouveauTableau.length; i++) {
 				int entierDecalage = i + p;
-				if (entierDecalage >= nouveauTableau.length) {
+				while (entierDecalage >= nouveauTableau.length) {
 					entierDecalage -= nouveauTableau.length;
 				}
-				nouveauTableau[i] = tab[entierDecalage];
-			}
+				while (entierDecalage < 0 ) {
+					entierDecalage += nouveauTableau.length;
+				}
+				nouveauTableau[entierDecalage] = tab[i];
 		}
 		return nouveauTableau;
 	}

@@ -1,4 +1,4 @@
-package com.formation.thde.exo;
+package com.formation.soka.exo;
 
 import java.util.ArrayList;
 
@@ -18,15 +18,15 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 	 * @return = nouveau tableau rempli
 	 */
 	public ArrayList<Integer> remplirTableau(int d, int n, int p) {
-		ArrayList<Integer> list = new ArrayList<Integer>();
-		if (n < 1 || (long) d + (long) p * n > Integer.MAX_VALUE || (long) d + (long) p * n < Integer.MIN_VALUE) {
+		ArrayList<Integer> liste = null;
+		if ((long) d + (long) p * n > Integer.MAX_VALUE || (long) d + (long) p * n < Integer.MIN_VALUE) {
 		} else {
-			list.add(d);
-			for (int i = 1; i < n; i++) {
-				list.add(d + p * i);
+			liste = new ArrayList<Integer>();
+			for (int i = 0; i < n; i++) {
+				liste.add(d + (i * p));
 			}
 		}
-		return list;
+		return liste;
 	}
 
 	/**
@@ -34,23 +34,22 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 	 * [7,10,27,16,19,21,24,13,30]
 	 * 
 	 * @param tab
-	 *            tableau en entrée
-	 * @param i1
-	 *            première position pour l'interversion
+	 *            tableau en entrée // * @param i1 première position pour
+	 *            l'interversion
 	 * @param i2
 	 *            deuxième position pour l'interversion
 	 * @return
 	 */
 	public ArrayList<Integer> intervertirDeuxElementsTableau(ArrayList<Integer> tab, int i1, int i2) {
-		ArrayList<Integer> list = new ArrayList<Integer>();
-		if (tab == null || i1 < 0 || i2 < 0 || i1 >= tab.size() || i2 >= tab.size()) {
-			list.addAll(tab);
+		ArrayList<Integer> tab2 = new ArrayList<Integer>();
+		if (i1 < 0 || i2 < 0 || i1 >= tab.size() || i2 >= tab.size() || tab == null) {
+			tab2.addAll(tab);
 		} else {
-			list.addAll(tab);
-			list.set(i1 - 1, tab.get(i2 - 1));
-			list.set(i2 - 1, tab.get(i1 - 1));
+			tab2.addAll(tab);
+			tab2.set(i1, tab2.get(i2));
+			tab2.set(i2, tab.get(i1));
 		}
-		return list;
+		return tab2;
 	}
 
 	/**
@@ -65,14 +64,14 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 	 * @return
 	 */
 	public ArrayList<Integer> insererUnElementDansTableau(ArrayList<Integer> tab, int p, int a) {
-		ArrayList<Integer> list = new ArrayList<Integer>();
-		if (tab == null || p < 0 || p >= tab.size()) {
-			list.addAll(tab);
+		ArrayList<Integer> tab2 = new ArrayList<Integer>();
+		if (p < 0 || p >= tab.size() || tab == null) {
+			tab2.addAll(tab);
 		} else {
-			list.addAll(tab);
-			list.add(p, a);
+			tab2.addAll(tab);
+			tab2.add(p, a);
 		}
-		return list;
+		return tab2;
 	}
 
 	/**
@@ -89,18 +88,18 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 	 * @return tableau
 	 */
 	public ArrayList<Integer> insererUnTableauDansUnAutreAvecRemplacement(ArrayList<Integer> tab, int p, ArrayList<Integer> tab1) {
-		ArrayList<Integer> list = new ArrayList<Integer>();
-		if (tab == null || tab1 == null || p < 0 || p > tab.size() - tab1.size() || tab1.size() > tab.size()) {
-			list.addAll(tab);
+		ArrayList<Integer> tab2 = new ArrayList<Integer>();
+		if (tab == null || tab1 == null || p >= tab.size() || p < 0 || p > tab.size() - tab1.size() || tab1.size() > tab.size()) {
 		} else {
-			int k = 0;
-			list.addAll(tab);
-			for (int i = p; i <= p + tab1.size() - 1; i++) {
-				list.set(i, tab1.get(k));
-				k++;
+			for (int i = 0; i < tab.size(); i++) {
+				if (i < p) {
+					tab2.add(i, tab.get(i));
+				} else {
+					tab2.add(i, tab1.get(i - p));
+				}
 			}
 		}
-		return list;
+		return tab;
 	}
 
 	/**
@@ -116,29 +115,23 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 	 * @return
 	 */
 	public ArrayList<Integer> rotationTableau(ArrayList<Integer> tab, int p) {
-		ArrayList<Integer> list = new ArrayList<Integer>();
-		int p2 = p;
+		ArrayList<Integer> tab2 = (ArrayList<Integer>) tab.clone();
 		if (tab == null) {
+		} else if ((p == 0)) {
+			tab2.addAll(tab);
 		} else {
-			if (p < 0) {
-				p2 = -p;
-				if (p2 >= tab.size()) {
-					p2 = p2 % tab.size();
-				}
-				list.addAll(tab);
-				for (int i = 0; i < p2; i++) {
-					list.add((list.size() - 1), list.remove(0));
-				}
-			} else {
-				if (p >= tab.size()) {
-					p2 = p % tab.size();
-				}
-				list.addAll(tab);
-				for (int i = 0; i < p; i++) {
-					list.add(0, list.remove(list.size() - 1));
-				}
+			while (p >= tab.size())
+				p = p - tab.size();
+		}
+		if (p > 0) {
+			for (int i = 0; i < p; i++) {
+				tab2.add(0, tab2.remove(tab2.size() - 1));
+			}
+		} else {
+			for (int i = 0; i < -p; i++) {
+				tab2.add(tab2.remove(0));
 			}
 		}
-		return list;
+		return tab2;
 	}
 }

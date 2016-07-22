@@ -49,6 +49,8 @@ public class ExoTableau1 implements InterExoTableau1 {
 				tabModif = tab.clone();
 				tabModif[i1] = tab[i2];
 				tabModif[i2] = tab[i1];
+			} else {
+				tabModif = tab;
 			}
 		}
 		return tabModif;
@@ -107,9 +109,12 @@ public class ExoTableau1 implements InterExoTableau1 {
 		if (tab == null) {
 			return null;
 		} else if (tab1 == null) {
-			return tab;
+			tabModif = new int[tab.length];
+			tabModif = tab;
+			return tabModif;
 		} else if (p >= tab.length || p < 0) {
 			tabModif = new int[tab.length];
+			tabModif = tab;
 			return tabModif;
 		} else {
 

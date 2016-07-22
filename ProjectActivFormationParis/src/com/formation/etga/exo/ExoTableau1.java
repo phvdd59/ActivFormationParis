@@ -16,8 +16,6 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 * @return = nouveau tableau rempli
 	 */
 
-	private int[] tab;
-
 	public int[] remplirTableau(int d, int n, int p) {
 		int[] tab = new int[n];
 		int lastValue = d + n * p;
@@ -29,8 +27,6 @@ public class ExoTableau1 implements InterExoTableau1 {
 				tab[i] = d;
 				d = d + p;
 			}
-		} else {
-			System.out.println("Les valeurs sont incorrectes");
 		}
 		return tab;
 	}
@@ -51,11 +47,9 @@ public class ExoTableau1 implements InterExoTableau1 {
 		int[] tabFinal = tab.clone();
 		int a = tab[i1];
 		int b = tab[i2];
-		if ((tab != null) && (0 <= i1) && (0 <= i2) && (i1 < tab.length) && (i2 < tab.length)) {
+		if ((tab != null) && (0 < i1) && (0 < i2) && (i1 < tab.length) && (i2 < tab.length)) {
 			tabFinal[i1] = b;
 			tabFinal[i2] = a;
-		} else {
-			System.out.println("Les valeurs sont incorrectes");
 		}
 		return tabFinal;
 	}
@@ -73,7 +67,7 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 */
 	public int[] insererUnElementDansTableau(int[] tab, int p, int a) {
 		int[] tabFinal = new int[tab.length + 1];
-		if ((tab != null) && (0 <= p) && (p < tab.length)) {
+		if ((tab != null) && (0 < p) && (p < tab.length)) {
 			for (int i = 0; i < tabFinal.length; i++) {
 				if (i < p) {
 					tabFinal[i] = tab[i];
@@ -83,8 +77,6 @@ public class ExoTableau1 implements InterExoTableau1 {
 					tabFinal[i] = tab[i - 1];
 				}
 			}
-		} else {
-			System.out.println("Les valeurs sont incorrectes");
 		}
 		return tabFinal;
 	}
@@ -104,13 +96,12 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 */
 	public int[] insererUnTableauDansUnAutreAvecRemplacement(int[] tab, int p, int[] tab1) {
 		int[] tabFinal = tab.clone();
-		if ((tab != null) && (tab1 != null) && (0 <= p) && (tab1.length <= tab.length) && (p <= (tab.length - tab1.length))) {
-			for (int i = p; i < tab1.length; i++) {
-				tabFinal[i] = tab1[p];
-				p++;
+		if ((tab != null) && (tab1 != null) && (0 < p) && (tab1.length <= tab.length) && (p <= (tab.length - tab1.length))) {
+			int j = 0;
+			for (int i = p; i < (p + tab1.length); i++) {
+				tabFinal[i] = tab1[j];
+				j++;
 			}
-		} else {
-			System.out.println("Les valeurs sont incorrectes");
 		}
 		return tabFinal;
 	}
@@ -140,10 +131,7 @@ public class ExoTableau1 implements InterExoTableau1 {
 					tabFinal[i] = tab[i - p];
 				}
 			}
-		} else {
-			System.out.println("Les valeurs sont incorrectes");
 		}
-
 		return tabFinal;
 	}
 }

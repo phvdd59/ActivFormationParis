@@ -50,6 +50,8 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 				tabModif.addAll(tab);
 				tabModif.set(i1, tab.get(i2));
 				tabModif.set(i2, tab.get(i1));
+			} else {
+				tabModif = tab;
 			}
 		}
 		return tabModif;

@@ -19,7 +19,8 @@ public class ExoTableau1 implements InterExoTableau1 {
 	public int[] remplirTableau(int d, int n, int p) {
 		// protéger pour remplir tableau sur l'overflow, vérifier à priori.
 		int[] tab = null;
-		if ((long) d + (long) (p * n) <= Integer.MAX_VALUE && (long) d + (long) (p * n) >= Integer.MIN_VALUE) {
+		if (n >= 0 && (long) d + (long) (p * n) <= Integer.MAX_VALUE
+				&& (long) d + (long) (p * n) >= Integer.MIN_VALUE) {
 			tab = new int[n];
 			for (int i = 0; i < tab.length; i++) {
 				tab[i] = d;
@@ -48,9 +49,9 @@ public class ExoTableau1 implements InterExoTableau1 {
 		int tmpI1 = 0;
 		int tmpI2 = 0;
 		int[] tab2 = null;
-		if (tab == null) {
-			return tab2;
-		} else if (i1 > 0 && i1 < tab.length && i2 > 0 && i2 < tab.length) {
+		if (tab == null || i2 < 0 || i1 < 0 || i1 > tab.length || i2 > tab.length) {
+			return tab;
+		} else {
 			tab2 = tab.clone();
 			for (int i = 0; i < tab.length; i++) {
 				if (i == i1) {
@@ -84,8 +85,8 @@ public class ExoTableau1 implements InterExoTableau1 {
 
 	public int[] insererUnElementDansTableau(int[] tab, int p, int a) {
 		int[] tmpTab = null;
-		if (tab == null || (tab instanceof int[] != true)) {
-			return tmpTab;
+		if (tab == null || (tab instanceof int[] != true) || p < 0 || p > tab.length) {
+			return tab;
 		} else if (p >= 0 && p < tab.length) {
 			tmpTab = new int[tab.length + 1];
 			int j = 0;
@@ -117,8 +118,9 @@ public class ExoTableau1 implements InterExoTableau1 {
 
 	public int[] insererUnTableauDansUnAutreAvecRemplacement(int[] tab, int p, int[] tab1) {
 		int[] tmpTab = null;
-		if (tab == null || tab1 == null || (tab instanceof int[] != true) || (tab1 instanceof int[] != true)) {
-			return tmpTab;
+		if (tab == null || tab1 == null || (tab instanceof int[] != true) || (tab1 instanceof int[] != true) || p < 0
+				|| p > tab.length) {
+			return tab;
 		} else if (p >= 0 && p < tab.length) {
 			int j = 0;
 			tmpTab = new int[tab.length];
@@ -163,16 +165,23 @@ public class ExoTableau1 implements InterExoTableau1 {
 	public int[] rotationTableau(int[] tab, int p) {
 		int[] tmpTab = null;
 		if (tab == null || (tab instanceof int[] != true)) {
-			return tmpTab;
-		} else if (Math.abs(p) > tab.length) {
-			p = p % tab.length;
-		} else if (p >= 0 && p < tab.length) {
+			return tab;
+		}
+		if (Math.abs(p) > tab.length) {
+			if (p < 0) {
+				p = p % tab.length;
+				p = -p;
+			} else {
+				p = p % tab.length;
+			}
+		}
+		if (p >= 0 && p < tab.length) {
 			tmpTab = tab.clone();
 			for (int i = 0; i < tab.length; i++) {
 				if (i + p < tab.length) {
-					tmpTab[i] = tab[i + p];
+					tmpTab[i + p] = tab[i];
 				} else {
-					tmpTab[i] = tab[(i + p) - tab.length];
+					tmpTab[i + p - tab.length] = tab[i];
 				}
 			}
 		} else if (p <= 0 && p < tab.length) {

@@ -10,7 +10,7 @@ public class MainActiveFormationParis {
 
 	public static void main(String[] args) {
 		MainActiveFormationParis main = new MainActiveFormationParis();
-		main.init();
+		main.init2();
 	}
 
 	private void init() {
@@ -19,7 +19,7 @@ public class MainActiveFormationParis {
 		list1 = exo.remplirTableau(3, 10, 2);
 		System.out.println(list1);
 		ArrayList<Integer> list2 = new ArrayList<Integer>();
-		list2 = exo.remplirTableau(0, 10, 3);
+		list2 = exo.remplirTableau(0, 20, 3);
 		System.out.println(list2);
 		System.out.println(exo.insererUnTableauDansUnAutreAvecRemplacement(list1, 3, list2));
 		System.out.println(exo.rotationTableau(list1, -2));
@@ -28,18 +28,22 @@ public class MainActiveFormationParis {
 
 	private void init2() {
 		ExoTableau1 exo = new ExoTableau1();
+		System.out.println("remplirTableau");
 		System.out.println(Arrays.toString(exo.remplirTableau(0x7F_FF_FF_FF, 10, 2)));
 		int[] tab = { 7, 10, 13, 16, 19, 21, 24, 27, 30 };
-		int i1 = 3, i2 = 8;
+		int i1 = 4, i2 = 50;
+		System.out.println("intervertirDeuxElementsTableau");
 		System.out.println(Arrays.toString(tab));
 		System.out.println(Arrays.toString(exo.intervertirDeuxElementsTableau(tab, i1, i2)));
 		int[] tab2 = { 1, 4, 6, 2, 4, 6 };
-		int p = 3, a = 8;
+		int p = -3, a = 8;
+		System.out.println("insererUnElementDansTableau");
 		System.out.println(Arrays.toString(tab2));
 		System.out.println(Arrays.toString(exo.insererUnElementDansTableau(tab2, p, a)));
 		int[] tab3 = { 1, 4, 6, 2, 4, 7 };
 		int[] tab4 = { 4, 9, 0 };
-		p = 2;
+		p = 4;
+		System.out.println("insererUnTableauDansUnAutreAvecRemplacement");
 		System.out.println(Arrays.toString(tab3));
 		System.out.println(Arrays.toString(tab4));
 		System.out.println("-----");
@@ -57,7 +61,7 @@ public class MainActiveFormationParis {
 		p = 2;
 		System.out.println(Arrays.toString(tab7));
 		System.out.println(Arrays.toString(exo.rotationTableau(tab7, p)));
-		p = -4;
+		p = -1;
 		System.out.println(Arrays.toString(tab7));
 		System.out.println(Arrays.toString(exo.rotationTableau(tab7, p)));
 	}
