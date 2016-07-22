@@ -14,6 +14,7 @@ public class MainActiveFormationParis {
 	private void init() {
 		ExoTableau1 exo = new ExoTableau1();
 		System.out.println(Arrays.toString(exo.remplirTableau(10, 50, 3)));
+		long[] tabTest = {5,3,9,7,8};
 		int[] tab = { 7, 10, 13, 16, 19, 21, 24, 27, 30 };
 		int i1 = 3, i2 = 8;
 		System.out.println(Arrays.toString(tab));

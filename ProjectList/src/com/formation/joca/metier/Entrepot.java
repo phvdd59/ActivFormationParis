@@ -88,6 +88,7 @@ public class Entrepot extends ArrayList<Wagon> {
 				break;
 			}
 		}
+
 		this.clear();
 		this.addAll(listWagonSimple2);
 		this.addAll(listWagonDouble);

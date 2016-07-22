@@ -39,7 +39,7 @@ public class Main {
 		int[] tab3 = tableauRempli3.remplirTableau(7, 9, 3);
 
 		int[] tabOriginel = tableauRempli2.remplirTableau(7, 9, 3);
-		int[] tabInterverti = tableauRempli2.intervertirDeuxElementsTableau(tableauRempli2, 3, 8);
+		//int[] tabInterverti = tableauRempli2.intervertirDeuxElementsTableau(tableauRempli2, 3, 8);
 
 	}
 
