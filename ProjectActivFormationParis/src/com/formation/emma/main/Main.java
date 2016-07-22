@@ -2,8 +2,6 @@ package com.formation.emma.main;
 
 import java.util.ArrayList;
 
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane.SystemMenuBar;
-
 import com.formation.emma.exo.ExoArrayList1;
 import com.formation.emma.exo.ExoSimple;
 import com.formation.emma.exo.ExoTableau1;

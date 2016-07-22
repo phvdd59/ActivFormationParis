@@ -11,7 +11,7 @@ public class MainActiveFormationParisJoca {
 
 	public static void main(String[] arg) {
 		MainActiveFormationParisJoca test = new MainActiveFormationParisJoca();
-		test.init4();
+		test.init2();
 	}
 
 	public void afficherTableau(int[] tab) {
@@ -40,18 +40,18 @@ public class MainActiveFormationParisJoca {
 		int[] tabTest = exo2.remplirTableau(7, 5, 3);
 		this.afficherTableau(tabTest);
 
-		tabTest = exo2.intervertirDeuxElementsTableau(tabTest, 2, 5);
-		this.afficherTableau(tabTest);
+		// tabTest = exo2.intervertirDeuxElementsTableau(tabTest, 2, 5);
+		// this.afficherTableau(tabTest);
 
-		tabTest = exo2.insererUnElementDansTableau(tabTest, 3, 5);
-		this.afficherTableau(tabTest);
+		// tabTest = exo2.insererUnElementDansTableau(tabTest, 3, 5);
+		// this.afficherTableau(tabTest);
 
 		int[] tab2 = { 2, 8 };
-		tabTest = exo2.insererUnTableauDansUnAutreAvecRemplacement(tabTest, 2, tab2);
+		tabTest = exo2.insererUnTableauDansUnAutreAvecRemplacement(tabTest, 2000, tab2);
 		this.afficherTableau(tabTest);
 
 		tabTest = exo2.rotationTableau(tabTest, 2);
-		this.afficherTableau(tabTest);
+		// this.afficherTableau(tabTest);
 	}
 
 	private void init3() {

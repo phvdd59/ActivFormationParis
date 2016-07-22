@@ -123,9 +123,12 @@ public class ExoTableau1 implements InterExoTableau1 {
 	public int[] rotationTableau(int[] tab, int p) {
 		int[] nuevoTab = null;
 		if (tab == null) {
-		} else if (p >= tab.length || p == 0) {
+		} else if (p == 0) {
 			nuevoTab = tab.clone();
 		} else {
+			while (p >= tab.length) {
+				p = p - tab.length;
+			}
 			nuevoTab = new int[tab.length];
 			if (p > 0) {
 				for (int i = 0; i < tab.length; i++) {
