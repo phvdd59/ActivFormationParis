@@ -41,7 +41,7 @@ public class ExoTableau1 implements InterExoTableau1 {
 	}
 
 	// correction thomas
-	public int[] remplirTableau(int d, int n, int p) {
+	public int[] remplirTableau1(int d, int n, int p) {
 		int[] tab = null;
 		tab[0] = d;
 
@@ -80,7 +80,7 @@ public class ExoTableau1 implements InterExoTableau1 {
 	public int[] intervertirDeuxElementsTableau(int[] tabOriginel, int i1, int i2) {
 		int[] tab1 = new int[n];
 		int[] tab2 = new int[n];
-		public int[] tab1.remplirTableau(int d, int n, int p);
+//		public int[] tab1.remplirTableau(int d, int n, int p);
 		
 		
 		
@@ -91,7 +91,7 @@ public class ExoTableau1 implements InterExoTableau1 {
 	}
 
 	//correction thomas
-	public int[] intervertirDeuxElementsTableau(int[] tab, int i1, int i2) {
+	public int[] intervertirDeuxElementsTableau1(int[] tab, int i1, int i2) {
 		int[] tab2 = null;
 		if (tab == null) {
 
@@ -103,6 +103,7 @@ public class ExoTableau1 implements InterExoTableau1 {
 			tab2[i1 - 1] = tab2[i2 - 1];
 			tab2[i2 - 1] = tab[i1 - 1];
 		}
+		return null;
 	}
 
 	//3
