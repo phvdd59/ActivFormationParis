@@ -130,6 +130,7 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 
 	}
 
+	// comm
 	/**
 	 * Exemple 1 tab [1,4,6,2,4,6] : p = 2 --> tab résultat [4,6,1,4,6,2]
 	 * Exemple 2 tab [1,4,6,2,4,6] : p = 4 --> tab résultat [6,2,4,6,1,4]
