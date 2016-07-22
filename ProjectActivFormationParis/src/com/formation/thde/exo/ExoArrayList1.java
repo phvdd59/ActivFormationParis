@@ -1,10 +1,10 @@
 package com.formation.thde.exo;
 
-import com.formation.phva.exo.InterExoTableau1;
+import java.util.ArrayList;
 
-public class ExoTableau1 implements InterExoTableau1 {
+import com.formation.phva.exo.InterExoArrayList1;
 
-	//___________________________________________________
+public class ExoArrayList1 implements InterExoArrayList1 {
 
 	/**
 	 * Exemple d=7 , n=5 p=3 --> [7,10,13,16,19]
@@ -17,20 +17,17 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 *            = pas entre chaque élément
 	 * @return = nouveau tableau rempli
 	 */
-
-	public int[] remplirTableau(int d, int n, int p) {
-		int[] tab = null;
+	public ArrayList<Integer> remplirTableau(int d, int n, int p) {
+		ArrayList<Integer> list = new ArrayList<Integer>();
 		if (n < 1 || (long) d + (long) p * n > Integer.MAX_VALUE || (long) d + (long) p * n < Integer.MIN_VALUE) {
 		} else {
-			tab = new int[n];
-			tab[0] = d;
-			for (int i = 1; i < tab.length; i++) {
-				tab[i] = tab[i - 1] + p;
+			list.add(d);
+			for (int i = 1; i < n; i++) {
+				list.add(d + p * i);
 			}
 		}
-		return tab;
+		return list;
 	}
-	//___________________________________________________
 
 	/**
 	 * Exemple tab = [7,10,13,16,19,21,24,27,30] i1=3 , i2=8 tab =
@@ -44,17 +41,16 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 *            deuxième position pour l'interversion
 	 * @return
 	 */
-	public int[] intervertirDeuxElementsTableau(int[] tab, int i1, int i2) {
-		int[] tab2 = null;
-		if (tab == null || i1 < 0 || i2 < 0 || i1 >= tab.length || i2 >= tab.length) {
+	public ArrayList<Integer> intervertirDeuxElementsTableau(ArrayList<Integer> tab, int i1, int i2) {
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		if (tab == null || i1 < 0 || i2 < 0 || i1 >= tab.size() || i2 >= tab.size()) {
 		} else {
-			tab2 = tab.clone();
-			tab2[i1 - 1] = tab[i2 - 1];
-			tab2[i2 - 1] = tab[i1 - 1];
+			list.addAll(tab);
+			list.set(i1 - 1, tab.get(i2 - 1));
+			list.set(i2 - 1, tab.get(i1 - 1));
 		}
-		return tab2;
+		return list;
 	}
-	//____________________________________________________
 
 	/**
 	 * Exemple [1,4,6,2,4,6] : p=3,a=8 --> [1,4,6,8,2,4,6]
@@ -67,24 +63,15 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 *            valeur à ajouter
 	 * @return
 	 */
-	public int[] insererUnElementDansTableau(int[] tab, int p, int a) {
-		int tab2[] = null;
-		if (tab == null || p < 0 || p >= tab.length) {
+	public ArrayList<Integer> insererUnElementDansTableau(ArrayList<Integer> tab, int p, int a) {
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		if (tab == null || p < 0 || p >= tab.size()) {
 		} else {
-			tab2 = new int[tab.length + 1];
-			for (int i = 0; i < tab2.length; i++) {
-				if (i < p) {
-					tab2[i] = tab[i];
-				} else if (i == p) {
-					tab2[i] = a;
-				} else {
-					tab2[i] = tab[i - 1];
-				}
-			}
+			list.addAll(tab);
+			list.add(p, a);
 		}
-		return tab2;
+		return list;
 	}
-	//____________________________________________________
 
 	/**
 	 * Exemple 1 [1,4,6,2,4,7] : p=2, tab1=[4,9,0] --> [1,4,4,9,0,7] Exemple 2
@@ -99,20 +86,19 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 *            tableau contenant les valeurs de remplacement
 	 * @return tableau
 	 */
-	public int[] insererUnTableauDansUnAutreAvecRemplacement(int[] tab, int p, int[] tab1) {
-		int[] tab2 = null;
-		if (tab == null || tab1 == null || p < 0 || p > tab.length - tab1.length || tab1.length > tab.length) {
+	public ArrayList<Integer> insererUnTableauDansUnAutreAvecRemplacement(ArrayList<Integer> tab, int p, ArrayList<Integer> tab1) {
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		if (tab == null || tab1 == null || p < 0 || p > tab.size() - tab1.size() || tab1.size() > tab.size()) {
 		} else {
 			int k = 0;
-			tab2 = tab.clone();
-			for (int i = p; i <= p + tab1.length - 1; i++) {
-				tab2[i] = tab1[k];
+			list.addAll(tab);
+			for (int i = p; i <= p + tab1.size() - 1; i++) {
+				list.set(i, tab1.get(k));
 				k++;
 			}
 		}
-		return tab2;
+		return list;
 	}
-	//____________________________________________________
 
 	/**
 	 * Exemple 1 tab [1,4,6,2,4,6] : p = 2 --> tab résultat [4,6,1,4,6,2]
@@ -126,22 +112,30 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 *            tableau
 	 * @return
 	 */
-	public int[] rotationTableau(int[] tab, int p) {
-		int[] tab2 = null;
-		if (tab == null || p < 0) {
+	public ArrayList<Integer> rotationTableau(ArrayList<Integer> tab, int p) {
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		int p2 = p;
+		if (tab == null) {
 		} else {
-			if (p >= tab.length) {
-				p = p % tab.length;
-			}
-			tab2 = new int[tab.length];
-			for (int i = 0; i < tab2.length; i++) {
-				if (i < p) {
-					tab2[i] = tab[i + (tab.length - p)];
-				} else {
-					tab2[i] = tab[i - p];
+			if (p < 0) {
+				p2 = -p;
+				if (p2 >= tab.size()) {
+					p2 = p2 % tab.size();
+				}
+				list.addAll(tab);
+				for (int i = 0; i < p2; i++) {
+					list.add((list.size() - 1), list.remove(0));
+				}
+			} else {
+				if (p >= tab.size()) {
+					p2 = p % tab.size();
+				}
+				list.addAll(tab);
+				for (int i = 0; i < p; i++) {
+					list.add(0, list.remove(list.size() - 1));
 				}
 			}
 		}
-		return tab2;
+		return list;
 	}
 }
