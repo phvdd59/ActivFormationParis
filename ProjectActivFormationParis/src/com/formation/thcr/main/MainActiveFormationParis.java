@@ -16,12 +16,12 @@ public class MainActiveFormationParis {
 	private void init(){
 		ExoArrayList1 exo = new ExoArrayList1();
 		ArrayList<Integer> list1 = new ArrayList<Integer>();
-		list1 = exo.remplirTableau(0x7F_FF_FF_FF, 10, 2);
+		list1 = exo.remplirTableau(3, 10, 2);
 		System.out.println(list1);
 		ArrayList<Integer> list2 = new ArrayList<Integer>();
 		list2 = exo.remplirTableau(0, 10, 3);
 		System.out.println(list2);
-		System.out.println(exo.rotationTableau(list2, 3));
+		System.out.println(exo.insererUnTableauDansUnAutreAvecRemplacement(list1, 3, list2));
 		
 	}
 
