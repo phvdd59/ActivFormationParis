@@ -17,7 +17,7 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 */
 	public int[] remplirTableau(int d, int n, int p) {
 		int[] tab = null;
-		if ((long) d + (long) p * n < Integer.MAX_VALUE || (long) d + (long) p * n > Integer.MIN_VALUE) {
+		if ((long) d + (long) p * n > Integer.MAX_VALUE || (long) d + (long) p * n < Integer.MIN_VALUE) {
 		} else {
 			tab = new int[n];
 			for (int i = 0; i < n; i++) {
@@ -49,7 +49,7 @@ public class ExoTableau1 implements InterExoTableau1 {
 			tab2[i1] = tab[i2];
 			tab2[i2] = tab[i1];
 		}
-		return tab;
+		return tab2;
 	}
 
 	/**
@@ -98,10 +98,11 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 */
 	public int[] insererUnTableauDansUnAutreAvecRemplacement(int[] tab, int p, int[] tab1) {
 		if (tab == null || tab1 == null || p >= tab.length || p < 0) {
-		}
-		for (int i = 0; i < tab.length; i++) {
-			if (i >= p && i < p + tab1.length) {
-				tab[i] = tab1[i - p];
+		} else {
+			for (int i = 0; i < tab.length; i++) {
+				if (i >= p && i < p + tab1.length) {
+					tab[i] = tab1[i - p];
+				}
 			}
 		}
 		return tab;

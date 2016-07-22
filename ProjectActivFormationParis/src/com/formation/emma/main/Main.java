@@ -67,11 +67,15 @@ public class Main {
 		System.out.println("exo4 tableau1");
 		int[] tab3 = { 1, 4, 6, 2, 4, 7 };
 		int[] tab4 = { 4, 9, 0 };
-		int p3 = 2;
+		int p3 = 3;
 		ExoTableau1 exo4Tableau1 = new ExoTableau1();
 		int[] tableau4 = exo4Tableau1.insererUnTableauDansUnAutreAvecRemplacement(tab3, p3, tab4);
-		for (int i = 0; i < tableau4.length; i++) {
-			System.out.println(tableau4[i]);
+		if (tableau4 == null) {
+			System.out.println(tableau4);
+		} else {
+			for (int i = 0; i < tableau4.length; i++) {
+				System.out.println(tableau4[i]);
+			}
 		}
 
 		System.out.println("exo5 tableau1");

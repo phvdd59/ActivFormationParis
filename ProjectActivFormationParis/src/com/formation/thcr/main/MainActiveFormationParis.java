@@ -1,20 +1,33 @@
 package com.formation.thcr.main;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
+import com.formation.thcr.exo.ExoArrayList1;
 import com.formation.thcr.exo.ExoTableau1;
 
 public class MainActiveFormationParis {
 
 	public static void main(String[] args) {
 		MainActiveFormationParis main = new MainActiveFormationParis();
-		main.init();
+		main.init2();
+	}
+	
+	private void init(){
+		ExoArrayList1 exo = new ExoArrayList1();
+		ArrayList<Integer> list1 = new ArrayList<Integer>();
+		list1 = exo.remplirTableau(3, 10, 2);
+		System.out.println(list1);
+		ArrayList<Integer> list2 = new ArrayList<Integer>();
+		list2 = exo.remplirTableau(0, 10, 3);
+		System.out.println(list2);
+		System.out.println(exo.insererUnTableauDansUnAutreAvecRemplacement(list1, 3, list2));
+		
 	}
 
-	private void init() {
+	private void init2() {
 		ExoTableau1 exo = new ExoTableau1();
-		System.out.println(Arrays.toString(exo.remplirTableau(10, 50, 3)));
-		long[] tabTest = {5,3,9,7,8};
+		System.out.println(Arrays.toString(exo.remplirTableau(0x7F_FF_FF_FF, 10, 2)));
 		int[] tab = { 7, 10, 13, 16, 19, 21, 24, 27, 30 };
 		int i1 = 3, i2 = 8;
 		System.out.println(Arrays.toString(tab));
@@ -43,7 +56,7 @@ public class MainActiveFormationParis {
 		p = 2;
 		System.out.println(Arrays.toString(tab7));
 		System.out.println(Arrays.toString(exo.rotationTableau(tab7, p)));
-		p = 4;
+		p = -4;
 		System.out.println(Arrays.toString(tab7));
 		System.out.println(Arrays.toString(exo.rotationTableau(tab7, p)));
 	}
