@@ -100,9 +100,10 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 		ArrayList<Integer> listFinal = new ArrayList<Integer>();
 		listFinal.addAll(list);
 		if ((list != null) && (list1 != null) && (0 <= p) && (list1.size() <= list.size()) && (p <= (list.size() - list1.size()))) {
-			for (int i = p; i < list1.size(); i++) {
-				listFinal.set(i, list1.get(p));
-				p++;
+			int j = 0;
+			for (int i = p; i < (p + list1.size()); i++) {
+				listFinal.set(i, list1.get(j));
+				j++;
 			}
 		}
 		return listFinal;

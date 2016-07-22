@@ -11,7 +11,7 @@ public class MainActiveFormationParisJoca {
 
 	public static void main(String[] arg) {
 		MainActiveFormationParisJoca test = new MainActiveFormationParisJoca();
-		test.init4();
+		test.init3();
 	}
 
 	public void afficherTableau(int[] tab) {
@@ -40,25 +40,52 @@ public class MainActiveFormationParisJoca {
 		int[] tabTest = exo2.remplirTableau(7, 5, 3);
 		this.afficherTableau(tabTest);
 
-		tabTest = exo2.intervertirDeuxElementsTableau(tabTest, 2, 5);
-		this.afficherTableau(tabTest);
+		// tabTest = exo2.intervertirDeuxElementsTableau(tabTest, 2, 5);
+		// this.afficherTableau(tabTest);
 
-		tabTest = exo2.insererUnElementDansTableau(tabTest, 3, 5);
-		this.afficherTableau(tabTest);
+		// tabTest = exo2.insererUnElementDansTableau(tabTest, 3, 5);
+		// this.afficherTableau(tabTest);
 
 		int[] tab2 = { 2, 8 };
-		tabTest = exo2.insererUnTableauDansUnAutreAvecRemplacement(tabTest, 2, tab2);
+		tabTest = exo2.insererUnTableauDansUnAutreAvecRemplacement(tabTest, 2000, tab2);
 		this.afficherTableau(tabTest);
 
 		tabTest = exo2.rotationTableau(tabTest, 2);
-		this.afficherTableau(tabTest);
+		// this.afficherTableau(tabTest);
 	}
 
 	private void init3() {
-		int[] tabTest = { 1, 5, 7, 6, 8, 9, 4, 2, 3 };
+		int[] tabTest = { 1, 7, 8, 2, 4, 6 };
+		int[] tabTest2 = { 4, 9, 7 };
+		int[] tabNull;
+		tabNull = null;
 		ExoTableau2 exo3 = new ExoTableau2();
-		exo3.inverserTableau(tabTest);
 		this.afficherTableau(tabTest);
+		int[] tabResult;
+		int[][] tabResult2;
+		// tabResult = exo3.inverserTableau(tabTest);
+		// this.afficherTableau(tabResult);
+
+		// tabResult=exo3.rallongerTableauDeUnElement(tabTest, 9);
+		// this.afficherTableau(tabResult);
+
+		// tabResult = exo3.insererUnTableauDansUnAutre(tabTest, 2, tabTest2);
+		// this.afficherTableau(tabResult);
+
+		/*tabResult2 = exo3.changerDimensionTableau(tabTest, 3);
+		for (int i = 0; i < 2; i++) {
+			System.out.println(" ");
+			for (int j = 0; j < 3; j++) {
+				System.out.print(tabResult2[i][j]);
+			}
+		}*/
+		
+		tabResult = exo3.tabBaseDeux(18);
+		afficherTableau(tabResult);
+		tabResult = exo3.tabBaseDeux(17);
+		afficherTableau(tabResult);
+		tabResult = exo3.tabBaseDeux(-18);
+		afficherTableau(tabResult);
 
 	}
 

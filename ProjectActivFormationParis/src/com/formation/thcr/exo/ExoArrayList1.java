@@ -48,6 +48,8 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 		if (i1 > 0 && i1 < tab.size() && i2 > 0 && i2 < tab.size()) {
 			tmpTab.addAll(tab);
 			tmpTab.add(i2, tab.get(i1));
+		} else {
+			return tab;
 		}
 		return tmpTab;
 	}
@@ -67,6 +69,8 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 		ArrayList<Integer> tmpTab = new ArrayList<Integer>();
 		if (p >= 0 && p < tab.size()) {
 			tmpTab.add(p, a);
+		} else {
+			return tab;
 		}
 		return tmpTab;
 
@@ -89,11 +93,12 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 			ArrayList<Integer> tab1) {
 		ArrayList<Integer> tmpTab = new ArrayList<Integer>();
 		if (p < 0 || p >= tab.size()) {
+			return tab;
 		} else {
 			if (tab.size() - p > tab1.size()) {
 				for (int i = 0; i < p; i++)
 					tmpTab.add(i, tab.get(i));
-				for (int i = p; i < tab1.size()+p; i++)
+				for (int i = p; i < tab1.size() + p; i++)
 					tmpTab.add(i, tab1.get(i - p));
 				for (int i = p + tab1.size(); i < tab.size(); i++)
 					tmpTab.add(i, tab.get(i));

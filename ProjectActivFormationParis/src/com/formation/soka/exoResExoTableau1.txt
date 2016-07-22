@@ -17,10 +17,10 @@ soka remplirTableau3 (1/1):    | exo.remplirTableau(-0x7FFFFFF0, 16, -8)
 soka rotationTableau0 (2/2):    | exo.rotationTableau(tabA, 2)
 soka rotationTableau1 (2/2):    | exo.rotationTableau(tab, 3)
 soka rotationTableau2 (1/1):    | exo.rotationTableau(tab, -3)
-soka rotationTableau3 (0/1): KO | exo.rotationTableau(tab, 3000)
+soka rotationTableau3 (1/1):    | exo.rotationTableau(tab, 3000)
 soka rotationTableau4 (1/1):    | exo.rotationTableau(tab, -777)
 soka insererUnElementDansTableau0 (2/2):    | exo.insererUnElementDansTableau(tab1, 3, 8)
 soka insererUnElementDansTableau1 (2/2):    | exo.insererUnElementDansTableau(tab, 3, 8)
 soka insererUnElementDansTableau2 (1/1):    | exo.insererUnElementDansTableau(tab, -3, 8)
 soka insererUnElementDansTableau3 (1/1):    | exo.insererUnElementDansTableau(tab, 33333, 8)
-soka NOTE : (32 / 33) = 19 / 20
+soka NOTE : (33 / 33) = 20 / 20

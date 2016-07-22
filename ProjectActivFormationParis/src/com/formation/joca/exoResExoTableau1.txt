@@ -2,14 +2,14 @@ joca
 
 joca insererUnTableauDansUnAutreAvecRemplacement0 (2/2):    | exo.insererUnTableauDansUnAutreAvecRemplacement(taba, 2, tabb)
 joca insererUnTableauDansUnAutreAvecRemplacement1 (2/2):    | exo.insererUnTableauDansUnAutreAvecRemplacement(tab, 3, tab1)
-joca insererUnTableauDansUnAutreAvecRemplacement2 (0/1): KO | exo.insererUnTableauDansUnAutreAvecRemplacement(tab, -3, tab1)
-joca insererUnTableauDansUnAutreAvecRemplacement3 (0/1): KO | exo.insererUnTableauDansUnAutreAvecRemplacement(tab, 3000, tab1)
+joca insererUnTableauDansUnAutreAvecRemplacement2 (1/1):    | exo.insererUnTableauDansUnAutreAvecRemplacement(tab, -3, tab1)
+joca insererUnTableauDansUnAutreAvecRemplacement3 (1/1):    | exo.insererUnTableauDansUnAutreAvecRemplacement(tab, 3000, tab1)
 joca intervertirDeuxElementsTableau0 (2/2):    | exo.intervertirDeuxElementsTableau(tab0, 3, 8)
 joca intervertirDeuxElementsTableau1 (2/2):    | exo.intervertirDeuxElementsTableau(tab, 3, 8)
-joca intervertirDeuxElementsTableau2 (0/1): KO | exo.intervertirDeuxElementsTableau(tab, -3, 8)
-joca intervertirDeuxElementsTableau3 (0/1): KO | exo.intervertirDeuxElementsTableau(tab, 3, 44448)
-joca intervertirDeuxElementsTableau4 (0/1): KO | exo.intervertirDeuxElementsTableau(tab, 34444, 8)
-joca intervertirDeuxElementsTableau5 (0/1): KO | exo.intervertirDeuxElementsTableau(tab, 3, -8)
+joca intervertirDeuxElementsTableau2 (1/1):    | exo.intervertirDeuxElementsTableau(tab, -3, 8)
+joca intervertirDeuxElementsTableau3 (1/1):    | exo.intervertirDeuxElementsTableau(tab, 3, 44448)
+joca intervertirDeuxElementsTableau4 (1/1):    | exo.intervertirDeuxElementsTableau(tab, 34444, 8)
+joca intervertirDeuxElementsTableau5 (1/1):    | exo.intervertirDeuxElementsTableau(tab, 3, -8)
 joca remplirTableau0 (2/2):    | exo.remplirTableau(7, 5, 3)
 joca remplirTableau1 (2/2):    | exo.remplirTableau(-120, 125, 7)
 joca remplirTableau2 (1/1):    | exo.remplirTableau(0x7FFFFFF0, 16, 8)
@@ -23,4 +23,4 @@ joca insererUnElementDansTableau0 (2/2):    | exo.insererUnElementDansTableau(ta
 joca insererUnElementDansTableau1 (2/2):    | exo.insererUnElementDansTableau(tab, 3, 8)
 joca insererUnElementDansTableau2 (1/1):    | exo.insererUnElementDansTableau(tab, -3, 8)
 joca insererUnElementDansTableau3 (1/1):    | exo.insererUnElementDansTableau(tab, 33333, 8)
-joca NOTE : (27 / 33) = 16 / 20
+joca NOTE : (33 / 33) = 20 / 20

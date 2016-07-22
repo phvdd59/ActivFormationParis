@@ -4,13 +4,15 @@ import java.util.ArrayList;
 
 import com.formation.thde.exo.ExoArrayList1;
 import com.formation.thde.exo.ExoTableau1;
+import com.formation.thde.exo.ExoTableau2;
 
 public class Main {
 
 	public static void main(String[] args) {
 		Main main = new Main();
-		main.init();
-		main.init2();
+		//main.init();
+		//main.init2();
+		main.init3();
 	}
 
 	private void init() {
@@ -57,8 +59,8 @@ public class Main {
 	}
 
 	private void init2() {
-		ExoArrayList1 exo1 = new ExoArrayList1();
-		ArrayList<Integer> list1 = exo1.remplirTableau(7, 5, 3);
+		ExoArrayList1 exolist1 = new ExoArrayList1();
+		ArrayList<Integer> list1 = exolist1.remplirTableau(7, 5, 3);
 		if (list1 != null) {
 			System.out.print("\n");
 			System.out.print(list1 + ", ");
@@ -74,7 +76,7 @@ public class Main {
 		test.add(24);
 		test.add(27);
 		test.add(30);
-		ArrayList<Integer> list2 = exo1.intervertirDeuxElementsTableau(test, 3, 8);
+		ArrayList<Integer> list2 = exolist1.intervertirDeuxElementsTableau(test, 3, 8);
 		System.out.print(list2 + ", ");
 		System.out.print("\n");
 
@@ -85,7 +87,7 @@ public class Main {
 		test2.add(2);
 		test2.add(4);
 		test2.add(6);
-		ArrayList<Integer> list3 = exo1.insererUnElementDansTableau(test2, 3, 8);
+		ArrayList<Integer> list3 = exolist1.insererUnElementDansTableau(test2, 3, 8);
 		System.out.print(list3 + ", ");
 
 		System.out.print("\n");
@@ -101,7 +103,7 @@ public class Main {
 		test4.add(4);
 		test4.add(5);
 		test4.add(6);
-		ArrayList<Integer> list4 = exo1.insererUnTableauDansUnAutreAvecRemplacement(test3, 2, test4);
+		ArrayList<Integer> list4 = exolist1.insererUnTableauDansUnAutreAvecRemplacement(test3, 2, test4);
 		System.out.print(list4 + " ");
 
 		System.out.print("\n");
@@ -112,7 +114,55 @@ public class Main {
 		test5.add(2);
 		test5.add(4);
 		test5.add(6);
-		ArrayList<Integer> list5 = exo1.rotationTableau(test5, 2);
+		ArrayList<Integer> list5 = exolist1.rotationTableau(test5, 2);
 		System.out.print(list5 + ", ");
+	}
+
+	private void init3() {
+		System.out.print("\n");
+		ExoTableau2 exo2 = new ExoTableau2();
+		int[] test6 = { 1, 4, 6, -5, 7, 5 };
+		int[] tab6 = exo2.inverserTableau(test6);
+		if (tab6 != null) {
+			for (int i = 0; i < tab6.length; i++) {
+				System.out.print(tab6[i] + ", ");
+			}
+		}
+		System.out.print("\n");
+		int[] test7 = { 1, 4, 6, 2, 4, 6 };
+		int[] tab7 = exo2.rallongerTableauDeUnElement(test7, 8);
+		if (tab7 != null) {
+			for (int i = 0; i < tab7.length; i++) {
+				System.out.print(tab7[i] + ", ");
+			}
+		}
+		System.out.print("\n");
+		int[] test8 = { 1, 4, 6, 2, 4, 6 };
+		int[] test9 = { 4, 9, 0 };
+		int[] tab8 = exo2.insererUnTableauDansUnAutre(test8, 2, test9);
+		if (tab8 != null) {
+			for (int i = 0; i < tab8.length; i++) {
+				System.out.print(tab8[i] + ", ");
+			}
+		}
+		System.out.print("\n");
+		int[] test10 = { 1, 7, 8, 2, 4, 6 };
+		int testTaille = 2;
+		int[][] tab9 = exo2.changerDimensionTableau(test10, testTaille);
+		if (tab9 != null) {
+			for (int i = 0; i < test10.length / testTaille; i++) {
+				for (int j = 0; j < testTaille; j++) {
+					System.out.print(tab9[i][j] + ", ");
+				}
+				System.out.print("\n");
+			}
+		}
+		System.out.print("\n");
+		int tab10[] = exo2.tabBaseDeux(-19);
+		if (tab10 != null) {
+			for (int i = 0; i < tab10.length; i++) {
+				System.out.print(tab10[i] + ", ");
+			}
+		}
 	}
 }
