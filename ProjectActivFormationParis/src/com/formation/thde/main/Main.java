@@ -48,7 +48,7 @@ public class Main {
 		}
 		System.out.print("\n");
 		int[] test5 = { 1, 4, 6, 2, 4, 6 };
-		int[] tab5 = exo1.rotationTableau(test5, 2);
+		int[] tab5 = exo1.rotationTableau(test5, 3);
 		if (tab5 != null) {
 			for (int i = 0; i < tab5.length; i++) {
 				System.out.print(tab5[i] + ", ");
