@@ -19,7 +19,7 @@ public class ExoTableau1 implements InterExoTableau1 {
 	public int[] remplirTableau(int d, int n, int p) {
 		// protéger pour remplir tableau sur l'overflow, vérifier à priori.
 		int[] tab = null;
-		if ((long) (d + p * n) < Integer.MAX_VALUE && (long) (d + p * n) > Integer.MIN_VALUE) {
+		if ((long) d + (long)(p * n) <= Integer.MAX_VALUE && (long) d + (long)(p * n) >= Integer.MIN_VALUE) {
 			tab = new int[n];
 			for (int i = 0; i < tab.length; i++) {
 				tab[i] = d;
@@ -83,7 +83,6 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 */
 
 	public int[] insererUnElementDansTableau(int[] tab, int p, int a) {
-
 		int[] tmpTab = null;
 		if (tab == null || (tab instanceof int[] != true)) {
 			return tmpTab;
