@@ -157,11 +157,19 @@ public class ExoTableau1 implements InterExoTableau1 {
 	public int[] rotationTableau(int[] tab, int p) {
 		int k = 0;
 		int[] tableauFinal = null;
-		if (p < 0 || p > tab.length || tab == null) {
+		if (tab == null) {
 			tableauFinal = tab;
 		} else {
 			tableauFinal = new int[tab.length];
-
+			if (p > tab.length) {
+				while (p > tab.length) {
+					p = p - tab.length;
+				}
+			} else if (p < 0) {
+				while (p < 0) {
+					p = tab.length + p;
+				}
+			}
 			for (int i = 0; i < tableauFinal.length; i++) {
 				if (i + p < tab.length) {
 					tableauFinal[i + p] = tab[i];
@@ -169,7 +177,6 @@ public class ExoTableau1 implements InterExoTableau1 {
 					tableauFinal[k] = tab[i];
 					k++;
 				}
-
 			}
 
 		}
