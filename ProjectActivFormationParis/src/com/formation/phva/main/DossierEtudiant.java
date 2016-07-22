@@ -25,12 +25,12 @@ public class DossierEtudiant {
 		PrintWriter out = null;
 		BufferedReader in = null;
 		for (int i = 0; i < tabNom.length; i++) {
-			fRep = new File("src/com/formation/phva/dossier/" + tabNom[i]);
+			fRep = new File("src/com/formation/phva/doss/" + tabNom[i]);
 			if (!fRep.exists()) {
 				fRep.mkdirs();
 			}
 			fIn = new File("src/com/formation/" + tabNom[i] + "/exoResExoTableau1.txt");
-			fOut = new File("src/com/formation/phva/dossier/" + tabNom[i] + "/exoResExoTableau1_" + fd.format(new Date()) + ".txt");
+			fOut = new File("src/com/formation/phva/doss/" + tabNom[i] + "/exoResExoTableau1_" + fd.format(new Date()) + ".txt");
 			in = new BufferedReader(new FileReader(fIn));
 			out = new PrintWriter(fOut);
 			String s = in.readLine();
