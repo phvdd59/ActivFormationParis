@@ -1,5 +1,8 @@
 package com.formation.etga.main;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import com.formation.etga.exo.ExoArrayList1;
 import com.formation.etga.exo.ExoTableau1;
 
@@ -7,18 +10,75 @@ public class MainGasp {
 
 	public static void main(String[] args) {
 		MainGasp mainGasp = new MainGasp();
-		mainGasp.init();
+		mainGasp.init1();
+		mainGasp.init2();
 	}
 
-	private void init() {
+	private void init1() {
+		ExoTableau1 exoTableau1 = new ExoTableau1();
+		int[] tab = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+		int[] tab1 = { 10, 11, 12 };
 
-		ExoTableau1 exo1 = new ExoTableau1();
-		exo1.remplirTableau(7, 5, 3);
+		int[] tabFinal1 = exoTableau1.remplirTableau(7, 5, 3);
+		if (tabFinal1 != null) {
+			for (int i = 0; i < tabFinal1.length; i++) {
+				System.out.print(tabFinal1[i] + ", ");
+			}
+		}
+		System.out.print("\n");
 
-		ExoArrayList1 exo2 = new ExoArrayList1();
-		int[] tab = { 1, 2, 3, 4, 5, 6 };
+		int[] tabFinal2 = exoTableau1.intervertirDeuxElementsTableau(tab, 3, 6);
+		for (int i = 0; i < tabFinal2.length; i++) {
+			System.out.print(tabFinal2[i] + ", ");
+		}
+		System.out.print("\n");
 
-		System.out.println(Integer.MAX_VALUE);
-		System.out.println(Integer.MIN_VALUE);
+		int[] tabFinal3 = exoTableau1.insererUnElementDansTableau(tab, 3, 6);
+		for (int i = 0; i < tabFinal3.length; i++) {
+			System.out.print(tabFinal3[i] + ", ");
+		}
+		System.out.print("\n");
+
+		int[] tabFinal4 = exoTableau1.insererUnTableauDansUnAutreAvecRemplacement(tab, 2, tab1);
+		for (int i = 0; i < tabFinal4.length; i++) {
+			System.out.print(tabFinal4[i] + " ");
+		}
+		System.out.print("\n");
+
+		int[] tabFinal5 = exoTableau1.rotationTableau(tab, 2);
+		for (int i = 0; i < tabFinal5.length; i++) {
+			System.out.print(tabFinal5[i] + ", ");
+		}
+
+		System.out.println("");
+		System.out.println("");
+	}
+
+	private void init2() {
+		ExoArrayList1 exoArrayList1 = new ExoArrayList1();
+		Integer[] tab = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+		ArrayList<Integer> list = new ArrayList<Integer>(Arrays.asList(tab));
+		Integer[] tab1 = { 10, 11, 12 };
+		ArrayList<Integer> list1 = new ArrayList<Integer>(Arrays.asList(tab1));
+
+		ArrayList<Integer> listFinal1 = exoArrayList1.remplirTableau(7, 5, 3);
+		System.out.print(listFinal1 + ", ");
+		System.out.print("\n");
+
+		ArrayList<Integer> listFinal2 = exoArrayList1.intervertirDeuxElementsTableau(list, 3, 6);
+		System.out.print(listFinal2 + ", ");
+		System.out.print("\n");
+
+		ArrayList<Integer> listFinal3 = exoArrayList1.insererUnElementDansTableau(list, 3, 6);
+		System.out.print(listFinal3 + ", ");
+		System.out.print("\n");
+
+		ArrayList<Integer> listFinal4 = exoArrayList1.insererUnTableauDansUnAutreAvecRemplacement(list, 2, list1);
+		System.out.print(listFinal4 + " ");
+		System.out.print("\n");
+
+		ArrayList<Integer> listFinal5 = exoArrayList1.rotationTableau(list, 2);
+		System.out.print(listFinal5 + ", ");
+		System.out.print("\n");
 	}
 }
