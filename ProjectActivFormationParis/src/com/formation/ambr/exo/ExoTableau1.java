@@ -28,34 +28,43 @@ public class ExoTableau1 implements InterExoTableau1 {
 	// 1.méthode remplirTableau
 	public int[] remplirTableau(int d, int n, int p) {
 		int[] tab1 = new int[n];
-		tab1[0] = d;
 		for (int i = 0; i < n; i++) {
-			if (tab1[i] == d) {
-				tab1[i] = d;
-			} else {
-				tab1[i] = d + (p * i);
-			}
-			//System.out.println(tab1[i]);
+			tab1[i] = d + (p * i);
 		}
 		return tab1;
 	}
+	//		tab1[0]=7;
+	//		tab1[1]=7+3;
+	//		tab1[2]=7+(3*2);
+
+	// ancienne version
+	//int[] tab1 = new int[n];
+	//		tab1[0] = d;
+	//		for (int i = 0; i < n; i++) {
+	//			if (tab1[i] == d) {
+	//				tab1[i] = d;
+	//			} else {
+	//				tab1[i] = d + (p * i);
+	//			}
+	//System.out.println(tab1[i]);
+	//		}
 
 	// correction thomas
-	public int[] remplirTableau1(int d, int n, int p) {
-		int[] tab = null;
-		tab[0] = d;
-
-		if ((long)d + (long)p * n > Integer.MAX_VALUE || (long)d + (long)p * n < Integer.MIN_VALUE) {
-
-		} else {
-			tab = new int[n];
-			tab[0] = d;
-			for (int i = 1; i < tab.length; i++) {
-				tab[i] = tab[i - 1] + p;
-			}
-		}
-		return tab;
-	}
+	//	public int[] remplirTableau(int d, int n, int p) {
+	//		int[] tab = null;
+	//		tab[0] = d;
+	//
+	//		if ((long)d + (long)p * n > Integer.MAX_VALUE || (long)d + (long)p * n < Integer.MIN_VALUE) {
+	//
+	//		} else {
+	//			tab = new int[n];
+	//			tab[0] = d;
+	//			for (int i = 1; i < tab.length; i++) {
+	//				tab[i] = tab[i - 1] + p;
+	//			}
+	//		}
+	//		return tab;
+	//	}
 
 	//2
 	/**
@@ -72,39 +81,48 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 */
 
 	// 2.variables
-	int[] tabOriginel;
+	int[] tabOrig;
 	int i1;
 	int i2;
 
 	// 2.méthode intervertirDeuxElementsTableau
-	public int[] intervertirDeuxElementsTableau(int[] tabOriginel, int i1, int i2) {
-		int[] tab1 = new int[n];
-		int[] tab2 = new int[n];
-//		public int[] tab1.remplirTableau(int d, int n, int p);
-		
-		
-		
-		
-		int[] tabInterverti = new int[tabOriginel.length];
-
-		return tabInterverti;
+	public int[] intervertirDeuxElementsTableau(int[] tabOrig, int i1, int i2) {
+		int[] tabInterv = new int[tabOrig.length];
+		for (int i = 0; i < tabInterv.length; i++) {
+			if (i == i1 - 1) {
+				tabInterv[i] = tabOrig[i + 5];
+			} else if (i == i2 - 1) {
+				tabInterv[i] = tabOrig[i - 5];
+			} else {
+				tabInterv[i] = tabOrig[i];
+			}
+		}
+		return tabInterv;
 	}
+
+	//		tabInterv[0]=tabOrig[0];
+	//		tabInterv[1]=tabOrig[1];
+	//		tabInterv[2]=tabOrig[7];
+	//		tabInterv[3]=tabOrig[3];
+	//		tabInterv[4]=tabOrig[4];
+	//		tabInterv[5]=tabOrig[5];
+	//		tabInterv[6]=tabOrig[6];
+	//		tabInterv[7]=tabOrig[2];
 
 	//correction thomas
-	public int[] intervertirDeuxElementsTableau1(int[] tab, int i1, int i2) {
-		int[] tab2 = null;
-		if (tab == null) {
-
-		} else if (i1 < 0 || i2 < 0 || i1 >= tab.length || i2 >= tab.length) {
-
-		} else {
-			//clone tab2 pour pas
-			tab2 = tab.clone();
-			tab2[i1 - 1] = tab2[i2 - 1];
-			tab2[i2 - 1] = tab[i1 - 1];
-		}
-		return null;
-	}
+	//	public int[] intervertirDeuxElementsTableau(int[] tab, int i1, int i2) {
+	//		int[] tab2 = null;
+	//		if (tab == null) {
+	//
+	//		} else if (i1 < 0 || i2 < 0 || i1 >= tab.length || i2 >= tab.length) {
+	//
+	//		} else {
+	//			//clone tab2 pour pas
+	//			tab2 = tab.clone();
+	//			tab2[i1 - 1] = tab2[i2 - 1];
+	//			tab2[i2 - 1] = tab[i1 - 1];
+	//		}
+	//	}
 
 	//3
 	/**
@@ -119,13 +137,32 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 * @return
 	 */
 
-	// 3. méthode insererUnElementDansTableau
-	public int[] insererUnElementDansTableau(int[] tab, int p, int a) {
-		return null;
-	}
-
 	// 3.variables
 	int a;
+
+	// 3. méthode insererUnElementDansTableau
+	public int[] insererUnElementDansTableau(int[] tabOrig2, int p, int a) {
+		int[] tabRes2 = new int[tabOrig2.length + 1];
+
+		for (int i = 0; i <= p + 1; i++) {
+			tabRes2[i] = tabOrig2[i];
+			if (i == p + 1) {
+				tabRes2[i + 1] = a;
+			}
+		}
+		for (int i = p + 2; i < tabRes2.length; i++) {
+			tabRes2[i] = tabOrig2[i - 1];
+		}
+		return tabRes2;
+	}
+
+	//	tabRes2[0]=tabOrig2[0];
+	//	tabRes2[1]=tabOrig2[1];
+	//	tabRes2[2]=tabOrig2[2];
+	//	tabRes2[3]=tabOrig2[3];
+	//	tabRes2[4]=a;
+	//	tabRes2[5]=tabOrig2[4];
+	//	tabRes2[6]=tabOrig2[5];
 
 	//4
 	/**
@@ -143,12 +180,21 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 */
 
 	// 4.méthode insererUnTableauDansUnAutreAvecRemplacement
-	public int[] insererUnTableauDansUnAutreAvecRemplacement(int[] tab, int p, int[] tab1) {
-		return null;
+	public int[] insererUnTableauDansUnAutreAvecRemplacement(int[] tabOrig3, int p, int[] tabDeRemp) {
+		int[] tabRes3 = new int[tabOrig3.length]; // comment faire pour faire une longueur cumulative?
+		for (int i = 0; i <= p; i++) {
+			tabRes3[i] = tabOrig3[i];
+		}
+		for (int i = p + 1; i < tabRes3.length; i++) {
+			tabRes3[i] = tabDeRemp[p - 2];
+		}
+		return tabRes3;
 	}
 
 	// 4. variables
-	int[] tab1;
+	//int[] tab1;
+	int b;
+	int j;
 
 	// 5
 	/**
@@ -165,7 +211,16 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 */
 
 	// 5.méthode rotationTableau
-	public int[] rotationTableau(int[] tab, int p) {
-		return null;
+	public int[] rotationTableau(int[] tabOrig4, int p) {
+		int[] tabRota = new int[tabOrig4.length];
+		for (int i = 0; i < p; i++) {
+			tabRota[i] = tabOrig4[i];
+		}
+		for (int i = p; i < tabRota.length; i++) {
+			tabRota[p] = tabRota[i - 2]; // pas fini
+
+		}
+
+		return tabRota;
 	}
 }
