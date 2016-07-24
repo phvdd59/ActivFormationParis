@@ -22,9 +22,11 @@ public class ExoAlgo1 implements ImpAlgo1 {
 	 * n [0 --> 100000] chaque element du tableau est un int
 	 */
 
+	//cet algo fait toutes les itérations et renvoit le dernier point d'équlibre calculé
+	//il renvoit -1 s'il n'y a pas de point d'équilibre
 	public int solution(int[] tab) {
 
-		int result = 0;
+		int result = -1;
 		for (int j = 0; j < tab.length; j++) {
 			int somme1 = 0;
 			int somme2 = 0;
@@ -48,25 +50,47 @@ public class ExoAlgo1 implements ImpAlgo1 {
 			}
 			if (somme1 == somme2) {
 				result = j;
-				System.out.println(result + " est un point d'équilibre");
 			}
 		}
 		return result;
 	}
 
-	/*
-	 * public int solution(int[] tab) {
-	 * 
-	 * int result = 0; int j = 0; boolean trouve = false; while (j < tab.length
-	 * && trouve == false) { int somme1 = 0; int somme2 = 0; if (j == 0) { for
-	 * (int i = 1; i < tab.length; i++) { somme2 += tab[i]; }
-	 * 
-	 * } else if (j == tab.length - 1) { for (int i = 0; i < tab.length - 1;
-	 * i++) { somme1 += tab[i]; }
-	 * 
-	 * } else { for (int i = 0; i < j; i++) { somme1 += tab[i]; } for (int i = j
-	 * + 1; i < tab.length; i++) { somme2 += tab[i]; } } if (somme1 == somme2) {
-	 * result = j; trouve = true; } j++; } return result; }
-	 */
+	//cet algo s'arrete une fois un point d'équilibre trouvé et renvoit par conséquent le premier point d'équilibre
+	//il renvoit -1 s'il n'y a pas de point d'équilibre
+	
+	/*public int solution(int[] tab) {
+
+		int result = -1;
+		int j = 0;
+		boolean trouve = false;
+		while (j < tab.length && trouve == false) {
+			int somme1 = 0;
+			int somme2 = 0;
+			if (j == 0) {
+				for (int i = 1; i < tab.length; i++) {
+					somme2 += tab[i];
+				}
+
+			} else if (j == tab.length - 1) {
+				for (int i = 0; i < tab.length - 1; i++) {
+					somme1 += tab[i];
+				}
+
+			} else {
+				for (int i = 0; i < j; i++) {
+					somme1 += tab[i];
+				}
+				for (int i = j + 1; i < tab.length; i++) {
+					somme2 += tab[i];
+				}
+			}
+			if (somme1 == somme2) {
+				result = j;
+				trouve = true;
+			}
+			j++;
+		}
+		return result;
+	}*/
 
 }
