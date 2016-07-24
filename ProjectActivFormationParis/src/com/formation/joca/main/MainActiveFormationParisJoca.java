@@ -127,7 +127,7 @@ public class MainActiveFormationParisJoca {
 	
 		private void init5(){
 			ExoAlgo1 exo5=new ExoAlgo1();
-			int[] tab={-1,3,-4,5,1,-6,2,1};
+			int[] tab={-1,3,-4,5,-3,-2,5,-3,1,1,-6,2,1};
 			int p1=exo5.solution(tab);
 			int p2=exo5.solution2(tab);
 			ArrayList<Integer> liste=exo5.solution3(tab);
