@@ -144,7 +144,7 @@ public class ExoTableau2 implements InterExoTableau2 {
 				r1 = v2 % 2;
 				r2 = v2 / 2;
 				v2 = r2;
-				if (v2 == 1) {
+				if (v2 == 1 && r1 == 1) {
 					intToBit[intToBit.length - i - 1] = 1;
 				} else {
 					intToBit[intToBit.length - i - 1] = r1;
@@ -154,12 +154,12 @@ public class ExoTableau2 implements InterExoTableau2 {
 		}else if (v2<0){
 			intToBit = new int[32];
 			v2 = Math.abs(v2);
-			v2 = Integer.MAX_VALUE - v2 + 1;
+			v2 = Integer.MAX_VALUE - v2 + 1;	//complément à 2
 			while (v2 != 0) {
 				r1 = v2 % 2;
 				r2 = v2 / 2;
 				v2 = r2;
-				if (v2 == 1) {
+				if (v2 == 1 && r1 == 1) {
 					intToBit[intToBit.length - i - 1] = 1;
 				} else {
 					intToBit[intToBit.length - i - 1] = r1;
