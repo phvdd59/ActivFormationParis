@@ -27,30 +27,20 @@ public class ExoAlgo1 implements ImpAlgo1 {
 	public int solution(int[] tab) {
 
 		int result = -1;
-		for (int j = 0; j < tab.length; j++) {
-			int somme1 = 0;
-			int somme2 = 0;
-			if (j == 0) {
-				for (int i = 1; i < tab.length; i++) {
-					somme2 += tab[i];
-				}
+		for (int j = 0; j < tab.length; j++) {  //on teste toutes les positions j que peut avoir le point d'équilibre (entre 0 et tab.length-1)
+			int somme1 = 0;						//le but de l'algo est de determiner la somme des elements à gauche du point d'équilibre (somme1) 
+			int somme2 = 0;						//et la somme des éléments à droite (somme2), afin de les comparer
+			
+				for (int i = 0; i < j; i++) {	//calcul de somme1 = somme des éléments à gauche de j
+					somme1 += tab[i];			//ce sont les éléments de tab de 0 à j-1
+				}								//si j=0, cette boucle est ignorée car i=0 < j=0 est bien faux. Donc somme1 ne change pas et =0
+				for (int i = j + 1; i < tab.length; i++) {	//calcul de somme2 = somme des éléments à droite de j
+					somme2 += tab[i];						//ce sont les éléments de j+1 à tab.length-1
+				}											//si j=tab.length-1, cette boucle est ignorée car i=tab.length < tab.length est bien faux. Donc somme2 ne change pas et =0
 
-			} else if (j == tab.length - 1) {
-				for (int i = 0; i < tab.length - 1; i++) {
-					somme1 += tab[i];
-				}
-
-			} else {
-				for (int i = 0; i < j; i++) {
-					somme1 += tab[i];
-				}
-				for (int i = j + 1; i < tab.length; i++) {
-					somme2 += tab[i];
-				}
-			}
-			if (somme1 == somme2) {
-				result = j;
-			}
+			if (somme1 == somme2) {							//si somme1 = somme2 alors j est un point d'équilibre
+				result = j;									//il faut noter que cet algo écrase result à chaque fois qu'un point d'équilibre est trouvé
+			}												//par conséquent, result aura la valeur du dernier point d'équilibre calculé
 		}
 		return result;
 	}
@@ -62,34 +52,23 @@ public class ExoAlgo1 implements ImpAlgo1 {
 
 		int result = -1;
 		int j = 0;
-		boolean trouve = false;
-		while (j < tab.length && trouve == false) {
-			int somme1 = 0;
-			int somme2 = 0;
-			if (j == 0) {
-				for (int i = 1; i < tab.length; i++) {
-					somme2 += tab[i];
-				}
-
-			} else if (j == tab.length - 1) {
-				for (int i = 0; i < tab.length - 1; i++) {
-					somme1 += tab[i];
-				}
-
-			} else {
-				for (int i = 0; i < j; i++) {
+		boolean trouve = false;						  //boolean utilisé pour sortir de la boucle
+		while (j < tab.length && trouve == false) {   //principale difference avec l'algo précédent
+			int somme1 = 0;							  //on boucle tant qu'on a pas trouvé 
+			int somme2 = 0;							  //et tant qu'on a pas testé toutes les positions possibles de j
+			
+				for (int i = 0; i < j; i++) {		  //aucun  changement pour les calculs de somme1 et somme2
 					somme1 += tab[i];
 				}
 				for (int i = j + 1; i < tab.length; i++) {
 					somme2 += tab[i];
 				}
-			}
 			if (somme1 == somme2) {
-				result = j;
-				trouve = true;
+				result = j;					//dés qu'on trouve un point d'équilibre, on passe le boolean "trouve" à true
+				trouve = true;				//on sort donc de la boucle
 			}
-			j++;
-		}
+			j++;							//TRES IMPORTANT : ne pas oublier d'incrementer j à la fin de l'algo
+		}									//sinon, on bouclerait sur la même position de j=0 à l'infini et on ne sortirait jamais de la boucle
 		return result;
 	}*/
 
