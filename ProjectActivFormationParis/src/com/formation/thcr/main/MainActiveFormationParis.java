@@ -52,9 +52,10 @@ public class MainActiveFormationParis {
 			System.out.println(Arrays.toString(exo.changerDimensionTableau(tab4, d)[i]));
 		}
 		System.out.println("tabBaseDeux");
-		int v = 2048;
+		int v = -3;
 		System.out.println(v);
 		System.out.println(Arrays.toString(exo.tabBaseDeux2(v)));
+		System.out.println(Arrays.toString(exo.tabBaseDeux(v)));
 	}
 
 	private void init() {

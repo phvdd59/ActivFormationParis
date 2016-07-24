@@ -112,33 +112,33 @@ public class ExoTableau2 implements InterExoTableau2 {
 	 * @return tableau représentant cette valeur mais en binaire
 	 * 
 	 */
-	public int[] tabBaseDeux(int v) {
+	public int[] tabBaseDeux2(int v) {
 		int[] intToBit = null;
 		String vToBinStr = Integer.toBinaryString(Integer.valueOf(v));
 		char[] bit = vToBinStr.toCharArray();
 		intToBit = new int[bit.length];
 		for (int i = 0; i < bit.length - 1; i++) {
 			intToBit[i] = Integer.valueOf(vToBinStr.substring(i, i + 1));
-
 		}
+		intToBit[bit.length - 1] = Integer.valueOf(vToBinStr.substring(vToBinStr.length() - 1, vToBinStr.length()));
 		return intToBit;
 	}
 
-	public int[] tabBaseDeux2(int v) {
-		int[] intToBit = {0};
+	public int[] tabBaseDeux(int v) {
+		int[] intToBit = { 0 };
 		int tmpr = 0;
 		int r1 = 0;
 		int r2 = 0;
 		int cpt = 0;
 		int i = 0;
 		int v2 = v;
-		
-			while (v != 0) {
-				tmpr = v / 2;
-				v = tmpr;
-				cpt++;
-			}
-			if (v2 > 0) {
+
+		while (v != 0) {
+			tmpr = v / 2;
+			v = tmpr;
+			cpt++;
+		}
+		if (v2 > 0) {
 			intToBit = new int[cpt];
 			while (v2 != 0) {
 				r1 = v2 % 2;
@@ -151,10 +151,10 @@ public class ExoTableau2 implements InterExoTableau2 {
 				}
 				i++;
 			}
-		}else if (v2<0){
+		} else if (v2 < 0) {
 			intToBit = new int[32];
 			v2 = Math.abs(v2);
-			v2 = Integer.MAX_VALUE - v2 + 1;	//complément à 2
+			v2 = Integer.MAX_VALUE - v2 + 1; // complément à 2
 			while (v2 != 0) {
 				r1 = v2 % 2;
 				r2 = v2 / 2;
@@ -166,7 +166,7 @@ public class ExoTableau2 implements InterExoTableau2 {
 				}
 				i++;
 			}
-			intToBit[0]=1;
+			intToBit[0] = 1;
 		}
 		return intToBit;
 	}
