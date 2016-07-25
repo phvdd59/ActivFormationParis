@@ -70,7 +70,7 @@ public class ExoTableau2 implements InterExoTableau2 {
 		if (tab == null || tab1 == null) {
 			tab2 = null;
 		} else if (p < 0 || p > tab.length) {
-			tab2 = null;
+			tab2 = tab;
 		} else {
 			tab2 = new int[tab.length + tab1.length];
 			for (int i = 0; i < tab2.length; i++) {
