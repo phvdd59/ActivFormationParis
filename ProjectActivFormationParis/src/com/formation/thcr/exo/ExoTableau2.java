@@ -56,7 +56,7 @@ public class ExoTableau2 implements InterExoTableau2 {
 			for (int i = p; i < tab1.length + p; i++)
 				tmp[i] = tab1[i - p];
 			for (int i = p + tab1.length; i < tmp.length; i++)
-				tmp[i] = tab[i - p - 1];
+				tmp[i] = tab[i - tab1.length];
 		} else {
 			tmp = tab;
 		}
@@ -117,10 +117,9 @@ public class ExoTableau2 implements InterExoTableau2 {
 		String vToBinStr = Integer.toBinaryString(Integer.valueOf(v));
 		char[] bit = vToBinStr.toCharArray();
 		intToBit = new int[bit.length];
-		for (int i = 0; i < bit.length - 1; i++) {
+		for (int i = 0; i < bit.length; i++) {
 			intToBit[i] = Integer.valueOf(vToBinStr.substring(i, i + 1));
 		}
-		intToBit[bit.length - 1] = Integer.valueOf(vToBinStr.substring(vToBinStr.length() - 1, vToBinStr.length()));
 		return intToBit;
 	}
 

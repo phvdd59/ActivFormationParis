@@ -124,6 +124,11 @@ public class MainGasp {
 			System.out.print("\n");
 		}
 
+		int[] tabFinal5 = exoTableau2.tabBaseDeux(v);
+		for (int i = 0; i < tabFinal5.length; i++) {
+			System.out.print(tabFinal5[i] + " ");
+		}
+
 		System.out.println("");
 		System.out.println("");
 
