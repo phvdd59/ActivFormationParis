@@ -14,6 +14,7 @@ public class ExoTableau2 implements InterExoTableau2 {
 	public int[] inverserTableau(int[] tab) {
 		int[] tabInverse = null;
 		if (tab == null) {
+			tabInverse = tab.clone();
 		} else {
 			for (int i = 0; i < tab.length; i++) {
 				tabInverse = tab.clone();
@@ -37,6 +38,7 @@ public class ExoTableau2 implements InterExoTableau2 {
 	public int[] rallongerTableauDeUnElement(int[] tab, int a) {
 		int[] tableaurallonge = null;
 		if (tab == null) {
+			tableaurallonge = tab.clone();
 		} else {
 			tableaurallonge = new int[tab.length + 1];
 			for (int i = 0; i < tab.length; i++) {
@@ -63,7 +65,8 @@ public class ExoTableau2 implements InterExoTableau2 {
 	 */
 	public int[] insererUnTableauDansUnAutre(int[] tab, int p, int[] tab1) {
 		int[] tableauinsere = null;
-		if (p > tab.length || p < 0) {
+		if (p > tab.length || p < 0 || tab == null) {
+			tableauinsere = tab.clone();
 		} else {
 
 			tableauinsere = new int[tab.length + tab1.length];
@@ -95,6 +98,7 @@ public class ExoTableau2 implements InterExoTableau2 {
 	public int[][] changerDimensionTableau(int[] tab, int d) {
 		int[][] tableaudim = null;
 		if (tab == null || tab.length % 2 != 0) {
+
 		} else if (d == 2) {
 			tableaudim = new int[tab.length / 2][d];
 			for (int i = 0; i < tab.length / 2; i++) {
