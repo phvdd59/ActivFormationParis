@@ -123,7 +123,7 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 			while (p >= tab.size())
 				p = p - tab.size();
 		}
-		if (p > 0) {
+		if (p < 0) {
 			for (int i = 0; i < p; i++) {
 				tab2.add(0, tab2.remove(tab2.size() - 1));
 			}
