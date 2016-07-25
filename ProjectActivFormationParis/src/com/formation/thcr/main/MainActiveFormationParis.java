@@ -12,7 +12,7 @@ public class MainActiveFormationParis {
 
 	public static void main(String[] args) {
 		MainActiveFormationParis main = new MainActiveFormationParis();
-		main.initExoTableau2();
+		main.initAlgo();
 	}
 
 	private void initAlgo() {
@@ -41,18 +41,18 @@ public class MainActiveFormationParis {
 		System.out.println(Arrays.toString(tab32));
 		System.out.println(Arrays.toString(exo.insererUnTableauDansUnAutre(tab31, p, tab32)));
 		System.out.println("changerDimensionTableau");
-		int[] tab4 = { 1, 7, 8, 2, 4, 6, 9 };
+		int[] tab4 = { 1, 7, 8, 2, 4, 6};
 		int d = 2;
 		System.out.println(Arrays.toString(tab4));
-		for (int i = 0; i < tab4.length / d; i++) {
+		for (int i = 0; i < tab4.length / d ; i++) {
 			System.out.println(Arrays.toString(exo.changerDimensionTableau(tab4, d)[i]));
 		}
-		d = -2;
-		for (int i = 0; i < 1; i++) {
+		d = 3;
+		for (int i = 0; i < 2; i++) {
 			System.out.println(Arrays.toString(exo.changerDimensionTableau(tab4, d)[i]));
 		}
 		System.out.println("tabBaseDeux");
-		int v = -3;
+		int v = -1;
 		System.out.println(v);
 		System.out.println(Arrays.toString(exo.tabBaseDeux2(v)));
 		System.out.println(Arrays.toString(exo.tabBaseDeux(v)));
