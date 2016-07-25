@@ -12,7 +12,7 @@ public class MainActiveFormationParisJoca {
 
 	public static void main(String[] arg) {
 		MainActiveFormationParisJoca test = new MainActiveFormationParisJoca();
-		test.init5();
+		test.init3();
 	}
 
 	public void afficherTableau(int[] tab) {
@@ -62,16 +62,17 @@ public class MainActiveFormationParisJoca {
 		tabNull = null;
 		ExoTableau2 exo3 = new ExoTableau2();
 		this.afficherTableau(tabTest);
+		this.afficherTableau(tabTest2);
 		int[] tabResult;
 		int[][] tabResult2;
 		// tabResult = exo3.inverserTableau(tabTest);
 		// this.afficherTableau(tabResult);
 
-		// tabResult=exo3.rallongerTableauDeUnElement(tabTest, 9);
+		// tabResult=exo3.rallongerTableauDeUnElement(null, -9);
 		// this.afficherTableau(tabResult);
 
-		// tabResult = exo3.insererUnTableauDansUnAutre(tabTest, 2, tabTest2);
-		// this.afficherTableau(tabResult);
+		tabResult = exo3.insererUnTableauDansUnAutre(tabTest, 6, tabTest2);
+		this.afficherTableau(tabResult);
 
 		/*
 		 * tabResult2 = exo3.changerDimensionTableau(tabTest, 3); for (int i =
@@ -79,12 +80,12 @@ public class MainActiveFormationParisJoca {
 		 * { System.out.print(tabResult2[i][j]); } }
 		 */
 
-		tabResult = exo3.tabBaseDeux(75189);
-		afficherTableau(tabResult);
-		tabResult = exo3.tabBaseDeux(75188);
-		afficherTableau(tabResult);
-		tabResult = exo3.tabBaseDeux(-75189);
-		afficherTableau(tabResult);
+		/*
+		 * tabResult = exo3.tabBaseDeux(75189); afficherTableau(tabResult);
+		 * tabResult = exo3.tabBaseDeux(Integer.MIN_VALUE);
+		 * afficherTableau(tabResult); tabResult = exo3.tabBaseDeux(-75189);
+		 * afficherTableau(tabResult);
+		 */
 
 	}
 
@@ -104,33 +105,33 @@ public class MainActiveFormationParisJoca {
 		// this.afficherListe(list2);
 
 		ExoArrayList1 exo4 = new ExoArrayList1();
+		ArrayList<Integer> list3 = new ArrayList<Integer>();
 
-		ArrayList<Integer> list3 = exo4.remplirTableau(8, 16, -8);
-		this.afficherListe(list3);
+		/*
+		 * ArrayList<Integer> list3 = exo4.remplirTableau(8, 16, -8);
+		 * this.afficherListe(list3);
+		 * 
+		 * list3.clear(); list3 = exo4.intervertirDeuxElementsTableau(list1, 2,
+		 * 5); this.afficherListe(list3);
+		 * 
+		 * list3.clear(); list3 = exo4.insererUnElementDansTableau(list1, 7, 5);
+		 * this.afficherListe(list3);
+		 * 
+		 * list3.clear(); list3 =
+		 * exo4.insererUnTableauDansUnAutreAvecRemplacement(list1, -7, list2);
+		 */this.afficherListe(list3);
 
 		list3.clear();
-		list3 = exo4.intervertirDeuxElementsTableau(list1, 2, 5);
-		this.afficherListe(list3);
-
-		list3.clear();
-		list3 = exo4.insererUnElementDansTableau(list1, 7, 5);
-		this.afficherListe(list3);
-
-		list3.clear();
-		list3 = exo4.insererUnTableauDansUnAutreAvecRemplacement(list1, -7, list2);
-		this.afficherListe(list3);
-
-		list3.clear();
-		list3 = exo4.rotationTableau(list1, 458);
+		list3 = exo4.rotationTableau(list1, -4);
 		this.afficherListe(list3);
 	}
-	
-		private void init5(){
-			ExoAlgo1 exo5=new ExoAlgo1();
-			int[] tab={-1,3,-4,5,-3,-2,5,-3,1,1,-6,2,1};
-			int p1=exo5.solution(tab);
-			int p2=exo5.solution2(tab);
-			ArrayList<Integer> liste=exo5.solution3(tab);
-			System.out.println(p1+" "+p2+" "+liste);
-		}
+
+	private void init5() {
+		ExoAlgo1 exo5 = new ExoAlgo1();
+		int[] tab = { -1, 3, -4, 5, -3, -2, 5, -3, 1, 1, -6, 2, 1 };
+		int p1 = exo5.solution(tab);
+		int p2 = exo5.solution2(tab);
+		ArrayList<Integer> liste = exo5.solution3(tab);
+		System.out.println(p1 + " " + p2 + " " + liste);
+	}
 }
