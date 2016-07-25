@@ -1,4 +1,4 @@
-package com.formation.etga.exo;
+package com.formation.jeci.exo;
 
 import com.formation.phva.exo.InterExoTableau2;
 
@@ -12,11 +12,17 @@ public class ExoTableau2 implements InterExoTableau2 {
 	 * @return tab = [5,7,-5,6,4,1]
 	 */
 	public int[] inverserTableau(int[] tab) {
-		int[] tabFinal = tab.clone();
-		for (int i = 0; i < tabFinal.length; i++) {
-			tabFinal[i] = tab[(tab.length - 1) - i];
+		int[] tab1 = null;
+		if (tab == null) {
+			tab1 = null;
+		} else {
+			tab1 = new int[tab.length];
+			for (int i = tab.length - 1; i > 0; i--) {
+				tab1[tab.length - 1 - i] = tab[i];
+			}
 		}
-		return tabFinal;
+
+		return tab1;
 	}
 
 	/**
@@ -29,15 +35,23 @@ public class ExoTableau2 implements InterExoTableau2 {
 	 * @return
 	 */
 	public int[] rallongerTableauDeUnElement(int[] tab, int a) {
-		int[] tabFinal = new int[tab.length + 1];
-		for (int i = 0; i < tabFinal.length; i++) {
-			if (i < tab.length) {
-				tabFinal[i] = tab[i];
-			} else {
-				tabFinal[i] = a;
+		int[] tab1 = null;
+		if (tab == null) {
+			tab1 = null;
+		} else {
+			tab1 = new int[tab.length + 1];
+			for (int i = 0; i < tab1.length; i++) {
+				if (i < tab.length) {
+					tab1[i] = tab[i];
+				} else {
+					tab1[i] = a;
+				}
+
 			}
+
 		}
-		return tabFinal;
+
+		return tab1;
 	}
 
 	/**
@@ -52,19 +66,25 @@ public class ExoTableau2 implements InterExoTableau2 {
 	 * @return tableau
 	 */
 	public int[] insererUnTableauDansUnAutre(int[] tab, int p, int[] tab1) {
-		int[] tabFinal = new int[tab.length + tab1.length];
-		if ((0 <= p) && (p < tab.length)) {
-			for (int i = 0; i < tabFinal.length; i++) {
+		int[] tab2 = null;
+		if (tab == null || tab1 == null) {
+			tab2 = null;
+		} else if (p < 0 || p > tab.length) {
+			tab2 = null;
+		} else {
+			tab2 = new int[tab.length + tab1.length];
+			for (int i = 0; i < tab2.length; i++) {
 				if (i < p) {
-					tabFinal[i] = tab[i];
-				} else if ((i >= p) && (i < (tab1.length + p))) {
-					tabFinal[i] = tab1[i - p];
-				} else {
-					tabFinal[i] = tab[i - tab1.length];
+					tab2[i] = tab[i];
+				} else if (i >= p && i < p + tab1.length) {
+					tab2[i] = tab1[i - p];
+				} else if (i >= p + tab1.length && i < tab2.length) {
+					tab2[i] = tab[i - tab1.length];
 				}
+
 			}
 		}
-		return tabFinal;
+		return tab2;
 	}
 
 	/**
@@ -78,17 +98,25 @@ public class ExoTableau2 implements InterExoTableau2 {
 	 * @return tableau de n dimensions de base
 	 */
 	public int[][] changerDimensionTableau(int[] tab, int d) {
-		int[][] tabFinal = new int[tab.length / d][d];
-		int val = 0;
-		if ((0 < d) && (tab.length % d == 0) && (d < tab.length)) {
-			for (int i = 0; i < (tab.length / d); i++) {
+		int[][] tabo = null;
+		if (tab == null) {
+			tabo = null;
+		} else if (d < 0 || d > tab.length) {
+			tabo = null;
+		} else if (tab.length % d != 0) {
+			tabo = null;
+		} else if (tab.length % d == 0) {
+			tabo = new int[tab.length / d][d];
+			int cptTab = 0;
+			for (int i = 0; i < tab.length / d; i++) {
 				for (int j = 0; j < d; j++) {
-					tabFinal[i][j] = tab[val];
-					val++;
+					tabo[i][j] = tab[cptTab];
+					cptTab++;
 				}
 			}
 		}
-		return tabFinal;
+
+		return tabo;
 	}
 
 	/**
@@ -98,8 +126,8 @@ public class ExoTableau2 implements InterExoTableau2 {
 	 *            valeur en entrée
 	 * @return tableau représentant cette valeur mais en binaire
 	 */
-
 	public int[] tabBaseDeux(int v) {
+
 		int[] tab = null;
 
 		String a = Integer.toBinaryString(v);

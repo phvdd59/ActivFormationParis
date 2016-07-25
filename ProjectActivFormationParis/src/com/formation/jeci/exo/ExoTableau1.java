@@ -86,7 +86,7 @@ public class ExoTableau1 implements InterExoTableau1 {
 		int[] tab1 = null;
 
 		if (p < 0 || p > tab.length) {
-			tab1 = null;
+			tab1 = tab;
 
 		} else {
 
@@ -123,7 +123,7 @@ public class ExoTableau1 implements InterExoTableau1 {
 		int[] tab2 = null;
 
 		if (tab == null || tab1 == null) {
-			tab2 = null;
+			tab2 = tab;
 		} else if (p < 0 || p > tab.length) {
 			tab2 = null;
 
@@ -183,11 +183,11 @@ public class ExoTableau1 implements InterExoTableau1 {
 				}
 			}
 			for (int i = 0; i < tab.length; i++) {
-				if (i <  m) {
+				if (i < m) {
 					tab5[i] = tab4[i];
 
 				} else {
-					tab5[i] = tab3[i -  m];
+					tab5[i] = tab3[i - m];
 				}
 
 			}
@@ -196,7 +196,7 @@ public class ExoTableau1 implements InterExoTableau1 {
 			tab3 = new int[tab.length - m];
 			tab4 = new int[m];
 			tab5 = new int[tab.length];
-			
+
 			for (int i = 0; i < tab.length; i++) {
 
 				if (i < m) {
