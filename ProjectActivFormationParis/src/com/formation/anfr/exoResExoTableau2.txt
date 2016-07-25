@@ -1,0 +1,24 @@
+anfr:Tableau
+
+anfr rallongerTableauDeUnElement0 (2/2):    | exo.rallongerTableauDeUnElement(tab0, 8)
+anfr rallongerTableauDeUnElement1 (2/2):    | exo.rallongerTableauDeUnElement(tab, 8)
+anfr rallongerTableauDeUnElement2 (0/1): KO | exo.rallongerTableauDeUnElement(null, -8)
+anfr changerDimensionTableau0 (0/2): KO | exo.changerDimensionTableau(tab0, 2)
+anfr changerDimensionTableau1 (0/2): KO | exo.changerDimensionTableau(tab0, 3)
+anfr changerDimensionTableau2 (0/2): KO | exo.changerDimensionTableau(tab, 8)
+anfr changerDimensionTableau3 (1/1):    | exo.changerDimensionTableau(tab, 7)
+anfr changerDimensionTableau4 (1/1):    | exo.changerDimensionTableau(null, 2)
+anfr inverserTableau0 (2/2):    | exo.inverserTableau(tab0)
+anfr inverserTableau1 (2/2):    | exo.inverserTableau(tab)
+anfr inverserTableau2 (0/1): KO | exo.inverserTableau(null)
+null
+anfr insererUnTableauDansUnAutre0 (0/2): KO | exo.insererUnTableauDansUnAutre(tab0, 8, tab1)
+anfr insererUnTableauDansUnAutre1 (2/2):    | exo.insererUnTableauDansUnAutre(tab, 8, tab1)
+anfr insererUnTableauDansUnAutre2 (0/1): KO | exo.insererUnTableauDansUnAutre(tab, -3, tab1)
+anfr insererUnTableauDansUnAutre3 (0/1): KO | exo.insererUnTableauDansUnAutre(tab, 23233, tab1)
+anfr insererUnTableauDansUnAutre4 (1/1):    | exo.insererUnTableauDansUnAutre(null, 23233, tab1)
+anfr insererUnTableauDansUnAutre4 (0/1): KO | exo.insererUnTableauDansUnAutre(tab, 23233, null)
+anfr tabBaseDeux0 (2/2):    | exo.tabBaseDeux(tab0, 18)
+anfr tabBaseDeux1 (2/2):    | exo.tabBaseDeux(Integer.MAX_VALUE)
+anfr tabBaseDeux2 (0/2): KO | exo.tabBaseDeux(Integer.MIN_VALUE)
+anfr NOTE : (17 / 32) = 10 / 20
