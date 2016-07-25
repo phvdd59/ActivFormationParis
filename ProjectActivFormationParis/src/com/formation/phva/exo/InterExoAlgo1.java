@@ -1,6 +1,6 @@
 package com.formation.phva.exo;
 
-public interface ImpAlgo1 {
+public interface InterExoAlgo1 {
 
 	public int solution(int[] tab);
 }

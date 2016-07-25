@@ -2,9 +2,9 @@ package com.formation.thcr.exo;
 
 import java.util.ArrayList;
 
-import com.formation.phva.exo.ImpAlgo1;
+import com.formation.phva.exo.InterExoAlgo1;
 
-public class ExoAlgo1 implements ImpAlgo1 {
+public class ExoAlgo1 implements InterExoAlgo1 {
 
 	/**
 	 * soit p entier tel que : 0 <= p < n tableau tab de n elements
