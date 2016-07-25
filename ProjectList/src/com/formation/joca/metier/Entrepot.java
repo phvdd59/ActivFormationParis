@@ -1,7 +1,6 @@
 package com.formation.joca.metier;
 
 import java.util.ArrayList;
-import java.util.Map;
 
 public class Entrepot extends ArrayList<Wagon> {
 	private static int[] POURCENT_TYPE = { 14, 14, 44, 28 };
@@ -67,52 +66,33 @@ public class Entrepot extends ArrayList<Wagon> {
 		return super.add(e);
 	}
 
-	public void permuter1en1(int indice1) {
-		add(indice1, remove(indice1 + 1));
-	}
+	public void trier() {
+		ArrayList<Wagon> listWagonResto = new ArrayList<Wagon>();
+		ArrayList<Wagon> listWagonSimple1 = new ArrayList<Wagon>();
+		ArrayList<Wagon> listWagonSimple2 = new ArrayList<Wagon>();
+		ArrayList<Wagon> listWagonDouble = new ArrayList<Wagon>();
 
-	public void tri1() {
-		boolean permuteAuMoinsUneFois = true;
-		while (permuteAuMoinsUneFois) {
-			permuteAuMoinsUneFois = false;
-			for (int i = 0; i < this.size() - 1; i++) {
-				if (this.get(i).compareTo(get(i + 1)) == 1) {
-					permuter1en1(i);
-					permuteAuMoinsUneFois = true;
-				}
-			}
-		}
-	}
-
-	public void tri2() {
-		int[] ordreDeTri = { Wagon.WAGON_SIMPLE2, Wagon.WAGON_DOUBLE, Wagon.WAGON_SIMPLE1, Wagon.WAGON_RESTO };
-		// int entierTri = 0;
-		int cpt = 0;
-		for (int entierTri = 0; entierTri < ordreDeTri.length - 1; entierTri++) {
-			if (this.get(cpt).getType() != ordreDeTri[entierTri]) {
-				for (int i = cpt + 1; i < this.size(); i++) {
-					if (this.get(i).getType() == ordreDeTri[entierTri]) {
-						add(cpt, remove(i));
-						cpt++;
-						i--;
-					}
-				}
+		for (int i = 0; i < this.size(); i++) {
+			switch (this.get(i).getType()) {
+			case 0:
+				listWagonResto.add(this.get(i));
+				break;
+			case 1:
+				listWagonSimple1.add(this.get(i));
+				break;
+			case 2:
+				listWagonSimple2.add(this.get(i));
+				break;
+			case 3:
+				listWagonDouble.add(this.get(i));
+				break;
 			}
 		}
 
+		this.clear();
+		this.addAll(listWagonSimple2);
+		this.addAll(listWagonDouble);
+		this.addAll(listWagonSimple1);
+		this.addAll(listWagonResto);
 	}
-
-	@Override
-	public void add(int index, Wagon element) {
-		nbTypeWagons[element.getType()]++;
-		super.add(index, element);
-	}
-
-	@Override
-	public Wagon remove(int index) {
-		Wagon element = get(index);
-		nbTypeWagons[element.getType()]++;
-		return super.remove(index);
-	}
-
 }
