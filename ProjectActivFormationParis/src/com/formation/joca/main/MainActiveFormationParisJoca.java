@@ -71,7 +71,7 @@ public class MainActiveFormationParisJoca {
 		// tabResult=exo3.rallongerTableauDeUnElement(null, -9);
 		// this.afficherTableau(tabResult);
 
-		tabResult = exo3.insererUnTableauDansUnAutre(tabTest, 6, tabTest2);
+		tabResult = exo3.insererUnTableauDansUnAutre(tabTest, 2, tabTest2);
 		this.afficherTableau(tabResult);
 
 		/*

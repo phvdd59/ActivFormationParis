@@ -1,4 +1,4 @@
-package com.formation.soka.exo;
+package com.formation.frva.exo;
 
 import java.util.ArrayList;
 
@@ -15,18 +15,31 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 	 *            = nb d'élément
 	 * @param p
 	 *            = pas entre chaque élément
-	 * @return = nouveau tableau rempli
+	 * @param tablist
+	 * @return
 	 */
 	public ArrayList<Integer> remplirTableau(int d, int n, int p) {
-		ArrayList<Integer> liste = null;
+
+		if (n < 0) {
+			return null;
+		}
+
+		ArrayList<Integer> tablist = new ArrayList<Integer>();
+
 		if ((long) d + (long) p * n > Integer.MAX_VALUE || (long) d + (long) p * n < Integer.MIN_VALUE) {
+
 		} else {
-			liste = new ArrayList<Integer>();
+
+			tablist.add(d);
+			// tablist.add(Integer.valueOf(d));
+
 			for (int i = 0; i < n; i++) {
-				liste.add(d + (i * p));
+				tablist.add(tablist.get(i) + p);
+
 			}
 		}
-		return liste;
+		return tablist;
+
 	}
 
 	/**
@@ -34,22 +47,32 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 	 * [7,10,27,16,19,21,24,13,30]
 	 * 
 	 * @param tab
-	 *            tableau en entrée // * @param i1 première position pour
-	 *            l'interversion
+	 *            tableau en entrée
+	 * @param i1
+	 *            première position pour l'interversion
 	 * @param i2
 	 *            deuxième position pour l'interversion
 	 * @return
 	 */
 	public ArrayList<Integer> intervertirDeuxElementsTableau(ArrayList<Integer> tab, int i1, int i2) {
-		ArrayList<Integer> tab2 = new ArrayList<Integer>();
-		if (i1 < 0 || i2 < 0 || i1 >= tab.size() || i2 >= tab.size() || tab == null) {
-			tab2.addAll(tab);
-		} else {
-			tab2.addAll(tab);
-			tab2.set(i1, tab2.get(i2));
-			tab2.set(i2, tab.get(i1));
+
+		if (i1 < 0 || i2 < 0 || i1 >= tab.size() || i2 >= tab.size()) {
+			return tab;
 		}
-		return tab2;
+		ArrayList<Integer> tabi = new ArrayList<Integer>();
+
+		for (int i = 0; i < tab.size(); i++) {
+			if (i == i1) {
+				tabi.add(tab.get(i2));
+
+			} else if (i == i2) {
+				tabi.add(tab.get(i1));
+			} else {
+				tabi.add(tab.get(i));
+			}
+		}
+
+		return tabi;
 	}
 
 	/**
@@ -63,15 +86,32 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 	 *            valeur à ajouter
 	 * @return
 	 */
+
 	public ArrayList<Integer> insererUnElementDansTableau(ArrayList<Integer> tab, int p, int a) {
-		ArrayList<Integer> tab2 = new ArrayList<Integer>();
-		if (p < 0 || p >= tab.size() || tab == null) {
-			tab2.addAll(tab);
-		} else {
-			tab2.addAll(tab);
-			tab2.add(p, a);
+		if (p < 0 || p > tab.size()) {
+			return tab;
 		}
-		return tab2;
+		ArrayList<Integer> listeResultat = new ArrayList<Integer>();
+		
+
+		
+
+		for (int i = 0; i < p; i++) {
+
+			listeResultat.add(tab.get(i));
+			;
+		}
+		for (int i = p; i < p+1; i++) {
+			listeResultat.add(a);
+		}
+
+		for (int i = p + 1; i < tab.size()+1; i++) {
+			listeResultat.add(tab.get(i-1));
+
+		}
+
+		return listeResultat;
+
 	}
 
 	/**
@@ -88,22 +128,31 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 	 * @return tableau
 	 */
 	public ArrayList<Integer> insererUnTableauDansUnAutreAvecRemplacement(ArrayList<Integer> tab, int p, ArrayList<Integer> tab1) {
-		ArrayList<Integer> tab2 = new ArrayList<Integer>();
-		if (tab == null) {
-		} else if (tab1 == null || p >= tab.size() || p < 0 || p > tab.size() - tab1.size() || tab1.size() > tab.size()) {
-			tab2 = (ArrayList<Integer>) tab.clone();
-		} else {
-			for (int i = 0; i < tab.size(); i++) {
-				if (i < p) {
-					tab2.add(i, tab.get(i));
-				} else if (i >= p + tab1.size()) {
-					tab2.add(i, tab.get(i ));
-				} else {
-					tab2.add(i, tab1.get(i - p));
-				}
-			}
+
+		if (p < 0 || p > tab.size() || p + tab1.size() > tab.size()) {
+			return tab;
 		}
-		return tab2;
+		if (tab == null || tab1 == null) {
+			return tab;
+		}
+		ArrayList<Integer> listeFin = new ArrayList<Integer>();
+
+		int[] tabF = new int[tab.size()];
+
+		for (int i = 0; i < p; i++) {
+
+			listeFin.add(i, tabF[i]);
+		}
+		for (int j = p; j < tab1.size() + p; j++) {
+			listeFin.add(j - p, tabF[j - p]);
+		}
+
+		for (int j = p + tab1.size(); j < tabF.length; j++) {
+			listeFin.add(j, tabF[j]);
+
+		}
+
+		return listeFin;
 	}
 
 	/**
@@ -119,23 +168,6 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 	 * @return
 	 */
 	public ArrayList<Integer> rotationTableau(ArrayList<Integer> tab, int p) {
-		ArrayList<Integer> tab2 = (ArrayList<Integer>) tab.clone();
-		if (tab == null) {
-		} else if ((p == 0)) {
-			tab2.addAll(tab);
-		} else {
-			while (p >= tab.size())
-				p = p - tab.size();
-		}
-		if (p < 0) {
-			for (int i = 0; i < p; i++) {
-				tab2.add(0, tab2.remove(tab2.size() - 1));
-			}
-		} else {
-			for (int i = 0; i < -p; i++) {
-				tab2.add(tab2.remove(0));
-			}
-		}
-		return tab2;
+		return null;
 	}
 }

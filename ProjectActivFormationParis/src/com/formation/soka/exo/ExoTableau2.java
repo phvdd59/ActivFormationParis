@@ -61,7 +61,7 @@ public class ExoTableau2 implements InterExoTableau2 {
 	public int[] insererUnTableauDansUnAutre(int[] tab, int p, int[] tab1) {
 		int[] tab2 = null;
 		if (tab == null) {
-		} else if (tab1 == null || p >= tab.length || p < 0 || tab1.length > tab.length) {
+		} else if (tab != null && (tab1 == null || p >= tab.length || p < 0)) {
 			tab2 = tab.clone();
 		} else {
 			tab2 = new int[tab.length + tab1.length];
@@ -115,8 +115,6 @@ public class ExoTableau2 implements InterExoTableau2 {
 		String b = Integer.toBinaryString(v);
 		char[] tabChar = b.toCharArray();
 		int[] tab = null;
-		if ((long) v > Integer.MAX_VALUE || (long) v < Integer.MIN_VALUE) {
-		}
 		tab = new int[tabChar.length];
 		for (int i = 0; i < tabChar.length; i++) {
 			tab[i] = Integer.valueOf(b.substring(i, i + 1)).intValue();

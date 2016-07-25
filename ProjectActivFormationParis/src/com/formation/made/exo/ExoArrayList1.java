@@ -95,12 +95,10 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 	 */
 	public ArrayList<Integer> insererUnTableauDansUnAutreAvecRemplacement(ArrayList<Integer> tab, int p, ArrayList<Integer> tab1) {
 		ArrayList<Integer> tableaufinal = null;
-		if (tab1 == null) {
-			tableaufinal = (ArrayList<Integer>)tab.clone();
-		}
-		if (tab == null) {
-		}
-		if (tab1.size() > tab.size() || p < 0 || (tab1.size() == tab.size() && p != 0) || tab1.size() + p > tab.size()) {
+		if (tab1 == null || tab1.size() > tab.size()||p < 0|| tab1.size() + p > tab.size()) {
+			tableaufinal = (ArrayList<Integer>) tab.clone();
+		} else if (tab == null) {
+		} else if ( (tab1.size() == tab.size() && p != 0) ) {
 			// System.out.println("pas les bonnes valeurs");
 		} else {
 			tableaufinal = (ArrayList<Integer>) tab.clone();

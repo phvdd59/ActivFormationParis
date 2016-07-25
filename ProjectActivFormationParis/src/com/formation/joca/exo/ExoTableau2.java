@@ -57,7 +57,7 @@ public class ExoTableau2 implements InterExoTableau2 {
 	public int[] insererUnTableauDansUnAutre(int[] tab, int p, int[] tab1) {
 		int[] tabModif = null;
 		if (tab != null) {
-			if (tab1 == null) {
+			if (tab1 == null || p < 0 || p > tab.length + 1) {
 				tabModif = tab;
 			} else if (p >= 0 && p < tab.length) {
 				tabModif = new int[tab.length + tab1.length];

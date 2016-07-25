@@ -97,7 +97,8 @@ public class ExoTableau2 implements InterExoTableau2 {
 	 */
 	public int[][] changerDimensionTableau(int[] tab, int d) {
 		int[][] tableaudim = null;
-		if (tab == null || tab.length % 2 != 0) {
+		if (tab == null) {
+		} else if (tab.length % 2 != 0) {
 
 		} else if (d == 2) {
 			tableaudim = new int[tab.length / 2][d];
@@ -114,7 +115,6 @@ public class ExoTableau2 implements InterExoTableau2 {
 					tableaudim[i][j] = tab[((tab.length / 2) * i) + j];
 					// System.out.println(tableaudim[i][j]);
 				}
-
 			}
 		}
 		return tableaudim;
