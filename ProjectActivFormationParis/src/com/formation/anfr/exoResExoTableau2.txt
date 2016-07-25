@@ -2,7 +2,7 @@ anfr:Tableau
 
 anfr rallongerTableauDeUnElement0 (2/2):    | exo.rallongerTableauDeUnElement(tab0, 8)
 anfr rallongerTableauDeUnElement1 (2/2):    | exo.rallongerTableauDeUnElement(tab, 8)
-anfr rallongerTableauDeUnElement2 (0/1): KO | exo.rallongerTableauDeUnElement(null, -8)
+anfr rallongerTableauDeUnElement2 (1/1):    | exo.rallongerTableauDeUnElement(null, -8)
 anfr changerDimensionTableau0 (2/2):    | exo.changerDimensionTableau(tab0, 2)
 anfr changerDimensionTableau1 (2/2):    | exo.changerDimensionTableau(tab0, 3)
 anfr changerDimensionTableau2 (2/2):    | exo.changerDimensionTableau(tab, 8)
@@ -17,9 +17,8 @@ anfr insererUnTableauDansUnAutre2 (1/1):    | exo.insererUnTableauDansUnAutre(ta
 anfr insererUnTableauDansUnAutre3 (1/1):    | exo.insererUnTableauDansUnAutre(tab, 23233, tab1)
 anfr insererUnTableauDansUnAutre4 (0/1): KO | exo.insererUnTableauDansUnAutre(null, 23233, tab1)
 null
-anfr insererUnTableauDansUnAutre4 (0/1): KO | exo.insererUnTableauDansUnAutre(tab, 23233, null)
-null
+anfr insererUnTableauDansUnAutre5 (1/1):    | exo.insererUnTableauDansUnAutre(tab, 3, null)
 anfr tabBaseDeux0 (2/2):    | exo.tabBaseDeux(tab0, 18)
 anfr tabBaseDeux1 (2/2):    | exo.tabBaseDeux(Integer.MAX_VALUE)
 anfr tabBaseDeux2 (2/2):    | exo.tabBaseDeux(Integer.MIN_VALUE)
-anfr NOTE : (29 / 32) = 18 / 20
+anfr NOTE : (31 / 32) = 19 / 20

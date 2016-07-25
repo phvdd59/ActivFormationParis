@@ -2,7 +2,7 @@ joca:Tableau
 
 joca rallongerTableauDeUnElement0 (2/2):    | exo.rallongerTableauDeUnElement(tab0, 8)
 joca rallongerTableauDeUnElement1 (2/2):    | exo.rallongerTableauDeUnElement(tab, 8)
-joca rallongerTableauDeUnElement2 (0/1): KO | exo.rallongerTableauDeUnElement(null, -8)
+joca rallongerTableauDeUnElement2 (1/1):    | exo.rallongerTableauDeUnElement(null, -8)
 joca changerDimensionTableau0 (2/2):    | exo.changerDimensionTableau(tab0, 2)
 joca changerDimensionTableau1 (2/2):    | exo.changerDimensionTableau(tab0, 3)
 joca changerDimensionTableau2 (2/2):    | exo.changerDimensionTableau(tab, 8)
@@ -16,8 +16,8 @@ joca insererUnTableauDansUnAutre1 (2/2):    | exo.insererUnTableauDansUnAutre(ta
 joca insererUnTableauDansUnAutre2 (1/1):    | exo.insererUnTableauDansUnAutre(tab, -3, tab1)
 joca insererUnTableauDansUnAutre3 (1/1):    | exo.insererUnTableauDansUnAutre(tab, 23233, tab1)
 joca insererUnTableauDansUnAutre4 (1/1):    | exo.insererUnTableauDansUnAutre(null, 23233, tab1)
-joca insererUnTableauDansUnAutre4 (0/1): KO | exo.insererUnTableauDansUnAutre(tab, 23233, null)
+joca insererUnTableauDansUnAutre5 (1/1):    | exo.insererUnTableauDansUnAutre(tab, 3, null)
 joca tabBaseDeux0 (2/2):    | exo.tabBaseDeux(tab0, 18)
 joca tabBaseDeux1 (2/2):    | exo.tabBaseDeux(Integer.MAX_VALUE)
 joca tabBaseDeux2 (2/2):    | exo.tabBaseDeux(Integer.MIN_VALUE)
-joca NOTE : (30 / 32) = 18 / 20
+joca NOTE : (32 / 32) = 20 / 20

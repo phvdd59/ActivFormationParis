@@ -2,7 +2,7 @@ thcr:Tableau
 
 thcr rallongerTableauDeUnElement0 (2/2):    | exo.rallongerTableauDeUnElement(tab0, 8)
 thcr rallongerTableauDeUnElement1 (2/2):    | exo.rallongerTableauDeUnElement(tab, 8)
-thcr rallongerTableauDeUnElement2 (0/1): KO | exo.rallongerTableauDeUnElement(null, -8)
+thcr rallongerTableauDeUnElement2 (1/1):    | exo.rallongerTableauDeUnElement(null, -8)
 thcr changerDimensionTableau0 (2/2):    | exo.changerDimensionTableau(tab0, 2)
 thcr changerDimensionTableau1 (2/2):    | exo.changerDimensionTableau(tab0, 3)
 thcr changerDimensionTableau2 (2/2):    | exo.changerDimensionTableau(tab, 8)
@@ -18,9 +18,9 @@ thcr insererUnTableauDansUnAutre2 (1/1):    | exo.insererUnTableauDansUnAutre(ta
 thcr insererUnTableauDansUnAutre3 (1/1):    | exo.insererUnTableauDansUnAutre(tab, 23233, tab1)
 thcr insererUnTableauDansUnAutre4 (0/1): KO | exo.insererUnTableauDansUnAutre(null, 23233, tab1)
 null
-thcr insererUnTableauDansUnAutre4 (0/1): KO | exo.insererUnTableauDansUnAutre(tab, 23233, null)
+thcr insererUnTableauDansUnAutre5 (0/1): KO | exo.insererUnTableauDansUnAutre(tab, 3, null)
 null
 thcr tabBaseDeux0 (2/2):    | exo.tabBaseDeux(tab0, 18)
 thcr tabBaseDeux1 (2/2):    | exo.tabBaseDeux(Integer.MAX_VALUE)
 thcr tabBaseDeux2 (2/2):    | exo.tabBaseDeux(Integer.MIN_VALUE)
-thcr NOTE : (27 / 32) = 16 / 20
+thcr NOTE : (28 / 32) = 17 / 20

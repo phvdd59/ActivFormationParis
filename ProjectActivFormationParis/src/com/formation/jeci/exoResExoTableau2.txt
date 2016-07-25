@@ -2,7 +2,7 @@ jeci:Tableau
 
 jeci rallongerTableauDeUnElement0 (2/2):    | exo.rallongerTableauDeUnElement(tab0, 8)
 jeci rallongerTableauDeUnElement1 (2/2):    | exo.rallongerTableauDeUnElement(tab, 8)
-jeci rallongerTableauDeUnElement2 (0/1): KO | exo.rallongerTableauDeUnElement(null, -8)
+jeci rallongerTableauDeUnElement2 (1/1):    | exo.rallongerTableauDeUnElement(null, -8)
 jeci changerDimensionTableau0 (2/2):    | exo.changerDimensionTableau(tab0, 2)
 jeci changerDimensionTableau1 (2/2):    | exo.changerDimensionTableau(tab0, 3)
 jeci changerDimensionTableau2 (2/2):    | exo.changerDimensionTableau(tab, 8)
@@ -16,8 +16,8 @@ jeci insererUnTableauDansUnAutre1 (2/2):    | exo.insererUnTableauDansUnAutre(ta
 jeci insererUnTableauDansUnAutre2 (0/1): KO | exo.insererUnTableauDansUnAutre(tab, -3, tab1)
 jeci insererUnTableauDansUnAutre3 (0/1): KO | exo.insererUnTableauDansUnAutre(tab, 23233, tab1)
 jeci insererUnTableauDansUnAutre4 (1/1):    | exo.insererUnTableauDansUnAutre(null, 23233, tab1)
-jeci insererUnTableauDansUnAutre4 (0/1): KO | exo.insererUnTableauDansUnAutre(tab, 23233, null)
+jeci insererUnTableauDansUnAutre5 (0/1): KO | exo.insererUnTableauDansUnAutre(tab, 3, null)
 jeci tabBaseDeux0 (2/2):    | exo.tabBaseDeux(tab0, 18)
 jeci tabBaseDeux1 (2/2):    | exo.tabBaseDeux(Integer.MAX_VALUE)
 jeci tabBaseDeux2 (2/2):    | exo.tabBaseDeux(Integer.MIN_VALUE)
-jeci NOTE : (26 / 32) = 16 / 20
+jeci NOTE : (27 / 32) = 16 / 20

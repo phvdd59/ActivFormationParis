@@ -109,7 +109,7 @@ public class MainList {
 		 * for (int i = 0; i < entrepotParis.size(); i++) {
 		 * System.out.println(entrepotParis.get(i).toString()); }
 		 */
-		// entrepotParis.tri1();
+		entrepotParis.tri1();
 		Collections.sort(entrepotParis);
 		for (int i = 0; i < entrepotParis.size(); i++) {
 			System.out.println(entrepotParis.get(i).toString());
