@@ -28,6 +28,7 @@ public class ExoTableau1 implements InterExoTableau1 {
 	// 1.méthode remplirTableau
 	public int[] remplirTableau(int d, int n, int p) {
 		// protection: e.g. si on donne un n négatif, ça ne fonctionne pas
+		//int tableauRempli[] = null;
 		if (n < 0) {
 			return null;
 		}
