@@ -105,7 +105,7 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 */
 	public int[] insererUnTableauDansUnAutreAvecRemplacement(int[] tab, int p, int[] tab1) {
 		int[] tableaufinal = null;
-		if (tab1.length > tab.length || p < 0 || (tab1.length == tab.length && p != 0) || tab1.length + p > tab.length) {
+		if (tab1.length > tab.length || p < 0 || (tab1.length == tab.length && p != 0) || tab1.length + p > tab.length) { // revoir ça
 			tableaufinal = tab;
 			System.out.println("pas les bonnes valeurs");
 		} else {

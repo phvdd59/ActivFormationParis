@@ -13,11 +13,13 @@ public class ExoTableau2 implements InterExoTableau2 {
 	 */
 	public int[] inverserTableau(int[] tab) {
 		int[] tabInverse = null;
-		for (int i = 0; i <= tab.length; i++) {
-			int compteur = tab.length - 1;
-			tabInverse = tab.clone();
-			// tabInverse[i] = tab[compteur - i];
-			// System.out.println(tabInverse[i]);
+		if (tab == null) {
+		} else {
+			for (int i = 0; i < tab.length; i++) {
+				tabInverse = tab.clone();
+				tabInverse[i] = tab[tab.length - 1 - i];
+				System.out.println(tabInverse[i]);
+			}
 		}
 		return tabInverse;
 
@@ -34,13 +36,16 @@ public class ExoTableau2 implements InterExoTableau2 {
 	 */
 	public int[] rallongerTableauDeUnElement(int[] tab, int a) {
 		int[] tableaurallonge = null;
-		tableaurallonge = new int[tab.length + 1];
-		for (int i = 0; i < tab.length; i++) {
-			tableaurallonge[i] = tab[i];
-		}
-		tableaurallonge[tab.length] = a;
-		for (int i = 0; i < tableaurallonge.length; i++) {
-			// System.out.println(tableaurallonge[i]);
+		if (tab == null) {
+		} else {
+			tableaurallonge = new int[tab.length + 1];
+			for (int i = 0; i < tab.length; i++) {
+				tableaurallonge[i] = tab[i];
+			}
+			tableaurallonge[tab.length] = a;
+			for (int i = 0; i < tableaurallonge.length; i++) {
+				// System.out.println(tableaurallonge[i]);
+			}
 		}
 		return tableaurallonge;
 	}
@@ -58,18 +63,22 @@ public class ExoTableau2 implements InterExoTableau2 {
 	 */
 	public int[] insererUnTableauDansUnAutre(int[] tab, int p, int[] tab1) {
 		int[] tableauinsere = null;
-		tableauinsere = new int[tab.length + tab1.length];
-		for (int i = 0; i < p; i++) {
-			tableauinsere[i] = tab[i];
-		}
-		for (int i = p; i < tab1.length + p; i++) {
-			tableauinsere[i] = tab1[i - p];
-		}
-		for (int i = tab1.length + p; i < tableauinsere.length; i++) {
-			tableauinsere[i] = tab[i - tab1.length];
-		}
-		for (int i = 0; i < tableauinsere.length; i++) {
-			//System.out.println(tableauinsere[i]);
+		if (p > tab.length || p < 0) {
+		} else {
+
+			tableauinsere = new int[tab.length + tab1.length];
+			for (int i = 0; i < p; i++) {
+				tableauinsere[i] = tab[i];
+			}
+			for (int i = p; i < tab1.length + p; i++) {
+				tableauinsere[i] = tab1[i - p];
+			}
+			for (int i = tab1.length + p; i < tableauinsere.length; i++) {
+				tableauinsere[i] = tab[i - tab1.length];
+			}
+			for (int i = 0; i < tableauinsere.length; i++) {
+				// System.out.println(tableauinsere[i]);
+			}
 		}
 		return tableauinsere;
 	}
@@ -85,26 +94,25 @@ public class ExoTableau2 implements InterExoTableau2 {
 	 */
 	public int[][] changerDimensionTableau(int[] tab, int d) {
 		int[][] tableaudim = null;
-		if (d == 2) {
-			tableaudim = new int[d][tab.length/2];
-			for (int i = 0; i < tab.length/2; i++) {
+		if (tab == null || tab.length % 2 != 0) {
+		} else if (d == 2) {
+			tableaudim = new int[tab.length / 2][d];
+			for (int i = 0; i < tab.length / 2; i++) {
 				for (int j = 0; j < 2; j++) {
 					tableaudim[i][j] = tab[2 * i + j];
-					System.out.println(tableaudim[i][j]);
+					//System.out.println(tableaudim[i][j]);
 				}
 			}
-		}
-		if (d == tab.length / 2) {
-			tableaudim = new int[2][5];
+		} else if (d == tab.length / 2) {
+			tableaudim = new int[2][tab.length / 2];
 			for (int i = 0; i < 2; i++) {
 				for (int j = 0; j < d; j++) {
-					tableaudim[i][j] = tab[i + 2 * j];
-					System.out.println(tableaudim[i][j]);
+					tableaudim[i][j] = tab[((tab.length / 2) * i) + j];
+					//System.out.println(tableaudim[i][j]);
 				}
 
 			}
 		}
-
 		return tableaudim;
 	}
 
@@ -116,6 +124,26 @@ public class ExoTableau2 implements InterExoTableau2 {
 	 * @return tableau représentant cette valeur mais en binaire
 	 */
 	public int[] tabBaseDeux(int v) {
-		return null;
+		int[] tableaubinaire = null;
+		int puissance = 31;
+		while (v % Math.pow(2, puissance) == v) {
+			puissance--;
+		}
+			tableaubinaire=new int[puissance+1];
+			for (int i = puissance; i >=0; i--) {
+				if(v%Math.pow(2, i)!=0){
+				tableaubinaire[puissance-i]=1;
+				v=v%(int)Math.pow(2, i);
+				}
+				else{
+					tableaubinaire[puissance+1-i]=0;
+			}
+
+		}
+			for (int i = 0; i < tableaubinaire.length; i++) {
+				System.out.println(tableaubinaire[i]);
+				
+			}
+		return tableaubinaire;
 	}
 }
