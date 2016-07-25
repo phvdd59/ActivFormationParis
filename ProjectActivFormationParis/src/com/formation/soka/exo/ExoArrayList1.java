@@ -96,6 +96,8 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 			for (int i = 0; i < tab.size(); i++) {
 				if (i < p) {
 					tab2.add(i, tab.get(i));
+				} else if (i >= p + tab1.size()) {
+					tab2.add(i, tab.get(i ));
 				} else {
 					tab2.add(i, tab1.get(i - p));
 				}
