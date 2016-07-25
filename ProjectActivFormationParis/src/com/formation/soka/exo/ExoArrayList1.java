@@ -89,7 +89,9 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 	 */
 	public ArrayList<Integer> insererUnTableauDansUnAutreAvecRemplacement(ArrayList<Integer> tab, int p, ArrayList<Integer> tab1) {
 		ArrayList<Integer> tab2 = new ArrayList<Integer>();
-		if (tab == null || tab1 == null || p >= tab.size() || p < 0 || p > tab.size() - tab1.size() || tab1.size() > tab.size()) {
+		if (tab == null) {
+		} else if (tab1 == null || p >= tab.size() || p < 0 || p > tab.size() - tab1.size() || tab1.size() > tab.size()) {
+			tab2 = (ArrayList<Integer>) tab.clone();
 		} else {
 			for (int i = 0; i < tab.size(); i++) {
 				if (i < p) {
@@ -99,7 +101,7 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 				}
 			}
 		}
-		return tab;
+		return tab2;
 	}
 
 	/**
