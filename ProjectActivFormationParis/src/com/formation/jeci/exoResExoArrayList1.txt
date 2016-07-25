@@ -20,9 +20,9 @@ jeci insererUnArrayListDansUnAutreAvecRemplacement1 (0/2): KO | exo.insererUnArr
 -1
 jeci insererUnArrayListDansUnAutreAvecRemplacement2 (0/1): KO | exo.insererUnArrayListDansUnAutreAvecRemplacement(tab, -3, tab1)
 jeci insererUnArrayListDansUnAutreAvecRemplacement3 (0/1): KO | exo.insererUnArrayListDansUnAutreAvecRemplacement(tab, 3000, tab1)
-jeci rotationArrayList0 (0/2): KO | exo.rotationArrayList(tabA, 2)
-jeci rotationArrayList1 (0/2): KO | exo.rotationArrayList(tab, 3)
-jeci rotationArrayList2 (0/1): KO | exo.rotationArrayList(tab, -3)
-jeci rotationArrayList3 (0/1): KO | exo.rotationArrayList(tab, 3000)
-jeci rotationArrayList4 (0/1): KO | exo.rotationArrayList(tab, -777)
-jeci NOTE : (14 / 33) = 8 / 20
+jeci rotationArrayList0 (2/2):    | exo.rotationArrayList(tabA, 2)
+jeci rotationArrayList1 (2/2):    | exo.rotationArrayList(tab, 3)
+jeci rotationArrayList2 (1/1):    | exo.rotationArrayList(tab, -3)
+jeci rotationArrayList3 (1/1):    | exo.rotationArrayList(tab, 3000)
+jeci rotationArrayList4 (1/1):    | exo.rotationArrayList(tab, -777)
+jeci NOTE : (21 / 33) = 12 / 20

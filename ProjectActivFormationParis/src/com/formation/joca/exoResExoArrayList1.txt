@@ -18,9 +18,9 @@ joca insererUnArrayListDansUnAutreAvecRemplacement0 (2/2):    | exo.insererUnArr
 joca insererUnArrayListDansUnAutreAvecRemplacement1 (2/2):    | exo.insererUnArrayListDansUnAutreAvecRemplacement(tab, 3, tab1)
 joca insererUnArrayListDansUnAutreAvecRemplacement2 (1/1):    | exo.insererUnArrayListDansUnAutreAvecRemplacement(tab, -3, tab1)
 joca insererUnArrayListDansUnAutreAvecRemplacement3 (1/1):    | exo.insererUnArrayListDansUnAutreAvecRemplacement(tab, 3000, tab1)
-joca rotationArrayList0 (0/2): KO | exo.rotationArrayList(tabA, 2)
-joca rotationArrayList1 (0/2): KO | exo.rotationArrayList(tab, 3)
-joca rotationArrayList2 (0/1): KO | exo.rotationArrayList(tab, -3)
-joca rotationArrayList3 (0/1): KO | exo.rotationArrayList(tab, 3000)
-joca rotationArrayList4 (0/1): KO | exo.rotationArrayList(tab, -777)
-joca NOTE : (26 / 33) = 15 / 20
+joca rotationArrayList0 (2/2):    | exo.rotationArrayList(tabA, 2)
+joca rotationArrayList1 (2/2):    | exo.rotationArrayList(tab, 3)
+joca rotationArrayList2 (1/1):    | exo.rotationArrayList(tab, -3)
+joca rotationArrayList3 (1/1):    | exo.rotationArrayList(tab, 3000)
+joca rotationArrayList4 (1/1):    | exo.rotationArrayList(tab, -777)
+joca NOTE : (33 / 33) = 20 / 20

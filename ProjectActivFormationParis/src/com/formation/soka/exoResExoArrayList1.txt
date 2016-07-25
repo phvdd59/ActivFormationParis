@@ -20,9 +20,9 @@ soka insererUnArrayListDansUnAutreAvecRemplacement1 (0/2): KO | exo.insererUnArr
 Index: 15, Size: 15
 soka insererUnArrayListDansUnAutreAvecRemplacement2 (1/1):    | exo.insererUnArrayListDansUnAutreAvecRemplacement(tab, -3, tab1)
 soka insererUnArrayListDansUnAutreAvecRemplacement3 (1/1):    | exo.insererUnArrayListDansUnAutreAvecRemplacement(tab, 3000, tab1)
-soka rotationArrayList0 (0/2): KO | exo.rotationArrayList(tabA, 2)
-soka rotationArrayList1 (0/2): KO | exo.rotationArrayList(tab, 3)
-soka rotationArrayList2 (0/1): KO | exo.rotationArrayList(tab, -3)
-soka rotationArrayList3 (0/1): KO | exo.rotationArrayList(tab, 3000)
-soka rotationArrayList4 (0/1): KO | exo.rotationArrayList(tab, -777)
-soka NOTE : (22 / 33) = 13 / 20
+soka rotationArrayList0 (2/2):    | exo.rotationArrayList(tabA, 2)
+soka rotationArrayList1 (2/2):    | exo.rotationArrayList(tab, 3)
+soka rotationArrayList2 (1/1):    | exo.rotationArrayList(tab, -3)
+soka rotationArrayList3 (1/1):    | exo.rotationArrayList(tab, 3000)
+soka rotationArrayList4 (1/1):    | exo.rotationArrayList(tab, -777)
+soka NOTE : (29 / 33) = 17 / 20

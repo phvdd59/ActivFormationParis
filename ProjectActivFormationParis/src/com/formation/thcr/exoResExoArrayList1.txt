@@ -20,9 +20,9 @@ thcr insererUnArrayListDansUnAutreAvecRemplacement0 (2/2):    | exo.insererUnArr
 thcr insererUnArrayListDansUnAutreAvecRemplacement1 (2/2):    | exo.insererUnArrayListDansUnAutreAvecRemplacement(tab, 3, tab1)
 thcr insererUnArrayListDansUnAutreAvecRemplacement2 (1/1):    | exo.insererUnArrayListDansUnAutreAvecRemplacement(tab, -3, tab1)
 thcr insererUnArrayListDansUnAutreAvecRemplacement3 (1/1):    | exo.insererUnArrayListDansUnAutreAvecRemplacement(tab, 3000, tab1)
-thcr rotationArrayList0 (0/2): KO | exo.rotationArrayList(tabA, 2)
-thcr rotationArrayList1 (0/2): KO | exo.rotationArrayList(tab, 3)
-thcr rotationArrayList2 (0/1): KO | exo.rotationArrayList(tab, -3)
+thcr rotationArrayList0 (2/2):    | exo.rotationArrayList(tabA, 2)
+thcr rotationArrayList1 (2/2):    | exo.rotationArrayList(tab, 3)
+thcr rotationArrayList2 (1/1):    | exo.rotationArrayList(tab, -3)
 thcr rotationArrayList3 (0/1): KO | exo.rotationArrayList(tab, 3000)
-thcr rotationArrayList4 (0/1): KO | exo.rotationArrayList(tab, -777)
-thcr NOTE : (16 / 33) = 9 / 20
+thcr rotationArrayList4 (1/1):    | exo.rotationArrayList(tab, -777)
+thcr NOTE : (22 / 33) = 13 / 20

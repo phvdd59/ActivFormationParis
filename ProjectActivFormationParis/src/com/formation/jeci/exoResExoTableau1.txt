@@ -21,6 +21,6 @@ jeci rotationTableau3 (1/1):    | exo.rotationTableau(tab, 3000)
 jeci rotationTableau4 (1/1):    | exo.rotationTableau(tab, -777)
 jeci insererUnElementDansTableau0 (2/2):    | exo.insererUnElementDansTableau(tab1, 3, 8)
 jeci insererUnElementDansTableau1 (2/2):    | exo.insererUnElementDansTableau(tab, 3, 8)
-jeci insererUnElementDansTableau2 (0/1): KO | exo.insererUnElementDansTableau(tab, -3, 8)
-jeci insererUnElementDansTableau3 (0/1): KO | exo.insererUnElementDansTableau(tab, 33333, 8)
-jeci NOTE : (29 / 33) = 17 / 20
+jeci insererUnElementDansTableau2 (1/1):    | exo.insererUnElementDansTableau(tab, -3, 8)
+jeci insererUnElementDansTableau3 (1/1):    | exo.insererUnElementDansTableau(tab, 33333, 8)
+jeci NOTE : (31 / 33) = 18 / 20
