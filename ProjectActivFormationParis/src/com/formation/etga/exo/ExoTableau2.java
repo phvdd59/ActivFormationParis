@@ -100,7 +100,15 @@ public class ExoTableau2 implements InterExoTableau2 {
 	 */
 
 	public int[] tabBaseDeux(int v) {
-		return null;
+		int[] tab = null;
 
+		String a = Integer.toBinaryString(v);
+		char[] tabChar = a.toCharArray();
+		tab = new int[tabChar.length];
+		for (int i = 0; i < tabChar.length; i++) {
+			tab[i] = Character.getNumericValue(tabChar[i]);
+		}
+
+		return tab;
 	}
 }
