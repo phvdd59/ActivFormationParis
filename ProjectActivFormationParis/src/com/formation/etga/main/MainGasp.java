@@ -3,6 +3,7 @@ package com.formation.etga.main;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import com.formation.etga.exo.ExoAlgo1;
 import com.formation.etga.exo.ExoArrayList1;
 import com.formation.etga.exo.ExoTableau1;
 import com.formation.etga.exo.ExoTableau2;
@@ -14,6 +15,7 @@ public class MainGasp {
 		mainGasp.init1();
 		mainGasp.init2();
 		mainGasp.init3();
+		mainGasp.init4();
 	}
 
 	private void init1() {
@@ -123,6 +125,19 @@ public class MainGasp {
 		}
 
 		int[] tabFinal5 = exoTableau2.tabBaseDeux(v);
-		System.out.print(tabFinal5[v]);
+		for (int i = 0; i < tabFinal5.length; i++) {
+			System.out.print(tabFinal5[i] + " ");
+		}
+
+		System.out.println("");
+		System.out.println("");
+
+	}
+
+	private void init4() {
+		ExoAlgo1 exoAlgo1 = new ExoAlgo1();
+		int[] tab = { -1, 3, -4, 5, 1, -6, 2, 1 };
+		int solution1 = exoAlgo1.solution(tab);
+		System.out.print(solution1);
 	}
 }

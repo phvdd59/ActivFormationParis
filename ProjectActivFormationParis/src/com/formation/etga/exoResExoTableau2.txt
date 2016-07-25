@@ -1,0 +1,28 @@
+etga:Tableau
+
+etga rallongerTableauDeUnElement0 (2/2):    | exo.rallongerTableauDeUnElement(tab0, 8)
+etga rallongerTableauDeUnElement1 (2/2):    | exo.rallongerTableauDeUnElement(tab, 8)
+etga rallongerTableauDeUnElement2 (0/1): KO | exo.rallongerTableauDeUnElement(null, -8)
+null
+etga changerDimensionTableau0 (2/2):    | exo.changerDimensionTableau(tab0, 2)
+etga changerDimensionTableau1 (2/2):    | exo.changerDimensionTableau(tab0, 3)
+etga changerDimensionTableau2 (2/2):    | exo.changerDimensionTableau(tab, 8)
+etga changerDimensionTableau3 (0/1): KO | exo.changerDimensionTableau(tab, 7)
+etga changerDimensionTableau4 (0/1): KO | exo.changerDimensionTableau(null, 2)
+null
+etga inverserTableau0 (2/2):    | exo.inverserTableau(tab0)
+etga inverserTableau1 (2/2):    | exo.inverserTableau(tab)
+etga inverserTableau2 (0/1): KO | exo.inverserTableau(null)
+null
+etga insererUnTableauDansUnAutre0 (0/2): KO | exo.insererUnTableauDansUnAutre(tab0, 8, tab1)
+etga insererUnTableauDansUnAutre1 (2/2):    | exo.insererUnTableauDansUnAutre(tab, 8, tab1)
+etga insererUnTableauDansUnAutre2 (0/1): KO | exo.insererUnTableauDansUnAutre(tab, -3, tab1)
+etga insererUnTableauDansUnAutre3 (0/1): KO | exo.insererUnTableauDansUnAutre(tab, 23233, tab1)
+etga insererUnTableauDansUnAutre4 (0/1): KO | exo.insererUnTableauDansUnAutre(null, 23233, tab1)
+null
+etga insererUnTableauDansUnAutre4 (0/1): KO | exo.insererUnTableauDansUnAutre(tab, 23233, null)
+null
+etga tabBaseDeux0 (2/2):    | exo.tabBaseDeux(tab0, 18)
+etga tabBaseDeux1 (2/2):    | exo.tabBaseDeux(Integer.MAX_VALUE)
+etga tabBaseDeux2 (2/2):    | exo.tabBaseDeux(Integer.MIN_VALUE)
+etga NOTE : (22 / 32) = 13 / 20

@@ -1,4 +1,4 @@
-etga
+etga:Tableau
 
 etga insererUnTableauDansUnAutreAvecRemplacement0 (2/2):    | exo.insererUnTableauDansUnAutreAvecRemplacement(taba, 2, tabb)
 etga insererUnTableauDansUnAutreAvecRemplacement1 (2/2):    | exo.insererUnTableauDansUnAutreAvecRemplacement(tab, 3, tab1)

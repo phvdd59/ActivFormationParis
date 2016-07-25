@@ -31,7 +31,7 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 			}
 		}
 
-		return null;
+		return listValeurs;
 	}
 
 	/**
@@ -74,7 +74,7 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 	public ArrayList<Integer> insererUnElementDansTableau(ArrayList<Integer> tab, int p, int a) {
 		ArrayList<Integer> tableauAjout = null;
 		if (p > tab.size() || p < 0) {
-			// System.out.println("P compris entre0 et la longueur de la liste");
+			tableauAjout = (ArrayList<Integer>) tab.clone();// System.out.println("P compris entre0 et la longueur de la liste");
 		} else {
 			tableauAjout = (ArrayList<Integer>) tab.clone();
 			tableauAjout.add(p, a);
@@ -96,7 +96,7 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 	public ArrayList<Integer> insererUnTableauDansUnAutreAvecRemplacement(ArrayList<Integer> tab, int p, ArrayList<Integer> tab1) {
 		ArrayList<Integer> tableaufinal = null;
 		if (tab1 == null) {
-			tableaufinal = tab;
+			tableaufinal = (ArrayList<Integer>)tab.clone();
 		}
 		if (tab == null) {
 		}

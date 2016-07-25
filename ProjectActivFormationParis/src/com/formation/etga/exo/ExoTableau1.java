@@ -18,9 +18,9 @@ public class ExoTableau1 implements InterExoTableau1 {
 
 	public int[] remplirTableau(int d, int n, int p) {
 		int[] tab = new int[n];
-		int lastValue = d + n * p;
-		int min = Integer.MIN_VALUE;
-		int max = Integer.MAX_VALUE;
+		long lastValue = (long)(d + n * p);
+		long min = Integer.MIN_VALUE;
+		long max = Integer.MAX_VALUE;
 
 		if ((n > 0) && (lastValue > min) && (max > lastValue)) {
 			for (int i = 0; i < n; i++) {

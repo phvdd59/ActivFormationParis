@@ -2,8 +2,8 @@ package com.formation.thcr.main;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Scanner;
 
+import com.formation.thcr.exo.ExoAlgo1;
 import com.formation.thcr.exo.ExoArrayList1;
 import com.formation.thcr.exo.ExoTableau1;
 import com.formation.thcr.exo.ExoTableau2;
@@ -12,19 +12,52 @@ public class MainActiveFormationParis {
 
 	public static void main(String[] args) {
 		MainActiveFormationParis main = new MainActiveFormationParis();
-		main.test();
+		main.initAlgo();
 	}
 
-	private void test(){
-		ExoTableau2 exo = new ExoTableau2();
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Rentrer une valeur");
-		int v = (int) sc.nextInt();
-		System.out.println(Arrays.toString(exo.tabBaseDeux(v)));
-		
-		
+	private void initAlgo() {
+		ExoAlgo1 exo = new ExoAlgo1();
+		int[] tab = { -1, 3, -4, 5, 1, -6, 2, 1 };
+		System.out.println(exo.solution(tab));
+		System.out.println(Arrays.toString(exo.solution2(tab).toArray()));
 	}
-	
+
+	private void initExoTableau2() {
+		ExoTableau2 exo = new ExoTableau2();
+		System.out.println("inverserTableau");
+		int[] tab = { 1, 4, 6, -5, 7, 5 };
+		System.out.println(Arrays.toString(tab));
+		System.out.println(Arrays.toString(exo.inverserTableau(tab)));
+		System.out.println("rallongerTableauDeUnElement");
+		int[] tab2 = { 1, 4, 6, 2, 4, 6 };
+		int a = 8;
+		System.out.println(Arrays.toString(tab2));
+		System.out.println(Arrays.toString(exo.rallongerTableauDeUnElement(tab2, a)));
+		System.out.println("insererUnTableauDansUnAutre");
+		int[] tab31 = { 1, 4, 6, 2, 4, 6 };
+		int[] tab32 = { 4, 9, 0 };
+		int p = 2;
+		System.out.println(Arrays.toString(tab31));
+		System.out.println(Arrays.toString(tab32));
+		System.out.println(Arrays.toString(exo.insererUnTableauDansUnAutre(tab31, p, tab32)));
+		System.out.println("changerDimensionTableau");
+		int[] tab4 = { 1, 7, 8, 2, 4, 6};
+		int d = 2;
+		System.out.println(Arrays.toString(tab4));
+		for (int i = 0; i < tab4.length / d ; i++) {
+			System.out.println(Arrays.toString(exo.changerDimensionTableau(tab4, d)[i]));
+		}
+		d = 3;
+		for (int i = 0; i < 2; i++) {
+			System.out.println(Arrays.toString(exo.changerDimensionTableau(tab4, d)[i]));
+		}
+		System.out.println("tabBaseDeux");
+		int v = -1;
+		System.out.println(v);
+		System.out.println(Arrays.toString(exo.tabBaseDeux2(v)));
+		System.out.println(Arrays.toString(exo.tabBaseDeux(v)));
+	}
+
 	private void init() {
 		ExoTableau2 exo = new ExoTableau2();
 		System.out.println("inverserTableau");
@@ -36,23 +69,23 @@ public class MainActiveFormationParis {
 		System.out.println(Arrays.toString(tab2));
 		System.out.println(Arrays.toString(exo.rallongerTableauDeUnElement(tab2, 8)));
 		System.out.println("insererUnTableauDansUnAutre");
-		int[] tab31 = {1,4,6,2,4,6};
-		int[] tab32 = {4,9,1};
+		int[] tab31 = { 1, 4, 6, 2, 4, 6 };
+		int[] tab32 = { 4, 9, 1 };
 		System.out.println(Arrays.toString(tab31));
 		System.out.println(Arrays.toString(tab32));
 		System.out.println(Arrays.toString(exo.insererUnTableauDansUnAutre(tab31, 2, tab32)));
 		System.out.println("changerDimensionTableau");
-		int[] tab4 = {1,7,8,2,4,6};
+		int[] tab4 = { 1, 7, 8, 2, 4, 6 };
 		int d = 2;
 		System.out.println(Arrays.toString(tab4));
-		int[][] result = new int[d][tab4.length/d];
+		int[][] result = new int[d][tab4.length / d];
 		result = exo.changerDimensionTableau(tab4, d);
-		for (int i = 0; i < tab4.length/d; i++) {
+		for (int i = 0; i < tab4.length / d; i++) {
 			System.out.println(Arrays.toString(result[i]));
 		}
 		d = 3;
 		result = exo.changerDimensionTableau(tab4, d);
-		for (int i = 0; i < tab4.length/d; i++) {
+		for (int i = 0; i < tab4.length / d; i++) {
 			System.out.println(Arrays.toString(result[i]));
 		}
 		System.out.println("tabBaseDeux");

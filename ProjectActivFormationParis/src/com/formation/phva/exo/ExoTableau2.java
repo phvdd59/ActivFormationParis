@@ -1,6 +1,6 @@
 package com.formation.phva.exo;
 
-public class ExoTableau2 implements InterExoTableau2 {
+public class ExoTableau2 implements com.formation.phva.exo.InterExoTableau2 {
 
 	/** Exemple
 	 * tab = [1,4,6,-5,7,5]

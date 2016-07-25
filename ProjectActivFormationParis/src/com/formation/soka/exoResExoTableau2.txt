@@ -1,0 +1,23 @@
+soka:Tableau
+
+soka rallongerTableauDeUnElement0 (2/2):    | exo.rallongerTableauDeUnElement(tab0, 8)
+soka rallongerTableauDeUnElement1 (2/2):    | exo.rallongerTableauDeUnElement(tab, 8)
+soka rallongerTableauDeUnElement2 (0/1): KO | exo.rallongerTableauDeUnElement(null, -8)
+soka changerDimensionTableau0 (2/2):    | exo.changerDimensionTableau(tab0, 2)
+soka changerDimensionTableau1 (2/2):    | exo.changerDimensionTableau(tab0, 3)
+soka changerDimensionTableau2 (2/2):    | exo.changerDimensionTableau(tab, 8)
+soka changerDimensionTableau3 (1/1):    | exo.changerDimensionTableau(tab, 7)
+soka changerDimensionTableau4 (1/1):    | exo.changerDimensionTableau(null, 2)
+soka inverserTableau0 (2/2):    | exo.inverserTableau(tab0)
+soka inverserTableau1 (2/2):    | exo.inverserTableau(tab)
+soka inverserTableau2 (1/1):    | exo.inverserTableau(null)
+soka insererUnTableauDansUnAutre0 (2/2):    | exo.insererUnTableauDansUnAutre(tab0, 8, tab1)
+soka insererUnTableauDansUnAutre1 (2/2):    | exo.insererUnTableauDansUnAutre(tab, 8, tab1)
+soka insererUnTableauDansUnAutre2 (1/1):    | exo.insererUnTableauDansUnAutre(tab, -3, tab1)
+soka insererUnTableauDansUnAutre3 (1/1):    | exo.insererUnTableauDansUnAutre(tab, 23233, tab1)
+soka insererUnTableauDansUnAutre4 (1/1):    | exo.insererUnTableauDansUnAutre(null, 23233, tab1)
+soka insererUnTableauDansUnAutre4 (0/1): KO | exo.insererUnTableauDansUnAutre(tab, 23233, null)
+soka tabBaseDeux0 (2/2):    | exo.tabBaseDeux(tab0, 18)
+soka tabBaseDeux1 (2/2):    | exo.tabBaseDeux(Integer.MAX_VALUE)
+soka tabBaseDeux2 (2/2):    | exo.tabBaseDeux(Integer.MIN_VALUE)
+soka NOTE : (30 / 32) = 18 / 20

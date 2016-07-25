@@ -1,0 +1,27 @@
+made:Collection
+
+made intervertirDeuxElementsTableau0 (2/2):    | exo.intervertirDeuxElementsTableau(tab0, 3, 8)
+made intervertirDeuxElementsTableau1 (2/2):    | exo.intervertirDeuxElementsTableau(tab, 3, 8)
+made intervertirDeuxElementsTableau2 (1/1):    | exo.intervertirDeuxElementsTableau(tab, -3, 8)
+made intervertirDeuxElementsTableau3 (1/1):    | exo.intervertirDeuxElementsTableau(tab, 3, 44448)
+made intervertirDeuxElementsTableau4 (1/1):    | exo.intervertirDeuxElementsTableau(tab, 34444, 8)
+made intervertirDeuxElementsTableau5 (1/1):    | exo.intervertirDeuxElementsTableau(tab, 3, -8)
+made insererUnElementDansTableau0 (2/2):    | exo.insererUnElementDansTableau(tab1, 3, 8)
+made insererUnElementDansTableau1 (2/2):    | exo.insererUnElementDansTableau(tab, 3, 8)
+made insererUnElementDansTableau2 (0/1): KO | exo.insererUnElementDansTableau(tab, -3, 8)
+made insererUnElementDansTableau3 (0/1): KO | exo.insererUnElementDansTableau(tab, 33333, 8)
+made remplirArrayList0 (0/2): KO | exo.remplirArrayList(7, 5, 3)
+null
+made remplirArrayList1 (0/2): KO | exo.remplirArrayList(-120, 125, 7)
+made remplirArrayList2 (1/1):    | exo.remplirArrayList(0x7FFFFFF0, 16, 8)
+made remplirArrayList3 (1/1):    | exo.remplirArrayList(-0x7FFFFFF0, 16, -8)
+made insererUnArrayListDansUnAutreAvecRemplacement0 (2/2):    | exo.insererUnArrayListDansUnAutreAvecRemplacement(taba, 2, tabb)
+made insererUnArrayListDansUnAutreAvecRemplacement1 (2/2):    | exo.insererUnArrayListDansUnAutreAvecRemplacement(tab, 3, tab1)
+made insererUnArrayListDansUnAutreAvecRemplacement2 (0/1): KO | exo.insererUnArrayListDansUnAutreAvecRemplacement(tab, -3, tab1)
+made insererUnArrayListDansUnAutreAvecRemplacement3 (0/1): KO | exo.insererUnArrayListDansUnAutreAvecRemplacement(tab, 3000, tab1)
+made rotationArrayList0 (0/2): KO | exo.rotationArrayList(tabA, 2)
+made rotationArrayList1 (0/2): KO | exo.rotationArrayList(tab, 3)
+made rotationArrayList2 (0/1): KO | exo.rotationArrayList(tab, -3)
+made rotationArrayList3 (0/1): KO | exo.rotationArrayList(tab, 3000)
+made rotationArrayList4 (0/1): KO | exo.rotationArrayList(tab, -777)
+made NOTE : (18 / 33) = 10 / 20

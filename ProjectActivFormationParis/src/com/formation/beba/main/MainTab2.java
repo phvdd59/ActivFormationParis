@@ -25,13 +25,13 @@ public class MainTab2 {
 
 		int[] tabInt = { 8, 8, 8 };
 		int[] test3 = exoTab2.insererUnTableauDansUnAutre(tab, 2, tabInt);
-		System.out.println(Arrays.toString(test3));
+		System.out.println("......." + Arrays.toString(test3));
 
 		int[][] test4 = exoTab2.changerDimensionTableau(tab, 5);
 		for (int i = 0; i < test4.length; i++) {
 			System.out.print(Arrays.toString(test4[i]));
 		}
-		int[] test5 = exoTab2.tabBaseDeux(-55);
+		int[] test5 = exoTab2.tabBaseDeux(Integer.MIN_VALUE);
 		System.out.println();
 		System.out.println(Arrays.toString(test5));
 	}

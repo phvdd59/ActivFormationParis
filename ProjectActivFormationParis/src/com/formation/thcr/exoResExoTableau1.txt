@@ -1,4 +1,4 @@
-thcr
+thcr:Tableau
 
 thcr insererUnTableauDansUnAutreAvecRemplacement0 (2/2):    | exo.insererUnTableauDansUnAutreAvecRemplacement(taba, 2, tabb)
 thcr insererUnTableauDansUnAutreAvecRemplacement1 (2/2):    | exo.insererUnTableauDansUnAutreAvecRemplacement(tab, 3, tab1)

@@ -1,4 +1,4 @@
-made
+made:Tableau
 
 made insererUnTableauDansUnAutreAvecRemplacement0 (0/2): KO | exo.insererUnTableauDansUnAutreAvecRemplacement(taba, 2, tabb)
 made insererUnTableauDansUnAutreAvecRemplacement1 (0/2): KO | exo.insererUnTableauDansUnAutreAvecRemplacement(tab, 3, tab1)
