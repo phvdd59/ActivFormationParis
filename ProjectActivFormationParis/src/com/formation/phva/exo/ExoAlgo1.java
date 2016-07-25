@@ -1,6 +1,6 @@
 package com.formation.phva.exo;
 
-public class ExoAlgo1 implements InterExoAlgo1 {
+public class ExoAlgo1 implements ImpAlgo1 {
 
 	/**
 	 * soit p entier tel que : 0 <= p < n
