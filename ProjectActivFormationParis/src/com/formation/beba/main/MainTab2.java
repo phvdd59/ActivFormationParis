@@ -23,9 +23,11 @@ public class MainTab2 {
 		int[] test2 = exoTab2.rallongerTableauDeUnElement(null, -8);
 		System.out.println("rallongerTableauDeUnElemen " + Arrays.toString(test2));
 
-		int[] tabInt = { 8, 8, 8 };
-		int[] test3 = exoTab2.insererUnTableauDansUnAutre(tab, 2, tabInt);
+		int[] tabInt = { 8, 8, 8, 8, 8 };
+		int[] test3 = exoTab2.insererUnTableauDansUnAutre(tab, -2, tabInt);
 		System.out.println("......." + Arrays.toString(test3));
+		int[] test8 = exoTab2.insererUnTableauDansUnAutre(null, -2, tabInt);
+		System.out.println("......." + Arrays.toString(test8));
 
 		int[][] test4 = exoTab2.changerDimensionTableau(tab, 5);
 		for (int i = 0; i < test4.length; i++) {
