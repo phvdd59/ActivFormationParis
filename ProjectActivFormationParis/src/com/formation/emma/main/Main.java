@@ -147,7 +147,7 @@ public class Main {
 		System.out.println("exo5 ");
 		ArrayList listTab5l = new ArrayList();
 		int[] tab5l = { 1, 4, 6, 2, 4, 6 };
-		int p4l = 3;
+		int p4l = -10;
 		for (int j = 0; j < tab5l.length; j++) {
 			listTab5l.add(tab5l[j]);
 		}

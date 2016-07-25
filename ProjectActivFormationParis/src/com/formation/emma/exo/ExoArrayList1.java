@@ -131,8 +131,7 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 	 *            tableau
 	 * @return
 	 */
-	
-	// modifier pas bon dans la rotation
+
 	public ArrayList<Integer> rotationTableau(ArrayList<Integer> tab, int p) {
 		ArrayList<Integer> list = null;
 		int k = 0;
@@ -153,9 +152,9 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 			}
 			int m = p;
 			for (int i = 0; i < tab.size(); i++) {
-				if (i + p < tab.size()) {
-					list.add(i, tab.get(m + p - 1));
-					m++;
+				if (m != 0) {
+					list.add(i, tab.get(tab.size() - m));
+					m--;
 				} else {
 					list.add(i, tab.get(k));
 					k++;
