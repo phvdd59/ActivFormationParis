@@ -12,9 +12,12 @@ public class ExoTableau2 implements InterExoTableau2 {
 	 * @return tab = [5,7,-5,6,4,1]
 	 */
 	public int[] inverserTableau(int[] tab) {
-		int[] tmp = new int[tab.length];
-		for (int i = 0; i < tab.length; i++) {
-			tmp[i] = tab[tab.length - 1 - i];
+		int[] tmp = null;
+		if (tab != null) {
+			tmp = new int[tab.length];
+			for (int i = 0; i < tab.length; i++) {
+				tmp[i] = tab[tab.length - 1 - i];
+			}
 		}
 		return tmp;
 	}
@@ -29,11 +32,14 @@ public class ExoTableau2 implements InterExoTableau2 {
 	 * @return
 	 */
 	public int[] rallongerTableauDeUnElement(int[] tab, int a) {
-		int[] tmp = new int[tab.length + 1];
-		for (int i = 0; i < tab.length; i++) {
-			tmp[i] = tab[i];
+		int[] tmp = null;
+		if (tab != null) {
+			tmp = new int[tab.length + 1];
+			for (int i = 0; i < tab.length; i++) {
+				tmp[i] = tab[i];
+			}
+			tmp[tmp.length - 1] = a;
 		}
-		tmp[tmp.length - 1] = a;
 		return tmp;
 	}
 

@@ -12,7 +12,7 @@ public class MainActiveFormationParis {
 
 	public static void main(String[] args) {
 		MainActiveFormationParis main = new MainActiveFormationParis();
-		main.initExoTableau2();
+		main.initExoArrayList1();
 	}
 	
 	private void initAlgo() {
@@ -26,7 +26,7 @@ public class MainActiveFormationParis {
 		ExoArrayList1 exo = new ExoArrayList1();
 		ArrayList<Integer> list1 = new ArrayList<Integer>();
 		System.out.println("remplirTableau");
-		list1 = exo.remplirTableau(3, 10, 2);
+		list1 = exo.remplirTableau(-0x7FFFFFF0, 16, -8);
 		System.out.println(list1);
 		ArrayList<Integer> list2 = new ArrayList<Integer>();
 		list2 = exo.remplirTableau(0, 20, 3);
@@ -83,7 +83,11 @@ public class MainActiveFormationParis {
 			System.out.println(Arrays.toString(result[i]));
 		}
 		System.out.println("tabBaseDeux");
-		int v = 0x80_00_00_00;
+		int v = Integer.MIN_VALUE;
+		System.out.println(Integer.valueOf(v).toString());
+		System.out.println(Arrays.toString(exo.tabBaseDeux(v)));
+		v = Integer.MAX_VALUE;
+		System.out.println(Integer.valueOf(v).toString());
 		System.out.println(Arrays.toString(exo.tabBaseDeux(v)));
 	}
 

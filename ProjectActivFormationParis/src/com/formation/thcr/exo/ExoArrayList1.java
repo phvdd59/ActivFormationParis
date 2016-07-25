@@ -44,8 +44,9 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 	 * @return
 	 */
 	public ArrayList<Integer> intervertirDeuxElementsTableau(ArrayList<Integer> tab, int i1, int i2) {
-		ArrayList<Integer> tmpTab = new ArrayList<Integer>();
-		if (i1 > 0 && i1 < tab.size() && i2 > 0 && i2 < tab.size()) {
+		ArrayList<Integer> tmpTab = null;
+		if (i1 > 0 && i1 < tab.size() && i2 > 0 && i2 < tab.size() && tab != null) {
+			tmpTab = new ArrayList<Integer>();
 			tmpTab.addAll(tab);
 			tmpTab.set(i2, tab.get(i1));
 			tmpTab.set(i1, tab.get(i2));
@@ -67,8 +68,9 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 	 * @return
 	 */
 	public ArrayList<Integer> insererUnElementDansTableau(ArrayList<Integer> tab, int p, int a) {
-		ArrayList<Integer> tmpTab = new ArrayList<Integer>();
-		if (p >= 0 && p < tab.size()) {
+		ArrayList<Integer> tmpTab = null;
+		if (p >= 0 && p < tab.size() && tab != null) {
+			tmpTab = new ArrayList<Integer>();
 			tmpTab.addAll(tab);
 			tmpTab.add(p, a);
 		} else {
@@ -134,7 +136,7 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 		if (tab == null || (tab instanceof ArrayList<?> != true)) {
 			return tab;
 		}
-		if (Math.abs(p) > tab.size()) {
+		if (Math.abs(p) > tab.size() && tab.size() != 0) {
 			if (p < 0) {
 				p = p % tab.size();
 				p = -p;
@@ -142,7 +144,7 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 				p = p % tab.size();
 			}
 		}
-		if (p >= 0 && p < tab.size()) {
+		if (p >= 0 && p < tab.size() && tab.size() != 0) {
 			tmpTab.addAll(tab);
 			for (int i = 0; i < tab.size(); i++) {
 				if (i + p < tab.size()) {
@@ -151,7 +153,7 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 					tmpTab.set(i + p - tab.size(), tab.get(i));
 				}
 			}
-		} else if (p <= 0 && p < tab.size()) {
+		} else if (p <= 0 && p < tab.size() && tab.size() != 0) {
 			tmpTab.addAll(tab);
 			for (int i = 0; i < tab.size(); i++) {
 				if (i + p < 0 || i - p < tab.size()) {
