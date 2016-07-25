@@ -13,15 +13,15 @@ beba inverserTableau1 (2/2):    | exo.inverserTableau(tab)
 beba inverserTableau2 (0/1): KO | exo.inverserTableau(null)
 null
 beba insererUnTableauDansUnAutre0 (0/2): KO | exo.insererUnTableauDansUnAutre(tab0, 8, tab1)
-6
 beba insererUnTableauDansUnAutre1 (0/2): KO | exo.insererUnTableauDansUnAutre(tab, 8, tab1)
 2048
 beba insererUnTableauDansUnAutre2 (0/1): KO | exo.insererUnTableauDansUnAutre(tab, -3, tab1)
 beba insererUnTableauDansUnAutre3 (0/1): KO | exo.insererUnTableauDansUnAutre(tab, 23233, tab1)
-2048
-beba insererUnTableauDansUnAutre4 (1/1):    | exo.insererUnTableauDansUnAutre(null, 23233, tab1)
+beba insererUnTableauDansUnAutre4 (0/1): KO | exo.insererUnTableauDansUnAutre(null, 23233, tab1)
+null
 beba insererUnTableauDansUnAutre4 (0/1): KO | exo.insererUnTableauDansUnAutre(tab, 23233, null)
+null
 beba tabBaseDeux0 (2/2):    | exo.tabBaseDeux(tab0, 18)
 beba tabBaseDeux1 (2/2):    | exo.tabBaseDeux(Integer.MAX_VALUE)
 beba tabBaseDeux2 (2/2):    | exo.tabBaseDeux(Integer.MIN_VALUE)
-beba NOTE : (23 / 32) = 14 / 20
+beba NOTE : (22 / 32) = 13 / 20
