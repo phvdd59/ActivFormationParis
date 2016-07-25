@@ -17,11 +17,11 @@ public class MainTab2 {
 
 		ExoTableau2 exoTab2 = new ExoTableau2();
 
-		int[] test = exoTab2.inverserTableau(tab);
-		System.out.println(Arrays.toString(test));
+		int[] test = exoTab2.inverserTableau(null);
+		System.out.println("inverserTableau " + Arrays.toString(test));
 
-		int[] test2 = exoTab2.rallongerTableauDeUnElement(tab, 8);
-		System.out.println(Arrays.toString(test2));
+		int[] test2 = exoTab2.rallongerTableauDeUnElement(null, -8);
+		System.out.println("rallongerTableauDeUnElemen " + Arrays.toString(test2));
 
 		int[] tabInt = { 8, 8, 8 };
 		int[] test3 = exoTab2.insererUnTableauDansUnAutre(tab, 2, tabInt);

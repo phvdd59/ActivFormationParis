@@ -14,7 +14,9 @@ public class ExoTableau2 implements InterExoTableau2 {
 	public int[] inverserTableau(int[] tab) {
 		int tab2[];
 		tab2 = null;
-		if (tab.length == 1) {
+		if (tab == null) {
+			tab2 = null;
+		} else if (tab.length == 1) {
 			tab2 = tab;
 		} else if (tab != null) {
 			tab2 = new int[tab.length];
