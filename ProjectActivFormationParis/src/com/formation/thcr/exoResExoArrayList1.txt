@@ -1,15 +1,13 @@
 thcr:Collection
 
-thcr intervertirDeuxElementsTableau0 (0/2): KO | exo.intervertirDeuxElementsTableau(tab0, 3, 8)
-thcr intervertirDeuxElementsTableau1 (0/2): KO | exo.intervertirDeuxElementsTableau(tab, 3, 8)
+thcr intervertirDeuxElementsTableau0 (2/2):    | exo.intervertirDeuxElementsTableau(tab0, 3, 8)
+thcr intervertirDeuxElementsTableau1 (2/2):    | exo.intervertirDeuxElementsTableau(tab, 3, 8)
 thcr intervertirDeuxElementsTableau2 (1/1):    | exo.intervertirDeuxElementsTableau(tab, -3, 8)
 thcr intervertirDeuxElementsTableau3 (1/1):    | exo.intervertirDeuxElementsTableau(tab, 3, 44448)
 thcr intervertirDeuxElementsTableau4 (1/1):    | exo.intervertirDeuxElementsTableau(tab, 34444, 8)
 thcr intervertirDeuxElementsTableau5 (1/1):    | exo.intervertirDeuxElementsTableau(tab, 3, -8)
-thcr insererUnElementDansTableau0 (0/2): KO | exo.insererUnElementDansTableau(tab1, 3, 8)
-Index: 3, Size: 0
-thcr insererUnElementDansTableau1 (0/2): KO | exo.insererUnElementDansTableau(tab, 3, 8)
-Index: 3, Size: 0
+thcr insererUnElementDansTableau0 (2/2):    | exo.insererUnElementDansTableau(tab1, 3, 8)
+thcr insererUnElementDansTableau1 (2/2):    | exo.insererUnElementDansTableau(tab, 3, 8)
 thcr insererUnElementDansTableau2 (1/1):    | exo.insererUnElementDansTableau(tab, -3, 8)
 thcr insererUnElementDansTableau3 (1/1):    | exo.insererUnElementDansTableau(tab, 33333, 8)
 thcr remplirArrayList0 (2/2):    | exo.remplirArrayList(7, 5, 3)
@@ -23,6 +21,6 @@ thcr insererUnArrayListDansUnAutreAvecRemplacement3 (1/1):    | exo.insererUnArr
 thcr rotationArrayList0 (2/2):    | exo.rotationArrayList(tabA, 2)
 thcr rotationArrayList1 (2/2):    | exo.rotationArrayList(tab, 3)
 thcr rotationArrayList2 (1/1):    | exo.rotationArrayList(tab, -3)
-thcr rotationArrayList3 (0/1): KO | exo.rotationArrayList(tab, 3000)
+thcr rotationArrayList3 (1/1):    | exo.rotationArrayList(tab, 3000)
 thcr rotationArrayList4 (1/1):    | exo.rotationArrayList(tab, -777)
-thcr NOTE : (22 / 33) = 13 / 20
+thcr NOTE : (31 / 33) = 18 / 20

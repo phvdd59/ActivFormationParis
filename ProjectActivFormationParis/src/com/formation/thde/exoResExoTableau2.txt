@@ -19,6 +19,5 @@ thde insererUnTableauDansUnAutre4 (1/1):    | exo.insererUnTableauDansUnAutre(nu
 thde insererUnTableauDansUnAutre4 (0/1): KO | exo.insererUnTableauDansUnAutre(tab, 23233, null)
 thde tabBaseDeux0 (2/2):    | exo.tabBaseDeux(tab0, 18)
 thde tabBaseDeux1 (2/2):    | exo.tabBaseDeux(Integer.MAX_VALUE)
-thde tabBaseDeux2 (0/2): KO | exo.tabBaseDeux(Integer.MIN_VALUE)
--15
-thde NOTE : (28 / 32) = 17 / 20
+thde tabBaseDeux2 (2/2):    | exo.tabBaseDeux(Integer.MIN_VALUE)
+thde NOTE : (30 / 32) = 18 / 20
