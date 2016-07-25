@@ -18,7 +18,7 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 	 * @return = nouveau tableau rempli
 	 */
 	public ArrayList<Integer> remplirTableau(int d, int n, int p) {
-		ArrayList<Integer> list = new ArrayList<Integer>();
+		ArrayList<Integer> list = null;
 		int lastValue = d + n * p;
 		int min = Integer.MIN_VALUE;
 		int max = Integer.MAX_VALUE;
@@ -27,6 +27,8 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 			for (int i = 0; i < n; i++) {
 				list.add(d + i * p);
 			}
+		} else {
+			list = null;
 		}
 		return list;
 	}
@@ -44,13 +46,15 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 	 * @return
 	 */
 	public ArrayList<Integer> intervertirDeuxElementsTableau(ArrayList<Integer> list, int i1, int i2) {
-		ArrayList<Integer> listFinal = new ArrayList<Integer>();
+		ArrayList<Integer> listFinal = null;
 		listFinal.addAll(list);
 		int a = list.get(i1);
 		int b = list.get(i2);
 		if ((list != null) && (i1 >= 0) && (i2 >= 0) && (i1 < list.size()) && (i2 < list.size())) {
 			listFinal.set(i1, b);
 			listFinal.set(i2, a);
+		} else {
+			listFinal = null;
 		}
 		return listFinal;
 	}
@@ -67,10 +71,12 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 	 * @return
 	 */
 	public ArrayList<Integer> insererUnElementDansTableau(ArrayList<Integer> list, int p, int a) {
-		ArrayList<Integer> listFinal = new ArrayList<Integer>();
+		ArrayList<Integer> listFinal = null;
 		if ((list != null) && (p >= 0) && (p < list.size())) {
 			listFinal.addAll(list);
 			listFinal.add(p, a);
+		} else {
+			listFinal = null;
 		}
 		return listFinal;
 	}
@@ -89,7 +95,7 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 	 * @return tableau
 	 */
 	public ArrayList<Integer> insererUnTableauDansUnAutreAvecRemplacement(ArrayList<Integer> list, int p, ArrayList<Integer> list1) {
-		ArrayList<Integer> listFinal = new ArrayList<Integer>();
+		ArrayList<Integer> listFinal = null;
 		listFinal.addAll(list);
 		if ((list != null) && (list1 != null) && (p >= 0) && (list1.size() <= list.size()) && (p <= (list.size() - list1.size()))) {
 			int j = 0;
@@ -97,6 +103,8 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 				listFinal.set(i, list1.get(j));
 				j++;
 			}
+		} else {
+			listFinal = null;
 		}
 		return listFinal;
 	}
@@ -114,7 +122,7 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 	 * @return
 	 */
 	public ArrayList<Integer> rotationTableau(ArrayList<Integer> list, int p) {
-		ArrayList<Integer> listFinal = new ArrayList<Integer>();
+		ArrayList<Integer> listFinal = null;
 		listFinal.addAll(list);
 		if ((list != null) && (p > listFinal.size())) {
 			p = p % listFinal.size();
@@ -127,6 +135,8 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 					listFinal.set(i, list.get(i - p));
 				}
 			}
+		} else {
+			listFinal = null;
 		}
 		return listFinal;
 	}
