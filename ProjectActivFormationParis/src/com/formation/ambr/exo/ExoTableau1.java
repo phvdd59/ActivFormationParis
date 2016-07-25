@@ -31,7 +31,7 @@ public class ExoTableau1 implements InterExoTableau1 {
 		if (n < 0) {
 			return null;
 		}
-		if ((long) d + (long) n * p > Integer.MAX_VALUE || (long) d + (long) n * p < Integer.MIN_VALUE) {
+		if ((long) d + (long) n * p > Integer.MAX_VALUE || (long) d + (long) n * p < Integer.MIN_VALUE) { /// si on protège pas p, on pourra avoir des valeurs supérieures à un int (e.g. 1+214748437). Par contre je vois pas trop pkoi protéger n. Et d non plus. Si on entre, un int, il est déjà protégé lors de la création de d non? Sauf que si je le caste pas et que je teste avc les valeurs du prof, ça renvoie "y'a un problème"...
 			return null;
 		}
 		// fin de la protection. N.B.: si n=0, la méthode nous sort un tableau avec 0 éléments. Ca existe, il a un pointeur, mais il est vide
@@ -99,7 +99,7 @@ public class ExoTableau1 implements InterExoTableau1 {
 		if (i1 > tabOrig.length || i2 > tabOrig.length) {
 			return null;
 		}
-		if (i1 < 0 || i2 < 0) {
+		if (i1 < 0 || i2 < 0) { // pour i1=-3, et i2=8; je comprends pkoi ça passe pas dans exoRes. Car ça me renvoie "Y'a un  problème"
 			return null;
 		}
 		//fin protection
@@ -251,7 +251,7 @@ public class ExoTableau1 implements InterExoTableau1 {
 	public int[] rotationTableau(int[] tabOrig4, int p) {
 		int[] tabRota = new int[tabOrig4.length];
 		//protection
-		if (p > tabOrig4.length) {
+		if (p > tabOrig4.length || p < 0) {
 			return null;
 		}
 		//fin protection
