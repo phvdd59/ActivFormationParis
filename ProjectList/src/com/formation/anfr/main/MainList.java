@@ -1,9 +1,9 @@
 package com.formation.anfr.main;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
-import com.formation.anfr.metier.Entrepot;
+import com.formation.anfr.metier.EntrepotMap;
+import com.formation.anfr.metier.RER;
 import com.formation.anfr.metier.WagonResto;
 
 public class MainList {
@@ -12,9 +12,17 @@ public class MainList {
 		MainList mainList = new MainList();
 		mainList.init();
 	}
-
+	
 	public void init() {
-		Entrepot entrepotParis = new Entrepot();
+		EntrepotMap entrepotParis = new EntrepotMap();
+		RER rerA =new RER();
+		entrepotParis.fabrique(50);
+		rerA.creTrain(entrepotParis, 10);
+		System.out.println(rerA);
+	}
+
+	public void init3() {
+		EntrepotMap entrepotParis = new EntrepotMap();
 		entrepotParis.fabrique(10);
 		for (int i = 0; i < entrepotParis.size(); i++) {
 			System.out.println(entrepotParis.get(i).toString());
@@ -25,10 +33,10 @@ public class MainList {
 		 * System.out.println(entrepotParis.get(i).toString()); }
 		 */
 		// entrepotParis.tri1();
-		Collections.sort(entrepotParis);
-		for (int i = 0; i < entrepotParis.size(); i++) {
-			System.out.println(entrepotParis.get(i).toString());
-		}
+//		Collections.sort(entrepotParis);
+//		for (int i = 0; i < entrepotParis.size(); i++) {
+//			System.out.println(entrepotParis.get(i).toString());
+//		}
 
 	}
 
