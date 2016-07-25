@@ -47,7 +47,8 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 		ArrayList<Integer> tmpTab = new ArrayList<Integer>();
 		if (i1 > 0 && i1 < tab.size() && i2 > 0 && i2 < tab.size()) {
 			tmpTab.addAll(tab);
-			tmpTab.add(i2, tab.get(i1));
+			tmpTab.set(i2, tab.get(i1));
+			tmpTab.set(i1, tab.get(i2));
 		} else {
 			return tab;
 		}
@@ -68,6 +69,7 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 	public ArrayList<Integer> insererUnElementDansTableau(ArrayList<Integer> tab, int p, int a) {
 		ArrayList<Integer> tmpTab = new ArrayList<Integer>();
 		if (p >= 0 && p < tab.size()) {
+			tmpTab.addAll(tab);
 			tmpTab.add(p, a);
 		} else {
 			return tab;
@@ -92,7 +94,7 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 	public ArrayList<Integer> insererUnTableauDansUnAutreAvecRemplacement(ArrayList<Integer> tab, int p,
 			ArrayList<Integer> tab1) {
 		ArrayList<Integer> tmpTab = new ArrayList<Integer>();
-		if (p < 0 || p >= tab.size()) {
+		if (p < 0 || p >= tab.size() || tab == null || tab1 == null) {
 			return tab;
 		} else {
 			if (tab.size() - p > tab1.size()) {
@@ -129,9 +131,18 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 	 */
 	public ArrayList<Integer> rotationTableau(ArrayList<Integer> tab, int p) {
 		ArrayList<Integer> tmpTab = new ArrayList<Integer>();
-		if (Math.abs(p) >= tab.size()) {
-			p = p % tab.size();
-		} else if (p >= 0) {
+		if (tab == null || (tab instanceof ArrayList<?> != true)) {
+			return tab;
+		}
+		if (Math.abs(p) > tab.size()) {
+			if (p < 0) {
+				p = p % tab.size();
+				p = -p;
+			} else {
+				p = p % tab.size();
+			}
+		}
+		if (p >= 0 && p < tab.size()) {
 			tmpTab.addAll(tab);
 			for (int i = 0; i < tab.size(); i++) {
 				if (i + p < tab.size()) {
@@ -140,7 +151,7 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 					tmpTab.set(i + p - tab.size(), tab.get(i));
 				}
 			}
-		} else if (p < 0) {
+		} else if (p <= 0 && p < tab.size()) {
 			tmpTab.addAll(tab);
 			for (int i = 0; i < tab.size(); i++) {
 				if (i + p < 0 || i - p < tab.size()) {
