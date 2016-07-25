@@ -29,7 +29,7 @@ public class MainArray {
 		ArrayList<Integer> test4 = exoArray.insererUnTableauDansUnAutreAvecRemplacement(test, 4, testX);
 		System.out.println(test4);
 
-		ArrayList<Integer> test5 = exoArray.rotationTableau(test, 5);
+		ArrayList<Integer> test5 = exoArray.rotationTableau(test, -5);
 		System.out.println(test5);
 	}
 
