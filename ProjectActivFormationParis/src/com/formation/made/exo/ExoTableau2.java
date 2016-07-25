@@ -18,7 +18,7 @@ public class ExoTableau2 implements InterExoTableau2 {
 			for (int i = 0; i < tab.length; i++) {
 				tabInverse = tab.clone();
 				tabInverse[i] = tab[tab.length - 1 - i];
-				System.out.println(tabInverse[i]);
+				// System.out.println(tabInverse[i]);
 			}
 		}
 		return tabInverse;
@@ -100,7 +100,7 @@ public class ExoTableau2 implements InterExoTableau2 {
 			for (int i = 0; i < tab.length / 2; i++) {
 				for (int j = 0; j < 2; j++) {
 					tableaudim[i][j] = tab[2 * i + j];
-					//System.out.println(tableaudim[i][j]);
+					// System.out.println(tableaudim[i][j]);
 				}
 			}
 		} else if (d == tab.length / 2) {
@@ -108,7 +108,7 @@ public class ExoTableau2 implements InterExoTableau2 {
 			for (int i = 0; i < 2; i++) {
 				for (int j = 0; j < d; j++) {
 					tableaudim[i][j] = tab[((tab.length / 2) * i) + j];
-					//System.out.println(tableaudim[i][j]);
+					// System.out.println(tableaudim[i][j]);
 				}
 
 			}
@@ -129,21 +129,20 @@ public class ExoTableau2 implements InterExoTableau2 {
 		while (v % Math.pow(2, puissance) == v) {
 			puissance--;
 		}
-			tableaubinaire=new int[puissance+1];
-			for (int i = puissance; i >=0; i--) {
-				if(v%Math.pow(2, i)!=0){
-				tableaubinaire[puissance-i]=1;
-				v=v%(int)Math.pow(2, i);
-				}
-				else{
-					tableaubinaire[puissance+1-i]=0;
+		tableaubinaire = new int[puissance + 1];
+		for (int i = puissance; i >= 0; i--) {
+			if (v % Math.pow(2, i) != 0) {
+				tableaubinaire[puissance - i] = 1;
+				v = v % (int) Math.pow(2, i);
+			} else {
+				tableaubinaire[puissance + 1 - i] = 0;
 			}
 
 		}
-			for (int i = 0; i < tableaubinaire.length; i++) {
-				System.out.println(tableaubinaire[i]);
-				
-			}
+		for (int i = 0; i < tableaubinaire.length; i++) {
+			// System.out.println(tableaubinaire[i]);
+
+		}
 		return tableaubinaire;
 	}
 }

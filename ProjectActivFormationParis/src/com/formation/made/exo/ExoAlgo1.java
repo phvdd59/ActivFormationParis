@@ -79,7 +79,7 @@ public class ExoAlgo1 implements ImpAlgo1 {
 			tablereduite[i] = tab[i + 1];
 		}
 		for (int i = 0; i < tablereduite.length; i++) {
-			System.out.println(tablereduite[i]);
+			// System.out.println(tablereduite[i]);
 		}
 		return tablereduite;
 	}
