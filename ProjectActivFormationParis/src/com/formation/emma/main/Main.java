@@ -1,10 +1,13 @@
 package com.formation.emma.main;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
+import com.formation.emma.exo.ExoAlgo1;
 import com.formation.emma.exo.ExoArrayList1;
 import com.formation.emma.exo.ExoSimple;
 import com.formation.emma.exo.ExoTableau1;
+import com.formation.emma.exo.ExoTableau2;
 
 public class Main {
 
@@ -151,5 +154,81 @@ public class Main {
 		ExoArrayList1 exoList5 = new ExoArrayList1();
 		System.out.println(exoList5.rotationTableau(listTab5l, p4l));
 
+		System.out.println("exo tableau2");
+		System.out.println("exo1 ");
+		int[] tab10 = { 1, 4, 6, -5, 7, 5 };
+		ExoTableau2 exo1Tableau2 = new ExoTableau2();
+		int[] tableau10 = exo1Tableau2.inverserTableau(tab10);
+		if (tableau10 == null) {
+			System.out.println(tableau10);
+		} else {
+			for (int i = 0; i < tableau10.length; i++) {
+				System.out.println(tableau10[i]);
+			}
+		}
+
+		System.out.println("exo2 ");
+		int[] tab12 = { 1, 4, 6, 2, 4, 6 };
+		int z = 8;
+		ExoTableau2 exo2Tableau2 = new ExoTableau2();
+		int[] tableau12 = exo2Tableau2.rallongerTableauDeUnElement(tab12, z);
+		if (tableau12 == null) {
+			System.out.println(tableau12);
+		} else {
+			for (int i = 0; i < tableau12.length; i++) {
+				System.out.println(tableau12[i]);
+			}
+		}
+
+		System.out.println("exo3 ");
+		int[] tab13 = { 1, 4, 6, 2, 4, 6 };
+		int[] tab14 = { 4, 9, 0 };
+		int y = 2;
+		ExoTableau2 exo3Tableau2 = new ExoTableau2();
+		int[] tableau13 = exo3Tableau2.insererUnTableauDansUnAutre(tab13, y, tab14);
+		if (tableau13 == null) {
+			System.out.println(tableau13);
+		} else {
+			for (int i = 0; i < tableau13.length; i++) {
+				System.out.println(tableau13[i]);
+			}
+		}
+
+		System.out.println("exo4 ");
+		int[] tab15 = { 1, 7, 8, 2, 4, 6, };
+		int x = 3;
+		ExoTableau2 exo4Tableau2 = new ExoTableau2();
+		int[][] tableau14 = exo4Tableau2.changerDimensionTableau(tab15, x);
+		if (tableau14 == null) {
+			System.out.println(tableau14);
+		} else {
+			for (int i = 0; i < tab15.length / x; i++) {
+				//for (int j = 0; j < tableau14[0].length ; j++) {
+
+				//	System.out.print(tableau14[i][j]+",");
+				//}
+				//System.out.println();
+				System.out.println(Arrays.toString(tableau14[i]));
+			}
+		}
+
+		System.out.println("exo5 ");
+		int nombre = Integer.MAX_VALUE;
+		ExoTableau2 binaire = new ExoTableau2();
+		int[] valeurBinaire = binaire.tabBaseDeux(nombre);
+		if (valeurBinaire == null) {
+			System.out.println(valeurBinaire);
+		} else {
+			for (int i = 0; i < valeurBinaire.length; i++) {
+				System.out.print(valeurBinaire[i]);
+			}
+		}
+		System.out.println(" ");
+		System.out.println("exoalgo1");
+		int[] tabAlgo1 = { -6, 0, 2, 5, 1, -6, 6, 1 };
+		ExoAlgo1 algo = new ExoAlgo1();
+		int pAlgo = algo.solution(tabAlgo1);
+		System.out.println(pAlgo);
 	}
+
 }

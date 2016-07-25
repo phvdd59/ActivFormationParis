@@ -1,0 +1,160 @@
+emma rallongerTableauDeUnElement0 (0/2): KO | exo.rallongerTableauDeUnElement(tab0, 8)
+null
+emma rallongerTableauDeUnElement1 (0/2): KO | exo.rallongerTableauDeUnElement(tab, 8)
+null
+emma rallongerTableauDeUnElement2 (0/1): KO | exo.rallongerTableauDeUnElement(null, -8)
+null
+emma changerDimensionTableau0 (0/2): KO | exo.changerDimensionTableau(tab0, 2)
+null
+emma changerDimensionTableau1 (0/2): KO | exo.changerDimensionTableau(tab0, 3)
+null
+emma changerDimensionTableau2 (0/2): KO | exo.changerDimensionTableau(tab, 8)
+null
+emma changerDimensionTableau3 (0/1): KO | exo.changerDimensionTableau(tab, 7)
+null
+emma changerDimensionTableau4 (0/1): KO | exo.changerDimensionTableau(null, 2)
+null
+emma inverserTableau0 (0/2): KO | exo.inverserTableau(tab0)
+null
+emma inverserTableau1 (0/2): KO | exo.inverserTableau(tab)
+null
+emma inverserTableau2 (0/1): KO | exo.inverserTableau(null)
+null
+emma insererUnTableauDansUnAutre0 (0/2): KO | exo.insererUnTableauDansUnAutre(tab0, 8, tab1)
+null
+emma insererUnTableauDansUnAutre1 (0/2): KO | exo.insererUnTableauDansUnAutre(tab, 8, tab1)
+null
+emma insererUnTableauDansUnAutre2 (0/1): KO | exo.insererUnTableauDansUnAutre(tab, -3, tab1)
+null
+emma insererUnTableauDansUnAutre3 (0/1): KO | exo.insererUnTableauDansUnAutre(tab, 23233, tab1)
+null
+emma insererUnTableauDansUnAutre4 (0/1): KO | exo.insererUnTableauDansUnAutre(null, 23233, tab1)
+null
+emma insererUnTableauDansUnAutre4 (0/1): KO | exo.insererUnTableauDansUnAutre(tab, 23233, null)
+null
+emma tabBaseDeux0 (0/2): KO | exo.tabBaseDeux(tab0, 18)
+null
+emma tabBaseDeux1 (0/2): KO | exo.tabBaseDeux(Integer.MAX_VALUE)
+null
+emma tabBaseDeux2 (0/2): KO | exo.tabBaseDeux(Integer.MIN_VALUE)
+null
+emma rallongerTableauDeUnElement0 (0/2): KO | exo.rallongerTableauDeUnElement(tab0, 8)
+null
+emma rallongerTableauDeUnElement1 (0/2): KO | exo.rallongerTableauDeUnElement(tab, 8)
+null
+emma rallongerTableauDeUnElement2 (0/1): KO | exo.rallongerTableauDeUnElement(null, -8)
+null
+emma changerDimensionTableau0 (0/2): KO | exo.changerDimensionTableau(tab0, 2)
+null
+emma changerDimensionTableau1 (0/2): KO | exo.changerDimensionTableau(tab0, 3)
+null
+emma changerDimensionTableau2 (0/2): KO | exo.changerDimensionTableau(tab, 8)
+null
+emma changerDimensionTableau3 (0/1): KO | exo.changerDimensionTableau(tab, 7)
+null
+emma changerDimensionTableau4 (0/1): KO | exo.changerDimensionTableau(null, 2)
+null
+emma inverserTableau0 (0/2): KO | exo.inverserTableau(tab0)
+null
+emma inverserTableau1 (0/2): KO | exo.inverserTableau(tab)
+null
+emma inverserTableau2 (0/1): KO | exo.inverserTableau(null)
+null
+emma insererUnTableauDansUnAutre0 (0/2): KO | exo.insererUnTableauDansUnAutre(tab0, 8, tab1)
+null
+emma insererUnTableauDansUnAutre1 (0/2): KO | exo.insererUnTableauDansUnAutre(tab, 8, tab1)
+null
+emma insererUnTableauDansUnAutre2 (0/1): KO | exo.insererUnTableauDansUnAutre(tab, -3, tab1)
+null
+emma insererUnTableauDansUnAutre3 (0/1): KO | exo.insererUnTableauDansUnAutre(tab, 23233, tab1)
+null
+emma insererUnTableauDansUnAutre4 (0/1): KO | exo.insererUnTableauDansUnAutre(null, 23233, tab1)
+null
+emma insererUnTableauDansUnAutre4 (0/1): KO | exo.insererUnTableauDansUnAutre(tab, 23233, null)
+null
+emma tabBaseDeux0 (0/2): KO | exo.tabBaseDeux(tab0, 18)
+null
+emma tabBaseDeux1 (0/2): KO | exo.tabBaseDeux(Integer.MAX_VALUE)
+null
+emma tabBaseDeux2 (0/2): KO | exo.tabBaseDeux(Integer.MIN_VALUE)
+null
+emma rallongerTableauDeUnElement0 (0/2): KO | exo.rallongerTableauDeUnElement(tab0, 8)
+null
+emma rallongerTableauDeUnElement1 (0/2): KO | exo.rallongerTableauDeUnElement(tab, 8)
+null
+emma rallongerTableauDeUnElement2 (0/1): KO | exo.rallongerTableauDeUnElement(null, -8)
+null
+emma changerDimensionTableau0 (0/2): KO | exo.changerDimensionTableau(tab0, 2)
+null
+emma changerDimensionTableau1 (0/2): KO | exo.changerDimensionTableau(tab0, 3)
+null
+emma changerDimensionTableau2 (0/2): KO | exo.changerDimensionTableau(tab, 8)
+null
+emma changerDimensionTableau3 (0/1): KO | exo.changerDimensionTableau(tab, 7)
+null
+emma changerDimensionTableau4 (0/1): KO | exo.changerDimensionTableau(null, 2)
+null
+emma inverserTableau0 (0/2): KO | exo.inverserTableau(tab0)
+null
+emma inverserTableau1 (0/2): KO | exo.inverserTableau(tab)
+null
+emma inverserTableau2 (0/1): KO | exo.inverserTableau(null)
+null
+emma insererUnTableauDansUnAutre0 (0/2): KO | exo.insererUnTableauDansUnAutre(tab0, 8, tab1)
+null
+emma insererUnTableauDansUnAutre1 (0/2): KO | exo.insererUnTableauDansUnAutre(tab, 8, tab1)
+null
+emma insererUnTableauDansUnAutre2 (0/1): KO | exo.insererUnTableauDansUnAutre(tab, -3, tab1)
+null
+emma insererUnTableauDansUnAutre3 (0/1): KO | exo.insererUnTableauDansUnAutre(tab, 23233, tab1)
+null
+emma insererUnTableauDansUnAutre4 (0/1): KO | exo.insererUnTableauDansUnAutre(null, 23233, tab1)
+null
+emma insererUnTableauDansUnAutre4 (0/1): KO | exo.insererUnTableauDansUnAutre(tab, 23233, null)
+null
+emma tabBaseDeux0 (0/2): KO | exo.tabBaseDeux(tab0, 18)
+null
+emma tabBaseDeux1 (0/2): KO | exo.tabBaseDeux(Integer.MAX_VALUE)
+null
+emma tabBaseDeux2 (0/2): KO | exo.tabBaseDeux(Integer.MIN_VALUE)
+null
+emma rallongerTableauDeUnElement0 (0/2): KO | exo.rallongerTableauDeUnElement(tab0, 8)
+null
+emma rallongerTableauDeUnElement1 (0/2): KO | exo.rallongerTableauDeUnElement(tab, 8)
+null
+emma rallongerTableauDeUnElement2 (0/1): KO | exo.rallongerTableauDeUnElement(null, -8)
+null
+emma changerDimensionTableau0 (0/2): KO | exo.changerDimensionTableau(tab0, 2)
+null
+emma changerDimensionTableau1 (0/2): KO | exo.changerDimensionTableau(tab0, 3)
+null
+emma changerDimensionTableau2 (0/2): KO | exo.changerDimensionTableau(tab, 8)
+null
+emma changerDimensionTableau3 (0/1): KO | exo.changerDimensionTableau(tab, 7)
+null
+emma changerDimensionTableau4 (0/1): KO | exo.changerDimensionTableau(null, 2)
+null
+emma inverserTableau0 (0/2): KO | exo.inverserTableau(tab0)
+null
+emma inverserTableau1 (0/2): KO | exo.inverserTableau(tab)
+null
+emma inverserTableau2 (0/1): KO | exo.inverserTableau(null)
+null
+emma insererUnTableauDansUnAutre0 (0/2): KO | exo.insererUnTableauDansUnAutre(tab0, 8, tab1)
+null
+emma insererUnTableauDansUnAutre1 (0/2): KO | exo.insererUnTableauDansUnAutre(tab, 8, tab1)
+null
+emma insererUnTableauDansUnAutre2 (0/1): KO | exo.insererUnTableauDansUnAutre(tab, -3, tab1)
+null
+emma insererUnTableauDansUnAutre3 (0/1): KO | exo.insererUnTableauDansUnAutre(tab, 23233, tab1)
+null
+emma insererUnTableauDansUnAutre4 (0/1): KO | exo.insererUnTableauDansUnAutre(null, 23233, tab1)
+null
+emma insererUnTableauDansUnAutre4 (0/1): KO | exo.insererUnTableauDansUnAutre(tab, 23233, null)
+null
+emma tabBaseDeux0 (0/2): KO | exo.tabBaseDeux(tab0, 18)
+null
+emma tabBaseDeux1 (0/2): KO | exo.tabBaseDeux(Integer.MAX_VALUE)
+null
+emma tabBaseDeux2 (0/2): KO | exo.tabBaseDeux(Integer.MIN_VALUE)
+null

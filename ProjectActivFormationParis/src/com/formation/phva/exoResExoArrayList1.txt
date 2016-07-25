@@ -1,0 +1,28 @@
+phva:Collection
+
+phva intervertirDeuxElementsTableau0 (0/2): KO | exo.intervertirDeuxElementsTableau(tab0, 3, 8)
+actual array was null
+phva intervertirDeuxElementsTableau1 (0/2): KO | exo.intervertirDeuxElementsTableau(tab, 3, 8)
+actual array was null
+phva intervertirDeuxElementsTableau2 (0/1): KO | exo.intervertirDeuxElementsTableau(tab, -3, 8)
+phva intervertirDeuxElementsTableau3 (0/1): KO | exo.intervertirDeuxElementsTableau(tab, 3, 44448)
+phva intervertirDeuxElementsTableau4 (0/1): KO | exo.intervertirDeuxElementsTableau(tab, 34444, 8)
+phva intervertirDeuxElementsTableau5 (0/1): KO | exo.intervertirDeuxElementsTableau(tab, 3, -8)
+phva insererUnElementDansTableau0 (0/2): KO | exo.insererUnElementDansTableau(tab1, 3, 8)
+phva insererUnElementDansTableau1 (0/2): KO | exo.insererUnElementDansTableau(tab, 3, 8)
+phva insererUnElementDansTableau2 (0/1): KO | exo.insererUnElementDansTableau(tab, -3, 8)
+phva insererUnElementDansTableau3 (0/1): KO | exo.insererUnElementDansTableau(tab, 33333, 8)
+phva remplirArrayList0 (0/2): KO | exo.remplirArrayList(7, 5, 3)
+null
+phva remplirArrayList1 (0/2): KO | exo.remplirArrayList(-120, 125, 7)
+phva remplirArrayList2 (1/1):    | exo.remplirArrayList(0x7FFFFFF0, 16, 8)
+phva remplirArrayList3 (1/1):    | exo.remplirArrayList(-0x7FFFFFF0, 16, -8)
+phva insererUnArrayListDansUnAutreAvecRemplacement0 (0/2): KO | exo.insererUnArrayListDansUnAutreAvecRemplacement(taba, 2, tabb)
+phva insererUnArrayListDansUnAutreAvecRemplacement1 (0/2): KO | exo.insererUnArrayListDansUnAutreAvecRemplacement(tab, 3, tab1)
+phva insererUnArrayListDansUnAutreAvecRemplacement2 (0/1): KO | exo.insererUnArrayListDansUnAutreAvecRemplacement(tab, -3, tab1)
+phva insererUnArrayListDansUnAutreAvecRemplacement3 (0/1): KO | exo.insererUnArrayListDansUnAutreAvecRemplacement(tab, 3000, tab1)
+phva rotationArrayList0 (0/2): KO | exo.rotationArrayList(tabA, 2)
+phva rotationArrayList1 (0/2): KO | exo.rotationArrayList(tab, 3)
+phva rotationArrayList2 (0/1): KO | exo.rotationArrayList(tab, -3)
+phva rotationArrayList3 (0/1): KO | exo.rotationArrayList(tab, 3000)
+phva rotationArrayList4 (0/1): KO | exo.rotationArrayList(tab, -777)
