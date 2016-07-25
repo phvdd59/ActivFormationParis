@@ -2,6 +2,7 @@ package com.formation.thde.main;
 
 import java.util.ArrayList;
 
+import com.formation.thde.exo.ExoAlgo1;
 import com.formation.thde.exo.ExoArrayList1;
 import com.formation.thde.exo.ExoTableau1;
 import com.formation.thde.exo.ExoTableau2;
@@ -12,7 +13,8 @@ public class Main {
 		Main main = new Main();
 		//main.init();
 		//main.init2();
-		main.init3();
+		//main.init3();
+		main.init4();
 	}
 
 	private void init() {
@@ -158,11 +160,18 @@ public class Main {
 			}
 		}
 		System.out.print("\n");
-		int tab10[] = exo2.tabBaseDeux(-19);
+		int tab10[] = exo2.tabBaseDeux(-18);
 		if (tab10 != null) {
 			for (int i = 0; i < tab10.length; i++) {
 				System.out.print(tab10[i] + ", ");
 			}
 		}
+	}
+
+	private void init4() {
+		ExoAlgo1 exo3 = new ExoAlgo1();
+		int[] test11 = { 0, 0, 0, 0, 1 };
+		int equilibre = exo3.solution(test11);
+		System.out.print(equilibre);
 	}
 }
