@@ -1,6 +1,6 @@
 package com.formation.joca.metier;
 
-public abstract class Wagon implements Comparable<Wagon>{
+public abstract class Wagon {
 	public static final int WAGON_RESTO = 0;
 	public static final int WAGON_SIMPLE1 = 1;
 	public static final int WAGON_SIMPLE2 = 2;
@@ -59,10 +59,9 @@ public abstract class Wagon implements Comparable<Wagon>{
 	}
 
 	public abstract int getType();
-	
-	@Override
+
 	public int compareTo(Wagon w) {
-		int[] ordreDeTri = { 3, 2, 0, 1};
+		int[] ordreDeTri = { 3, 2, 0, 1 };
 		if (ordreDeTri[getType()] < ordreDeTri[w.getType()]) {
 			return -1;
 		} else if (ordreDeTri[getType()] > ordreDeTri[w.getType()]) {
@@ -70,8 +69,5 @@ public abstract class Wagon implements Comparable<Wagon>{
 		} else {
 			return 0;
 		}
-//		return toString().compareTo(w.toString());
-	//	return Float.valueOf(getLng()).compareTo(Float.valueOf(w.getLng()));
-	
 	}
 }
