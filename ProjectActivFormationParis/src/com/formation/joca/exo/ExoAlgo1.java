@@ -26,7 +26,7 @@ public class ExoAlgo1 implements ImpAlgo1 {
 
 	// cet algo fait toutes les itérations et renvoit le dernier point d'équlibre calculé
 	// il renvoit -1 s'il n'y a pas de point d'équilibre
-	public int solution(int[] tab) {
+	public int solution2(int[] tab) {
 
 		int result = -1;
 		for (int j = 0; j < tab.length; j++) { 	// on teste toutes les positions j que peut avoir le point d'équilibre (entre 0 et tab.length-1) 
@@ -54,12 +54,12 @@ public class ExoAlgo1 implements ImpAlgo1 {
 	// et renvoit par conséquent le premier point d'équilibre
 	// il renvoit -1 s'il n'y a pas de point d'équilibre
 
-	public int solution2(int[] tab) {
+	public int solution(int[] tab) {
 
 		int result = -1;
 		int j = 0;
-		boolean trouve = false; 					// boolean utilisé pour sortir de la boucle
-		while (j < tab.length && trouve == false) { // principale difference avec l'algo précédent
+		boolean trouve = false; 					// boolean utilisé pour sortir de la boucle,
+		while (j < tab.length && trouve == false) { // principale difference avec l'algo précédent :
 													// on boucle tant qu'on a pas trouvé 
 			int somme1 = 0; 						// et tant qu'on a pas testé toutes les positions possibles de j
 			int somme2 = 0; 					
