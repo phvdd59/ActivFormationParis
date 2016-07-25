@@ -25,7 +25,7 @@ public class ExoAlgo1 implements ImpAlgo1 {
 		int sPlus = 0;
 		int sMoins = 0;
 		int n= tab.length;
-		if (n < 100000) {
+		if ((n < 100000) && (tab != null)){
 			if (n == 1) {
 				soluce = 0;
 			} else {
