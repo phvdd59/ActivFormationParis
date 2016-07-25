@@ -252,7 +252,7 @@ public class ExoTableau1 implements InterExoTableau1 {
 		int[] tabRota = new int[tabOrig4.length];
 		//protection
 		if (p > tabOrig4.length || p < 0) {
-			return null;
+			return tabOrig4.clone();
 		}
 		//fin protection
 		for (int i = 0; i < p; i++) {
