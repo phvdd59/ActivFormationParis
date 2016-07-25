@@ -1,0 +1,30 @@
+etga:Collection
+
+etga intervertirDeuxElementsTableau0 (2/2):    | exo.intervertirDeuxElementsTableau(tab0, 3, 8)
+etga intervertirDeuxElementsTableau1 (2/2):    | exo.intervertirDeuxElementsTableau(tab, 3, 8)
+etga intervertirDeuxElementsTableau2 (0/1): KO | exo.intervertirDeuxElementsTableau(tab, -3, 8)
+-3
+etga intervertirDeuxElementsTableau3 (0/1): KO | exo.intervertirDeuxElementsTableau(tab, 3, 44448)
+Index: 44448, Size: 2048
+etga intervertirDeuxElementsTableau4 (0/1): KO | exo.intervertirDeuxElementsTableau(tab, 34444, 8)
+Index: 34444, Size: 2048
+etga intervertirDeuxElementsTableau5 (0/1): KO | exo.intervertirDeuxElementsTableau(tab, 3, -8)
+-8
+etga insererUnElementDansTableau0 (2/2):    | exo.insererUnElementDansTableau(tab1, 3, 8)
+etga insererUnElementDansTableau1 (2/2):    | exo.insererUnElementDansTableau(tab, 3, 8)
+etga insererUnElementDansTableau2 (0/1): KO | exo.insererUnElementDansTableau(tab, -3, 8)
+etga insererUnElementDansTableau3 (0/1): KO | exo.insererUnElementDansTableau(tab, 33333, 8)
+etga remplirArrayList0 (2/2):    | exo.remplirArrayList(7, 5, 3)
+etga remplirArrayList1 (2/2):    | exo.remplirArrayList(-120, 125, 7)
+etga remplirArrayList2 (0/1): KO | exo.remplirArrayList(0x7FFFFFF0, 16, 8)
+etga remplirArrayList3 (0/1): KO | exo.remplirArrayList(-0x7FFFFFF0, 16, -8)
+etga insererUnArrayListDansUnAutreAvecRemplacement0 (2/2):    | exo.insererUnArrayListDansUnAutreAvecRemplacement(taba, 2, tabb)
+etga insererUnArrayListDansUnAutreAvecRemplacement1 (2/2):    | exo.insererUnArrayListDansUnAutreAvecRemplacement(tab, 3, tab1)
+etga insererUnArrayListDansUnAutreAvecRemplacement2 (1/1):    | exo.insererUnArrayListDansUnAutreAvecRemplacement(tab, -3, tab1)
+etga insererUnArrayListDansUnAutreAvecRemplacement3 (1/1):    | exo.insererUnArrayListDansUnAutreAvecRemplacement(tab, 3000, tab1)
+etga rotationArrayList0 (0/2): KO | exo.rotationArrayList(tabA, 2)
+etga rotationArrayList1 (0/2): KO | exo.rotationArrayList(tab, 3)
+etga rotationArrayList2 (0/1): KO | exo.rotationArrayList(tab, -3)
+etga rotationArrayList3 (0/1): KO | exo.rotationArrayList(tab, 3000)
+etga rotationArrayList4 (0/1): KO | exo.rotationArrayList(tab, -777)
+etga NOTE : (18 / 33) = 10 / 20

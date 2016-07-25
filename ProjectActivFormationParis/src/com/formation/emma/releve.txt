@@ -1,0 +1,27 @@
+Syntaxe:-1
+Tableau:18.18
+Versionning:-1
+Objet:-1
+UML:-1
+Collection:-1
+Tri:-1
+Exceptions:-1
+Flux:-1
+Evenement:-1
+XML:-1
+Thread:-1
+JUNIT:-1
+SQL :-1
+JDBC :-1
+HTML:-1
+CSS:-1
+JavaScript:-1
+Servlets:-1
+JSP:-1
+XSLT:-1
+JSF:-1
+Spring:-1
+Services:-1
+Projet:-1
+Hibernate:-1
+AngularJS:-1

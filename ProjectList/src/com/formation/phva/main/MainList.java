@@ -1,11 +1,15 @@
 package com.formation.phva.main;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.Hashtable;
+import java.util.Map.Entry;
+import java.util.Set;
+import java.util.TreeMap;
 
 import com.formation.phva.metier.Entrepot;
-import com.formation.phva.metier.RER;
+import com.formation.phva.metier.Wagon;
 import com.formation.phva.metier.WagonResto;
 
 public class MainList {
@@ -16,34 +20,100 @@ public class MainList {
 	}
 
 	public void init() {
-		ArrayList<Integer> liste = new ArrayList<Integer>();
-		liste.add(4);
-		liste.add(5);
-		liste.add(8);
-		liste.add(-1);
-		liste.add(2);
-		liste.add(9);
+		TreeMap<String, Integer> map = new TreeMap<String, Integer>();
+		Integer o1 = Integer.valueOf(1);
+		map.put("Un", o1);
 
-		Collections.sort(liste);
-		for (int i = 0; i < liste.size(); i++) {
-			System.out.println(liste.get(i));
+		int vv = 3 + map.get("Un").intValue();
+		Object o = map.get("Un");
+
+		int u = (int) 3l;
+		Object oo = 1l;
+
+		if (oo.equals(o)) {
+			System.out.println("=");
+		} else {
+			System.out.println("#");
 		}
 
-	}
+		if (oo instanceof Integer) {
+			System.out.println("je suis un Integer");
+		}
 
-	public void init3() {
+		map.put("Deux", new Integer(2));
+
+		System.out.println(map.get("Un"));
+
+		TreeMap<String, Integer> treeMap = new TreeMap<String, Integer>();
+		treeMap.put("Premiere", 1);
+		treeMap.put("Quatrieme", null);
+		treeMap.put("Premiere", 2);
+		treeMap.put("Premiere", 3);
+		treeMap.put("Seconde", 4);
+		treeMap.put("Ajout", 2);
+		treeMap.put("Troisieme", null);
+		System.out.println(treeMap);
+		
+		Set<Entry<String, Integer>> entrys = treeMap.entrySet();
+		for (Entry<String, Integer> entry : entrys) {
+			System.out.println(entry.getKey()+" "+entry.getValue()+" "+entry.getKey().hashCode());
+		}
+		System.out.println("----------------------------------------------------------");
+
+
+		HashMap<String, Integer> hashMap = new HashMap<String, Integer>();
+		hashMap.put("Premiere", 1);
+		hashMap.put("Quatrieme", null);
+		hashMap.put("Premiere", 2);
+		hashMap.put("Premiere", 3);
+		hashMap.put("Seconde", 4);
+		hashMap.put("Ajout", 2);
+		hashMap.put("Troisieme", null);
+		System.out.println(hashMap);
+
+		Hashtable<String, Integer> hashT = new Hashtable<String, Integer>();
+		hashT.put("Premiere", 1);
+		hashT.put("Premiere", 2);
+		hashT.put("Balle", 9);
+		hashT.put("Premiere", 3);
+		hashT.put("Seconde", 4);
+		hashT.put("Ajout", 2);
+		//hashT.put("Troisieme", null);
+		System.out.println(hashT);
+		
+		Set<Entry<String, Integer>> entryset = hashT.entrySet();
+		for (Entry<String, Integer> entry : entryset) {
+			System.out.println(entry.getKey()+" "+entry.getValue()+" "+entry.getKey().hashCode());
+		}
+		
+		
+
+		TreeMap<Integer, ArrayList<Wagon>> mapEntrepots = new TreeMap<Integer, ArrayList<Wagon>>();
+		ArrayList<Wagon> lstWagon = new ArrayList<Wagon>();
+		WagonResto w1 = new WagonResto();
+		//mapEntrepots.put(Wagon.WAGON_RESTO, w1);
+		mapEntrepots.put(Wagon.WAGON_RESTO, lstWagon);
+		ArrayList<Wagon> lstNew = mapEntrepots.get(Wagon.WAGON_RESTO);
+		mapEntrepots.get(Wagon.WAGON_RESTO).add(w1);
+		WagonResto w2 = new WagonResto(450);
+		mapEntrepots.get(Wagon.WAGON_RESTO).add(w2);
+		System.out.println(mapEntrepots.toString());
+
 		Entrepot entrepotParis = new Entrepot();
-		entrepotParis.fabrique(20);
-		entrepotParis.fabrique(12);
-		System.out.println(entrepotParis.get(entrepotParis.size() - 1));
-		entrepotParis.fabrique(34);
+		entrepotParis.fabrique(10);
 		for (int i = 0; i < entrepotParis.size(); i++) {
 			System.out.println(entrepotParis.get(i).toString());
 		}
-		RER rer = new RER();
-		rer.add(entrepotParis.remove(0));
-		rer.ajoutWagon(entrepotParis);
-		entrepotParis.add(new WagonResto());
+		System.out.println("");
+		/*
+		 * for (int i = 0; i < entrepotParis.size(); i++) {
+		 * System.out.println(entrepotParis.get(i).toString()); }
+		 */
+		// entrepotParis.tri1();
+		Collections.sort(entrepotParis);
+		for (int i = 0; i < entrepotParis.size(); i++) {
+			System.out.println(entrepotParis.get(i).toString());
+		}
 
 	}
 
@@ -79,47 +149,9 @@ public class MainList {
 		list.clear();
 		System.out.println("list = " + list);
 		for (int val : tab) {
-			//list.add(Integer.valueOf(val));
+			// list.add(Integer.valueOf(val));
 			list.add(val);
 		}
-		Collections.sort(list);
 		list.clear();
-	}
-
-	public void init2() {
-		int[] t = { 1, 4, 9, 3, 5, 2 };
-		boolean b = false;
-		while (!b) {
-			b = true;
-			for (int i = 0; i < t.length - 1; i++) {
-				if (t[i] > t[i + 1]) {
-					b = false;
-					int s = t[i];
-					t[i] = t[i + 1];
-					t[i + 1] = s;
-				}
-			}
-		}
-		System.out.println(Arrays.toString(t));
-	}
-
-	public int[] echanger(int[] t, int a, int b) {
-		int s = t[a];
-		t[a] = t[b];
-		t[b] = s;
-		return t;
-	}
-
-	public void init4() {
-		int[] t = { 1, 4, 9, 3, 5, 2 };
-		boolean b = false;
-		int v = t.length;
-		while (!b) {
-			for (int i = 0; i < v - 1; i++) {
-				if (t[i] > t[i + 1]) {
-					echanger(t, i, i + 1);
-				}
-			}
-		}
 	}
 }
