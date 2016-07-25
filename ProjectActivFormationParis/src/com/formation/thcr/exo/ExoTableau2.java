@@ -37,18 +37,6 @@ public class ExoTableau2 implements InterExoTableau2 {
 		return tmp;
 	}
 
-	public int[] rallongerTableauDeUnElement2(int[] tab, int a) {
-		if (tab == null) {
-			tab = new int[0];
-		}
-		int[] tmp = new int[tab.length + 1];
-		for (int i = 0; i < tab.length; i++) {
-			tmp[i] = tab[i];
-		}
-		tmp[tmp.length - 1] = a;
-		return tmp;
-	}
-
 	/**
 	 * Exemple [1,4,6,2,4,6] : p=2, tab1=[4,9,0] --> [1,4,4,9,0,6,2,4,6]
 	 * 
@@ -88,13 +76,29 @@ public class ExoTableau2 implements InterExoTableau2 {
 	 */
 
 	public int[][] changerDimensionTableau(int[] tab, int d) {
-		int[][] tmp = new int[0][0];
-		if (tab.length % d == 0) {
+		int[][] tmp;
+		if (d <= 0 || d > tab.length) {
+			tmp = new int[1][tab.length];
+			for (int i = 0; i < tab.length; i++) {
+				tmp[0][i] = tab[i];
+			}
+		} else if (tab.length % d == 0) {
 			tmp = new int[tab.length / d][d];
 			for (int i = 0; i < tab.length / d; i++) {
 				for (int j = 0; j < d; j++) {
 					tmp[i][j] = tab[i * d + j];
 				}
+			}
+		} else {
+			tmp = new int[tab.length / d + 1][d];
+			for (int i = 0; i < tab.length / d + 1; i++) {
+				for (int j = 0; j < d; j++) {
+					if (i * d + j < tab.length)
+						tmp[i][j] = tab[i * d + j];
+					else
+						tmp[i][j] = 0;
+				}
+
 			}
 		}
 		return tmp;
@@ -108,33 +112,62 @@ public class ExoTableau2 implements InterExoTableau2 {
 	 * @return tableau représentant cette valeur mais en binaire
 	 * 
 	 */
-	public int[] tabBaseDeux(int v) {
+	public int[] tabBaseDeux2(int v) {
 		int[] intToBit = null;
 		String vToBinStr = Integer.toBinaryString(Integer.valueOf(v));
 		char[] bit = vToBinStr.toCharArray();
 		intToBit = new int[bit.length];
 		for (int i = 0; i < bit.length - 1; i++) {
 			intToBit[i] = Integer.valueOf(vToBinStr.substring(i, i + 1));
-
 		}
+		intToBit[bit.length - 1] = Integer.valueOf(vToBinStr.substring(vToBinStr.length() - 1, vToBinStr.length()));
 		return intToBit;
 	}
 
-	public int[] tabBaseDeux2(int v) {
-		int[] intToBit = null;
+	public int[] tabBaseDeux(int v) {
+		int[] intToBit = { 0 };
+		int tmpr = 0;
 		int r1 = 0;
 		int r2 = 0;
+		int cpt = 0;
+		int i = 0;
+		int v2 = v;
 
-		while (v != 0 || v != 1) {
-			r1 = v % 2;
-			if (r1 != 0)
-				r2 = v / 2 + 1;
-			else
-				r2 = v / 2;
-			v = r2;
-			this.rallongerTableauDeUnElement2(intToBit, r1);
+		while (v != 0) {
+			tmpr = v / 2;
+			v = tmpr;
+			cpt++;
 		}
-		this.rallongerTableauDeUnElement2(intToBit, v);
+		if (v2 > 0) {
+			intToBit = new int[cpt];
+			while (v2 != 0) {
+				r1 = v2 % 2;
+				r2 = v2 / 2;
+				v2 = r2;
+				if (v2 == 1 && r1 == 1) {
+					intToBit[intToBit.length - i - 1] = 1;
+				} else {
+					intToBit[intToBit.length - i - 1] = r1;
+				}
+				i++;
+			}
+		} else if (v2 < 0) {
+			intToBit = new int[32];
+			v2 = Math.abs(v2);
+			v2 = Integer.MAX_VALUE - v2 + 1; // complément à 2
+			while (v2 != 0) {
+				r1 = v2 % 2;
+				r2 = v2 / 2;
+				v2 = r2;
+				if (v2 == 1 && r1 == 1) {
+					intToBit[intToBit.length - i - 1] = 1;
+				} else {
+					intToBit[intToBit.length - i - 1] = r1;
+				}
+				i++;
+			}
+			intToBit[0] = 1;
+		}
 		return intToBit;
 	}
 }

@@ -1,4 +1,4 @@
-beba
+beba:Tableau
 
 beba insererUnTableauDansUnAutreAvecRemplacement0 (2/2):    | exo.insererUnTableauDansUnAutreAvecRemplacement(taba, 2, tabb)
 beba insererUnTableauDansUnAutreAvecRemplacement1 (2/2):    | exo.insererUnTableauDansUnAutreAvecRemplacement(tab, 3, tab1)
