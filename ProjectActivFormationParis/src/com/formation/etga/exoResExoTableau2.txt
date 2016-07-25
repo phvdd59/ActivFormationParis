@@ -22,7 +22,7 @@ etga insererUnTableauDansUnAutre4 (0/1): KO | exo.insererUnTableauDansUnAutre(nu
 null
 etga insererUnTableauDansUnAutre4 (0/1): KO | exo.insererUnTableauDansUnAutre(tab, 23233, null)
 null
-etga tabBaseDeux0 (0/2): KO | exo.tabBaseDeux(tab0, 18)
-etga tabBaseDeux1 (0/2): KO | exo.tabBaseDeux(Integer.MAX_VALUE)
-etga tabBaseDeux2 (0/2): KO | exo.tabBaseDeux(Integer.MIN_VALUE)
-etga NOTE : (16 / 32) = 10 / 20
+etga tabBaseDeux0 (2/2):    | exo.tabBaseDeux(tab0, 18)
+etga tabBaseDeux1 (2/2):    | exo.tabBaseDeux(Integer.MAX_VALUE)
+etga tabBaseDeux2 (2/2):    | exo.tabBaseDeux(Integer.MIN_VALUE)
+etga NOTE : (22 / 32) = 13 / 20

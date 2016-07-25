@@ -23,5 +23,5 @@ beba insererUnTableauDansUnAutre4 (1/1):    | exo.insererUnTableauDansUnAutre(nu
 beba insererUnTableauDansUnAutre4 (0/1): KO | exo.insererUnTableauDansUnAutre(tab, 23233, null)
 beba tabBaseDeux0 (2/2):    | exo.tabBaseDeux(tab0, 18)
 beba tabBaseDeux1 (2/2):    | exo.tabBaseDeux(Integer.MAX_VALUE)
-beba tabBaseDeux2 (0/2): KO | exo.tabBaseDeux(Integer.MIN_VALUE)
-beba NOTE : (21 / 32) = 13 / 20
+beba tabBaseDeux2 (2/2):    | exo.tabBaseDeux(Integer.MIN_VALUE)
+beba NOTE : (23 / 32) = 14 / 20

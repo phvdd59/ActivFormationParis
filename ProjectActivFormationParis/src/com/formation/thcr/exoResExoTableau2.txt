@@ -15,8 +15,7 @@ thcr inverserTableau1 (2/2):    | exo.inverserTableau(tab)
 thcr inverserTableau2 (0/1): KO | exo.inverserTableau(null)
 null
 thcr insererUnTableauDansUnAutre0 (2/2):    | exo.insererUnTableauDansUnAutre(tab0, 8, tab1)
-thcr insererUnTableauDansUnAutre1 (0/2): KO | exo.insererUnTableauDansUnAutre(tab, 8, tab1)
-2048
+thcr insererUnTableauDansUnAutre1 (2/2):    | exo.insererUnTableauDansUnAutre(tab, 8, tab1)
 thcr insererUnTableauDansUnAutre2 (1/1):    | exo.insererUnTableauDansUnAutre(tab, -3, tab1)
 thcr insererUnTableauDansUnAutre3 (1/1):    | exo.insererUnTableauDansUnAutre(tab, 23233, tab1)
 thcr insererUnTableauDansUnAutre4 (0/1): KO | exo.insererUnTableauDansUnAutre(null, 23233, tab1)
@@ -24,6 +23,6 @@ null
 thcr insererUnTableauDansUnAutre4 (0/1): KO | exo.insererUnTableauDansUnAutre(tab, 23233, null)
 null
 thcr tabBaseDeux0 (2/2):    | exo.tabBaseDeux(tab0, 18)
-thcr tabBaseDeux1 (0/2): KO | exo.tabBaseDeux(Integer.MAX_VALUE)
-thcr tabBaseDeux2 (0/2): KO | exo.tabBaseDeux(Integer.MIN_VALUE)
-thcr NOTE : (20 / 32) = 12 / 20
+thcr tabBaseDeux1 (2/2):    | exo.tabBaseDeux(Integer.MAX_VALUE)
+thcr tabBaseDeux2 (2/2):    | exo.tabBaseDeux(Integer.MIN_VALUE)
+thcr NOTE : (26 / 32) = 16 / 20

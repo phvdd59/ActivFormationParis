@@ -4,29 +4,27 @@ made rallongerTableauDeUnElement0 (2/2):    | exo.rallongerTableauDeUnElement(ta
 made rallongerTableauDeUnElement1 (2/2):    | exo.rallongerTableauDeUnElement(tab, 8)
 made rallongerTableauDeUnElement2 (0/1): KO | exo.rallongerTableauDeUnElement(null, -8)
 null
-made changerDimensionTableau0 (0/2): KO | exo.changerDimensionTableau(tab0, 2)
-2
-made changerDimensionTableau1 (0/2): KO | exo.changerDimensionTableau(tab0, 3)
+made changerDimensionTableau0 (2/2):    | exo.changerDimensionTableau(tab0, 2)
+made changerDimensionTableau1 (2/2):    | exo.changerDimensionTableau(tab0, 3)
 made changerDimensionTableau2 (0/2): KO | exo.changerDimensionTableau(tab, 8)
 made changerDimensionTableau3 (1/1):    | exo.changerDimensionTableau(tab, 7)
-made changerDimensionTableau4 (0/1): KO | exo.changerDimensionTableau(null, 2)
-null
+made changerDimensionTableau4 (1/1):    | exo.changerDimensionTableau(null, 2)
 made inverserTableau0 (0/2): KO | exo.inverserTableau(tab0)
 made inverserTableau1 (0/2): KO | exo.inverserTableau(tab)
 made inverserTableau2 (0/1): KO | exo.inverserTableau(null)
 null
-made insererUnTableauDansUnAutre0 (0/2): KO | exo.insererUnTableauDansUnAutre(tab0, 8, tab1)
-6
+made insererUnTableauDansUnAutre0 (2/2):    | exo.insererUnTableauDansUnAutre(tab0, 8, tab1)
 made insererUnTableauDansUnAutre1 (2/2):    | exo.insererUnTableauDansUnAutre(tab, 8, tab1)
-made insererUnTableauDansUnAutre2 (0/1): KO | exo.insererUnTableauDansUnAutre(tab, -3, tab1)
--3
-made insererUnTableauDansUnAutre3 (0/1): KO | exo.insererUnTableauDansUnAutre(tab, 23233, tab1)
-2048
+made insererUnTableauDansUnAutre2 (1/1):    | exo.insererUnTableauDansUnAutre(tab, -3, tab1)
+made insererUnTableauDansUnAutre3 (1/1):    | exo.insererUnTableauDansUnAutre(tab, 23233, tab1)
 made insererUnTableauDansUnAutre4 (0/1): KO | exo.insererUnTableauDansUnAutre(null, 23233, tab1)
 null
 made insererUnTableauDansUnAutre4 (0/1): KO | exo.insererUnTableauDansUnAutre(tab, 23233, null)
 null
 made tabBaseDeux0 (0/2): KO | exo.tabBaseDeux(tab0, 18)
+5
 made tabBaseDeux1 (0/2): KO | exo.tabBaseDeux(Integer.MAX_VALUE)
+31
 made tabBaseDeux2 (0/2): KO | exo.tabBaseDeux(Integer.MIN_VALUE)
-made NOTE : (7 / 32) = 4 / 20
+32
+made NOTE : (16 / 32) = 10 / 20

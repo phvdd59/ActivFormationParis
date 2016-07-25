@@ -19,5 +19,5 @@ joca insererUnTableauDansUnAutre4 (1/1):    | exo.insererUnTableauDansUnAutre(nu
 joca insererUnTableauDansUnAutre4 (0/1): KO | exo.insererUnTableauDansUnAutre(tab, 23233, null)
 joca tabBaseDeux0 (2/2):    | exo.tabBaseDeux(tab0, 18)
 joca tabBaseDeux1 (2/2):    | exo.tabBaseDeux(Integer.MAX_VALUE)
-joca tabBaseDeux2 (0/2): KO | exo.tabBaseDeux(Integer.MIN_VALUE)
-joca NOTE : (24 / 32) = 15 / 20
+joca tabBaseDeux2 (2/2):    | exo.tabBaseDeux(Integer.MIN_VALUE)
+joca NOTE : (26 / 32) = 16 / 20
