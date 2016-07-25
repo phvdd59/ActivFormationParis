@@ -126,8 +126,7 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 				list.add(0, list.remove(list.size() - 1));
 
 			}
-		}
-		if (p < 0) {
+		} else if (p < 0) {
 			int d = p % tab.size();
 			for (int i = 0; i > d; i--) {
 				list.add(list.remove(0));
