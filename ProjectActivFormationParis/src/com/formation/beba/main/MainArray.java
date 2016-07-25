@@ -21,12 +21,12 @@ public class MainArray {
 		ArrayList<Integer> test2 = exoArray.insererUnElementDansTableau(test, 4, 2);
 		System.out.println(test2);
 
-		ArrayList<Integer> test3 = exoArray.intervertirDeuxElementsTableau(test, -3, 5);
+		ArrayList<Integer> test3 = exoArray.intervertirDeuxElementsTableau(test, 5213, 5);
 		System.out.println("+++++" + test3);
 
 		ArrayList<Integer> testX;
 		testX = exoArray.remplirTableau(3, 3, 3);
-		ArrayList<Integer> test4 = exoArray.insererUnTableauDansUnAutreAvecRemplacement(test, 4, testX);
+		ArrayList<Integer> test4 = exoArray.insererUnTableauDansUnAutreAvecRemplacement(test, 3000, testX);
 		System.out.println(test4);
 
 		ArrayList<Integer> test5 = exoArray.rotationTableau(test, -5);
