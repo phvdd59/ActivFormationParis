@@ -11,7 +11,7 @@ public class Main {
 	public static void main(String[] args) { // main method
 
 		Main main = new Main();
-		main.init2();
+		main.init();
 
 	}
 
@@ -103,16 +103,22 @@ public class Main {
 			System.out.print(tabDeRemp[i] + " ");
 		}
 		System.out.println("\r");
-		int[] tabRes3 = exoTableau4.insererUnTableauDansUnAutreAvecRemplacement(tabOrig3, 3000, tabDeRemp);
+		int[] tabRes3 = exoTableau4.insererUnTableauDansUnAutreAvecRemplacement(tabOrig3, -3, tabDeRemp);
 		System.out.println("Tableau Résultat");
-		if (tabRes3 == null) {
-			System.out.println("Y'a un problème");
-		} else {
-			for (int i = 0; i < tabRes3.length; i++) {
-				System.out.print(tabRes3[i] + " ");
-			}
-			System.out.println("\r");
+		// nouvelle version
+		for (int i = 0; i < tabRes3.length; i++) {
+			System.out.print(tabRes3[i] + " ");
 		}
+		System.out.println("\r");
+		// ancienne version
+		//		if (tabRes3 == tabOrig3.clone()) {
+		//			System.out.println("Y'a un problème");
+		//		} else {
+		//			for (int i = 0; i < tabRes3.length; i++) {
+		//				System.out.print(tabRes3[i] + " ");
+		//			}
+		//			System.out.println("\r");
+		//		}
 
 		//5. rotationTableau
 		System.out.println("*V.rotationTableau*");
@@ -151,5 +157,6 @@ public class Main {
 
 		// 2.méthode intervertirDeuxElementsTableau
 		System.out.println("*II.intervertirDeuxElementsTableau*");
+		ExoArrayList1 exoArrayList2 = new ExoArrayList1();
 	}
 }

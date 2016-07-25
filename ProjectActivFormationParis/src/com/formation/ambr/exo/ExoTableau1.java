@@ -97,10 +97,10 @@ public class ExoTableau1 implements InterExoTableau1 {
 	public int[] intervertirDeuxElementsTableau(int[] tabOrig, int i1, int i2) {
 		//protection
 		if (i1 > tabOrig.length || i2 > tabOrig.length) {
-			return null;
+			return tabOrig.clone();
 		}
 		if (i1 < 0 || i2 < 0) { // pour i1=-3, et i2=8; je comprends pkoi ça passe pas dans exoRes. Car ça me renvoie "Y'a un  problème"
-			return null;
+			return tabOrig.clone();
 		}
 		//fin protection
 		int[] tabInterv = new int[tabOrig.length];
@@ -161,7 +161,7 @@ public class ExoTableau1 implements InterExoTableau1 {
 		int[] tabRes2 = new int[tabOrig2.length + 1];
 		//protection
 		if (p < 0 || p > tabOrig2.length) {
-			return null;
+			return tabOrig2.clone();
 		}
 		//fin protection
 		for (int i = 0; i <= p; i++) {
@@ -206,11 +206,11 @@ public class ExoTableau1 implements InterExoTableau1 {
 		int[] tabRes3 = new int[tabOrig3.length]; // comment faire pour faire une longueur cumulative?
 
 		// contrôles
-		if (p < 0 || p > tabOrig3.length - 1) {
-			return null;
+		if (p < 0 || p >= tabOrig3.length) {
+			return tabOrig3.clone();
 		} else {
 			if (tabDeRemp.length > tabOrig3.length - p) {
-				return null;
+				return tabOrig3.clone();
 			}
 
 		}
