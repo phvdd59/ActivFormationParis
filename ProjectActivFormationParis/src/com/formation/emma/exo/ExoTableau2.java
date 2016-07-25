@@ -124,26 +124,63 @@ public class ExoTableau2 implements InterExoTableau2 {
 
 	//128 + 64 + 32+ 16 + 8 + 4 + 2 + 1
 	public int[] tabBaseDeux(int v) {
+		int[] valeurBinairePositive = null;
 		int[] valeurBinaire = null;
 
 		if (v < Integer.MIN_VALUE || v > Integer.MAX_VALUE) {
-			valeurBinaire = null;
+			valeurBinairePositive = null;
 		} else {
 			valeurBinaire = new int[32];
-			for (int i = 0; i < valeurBinaire.length; i++) {
+			valeurBinairePositive = new int[32];
+			if (v > 0) {
 
-				if (v - Math.pow(2, 31 - i) > 0) {
-					valeurBinaire[i] = 1;
-					v = (int) (v - Math.pow(2, 31 - i));
-				} else if (v - Math.pow(2, 31 - i) == 0) {
-					valeurBinaire[i] = 1;
-					break;
-				} else {
-					valeurBinaire[i] = 0;
+				for (int i = 0; i < valeurBinairePositive.length; i++) {
+
+					if (v - Math.pow(2, 31 - i) > 0) {
+						valeurBinairePositive[i] = 1;
+						v = (int) (v - Math.pow(2, 31 - i));
+					} else if (v - Math.pow(2, 31 - i) == 0) {
+						valeurBinairePositive[i] = 1;
+						break;
+					} else {
+						valeurBinairePositive[i] = 0;
+					}
+				}
+				for (int i = 0; i < valeurBinairePositive.length; i++) {
+					valeurBinaire[i] = valeurBinairePositive[i];
+				}
+
+			} else {
+
+				for (int i = 0; i < valeurBinairePositive.length; i++) {
+
+					if (-v - Math.pow(2, 31 - i) > 0) {
+						valeurBinairePositive[i] = 1;
+						v = (int) (-v - Math.pow(2, 31 - i));
+						v = -v;
+					} else if (-v - Math.pow(2, 31 - i) == 0) {
+						valeurBinairePositive[i] = 1;
+						break;
+					} else {
+						valeurBinairePositive[i] = 0;
+					}
+				}
+
+				valeurBinaire[0] = 1;
+				for (int i = 1; i < valeurBinairePositive.length; i++) {
+
+					if (valeurBinairePositive[i] == 1) {
+						valeurBinaire[i] = 0;
+
+					} else if (valeurBinairePositive[i] == 0) {
+						valeurBinaire[i] = 1;
+					}
+
 				}
 			}
+
 		}
 		return valeurBinaire;
 	}
-	
+
 }

@@ -213,7 +213,7 @@ public class Main {
 		}
 
 		System.out.println("exo5 ");
-		int nombre = Integer.MAX_VALUE;
+		int nombre = -Integer.MAX_VALUE;
 		ExoTableau2 binaire = new ExoTableau2();
 		int[] valeurBinaire = binaire.tabBaseDeux(nombre);
 		if (valeurBinaire == null) {
