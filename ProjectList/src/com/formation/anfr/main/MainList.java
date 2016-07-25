@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import com.formation.anfr.metier.Entrepot;
-import com.formation.anfr.metier.RER;
 import com.formation.anfr.metier.WagonResto;
 
 public class MainList {
