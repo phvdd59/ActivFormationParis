@@ -1,4 +1,4 @@
-emma:Tableau
+emma:Algo
 
 emma test3OK (1/1):    | exo.solution(a)
 emma testTemps (0/1): KO | exo.solution(a)

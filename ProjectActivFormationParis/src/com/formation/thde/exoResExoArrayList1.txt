@@ -12,8 +12,8 @@ thde insererUnElementDansTableau2 (1/1):    | exo.insererUnElementDansTableau(ta
 thde insererUnElementDansTableau3 (1/1):    | exo.insererUnElementDansTableau(tab, 33333, 8)
 thde remplirArrayList0 (2/2):    | exo.remplirArrayList(7, 5, 3)
 thde remplirArrayList1 (2/2):    | exo.remplirArrayList(-120, 125, 7)
-thde remplirArrayList2 (0/1): KO | exo.remplirArrayList(0x7FFFFFF0, 16, 8)
-thde remplirArrayList3 (0/1): KO | exo.remplirArrayList(-0x7FFFFFF0, 16, -8)
+thde remplirArrayList2 (1/1):    | exo.remplirArrayList(0x7FFFFFF0, 16, 8)
+thde remplirArrayList3 (1/1):    | exo.remplirArrayList(-0x7FFFFFF0, 16, -8)
 thde insererUnArrayListDansUnAutreAvecRemplacement0 (2/2):    | exo.insererUnArrayListDansUnAutreAvecRemplacement(taba, 2, tabb)
 thde insererUnArrayListDansUnAutreAvecRemplacement1 (2/2):    | exo.insererUnArrayListDansUnAutreAvecRemplacement(tab, 3, tab1)
 thde insererUnArrayListDansUnAutreAvecRemplacement2 (1/1):    | exo.insererUnArrayListDansUnAutreAvecRemplacement(tab, -3, tab1)
@@ -23,4 +23,4 @@ thde rotationArrayList1 (2/2):    | exo.rotationArrayList(tab, 3)
 thde rotationArrayList2 (1/1):    | exo.rotationArrayList(tab, -3)
 thde rotationArrayList3 (1/1):    | exo.rotationArrayList(tab, 3000)
 thde rotationArrayList4 (1/1):    | exo.rotationArrayList(tab, -777)
-thde NOTE : (31 / 33) = 18 / 20
+thde NOTE : (33 / 33) = 20 / 20

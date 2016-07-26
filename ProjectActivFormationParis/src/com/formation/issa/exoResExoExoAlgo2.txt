@@ -1,0 +1,11 @@
+issa testGrand (0/1): KO | exo.solution(2147395600)
+null
+issa testTemps (0/2): KO | exo.solution(2147483647)
+issa testPremier (0/1): KO | exo.solution(2147483647)
+null
+issa test0 (0/1): KO | exo.solution(0)
+null
+issa testClassique (0/2): KO | exo.solution(24)
+null
+issa testNegatif (0/1): KO | exo.solution(-5)
+null

@@ -1,4 +1,4 @@
-ambr:Tableau
+ambr:Algo
 
 ambr test3OK (1/1):    | exo.solution(a)
 ambr testTemps (0/1): KO | exo.solution(a)

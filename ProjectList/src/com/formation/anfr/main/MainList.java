@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import com.formation.anfr.metier.EntrepotMap;
 import com.formation.anfr.metier.RER;
 import com.formation.anfr.metier.WagonResto;
+import com.formation.phva.metier.TypeWagon;
 
 public class MainList {
 
@@ -14,11 +15,16 @@ public class MainList {
 	}
 	
 	public void init() {
+		TypeWagon[] t=TypeWagon.values();
+		for (int i = 0; i < t.length; i++) {
+			System.out.println(t[i]);
+		}
 		EntrepotMap entrepotParis = new EntrepotMap();
 		RER rerA =new RER();
 		entrepotParis.fabrique(50);
 		rerA.creTrain(entrepotParis, 10);
 		System.out.println(rerA);
+		entrepotParis.tri1();
 	}
 
 	public void init3() {

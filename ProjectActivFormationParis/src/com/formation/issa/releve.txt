@@ -1,9 +1,10 @@
 Syntaxe:-1
-Tableau:4.85
+Tableau:11.25
+Algo:6.00
 Versionning:-1
 Objet:-1
 UML:-1
-Collection:-1
+Collection:12.12
 Tri:-1
 Exceptions:-1
 Flux:-1

@@ -118,6 +118,14 @@ public class MainList {
 	}
 
 	public void init1() {
+		ArrayList<String> listString = new ArrayList<String>();
+		listString.add("qsdf");
+		//listString.add(new WagonResto());
+		
+		
+		ArrayList<Object> listObject=new ArrayList<Object>();
+		listObject.add(new WagonResto());
+		
 		int[] tab = { 1, 8, 5, 7, 6, 4, 2, 1 };
 		ArrayList list = new ArrayList();
 		System.out.println(list.size());

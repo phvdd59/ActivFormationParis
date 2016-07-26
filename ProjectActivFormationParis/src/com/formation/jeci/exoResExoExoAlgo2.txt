@@ -1,0 +1,11 @@
+jeci testGrand (0/1): KO | exo.solution(2147395600)
+null
+jeci testTemps (0/2): KO | exo.solution(2147483647)
+jeci testPremier (0/1): KO | exo.solution(2147483647)
+null
+jeci test0 (0/1): KO | exo.solution(0)
+null
+jeci testClassique (0/2): KO | exo.solution(24)
+null
+jeci testNegatif (0/1): KO | exo.solution(-5)
+null

@@ -1,4 +1,4 @@
-jeci:Tableau
+jeci:Algo
 
 jeci test3OK (1/1):    | exo.solution(a)
 jeci testTemps (0/1): KO | exo.solution(a)

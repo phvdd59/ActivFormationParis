@@ -1,4 +1,4 @@
-anfr:Tableau
+anfr:Algo
 
 anfr test3OK (1/1):    | exo.solution(a)
 anfr testTemps (1/1):    | exo.solution(a)

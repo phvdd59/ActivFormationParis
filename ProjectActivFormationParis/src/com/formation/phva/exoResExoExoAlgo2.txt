@@ -1,0 +1,9 @@
+phva:Algo
+
+phva testGrand (1/1):    | exo.solution(2147395600)
+phva testTemps (0/2): KO | exo.solution(2147483647)
+phva testPremier (0/1): KO | exo.solution(2147483647)
+/ by zero
+phva test0 (0/1): KO | exo.solution(0)
+phva testClassique (2/2):    | exo.solution(24)
+phva testNegatif (0/1): KO | exo.solution(-5)

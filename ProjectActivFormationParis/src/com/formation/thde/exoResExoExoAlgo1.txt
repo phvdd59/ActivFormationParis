@@ -1,4 +1,4 @@
-thde:Tableau
+thde:Algo
 
 thde test3OK (1/1):    | exo.solution(a)
 thde testTemps (0/1): KO | exo.solution(a)
