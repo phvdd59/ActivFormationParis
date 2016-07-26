@@ -105,18 +105,21 @@ public class ExoTableau1 implements InterExoTableau1 {
 	 */
 	public int[] insererUnTableauDansUnAutreAvecRemplacement(int[] tab, int p, int[] tab1) {
 		int[] tableaufinal = null;
+		if (tab == null) {
+
+		}
 		if (tab1.length > tab.length || p < 0 || (tab1.length == tab.length && p != 0) || tab1.length + p > tab.length) { // revoir ça
-			tableaufinal = tab;
+			tableaufinal = tab.clone();
 			// System.out.println("pas les bonnes valeurs");
 		} else {
 			tableaufinal = tab.clone();
 			int k = 0;
-			for (int i = p; i < tab1.length; i++) {
-				tableaufinal[i] = tab1[k];
+			for (int i = p; i < tab1.length + p; i++) {
+				tableaufinal[i] = tab1[i - p];
 				k++;
 			}
 			for (int i = 0; i < tableaufinal.length; i++) {
-				// System.out.println(tableaufinal[i]);
+				System.out.println(tableaufinal[i]);
 			}
 		}
 		return tableaufinal;
