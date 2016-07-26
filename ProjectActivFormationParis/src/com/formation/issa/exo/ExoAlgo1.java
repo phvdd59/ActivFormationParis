@@ -33,10 +33,11 @@ public class ExoAlgo1 implements ImpAlgo1 {
 		if (p<0 || p>tab.length || tab.length<0){
 			return -1;
 		}
-
+		
 		int tab1[] = new int[tab.length];
 		int somme1 = 0;
 		int somme2 = 0;
+		
 		for (int i = 0; i < tab1.length; i++) {
 			tab1[i] = tab[i];
 		}

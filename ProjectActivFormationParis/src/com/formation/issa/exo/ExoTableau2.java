@@ -33,7 +33,7 @@ public class ExoTableau2 implements InterExoTableau2 {
 	 * @return
 	 */
 	public int[] rallongerTableauDeUnElement(int[] tab, int a) {
-		if(tab.length<0){
+		if (tab.length < 0) {
 			return null;
 		}
 		int tabi[] = new int[tab.length + 1];
@@ -58,18 +58,18 @@ public class ExoTableau2 implements InterExoTableau2 {
 	 * @return tableau
 	 */
 	public int[] insererUnTableauDansUnAutre(int[] tab, int p, int[] tab1) {
-		if(p<0||p>tab.length){
+		if (p < 0 || p > tab.length) {
 			return tab;
 		}
-		int tabF[]=new int[tab.length+tab1.length];
+		int tabF[] = new int[tab.length + tab1.length];
 		for (int i = 0; i < p; i++) {
-		tabF[i]=tab[i];	
+			tabF[i] = tab[i];
 		}
-		for (int i = p; i < tab1.length+p; i++) {
-			tabF[i]=tab1[i-p];
+		for (int i = p; i < tab1.length + p; i++) {
+			tabF[i] = tab1[i - p];
 		}
-		for (int i = p+tab1.length; i < tabF.length; i++) {
-			tabF[i]=tab[i-p-1];
+		for (int i = p + tab1.length; i < tabF.length; i++) {
+			tabF[i] = tab[i - p - 1];
 		}
 		return tabF;
 	}
@@ -85,9 +85,25 @@ public class ExoTableau2 implements InterExoTableau2 {
 	 * @return tableau de 2 dimensions
 	 */
 	public int[][] changerDimensionTableau(int[] tab, int d) {
-	
-		
-		return null;
+		int[][] tabF = new int[tab.length][d];
+		for (int i = 0; i < tabF.length; i++) {
+			for (int j = 0; j < d; j++) {
+				tabF[i][j]=tab[i];
+			
+				
+//				for (int h = 0; h < d; h++) {
+//					tabF[i][j]=tab[i];
+					System.out.println("i= " + i + " j= " + j);
+//					i++; j++;
+//				}
+				
+				
+				
+			}
+
+		}
+
+		return tabF;
 	}
 
 	/**
@@ -98,19 +114,17 @@ public class ExoTableau2 implements InterExoTableau2 {
 	 * @return tableau représentant cette valeur mais en binaire
 	 */
 	public int[] tabBaseDeux(int v) {
-		
-		
-		int somme=v;
-		int[]tab=new int[4];
-		
-		for (int i = tab.length; i >=0; i--) {
-			while(v==(int) (somme+Math.pow(2, i))) {
-				tab[i]=1;
+
+		int somme = v;
+		int[] tab = new int[4];
+
+		for (int i = tab.length; i >= 0; i--) {
+			while (v == (int) (somme + Math.pow(2, i))) {
+				tab[i] = 1;
 			}
-				tab[i]=0;
-			}
-		
-						
+			tab[i] = 0;
+		}
+
 		return tab;
 	}
 }

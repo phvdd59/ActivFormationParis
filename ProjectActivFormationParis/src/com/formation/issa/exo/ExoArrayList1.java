@@ -92,21 +92,18 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 			return tab;
 		}
 		ArrayList<Integer> listeResultat = new ArrayList<Integer>();
-		
-
-		
 
 		for (int i = 0; i < p; i++) {
 
 			listeResultat.add(tab.get(i));
 			;
 		}
-		for (int i = p; i < p+1; i++) {
+		for (int i = p; i < p + 1; i++) {
 			listeResultat.add(a);
 		}
 
-		for (int i = p + 1; i < tab.size()+1; i++) {
-			listeResultat.add(tab.get(i-1));
+		for (int i = p + 1; i < tab.size() + 1; i++) {
+			listeResultat.add(tab.get(i - 1));
 
 		}
 
@@ -136,19 +133,20 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 			return tab;
 		}
 		ArrayList<Integer> listeFin = new ArrayList<Integer>();
+		ArrayList<Integer>listeF=new ArrayList<Integer>();
 
-		int[] tabF = new int[tab.size()];
+		
 
 		for (int i = 0; i < p; i++) {
 
-			listeFin.add(i, tabF[i]);
+			listeFin.add(tab.get(i));
 		}
 		for (int j = p; j < tab1.size() + p; j++) {
-			listeFin.add(j - p, tabF[j - p]);
+			listeFin.add(tab1.get(j-p));
 		}
 
-		for (int j = p + tab1.size(); j < tabF.length; j++) {
-			listeFin.add(j, tabF[j]);
+		for (int j = p + tab1.size(); j < tab.size(); j++) {
+			listeFin.add(tab.get(j));
 
 		}
 
