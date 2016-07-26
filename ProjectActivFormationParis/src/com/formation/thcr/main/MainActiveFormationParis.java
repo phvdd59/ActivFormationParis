@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import com.formation.thcr.exo.ExoAlgo1;
+import com.formation.thcr.exo.ExoAlgo2;
 import com.formation.thcr.exo.ExoArrayList1;
 import com.formation.thcr.exo.ExoTableau1;
 import com.formation.thcr.exo.ExoTableau2;
@@ -12,7 +13,15 @@ public class MainActiveFormationParis {
 
 	public static void main(String[] args) {
 		MainActiveFormationParis main = new MainActiveFormationParis();
-		main.initAlgo();
+		main.initAlgo2();
+	}
+
+	private void initAlgo2() {
+		ExoAlgo2 exo = new ExoAlgo2();
+		int n = -30;
+		System.out.println(exo.solution(n));
+		System.out.println(exo.solution2(n));
+		
 	}
 
 	private void initAlgo() {
