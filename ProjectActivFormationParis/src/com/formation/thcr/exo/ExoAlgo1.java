@@ -41,7 +41,7 @@ public class ExoAlgo1 implements ImpAlgo1 {
 						break;
 					}
 				} else if (p == tab.length - 1) {
-					int sum = 0;
+					long sum = 0;
 					for (int i = 0; i < tab.length - 1; i++) {
 						sum += tab[i];
 					}
