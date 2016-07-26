@@ -14,7 +14,7 @@ public class ExoTableau2 implements InterExoTableau2 {
 	public int[] inverserTableau(int[] tab) {
 		int[] nouveauTableau = null;
 		if (tab != null) {
-			nouveauTableau =tab.clone();
+			nouveauTableau = tab.clone();
 			for (int i = 0; i < nouveauTableau.length; i++) {
 				nouveauTableau[i] = tab[tab.length - (i + 1)];
 			}
@@ -61,16 +61,20 @@ public class ExoTableau2 implements InterExoTableau2 {
 	 */
 	public int[] insererUnTableauDansUnAutre(int[] tab, int p, int[] tab1) {
 		int[] nouveauTableau = null;
-		if ((tab != null) && (p >= 0) && (p < tab.length) && (tab1 != null)) {
-			nouveauTableau = new int[tab.length + tab1.length];
-			for (int i = 0; i < p; i++) {
-				nouveauTableau[i] = tab[i];
-			}
-			for (int i = 0; i < tab1.length; i++) {
-				nouveauTableau[p + i] = tab1[i];
-			}
-			for (int i = 0; i < tab.length - p; i++) {
-				nouveauTableau[i + p + tab1.length] = tab[i + p];
+		if ((tab != null) && (tab1 != null)) {
+			if ((p >= 0) && (p < tab.length)) {
+				nouveauTableau = new int[tab.length + tab1.length];
+				for (int i = 0; i < p; i++) {
+					nouveauTableau[i] = tab[i];
+				}
+				for (int i = 0; i < tab1.length; i++) {
+					nouveauTableau[p + i] = tab1[i];
+				}
+				for (int i = 0; i < tab.length - p; i++) {
+					nouveauTableau[i + p + tab1.length] = tab[i + p];
+				}
+			} else {
+				nouveauTableau = tab.clone();
 			}
 		}
 		return nouveauTableau;
@@ -96,7 +100,7 @@ public class ExoTableau2 implements InterExoTableau2 {
 					nouveauTableau[i][j] = tab[k++];
 				}
 			}
-		} 
+		}
 		return nouveauTableau;
 	}
 

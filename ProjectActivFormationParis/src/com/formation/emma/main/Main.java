@@ -195,7 +195,7 @@ public class Main {
 		}
 
 		System.out.println("exo4 ");
-		int[] tab15 = { 1, 7, 8, 2, 4, 6, };
+		int[] tab15 = { 1, 7, 8, 2, 4, 6 };
 		int x = 3;
 		ExoTableau2 exo4Tableau2 = new ExoTableau2();
 		int[][] tableau14 = exo4Tableau2.changerDimensionTableau(tab15, x);
@@ -225,10 +225,23 @@ public class Main {
 		}
 		System.out.println(" ");
 		System.out.println("exoalgo1");
-		int[] tabAlgo1 = { -6, 0, 2, 5, 1, -6, 6, 1 };
+		int[] tabAlgo1 = {1,2,3, 6 , -3};
 		ExoAlgo1 algo = new ExoAlgo1();
 		int pAlgo = algo.solution(tabAlgo1);
 		System.out.println(pAlgo);
-	}
 
+		System.out.println("tableau à deux dimensions");
+		int[][] tableau2D = new int[3][4];
+		int[][] tableau2D2 = { { 1, 2, 3, 4, }, { 50, 6, 7, -9 }, { 7, 8, 3, 6 } }; // meme type de tableau
+		int[] tableau1D = tableau2D2[0];
+		for (int i = 0; i < tableau1D.length; i++) {
+			System.out.println(tableau1D[i]);
+		}
+		int[][][] tableau3D = new int[4][2][3];
+
+		// 26 lettres alphabets
+		//taille tableau 27
+		// tient sur 5 bytes
+		// faire toutes les lettres en binaire
+	}
 }

@@ -120,4 +120,5 @@ public class ExoTableau2 implements InterExoTableau2 {
 
 		return tab;
 	}
+	
 }

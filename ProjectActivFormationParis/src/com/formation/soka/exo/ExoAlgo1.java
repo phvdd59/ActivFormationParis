@@ -26,70 +26,76 @@ public class ExoAlgo1 implements ImpAlgo1 {
 	 */
 	public int solution(int[] tab) {
 		int position = -1;
-		for (int i = 0; i < tab.length; i++) {
-			int somme = 0;
-			int somme1 = 0;
-			for (int j = 0; j < i; j++) {
-				somme += tab[j];
-			}
-			for (int k = i + 1; k < tab.length; k++) {
-				somme1 += tab[k];
-			}
-			if (somme == somme1) {
-				position = i;
-				break;
+		if (tab == null) {
+		} else {
+			for (int i = 0; i < tab.length; i++) {
+				long somme = 0;
+				long somme1 = 0;
+				for (int j = 0; j < i; j++) {
+					somme += tab[j];
+				}
+				for (int k = i + 1; k < tab.length; k++) {
+					somme1 += tab[k];
+				}
+				if (somme == somme1) {
+					position = i;
+					break;
+				}
 			}
 
 		}
 		return position;
 	}
 
-//	public int solution2(int[] tab) {
-//		
-//		int somme1 = 0;
-//		int somme2 = 0;
-//		for (int i = 0; i < tab.length; i++) {
-//			somme1 += tab[i];
-//		}
-//		for (int i = 0; i < tab.length; i++) {
-//			if (i != 0) {
-//				somme2 += tab[i - 1];
-//				somme1 -= tab[i];
-//			}
-//			if (somme1 == somme2) {
-//				return i;
-//			}
-//		}
-//
-//		return -1;
-//
-//	}
-//	
-//
-//	public int solution3(int[] tab) {
-//		int p;
-//		for (p = 0; p < tab.length; p++) {
-//			int somme = 0;
-//			int somme1 = 0;
-//			for (int i = 0; i < tab.length;i++) {
-//				if (i < p) {
-//					for (int j = 0; j < p; j++) {
-//						somme += tab[j];
-//					}
-//				}
-//				if (i > p) {
-//					for (int j = p + 1; j < tab.length; j++) {
-//						somme1 += tab[j];
-//					}
-//				}
-//				break;
-//
-//			}
-//			if (somme != somme1) {
-//				p = -1;
-//			}
-//
-//		}
-//		return p;
-//	}
+	//	public int solution2(int[] tab) {
+	//		
+	//		int somme1 = 0;
+	//		int somme2 = 0;
+	//		for (int i = 0; i < tab.length; i++) {
+	//			somme1 += tab[i];
+	//		}
+	//		for (int i = 0; i < tab.length; i++) {
+	//			if (i != 0) {
+	//				somme2 += tab[i - 1];
+	//				somme1 -= tab[i];
+	//			}
+	//			if (somme1 == somme2) {
+	//				return i;
+	//			}
+	//		}
+	//
+	//		return -1;
+	//
+	//	}
+	//	
+	//
+	//	public int solution3(int[] tab) {
+	//		int p;
+	//		if (tab == null) {
+	//			p = -1;
+	//		} else {
+	//			for (p = 0; p < tab.length; p++) {
+	//				int somme = 0;
+	//				int somme1 = 0;
+	//				for (int i = 0; i < tab.length; i++) {
+	//					if (i < p) {
+	//						for (int j = 0; j < p; j++) {
+	//							somme += tab[j];
+	//						}
+	//					}
+	//					if (i > p) {
+	//						for (int j = p + 1; j < tab.length; j++) {
+	//							somme1 += tab[j];
+	//						}
+	//					}
+	//					break;
+	//
+	//				}
+	//				if (somme != somme1) {
+	//					p = -1;
+	//				}
+	//			}
+	//		}
+	//		return p;
+	//	}
 }

@@ -1,7 +1,5 @@
 package com.formation.jeci.exo;
 
-import java.util.ArrayList;
-
 import com.formation.phva.exo.ImpAlgo1;
 
 public class ExoAlgo1 implements ImpAlgo1 {
@@ -27,35 +25,30 @@ public class ExoAlgo1 implements ImpAlgo1 {
 	 * existe. sinon retourner -1
 	 */
 	public int solution(int[] tab) {
-//		ArrayList<Integer> listp = new ArrayList<Integer>();
+
 		int p = -1;
 
 		if (tab != null) {
 
-			int a = 0;
-			int b = 0;
-//			boolean c = false;
+			long a = 0;
+			long b = 0;
 
 			for (int i = 0; i < tab.length; i++) {
 				a = 0;
 				b = 0;
 				for (int j = i + 1; j < tab.length; j++) {
 					a += tab[j];
+
 				}
 				for (int j = i - 1; j >= 0; j--) {
 					b += tab[j];
 				}
 				if (a == b) {
 					p = i;
-//					c = true;
-//					listp.add(p);
-				break;
+
+					break;
 				}
 			}
-//			if (c == false) {
-//				listp.add(p);
-//
-//			}
 
 		}
 		return p;

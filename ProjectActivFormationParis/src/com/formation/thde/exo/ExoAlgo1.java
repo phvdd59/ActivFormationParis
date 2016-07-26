@@ -28,19 +28,19 @@ public class ExoAlgo1 implements ImpAlgo1 {
 		int equilibre = -1;
 		if (tab == null) {
 		} else {
-			int sommeGauche = 0;
-			int sommeDroite = 0;
+			long sommeGauche = 0;
+			long sommeDroite = 0;
 			for (int i = 0; i < tab.length; i++) {
 				sommeGauche = 0;
 				sommeDroite = 0;
 				if (i != 0) {
 					for (int j = 0; j < i; j++) {
-						sommeGauche += tab[j];
+						sommeGauche += (long) tab[j];
 					}
 				}
 				if (i != tab.length - 1) {
 					for (int j = i + 1; j < tab.length; j++) {
-						sommeDroite += tab[j];
+						sommeDroite += (long) tab[j];
 					}
 				}
 				if (sommeGauche == sommeDroite) {

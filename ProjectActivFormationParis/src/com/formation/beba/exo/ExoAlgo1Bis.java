@@ -2,7 +2,7 @@ package com.formation.beba.exo;
 
 import com.formation.phva.exo.ImpAlgo1;
 
-public class ExoAlgo1 implements ImpAlgo1 {
+public class ExoAlgo1Bis implements ImpAlgo1 {
 
 	/**
 	 * soit p entier tel que : 0 <= p < n tableau tab de n elements
@@ -30,39 +30,41 @@ public class ExoAlgo1 implements ImpAlgo1 {
 	 */
 	public int solution(int[] tab) {
 		int result = -1;
-		int sommeGauche;
-		int sommeDroite;
+		int sommeGauche = 0;
+		int sommeDroite = 0;
+		boolean trouve = false;
 		if (tab != null) {
-			for (int i = 0; i < tab.length; i++) {
-				sommeGauche = 0;
-				sommeDroite = 0;
-				if (tab.length == 1) {
-					result = 0;
-				} else if (i == 0) {
-					sommeGauche = 0;
-					for (int j = i + 1; j < tab.length; j++) {
-						sommeDroite += tab[j];
-					}
-				} else if (i == tab.length - 1) {
-					sommeDroite = 0;
-					for (int j = 0; j < i; j++) {
-						sommeGauche += tab[j];
-					}
-				} else {
-					for (int j = i + 1; j < tab.length; j++) {
-						sommeDroite += tab[j];
-					}
-					for (int j = 0; j < i; j++) {
-						sommeGauche += tab[j];
-					}
+			if (tab.length == 1) {
+				result = 0;
+			} else {
+				for (int i = 1; i < tab.length; i++) {
+					sommeDroite += tab[i];
 				}
-				if (sommeGauche == sommeDroite || result == 0) {
-					result = i;
-					break;
+				if (sommeDroite == sommeGauche) {
+					result = 0;
+					trouve = true;
+				}
+				if (trouve == false) {
+					for (int i = 1; i < tab.length - 1; i++) {
+						sommeGauche += tab[i - 1];
+						sommeDroite += -tab[i + 1];
+						if (sommeGauche == sommeDroite || result == 0) {
+							result = i;
+							trouve = true;
+							break;
+						}
+					}
 				}
 			}
+			if (trouve == false) {
+				sommeDroite = 0;
+				sommeGauche += tab[tab.length - 1];
+				if (sommeGauche == sommeDroite || result == 0) {
+					result = tab.length;
+				}
+			}
+
 		}
 		return result;
 	}
-
 }

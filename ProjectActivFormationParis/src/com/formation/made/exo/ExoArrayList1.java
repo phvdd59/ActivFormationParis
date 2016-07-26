@@ -95,18 +95,15 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 	 */
 	public ArrayList<Integer> insererUnTableauDansUnAutreAvecRemplacement(ArrayList<Integer> tab, int p, ArrayList<Integer> tab1) {
 		ArrayList<Integer> tableaufinal = null;
-		if (tab1 == null || tab1.size() > tab.size()||p < 0|| tab1.size() + p > tab.size()) {
-			tableaufinal = (ArrayList<Integer>) tab.clone();
-		} else if (tab == null) {
-		} else if ( (tab1.size() == tab.size() && p != 0) ) {
+		if (tab == null) {
+		} else if (tab1 == null || tab1.size() > tab.size() || p < 0 || tab1.size() + p > tab.size()||tab1.size() == tab.size() && p != 0) {
+			tableaufinal = (ArrayList) tab.clone();
 			// System.out.println("pas les bonnes valeurs");
 		} else {
 			tableaufinal = (ArrayList<Integer>) tab.clone();
-			int k = 0;
 			for (int i = p; i < tab1.size() + p; i++) {
-				tableaufinal.add(i, tab1.get(k));
+				tableaufinal.add(i, tab1.get(i-p));
 				tableaufinal.remove(i + 1);
-				k++;
 			}
 		}
 		return tableaufinal;
@@ -129,7 +126,7 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 			reste = tab.size() + reste;
 			tableaurot = (ArrayList<Integer>) tab.clone();
 			for (int i = 0; i < reste; i++) {
-				tableaurot.add(i, tableaurot.remove(tab.size() - 1));
+				tableaurot.add(0, tableaurot.remove(tab.size() - 1));
 			}
 		}
 
@@ -138,7 +135,7 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 		} else if (reste > 0) {
 			tableaurot = (ArrayList<Integer>) tab.clone();
 			for (int i = 0; i < reste; i++) {
-				tableaurot.add(i, tableaurot.remove(tab.size() - 1));
+				tableaurot.add(0, tableaurot.remove(tab.size() - 1));
 			}
 		}
 		return tableaurot;
