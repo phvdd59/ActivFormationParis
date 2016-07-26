@@ -1,0 +1,14 @@
+emma:Tableau
+
+emma test3OK (1/1):    | exo.solution(a)
+emma testTemps (0/1): KO | exo.solution(a)
+emma testNull (0/1): KO | exo.solution(null)
+null
+emma testVide (1/1):    | exo.solution(a)
+emma test1 (1/1):    | exo.solution(a)
+emma test2 (1/1):    | exo.solution(a)
+emma testClassique (1/1):    | exo.solution(a)
+emma test100000 (1/1):    | exo.solution(a)
+emma test3NonOK (0/1): KO | exo.solution(a)
+emma testCharge (1/1):    | exo.solution(a)
+emma NOTE : (7 / 10) = 14 / 20

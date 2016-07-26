@@ -1,0 +1,14 @@
+soka:Tableau
+
+soka test3OK (1/1):    | exo.solution(a)
+soka testTemps (0/1): KO | exo.solution(a)
+soka testNull (0/1): KO | exo.solution(null)
+null
+soka testVide (1/1):    | exo.solution(a)
+soka test1 (0/1): KO | exo.solution(a)
+soka test2 (1/1):    | exo.solution(a)
+soka testClassique (1/1):    | exo.solution(a)
+soka test100000 (1/1):    | exo.solution(a)
+soka test3NonOK (0/1): KO | exo.solution(a)
+soka testCharge (1/1):    | exo.solution(a)
+soka NOTE : (6 / 10) = 12 / 20

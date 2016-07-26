@@ -1,0 +1,13 @@
+ambr:Tableau
+
+ambr test3OK (1/1):    | exo.solution(a)
+ambr testTemps (0/1): KO | exo.solution(a)
+ambr testNull (0/1): KO | exo.solution(null)
+ambr testVide (0/1): KO | exo.solution(a)
+ambr test1 (0/1): KO | exo.solution(a)
+ambr test2 (1/1):    | exo.solution(a)
+ambr testClassique (0/1): KO | exo.solution(a)
+ambr test100000 (0/1): KO | exo.solution(a)
+ambr test3NonOK (0/1): KO | exo.solution(a)
+ambr testCharge (0/1): KO | exo.solution(a)
+ambr NOTE : (2 / 10) = 4 / 20
