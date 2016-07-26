@@ -35,7 +35,7 @@ public class ExoAlgo1 implements ImpAlgo1 {
 		if (tab.length == 1) {
 			result = 0;
 		} else {
-			if ((tab != null) && (tab.length <= 100000)) {
+			if (tab != null) {
 				for (int p = 0; p < tab.length; p++) {
 					if (p == 0) {
 						for (int i = 1; i < tab.length; i++) {
@@ -65,8 +65,6 @@ public class ExoAlgo1 implements ImpAlgo1 {
 						}
 					}
 				}
-			} else {
-				result = -1;
 			}
 		}
 		return result;
