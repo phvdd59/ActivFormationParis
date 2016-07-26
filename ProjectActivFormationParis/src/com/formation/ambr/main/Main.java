@@ -2,6 +2,7 @@ package com.formation.ambr.main;
 
 import java.util.ArrayList;
 
+import com.formation.ambr.exo.ExoAlgo1;
 import com.formation.ambr.exo.ExoArrayList1;
 import com.formation.ambr.exo.ExoSimple;
 import com.formation.ambr.exo.ExoTableau1;
@@ -12,7 +13,7 @@ public class Main {
 	public static void main(String[] args) { // main method
 
 		Main main = new Main();
-		main.init4();
+		main.init5();
 
 	}
 
@@ -225,10 +226,17 @@ public class Main {
 
 		//5. tabBaseDeux
 		System.out.println("*V.tabBaseDeux*");
-		ExoTableau2 exoTableau5=new ExoTableau2();
-		int[] tab5=exoTableau5.tabBaseDeux(18);
-		
+		ExoTableau2 exoTableau5 = new ExoTableau2();
+		int[] tab5 = exoTableau5.tabBaseDeux(18);
 
+	}
+
+	private void init5() {
+		System.out.println("-----ExoAlgo1-----");
+		ExoAlgo1 exoAlgo1 = new ExoAlgo1();
+		int[] tab = { -1, 3, -4, 5, 1, -6, 2, 1 };
+		int pos = exoAlgo1.solution(tab);
+		System.out.println(pos);
 	}
 
 }
