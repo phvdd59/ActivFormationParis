@@ -16,7 +16,7 @@ public class ExoAlgo2 implements ImpAlgo2 {
 	 * 
 	 */
 
-	public int solution(int n) {		//opti
+	public int solution(int n) { // opti
 		int nbDiviseur = -1;
 		if (n == 1) {
 			nbDiviseur = 1;
@@ -29,7 +29,7 @@ public class ExoAlgo2 implements ImpAlgo2 {
 					} else if (n / i == i) {
 						nbDiviseur += 1;
 						break;
-					} else if (n / i < i || i / i > n) {
+					} else if (n / i < i) {
 						break;
 					}
 				}
