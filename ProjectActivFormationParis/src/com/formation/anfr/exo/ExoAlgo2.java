@@ -24,24 +24,28 @@ public class ExoAlgo2 implements ImpAlgo2 {
 		int soluce = -1;		
 		if (n == 1) {
 			soluce =1;
-		} else if (n>0) {
+		} 	else if (n>0) {
 			soluce = fonction (n);
 		}
 		return soluce;
 	}
 	
 	public int fonction(int n) {
-		ArrayList<Integer> listesSolutions = new ArrayList<Integer>();
-		listesSolutions.add(0, 1);
-		listesSolutions.add(0, n);
+
 		int i =2;
-		while (i < listesSolutions.get(0) ) {
-			if (n%i == 0){
-				listesSolutions.add(0, i);
-				listesSolutions.add(0, n/i);
+		int refrence = n;
+		int sol = 2;
+		while (i < refrence ) {
+			if (i == Math.sqrt(n)) {
+				sol++;
+				break;
+			}
+			else if (n%i == 0){
+				sol += 2;
+				refrence = n/i;
 			}
 			i++;
 		}
-		return listesSolutions.size();
+		return sol;
 	}
 }
