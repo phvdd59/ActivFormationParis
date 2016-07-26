@@ -9,5 +9,5 @@ thcr test2 (1/1):    | exo.solution(a)
 thcr testClassique (1/1):    | exo.solution(a)
 thcr test100000 (1/1):    | exo.solution(a)
 thcr test3NonOK (1/1):    | exo.solution(a)
-thcr testCharge (1/1):    | exo.solution(a)
-thcr NOTE : (9 / 10) = 18 / 20
+thcr testCharge (0/1): KO | exo.solution(a)
+thcr NOTE : (8 / 10) = 16 / 20

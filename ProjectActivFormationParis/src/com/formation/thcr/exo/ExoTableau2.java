@@ -93,7 +93,7 @@ public class ExoTableau2 implements InterExoTableau2 {
 			tmp = new int[tab.length / d][d];
 			for (int i = 0; i < tab.length / d; i++) {
 				for (int j = 0; j < d; j++) {
-					tmp[i][j] = tab[i * d + j];
+					tmp[i][j] = tab[i * d + j];	//d = tab[0].length
 				}
 			}
 		} else {
