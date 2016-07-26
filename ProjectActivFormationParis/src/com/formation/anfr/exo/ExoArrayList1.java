@@ -18,18 +18,14 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 	 * @return = nouveau tableau rempli
 	 */
 	public ArrayList<Integer> remplirTableau(int d, int n, int p) {
-		ArrayList<Integer> listCree = new ArrayList<Integer>();
-		if (((long) d * (long) n* p) > Integer.MAX_VALUE && ((long) d * (long) n *p)< Integer.MIN_VALUE){
-			listCree.add(d);
-			}
-			else if (n > 0) {
+		ArrayList<Integer> listCree = null;
+		if ((n > 0) && (((long) d + (long) p * n) < Integer.MAX_VALUE)
+				&& (((long) d + (long) p * n) > Integer.MIN_VALUE)) {
+			listCree = new ArrayList<Integer>();
 			for (int i = 0; i < n; i++) {
 				listCree.add(d + i * p);
 			}
-		} else {
-			listCree.add(d);
 		}
-
 		return listCree;
 	}
 

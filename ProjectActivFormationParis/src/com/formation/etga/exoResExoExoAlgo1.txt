@@ -1,0 +1,14 @@
+etga:Tableau
+
+etga test3OK (1/1):    | exo.solution(a)
+etga testTemps (0/1): KO | exo.solution(a)
+etga testNull (0/1): KO | exo.solution(null)
+null
+etga testVide (1/1):    | exo.solution(a)
+etga test1 (0/1): KO | exo.solution(a)
+etga test2 (1/1):    | exo.solution(a)
+etga testClassique (1/1):    | exo.solution(a)
+etga test100000 (0/1): KO | exo.solution(a)
+etga test3NonOK (0/1): KO | exo.solution(a)
+etga testCharge (0/1): KO | exo.solution(a)
+etga NOTE : (4 / 10) = 8 / 20

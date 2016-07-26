@@ -19,9 +19,11 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 	 */
 	public ArrayList<Integer> remplirTableau(int d, int n, int p) {
 		// protéger pour remplir tableau sur l'overflow, vérifier à priori.
-		ArrayList<Integer> list = new ArrayList<Integer>();
-		if ((long) d + (long) (p * n) > Integer.MAX_VALUE || (long) d + (long) (p * n) < Integer.MIN_VALUE) {
+		ArrayList<Integer> list = null;
+		if ((long) d + (long) (p * n) > Integer.MAX_VALUE
+				|| (long) d + (long) (p * n) < Integer.MIN_VALUE) {
 		} else {
+			list = new ArrayList<Integer>();
 			for (int i = 0; i < n; i++) {
 				list.add(d);
 				d = d + p;
@@ -43,15 +45,16 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 	 *            deuxième position pour l'interversion
 	 * @return
 	 */
-	public ArrayList<Integer> intervertirDeuxElementsTableau(ArrayList<Integer> tab, int i1, int i2) {
+	public ArrayList<Integer> intervertirDeuxElementsTableau(ArrayList<Integer> tab, int i1,
+			int i2) {
 		ArrayList<Integer> tmpTab = null;
-		if (i1 > 0 && i1 < tab.size() && i2 > 0 && i2 < tab.size() && tab != null) {
+		if (tab == null || i1 > tab.size() || i1 <= 0 || i2 > tab.size() || i2 <= 0) {
+			tmpTab = tab;
+		} else {
 			tmpTab = new ArrayList<Integer>();
 			tmpTab.addAll(tab);
 			tmpTab.set(i2, tab.get(i1));
 			tmpTab.set(i1, tab.get(i2));
-		} else {
-			return tab;
 		}
 		return tmpTab;
 	}
@@ -69,12 +72,12 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 	 */
 	public ArrayList<Integer> insererUnElementDansTableau(ArrayList<Integer> tab, int p, int a) {
 		ArrayList<Integer> tmpTab = null;
-		if (p >= 0 && p < tab.size() && tab != null) {
+		if (tab == null || p < 0 || p > tab.size()) {
+			tmpTab = tab;
+		} else {
 			tmpTab = new ArrayList<Integer>();
 			tmpTab.addAll(tab);
 			tmpTab.add(p, a);
-		} else {
-			return tab;
 		}
 		return tmpTab;
 
@@ -93,11 +96,11 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 	 *            tableau contenant les valeurs de remplacement
 	 * @return tableau
 	 */
-	public ArrayList<Integer> insererUnTableauDansUnAutreAvecRemplacement(ArrayList<Integer> tab, int p,
-			ArrayList<Integer> tab1) {
+	public ArrayList<Integer> insererUnTableauDansUnAutreAvecRemplacement(ArrayList<Integer> tab,
+			int p, ArrayList<Integer> tab1) {
 		ArrayList<Integer> tmpTab = new ArrayList<Integer>();
 		if (p < 0 || p >= tab.size() || tab == null || tab1 == null) {
-			return tab;
+			tmpTab = tab;
 		} else {
 			if (tab.size() - p > tab1.size()) {
 				for (int i = 0; i < p; i++)
@@ -134,7 +137,7 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 	public ArrayList<Integer> rotationTableau(ArrayList<Integer> tab, int p) {
 		ArrayList<Integer> tmpTab = new ArrayList<Integer>();
 		if (tab == null || (tab instanceof ArrayList<?> != true)) {
-			return tab;
+			tmpTab = tab;
 		}
 		if (Math.abs(p) > tab.size() && tab.size() != 0) {
 			if (p < 0) {

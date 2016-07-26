@@ -2,13 +2,15 @@ package com.formation.anfr.metier;
 
 import java.util.ArrayList;
 
-public class Entrepot extends ArrayList<Wagon> {
+public class EntrepotOriginal extends ArrayList<Wagon> {
 	private static int[] POURCENT_TYPE = { 14, 14, 44, 28 };
 
 	private int[] nbTypeWagons;
 	private int[] pourcentType;
 
-	public Entrepot() {
+	
+	
+	public EntrepotOriginal() {
 		nbTypeWagons = new int[4];
 		pourcentType = new int[4];
 		pourcentType[Wagon.WAGON_RESTO] = 14;
@@ -23,7 +25,7 @@ public class Entrepot extends ArrayList<Wagon> {
 
 	}
 
-	public Entrepot(int nb) {
+	public EntrepotOriginal(int nb) {
 		fabrique(nb);
 	}
 

@@ -2,7 +2,7 @@ beba:Tableau
 
 beba rallongerTableauDeUnElement0 (2/2):    | exo.rallongerTableauDeUnElement(tab0, 8)
 beba rallongerTableauDeUnElement1 (2/2):    | exo.rallongerTableauDeUnElement(tab, 8)
-beba rallongerTableauDeUnElement2 (0/1): KO | exo.rallongerTableauDeUnElement(null, -8)
+beba rallongerTableauDeUnElement2 (1/1):    | exo.rallongerTableauDeUnElement(null, -8)
 beba changerDimensionTableau0 (2/2):    | exo.changerDimensionTableau(tab0, 2)
 beba changerDimensionTableau1 (2/2):    | exo.changerDimensionTableau(tab0, 3)
 beba changerDimensionTableau2 (2/2):    | exo.changerDimensionTableau(tab, 8)
@@ -18,9 +18,8 @@ beba insererUnTableauDansUnAutre2 (0/1): KO | exo.insererUnTableauDansUnAutre(ta
 beba insererUnTableauDansUnAutre3 (0/1): KO | exo.insererUnTableauDansUnAutre(tab, 23233, tab1)
 beba insererUnTableauDansUnAutre4 (0/1): KO | exo.insererUnTableauDansUnAutre(null, 23233, tab1)
 null
-beba insererUnTableauDansUnAutre4 (0/1): KO | exo.insererUnTableauDansUnAutre(tab, 23233, null)
-null
+beba insererUnTableauDansUnAutre5 (1/1):    | exo.insererUnTableauDansUnAutre(tab, 3, null)
 beba tabBaseDeux0 (2/2):    | exo.tabBaseDeux(tab0, 18)
 beba tabBaseDeux1 (2/2):    | exo.tabBaseDeux(Integer.MAX_VALUE)
 beba tabBaseDeux2 (2/2):    | exo.tabBaseDeux(Integer.MIN_VALUE)
-beba NOTE : (23 / 32) = 14 / 20
+beba NOTE : (25 / 32) = 15 / 20

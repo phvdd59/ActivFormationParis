@@ -2,7 +2,7 @@ emma:Tableau
 
 emma rallongerTableauDeUnElement0 (2/2):    | exo.rallongerTableauDeUnElement(tab0, 8)
 emma rallongerTableauDeUnElement1 (2/2):    | exo.rallongerTableauDeUnElement(tab, 8)
-emma rallongerTableauDeUnElement2 (0/1): KO | exo.rallongerTableauDeUnElement(null, -8)
+emma rallongerTableauDeUnElement2 (1/1):    | exo.rallongerTableauDeUnElement(null, -8)
 emma changerDimensionTableau0 (2/2):    | exo.changerDimensionTableau(tab0, 2)
 emma changerDimensionTableau1 (2/2):    | exo.changerDimensionTableau(tab0, 3)
 emma changerDimensionTableau2 (2/2):    | exo.changerDimensionTableau(tab, 8)
@@ -16,8 +16,8 @@ emma insererUnTableauDansUnAutre1 (2/2):    | exo.insererUnTableauDansUnAutre(ta
 emma insererUnTableauDansUnAutre2 (1/1):    | exo.insererUnTableauDansUnAutre(tab, -3, tab1)
 emma insererUnTableauDansUnAutre3 (1/1):    | exo.insererUnTableauDansUnAutre(tab, 23233, tab1)
 emma insererUnTableauDansUnAutre4 (1/1):    | exo.insererUnTableauDansUnAutre(null, 23233, tab1)
-emma insererUnTableauDansUnAutre4 (0/1): KO | exo.insererUnTableauDansUnAutre(tab, 23233, null)
+emma insererUnTableauDansUnAutre5 (1/1):    | exo.insererUnTableauDansUnAutre(tab, 3, null)
 emma tabBaseDeux0 (0/2): KO | exo.tabBaseDeux(tab0, 18)
 emma tabBaseDeux1 (0/2): KO | exo.tabBaseDeux(Integer.MAX_VALUE)
 emma tabBaseDeux2 (0/2): KO | exo.tabBaseDeux(Integer.MIN_VALUE)
-emma NOTE : (24 / 32) = 15 / 20
+emma NOTE : (26 / 32) = 16 / 20

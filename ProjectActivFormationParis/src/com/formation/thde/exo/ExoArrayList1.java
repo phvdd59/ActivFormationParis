@@ -19,7 +19,8 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 	 */
 	public ArrayList<Integer> remplirTableau(int d, int n, int p) {
 		ArrayList<Integer> list = new ArrayList<Integer>();
-		if (n < 1 || (long) d + (long) p * n > Integer.MAX_VALUE || (long) d + (long) p * n < Integer.MIN_VALUE) {
+		if (n < 1 || (long) d + (long) p * (long) n > Integer.MAX_VALUE || (long) d + (long) p * (long) n < Integer.MIN_VALUE) {
+			list = null;
 		} else {
 			list.add(d);
 			for (int i = 1; i < n; i++) {

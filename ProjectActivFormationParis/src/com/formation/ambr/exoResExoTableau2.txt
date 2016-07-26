@@ -2,7 +2,7 @@ ambr:Tableau
 
 ambr rallongerTableauDeUnElement0 (0/2): KO | exo.rallongerTableauDeUnElement(tab0, 8)
 ambr rallongerTableauDeUnElement1 (0/2): KO | exo.rallongerTableauDeUnElement(tab, 8)
-ambr rallongerTableauDeUnElement2 (0/1): KO | exo.rallongerTableauDeUnElement(null, -8)
+ambr rallongerTableauDeUnElement2 (1/1):    | exo.rallongerTableauDeUnElement(null, -8)
 ambr changerDimensionTableau0 (0/2): KO | exo.changerDimensionTableau(tab0, 2)
 ambr changerDimensionTableau1 (0/2): KO | exo.changerDimensionTableau(tab0, 3)
 ambr changerDimensionTableau2 (0/2): KO | exo.changerDimensionTableau(tab, 8)
@@ -16,8 +16,8 @@ ambr insererUnTableauDansUnAutre1 (0/2): KO | exo.insererUnTableauDansUnAutre(ta
 ambr insererUnTableauDansUnAutre2 (0/1): KO | exo.insererUnTableauDansUnAutre(tab, -3, tab1)
 ambr insererUnTableauDansUnAutre3 (0/1): KO | exo.insererUnTableauDansUnAutre(tab, 23233, tab1)
 ambr insererUnTableauDansUnAutre4 (1/1):    | exo.insererUnTableauDansUnAutre(null, 23233, tab1)
-ambr insererUnTableauDansUnAutre4 (0/1): KO | exo.insererUnTableauDansUnAutre(tab, 23233, null)
+ambr insererUnTableauDansUnAutre5 (0/1): KO | exo.insererUnTableauDansUnAutre(tab, 3, null)
 ambr tabBaseDeux0 (0/2): KO | exo.tabBaseDeux(tab0, 18)
 ambr tabBaseDeux1 (0/2): KO | exo.tabBaseDeux(Integer.MAX_VALUE)
 ambr tabBaseDeux2 (0/2): KO | exo.tabBaseDeux(Integer.MIN_VALUE)
-ambr NOTE : (4 / 32) = 2 / 20
+ambr NOTE : (5 / 32) = 3 / 20

@@ -12,9 +12,9 @@ public class MainActiveFormationParis {
 
 	public static void main(String[] args) {
 		MainActiveFormationParis main = new MainActiveFormationParis();
-		main.initExoArrayList1();
+		main.initExoTableau2();
 	}
-	
+
 	private void initAlgo() {
 		ExoAlgo1 exo = new ExoAlgo1();
 		int[] tab = { -1, 3, -4, 5, 1, -6, 2, 1 };
@@ -48,8 +48,6 @@ public class MainActiveFormationParis {
 		System.out.println("rotationTableau");
 		System.out.println(exo.rotationTableau(list1, -21));
 
-		
-
 	}
 
 	private void initExoTableau2() {
@@ -77,10 +75,16 @@ public class MainActiveFormationParis {
 		for (int i = 0; i < tab4.length / d; i++) {
 			System.out.println(Arrays.toString(result[i]));
 		}
-		d = 3;
+		d = 8;
 		result = exo.changerDimensionTableau(tab4, d);
-		for (int i = 0; i < tab4.length / d; i++) {
-			System.out.println(Arrays.toString(result[i]));
+		if (tab4.length / d == 0) {
+			for (int i = 0; i < tab4.length / d + 1; i++) {
+				System.out.println(Arrays.toString(result[i]));
+			}
+		} else {
+			for (int i = 0; i < tab4.length / d + 1; i++) {
+				System.out.println(Arrays.toString(result[i]));
+			}
 		}
 		System.out.println("tabBaseDeux");
 		int v = Integer.MIN_VALUE;
@@ -90,8 +94,6 @@ public class MainActiveFormationParis {
 		System.out.println(Integer.valueOf(v).toString());
 		System.out.println(Arrays.toString(exo.tabBaseDeux(v)));
 	}
-
-	
 
 	private void initExoTableau1() {
 		ExoTableau1 exo = new ExoTableau1();
@@ -114,7 +116,8 @@ public class MainActiveFormationParis {
 		System.out.println(Arrays.toString(tab3));
 		System.out.println(Arrays.toString(tab4));
 		System.out.println("-----");
-		System.out.println(Arrays.toString(exo.insererUnTableauDansUnAutreAvecRemplacement(tab3, p, tab4)));
+		System.out.println(
+				Arrays.toString(exo.insererUnTableauDansUnAutreAvecRemplacement(tab3, p, tab4)));
 		System.out.println("-----");
 		int[] tab5 = { 22, 11, 0, 77, 88, 99 };
 		int[] tab6 = { 3, 4, 5, 6 };
@@ -122,7 +125,8 @@ public class MainActiveFormationParis {
 		System.out.println(Arrays.toString(tab5));
 		System.out.println(Arrays.toString(tab6));
 		System.out.println("-----");
-		System.out.println(Arrays.toString(exo.insererUnTableauDansUnAutreAvecRemplacement(tab5, p, tab6)));
+		System.out.println(
+				Arrays.toString(exo.insererUnTableauDansUnAutreAvecRemplacement(tab5, p, tab6)));
 		System.out.println("-----");
 		int[] tab7 = { 1, 4, 6, 2, 4, 6 };
 		p = 2;

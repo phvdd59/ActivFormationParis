@@ -1,0 +1,13 @@
+issa:Tableau
+
+issa test3OK (1/1):    | exo.solution(a)
+issa testTemps (0/1): KO | exo.solution(a)
+issa testNull (0/1): KO | exo.solution(null)
+issa testVide (0/1): KO | exo.solution(a)
+issa test1 (0/1): KO | exo.solution(a)
+issa test2 (1/1):    | exo.solution(a)
+issa testClassique (0/1): KO | exo.solution(a)
+issa test100000 (0/1): KO | exo.solution(a)
+issa test3NonOK (0/1): KO | exo.solution(a)
+issa testCharge (0/1): KO | exo.solution(a)
+issa NOTE : (2 / 10) = 4 / 20

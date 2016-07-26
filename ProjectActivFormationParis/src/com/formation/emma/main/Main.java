@@ -134,7 +134,7 @@ public class Main {
 		ArrayList listTab4l = new ArrayList();
 		int[] tab3l = { 1, 4, 6, 2, 4, 7 };
 		int[] tab4l = { 4, 9, 0 };
-		int p3l = 3;
+		int p3l = 4;
 		for (int j = 0; j < tab3l.length; j++) {
 			listTab3l.add(tab3l[j]);
 		}
@@ -147,7 +147,7 @@ public class Main {
 		System.out.println("exo5 ");
 		ArrayList listTab5l = new ArrayList();
 		int[] tab5l = { 1, 4, 6, 2, 4, 6 };
-		int p4l = 1;
+		int p4l = -10;
 		for (int j = 0; j < tab5l.length; j++) {
 			listTab5l.add(tab5l[j]);
 		}

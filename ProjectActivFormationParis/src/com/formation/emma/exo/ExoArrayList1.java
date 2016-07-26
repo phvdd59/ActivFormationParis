@@ -109,11 +109,10 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 		} else {
 			list = new ArrayList();
 			list.addAll(tab);
-			int k = p - 1;
 			for (int i = 0; i < tab1.size(); i++) {
-				list.remove(k);
-				list.add(k, tab1.remove(i));
-				k++;
+				list.remove(p);
+				list.add(p, tab1.remove(i));
+				p++;
 				i--;
 			}
 		}
@@ -132,6 +131,7 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 	 *            tableau
 	 * @return
 	 */
+
 	public ArrayList<Integer> rotationTableau(ArrayList<Integer> tab, int p) {
 		ArrayList<Integer> list = null;
 		int k = 0;
@@ -142,19 +142,19 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 		} else {
 			list = new ArrayList();
 			if (p > tab.size()) {
-				while (p >  tab.size()) {
-					p = p -  tab.size();
+				while (p > tab.size()) {
+					p = p - tab.size();
 				}
 			} else if (p < 0) {
 				while (p < 0) {
-					p =  tab.size() + p;
+					p = tab.size() + p;
 				}
 			}
-			int m=p;
+			int m = p;
 			for (int i = 0; i < tab.size(); i++) {
-				if (i + p < tab.size()) {
-					list.add(i, tab.get(m));
-					m++;
+				if (m != 0) {
+					list.add(i, tab.get(tab.size() - m));
+					m--;
 				} else {
 					list.add(i, tab.get(k));
 					k++;

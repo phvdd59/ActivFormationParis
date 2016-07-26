@@ -60,7 +60,7 @@ public class ExoTableau2 implements InterExoTableau2 {
 	 * @return tableau
 	 */
 	public int[] insererUnTableauDansUnAutre(int[] tab, int p, int[] tab1) {
-		int[] nouveauTableau = tab.clone();
+		int[] nouveauTableau = null;
 		if ((tab != null) && (p >= 0) && (p < tab.length) && (tab1 != null)) {
 			nouveauTableau = new int[tab.length + tab1.length];
 			for (int i = 0; i < p; i++) {

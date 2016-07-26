@@ -122,7 +122,7 @@ public class ExoTableau2 implements InterExoTableau2 {
 				pow++;
 			}
 			pow = pow - 1;
-			tab2 = new int[16];
+			tab2 = new int[32];
 			for (int i = pow; i >= 0; i--) {
 				if (nombre % (int) Math.pow(2, i) != nombre) {
 					tab2[tab2.length - 1 - i] = 1;

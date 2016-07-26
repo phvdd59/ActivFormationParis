@@ -8,7 +8,7 @@ public class ExoTableau2 implements InterExoTableau2 {
 	 * Exemple tab = [1,4,6,-5,7,5]
 	 * 
 	 * @param tab
-	 *            tableau en entrée
+	 *                tableau en entrée
 	 * @return tab = [5,7,-5,6,4,1]
 	 */
 	public int[] inverserTableau(int[] tab) {
@@ -23,18 +23,23 @@ public class ExoTableau2 implements InterExoTableau2 {
 	 * Exemple [1,4,6,2,4,6] : a=8 --> [1,4,6,2,4,6,8]
 	 * 
 	 * @param tab
-	 *            tableau de départ
+	 *                tableau de départ
 	 * @param a
-	 *            valeur à ajouter à la fin
+	 *                valeur à ajouter à la fin
 	 * @return
 	 */
 	public int[] rallongerTableauDeUnElement(int[] tab, int a) {
-		int[] tabFinal = new int[tab.length + 1];
-		for (int i = 0; i < tabFinal.length; i++) {
-			if (i < tab.length) {
-				tabFinal[i] = tab[i];
-			} else {
-				tabFinal[i] = a;
+		int[] tabFinal = null;
+		if (tab == null) {
+			tabFinal = null;
+		} else {
+			tabFinal = new int[tab.length + 1];
+			for (int i = 0; i < tabFinal.length; i++) {
+				if (i < tab.length) {
+					tabFinal[i] = tab[i];
+				} else {
+					tabFinal[i] = a;
+				}
 			}
 		}
 		return tabFinal;
@@ -44,11 +49,11 @@ public class ExoTableau2 implements InterExoTableau2 {
 	 * Exemple [1,4,6,2,4,6] : p=2, tab1=[4,9,0] --> [1,4,4,9,0,6,2,4,6]
 	 * 
 	 * @param tab
-	 *            tableau de départ
+	 *                tableau de départ
 	 * @param p
-	 *            position où il faut insérer le 2ème tableau
+	 *                position où il faut insérer le 2ème tableau
 	 * @param tab1
-	 *            tableau à insérer
+	 *                tableau à insérer
 	 * @return tableau
 	 */
 	public int[] insererUnTableauDansUnAutre(int[] tab, int p, int[] tab1) {
@@ -63,6 +68,8 @@ public class ExoTableau2 implements InterExoTableau2 {
 					tabFinal[i] = tab[i - tab1.length];
 				}
 			}
+		} else {
+			tabFinal = null;
 		}
 		return tabFinal;
 	}
@@ -72,9 +79,9 @@ public class ExoTableau2 implements InterExoTableau2 {
 	 * [1,7,8,2,4,6] : d=3 -->[1,7,8] [2,4,6]
 	 * 
 	 * @param tab
-	 *            tableau en entrée
+	 *                tableau en entrée
 	 * @param d
-	 *            dimension de base
+	 *                dimension de base
 	 * @return tableau de n dimensions de base
 	 */
 	public int[][] changerDimensionTableau(int[] tab, int d) {
@@ -87,6 +94,8 @@ public class ExoTableau2 implements InterExoTableau2 {
 					val++;
 				}
 			}
+		} else {
+			tabFinal = null;
 		}
 		return tabFinal;
 	}
@@ -95,7 +104,7 @@ public class ExoTableau2 implements InterExoTableau2 {
 	 * Exemple v=18 --> résultat [1,0,0,1,0]
 	 * 
 	 * @param v
-	 *            valeur en entrée
+	 *                valeur en entrée
 	 * @return tableau représentant cette valeur mais en binaire
 	 */
 

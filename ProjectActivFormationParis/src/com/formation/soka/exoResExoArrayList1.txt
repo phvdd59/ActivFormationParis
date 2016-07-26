@@ -14,15 +14,13 @@ soka remplirArrayList0 (2/2):    | exo.remplirArrayList(7, 5, 3)
 soka remplirArrayList1 (2/2):    | exo.remplirArrayList(-120, 125, 7)
 soka remplirArrayList2 (1/1):    | exo.remplirArrayList(0x7FFFFFF0, 16, 8)
 soka remplirArrayList3 (1/1):    | exo.remplirArrayList(-0x7FFFFFF0, 16, -8)
-soka insererUnArrayListDansUnAutreAvecRemplacement0 (0/2): KO | exo.insererUnArrayListDansUnAutreAvecRemplacement(taba, 2, tabb)
-Index: 3, Size: 3
-soka insererUnArrayListDansUnAutreAvecRemplacement1 (0/2): KO | exo.insererUnArrayListDansUnAutreAvecRemplacement(tab, 3, tab1)
-Index: 15, Size: 15
+soka insererUnArrayListDansUnAutreAvecRemplacement0 (2/2):    | exo.insererUnArrayListDansUnAutreAvecRemplacement(taba, 2, tabb)
+soka insererUnArrayListDansUnAutreAvecRemplacement1 (2/2):    | exo.insererUnArrayListDansUnAutreAvecRemplacement(tab, 3, tab1)
 soka insererUnArrayListDansUnAutreAvecRemplacement2 (1/1):    | exo.insererUnArrayListDansUnAutreAvecRemplacement(tab, -3, tab1)
 soka insererUnArrayListDansUnAutreAvecRemplacement3 (1/1):    | exo.insererUnArrayListDansUnAutreAvecRemplacement(tab, 3000, tab1)
-soka rotationArrayList0 (0/2): KO | exo.rotationArrayList(tabA, 2)
-soka rotationArrayList1 (0/2): KO | exo.rotationArrayList(tab, 3)
-soka rotationArrayList2 (0/1): KO | exo.rotationArrayList(tab, -3)
-soka rotationArrayList3 (0/1): KO | exo.rotationArrayList(tab, 3000)
-soka rotationArrayList4 (0/1): KO | exo.rotationArrayList(tab, -777)
-soka NOTE : (22 / 33) = 13 / 20
+soka rotationArrayList0 (2/2):    | exo.rotationArrayList(tabA, 2)
+soka rotationArrayList1 (2/2):    | exo.rotationArrayList(tab, 3)
+soka rotationArrayList2 (1/1):    | exo.rotationArrayList(tab, -3)
+soka rotationArrayList3 (1/1):    | exo.rotationArrayList(tab, 3000)
+soka rotationArrayList4 (1/1):    | exo.rotationArrayList(tab, -777)
+soka NOTE : (33 / 33) = 20 / 20
