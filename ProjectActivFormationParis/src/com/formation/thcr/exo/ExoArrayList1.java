@@ -30,7 +30,6 @@ public class ExoArrayList1 implements InterExoArrayList1 {
 			}
 		}
 		return list;
-
 	}
 
 	/**
