@@ -16,7 +16,7 @@ public class ExoAlgo2bis implements ImpAlgo2 {
 	 * 
 	 */
 
-	public int solution(int n) {
+	public int solution(int n) { // non opti
 		int nbDiviseur = -1;
 		if (n == 1) {
 			nbDiviseur = 1;

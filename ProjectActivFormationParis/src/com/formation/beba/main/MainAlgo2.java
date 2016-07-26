@@ -3,7 +3,7 @@ package com.formation.beba.main;
 import com.formation.beba.exo.ExoAlgo2;
 import com.formation.beba.exo.ExoAlgo2bis;
 
-public class MainAlgo2 {
+public class MainAlgo2 {		//main
 
 	public static void main(String[] args) {
 		MainAlgo2 mainAlgo2 = new MainAlgo2();
