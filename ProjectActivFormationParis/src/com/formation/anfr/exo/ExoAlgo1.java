@@ -24,43 +24,40 @@ public class ExoAlgo1 implements ImpAlgo1 {
 		int soluce = -1;
 		if (tab != null) {
 			int n = tab.length;
-			int sPlus = SommePlus(tab, 0);
-			int sMoins = 0;
-			if (sPlus == sMoins) {
-				soluce = 0;
-			}
-			if (soluce != 0) {
-				for (int p = 1; p < n - 1; p++) {
-					sMoins += tab[p - 1];
-					sPlus -= tab[p];
-					if (sPlus == sMoins) {
-						soluce = p;
-						break;
+			if (n > 0) {
+				int sPlus = 0;
+				for (int i = 1; i < tab.length; i++) {
+					if (((long) sPlus + (long) tab[i] < Integer.MAX_VALUE)
+							&& ((long) sPlus + (long) tab[i] > Integer.MIN_VALUE)) {
+						sPlus += tab[i];
+					} else {
+						sPlus += (long) tab[i];
 					}
 				}
-				if (soluce == -1) {
-					sPlus = 0;
-					sMoins += tab[n - 2];
-					if (sPlus == sMoins) {
-						soluce = n - 1;
+				int sMoins = 0;
+				if (sPlus == sMoins) {
+					soluce = 0;
+				}
+				if (soluce != 0) {
+					for (int p = 1; p < n - 1; p++) {
+						sMoins += tab[p - 1];
+						sPlus -= tab[p];
+						if (sPlus == sMoins) {
+							soluce = p;
+							break;
+						}
+					}
+					if (soluce == -1) {
+						sPlus = 0;
+						sMoins += tab[n - 2];
+						if (sPlus == sMoins) {
+							soluce = n - 1;
+						}
 					}
 				}
-
 			}
-
 		}
 		return soluce;
-
-	}
-
-	public int SommePlus(int[] tab, int p) {
-		int somme = 0;
-		if (p != tab.length - 1) {
-			for (int i = p + 1; i < tab.length; i++) {
-				somme += tab[i];
-			}
-		}
-		return somme;
 	}
 
 }
