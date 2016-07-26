@@ -65,8 +65,6 @@ public class ExoAlgo1 implements ImpAlgo1 {
 						}
 					}
 				}
-			} else {
-				result = -1;
 			}
 		}
 		return result;
