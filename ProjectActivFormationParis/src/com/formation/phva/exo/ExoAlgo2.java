@@ -1,6 +1,6 @@
 package com.formation.phva.exo;
 
-public class ExoAlgo2 {
+public class ExoAlgo2 implements ImpAlgo2 {
 
 	/**
 	 * Un entier positif d est un diviseur de n si il existe un entier m tel que
