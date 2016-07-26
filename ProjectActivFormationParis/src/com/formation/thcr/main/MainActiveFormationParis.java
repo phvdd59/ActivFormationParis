@@ -20,7 +20,6 @@ public class MainActiveFormationParis {
 		ExoAlgo2 exo = new ExoAlgo2();
 		int n = -30;
 		System.out.println(exo.solution(n));
-		System.out.println(exo.solution2(n));
 		
 	}
 

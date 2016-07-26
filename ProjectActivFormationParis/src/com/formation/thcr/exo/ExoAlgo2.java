@@ -20,13 +20,8 @@ public class ExoAlgo2 implements ImpAlgo2 {
 
 	public int solution(int n) {
 		int cpt = 0;
-		int a;
 		if (n < 0) {
-			a = Math.abs(n);
-			for (int i = 1; i < a / 2; i++) {
-				if (a % i == 0)
-					cpt++;
-			}
+			cpt = -1;
 		} else {
 			for (int i = 1; i < n / 2; i++) {
 				if (n % i == 0)
