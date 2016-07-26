@@ -12,7 +12,7 @@ public class MainActiveFormationParis {
 
 	public static void main(String[] args) {
 		MainActiveFormationParis main = new MainActiveFormationParis();
-		main.initExoTableau2();
+		main.initAlgo();
 	}
 
 	private void initAlgo() {

@@ -32,7 +32,7 @@ public class ExoAlgo1 implements ImpAlgo1 {
 		} else {
 			for (int p = 0; p < tab.length; p++) {
 				if (p == 0) {
-					int sum = 0;
+					long sum = 0;
 					for (int i = 1; i < tab.length; i++) {
 						sum += tab[i];
 					}
@@ -50,8 +50,8 @@ public class ExoAlgo1 implements ImpAlgo1 {
 						break;
 					}
 				} else {
-					int sumLeft = 0;
-					int sumRigth = 0;
+					long sumLeft = 0;
+					long sumRigth = 0;
 					for (int i = 0; i < p; i++) {
 						sumLeft += tab[i];
 					}
@@ -72,7 +72,7 @@ public class ExoAlgo1 implements ImpAlgo1 {
 		ArrayList<Integer> solList = new ArrayList<Integer>();
 		for (int p = 0; p < tab.length; p++) {
 			if (p == 0) {
-				int sum = 0;
+				long sum = 0;
 				for (int i = 1; i < tab.length; i++) {
 					sum += tab[i];
 				}
@@ -80,7 +80,7 @@ public class ExoAlgo1 implements ImpAlgo1 {
 					solList.add(p);
 				}
 			} else if (p == tab.length - 1) {
-				int sum = 0;
+				long sum = 0;
 				for (int i = 0; i < tab.length - 1; i++) {
 					sum += tab[i];
 				}
@@ -88,8 +88,8 @@ public class ExoAlgo1 implements ImpAlgo1 {
 					solList.add(p);
 				}
 			} else {
-				int sumLeft = 0;
-				int sumRigth = 0;
+				long sumLeft = 0;
+				long sumRigth = 0;
 				for (int i = 0; i < p; i++) {
 					sumLeft += tab[i];
 				}
