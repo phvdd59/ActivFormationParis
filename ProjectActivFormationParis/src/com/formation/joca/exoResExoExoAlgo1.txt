@@ -10,5 +10,5 @@ joca test2 (1/1):    | exo.solution(a)
 joca testClassique (1/1):    | exo.solution(a)
 joca test100000 (1/1):    | exo.solution(a)
 joca test3NonOK (1/1):    | exo.solution(a)
-joca testCharge (1/1):    | exo.solution(a)
-joca NOTE : (8 / 10) = 16 / 20
+joca testCharge (0/1): KO | exo.solution(a)
+joca NOTE : (7 / 10) = 14 / 20
