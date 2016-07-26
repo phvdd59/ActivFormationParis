@@ -31,47 +31,52 @@ public class ExoAlgo1 implements ImpAlgo1 {
 		int sommeApres = 1;
 		int k = -1;
 
-		for (int p = 0; p < tab.length; p++) {
-			k++;
-			if (sommeAvant == sommeApres) {
-				break;
+		if (tab == null) {
 
-			} else {
+		} else {
+			for (int p = 0; p < tab.length; p++) {
+				k++;
+				if (sommeAvant == sommeApres) {
+					break;
 
-				if (p == 0) {
-					sommeAvant = 0;
-					sommeApres = 0;
-					for (int i = p + 1; i < tab.length; i++) {
+				} else {
 
-						sommeApres = sommeApres + tab[i];
+					if (p == 0) {
+						sommeAvant = 0;
+						sommeApres = 0;
+						for (int i = p + 1; i < tab.length; i++) {
+
+							sommeApres = sommeApres + tab[i];
+
+						}
+
+					} else if (p > 0 && p < tab.length) {
+						sommeAvant = 0;
+						for (int i = 0; i < p; i++) {
+
+							sommeAvant = sommeAvant + tab[i];
+						}
+						sommeApres = 0;
+						for (int i = p + 1; i < tab.length; i++) {
+
+							sommeApres = sommeApres + tab[i];
+						}
+
+					} else if (p == tab.length) {
+						sommeApres = 0;
+						sommeAvant = 0;
+						for (int i = 0; i < tab.length - 1; i++) {
+
+							sommeAvant = sommeAvant + tab[i];
+
+						}
 
 					}
-
-				} else if (p > 0 && p < tab.length) {
-					sommeAvant = 0;
-					for (int i = 0; i < p; i++) {
-
-						sommeAvant = sommeAvant + tab[i];
-					}
-					sommeApres = 0;
-					for (int i = p + 1; i < tab.length; i++) {
-
-						sommeApres = sommeApres + tab[i];
-					}
-
-				} else if (p == tab.length) {
-					sommeApres = 0;
-					sommeAvant = 0;
-					for (int i = 0; i < tab.length - 1; i++) {
-
-						sommeAvant = sommeAvant + tab[i];
-
-					}
-
 				}
 			}
 		}
-		if (k == tab.length - 1 && sommeAvant != sommeApres) {
+
+		if (tab == null || k == tab.length - 1 && sommeAvant != sommeApres) {
 			k = 0;
 		}
 

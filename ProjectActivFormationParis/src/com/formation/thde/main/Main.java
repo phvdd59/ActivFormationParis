@@ -170,7 +170,7 @@ public class Main {
 
 	private void init4() {
 		ExoAlgo1 exo3 = new ExoAlgo1();
-		int[] test11 = { 0, 0, 0, 0, 1 };
+		int[] test11 = { 0 };
 		int equilibre = exo3.solution(test11);
 		System.out.print(equilibre);
 	}
