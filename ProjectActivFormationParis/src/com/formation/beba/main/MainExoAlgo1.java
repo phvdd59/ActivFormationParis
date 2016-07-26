@@ -12,7 +12,7 @@ public class MainExoAlgo1 {
 	private void init() {
 		ExoAlgo1 exoAlgo1 = new ExoAlgo1();
 
-		int[] tab = { 1,2,3,5,4,8,6,3,1,87 };
+		int[] tab = null;
 		int test = exoAlgo1.solution(tab);
 		System.out.println(test);
 		// ExoTableau1 exoTab = new ExoTableau1();
