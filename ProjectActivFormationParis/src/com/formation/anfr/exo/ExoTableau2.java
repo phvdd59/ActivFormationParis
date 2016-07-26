@@ -73,6 +73,8 @@ public class ExoTableau2 implements InterExoTableau2 {
 				for (int i = 0; i < tab.length - p; i++) {
 					nouveauTableau[i + p + tab1.length] = tab[i + p];
 				}
+			} else {
+				nouveauTableau = tab.clone();
 			}
 		}
 		return nouveauTableau;
