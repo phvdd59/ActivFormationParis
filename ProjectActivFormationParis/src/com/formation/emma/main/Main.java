@@ -225,7 +225,7 @@ public class Main {
 		}
 		System.out.println(" ");
 		System.out.println("exoalgo1");
-		int[] tabAlgo1 = {1,2,-2,4,-5,6};
+		int[] tabAlgo1 = {1,2,3, 6 , -3};
 		ExoAlgo1 algo = new ExoAlgo1();
 		int pAlgo = algo.solution(tabAlgo1);
 		System.out.println(pAlgo);

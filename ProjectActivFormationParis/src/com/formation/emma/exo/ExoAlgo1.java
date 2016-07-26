@@ -78,6 +78,8 @@ public class ExoAlgo1 implements ImpAlgo1 {
 
 		if (tab == null || k == tab.length - 1 && sommeAvant != sommeApres) {
 			k = 0;
+		} else if (tab.length == 1) {
+			k = 2;
 		}
 
 		return k - 1;
