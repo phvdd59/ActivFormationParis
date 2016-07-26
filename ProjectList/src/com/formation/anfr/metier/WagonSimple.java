@@ -78,9 +78,9 @@ public class WagonSimple extends WagonVoyageur {
 	public int getValeur() {
 		int type = 0;
 		if (isTypeClass() == PREMIERE_CLASSE) {
-			type = typeWagon.WAGON_SIMPLE1.getValeur();
+			type = typeWagon.WAGON_SIMPLE1.getOrdreDeTri();
 		} else {
-			type = typeWagon.WAGON_SIMPLE2.getValeur();
+			type = typeWagon.WAGON_SIMPLE2.getOrdreDeTri();
 		}
 		return type;
 	}
