@@ -32,36 +32,43 @@ public class ExoAlgo1 implements ImpAlgo1 {
 		int gauche = 0;
 		int droite = 0;
 
-		for (int p = 0; p < tab.length; p++) {
-			if (p == 0) {
-				for (int i = 1; i < tab.length; i++) {
-					sum1 += tab[i];
-				}
-				if (sum1 == 0) {
-					result = p;
-					break;
-				}
-			} else if ((0 < p) && (p < (tab.length - 1))) {
-				for (int i = 0; i < p; i++) {
-					gauche += tab[i];
-				}
-				for (int i = p + 1; i < tab.length; i++) {
-					droite += tab[i];
-				}
-				if (gauche == droite) {
-					result = p;
-					break;
+		if (tab.length == 1) {
+			result = 0;
+		} else {
+			if ((tab != null) && (tab.length <= 100000)) {
+				for (int p = 0; p < tab.length; p++) {
+					if (p == 0) {
+						for (int i = 1; i < tab.length; i++) {
+							sum1 += tab[i];
+						}
+						if (sum1 == 0) {
+							result = p;
+							break;
+						}
+					} else if ((0 < p) && (p < (tab.length - 1))) {
+						for (int i = 0; i < p; i++) {
+							gauche += tab[i];
+						}
+						for (int i = p + 1; i < tab.length; i++) {
+							droite += tab[i];
+						}
+						if (gauche == droite) {
+							result = p;
+							break;
+						}
+					} else {
+						for (int i = 0; i < (tab.length - 1); i++) {
+							sum2 += tab[i];
+						}
+						if (sum2 == 0) {
+							result = p;
+						}
+					}
 				}
 			} else {
-				for (int i = 0; i < (tab.length - 1); i++) {
-					sum2 += tab[i];
-				}
-				if (sum2 == 0) {
-					result = p;
-				}
+				result = -1;
 			}
 		}
 		return result;
 	}
-
 }
