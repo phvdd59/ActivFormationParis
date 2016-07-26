@@ -4,10 +4,10 @@ jeci test3OK (1/1):    | exo.solution(a)
 jeci testTemps (0/1): KO | exo.solution(a)
 jeci testNull (1/1):    | exo.solution(null)
 jeci testVide (1/1):    | exo.solution(a)
-jeci test1 (0/1): KO | exo.solution(a)
+jeci test1 (1/1):    | exo.solution(a)
 jeci test2 (1/1):    | exo.solution(a)
 jeci testClassique (1/1):    | exo.solution(a)
 jeci test100000 (1/1):    | exo.solution(a)
-jeci test3NonOK (0/1): KO | exo.solution(a)
+jeci test3NonOK (1/1):    | exo.solution(a)
 jeci testCharge (1/1):    | exo.solution(a)
-jeci NOTE : (7 / 10) = 14 / 20
+jeci NOTE : (9 / 10) = 18 / 20

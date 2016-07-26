@@ -5,10 +5,10 @@ joca testTemps (0/1): KO | exo.solution(a)
 joca testNull (0/1): KO | exo.solution(null)
 null
 joca testVide (1/1):    | exo.solution(a)
-joca test1 (0/1): KO | exo.solution(a)
+joca test1 (1/1):    | exo.solution(a)
 joca test2 (1/1):    | exo.solution(a)
 joca testClassique (1/1):    | exo.solution(a)
 joca test100000 (1/1):    | exo.solution(a)
-joca test3NonOK (0/1): KO | exo.solution(a)
+joca test3NonOK (1/1):    | exo.solution(a)
 joca testCharge (1/1):    | exo.solution(a)
-joca NOTE : (6 / 10) = 12 / 20
+joca NOTE : (8 / 10) = 16 / 20

@@ -5,10 +5,10 @@ anfr testTemps (0/1): KO | exo.solution(a)
 anfr testNull (0/1): KO | exo.solution(null)
 null
 anfr testVide (1/1):    | exo.solution(a)
-anfr test1 (0/1): KO | exo.solution(a)
+anfr test1 (1/1):    | exo.solution(a)
 anfr test2 (1/1):    | exo.solution(a)
 anfr testClassique (1/1):    | exo.solution(a)
 anfr test100000 (0/1): KO | exo.solution(a)
-anfr test3NonOK (0/1): KO | exo.solution(a)
+anfr test3NonOK (1/1):    | exo.solution(a)
 anfr testCharge (0/1): KO | exo.solution(a)
-anfr NOTE : (4 / 10) = 8 / 20
+anfr NOTE : (6 / 10) = 12 / 20
