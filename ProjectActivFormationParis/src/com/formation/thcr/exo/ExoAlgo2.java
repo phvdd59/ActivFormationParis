@@ -19,33 +19,36 @@ public class ExoAlgo2 implements ImpAlgo2 {
 	 */
 
 	public int solution(int n) {
-		int cpt = 0;
+		int cpt = 1;
+
 		if (n < 0) {
 			cpt = -1;
-		} else {
-			for (int i = 1; i < n / 2; i++) {
+		} else if (n > 0) {
+			for (int i = 1; i < n / 2 + 1; i++) {
 				if (n % i == 0)
 					cpt++;
 			}
+		} else if (n == 0) {
+			cpt = 0;
 		}
 		return cpt;
 	}
 
-	public ArrayList<Integer> solution2(int n) {
-		ArrayList<Integer> s = new ArrayList<Integer>();
-		int a;
-		if (n < 0) {
-			a = Math.abs(n);
-			for (int i = 1; i < a / 2; i++) {
-				if (a % i == 0)
-					s.add(-i);
-			}
-		} else {
-			for (int i = 1; i < n / 2; i++) {
-				if (n % i == 0)
-					s.add(i);
-			}
-		}
-		return s;
-	}
+//	public ArrayList<Integer> solution2(int n) {
+//		ArrayList<Integer> s = new ArrayList<Integer>();
+//		int a;
+//		if (n < 0) {
+//			a = Math.abs(n);
+//			for (int i = 1; i < a / 2; i++) {
+//				if (a % i == 0)
+//					s.add(-i);
+//			}
+//		} else {
+//			for (int i = 1; i < n / 2; i++) {
+//				if (n % i == 0)
+//					s.add(i);
+//			}
+//		}
+//		return s;
+//	}
 }
