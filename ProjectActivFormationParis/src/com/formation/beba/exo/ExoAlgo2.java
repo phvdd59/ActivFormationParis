@@ -29,7 +29,7 @@ public class ExoAlgo2 implements ImpAlgo2 {
 					} else if (n / i == i) {
 						nbDiviseur += 1;
 						break;
-					} else if (n / i < i) {
+					} else if (n / i < i || i / i > n) {
 						break;
 					}
 				}
