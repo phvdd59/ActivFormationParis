@@ -16,20 +16,20 @@ public class MainExoArrayList1 {
 		ExoArrayList1 exoArrayList1 = new ExoArrayList1();
 		exoArrayList1.remplirTableau(7, 5, 3);
 		ArrayList<Integer> array = new ArrayList<>();
-				array.add(null);
-				array.add(null);
-				array.add(null);
-		//				array.add(2);
-		//				array.add(4);
-		//				array.add(6);
+		array.add(1);
+		array.add(4);
+		array.add(6);
+		array.add(2);
+		array.add(4);
+		array.add(6);
 		ArrayList<Integer> array2 = new ArrayList<>();
 		array2.add(3);
 		array2.add(5);
 		array2.add(7);
 
 		//exoArrayList1.intervertirDeuxElementsTableau(array, 3, 5);
-		exoArrayList1.insererUnElementDansTableau(array, 3, 5);
-		//		exoArrayList1.insererUnTableauDansUnAutreAvecRemplacement(array, 2, array2);
+		//exoArrayList1.insererUnElementDansTableau(array, 3, 5);
+		exoArrayList1.insererUnTableauDansUnAutreAvecRemplacement(array, 2, array2);
 		//		exoArrayList1.rotationTableau(array, -2);
 	}
 
