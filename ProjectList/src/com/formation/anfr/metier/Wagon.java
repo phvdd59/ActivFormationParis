@@ -59,13 +59,13 @@ public abstract class Wagon implements Comparable<Wagon>{
 	}
 
 	public abstract int getType();
+	public abstract int getValeur();
 	
 	@Override
 	public int compareTo(Wagon w) {
-		int[] ordreDeTri = { 3, 2, 0, 1};
-		if (ordreDeTri[getType()] < ordreDeTri[w.getType()]) {
+		if (this.getValeur() < w.getValeur()) {
 			return -1;
-		} else if (ordreDeTri[getType()] > ordreDeTri[w.getType()]) {
+		} else if (this.getValeur() > w.getValeur()) {
 			return 1;
 		} else {
 			return 0;

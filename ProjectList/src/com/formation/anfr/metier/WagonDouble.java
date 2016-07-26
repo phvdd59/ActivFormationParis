@@ -18,7 +18,11 @@ public class WagonDouble extends WagonVoyageur {
 
 	@Override
 	public int getType() {
-		return Wagon.WAGON_DOUBLE;
+		return typeWagon.WAGON_DOUBLE.ordinal();
+	}
+	@Override
+	public int getValeur() {
+		return typeWagon.WAGON_DOUBLE.getValeur();
 	}
 
 	@Override

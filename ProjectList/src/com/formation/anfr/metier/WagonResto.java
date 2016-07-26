@@ -45,8 +45,14 @@ public class WagonResto extends Wagon {
 
 	@Override
 	public int getType() {
-		return Wagon.WAGON_RESTO;
+		return typeWagon.WAGON_RESTO.ordinal();
 	}
+	
+	@Override
+	public int getValeur() {
+		return typeWagon.WAGON_RESTO.getValeur();
+	}
+
 
 
 }

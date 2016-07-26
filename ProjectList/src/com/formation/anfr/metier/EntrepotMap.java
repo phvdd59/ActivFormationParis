@@ -4,14 +4,13 @@ import java.util.ArrayList;
 import java.util.Set;
 import java.util.TreeMap;
 
-import com.formation.phva.metier.Wagon;
-import com.formation.phva.metier.WagonDouble;
-import com.formation.phva.metier.WagonResto;
-import com.formation.phva.metier.WagonSimple;
+import com.formation.anfr.metier.Wagon;
+import com.formation.anfr.metier.WagonDouble;
+import com.formation.anfr.metier.WagonResto;
+import com.formation.anfr.metier.WagonSimple;
+import com.formation.anfr.metier.typeWagon;
 
 public class EntrepotMap extends TreeMap<Integer, ArrayList<Wagon>> {
-	private static int[] POURCENT_TYPE = { 14, 14, 44, 28 };
-
 	private int[] nbTypeWagons;
 
 	public EntrepotMap() {
@@ -19,10 +18,10 @@ public class EntrepotMap extends TreeMap<Integer, ArrayList<Wagon>> {
 		ArrayList<Wagon> listWagonSimple1 = new ArrayList<Wagon>();
 		ArrayList<Wagon> listWagonSimple2 = new ArrayList<Wagon>();
 		ArrayList<Wagon> listWagonDouble = new ArrayList<Wagon>();
-		put(Wagon.WAGON_RESTO, listWagonResto);
-		put(Wagon.WAGON_SIMPLE1, listWagonSimple1);
-		put(Wagon.WAGON_SIMPLE2, listWagonSimple2);
-		put(Wagon.WAGON_DOUBLE, listWagonDouble);
+		put(typeWagon.WAGON_RESTO.ordinal(), listWagonResto);
+		put(typeWagon.WAGON_SIMPLE1.ordinal(), listWagonSimple1);
+		put(typeWagon.WAGON_SIMPLE2.ordinal(), listWagonSimple2);
+		put(typeWagon.WAGON_DOUBLE.ordinal(), listWagonDouble);
 
 	}
 
@@ -31,34 +30,34 @@ public class EntrepotMap extends TreeMap<Integer, ArrayList<Wagon>> {
 		ArrayList<Wagon> listWagonSimple1 = new ArrayList<Wagon>();
 		ArrayList<Wagon> listWagonSimple2 = new ArrayList<Wagon>();
 		ArrayList<Wagon> listWagonDouble = new ArrayList<Wagon>();
-		put(Wagon.WAGON_RESTO, listWagonResto);
-		put(Wagon.WAGON_SIMPLE1, listWagonSimple1);
-		put(Wagon.WAGON_SIMPLE2, listWagonSimple2);
-		put(Wagon.WAGON_DOUBLE, listWagonDouble);
+		put(typeWagon.WAGON_RESTO.ordinal(), listWagonResto);
+		put(typeWagon.WAGON_SIMPLE1.ordinal(), listWagonSimple1);
+		put(typeWagon.WAGON_SIMPLE2.ordinal(), listWagonSimple2);
+		put(typeWagon.WAGON_DOUBLE.ordinal(), listWagonDouble);
 		fabrique(nb);
 	}
 
 	public void fabrique(int nbWagon) {
-		int nbWagonRestoARajouter = (nbWagon * POURCENT_TYPE[Wagon.WAGON_RESTO]) / 100;
+		int nbWagonRestoARajouter = (nbWagon * typeWagon.WAGON_RESTO.getPourcent()) / 100;
 		int nTotal = nbWagonRestoARajouter;
 		for (int i = 0; i < nbWagonRestoARajouter; i++) {
-			ArrayList<Wagon> lstWagon = get(Wagon.WAGON_RESTO);
+			ArrayList<Wagon> lstWagon = get(typeWagon.WAGON_RESTO.ordinal());
 			Wagon wagonResto = new WagonResto();
 			lstWagon.add(wagonResto);
 		}
-		int nbWagon1ereARajouter = (nbWagon * POURCENT_TYPE[Wagon.WAGON_SIMPLE1]) / 100;
+		int nbWagon1ereARajouter = (nbWagon * typeWagon.WAGON_SIMPLE1.getPourcent()) / 100;
 		nTotal += nbWagon1ereARajouter;
 		for (int i = 0; i < nbWagon1ereARajouter; i++) {
-			get(Wagon.WAGON_SIMPLE1).add(new WagonSimple(WagonSimple.PREMIERE_CLASSE));
+			get(typeWagon.WAGON_SIMPLE1.ordinal()).add(new WagonSimple(WagonSimple.PREMIERE_CLASSE));
 		}
-		int nbWagon2ereARajouter = (nbWagon * POURCENT_TYPE[Wagon.WAGON_SIMPLE2]) / 100;
+		int nbWagon2ereARajouter = (nbWagon * typeWagon.WAGON_SIMPLE2.getPourcent()) / 100;
 		nTotal += nbWagon2ereARajouter;
 		for (int i = 0; i < nbWagon2ereARajouter; i++) {
-			get(Wagon.WAGON_SIMPLE2).add(new WagonSimple(WagonSimple.SECONDE_CLASSE));
+			get(typeWagon.WAGON_SIMPLE2.ordinal()).add(new WagonSimple(WagonSimple.SECONDE_CLASSE));
 		}
 		int nbWagonDoubleARajouter = nbWagon - nTotal;
 		for (int i = 0; i < nbWagonDoubleARajouter; i++) {
-			get(Wagon.WAGON_DOUBLE).add(new WagonDouble());
+			get(typeWagon.WAGON_DOUBLE.ordinal()).add(new WagonDouble());
 		}
 	}
 
