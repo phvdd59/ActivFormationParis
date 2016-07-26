@@ -18,7 +18,7 @@ public class MainActiveFormationParis {
 
 	private void initAlgo2() {
 		ExoAlgo2 exo = new ExoAlgo2();
-		int n = 1526800;
+		int n = 25;
 		System.out.println(n);
 		System.out.println(exo.solution(n));
 		
