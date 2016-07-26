@@ -12,7 +12,16 @@ public class ExoTableau2 implements InterExoTableau2 {
 	 * @return tab = [5,7,-5,6,4,1]
 	 */
 	public int[] inverserTableau(int[] tab) {
-		return null;
+		//protections
+		if (tab == null) {
+			return tab.clone();
+		}
+		//fin protections
+		int[] tab2 = new int[tab.length];
+		for (int i = 0; i < tab.length; i++) {
+			tab2[i] = tab[(tab.length - 1) - i];
+		}
+		return tab2;
 	}
 
 	/**
@@ -25,7 +34,20 @@ public class ExoTableau2 implements InterExoTableau2 {
 	 * @return
 	 */
 	public int[] rallongerTableauDeUnElement(int[] tab, int a) {
-		return null;
+		//protections
+		if (tab == null) {
+			return tab.clone();
+		}
+		//fin protections
+		int[] tab2 = new int[tab.length + 1];
+		for (int i = 0; i <= tab.length; i++) {
+			if (i == tab.length) {
+				tab2[i] = a;
+			} else {
+				tab2[i] = tab[i];
+			}
+		}
+		return tab2;
 	}
 
 	/**
@@ -40,7 +62,26 @@ public class ExoTableau2 implements InterExoTableau2 {
 	 * @return tableau
 	 */
 	public int[] insererUnTableauDansUnAutre(int[] tab, int p, int[] tab1) {
-		return null;
+		//protections
+		if (p < 0 || p >= tab.length) {
+			return tab.clone();
+		} else {
+			if (tab1.length > tab.length - p) {
+				return tab.clone();
+			}
+		}
+		//fin protections
+		int[] tabInser = new int[tab.length + tab1.length];
+		for (int i = 0; i < p; i++) {
+			tabInser[i] = tab[i];
+		}
+		for (int i = p; i < p + tab1.length; i++) {
+			tabInser[i] = tab1[i - p];
+		}
+		for (int i = p + tab1.length; i < tabInser.length; i++) {
+			tabInser[i] = tab[i - (p + 1)];
+		}
+		return tabInser;
 	}
 
 	/**
@@ -54,7 +95,14 @@ public class ExoTableau2 implements InterExoTableau2 {
 	 * @return tableau de 2 dimensions
 	 */
 	public int[][] changerDimensionTableau(int[] tab, int d) {
-		return null;
+		int[][] tabDim = new int[tab.length / d][d];
+		for (int i = 0; i < tabDim.length; i++) {
+			for (int j = 0; j < tabDim[0].length; j++) {
+				int indiceDeTab = i * tabDim[0].length + j;
+				tabDim[i][j] = tab[indiceDeTab];
+			}
+		}
+		return tabDim;
 	}
 
 	/**
@@ -65,6 +113,18 @@ public class ExoTableau2 implements InterExoTableau2 {
 	 * @return tableau représentant cette valeur mais en binaire
 	 */
 	public int[] tabBaseDeux(int v) {
+		int[] tab = new int[32];
+		for (int i = tab.length - 1; i >= 0; i--) {
+			// on ne remplit pas le tableau avec des 1 si v est plus petit que la puissance de 2
+			if (v < Math.pow(2, i)) {
+				tab[i] = 0;
+				// checker si v est divisible par 2 puissance x en partant de la gauche i.e. 2^31
+			}
+			if (v < Math.pow(2, i) && v > Math.pow(2, i - 1)) {
+				tab[i] = 1;
+
+			}
+		}
 		return null;
 	}
 }

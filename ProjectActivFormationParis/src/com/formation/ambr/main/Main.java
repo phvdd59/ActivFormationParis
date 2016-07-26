@@ -5,13 +5,14 @@ import java.util.ArrayList;
 import com.formation.ambr.exo.ExoArrayList1;
 import com.formation.ambr.exo.ExoSimple;
 import com.formation.ambr.exo.ExoTableau1;
+import com.formation.ambr.exo.ExoTableau2;
 
 public class Main {
 
 	public static void main(String[] args) { // main method
 
 		Main main = new Main();
-		main.init();
+		main.init4();
 
 	}
 
@@ -158,5 +159,76 @@ public class Main {
 		// 2.méthode intervertirDeuxElementsTableau
 		System.out.println("*II.intervertirDeuxElementsTableau*");
 		ExoArrayList1 exoArrayList2 = new ExoArrayList1();
+		ArrayList<Integer> list2 = new ArrayList<Integer>();
+		list2.add(7);
+		list2.add(10);
+		list2.add(13);
+		list2.add(16);
+		list2.add(19);
+		list2.add(21);
+		list2.add(24);
+		list2.add(27);
+		list2.add(30);
+		//list2=exoArrayList2.intervertirDeuxElementsTableau(tab, i1, i2);
+
 	}
+
+	private void init3() {
+
+		System.out.println("-----ExoAlgo1-----");
+
+	}
+
+	private void init4() {
+
+		System.out.println("-----ExoTableau2-----");
+
+		//1. inverserTableau
+		System.out.println("*I.inverserTableau*");
+		ExoTableau2 exoTableau1 = new ExoTableau2();
+		int[] tab = { 1, 4, 6, -5, 7, 5 };
+		int[] tabInv = exoTableau1.inverserTableau(tab);
+		for (int i = 0; i < tabInv.length; i++) {
+			System.out.print(tabInv[i] + " ");
+		}
+		System.out.println("\r");
+
+		//2. rallongerTableauDeUnElement
+		System.out.println("*II.rallongerTableauDeUnElement*");
+		ExoTableau2 exoTableau2 = new ExoTableau2();
+		int[] tab2 = { 1, 4, 6, 2, 4, 6 };
+		int[] tabRllng = exoTableau2.rallongerTableauDeUnElement(tab2, 8);
+		for (int i = 0; i < tabRllng.length; i++) {
+			System.out.print(tabRllng[i] + " ");
+		}
+		System.out.println("\r");
+
+		//3. insererUnTableauDansUnAutre
+		System.out.println("*III.insererUnTableauDansUnAutre*");
+		ExoTableau2 exoTableau3 = new ExoTableau2();
+		int[] tab3 = { 1, 4, 6, 2, 4, 6 };
+		int[] tabDeRemp = { 4, 9, 0 };
+		int[] tabInser = exoTableau3.insererUnTableauDansUnAutre(tab3, 2, tabDeRemp);
+		for (int i = 0; i < tabInser.length; i++) {
+			System.out.print(tabInser[i] + " ");
+		}
+		System.out.println("\r");
+
+		//4. changerDimensionTableau
+		System.out.println("*IV.changerDimensionTableau*");
+		ExoTableau2 exotableau4 = new ExoTableau2();
+		int[] tab4 = { 1, 7, 8, 2, 4, 6 };
+		int[][] tabDim = exotableau4.changerDimensionTableau(tab4, 2);
+		for (int i = 0; i < tabDim.length; i++) {
+			System.out.println(tabDim[i]);
+		}
+
+		//5. tabBaseDeux
+		System.out.println("*V.tabBaseDeux*");
+		ExoTableau2 exoTableau5=new ExoTableau2();
+		int[] tab5=exoTableau5.tabBaseDeux(18);
+		
+
+	}
+
 }
