@@ -56,7 +56,7 @@ public class ExoTableau2 implements InterExoTableau2 {
 	 */
 	public int[] insererUnTableauDansUnAutre(int[] tab, int p, int[] tab1) {
 		int[] tmp = new int[tab.length + tab1.length];
-		if (p < 0 || p > tab.length || tab == null || tab1 == null) {
+		if (tab1 == null || tab == null || p < 0 || p > tab.length) {
 			tmp = tab;
 		} else {
 			for (int i = 0; i < p; i++)
@@ -82,13 +82,14 @@ public class ExoTableau2 implements InterExoTableau2 {
 	 */
 
 	public int[][] changerDimensionTableau(int[] tab, int d) {
+		//TODO retourner null si modulo != 0
 		int[][] tmp = null;
-		if (d <= 0 || d > tab.length && tab != null) {
+		if (tab != null && d <= 0 || d > tab.length) {
 			tmp = new int[1][tab.length];
 			for (int i = 0; i < tab.length; i++) {
 				tmp[0][i] = tab[i];
 			}
-		} else if (tab.length % d == 0 && tab != null) {
+		} else if (tab != null && tab.length % d == 0) {
 			tmp = new int[tab.length / d][d];
 			for (int i = 0; i < tab.length / d; i++) {
 				for (int j = 0; j < d; j++) {
@@ -96,18 +97,17 @@ public class ExoTableau2 implements InterExoTableau2 {
 				}
 			}
 		} else {
-			if (tab != null) {
-				tmp = new int[tab.length / d + 1][d];
-				for (int i = 0; i < tab.length / d + 1; i++) {
-					for (int j = 0; j < d; j++) {
-						if (i * d + j < tab.length)
-							tmp[i][j] = tab[i * d + j];
-						else
-							tmp[i][j] = 0;
-					}
-				}
-
-			}
+//			if (tab != null) {
+//				tmp = new int[tab.length / d + 1][d];
+//				for (int i = 0; i < tab.length / d + 1; i++) {
+//					for (int j = 0; j < d; j++) {
+//						if (i * d + j < tab.length)
+//							tmp[i][j] = tab[i * d + j];
+//						else
+//							tmp[i][j] = 0;
+//					}
+//				}
+//			}
 		}
 		return tmp;
 	}
