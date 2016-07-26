@@ -13,8 +13,7 @@ public class MainExoAlgo {
 	private void init() {
 		ExoAlgo1 algo1=new ExoAlgo1();
 		int[]tab1={-1,3,-4,5,1,-6,2,1};
-		int p=2;
-		System.out.println(algo1.solution(tab1, p));
+		System.out.println(algo1.solution(tab1));
 		
 	}
 

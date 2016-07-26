@@ -28,42 +28,41 @@ public class ExoAlgo1 implements ImpAlgo1 {
 	 * @param sommeTab1
 	 */
 
-	public int solution(int[] tab, int p) {
-		
-		if (p<0 || p>tab.length || tab.length<0){
+	public int solution(int[] tab) {
+
+		int p = 0;
+
+		if (p < 0 || p > tab.length || tab.length < 0 || tab == null) {
 			return -1;
 		}
-		
+
 		int tab1[] = new int[tab.length];
-		int somme1 = 0;
-		int somme2 = 0;
-		
+
 		for (int i = 0; i < tab1.length; i++) {
 			tab1[i] = tab[i];
 		}
-		for (int i = 0; i < p; i++) {
-			somme1 = somme1 + tab1[i];
-		}
-		
-		for (int i = p+1; i < tab1.length; i++) {
-			somme2 = somme2 + tab1[i];
+
+		for (p = 0; p < tab1.length; p++) {
+			int somme1 = 0;
+			int somme2 = 0;
+
+			for (int i = 0; i < p; i++) {
+				somme1 = somme1 + tab1[i];
+			}
+
+			for (int i = p + 1; i < tab1.length; i++) {
+				somme2 = somme2 + tab1[i];
+			}
+
+			if (somme1 == somme2) {
+				System.out.println(tab1 + " avec une position d'équilibre p= " + p + " et une somme de " + somme2);
+
+			}
 		}
 
-		
-		if (somme1 == somme2) {
-			System.out.println(tab1+" avec une position d'équilibre p= "+p+" et une somme de "+somme2);
+		System.out.println(-1);
 
-		}else{
-			System.out.println(-1);
-		}
-		
 		return p;
-	}
-
-	@Override
-	public int solution(int[] tab) {
-		// TODO Auto-generated method stub
-		return 0;
 	}
 
 }
