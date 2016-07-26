@@ -85,10 +85,11 @@ public class ExoTableau2 implements InterExoTableau2 {
 	 * @return tableau de 2 dimensions
 	 */
 	public int[][] changerDimensionTableau(int[] tab, int d) {
-		int[][] tabF = new int[tab.length][d];
+		int[][] tabF = new int[tab.length/d][d];
 		for (int i = 0; i < tabF.length; i++) {
-			for (int j = 0; j < d; j++) {
-				tabF[i][j]=tab[i];
+			for (int j = 0; j < tabF[0].length; j++) {
+				int indiceDeTab=i*tabF[0].length+j;
+				tabF[i][j]=tab[indiceDeTab];
 			
 				
 //				for (int h = 0; h < d; h++) {

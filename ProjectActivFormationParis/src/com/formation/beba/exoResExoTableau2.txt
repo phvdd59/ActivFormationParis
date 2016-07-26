@@ -11,15 +11,14 @@ beba changerDimensionTableau4 (1/1):    | exo.changerDimensionTableau(null, 2)
 beba inverserTableau0 (2/2):    | exo.inverserTableau(tab0)
 beba inverserTableau1 (2/2):    | exo.inverserTableau(tab)
 beba inverserTableau2 (1/1):    | exo.inverserTableau(null)
-beba insererUnTableauDansUnAutre0 (0/2): KO | exo.insererUnTableauDansUnAutre(tab0, 8, tab1)
-beba insererUnTableauDansUnAutre1 (0/2): KO | exo.insererUnTableauDansUnAutre(tab, 8, tab1)
-2048
-beba insererUnTableauDansUnAutre2 (0/1): KO | exo.insererUnTableauDansUnAutre(tab, -3, tab1)
-beba insererUnTableauDansUnAutre3 (0/1): KO | exo.insererUnTableauDansUnAutre(tab, 23233, tab1)
+beba insererUnTableauDansUnAutre0 (2/2):    | exo.insererUnTableauDansUnAutre(tab0, 8, tab1)
+beba insererUnTableauDansUnAutre1 (2/2):    | exo.insererUnTableauDansUnAutre(tab, 8, tab1)
+beba insererUnTableauDansUnAutre2 (1/1):    | exo.insererUnTableauDansUnAutre(tab, -3, tab1)
+beba insererUnTableauDansUnAutre3 (1/1):    | exo.insererUnTableauDansUnAutre(tab, 23233, tab1)
 beba insererUnTableauDansUnAutre4 (0/1): KO | exo.insererUnTableauDansUnAutre(null, 23233, tab1)
 null
 beba insererUnTableauDansUnAutre5 (1/1):    | exo.insererUnTableauDansUnAutre(tab, 3, null)
 beba tabBaseDeux0 (2/2):    | exo.tabBaseDeux(tab0, 18)
 beba tabBaseDeux1 (2/2):    | exo.tabBaseDeux(Integer.MAX_VALUE)
 beba tabBaseDeux2 (2/2):    | exo.tabBaseDeux(Integer.MIN_VALUE)
-beba NOTE : (25 / 32) = 15 / 20
+beba NOTE : (31 / 32) = 19 / 20

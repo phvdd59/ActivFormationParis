@@ -10,5 +10,5 @@ soka test2 (1/1):    | exo.solution(a)
 soka testClassique (1/1):    | exo.solution(a)
 soka test100000 (1/1):    | exo.solution(a)
 soka test3NonOK (0/1): KO | exo.solution(a)
-soka testCharge (1/1):    | exo.solution(a)
-soka NOTE : (6 / 10) = 12 / 20
+soka testCharge (0/1): KO | exo.solution(a)
+soka NOTE : (5 / 10) = 10 / 20
