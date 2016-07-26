@@ -2,7 +2,7 @@ package com.formation.beba.exo;
 
 import com.formation.phva.exo.ImpAlgo2;
 
-public class ExoAlgo2 implements ImpAlgo2 {
+public class ExoAlgo2bis implements ImpAlgo2 {
 
 	/**
 	 * Un entier positif d est un diviseur de n si il existe un entier m tel que
@@ -21,22 +21,13 @@ public class ExoAlgo2 implements ImpAlgo2 {
 		if (n == 1) {
 			nbDiviseur = 1;
 		} else if (n > 0) {
-			nbDiviseur = 0;
-			for (int i = 1; i < n; i++) {
+			nbDiviseur = 2;
+			for (int i = 2; i < n; i++) {
 				if (n % i == 0) {
-					if (n / i > i) {
-						nbDiviseur += 2;
-					} else if (n / i == i) {
-						nbDiviseur += 1;
-						break;
-					} else if (n / i < i) {
-						break;
-					}
+					nbDiviseur += 1;
 				}
 			}
-
 		}
 		return nbDiviseur;
 	}
-
 }
