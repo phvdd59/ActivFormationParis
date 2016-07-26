@@ -4,11 +4,12 @@ issa rallongerTableauDeUnElement0 (2/2):    | exo.rallongerTableauDeUnElement(ta
 issa rallongerTableauDeUnElement1 (2/2):    | exo.rallongerTableauDeUnElement(tab, 8)
 issa rallongerTableauDeUnElement2 (0/1): KO | exo.rallongerTableauDeUnElement(null, -8)
 null
-issa changerDimensionTableau0 (0/2): KO | exo.changerDimensionTableau(tab0, 2)
-issa changerDimensionTableau1 (0/2): KO | exo.changerDimensionTableau(tab0, 3)
-issa changerDimensionTableau2 (0/2): KO | exo.changerDimensionTableau(tab, 8)
-issa changerDimensionTableau3 (1/1):    | exo.changerDimensionTableau(tab, 7)
-issa changerDimensionTableau4 (1/1):    | exo.changerDimensionTableau(null, 2)
+issa changerDimensionTableau0 (2/2):    | exo.changerDimensionTableau(tab0, 2)
+issa changerDimensionTableau1 (2/2):    | exo.changerDimensionTableau(tab0, 3)
+issa changerDimensionTableau2 (2/2):    | exo.changerDimensionTableau(tab, 8)
+issa changerDimensionTableau3 (0/1): KO | exo.changerDimensionTableau(tab, 7)
+issa changerDimensionTableau4 (0/1): KO | exo.changerDimensionTableau(null, 2)
+null
 issa inverserTableau0 (2/2):    | exo.inverserTableau(tab0)
 issa inverserTableau1 (2/2):    | exo.inverserTableau(tab)
 issa inverserTableau2 (0/1): KO | exo.inverserTableau(null)
@@ -28,4 +29,4 @@ issa tabBaseDeux1 (0/2): KO | exo.tabBaseDeux(Integer.MAX_VALUE)
 4
 issa tabBaseDeux2 (0/2): KO | exo.tabBaseDeux(Integer.MIN_VALUE)
 4
-issa NOTE : (14 / 32) = 8 / 20
+issa NOTE : (18 / 32) = 11 / 20
