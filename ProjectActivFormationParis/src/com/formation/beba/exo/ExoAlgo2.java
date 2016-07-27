@@ -23,6 +23,9 @@ public class ExoAlgo2 implements ImpAlgo2 {
 		} else if (n > 0) {
 			nbDiviseur = 0;
 			for (int i = 1; i < (int) Math.sqrt(n) + 1; i++) {
+				if (n % 2 != 0 && i % 2 == 0) {
+					i++;
+				}
 				if (n % i == 0) {
 					if (n / i > i) {
 						nbDiviseur += 2;
