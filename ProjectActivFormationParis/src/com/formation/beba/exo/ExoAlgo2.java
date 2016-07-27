@@ -18,12 +18,13 @@ public class ExoAlgo2 implements ImpAlgo2 {
 
 	public int solution(int n) { // opti
 		int nbDiviseur = -1;
+		int racine = (int) Math.sqrt(n);
 		if (n == 1) {
 			nbDiviseur = 1;
 		} else if (n > 0) {
 			nbDiviseur = 0;
 			if (n % 2 == 0) {
-				for (int i = 1; i < (int) Math.sqrt(n) + 1; i++) {
+				for (int i = 1; i < racine + 1; i++) {
 					if (n % i == 0) {
 						if (n / i > i) {
 							nbDiviseur += 2;
@@ -34,7 +35,7 @@ public class ExoAlgo2 implements ImpAlgo2 {
 					}
 				}
 			} else {
-				for (int i = 1; i < (int) Math.sqrt(n) + 1; i += 2) {
+				for (int i = 1; i < racine + 1; i += 2) {
 					if (n % i == 0) {
 						if (n / i > i) {
 							nbDiviseur += 2;

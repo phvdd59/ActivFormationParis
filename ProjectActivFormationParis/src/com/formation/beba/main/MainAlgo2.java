@@ -13,7 +13,7 @@ public class MainAlgo2 { // main
 	private void init() {
 		ExoAlgo2 exoAlgo2 = new ExoAlgo2();
 
-		int test = exoAlgo2.solution(25);
+		int test = exoAlgo2.solution(2147483647);
 		System.out.println(test);
 
 		ExoAlgo2bis exoAlgo2bis = new ExoAlgo2bis();
