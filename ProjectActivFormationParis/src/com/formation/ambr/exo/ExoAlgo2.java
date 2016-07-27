@@ -19,8 +19,18 @@ public class ExoAlgo2 implements ImpAlgo2 {
 	public int solution(int n) {
 		int d;
 		int m;
+		int j = 0;
+		//int[] tab = new int[n];
 		//n=d*m;
-		
-		return 0;
+		if (n < 0) {
+			return -1;
+		}
+		for (int i = 1; i <= n; i++) {
+			if (n % i == 0) {
+				//tab[j] = i; // au final ce tableau sert à rien, on pourrait juste faire un compteur? J'ai essayé de faire grandir le tableau au fur et à mesure, en mettant dans ce if "int[] tab = new int[n]" mais ça lui met des 0 ailleurs qu'en j. Faudrait une ArrayList?
+				j++;
+			}
+		}
+		return j;
 	}
 }
