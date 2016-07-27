@@ -1,7 +1,7 @@
 ambr:Algo
 
 ambr testGrand (1/1):    | exo.solution(2147395600)
-ambr testTemps (0/2): KO | exo.solution(2147483647) temps : 2453.34 245.334
+ambr testTemps (0/2): KO | exo.solution(2147483647) temps : 2291.36 229.136
 ambr testPremier (0/1): KO | exo.solution(2147483647)
 / by zero
 ambr test0 (0/1): KO | exo.solution(0)

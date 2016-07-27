@@ -1,7 +1,7 @@
 phva:Algo
 
 phva testGrand (0/1): KO | exo.solution(2147395600) = 0 : attendu : 135
-phva testTemps (0/2): KO | exo.solution(2147483647) temps : 4.346 616.691
+phva testTemps (0/2): KO | exo.solution(2147483647) temps : 3.556 547.951
 phva testPremier (0/1): KO | exo.solution(2147483647) = 0 : attendu : 2
 phva test0 (0/1): KO | exo.solution(0)
 phva testClassique (0/2): KO | exo.solution(24)

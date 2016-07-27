@@ -1,7 +1,7 @@
 made:Algo
 
 made testGrand (1/1):    | exo.solution(2147395600)
-made testTemps (0/2): KO | exo.solution(2147483647) temps : 1497.28 149.728
+made testTemps (0/2): KO | exo.solution(2147483647) temps : 1623.7 162.37
 made testPremier (1/1):    | exo.solution(2147483647)
 made test0 (1/1):    | exo.solution(0)
 made testClassique (2/2):    | exo.solution(24)
