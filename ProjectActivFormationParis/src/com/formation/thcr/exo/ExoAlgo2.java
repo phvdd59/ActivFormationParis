@@ -1,7 +1,5 @@
 package com.formation.thcr.exo;
 
-import java.util.ArrayList;
-
 import com.formation.phva.exo.ImpAlgo2;
 
 public class ExoAlgo2 implements ImpAlgo2 {
