@@ -21,9 +21,26 @@ public class ExoAlgo2 implements ImpAlgo2 {
 		int result = 0;
 		if (n != 0 && n >= Integer.MIN_VALUE && n <= Integer.MAX_VALUE) {
 			int nbDiv = 2;
-			for (int i = 2; i <= (Math.sqrt(Math.abs(n))); i++) {
-				if (n % i == 0) {
-					nbDiv += 2;
+			if (n % 2 == 0) {
+				for (int i = 2; i <= (Math.sqrt(Math.abs(n))); i++) {
+					if (n % i == 0) {
+						if (i == Math.sqrt(Math.abs(n))) {
+							nbDiv++;
+						} else {
+							nbDiv += 2;
+						}
+					}
+				}
+			} else {
+				for (int i = 3; i <= (Math.sqrt(Math.abs(n))); i++) {
+					if (n % i == 0) {
+						if (i == Math.sqrt(Math.abs(n))) {
+							nbDiv++;
+						} else {
+							nbDiv += 2;
+						}
+					}
+					i++;
 				}
 			}
 			result = nbDiv;
