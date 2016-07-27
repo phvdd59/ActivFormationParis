@@ -55,8 +55,8 @@ public class ExoAlgo1 implements ImpAlgo1 {
 	// il renvoit -1 s'il n'y a pas de point d'équilibre
 
 	public int solution(int[] tab) {
-
 		int result = -1;
+		if (tab !=null){
 		int j = 0;
 		boolean trouve = false; 					// boolean utilisé pour sortir de la boucle,
 		while (j < tab.length && trouve == false) { // principale difference avec l'algo précédent :
@@ -76,7 +76,7 @@ public class ExoAlgo1 implements ImpAlgo1 {
 			}
 			j++; 									// TRES IMPORTANT : ne pas oublier d'incrementer j à la fin de l'algo
 		} 											// sinon, on bouclerait sur la même position de j=0 à l'infini 
-													// et on ne sortirait jamais de la boucle
+		}										// et on ne sortirait jamais de la boucle
 		return result;
 	}
 
