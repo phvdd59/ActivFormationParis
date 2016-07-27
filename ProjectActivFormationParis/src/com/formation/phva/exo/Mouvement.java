@@ -2,17 +2,17 @@ package com.formation.phva.exo;
 
 public class Mouvement {
 
-	private int taille;
+	private int indice;
 	private String from;
 	private String to;
 	public Mouvement(int indice, String from, String to) {
 		super();
-		this.taille = indice;
+		this.indice = indice;
 		this.from = from;
 		this.to = to;
 	}
 	public int getTaille() {
-		return taille;
+		return indice;
 	}
 	public String getFrom() {
 		return from;
@@ -22,6 +22,6 @@ public class Mouvement {
 	}
 	@Override
 	public String toString() {
-		return "Bougez le disque " + taille + " de " + from + " à " + to;
+		return "Bougez le disque " + indice + " de " + from + " à " + to;
 	}
 }
