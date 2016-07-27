@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import com.formation.emma.exo.ExoAlgo1;
+import com.formation.emma.exo.ExoAlgo2;
 import com.formation.emma.exo.ExoArrayList1;
 import com.formation.emma.exo.ExoSimple;
 import com.formation.emma.exo.ExoTableau1;
@@ -213,7 +214,7 @@ public class Main {
 		}
 
 		System.out.println("exo5 ");
-		int nombre = -Integer.MAX_VALUE;
+		int nombre = Integer.MAX_VALUE;
 		ExoTableau2 binaire = new ExoTableau2();
 		int[] valeurBinaire = binaire.tabBaseDeux(nombre);
 		if (valeurBinaire == null) {
@@ -225,7 +226,7 @@ public class Main {
 		}
 		System.out.println(" ");
 		System.out.println("exoalgo1");
-		int[] tabAlgo1 = {1,2,3, 6 , -3};
+		int[] tabAlgo1 = null;
 		ExoAlgo1 algo = new ExoAlgo1();
 		int pAlgo = algo.solution(tabAlgo1);
 		System.out.println(pAlgo);
@@ -239,9 +240,10 @@ public class Main {
 		}
 		int[][][] tableau3D = new int[4][2][3];
 
-		// 26 lettres alphabets
-		//taille tableau 27
-		// tient sur 5 bytes
-		// faire toutes les lettres en binaire
+		System.out.println("exoalgo2");
+		int o = 1;
+		ExoAlgo2 algo2 = new ExoAlgo2();
+		int nbDeDiviseur = algo2.solution(o);
+		System.out.println(nbDeDiviseur);
 	}
 }
