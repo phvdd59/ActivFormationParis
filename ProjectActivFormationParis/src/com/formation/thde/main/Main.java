@@ -179,7 +179,7 @@ public class Main {
 
 	private void init5() {
 		ExoAlgo2 exoAlgo = new ExoAlgo2();
-		int diviseurs = exoAlgo.solution(100);
+		int diviseurs = exoAlgo.solution(25);
 		System.out.println(diviseurs);
 	}
 }
