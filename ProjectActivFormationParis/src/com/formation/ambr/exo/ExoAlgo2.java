@@ -19,8 +19,16 @@ public class ExoAlgo2 implements ImpAlgo2 {
 	public int solution(int n) {
 		int d;
 		int m;
+		int j = 0;
+		int[] tab = new int[n];
 		//n=d*m;
-		
-		return 0;
+		for (int i = 1; i <= n; i++) {
+			if (n % i == 0) {
+				tab[j] = i;
+				j++;
+			}
+		}
+		return j;
+		//	return -1;
 	}
 }
