@@ -18,15 +18,18 @@ public class ExoAlgo2 implements ImpAlgo2 {
 
 	public int solution(int n) {
 		int cpt = -1;
-		if (n > 0) {
-			cpt = 0;
-			for (int i = 1; i * i <= n; i++) {
 
-				if (n % (i) == 0 && i < (int) Math.sqrt(n)) {
+		if (n > 0) {
+
+			int m = (int) Math.sqrt(n);
+			cpt = 0;
+			for (int i = 1; i <= m; i++) {
+
+				if (n % (i) == 0 && i < m) {
 					cpt += 2;
-				} else if (i * i % n == 0) {
+				} else if (i % m == 0) {
 					cpt++;
-				} else if (i > (int) Math.sqrt(n)) {
+				} else {
 					break;
 				}
 			}
