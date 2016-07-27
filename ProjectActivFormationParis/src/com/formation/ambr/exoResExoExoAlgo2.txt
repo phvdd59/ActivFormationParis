@@ -1,11 +1,10 @@
-ambr testGrand (0/1): KO | exo.solution(2147395600)
-null
-ambr testTemps (0/2): KO | exo.solution(2147483647)
+ambr:Algo
+
+ambr testGrand (1/1):    | exo.solution(2147395600)
+ambr testTemps (0/2): KO | exo.solution(2147483647) temps : 2453.34 245.334
 ambr testPremier (0/1): KO | exo.solution(2147483647)
-null
+/ by zero
 ambr test0 (0/1): KO | exo.solution(0)
-null
-ambr testClassique (0/2): KO | exo.solution(24)
-null
-ambr testNegatif (0/1): KO | exo.solution(-5)
-null
+ambr testClassique (2/2):    | exo.solution(24)
+ambr testNegatif (1/1):    | exo.solution(-5)
+ambr NOTE : (4 / 8) = 10 / 20

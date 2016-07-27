@@ -1,11 +1,9 @@
-joca testGrand (0/1): KO | exo.solution(2147395600)
-null
-joca testTemps (0/2): KO | exo.solution(2147483647)
-joca testPremier (0/1): KO | exo.solution(2147483647)
-null
-joca test0 (0/1): KO | exo.solution(0)
-null
-joca testClassique (0/2): KO | exo.solution(24)
-null
-joca testNegatif (0/1): KO | exo.solution(-5)
-null
+joca:Algo
+
+joca testGrand (1/1):    | exo.solution(2147395600)
+joca testTemps (2/2):    | exo.solution(2147483647)
+joca testPremier (1/1):    | exo.solution(2147483647)
+joca test0 (1/1):    | exo.solution(0)
+joca testClassique (2/2):    | exo.solution(24)
+joca testNegatif (1/1):    | exo.solution(-5)
+joca NOTE : (8 / 8) = 20 / 20

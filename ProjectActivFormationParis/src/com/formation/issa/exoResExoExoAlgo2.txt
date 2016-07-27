@@ -1,11 +1,10 @@
-issa testGrand (0/1): KO | exo.solution(2147395600)
-null
-issa testTemps (0/2): KO | exo.solution(2147483647)
+issa:Algo
+
+issa testGrand (1/1):    | exo.solution(2147395600)
+issa testTemps (0/2): KO | exo.solution(2147483647) temps : 1544.69 154.469
 issa testPremier (0/1): KO | exo.solution(2147483647)
-null
+/ by zero
 issa test0 (0/1): KO | exo.solution(0)
-null
-issa testClassique (0/2): KO | exo.solution(24)
-null
+issa testClassique (2/2):    | exo.solution(24)
 issa testNegatif (0/1): KO | exo.solution(-5)
-null
+issa NOTE : (3 / 8) = 7 / 20

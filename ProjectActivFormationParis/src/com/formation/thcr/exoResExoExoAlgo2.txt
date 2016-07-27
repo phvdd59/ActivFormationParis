@@ -1,9 +1,9 @@
 thcr:Algo
 
-thcr testGrand (0/1): KO | exo.solution(2147395600) = 133 : attendu : 135
-thcr testTemps (0/2): KO | exo.solution(2147483647)
-thcr testPremier (0/1): KO | exo.solution(2147483647) = 1 : attendu : 2
+thcr testGrand (1/1):    | exo.solution(2147395600)
+thcr testTemps (0/2): KO | exo.solution(2147483647) temps : 1544.69 154.469
+thcr testPremier (1/1):    | exo.solution(2147483647)
 thcr test0 (0/1): KO | exo.solution(0)
-thcr testClassique (0/2): KO | exo.solution(24)
+thcr testClassique (2/2):    | exo.solution(24)
 thcr testNegatif (1/1):    | exo.solution(-5)
-thcr NOTE : (1 / 8) = 2 / 20
+thcr NOTE : (5 / 8) = 12 / 20
