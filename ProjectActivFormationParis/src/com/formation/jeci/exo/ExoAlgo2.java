@@ -20,13 +20,13 @@ public class ExoAlgo2 implements ImpAlgo2 {
 		int cpt = -1;
 		if (n > 0) {
 			cpt = 0;
-			for (int i = 1; i * i < n; i++) {
+			for (int i = 1;  i *  i < n; i++) {
 
 				if (n % (i) == 0) {
 					cpt += 2;
 				} else if (i * i % n == 0) {
 					cpt++;
-				} else if (i * i > n) {
+				} else if ((long) i * (long) i > n) {
 					break;
 				}
 			}
