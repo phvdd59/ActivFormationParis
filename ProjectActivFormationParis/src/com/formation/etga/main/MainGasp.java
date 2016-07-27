@@ -148,7 +148,7 @@ public class MainGasp {
 
 	private void init5() {
 		ExoAlgo2 exoAlgo2 = new ExoAlgo2();
-		int n = 24;
+		int n = 2147483647;
 		int solution2 = exoAlgo2.solution(n);
 		System.out.println(solution2);
 	}
