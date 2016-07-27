@@ -18,7 +18,7 @@ public class ExoAlgo2 implements ImpAlgo2 {
 	public int solution(int n) {
 		int compteur = -1;
 		// ArrayList<Integer> listavaleurs = new ArrayList<>();
-		if (n == 0) {
+		if (n <= 0) {
 		} else if (n > 0) {
 			for (int i = 1; i <= n / 2; i++) {
 				if (n % i == 0) {

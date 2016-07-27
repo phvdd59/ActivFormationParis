@@ -23,13 +23,14 @@ public class ExoAlgo2 implements ImpAlgo2 {
 		} else if (n > 0) {
 			nbDiviseur = 0;
 			for (int i = 1; i < n; i++) {
+				if (n / i < i) {
+					break;
+				}
 				if (n % i == 0) {
 					if (n / i > i) {
 						nbDiviseur += 2;
 					} else if (n / i == i) {
 						nbDiviseur += 1;
-						break;
-					} else if (n / i < i) {
 						break;
 					}
 				}
