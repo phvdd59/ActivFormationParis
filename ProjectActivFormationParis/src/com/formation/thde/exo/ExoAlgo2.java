@@ -20,8 +20,9 @@ public class ExoAlgo2 implements ImpAlgo2 {
 		int diviseurs = -1;
 		if (n > 0) {
 			diviseurs = 0;
+			int racine = (int) Math.sqrt(n);
 			if (n % 2 != 0) {
-				for (int i = 1; i <= (int) Math.sqrt(n); i += 2) {
+				for (int i = 1; i <= racine; i += 2) {
 					if (n % i == 0) {
 						if (i * i == n) {
 							diviseurs += 1;
@@ -31,7 +32,7 @@ public class ExoAlgo2 implements ImpAlgo2 {
 					}
 				}
 			} else {
-				for (int i = 1; i <= (int) Math.sqrt(n); i++) {
+				for (int i = 1; i <= racine; i++) {
 					if (n % i == 0) {
 						if (i * i == n) {
 							diviseurs += 1;
