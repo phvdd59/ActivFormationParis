@@ -1,7 +1,5 @@
 package com.formation.joca.exo;
 
-import java.util.ArrayList;
-
 import com.formation.phva.exo.ImpAlgo2;
 
 public class ExoAlgo2 implements ImpAlgo2 {
@@ -22,15 +20,13 @@ public class ExoAlgo2 implements ImpAlgo2 {
 	public int solution(int n) {
 		int result = 0;
 		if (n != 0 && n >= Integer.MIN_VALUE && n <= Integer.MAX_VALUE) {
-			ArrayList<Integer> listeDiv = new ArrayList<Integer>();
-			listeDiv.add((Integer) Math.abs(n));
-			listeDiv.add((Integer) 1);
-			for (int i = 2; i < (Math.abs(n) / 2) + 1; i++) {
+			int nbDiv = 2;
+			for (int i = 2; i <= (Math.sqrt(Math.abs(n))); i++) {
 				if (n % i == 0) {
-					listeDiv.add((Integer) i);
+					nbDiv += 2;
 				}
 			}
-			result = listeDiv.size();
+			result = nbDiv;
 		}
 		return result;
 	}

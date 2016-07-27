@@ -13,7 +13,7 @@ public class MainActiveFormationParisJoca {
 
 	public static void main(String[] arg) {
 		MainActiveFormationParisJoca test = new MainActiveFormationParisJoca();
-		test.init5();
+		test.init6();
 	}
 
 	public void afficherTableau(int[] tab) {
@@ -139,6 +139,6 @@ public class MainActiveFormationParisJoca {
 
 	private void init6() {
 		ExoAlgo2 exo6 = new ExoAlgo2();
-		System.out.println(exo6.solution(2147483647));
+		System.out.println(exo6.solution(5987132));
 	}
 }
