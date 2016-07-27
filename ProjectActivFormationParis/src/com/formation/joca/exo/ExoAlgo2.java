@@ -18,13 +18,14 @@ public class ExoAlgo2 implements ImpAlgo2 {
 
 	@Override
 	public int solution(int n) {
-		int result = 0;
-		if (n != 0 && n >= Integer.MIN_VALUE && n <= Integer.MAX_VALUE) {
+		int result = -1;
+		if (n > 0 && n >= Integer.MIN_VALUE && n <= Integer.MAX_VALUE) {
 			int nbDiv = 2;
+			double n2 = Math.sqrt(n);
 			if (n % 2 == 0) {
-				for (int i = 2; i <= (Math.sqrt(Math.abs(n))); i++) {
+				for (int i = 2; i <= n2; i++) {
 					if (n % i == 0) {
-						if (i == Math.sqrt(Math.abs(n))) {
+						if (i * i == n) {
 							nbDiv++;
 						} else {
 							nbDiv += 2;
@@ -32,15 +33,14 @@ public class ExoAlgo2 implements ImpAlgo2 {
 					}
 				}
 			} else {
-				for (int i = 3; i <= (Math.sqrt(Math.abs(n))); i++) {
+				for (int i = 3; i <= n2; i += 2) {
 					if (n % i == 0) {
-						if (i == Math.sqrt(Math.abs(n))) {
+						if (i * i == n) {
 							nbDiv++;
 						} else {
 							nbDiv += 2;
 						}
 					}
-					i++;
 				}
 			}
 			result = nbDiv;
