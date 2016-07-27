@@ -243,7 +243,7 @@ public class Main {
 	private void init6() {
 		System.out.println("-----ExoAlgo2-----");
 		ExoAlgo2 exoAlgo2 = new ExoAlgo2();
-		int solution = exoAlgo2.solution(24);
+		int solution = exoAlgo2.solution(8);
 		System.out.println(solution);
 	}
 
