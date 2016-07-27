@@ -22,7 +22,8 @@ public class ExoAlgo2 implements ImpAlgo2 {
 		if (n < 0) {
 			diviseur = -1;
 		} else {
-			for (int m = 1; m < n + 1; m++) {
+			long u = (long) n+1;
+			for (long m = 1; m < u; m++) {
 				if (n % m != 0) {
 
 				} else {

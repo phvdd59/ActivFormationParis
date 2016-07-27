@@ -241,7 +241,7 @@ public class Main {
 		int[][][] tableau3D = new int[4][2][3];
 
 		System.out.println("exoalgo2");
-		int o = 1;
+		int o = 2147483647;
 		ExoAlgo2 algo2 = new ExoAlgo2();
 		int nbDeDiviseur = algo2.solution(o);
 		System.out.println(nbDeDiviseur);
