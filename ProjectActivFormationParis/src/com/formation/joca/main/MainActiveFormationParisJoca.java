@@ -139,6 +139,6 @@ public class MainActiveFormationParisJoca {
 
 	private void init6() {
 		ExoAlgo2 exo6 = new ExoAlgo2();
-		System.out.println(exo6.solution(49));
+		System.out.println(exo6.solution(2147483647));
 	}
 }
