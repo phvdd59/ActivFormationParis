@@ -24,7 +24,8 @@ public class ExoAlgo2 implements ImpAlgo2 {
 		if (n != 0 && n >= Integer.MIN_VALUE && n <= Integer.MAX_VALUE) {
 			ArrayList<Integer> listeDiv = new ArrayList<Integer>();
 			listeDiv.add((Integer) Math.abs(n));
-			for (int i = 1; i < (Math.abs(n) / 2) + 1; i++) {
+			listeDiv.add((Integer) 1);
+			for (int i = 2; i < (Math.abs(n) / 2) + 1; i++) {
 				if (n % i == 0) {
 					listeDiv.add((Integer) i);
 				}
