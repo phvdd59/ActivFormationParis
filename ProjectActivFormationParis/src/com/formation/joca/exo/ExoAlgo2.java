@@ -19,7 +19,7 @@ public class ExoAlgo2 implements ImpAlgo2 {
 	@Override
 	public int solution(int n) {
 		int result = -1;
-		if (n > 0 && n >= Integer.MIN_VALUE && n <= Integer.MAX_VALUE) {
+		if (n > 0) {
 			int nbDiv = 2;
 			double n2 = Math.sqrt(n);
 			if (n % 2 == 0) {
