@@ -29,7 +29,7 @@ public class ExoAlgo2 implements ImpAlgo2 {
 
 			for (m = 1; m <= n; m++) {
 				if (n == d * m) {
-					System.out.print(d + ",");
+					//System.out.print(d + ",");
 					cpt++;
 
 				}
@@ -37,7 +37,7 @@ public class ExoAlgo2 implements ImpAlgo2 {
 			}
 
 		}
-		System.out.println("Le nombre de diviseurs est égal à "+cpt);
+		//System.out.println("Le nombre de diviseurs est égal à "+cpt);
 
 		return cpt;
 	}
