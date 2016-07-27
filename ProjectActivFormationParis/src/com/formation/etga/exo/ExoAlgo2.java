@@ -17,18 +17,18 @@ public class ExoAlgo2 implements ImpAlgo2 {
 	 */
 
 	public int solution(int n) {
-		int diviseur = 0;
+		int nbDiviseur = 0;
 
 		if (0 < n) {
 			for (int i = 1; i < n + 1; i++) {
 				if (n % i == 0) {
-					diviseur++;
+					nbDiviseur++;
 				}
 			}
 		} else {
-			diviseur = -1;
+			nbDiviseur = -1;
 		}
-		return diviseur;
+		return nbDiviseur;
 	}
 
 }
