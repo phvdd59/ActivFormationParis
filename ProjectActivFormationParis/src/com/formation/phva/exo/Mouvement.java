@@ -11,7 +11,7 @@ public class Mouvement {
 		this.from = from;
 		this.to = to;
 	}
-	public int getTaille() {
+	public int getIndice() {
 		return indice;
 	}
 	public String getFrom() {
