@@ -1,9 +1,9 @@
 anfr:Algo
 
-anfr testGrand (0/1): KO | exo.solution(2147395600) = 136 : attendu : 135
-anfr testTemps (0/2): KO | exo.solution(2147483647)
+anfr testGrand (1/1):    | exo.solution(2147395600)
+anfr testTemps (0/2): KO | exo.solution(2147483647) temps : 1647.4 164.74
 anfr testPremier (1/1):    | exo.solution(2147483647)
 anfr test0 (1/1):    | exo.solution(0)
 anfr testClassique (2/2):    | exo.solution(24)
 anfr testNegatif (1/1):    | exo.solution(-5)
-anfr NOTE : (5 / 8) = 12 / 20
+anfr NOTE : (6 / 8) = 15 / 20

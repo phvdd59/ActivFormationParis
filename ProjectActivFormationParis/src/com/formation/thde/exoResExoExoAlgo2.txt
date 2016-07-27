@@ -1,9 +1,9 @@
 thde:Algo
 
 thde testGrand (1/1):    | exo.solution(2147395600)
-thde testTemps (0/2): KO | exo.solution(2147483647)
+thde testTemps (2/2):    | exo.solution(2147483647)
 thde testPremier (1/1):    | exo.solution(2147483647)
 thde test0 (1/1):    | exo.solution(0)
 thde testClassique (2/2):    | exo.solution(24)
 thde testNegatif (1/1):    | exo.solution(-5)
-thde NOTE : (6 / 8) = 15 / 20
+thde NOTE : (8 / 8) = 20 / 20

@@ -1,11 +1,9 @@
-made testGrand (0/1): KO | exo.solution(2147395600)
-null
-made testTemps (0/2): KO | exo.solution(2147483647)
-made testPremier (0/1): KO | exo.solution(2147483647)
-null
-made test0 (0/1): KO | exo.solution(0)
-null
-made testClassique (0/2): KO | exo.solution(24)
-null
-made testNegatif (0/1): KO | exo.solution(-5)
-null
+made:Algo
+
+made testGrand (1/1):    | exo.solution(2147395600)
+made testTemps (0/2): KO | exo.solution(2147483647) temps : 1623.7 162.37
+made testPremier (1/1):    | exo.solution(2147483647)
+made test0 (1/1):    | exo.solution(0)
+made testClassique (2/2):    | exo.solution(24)
+made testNegatif (1/1):    | exo.solution(-5)
+made NOTE : (6 / 8) = 15 / 20
