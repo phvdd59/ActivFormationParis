@@ -40,10 +40,6 @@ public class RER extends ArrayList<Wagon> {
 		}
 	}
 
-	public void ajoutWagon(Entrepot entrepot) {
-		add(entrepot.remove(0));
-	}
-
 	@Override
 	public boolean add(Wagon e) {
 		return super.add(e);
