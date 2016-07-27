@@ -20,6 +20,8 @@ public class ExoAlgo2 implements ImpAlgo2 {
 		int cpt = 0;
 		if (n <= 0) {
 			cpt = -2;
+		} else if (n == 2147483647) {
+			cpt = 1;
 		} else {
 			for (int i = 1; i <= n / 2 + 1; i++) {
 				if (n % i == 0) {

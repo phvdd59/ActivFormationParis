@@ -19,8 +19,8 @@ public class ExoAlgo2 implements ImpAlgo2 {
 	public int solution(int n) {
 		int nbDiviseur = 0;
 
-		if ((n > 0) && ((float) n < Integer.MAX_VALUE)) {
-			for (int i = 1; i < n + 1; i++) {
+		if ((n > 0) && ((float) n <= Integer.MAX_VALUE)) {
+			for (int i = 1; i <= n; i++) {
 				if (n % i == 0) {
 					nbDiviseur++;
 				}
