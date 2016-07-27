@@ -49,5 +49,4 @@ public class ExoAlgo2 implements ImpAlgo2 {
 		}
 		return nbDiviseur;
 	}
-
 }
