@@ -15,7 +15,7 @@ public class MainExoAlgo2 {
 
 	private void init() {
 		ExoAlgo2 exoAlg2=new ExoAlgo2();
-		int n=24;
+		int n=16;
 		System.out.println(exoAlg2.solution(n));
 		
 	}
