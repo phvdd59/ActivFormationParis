@@ -23,7 +23,7 @@ public class ExoAlgo2 implements ImpAlgo2 {
 
 			int m = (int) Math.sqrt(n);
 			cpt = 0;
-			for (int i = 1; i * i <= n; i++) {
+			for (int i = 1; i <= m; i++) {
 
 				if (n % (i) == 0 && i < m) {
 					cpt += 2;
