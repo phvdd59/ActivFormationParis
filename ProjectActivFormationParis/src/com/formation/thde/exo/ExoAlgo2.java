@@ -23,10 +23,10 @@ public class ExoAlgo2 implements ImpAlgo2 {
 			if (n % 2 != 0) {
 				for (int i = 1; i <= (int) Math.sqrt(n); i += 2) {
 					if (n % i == 0) {
-						if (i * i < n) {
-							diviseurs += 2;
-						} else if (i * i == n) {
+						if (i * i == n) {
 							diviseurs += 1;
+						} else {
+							diviseurs += 2;
 						}
 					}
 				}
