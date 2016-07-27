@@ -27,6 +27,8 @@ public class ExoAlgo1 implements ImpAlgo1 {
 	// si pas de point d'equilibre on renvoi -1
 
 	public int solution(int[] tab) {
+		
+		// manque le cas ou tableau à une valeur
 		int sommeAvant = 0;
 		int sommeApres = 1;
 		int k = -1;
@@ -78,9 +80,7 @@ public class ExoAlgo1 implements ImpAlgo1 {
 
 		if (tab == null || k == tab.length - 1 && sommeAvant != sommeApres) {
 			k = 0;
-		} else if (tab.length == 1) {
-			k = 2;
-		}
+		} 
 
 		return k - 1;
 	}

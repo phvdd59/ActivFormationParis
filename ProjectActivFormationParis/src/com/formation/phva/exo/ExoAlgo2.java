@@ -14,7 +14,10 @@ public class ExoAlgo2 implements ImpAlgo2 {
 	 * 
 	 */
 
+
+	@Override
 	public int solution(int n) {
+		// TODO Auto-generated method stub
 		return 0;
 	}
 }

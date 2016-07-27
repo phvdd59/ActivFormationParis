@@ -18,9 +18,9 @@ made insererUnArrayListDansUnAutreAvecRemplacement0 (2/2):    | exo.insererUnArr
 made insererUnArrayListDansUnAutreAvecRemplacement1 (2/2):    | exo.insererUnArrayListDansUnAutreAvecRemplacement(tab, 3, tab1)
 made insererUnArrayListDansUnAutreAvecRemplacement2 (1/1):    | exo.insererUnArrayListDansUnAutreAvecRemplacement(tab, -3, tab1)
 made insererUnArrayListDansUnAutreAvecRemplacement3 (1/1):    | exo.insererUnArrayListDansUnAutreAvecRemplacement(tab, 3000, tab1)
-made rotationArrayList0 (0/2): KO | exo.rotationArrayList(tabA, 2)
-made rotationArrayList1 (0/2): KO | exo.rotationArrayList(tab, 3)
-made rotationArrayList2 (0/1): KO | exo.rotationArrayList(tab, -3)
-made rotationArrayList3 (0/1): KO | exo.rotationArrayList(tab, 3000)
-made rotationArrayList4 (0/1): KO | exo.rotationArrayList(tab, -777)
-made NOTE : (26 / 33) = 15 / 20
+made rotationArrayList0 (2/2):    | exo.rotationArrayList(tabA, 2)
+made rotationArrayList1 (2/2):    | exo.rotationArrayList(tab, 3)
+made rotationArrayList2 (1/1):    | exo.rotationArrayList(tab, -3)
+made rotationArrayList3 (1/1):    | exo.rotationArrayList(tab, 3000)
+made rotationArrayList4 (1/1):    | exo.rotationArrayList(tab, -777)
+made NOTE : (33 / 33) = 20 / 20

@@ -50,7 +50,7 @@ public class WagonResto extends Wagon {
 	
 	@Override
 	public int getValeur() {
-		return typeWagon.WAGON_RESTO.getValeur();
+		return typeWagon.WAGON_RESTO.getOrdreDeTri();
 	}
 
 

@@ -1,47 +1,30 @@
 etga:Collection
 
-etga intervertirDeuxElementsTableau0 (0/2): KO | exo.intervertirDeuxElementsTableau(tab0, 3, 8)
-null
-etga intervertirDeuxElementsTableau1 (0/2): KO | exo.intervertirDeuxElementsTableau(tab, 3, 8)
-null
+etga intervertirDeuxElementsTableau0 (2/2):    | exo.intervertirDeuxElementsTableau(tab0, 3, 8)
+etga intervertirDeuxElementsTableau1 (2/2):    | exo.intervertirDeuxElementsTableau(tab, 3, 8)
 etga intervertirDeuxElementsTableau2 (0/1): KO | exo.intervertirDeuxElementsTableau(tab, -3, 8)
-null
+-3
 etga intervertirDeuxElementsTableau3 (0/1): KO | exo.intervertirDeuxElementsTableau(tab, 3, 44448)
-null
+Index: 44448, Size: 2048
 etga intervertirDeuxElementsTableau4 (0/1): KO | exo.intervertirDeuxElementsTableau(tab, 34444, 8)
-null
+Index: 34444, Size: 2048
 etga intervertirDeuxElementsTableau5 (0/1): KO | exo.intervertirDeuxElementsTableau(tab, 3, -8)
-null
-etga insererUnElementDansTableau0 (0/2): KO | exo.insererUnElementDansTableau(tab1, 3, 8)
-null
-etga insererUnElementDansTableau1 (0/2): KO | exo.insererUnElementDansTableau(tab, 3, 8)
-null
+-8
+etga insererUnElementDansTableau0 (2/2):    | exo.insererUnElementDansTableau(tab1, 3, 8)
+etga insererUnElementDansTableau1 (2/2):    | exo.insererUnElementDansTableau(tab, 3, 8)
 etga insererUnElementDansTableau2 (0/1): KO | exo.insererUnElementDansTableau(tab, -3, 8)
 etga insererUnElementDansTableau3 (0/1): KO | exo.insererUnElementDansTableau(tab, 33333, 8)
-etga remplirArrayList0 (0/2): KO | exo.remplirArrayList(7, 5, 3)
-null
-etga remplirArrayList1 (0/2): KO | exo.remplirArrayList(-120, 125, 7)
-null
+etga remplirArrayList0 (2/2):    | exo.remplirArrayList(7, 5, 3)
+etga remplirArrayList1 (2/2):    | exo.remplirArrayList(-120, 125, 7)
 etga remplirArrayList2 (0/1): KO | exo.remplirArrayList(0x7FFFFFF0, 16, 8)
-null
 etga remplirArrayList3 (0/1): KO | exo.remplirArrayList(-0x7FFFFFF0, 16, -8)
-null
-etga insererUnArrayListDansUnAutreAvecRemplacement0 (0/2): KO | exo.insererUnArrayListDansUnAutreAvecRemplacement(taba, 2, tabb)
-null
-etga insererUnArrayListDansUnAutreAvecRemplacement1 (0/2): KO | exo.insererUnArrayListDansUnAutreAvecRemplacement(tab, 3, tab1)
-null
+etga insererUnArrayListDansUnAutreAvecRemplacement0 (2/2):    | exo.insererUnArrayListDansUnAutreAvecRemplacement(taba, 2, tabb)
+etga insererUnArrayListDansUnAutreAvecRemplacement1 (2/2):    | exo.insererUnArrayListDansUnAutreAvecRemplacement(tab, 3, tab1)
 etga insererUnArrayListDansUnAutreAvecRemplacement2 (0/1): KO | exo.insererUnArrayListDansUnAutreAvecRemplacement(tab, -3, tab1)
-null
 etga insererUnArrayListDansUnAutreAvecRemplacement3 (0/1): KO | exo.insererUnArrayListDansUnAutreAvecRemplacement(tab, 3000, tab1)
-null
 etga rotationArrayList0 (0/2): KO | exo.rotationArrayList(tabA, 2)
-null
 etga rotationArrayList1 (0/2): KO | exo.rotationArrayList(tab, 3)
-null
 etga rotationArrayList2 (0/1): KO | exo.rotationArrayList(tab, -3)
-null
 etga rotationArrayList3 (0/1): KO | exo.rotationArrayList(tab, 3000)
-null
 etga rotationArrayList4 (0/1): KO | exo.rotationArrayList(tab, -777)
-null
-etga NOTE : (0 / 33) = 0 / 20
+etga NOTE : (16 / 33) = 9 / 20

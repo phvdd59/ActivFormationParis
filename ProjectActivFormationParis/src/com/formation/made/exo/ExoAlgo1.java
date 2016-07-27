@@ -46,10 +46,14 @@ public class ExoAlgo1 implements ImpAlgo1 {
 					if (sommegauche + tab[i] > Integer.MIN_VALUE || sommegauche + tab[i] < Integer.MAX_VALUE) {
 
 						sommegauche = sommegauche + tab[i];
+					} else {
+						long sommegauchel = sommegauche;
+						sommegauchel = (long) sommegauche + (long) tab[i];
 					}
+
 				}
 				for (int i = p + 1; i < tab.length; i++) {
-					if (sommegauche + tab[i] > Integer.MIN_VALUE || sommegauche + tab[i] < Integer.MAX_VALUE) {
+					if (sommedroite + tab[i] > Integer.MIN_VALUE || sommedroite + tab[i] < Integer.MAX_VALUE) {
 						sommedroite = sommedroite + tab[i];
 					}
 				}
@@ -69,19 +73,19 @@ public class ExoAlgo1 implements ImpAlgo1 {
 	// ne pas oublier les controles
 	// on ne prend pas la valeur de la position de p!!
 
-	public int[] retirerElementTableau(int[] tab, int p) {
-		int[] tablereduite = null;
-		tablereduite = new int[tab.length - 1];
-		for (int i = 0; i < p; i++) {
-			tablereduite[i] = tab[i];
-		}
-		for (int i = p; i < tablereduite.length; i++) {
-			tablereduite[i] = tab[i + 1];
-		}
-		for (int i = 0; i < tablereduite.length; i++) {
-			// System.out.println(tablereduite[i]);
-		}
-		return tablereduite;
-	}
+	// public int[] retirerElementTableau(int[] tab, int p) {
+	// int[] tablereduite = null;
+	// tablereduite = new int[tab.length - 1];
+	// for (int i = 0; i < p; i++) {
+	// tablereduite[i] = tab[i];
+	// }
+	// for (int i = p; i < tablereduite.length; i++) {
+	// tablereduite[i] = tab[i + 1];
+	// }
+	// for (int i = 0; i < tablereduite.length; i++) {
+	// // System.out.println(tablereduite[i]);
+	// }
+	// return tablereduite;
+	// }
 
 }

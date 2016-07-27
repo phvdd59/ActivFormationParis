@@ -22,7 +22,7 @@ public class WagonDouble extends WagonVoyageur {
 	}
 	@Override
 	public int getValeur() {
-		return typeWagon.WAGON_DOUBLE.getValeur();
+		return typeWagon.WAGON_DOUBLE.getOrdreDeTri();
 	}
 
 	@Override

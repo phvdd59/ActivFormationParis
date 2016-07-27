@@ -2,20 +2,20 @@ package com.formation.anfr.metier;
 
 public enum typeWagon {
 	WAGON_RESTO(3,14), WAGON_SIMPLE1(2,14), WAGON_SIMPLE2(0,44), WAGON_DOUBLE(1,28);
-	private int valeur;
+	private int ordreDeTri;
 	private int pourcent;
 
 	private typeWagon(int valeur,int pourcent) {
-		this.valeur = valeur;
+		this.ordreDeTri = valeur;
 		this.pourcent = pourcent;
 	}
 
-	public int getValeur() {
-		return valeur;
+	public int getOrdreDeTri() {
+		return ordreDeTri;
 	}
 
-	public void setValeur(int valeur) {
-		this.valeur = valeur;
+	public void setOrdreDeTri(int valeur) {
+		this.ordreDeTri = valeur;
 	}
 
 	public int getPourcent() {

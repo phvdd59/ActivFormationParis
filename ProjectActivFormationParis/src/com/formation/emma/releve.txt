@@ -1,9 +1,10 @@
 Syntaxe:-1
 Tableau:18.18
+Algo:14.00
 Versionning:-1
 Objet:-1
 UML:-1
-Collection:-1
+Collection:20.00
 Tri:-1
 Exceptions:-1
 Flux:-1

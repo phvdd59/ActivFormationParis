@@ -1,4 +1,4 @@
-etga:Tableau
+etga:Algo
 
 etga test3OK (1/1):    | exo.solution(a)
 etga testTemps (0/1): KO | exo.solution(a)

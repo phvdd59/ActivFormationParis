@@ -1,0 +1,9 @@
+beba:Algo
+
+beba testGrand (1/1):    | exo.solution(2147395600)
+beba testTemps (0/2): KO | exo.solution(2147483647)
+beba testPremier (1/1):    | exo.solution(2147483647)
+beba test0 (1/1):    | exo.solution(0)
+beba testClassique (2/2):    | exo.solution(24)
+beba testNegatif (1/1):    | exo.solution(-5)
+beba NOTE : (6 / 8) = 15 / 20

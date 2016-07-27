@@ -3,6 +3,7 @@ package com.formation.joca.main;
 import java.util.ArrayList;
 
 import com.formation.joca.exo.ExoAlgo1;
+import com.formation.joca.exo.ExoAlgo2;
 import com.formation.joca.exo.ExoArrayList1;
 import com.formation.joca.exo.ExoSimple;
 import com.formation.joca.exo.ExoTableau1;
@@ -12,7 +13,7 @@ public class MainActiveFormationParisJoca {
 
 	public static void main(String[] arg) {
 		MainActiveFormationParisJoca test = new MainActiveFormationParisJoca();
-		test.init3();
+		test.init5();
 	}
 
 	public void afficherTableau(int[] tab) {
@@ -128,10 +129,16 @@ public class MainActiveFormationParisJoca {
 
 	private void init5() {
 		ExoAlgo1 exo5 = new ExoAlgo1();
-		int[] tab = { -1, 3, -4, 5, -3, -2, 5, -3, 1, 1, -6, 2, 1 };
+		int[] tab = { -1,3,-4,5,1,-6,2,1 };
 		int p1 = exo5.solution(tab);
 		int p2 = exo5.solution2(tab);
 		ArrayList<Integer> liste = exo5.solution3(tab);
 		System.out.println(p1 + " " + p2 + " " + liste);
+		System.out.println(exo5.solution(null));
+	}
+
+	private void init6() {
+		ExoAlgo2 exo6 = new ExoAlgo2();
+		System.out.println(exo6.solution(2147483647));
 	}
 }

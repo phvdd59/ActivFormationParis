@@ -20,7 +20,7 @@ public class ExoAlgo2 implements ImpAlgo2 {
 		int diviseurs = -1;
 		if (n > 0) {
 			diviseurs = 0;
-			for (int i = 1; i <= n / 2; i++) {
+			for (int i = 1; i <= n; i++) {
 				if (n % i == 0) {
 					if (i * i < n) {
 						diviseurs += 2;

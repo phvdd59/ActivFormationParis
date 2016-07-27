@@ -2,27 +2,27 @@ jeci:Collection
 
 jeci intervertirDeuxElementsTableau0 (2/2):    | exo.intervertirDeuxElementsTableau(tab0, 3, 8)
 jeci intervertirDeuxElementsTableau1 (2/2):    | exo.intervertirDeuxElementsTableau(tab, 3, 8)
-jeci intervertirDeuxElementsTableau2 (0/1): KO | exo.intervertirDeuxElementsTableau(tab, -3, 8)
-jeci intervertirDeuxElementsTableau3 (0/1): KO | exo.intervertirDeuxElementsTableau(tab, 3, 44448)
-jeci intervertirDeuxElementsTableau4 (0/1): KO | exo.intervertirDeuxElementsTableau(tab, 34444, 8)
-jeci intervertirDeuxElementsTableau5 (0/1): KO | exo.intervertirDeuxElementsTableau(tab, 3, -8)
+jeci intervertirDeuxElementsTableau2 (1/1):    | exo.intervertirDeuxElementsTableau(tab, -3, 8)
+jeci intervertirDeuxElementsTableau3 (1/1):    | exo.intervertirDeuxElementsTableau(tab, 3, 44448)
+jeci intervertirDeuxElementsTableau4 (1/1):    | exo.intervertirDeuxElementsTableau(tab, 34444, 8)
+jeci intervertirDeuxElementsTableau5 (1/1):    | exo.intervertirDeuxElementsTableau(tab, 3, -8)
 jeci insererUnElementDansTableau0 (2/2):    | exo.insererUnElementDansTableau(tab1, 3, 8)
 jeci insererUnElementDansTableau1 (2/2):    | exo.insererUnElementDansTableau(tab, 3, 8)
-jeci insererUnElementDansTableau2 (0/1): KO | exo.insererUnElementDansTableau(tab, -3, 8)
-jeci insererUnElementDansTableau3 (0/1): KO | exo.insererUnElementDansTableau(tab, 33333, 8)
+jeci insererUnElementDansTableau2 (1/1):    | exo.insererUnElementDansTableau(tab, -3, 8)
+jeci insererUnElementDansTableau3 (1/1):    | exo.insererUnElementDansTableau(tab, 33333, 8)
 jeci remplirArrayList0 (2/2):    | exo.remplirArrayList(7, 5, 3)
 jeci remplirArrayList1 (2/2):    | exo.remplirArrayList(-120, 125, 7)
 jeci remplirArrayList2 (1/1):    | exo.remplirArrayList(0x7FFFFFF0, 16, 8)
 jeci remplirArrayList3 (1/1):    | exo.remplirArrayList(-0x7FFFFFF0, 16, -8)
 jeci insererUnArrayListDansUnAutreAvecRemplacement0 (0/2): KO | exo.insererUnArrayListDansUnAutreAvecRemplacement(taba, 2, tabb)
--1
+Index: -46089, Size: 2047
 jeci insererUnArrayListDansUnAutreAvecRemplacement1 (0/2): KO | exo.insererUnArrayListDansUnAutreAvecRemplacement(tab, 3, tab1)
--1
-jeci insererUnArrayListDansUnAutreAvecRemplacement2 (0/1): KO | exo.insererUnArrayListDansUnAutreAvecRemplacement(tab, -3, tab1)
-jeci insererUnArrayListDansUnAutreAvecRemplacement3 (0/1): KO | exo.insererUnArrayListDansUnAutreAvecRemplacement(tab, 3000, tab1)
+Index: 26443, Size: 2047
+jeci insererUnArrayListDansUnAutreAvecRemplacement2 (1/1):    | exo.insererUnArrayListDansUnAutreAvecRemplacement(tab, -3, tab1)
+jeci insererUnArrayListDansUnAutreAvecRemplacement3 (1/1):    | exo.insererUnArrayListDansUnAutreAvecRemplacement(tab, 3000, tab1)
 jeci rotationArrayList0 (2/2):    | exo.rotationArrayList(tabA, 2)
 jeci rotationArrayList1 (2/2):    | exo.rotationArrayList(tab, 3)
 jeci rotationArrayList2 (1/1):    | exo.rotationArrayList(tab, -3)
 jeci rotationArrayList3 (1/1):    | exo.rotationArrayList(tab, 3000)
 jeci rotationArrayList4 (1/1):    | exo.rotationArrayList(tab, -777)
-jeci NOTE : (21 / 33) = 12 / 20
+jeci NOTE : (29 / 33) = 17 / 20
