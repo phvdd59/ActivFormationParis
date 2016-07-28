@@ -5,6 +5,9 @@ public abstract class Animal {
 	private int poids;
 	private String couleur;
 
+	public Animal() {
+	}
+
 	public Animal(int poids, String couleur) {
 		this.poids = poids;
 		this.couleur = couleur;
