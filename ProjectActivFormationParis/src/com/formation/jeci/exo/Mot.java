@@ -30,8 +30,21 @@ public class Mot implements InterExoMot1, Comparable<Mot> {
 
 	@Override
 	public int compareTo(Mot o) {
+		int result = 0;
+		if (this.getNb() < o.getNb()) {
+			result = 1;
+		} else if (this.getNb() > o.getNb()) {
+			result = -1;
+		} else if (this.getNb() == o.getNb()) {
+			if (this.getMot().toString().compareTo(o.getMot().toString()) < 0) {
+				result = this.getMot().toString().compareTo(o.getMot().toString());
 
-		return 0;
+			} else if (this.getMot().toString().compareTo(o.getMot().toString()) > 0) {
+				result = this.getMot().toString().compareTo(o.getMot().toString());
+			}
+
+		}
+		return result;
 	}
 
 	@Override
