@@ -38,4 +38,9 @@ public abstract class Animal {
 	public void setCouleur(String couleur) {
 		this.couleur = couleur;
 	}
+
+	@Override
+	public String toString() {
+		return "Animal [poids=" + poids + ", couleur=" + couleur + "]";
+	}
 }
