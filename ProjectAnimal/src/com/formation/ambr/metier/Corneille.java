@@ -1,8 +1,12 @@
 package com.formation.ambr.metier;
 
-import com.formation.thde.metier.Animal;
+import com.formation.jeci.metier.Oiseaux;
 
-public class Corneille extends Animal {
+public class Corneille extends Oiseaux {
+
+	public Corneille() {
+		super(1, "noir");
+	}
 
 	public Corneille(int poids, String couleur) {
 		super(poids, couleur);
@@ -15,7 +19,7 @@ public class Corneille extends Animal {
 
 	@Override
 	public void boire() {
-		System.out.println("J'utilise mon bec comme récipient");
+		System.out.println("Je coule");
 	}
 
 	@Override
