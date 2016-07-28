@@ -1,8 +1,8 @@
 package com.formation.emma.metier;
 
-import com.formation.thde.metier.Animal;
+import com.formation.joca.metier.Canin;
 
-public class Chien extends Animal {
+public class Chien extends Canin {
 
 	public Chien() {
 		super(8, "blanc, marron, noir, gris...");
@@ -25,8 +25,7 @@ public class Chien extends Animal {
 
 	@Override
 	public void deplacement() {
-		System.out.println("Je peux être seul, à deux, à trois... ou en meute");
-
+		super.deplacement();
 	}
 
 	@Override
