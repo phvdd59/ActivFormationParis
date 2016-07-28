@@ -5,8 +5,7 @@ import com.formation.thde.metier.Animal;
 public class Panda extends Animal {
 
 	public Panda() {
-		super.setCouleur("Blanc et noir");
-		super.setPoids(800);
+		super(800, "Blanc et noir");
 	}
 
 	public Panda(int poids, String couleur) {

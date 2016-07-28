@@ -5,6 +5,11 @@ public abstract class Animal {
 	private int poids;
 	private String couleur;
 
+	public Animal() {
+		this.poids = 0;
+		this.couleur = null;
+	}
+
 	public Animal(int poids, String couleur) {
 		this.poids = poids;
 		this.couleur = couleur;
@@ -32,5 +37,10 @@ public abstract class Animal {
 
 	public void setCouleur(String couleur) {
 		this.couleur = couleur;
+	}
+
+	@Override
+	public String toString() {
+		return "Animal [poids=" + poids + ", couleur=" + couleur + "]";
 	}
 }
