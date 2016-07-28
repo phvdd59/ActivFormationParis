@@ -5,11 +5,11 @@ public abstract class Animal {
 	private int poids;
 	private String couleur;
 
-	public abstract int manger();
+	public abstract void manger();
 
-	public abstract int boire();
+	public abstract void boire();
 
-	public abstract int deplacement();
+	public abstract void deplacement();
 
-	public abstract int crier();
+	public abstract void crier();
 }
