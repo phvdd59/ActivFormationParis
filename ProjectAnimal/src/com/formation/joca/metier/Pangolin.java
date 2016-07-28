@@ -7,7 +7,7 @@ public class Pangolin extends com.formation.thde.metier.Animal {
 	}
 
 	public void crier() {
-		System.out.println("le pangolin fait le cri du pangolin...");
+		System.out.println("le pangolin fait le cri du pangolin, si ça existe...");
 	}
 
 	public void deplacement() {
@@ -20,7 +20,7 @@ public class Pangolin extends com.formation.thde.metier.Animal {
 	}
 
 	public void boire() {
-		System.out.println("le pangolin boit du fanta"+"\u00a9"+", sa boisson préférée");
+		System.out.println("le pangolin boit du fanta" + "\u00a9" + ", sa boisson préférée");
 
 	}
 
