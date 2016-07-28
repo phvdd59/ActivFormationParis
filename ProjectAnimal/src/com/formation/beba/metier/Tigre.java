@@ -4,8 +4,13 @@ import com.formation.thde.metier.Animal;
 
 public class Tigre extends Animal {
 
-	public Tigre(int poids, String couleur) {
+	public Tigre() {
 		super(300, "Classe");
+		// TODO Auto-generated constructor stub
+	}
+
+	public Tigre(int poids, String couleur) {
+		super(poids, couleur);
 		// TODO Auto-generated constructor stub
 	}
 
