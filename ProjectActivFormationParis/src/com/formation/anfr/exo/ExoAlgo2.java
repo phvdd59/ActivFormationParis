@@ -37,29 +37,24 @@ public class ExoAlgo2 implements ImpAlgo2 {
 			pair = true;
 			sol += 2;
 		}
-		int i = 3;
 		int refrence = (int) Math.sqrt(n);
-		if (pair) {
-			while (i <= refrence) {
+		if (pair == true) {
+			for (int i = 3; i <= refrence; i++){
 				if (i * i == n) {
 					sol++;
 				} else if (n % i == 0) {
 					sol += 2;
 					// refrence = n / i;
 				}
-
-				i++;
 			}
 		} else {
-			while (i <= refrence) {
+			for (int i = 3; i <= refrence; i+=2){
 				if (i *i == n ) {
 					sol++;
 				} else if (n % i == 0) {
 					sol += 2;
 					// refrence = n / i;
 				}
-
-				i += 2;
 			}
 		}
 		return sol;
