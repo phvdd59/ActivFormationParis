@@ -4,6 +4,10 @@ import com.formation.thde.metier.Animal;
 
 public class Poney extends Animal {
 
+	public Poney(int poids, String couleur) {
+		super(1000, "rose");
+	}
+
 	@Override
 	public void manger() {
 		System.out.println("Le poney mange de l'herbe.");
