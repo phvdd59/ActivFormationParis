@@ -30,12 +30,12 @@ public class CleDico implements Comparable<CleDico> {
 	@Override
 	public int compareTo(CleDico o) {
 		int compareCleD = 0;
-		compareCleD = this.getLettre().compareTo(getLettre());
+		compareCleD = this.getLettre().compareTo(o.getLettre());
 		if (compareCleD == 0) {
-			if (this.getLngMot() < getLngMot()) {
+			if (this.getLngMot() < o.getLngMot()) {
 				compareCleD = -1;
 			} else {
-				if (this.getLngMot() > getLngMot()) {
+				if (this.getLngMot() > o.getLngMot()) {
 					compareCleD = 1;
 				} else {
 					compareCleD = 0;
