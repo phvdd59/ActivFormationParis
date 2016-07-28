@@ -4,16 +4,19 @@ import java.util.ArrayList;
 
 import com.formation.joca.exo.ExoAlgo1;
 import com.formation.joca.exo.ExoAlgo2;
+import com.formation.joca.exo.ExoAlgo3;
 import com.formation.joca.exo.ExoArrayList1;
+import com.formation.joca.exo.ExoHanoi;
 import com.formation.joca.exo.ExoSimple;
 import com.formation.joca.exo.ExoTableau1;
 import com.formation.joca.exo.ExoTableau2;
+import com.formation.phva.exo.Mouvement;
 
 public class MainActiveFormationParisJoca {
 
 	public static void main(String[] arg) {
 		MainActiveFormationParisJoca test = new MainActiveFormationParisJoca();
-		test.init6();
+		test.init7();
 	}
 
 	public void afficherTableau(int[] tab) {
@@ -139,6 +142,11 @@ public class MainActiveFormationParisJoca {
 
 	private void init6() {
 		ExoAlgo2 exo6 = new ExoAlgo2();
-		System.out.println(exo6.solution(2147483647));
+		System.out.println(exo6.solution(21474642));
+	}
+
+	private void init7() {
+		ExoAlgo3 exo7 = new ExoAlgo3();
+		ArrayList<Mouvement> solution = exo7.solution(solution, 4, "a", "b", "c")
 	}
 }
