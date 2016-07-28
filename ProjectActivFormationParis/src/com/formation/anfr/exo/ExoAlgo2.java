@@ -21,30 +21,46 @@ public class ExoAlgo2 implements ImpAlgo2 {
 	 */
 
 	public int solution(int n) {
-		int soluce = -1;		
+		int soluce = -1;
 		if (n == 1) {
-			soluce =1;
-		} 	else if (n>0) {
-			soluce = fonction (n);
+			soluce = 1;
+		} else if (n > 0) {
+			soluce = fonction(n);
 		}
 		return soluce;
 	}
-	
-	public int fonction(int n) {
 
-		int i =2;
-		int refrence = n;
+	public int fonction(int n) {
+		boolean pair = false;
 		int sol = 2;
-		while (i < refrence ) {
-			if (i == Math.sqrt(n)) {
-				sol++;
-				break;
+		if (n % 2 == 0) {
+			pair = true;
+			sol += 2;
+		}
+		int i = 3;
+		int refrence = (int) Math.sqrt(n);
+		if (pair) {
+			while (i <= refrence) {
+				if (i * i == n) {
+					sol++;
+				} else if (n % i == 0) {
+					sol += 2;
+					// refrence = n / i;
+				}
+
+				i++;
 			}
-			else if (n%i == 0){
-				sol += 2;
-				refrence = n/i;
+		} else {
+			while (i <= refrence) {
+				if (i *i == n ) {
+					sol++;
+				} else if (n % i == 0) {
+					sol += 2;
+					// refrence = n / i;
+				}
+
+				i += 2;
 			}
-			i++;
 		}
 		return sol;
 	}
