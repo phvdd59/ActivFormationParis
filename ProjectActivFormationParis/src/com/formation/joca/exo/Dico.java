@@ -9,11 +9,11 @@ import com.formation.phva.exo.InterExoDico1;
 
 public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDico1 {
 
-	public Dico (){
-		
-		for (char i='a';i<='z';i++){
-			for (int j=1;j<=26;j++){
-				CleDico cle=new CleDico("i",j);
+	public Dico() {
+
+		for (char i = 'a'; i <= 'z'; i++) {
+			for (int j = 1; j <= 26; j++) {
+				CleDico cle = new CleDico("i", j);
 				this.put(cle, new ArrayList<Mot>());
 			}
 		}
@@ -22,6 +22,17 @@ public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDi
 	@Override
 	public void ranger(String texte) {
 		ArrayList<Mot> texteRanger = traitementTexte(texte);
+		for (int i = 0; i < texteRanger.size(); i++) {
+			Mot mot = texteRanger.get(i);
+			CleDico cle = new CleDico(Character.toString(mot.getMot().charAt(0)), mot.getMot().length());
+			if (this.get(cle).indexOf(mot) == -1) {
+				this.get(cle).add(mot);
+			} else {
+				for (int z = 1; z <= mot.getNb(); z++) {
+					this.get(cle).get(this.get(cle).indexOf(mot)).plusUn();
+				}
+			}
+		}
 
 	}
 
