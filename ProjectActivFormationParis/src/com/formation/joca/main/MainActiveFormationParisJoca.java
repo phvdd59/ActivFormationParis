@@ -151,5 +151,6 @@ public class MainActiveFormationParisJoca {
 		for (int i = 0; i < solution.size(); i++) {
 			System.out.println(solution.get(i));
 		}
+		System.out.println("\u00a9");
 	}
 }
