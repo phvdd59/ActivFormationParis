@@ -4,8 +4,11 @@ import com.formation.thde.metier.Animal;
 
 public class Poney extends Animal {
 
-	public Poney(int poids, String couleur) {
+	public Poney() {
 		super(1000, "rose");
+	}
+	public Poney(int poids, String couleur) {
+		super(poids, couleur);
 	}
 
 	@Override
