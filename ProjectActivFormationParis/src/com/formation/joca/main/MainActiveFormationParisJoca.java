@@ -168,5 +168,7 @@ public class MainActiveFormationParisJoca {
 		System.out.println(mot1.equals(mot2));
 		System.out.println(mot1.equals(mot3));
 
+		System.out.println(exo8.getListeMot("c", 4));
+
 	}
 }

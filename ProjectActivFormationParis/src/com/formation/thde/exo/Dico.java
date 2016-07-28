@@ -18,6 +18,8 @@ public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDi
 		texte.replaceAll("[מן]", "i");
 		texte.replaceAll("[ûü]", "u");
 		texte.replaceAll("[פצ]", "o");
+		texte.replaceAll("  ", " ");
+		texte.replaceAll("   ", " ");
 		texte = texte.replaceAll("\\W", " ");
 		ArrayList<Mot> listMots = new ArrayList<Mot>(); //mot ?
 		String[] tabTexte = texte.split(" ");

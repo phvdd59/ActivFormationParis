@@ -1,15 +1,16 @@
-package com.formation.thde.exo;
+package com.formation.thcr.exo;
 
 import com.formation.phva.exo.InterExoMot1;
 
 public class Mot implements InterExoMot1, Comparable<Mot> {
 
-	private String mot;
-	private int nb;
+	private String	mot;
+	private int		nb;
 
 	public Mot(String mot) {
-		this.mot = mot;
-		nb = 1;
+
+		this.setMot(mot);
+		this.plusUn();
 	}
 
 	public String getMot() {
@@ -30,35 +31,33 @@ public class Mot implements InterExoMot1, Comparable<Mot> {
 
 	@Override
 	public int compareTo(Mot o) {
-		int result = 0;
-		if (this.getNb() > o.getNb()) {
-			result = -1;
-		} else if (this.getNb() < o.getNb()) {
-			result = 1;
-		} else {
-			result = (int) this.getMot().compareTo(o.getMot());
-		}
-		return result;
+		int r = 0;
+		if (this.getNb() < o.getNb())
+			r = 1;
+		else if (this.getNb() > o.getNb())
+			r = -1;
+		else
+			r = this.toString().compareTo(o.getMot().toString());
+		return r;
 	}
 
 	@Override
 	public void plusUn() {
-		this.nb += 1;
-
+		this.nb++;
 	}
 
 	@Override
 	public boolean equals(Object obj) {
-		boolean result = false;
-		Mot temp = (Mot) obj;
-		if (this.getMot().equals(temp.getMot())) {
-			result = true;
+		boolean b = false;
+		if (obj instanceof Mot) {
+			Mot mot = (Mot) obj;
+			b = this.getMot().toString().equals(mot.getMot().toString());
 		}
-		return result;
+		return b;
 	}
 
 	@Override
 	public String toString() {
-		return "[" + mot +" "+ nb + "]";
+		return this.mot;
 	}
 }
