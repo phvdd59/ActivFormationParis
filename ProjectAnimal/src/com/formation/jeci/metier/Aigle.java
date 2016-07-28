@@ -1,9 +1,12 @@
 package com.formation.jeci.metier;
 
-import com.formation.thde.metier.Animal;
+public class Aigle extends Oiseaux {
 
-public class Aigle extends Animal {
+	public Aigle() {
+		super.setPoids(12);
+		super.setCouleur("noir et blanc");
 
+	}
 	public Aigle(int poids, String couleur) {
 		super(poids, couleur);
 
