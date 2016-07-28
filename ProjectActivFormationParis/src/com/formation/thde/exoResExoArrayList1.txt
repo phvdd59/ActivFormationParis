@@ -24,3 +24,49 @@ thde rotationArrayList2 (1/1):    | exo.rotationArrayList(tab, -3)
 thde rotationArrayList3 (1/1):    | exo.rotationArrayList(tab, 3000)
 thde rotationArrayList4 (1/1):    | exo.rotationArrayList(tab, -777)
 thde NOTE : (33 / 33) = 20 / 20
+thde intervertirDeuxElementsTableau0 (0/2): KO | exo.intervertirDeuxElementsTableau(tab0, 3, 8)
+null
+thde intervertirDeuxElementsTableau1 (0/2): KO | exo.intervertirDeuxElementsTableau(tab, 3, 8)
+null
+thde intervertirDeuxElementsTableau2 (0/1): KO | exo.intervertirDeuxElementsTableau(tab, -3, 8)
+null
+thde intervertirDeuxElementsTableau3 (0/1): KO | exo.intervertirDeuxElementsTableau(tab, 3, 44448)
+null
+thde intervertirDeuxElementsTableau4 (0/1): KO | exo.intervertirDeuxElementsTableau(tab, 34444, 8)
+null
+thde intervertirDeuxElementsTableau5 (0/1): KO | exo.intervertirDeuxElementsTableau(tab, 3, -8)
+null
+thde insererUnElementDansTableau0 (0/2): KO | exo.insererUnElementDansTableau(tab1, 3, 8)
+null
+thde insererUnElementDansTableau1 (0/2): KO | exo.insererUnElementDansTableau(tab, 3, 8)
+null
+thde insererUnElementDansTableau2 (0/1): KO | exo.insererUnElementDansTableau(tab, -3, 8)
+null
+thde insererUnElementDansTableau3 (0/1): KO | exo.insererUnElementDansTableau(tab, 33333, 8)
+null
+thde remplirArrayList0 (0/2): KO | exo.remplirArrayList(7, 5, 3)
+null
+thde remplirArrayList1 (0/2): KO | exo.remplirArrayList(-120, 125, 7)
+null
+thde remplirArrayList2 (0/1): KO | exo.remplirArrayList(0x7FFFFFF0, 16, 8)
+null
+thde remplirArrayList3 (0/1): KO | exo.remplirArrayList(-0x7FFFFFF0, 16, -8)
+null
+thde insererUnArrayListDansUnAutreAvecRemplacement0 (0/2): KO | exo.insererUnArrayListDansUnAutreAvecRemplacement(taba, 2, tabb)
+null
+thde insererUnArrayListDansUnAutreAvecRemplacement1 (0/2): KO | exo.insererUnArrayListDansUnAutreAvecRemplacement(tab, 3, tab1)
+null
+thde insererUnArrayListDansUnAutreAvecRemplacement2 (0/1): KO | exo.insererUnArrayListDansUnAutreAvecRemplacement(tab, -3, tab1)
+null
+thde insererUnArrayListDansUnAutreAvecRemplacement3 (0/1): KO | exo.insererUnArrayListDansUnAutreAvecRemplacement(tab, 3000, tab1)
+null
+thde rotationArrayList0 (0/2): KO | exo.rotationArrayList(tabA, 2)
+null
+thde rotationArrayList1 (0/2): KO | exo.rotationArrayList(tab, 3)
+null
+thde rotationArrayList2 (0/1): KO | exo.rotationArrayList(tab, -3)
+null
+thde rotationArrayList3 (0/1): KO | exo.rotationArrayList(tab, 3000)
+null
+thde rotationArrayList4 (0/1): KO | exo.rotationArrayList(tab, -777)
+null
