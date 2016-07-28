@@ -22,7 +22,7 @@ public class Poney extends Animal {
 
 	@Override
 	public void deplacement() {
-		System.out.println("Le poney galope.");
+		System.out.println("Le poney poney court court.");
 		
 	}
 
