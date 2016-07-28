@@ -1,4 +1,4 @@
-package com.formation.joca.exo;
+package com.formation.made.exo;
 
 import com.formation.phva.exo.InterExoMot1;
 
@@ -8,9 +8,7 @@ public class Mot implements InterExoMot1, Comparable<Mot> {
 	private int nb;
 
 	public Mot(String mot) {
-
 		this.mot = mot;
-		this.nb = 1;
 	}
 
 	public String getMot() {
@@ -30,17 +28,10 @@ public class Mot implements InterExoMot1, Comparable<Mot> {
 	}
 
 	@Override
-	public int compareTo(Mot o) {
-		int result = 0;
+	public int compareTo(Mot o) {// longeur du mot si c'est superieur c'est positif, si c'est inférieur c'est négatif, si c'est égal c'est 0
 
-		if (this.getNb() > o.getNb()) {
-			result = -1;
-		} else if (this.getNb() < o.getNb()) {
-			result = 1;
-		} else {
-			result = (int) this.getMot().compareTo(o.getMot());
-		}
-		return result;
+		return this.compareTo(o);
+		
 	}
 
 	@Override
@@ -51,16 +42,19 @@ public class Mot implements InterExoMot1, Comparable<Mot> {
 
 	@Override
 	public boolean equals(Object obj) {
-		Mot mot = (Mot) obj;
-		boolean result = false;
-		if (mot.getMot().equals(this.getMot())) {
-			result = true;
+		boolean egaux = false;
+		if (obj instanceof Mot)
+			;
+		Mot objet = (Mot) obj;
+		if (this.getMot() == objet.getMot()) {
+			egaux = true;
 		}
-		return result;
+		return egaux;
 	}
 
 	@Override
 	public String toString() {
-		return mot;
+		// TODO Auto-generated method stub
+		return super.toString();
 	}
 }

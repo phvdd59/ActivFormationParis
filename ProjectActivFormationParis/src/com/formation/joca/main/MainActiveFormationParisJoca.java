@@ -2,6 +2,7 @@ package com.formation.joca.main;
 
 import java.util.ArrayList;
 
+import com.formation.joca.exo.Dico;
 import com.formation.joca.exo.ExoAlgo1;
 import com.formation.joca.exo.ExoAlgo2;
 import com.formation.joca.exo.ExoAlgo3;
@@ -15,7 +16,7 @@ public class MainActiveFormationParisJoca {
 
 	public static void main(String[] arg) {
 		MainActiveFormationParisJoca test = new MainActiveFormationParisJoca();
-		test.init7();
+		test.init8();
 	}
 
 	public void afficherTableau(int[] tab) {
@@ -152,5 +153,24 @@ public class MainActiveFormationParisJoca {
 			System.out.println(solution.get(i));
 		}
 		System.out.println("\u00a9");
+	}
+
+	private void init8() {
+		Dico exo8 = new Dico();
+		String texte = "canard chien chat a canard loup lard lard lard lion lion loup chat loup chat a canard a";
+		exo8.ranger(texte);
+		// System.out.println(exo8.ranger(texte));
+
+		// Mot mot1 = new Mot("chat");
+		// Mot mot2 = new Mot("chat");
+		// Mot mot3 = new Mot("chien");
+
+		// System.out.println(mot1.equals(mot2));
+		// .out.println(mot1.equals(mot3));
+
+		// exo8.ranger(texte);
+
+		System.out.println(exo8.getListeMot("l", 4));
+
 	}
 }
