@@ -17,21 +17,23 @@ import com.formation.phva.exo.Mouvement;
  * @author philippe
  *
  */
+
 public class ExoAlgo3 implements ImplAlgo3 {
 
+	private ArrayList<Mouvement> tabMouvement;
+
+	public ExoAlgo3() {
+		this.tabMouvement = new ArrayList<Mouvement>();
+	}
+
 	public ArrayList<Mouvement> solution(ArrayList<Mouvement> lst, int nbElements, String a, String b, String c) {
-		int indice = nbElements;
-		ArrayList<Mouvement> tabMouvement = new ArrayList<Mouvement>();
 
-		if (indice == 1) {
-
-			tabMouvement.add(new Mouvement(indice, a, c));
+		if (nbElements == 1) {
+			tabMouvement.add(new Mouvement(nbElements, a, c));
 		} else {
-			indice--;
-			solution(tabMouvement, indice, a, c, b);
-			tabMouvement.add(new Mouvement(indice, a, c));
-			indice--;
-			solution(tabMouvement, indice, b, a, c);
+			solution(tabMouvement, nbElements - 1, a, c, b);
+			tabMouvement.add(new Mouvement(nbElements, a, c));
+			solution(tabMouvement, nbElements - 1, b, a, c);
 		}
 		return tabMouvement;
 	}

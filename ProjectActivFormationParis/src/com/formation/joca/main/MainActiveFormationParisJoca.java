@@ -148,5 +148,8 @@ public class MainActiveFormationParisJoca {
 		ExoAlgo3 exo7 = new ExoAlgo3();
 		ArrayList<Mouvement> solution = new ArrayList<Mouvement>();
 		solution = exo7.solution(solution, 4, "a", "b", "c");
+		for (int i = 0; i < solution.size(); i++) {
+			System.out.println(solution.get(i));
+		}
 	}
 }
