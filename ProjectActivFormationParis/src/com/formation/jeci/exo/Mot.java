@@ -50,5 +50,5 @@ public class Mot implements InterExoMot1, Comparable<Mot> {
 	public String toString() {
 
 		return "mot: " + mot + ", poids " + nb;
-	}
+	}// a
 }

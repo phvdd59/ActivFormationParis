@@ -67,5 +67,5 @@ public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDi
 		}
 		return listeFinal;
 	}
-
+//a
 }
