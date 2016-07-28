@@ -4,7 +4,7 @@ import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.TreeMap;
 
-import com.formation.phva.exo.CleDico;
+import com.formation.joca.exo.CleDico;
 import com.formation.phva.exo.InterExoDico1;
 
 public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDico1 {
@@ -61,8 +61,12 @@ public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDi
 
 	@Override
 	public ArrayList<String> getListeMot(String lettre, int lngMot) {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<String> listeMots = new ArrayList<String>();
+		CleDico cle = new CleDico(lettre, lngMot);
+		for (int i = 0; i < this.get(cle).size(); i++) {
+			listeMots.add(this.get(cle).get(i).getMot());
+		}
+		return listeMots;
 	}
 
 }
