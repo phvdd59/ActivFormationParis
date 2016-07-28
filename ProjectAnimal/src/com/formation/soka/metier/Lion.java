@@ -1,8 +1,9 @@
 package com.formation.soka.metier;
 
+import com.formation.thcr.metier.Felin;
 import com.formation.thde.metier.Animal;
 
-public class Lion extends Animal {
+public class Lion extends Felin {
 
 	public Lion() {
 		super(180, "rouge");
