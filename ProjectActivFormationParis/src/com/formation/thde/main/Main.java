@@ -2,8 +2,10 @@ package com.formation.thde.main;
 
 import java.util.ArrayList;
 
+import com.formation.phva.exo.Mouvement;
 import com.formation.thde.exo.ExoAlgo1;
 import com.formation.thde.exo.ExoAlgo2;
+import com.formation.thde.exo.ExoAlgo3;
 import com.formation.thde.exo.ExoArrayList1;
 import com.formation.thde.exo.ExoTableau1;
 import com.formation.thde.exo.ExoTableau2;
@@ -16,7 +18,8 @@ public class Main {
 		//main.init2();
 		//main.init3();
 		//main.init4();
-		main.init5();
+		//main.init5();
+		main.init6();
 	}
 
 	private void init() {
@@ -181,5 +184,12 @@ public class Main {
 		ExoAlgo2 exoAlgo = new ExoAlgo2();
 		int diviseurs = exoAlgo.solution(2147483647);
 		System.out.println(diviseurs);
+	}
+
+	private void init6() {
+		ExoAlgo3 exoAlgo = new ExoAlgo3();
+		ArrayList<Mouvement> lst = new ArrayList<Mouvement>();
+		lst = exoAlgo.solution(lst, 0, "A", "B", "C");
+		System.out.println(lst);
 	}
 }
