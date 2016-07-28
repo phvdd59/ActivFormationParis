@@ -10,7 +10,6 @@ import com.formation.joca.exo.ExoArrayList1;
 import com.formation.joca.exo.ExoSimple;
 import com.formation.joca.exo.ExoTableau1;
 import com.formation.joca.exo.ExoTableau2;
-import com.formation.joca.exo.Mot;
 import com.formation.phva.exo.Mouvement;
 
 public class MainActiveFormationParisJoca {
@@ -158,17 +157,20 @@ public class MainActiveFormationParisJoca {
 
 	private void init8() {
 		Dico exo8 = new Dico();
-		String texte = "canard chien chat a canard lion chat loup chat a canard a";
-		System.out.println(exo8.traitementTexte(texte));
+		String texte = "canard chien chat a canard loup lard lion lion loup chat loup chat a canard a";
+		exo8.ranger(texte);
+		// System.out.println(exo8.ranger(texte));
 
-		Mot mot1 = new Mot("chat");
-		Mot mot2 = new Mot("chat");
-		Mot mot3 = new Mot("chien");
+		// Mot mot1 = new Mot("chat");
+		// Mot mot2 = new Mot("chat");
+		// Mot mot3 = new Mot("chien");
 
-		System.out.println(mot1.equals(mot2));
-		System.out.println(mot1.equals(mot3));
+		// System.out.println(mot1.equals(mot2));
+		// .out.println(mot1.equals(mot3));
 
-		System.out.println(exo8.getListeMot("c", 4));
+		// exo8.ranger(texte);
+
+		System.out.println(exo8.getListeMot("l", 4));
 
 	}
 }
