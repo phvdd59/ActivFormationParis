@@ -1,9 +1,9 @@
 package com.formation.thcr.exo;
 
 import java.util.ArrayList;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
-import java.util.Map.Entry;
 
 import com.formation.phva.exo.InterExoDico1;
 
@@ -48,30 +48,35 @@ public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDi
 			//Faire la cledico ici
 		}
 		//Creation des cledico
-		//		for (int i = 'a'; i < 'z'; i++) {
-		//			for (int k = 1; k < 26; k++) {
-		//				CleDico cleDico = new CleDico(String.valueOf((char) i), k);
-		//				this.put(cleDico, null);
-		//			}
-		//		}
+//				for (int i = 'a'; i < 'z'; i++) {
+//					for (int k = 1; k < 26; k++) {
+//						CleDico cleDico = new CleDico(String.valueOf((char) i), k);
+//						this.put(cleDico, null);
+//					}
+//				}
 
-		ArrayList<Mot> listMot = new ArrayList<Mot>();
 
 		for (int i = 0; i < mots.size(); i++) {
 			for (int k = 'a'; k < 'z'; k++) {
 				if (mots.get(i).getMot().contains(String.valueOf((char) k))) {
+					ArrayList<Mot> listMot = new ArrayList<Mot>();
 					listMot.add(mots.get(i));
-					this.put(new CleDico(String.valueOf((char) k), mots.get(i).getMot().length()),
-							listMot);
+					CleDico cle = new CleDico(String.valueOf((char) k),
+							mots.get(i).getMot().length());
+					//vérifié l'existence de la cledico
+					if (this.containsKey(cle)) {
+						this.get(cle).add(mots.get(i));
+					} else {
+						this.put(cle, listMot);
+					}
 				}
 			}
 		}
-		
-		Set<Entry<CleDico, ArrayList<Mot>>> set = entrySet();
-		for (Entry<CleDico, ArrayList<Mot>> entry : set) {
-			System.out.println(entry);
-		}
-		
+
+//		Set<Entry<CleDico, ArrayList<Mot>>> set = entrySet();
+//		for (Entry<CleDico, ArrayList<Mot>> entry : set) {
+//			System.out.println(entry);
+//		}
 
 	}
 
