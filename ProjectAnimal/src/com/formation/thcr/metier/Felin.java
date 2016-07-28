@@ -4,6 +4,10 @@ import com.formation.thde.metier.Animal;
 
 public abstract class Felin extends Animal {
 
+	public Felin() {
+		super();
+	}
+
 	public Felin(int poids, String couleur) {
 		super(poids, couleur);
 
