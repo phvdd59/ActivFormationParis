@@ -61,7 +61,6 @@ public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDi
 		texteModif = texteModif.toLowerCase();
 		texteModif = Normalizer.normalize(texteModif, Normalizer.Form.NFD);
 		texteModif = texteModif.replaceAll("\\p{M}", "");
-
 		texteModif = texteModif.replaceAll("\\W", " ");
 		texteModif = texteModif.replaceAll("\\s+", " ");
 		String[] tabMots = texteModif.split(" ");
