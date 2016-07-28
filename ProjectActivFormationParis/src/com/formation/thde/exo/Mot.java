@@ -59,6 +59,6 @@ public class Mot implements InterExoMot1, Comparable<Mot> {
 
 	@Override
 	public String toString() {
-		return "Mot [mot=" + mot + ", nb=" + nb + "]";
+		return "[" + mot +" "+ nb + "]";
 	}
 }
