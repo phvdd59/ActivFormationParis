@@ -6,6 +6,10 @@ public class Pangolin extends com.formation.thde.metier.Animal {
 		super(poids, couleur);
 	}
 
+	public Pangolin() {
+		super();
+	}
+
 	public void crier() {
 		System.out.println("le pangolin fait le cri du pangolin, si ça existe...");
 	}
