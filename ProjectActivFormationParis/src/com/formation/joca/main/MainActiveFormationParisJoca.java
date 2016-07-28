@@ -6,7 +6,6 @@ import com.formation.joca.exo.ExoAlgo1;
 import com.formation.joca.exo.ExoAlgo2;
 import com.formation.joca.exo.ExoAlgo3;
 import com.formation.joca.exo.ExoArrayList1;
-import com.formation.joca.exo.ExoHanoi;
 import com.formation.joca.exo.ExoSimple;
 import com.formation.joca.exo.ExoTableau1;
 import com.formation.joca.exo.ExoTableau2;
@@ -147,6 +146,7 @@ public class MainActiveFormationParisJoca {
 
 	private void init7() {
 		ExoAlgo3 exo7 = new ExoAlgo3();
-		ArrayList<Mouvement> solution = exo7.solution(solution, 4, "a", "b", "c")
+		ArrayList<Mouvement> solution = new ArrayList<Mouvement>();
+		solution = exo7.solution(solution, 4, "a", "b", "c");
 	}
 }
