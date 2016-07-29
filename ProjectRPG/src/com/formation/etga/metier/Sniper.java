@@ -1,5 +1,8 @@
 package com.formation.etga.metier;
 
+import com.formation.comportement.DeplacementEtgaFurtif;
+import com.formation.comportement.EspritCombatifEtgaCombatFusilALunette;
+import com.formation.comportement.SoinEtgaMcGiver;
 import com.formation.emma.inter.Soin;
 import com.formation.joca.metier.Personnage;
 import com.formation.made.inter.Deplacement;
