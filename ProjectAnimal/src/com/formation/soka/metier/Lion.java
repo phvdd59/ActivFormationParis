@@ -4,6 +4,15 @@ import com.formation.thcr.metier.Felin;
 
 public class Lion extends Felin {
 
+	public Lion() {
+		super(180, "rouge");
+
+	}
+
+	public Lion(int poids, String str) {
+		super(poids, str);
+	}
+
 	@Override
 	public void manger() {
 		// TODO Auto-generated method stub
