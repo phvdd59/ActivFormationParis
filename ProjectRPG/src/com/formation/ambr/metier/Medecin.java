@@ -1,20 +1,20 @@
 package com.formation.ambr.metier;
 
+import com.formation.comportement.DeplacementAmbrMedBio;
+import com.formation.comportement.EspritCombatifAmbrMedCur;
+import com.formation.comportement.SoinEmmaPremierSoin;
 import com.formation.emma.inter.Soin;
-import com.formation.emma.metier.PremierSoin;
 import com.formation.joca.metier.Personnage;
 import com.formation.made.inter.Deplacement;
-import com.formation.made.metier.Marcher;
 import com.formation.thde.inter.EspritCombatif;
-import com.formation.thde.metier.CombatMedecin;
 
 public class Medecin extends Personnage {
 
 	public Medecin() {
 		super();
-		this.combat = new CombatMedecin();
-		this.soin = new PremierSoin();
-		this.deplacement = new Marcher();
+		this.combat = new EspritCombatifAmbrMedCur();
+		this.soin = new SoinEmmaPremierSoin();
+		this.deplacement = new DeplacementAmbrMedBio();
 	}
 
 	public Medecin(EspritCombatif combat, Deplacement deplacement, Soin soin) {
