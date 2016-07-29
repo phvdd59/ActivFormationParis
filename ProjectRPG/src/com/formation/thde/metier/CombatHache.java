@@ -6,6 +6,6 @@ public class CombatHache implements EspritCombatif {
 
 	@Override
 	public void combat() {
-		System.out.println("Combat avec une hache  en plastique");
+		System.out.println("Combat avec une hache en plastique");
 	}
 }
