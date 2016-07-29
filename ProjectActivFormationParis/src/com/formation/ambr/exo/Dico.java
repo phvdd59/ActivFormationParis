@@ -7,8 +7,7 @@ import com.formation.phva.exo.InterExoDico1;
 
 public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDico1 {
 
-	@Override
-	public void ranger(String texte) {
+	public String epuration(String texte) {
 
 		//1.Hacher le texte sous forme de mots
 		texte = texte.toLowerCase();
@@ -20,30 +19,45 @@ public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDi
 		texte = texte.replaceAll("ç", "c");
 		texte = texte.replaceAll("\\p{Punct}", "");
 		//texte = texte.replaceAll("\\W", "");
-		String[] tab = texte.split(" ");
 
-		ArrayList<String> texteRange0 = new ArrayList<String>();
-		for (int i = 0; i < tab.length; i++) {
-			texteRange0.add(tab[i]);
-			//String.valueOf(tab[i]);
-		}
-
-		ArrayList<Mot> texteRange = new ArrayList<Mot>();
-		for (int i = 0; i < texteRange0.size(); i++) { // pour une liste c'est .size() et pas .length
-			//texteRange.add(texteRange0);
-		}
-
-		//list.add(Integer.valueOf(tab[i]));
-		//list.add(1, iv); // ajoute la valeur de iv à la place 1
-
-		//2. ranger le texte dans TreeMap sous forme de mots
-		//ArrayList<Mot> texteRange = new ArrayList<Mot>();
-		Mot mot1 = new Mot("hi");
-		texteRange.add(new Mot("salut"));
-		texteRange.add(mot1);
-		System.out.println(texteRange);
+		return texte;
 
 	}
+
+	@Override
+	public void ranger(String texte) {
+
+		texte = epuration(texte);
+
+		String[] tab = texte.split(" ");
+
+		//Mot mot = new Mot("tous");
+		//Mot mot0 = new Mot(tab[0]);
+
+		for (int i = 0; i < tab.length; i++) {
+			Mot motI = new Mot(tab[i]);
+			for (int j = 0; j < tab[i].length(); j++) {
+				String lettre = tab[i].substring(j, j + 1); // j à j+1: il ne prend que j. Si on avait mis j à j+2,  il aurait pris 2 lettres
+				CleDico cleDico = new CleDico(lettre, tab[i].length());
+				ArrayList<Mot> lst = get(cleDico); // lst sera une liste de valeurs de cleDicos. Les valeurs sont des ArrayLists de mots?
+				//compareTo: je regarde la lettre, et ensuite si j'ai regardé la lettre et que ct égal, je compare la longueur
+				cleDico.compareTo(cleDico);
+
+			}
+
+		}
+	}
+
+	//texteRangeA.add(motI);
+
+	//texteRange0.add(new Mot(get(tab[i]).toString()));
+	//texteRange0.add(tab[i]);
+	//String.valueOf(tab[i]);
+
+	//		Mot mot1 = new Mot("hi");
+	//		texteRange.add(new Mot("salut"));
+	//		texteRange.add(mot1);
+	//		System.out.println(texteRange);
 
 	@Override
 	public ArrayList<String> getListeMot(String lettre, int lngMot) {

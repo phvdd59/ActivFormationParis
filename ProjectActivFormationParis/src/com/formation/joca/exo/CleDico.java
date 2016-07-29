@@ -1,6 +1,6 @@
 package com.formation.joca.exo;
 
-public class CleDico {
+public class CleDico implements Comparable<CleDico>{
 
 	private String lettre;
 	private int lngMot;

@@ -19,7 +19,7 @@ public class Corneille extends Oiseaux {
 
 	@Override
 	public void boire() {
-		System.out.println("Je coule");
+		System.out.println("Je recueille");
 	}
 
 	@Override
