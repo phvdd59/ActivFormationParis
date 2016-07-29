@@ -6,6 +6,6 @@ public class CombatPistolet implements EspritCombatif {
 
 	@Override
 	public void combat() {
-		System.out.println("Combat avec une arme à feu");
+		System.out.println("Combat avec un pistolet à eau");
 	}
 }
