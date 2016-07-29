@@ -2,14 +2,14 @@ package com.formation.anfr.metier;
 
 import com.formation.thde.metier.Animal;
 
-public class Equidé extends Animal {
+public class Equide extends Animal {
 
-	public Equidé() {
+	public Equide() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Equidé(int poids, String couleur) {
+	public Equide(int poids, String couleur) {
 		super(poids, couleur);
 		// TODO Auto-generated constructor stub
 	}
@@ -37,6 +37,11 @@ public class Equidé extends Animal {
 	@Override
 	public void crier() {
 		System.out.println("Je hénnit.");
+	}
+
+	@Override
+	public boolean egale(Animal animal) {
+		return false;
 	}
 
 }

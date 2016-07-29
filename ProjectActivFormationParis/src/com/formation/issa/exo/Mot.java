@@ -1,4 +1,4 @@
-package com.formation.phva.exo;
+package com.formation.issa.exo;
 
 public class Mot implements InterExoMot1, Comparable<Mot> {
 
@@ -6,8 +6,7 @@ public class Mot implements InterExoMot1, Comparable<Mot> {
 	private int nb;
 
 	public Mot(String mot) {
-		mot="motAjouter";
-	
+		// TODO 
 	}
 
 	public String getMot() {
@@ -29,17 +28,11 @@ public class Mot implements InterExoMot1, Comparable<Mot> {
 	@Override
 	public int compareTo(Mot o) {
 		
-	
-		
-return -1;
+		return 0;
 	}
 
 	@Override
 	public void plusUn() {
-		for (int i = 0; i < mot.length(); i++) {
-			nb++;
-			
-		}
 		// TODO Auto-generated method stub
 		
 	}
