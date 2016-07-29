@@ -8,7 +8,7 @@ import com.formation.thde.inter.EspritCombatif;
 public class Medecin extends Personnage implements Soin, Deplacement, EspritCombatif {
 
 	public Medecin() {
-
+		//
 	}
 
 	@Override
