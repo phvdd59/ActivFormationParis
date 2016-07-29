@@ -1,6 +1,6 @@
 package com.formation.etga.Interface;
 
-public interface lapper {
+public interface Lapper {
 
 	public void lapper();
 
