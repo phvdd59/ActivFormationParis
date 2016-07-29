@@ -14,7 +14,6 @@ public class Guerrier extends Personnage {
 
 	}
 	
-
 	public Guerrier(EspritCombatif combat, Deplacement deplacement, Soin soin) {
 		super(combat, deplacement, soin);
 
