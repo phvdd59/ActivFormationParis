@@ -22,24 +22,5 @@ public class Guerrier extends Personnage {
 
 	}
 
-	@Override
-	public void seDeplacer() {
-
-		// System.out.println("Le guerrier se déplace en marchant et Ce que vous
-		// appelez l’enfer, il appelle ça chez lui.");
-	}
-
-	@Override
-	public void combattre() {
-
-		// System.out.println("Force et honneur !, yooollooo");
-	}
-
-	@Override
-	public void soigner() {
-
-		// System.out.println("un guerrier ne se soigne pas car c'est un
-		// guerrier");
-	}
 
 }
