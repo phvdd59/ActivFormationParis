@@ -1,8 +1,8 @@
-package com.formation.emma.metier;
+package com.formation.comportement;
 
 import com.formation.emma.inter.Soin;
 
-public class Sevanouir implements Soin {
+public class SoinEmmaSevanouir implements Soin {
 
 	@Override
 	public void soigne() {
