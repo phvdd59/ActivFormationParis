@@ -1,6 +1,6 @@
 package com.formation.joca.metier;
 
-public class Pangolin extends Pholidotes {
+public class Pangolin extends Pholidote {
 
 	public Pangolin(int poids, String couleur) {
 		super(poids, couleur);

@@ -20,7 +20,7 @@ public class Lion extends Felin {
 
 	@Override
 	public void boire() {
-		System.out.println("Je bois, je bois");
+		System.out.println("Je lape, je bois");
 
 	}
 
@@ -33,6 +33,12 @@ public class Lion extends Felin {
 	@Override
 	public void crier() {
 		System.out.println("Je rugis aprés avoir bien mangé");
+
+	}
+
+	@Override
+	public void lapper() {
+		// TODO Auto-generated method stub
 
 	}
 
