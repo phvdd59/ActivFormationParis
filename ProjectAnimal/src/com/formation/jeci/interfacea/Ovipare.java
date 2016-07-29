@@ -1,5 +1,5 @@
 package com.formation.jeci.interfacea;
 
 public interface Ovipare {
-	public void ovipare();
+	public void pondre();
 }
