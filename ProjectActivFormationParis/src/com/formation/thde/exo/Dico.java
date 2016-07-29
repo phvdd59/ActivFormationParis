@@ -10,7 +10,6 @@ public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDi
 
 	@Override
 	public void ranger(String texte) {
-		// ENLEVER LES ACCENTS
 
 		texte = texte.toLowerCase();
 		texte.replaceAll("[יטךכ]", "e");
@@ -18,15 +17,14 @@ public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDi
 		texte.replaceAll("[מן]", "i");
 		texte.replaceAll("[ûü]", "u");
 		texte.replaceAll("[פצ]", "o");
+		texte = texte.replaceAll("\\W", " ");
 		texte.replaceAll("  ", " ");
 		texte.replaceAll("   ", " ");
-		texte = texte.replaceAll("\\W", " ");
-		ArrayList<Mot> listMots = new ArrayList<Mot>(); //mot ?
+		ArrayList<Mot> listMots = new ArrayList<Mot>();
 		String[] tabTexte = texte.split(" ");
 		for (int i = 0; i < tabTexte.length; i++) {
 			Mot temp = new Mot(tabTexte[i]);
 			if (listMots.indexOf(temp) != -1) {
-				//marche pas on y passe jamais
 				listMots.get(listMots.indexOf(temp)).plusUn();
 			} else {
 				listMots.add(temp);
