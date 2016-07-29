@@ -4,4 +4,5 @@ public interface Ovipare {
 	public void pondre();
 
 	public void eclore();
+
 }

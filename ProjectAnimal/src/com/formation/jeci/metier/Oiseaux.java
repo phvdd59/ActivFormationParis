@@ -22,6 +22,7 @@ public class Oiseaux extends Animal implements Recueille, Ovipare {
 
 	}
 
+	
 	@Override
 	public void boire() {
 
