@@ -1,5 +1,8 @@
 package com.formation.joca.metier;
 
+import com.formation.emma.inter.Soin;
+import com.formation.made.inter.Deplacement;
+
 public class Personnage implements EspritCombatif, Deplacement, Soin {
 
 	private EspritCombatif combat;
