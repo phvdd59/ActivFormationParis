@@ -3,6 +3,7 @@ package com.formation.jeci.exo;
 import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Set;
 import java.util.TreeMap;
 
 import com.formation.phva.exo.InterExoDico1;
@@ -37,20 +38,26 @@ public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDi
 			}
 		}
 		Collections.sort(texteModifié);
-		for (char i = 'a'; i < 'z'; i++) {
-			for (int j = 0; j <= 26; j++) {
+		this.clear();
+
+		for (char i = 'a'; i <= 'z'; i++) {
+			for (int j = 1; j <= 26; j++) {
 				CleDico key = new CleDico(Character.toString(i), j);
 				ArrayList<Mot> dico = new ArrayList<Mot>();
 
 				for (int k = 0; k < texteModifié.size(); k++) {
 					if (texteModifié.get(k).getMot().contains(Character.toString(i)) && texteModifié.get(k).getMot().length() == j) {
 						dico.add(texteModifié.get(k));
+
 					}
 				}
-				this.put(key, dico);
+//				System.out.println(dico);
 
+				this.put(key, dico);
 			}
+
 		}
+		//System.out.println(this.toString());
 
 	}
 
@@ -58,7 +65,7 @@ public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDi
 	public ArrayList<String> getListeMot(String lettre, int lngMot) {
 		CleDico clé = new CleDico(lettre, lngMot);
 		ArrayList<Mot> listeDeMot = new ArrayList<Mot>();
-		listeDeMot = this.get(clé);
+		listeDeMot.addAll(this.get(clé));
 		ArrayList<String> listeFinal = new ArrayList<String>();
 
 		for (int i = 0; i < listeDeMot.size(); i++) {
@@ -67,4 +74,22 @@ public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDi
 		return listeFinal;
 	}
 	// a
+
+	@Override
+	public String toString() {
+		String retour="";
+		Set<java.util.Map.Entry<CleDico, ArrayList<Mot>>> set = entrySet();
+		for (java.util.Map.Entry<CleDico, ArrayList<Mot>> entry : set) {
+			ArrayList<Mot> lst = entry.getValue();
+			retour+="[";
+			for (int i = 0; i < lst.size(); i++) {
+				Mot m = lst.get(i);
+				retour+=m.toString()+",";
+				
+			}
+			retour+="]\n";
+			
+		}
+		return retour;
+	}
 }
