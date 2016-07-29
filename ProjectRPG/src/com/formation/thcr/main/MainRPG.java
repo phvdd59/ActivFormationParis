@@ -33,6 +33,13 @@ public class MainRPG {
 		Personnage medecin = new Medecin(new CombatCouteau(), new Courrir(), new PremierSoin());
 		Personnage chirurgien = new Chirurgien(new CombatCouteau(), new Courrir(), new Operation());
 
+		Personnage civil2 = new Civil();
+		System.out.println(civil2.getClass().getName());
+		civil2.combattre();
+		civil2.soigner();
+		civil2.seDeplacer();
+		System.out.println("---------------------------------");
+		
 		ArrayList<Personnage> list = new ArrayList<Personnage>();
 		list.add(civil);
 		list.add(sniper);
