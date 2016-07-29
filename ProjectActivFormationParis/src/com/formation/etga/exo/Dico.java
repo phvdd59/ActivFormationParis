@@ -11,17 +11,14 @@ public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDi
 	@Override
 	public void ranger(String texte) {
 		texte = texte.toLowerCase();
-		texte.replaceAll("[éèêë]", "e");
 		texte.replaceAll("[âäà]", "a");
+		texte.replaceAll("[éèêë]", "e");
 		texte.replaceAll("[îï]", "i");
-		texte.replaceAll("[ûü]", "u");
 		texte.replaceAll("[ôö]", "o");
+		texte.replaceAll("[ûü]", "u");
 		texte.replaceAll("  ", " ");
-		texte.replaceAll("   ", " ");
-		texte = texte.replaceAll("\\W", " "); // charactères spéciaux?
 
-		ArrayList<Mot> listMots = new ArrayList<Mot>();
-		String[] tabTexte = texte.split(" ");
+		String[] tabTexte = texte.split("[ ]");
 
 	}
 
