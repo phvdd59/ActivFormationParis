@@ -24,15 +24,15 @@ public class Sniper extends Personnage {
 
 	}
 
-	public void soigne() {
+	public void soigner() {
 		System.out.println("Je me soigne tout seul avec mon super kit si c'est pas trop grave");
 	}
 
-	public void deplacer() {
+	public void seDeplacer() {
 		System.out.println("Pas trop trop");
 	}
 
-	public void combat() {
+	public void combattre() {
 		System.out.println("Je combats avec mon snip aaiiiiggght #GrosCampeur");
 	}
 }
