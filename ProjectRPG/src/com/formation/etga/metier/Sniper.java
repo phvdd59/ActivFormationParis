@@ -12,7 +12,7 @@ public class Sniper extends Personnage {
 
 	public Sniper() {
 		super();
-		this.combat = new CombatPistolet();
+		this.combat = new ThdeCombatPistolet();
 		this.deplacement = new NeBougePas();
 		this.soin = new PremierSoin();
 	}
