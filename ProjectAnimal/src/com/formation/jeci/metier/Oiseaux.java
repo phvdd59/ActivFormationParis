@@ -44,7 +44,7 @@ public class Oiseaux extends Animal implements Recueille, Ovipare {
 	}
 
 	@Override
-	public void ovipare() {
+	public void pondre() {
 		System.out.println("je ponds des oeufs");
 
 	}
