@@ -1,9 +1,10 @@
 package com.formation.made.metier;
 
 import com.formation.etga.Interface.Lapper;
+import com.formation.soka.interfaces.Vivipare;
 import com.formation.thde.metier.Animal;
 
-public class Ursides extends Animal implements Lapper {
+public class Ursides extends Animal implements Lapper, Vivipare {
 
 	public Ursides(int poids, String couleur) {
 		super(poids, couleur);
@@ -35,6 +36,24 @@ public class Ursides extends Animal implements Lapper {
 	@Override
 	public void lapper() {
 		System.out.println("les ursidés boivent dans les rizières");
+
+	}
+
+	@Override
+	public void gestation() {
+		System.out.println("les femelles pandas ont une période de gestion");
+
+	}
+
+	@Override
+	public boolean egale(Animal animal) {
+		boolean result = false;
+		if (animal instanceof Ursides) {
+			if (this.getCouleur().equals(animal.getCouleur()) && (this.getPoids() == animal.getPoids())) {
+				result = true;
+			}
+		}
+		return result;
 
 	}
 

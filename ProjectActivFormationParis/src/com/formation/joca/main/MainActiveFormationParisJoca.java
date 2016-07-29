@@ -173,6 +173,7 @@ public class MainActiveFormationParisJoca {
 		// exo8.ranger(texte);
 
 		System.out.println(exo8.getListeMot("l", 4));
+		System.out.println(exo8.getListeMot("o", 4));
 
 	}
 }

@@ -48,5 +48,15 @@ public class Serpent extends Animal implements Lapper, Ovipare {
 		System.out.println("Oh, oh, oh ..... un Abo a été ajouté à votre pokédex ");
 
 	}
-
+	
+	@Override
+	public boolean egale (Animal animal) {
+		boolean result = false;
+		if (animal instanceof Serpent) {
+			if ((this.getCouleur().equals(animal.getCouleur()) &&(this.getPoids() == animal.getPoids()))) {
+				result = true;
+			}
+		}
+		return result;
+	}
 }

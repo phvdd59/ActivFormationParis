@@ -7,6 +7,7 @@ import com.formation.anfr.metier.Poney;
 import com.formation.beba.metier.Tigre;
 import com.formation.etga.Interface.Lapper;
 import com.formation.issa.metier.Loup;
+import com.formation.jeci.interfacea.Ovipare;
 import com.formation.jeci.interfacea.Recueille;
 import com.formation.jeci.metier.Aigle;
 import com.formation.jeci.metier.Oiseaux;
@@ -91,6 +92,7 @@ public class MainAnimal {
 		for (int i = 0; i < lstLapper.size(); i++) {
 			lstLapper.get(i).lapper();
 		}
-		
+		Ovipare j = new Saumon();
+		j.pondre();
 	}
 }
