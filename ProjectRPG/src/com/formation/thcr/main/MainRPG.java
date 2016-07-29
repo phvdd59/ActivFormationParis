@@ -16,6 +16,7 @@ import com.formation.made.metier.NeBougePas;
 import com.formation.soka.metier.Civil;
 import com.formation.thde.metier.CombatCouteau;
 import com.formation.thde.metier.CombatPistolet;
+import com.formation.thde.metier.CombatScalpel;
 import com.formation.thde.metier.PasDeCombat;
 
 public class MainRPG {
@@ -31,7 +32,7 @@ public class MainRPG {
 		Personnage sniper = new Sniper(new CombatPistolet(), new NeBougePas(), new PremierSoin());
 		Personnage guerrier = new Guerrier(new CombatCouteau(), new Marcher(), new PremierSoin());
 		Personnage medecin = new Medecin(new CombatCouteau(), new Courrir(), new PremierSoin());
-		Personnage chirurgien = new Chirurgien(new CombatCouteau(), new Courrir(), new Operation());
+		Personnage chirurgien = new Chirurgien(new CombatScalpel(), new Courrir(), new Operation());
 
 		Personnage civil2 = new Civil();
 		System.out.println(civil2.getClass().getName());
@@ -39,7 +40,7 @@ public class MainRPG {
 		civil2.soigner();
 		civil2.seDeplacer();
 		System.out.println("---------------------------------");
-		
+
 		ArrayList<Personnage> list = new ArrayList<Personnage>();
 		list.add(civil);
 		list.add(sniper);
