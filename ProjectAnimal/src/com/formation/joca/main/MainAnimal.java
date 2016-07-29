@@ -6,12 +6,14 @@ import com.formation.anfr.metier.Poney;
 import com.formation.beba.metier.Tigre;
 import com.formation.etga.Interface.Lapper;
 import com.formation.issa.metier.Loup;
+import com.formation.jeci.interfacea.Ovipare;
 import com.formation.jeci.interfacea.Recueille;
 import com.formation.jeci.metier.Aigle;
 import com.formation.jeci.metier.Oiseaux;
 import com.formation.joca.metier.Pangolin;
 import com.formation.made.metier.Panda;
 import com.formation.soka.metier.Lion;
+import com.formation.thcr.metier.Saumon;
 import com.formation.thde.metier.Animal;
 
 public class MainAnimal {
@@ -31,6 +33,13 @@ public class MainAnimal {
 		lstLapper.add(new Tigre(120, "roux"));
 		lstLapper.add(new Pangolin(30, "Blanc"));
 		lstLapper.add(new Panda(30, "Blanc"));
+
+		ArrayList<Ovipare> lstOvipare = new ArrayList<Ovipare>();
+		lstOvipare.add(new Saumon(1, "rose"));
+		lstOvipare.add(new Aigle(1, "rose"));
+		for (int i = 0; i < lstOvipare.size(); i++) {
+			lstOvipare.get(i).pondre();
+		}
 
 		for (int i = 0; i < lstLapper.size(); i++) {
 			lstLapper.get(i).lapper();
