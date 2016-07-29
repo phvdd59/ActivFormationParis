@@ -1,6 +1,6 @@
 package com.formation.etga.exo;
 
-public class CleDico {
+public class CleDico implements Comparable<CleDico> {
 
 	private String lettre;
 	private int lngMot;
@@ -21,4 +21,11 @@ public class CleDico {
 	public void setLngMot(int lngMot) {
 		this.lngMot = lngMot;
 	}
+	
+	@Override
+	public int compareTo(CleDico o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
 }

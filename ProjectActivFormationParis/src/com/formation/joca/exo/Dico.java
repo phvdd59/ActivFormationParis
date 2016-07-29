@@ -46,13 +46,10 @@ public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDi
 				} else if (this.get(cle).indexOf(mot) == -1) {
 					this.get(cle).add(mot);
 				} else {
-					for (int m = 1; m <= this.get(cle).get(this.get(cle).indexOf(mot)).getNb(); m++) {
-						this.get(cle).get(this.get(cle).indexOf(mot)).plusUn();
-					}
+					this.get(cle).get(this.get(cle).indexOf(mot)).plusUn();
 				}
 			}
 		}
-
 	}
 
 	public ArrayList<Mot> traitementTexte(String texte) {
