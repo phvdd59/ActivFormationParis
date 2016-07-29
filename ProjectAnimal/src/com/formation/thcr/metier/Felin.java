@@ -27,7 +27,8 @@ public abstract class Felin extends Animal implements Lapper, Vivipare {
 	@Override
 	public abstract void crier();
 
-	public void Vivipare() {
+	@Override
+	public void gestation() {
 		System.out.println("Les félins sont vivipares");
 	}
 

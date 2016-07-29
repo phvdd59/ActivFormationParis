@@ -92,7 +92,5 @@ public class MainAnimal {
 			lstLapper.get(i).lapper();
 		}
 		
-		
-		
 	}
 }

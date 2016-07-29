@@ -35,7 +35,7 @@ public class Saumon extends Animal implements Ovipare{
 
 	@Override
 	public void pondre() {
-		System.out.println("Je pond des oeufs");
+		System.out.println("Je pond des œufs");
 		
 	}
 
