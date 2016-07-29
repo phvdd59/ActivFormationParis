@@ -31,8 +31,7 @@ public class Pholidote extends com.formation.thde.metier.Animal implements Lappe
 
 	@Override
 	public void deplacement() {
-		// TODO Auto-generated method stub
-
+		System.out.println("la famille des pholidotes se déplace sur leurs quatres pattes");
 	}
 
 	@Override
