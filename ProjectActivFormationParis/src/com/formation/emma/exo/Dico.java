@@ -1,9 +1,6 @@
 package com.formation.emma.exo;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Spliterator;
 import java.util.TreeMap;
 
 import com.formation.phva.exo.InterExoDico1;
@@ -12,6 +9,33 @@ public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDi
 
 	@Override
 	public void ranger(String texte) {
+		texte = epuration(texte);
+		String[] tab = texte.split(" ");
+
+		for (int i = 0; i < tab.length; i++) {
+			Mot mot = new Mot(tab[i]);
+
+			for (int j = 0; j < tab[i].length(); j++) {
+				String lettre = tab[i].substring(j, j + 1);
+
+				CleDico cleDico = new CleDico(lettre, tab[i].length());
+
+//				for (int k = 0; k < size() - 1; k++) {
+//						if (cleDico.compareTo(cleDico.get(i))) == 1) {
+//							
+//						}
+											
+		//		}
+											
+											ArrayList<Mot> liste = this.get(cleDico);
+
+			}
+
+		}
+
+	}
+
+	public String epuration(String texte) {
 		texte = texte.toLowerCase();
 		texte = texte.replaceAll("[ав]", "a");
 		texte = texte.replaceAll("[йикл]", "e");
@@ -20,15 +44,7 @@ public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDi
 		texte = texte.replaceAll("ф", "o");
 		texte = texte.replaceAll("[оп]", "i");
 		texte = texte.replaceAll("\\p{Punct}", "");
-		String[] tab = texte.split(" ");
-
-		ArrayList<String> listeDeMots = new ArrayList<String>();
-
-		for (int i = 0; i < tab.length; i++) {
-			listeDeMots.add(tab[i]);
-		}
-
-		
+		return texte;
 	}
 
 	@Override
