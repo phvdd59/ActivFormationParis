@@ -47,14 +47,8 @@ public class Ursides extends Animal implements Lapper, Vivipare {
 
 	@Override
 	public boolean egale(Animal animal) {
-		boolean result = false;
-		if (animal instanceof Ursides) {
-			if (this.getCouleur().equals(animal.getCouleur()) && (this.getPoids() == animal.getPoids())) {
-				result = true;
-			}
-		}
-		return result;
-
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }

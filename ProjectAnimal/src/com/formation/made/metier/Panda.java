@@ -1,5 +1,7 @@
 package com.formation.made.metier;
 
+import com.formation.thde.metier.Animal;
+
 public class Panda extends Ursides {
 
 	public Panda() {
@@ -34,7 +36,17 @@ public class Panda extends Ursides {
 		System.out.println("Je grogne pépèrement.");
 
 	}
-	
-	
+
+	@Override
+	public boolean egale(Animal animal) {
+		boolean result = false;
+		if (animal instanceof Panda) {
+			if (this.getCouleur().equals(animal.getCouleur()) && (this.getPoids() == animal.getPoids())) {
+				result = true;
+			}
+		}
+		return result;
+
+	}
 
 }
