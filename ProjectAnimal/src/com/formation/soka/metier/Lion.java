@@ -15,32 +15,27 @@ public class Lion extends Felin {
 
 	@Override
 	public void manger() {
-		// TODO Auto-generated method stub
-
+		System.out.println("Je mange tous les animaux de la Jungle");
 	}
 
 	@Override
 	public void boire() {
-		// TODO Auto-generated method stub
-
+		System.out.println("Je lape, je bois");
 	}
 
 	@Override
 	public void deplacement() {
-		// TODO Auto-generated method stub
-
+		System.out.println("Je me déplace pour mieux digerer");
 	}
 
 	@Override
 	public void crier() {
-		// TODO Auto-generated method stub
-
+		System.out.println("Je rugis aprés avoir bien mangé");
 	}
 
 	@Override
 	public void lapper() {
-		// TODO Auto-generated method stub
-
+		System.out.println("Le lion lappe");
 	}
 
 }
