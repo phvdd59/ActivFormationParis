@@ -1,6 +1,7 @@
 package com.formation.ambr.metier;
 
 import com.formation.jeci.metier.Oiseaux;
+import com.formation.thde.metier.Animal;
 
 public class Corneille extends Oiseaux {
 
@@ -30,6 +31,18 @@ public class Corneille extends Oiseaux {
 	@Override
 	public void crier() {
 		System.out.println("Je croasse");
+	}
+
+	@Override
+	public boolean egale(Animal animal) {
+		boolean result = false;
+		if (animal instanceof Corneille) {
+			if (this.getCouleur().equals(animal.getCouleur()) && this.getPoids() == animal.getPoids()) {
+				result = true;
+			}
+
+		}
+		return result;
 	}
 
 }
