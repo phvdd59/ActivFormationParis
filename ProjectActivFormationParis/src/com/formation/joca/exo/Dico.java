@@ -39,14 +39,21 @@ public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDi
 					j++;
 				}
 			}
-			for (int z = 0; z < tabFinal.size(); z++) {
-				CleDico cle = new CleDico(Character.toString(tabFinal.get(z)), mot.getMot().length());
-				if (this.get(cle) == null) {
-					this.get(cle).add(mot);
-				} else if (this.get(cle).indexOf(mot) == -1) {
-					this.get(cle).add(mot);
-				} else {
-					this.get(cle).get(this.get(cle).indexOf(mot)).plusUn();
+			if (this.get(new CleDico(Character.toString(tabFinal.get(0)), mot.getMot().length())).indexOf(mot) != -1) {
+				for (int k = 1; k <= mot.getNb(); k++) {
+					this.get(new CleDico(Character.toString(tabFinal.get(0)), mot.getMot().length())).get(this
+							.get(new CleDico(Character.toString(tabFinal.get(0)), mot.getMot().length())).indexOf(mot))
+							.plusUn();
+				}
+			} else {
+
+				for (int z = 0; z < tabFinal.size(); z++) {
+					CleDico cle = new CleDico(Character.toString(tabFinal.get(z)), mot.getMot().length());
+					if (this.get(cle) == null) {
+						this.get(cle).add(mot);
+					} else if (this.get(cle).indexOf(mot) == -1) {
+						this.get(cle).add(mot);
+					}
 				}
 			}
 		}
