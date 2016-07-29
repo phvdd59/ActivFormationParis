@@ -18,10 +18,13 @@ public class MainActiveFormationParis {
 
 	private void initAlgo2() {
 		ExoAlgo2 exo = new ExoAlgo2();
-		int n = Integer.MAX_VALUE;
-		System.out.println(n);
-		System.out.println(exo.solution(n));
-		
+		int n = 24;		
+		long start = System.currentTimeMillis();
+		int nbDiviseur = exo.solution(n);
+		System.out.println("Nombre de diviseur de " + n + " : " + nbDiviseur);
+		long end = System.currentTimeMillis() - start;
+		System.out.println("time : " + end + "ms");
+		System.out.println();
 	}
 
 	private void initAlgo() {

@@ -17,35 +17,41 @@ public class ExoAlgo2 implements ImpAlgo2 {
 	 */
 
 	public int solution(int n) {
-		int cpt = 1;
-		if (n < 0) {
+		double sqrtCheck = Math.sqrt(n);
+		int sqrtN = (int) Math.sqrt(n) + 1;
+		int cpt = 0;
+		if (n <= 0) {
 			cpt = -1;
-		} else if (n > 1) {
-			for (int i = 1; i < n / 2 + 1; i++) {
+		} else if (n > 1 && sqrtCheck % 1 != 0) {
+			for (int i = 1; i < sqrtN; i++) {
 				if (n % i == 0)
-					cpt++;
+					cpt = cpt + 2;
 			}
-		} else if (n == 0) {
-			cpt = 0;
+		} else {
+			for (int i = 1; i < sqrtN; i++) {
+				if (n % i == 0)
+					cpt = cpt + 2;
+			}
+			cpt--;
 		}
 		return cpt;
 	}
 
-//	public ArrayList<Integer> solution2(int n) {
-//		ArrayList<Integer> s = new ArrayList<Integer>();
-//		int a;
-//		if (n < 0) {
-//			a = Math.abs(n);
-//			for (int i = 1; i < a / 2; i++) {
-//				if (a % i == 0)
-//					s.add(-i);
-//			}
-//		} else {
-//			for (int i = 1; i < n / 2; i++) {
-//				if (n % i == 0)
-//					s.add(i);
-//			}
-//		}
-//		return s;
-//	}
+	//	public ArrayList<Integer> solution2(int n) {
+	//		ArrayList<Integer> s = new ArrayList<Integer>();
+	//		int a;
+	//		if (n < 0) {
+	//			a = Math.abs(n);
+	//			for (int i = 1; i < a / 2; i++) {
+	//				if (a % i == 0)
+	//					s.add(-i);
+	//			}
+	//		} else {
+	//			for (int i = 1; i < n / 2; i++) {
+	//				if (n % i == 0)
+	//					s.add(i);
+	//			}
+	//		}
+	//		return s;
+	//	}
 }

@@ -1,4 +1,4 @@
-package com.formation.thde.exo;
+package com.formation.etga.exo;
 
 import com.formation.phva.exo.InterExoMot1;
 
@@ -9,7 +9,6 @@ public class Mot implements InterExoMot1, Comparable<Mot> {
 
 	public Mot(String mot) {
 		this.mot = mot;
-		nb = 1;
 	}
 
 	public String getMot() {
@@ -30,35 +29,25 @@ public class Mot implements InterExoMot1, Comparable<Mot> {
 
 	@Override
 	public int compareTo(Mot o) {
-		int result = 0;
-		if (this.getNb() > o.getNb()) {
-			result = -1;
-		} else if (this.getNb() < o.getNb()) {
-			result = 1;
-		} else {
-			result = (int) this.getMot().compareTo(o.getMot());
-		}
-		return result;
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 	@Override
 	public void plusUn() {
-		this.nb += 1;
-
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
 	public boolean equals(Object obj) {
-		boolean result = false;
-		Mot temp = (Mot) obj;
-		if (this.getMot().equals(temp.getMot())) {
-			result = true;
-		}
-		return result;
+		// TODO Auto-generated method stub
+		return super.equals(obj);
 	}
 
 	@Override
 	public String toString() {
-		return "[" + mot +" "+ nb + "]";
+		// TODO Auto-generated method stub
+		return super.toString();
 	}
 }

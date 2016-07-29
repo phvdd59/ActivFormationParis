@@ -30,11 +30,11 @@ public class Mot implements InterExoMot1, Comparable<Mot> {
 	@Override
 	public int compareTo(Mot o) {
 		int renvoi = 0;
-		if (this.nb < getNb()) {
+		if (this.nb < o.getNb()) {
 			renvoi = 1;
-		} else if (this.nb > getNb()) {
+		} else if (this.nb > o.getNb()) {
 			renvoi = -1;
-		} else if (this.nb == getNb()) {
+		} else if (this.nb == o.getNb()) {
 			renvoi = (int) this.toString().compareTo(o.toString());
 		}
 		return renvoi;
@@ -48,7 +48,8 @@ public class Mot implements InterExoMot1, Comparable<Mot> {
 
 	@Override
 	public boolean equals(Object obj) {
-		return this.getMot().equals((Mot) obj);
+		Mot mot = (Mot) obj;
+		return this.getMot().equals(mot.getMot());
 	}
 
 	@Override
