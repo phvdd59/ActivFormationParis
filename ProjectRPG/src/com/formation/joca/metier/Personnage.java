@@ -17,6 +17,9 @@ public abstract class Personnage {
 		this.soin = soin;
 	}
 
+	public Personnage() {
+	}
+
 	public void seDeplacer() {
 		deplacement.deplacer();
 	}
