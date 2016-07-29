@@ -6,7 +6,8 @@ public class Mot implements InterExoMot1, Comparable<Mot> {
 	private int nb;
 
 	public Mot(String mot) {
-		mot="motAjouter";
+		
+		
 	
 	}
 
