@@ -34,7 +34,7 @@ public class Guerrier extends Personnage {
 	@Override
 	public void soigner() {
 
-		System.out.println("un guerrier en soigne pas car c'est un guerrier");
+		System.out.println("un guerrier ne se soigne pas car c'est un guerrier");
 	}
 
 }
