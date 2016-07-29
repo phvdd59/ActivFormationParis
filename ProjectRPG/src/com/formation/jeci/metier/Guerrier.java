@@ -13,7 +13,7 @@ public class Guerrier extends Personnage {
 		super.soin = null;
 
 	}
-	
+
 	public Guerrier(EspritCombatif combat, Deplacement deplacement, Soin soin) {
 		super(combat, deplacement, soin);
 
@@ -22,19 +22,19 @@ public class Guerrier extends Personnage {
 	@Override
 	public void seDeplacer() {
 
-		super.seDeplacer();
+		System.out.println("Le guerrier se déplace en marchant et Ce que vous appelez l’enfer, il appelle ça chez lui.");
 	}
 
 	@Override
 	public void combattre() {
 
-		super.combattre();
+		System.out.println("Force et honneur !,  yooollooo");
 	}
 
 	@Override
 	public void soigner() {
 
-		super.soigner();
+		System.out.println("un guerrier ne se soigne pas car c'est un guerrier");
 	}
 
 }

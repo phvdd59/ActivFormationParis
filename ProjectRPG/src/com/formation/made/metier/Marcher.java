@@ -6,7 +6,7 @@ public class Marcher implements Deplacement {
 
 	@Override
 	public void deplacer() {
-		System.out.println("Walking Dead");
+		System.out.println("Je marche");
 
 	}
 
