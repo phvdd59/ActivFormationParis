@@ -157,8 +157,10 @@ public class MainActiveFormationParisJoca {
 
 	private void init8() {
 		Dico exo8 = new Dico();
-		String texte = "canard chien chat a canard loup lard lard lard lion lion loup chat loup chat a canard a";
+		String texte = "canard chien chat a canard loup lard lard lard lion lion loup lion lolo chat lili loup chat a canard a";
 		exo8.ranger(texte);
+		String texte2 = "loup canard taupe pikachu loup lili renard renard chat lolo loup lolo lili lili";
+		exo8.ranger(texte2);
 		// System.out.println(exo8.ranger(texte));
 
 		// Mot mot1 = new Mot("chat");
