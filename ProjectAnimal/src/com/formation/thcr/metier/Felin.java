@@ -4,7 +4,7 @@ import com.formation.etga.Interface.Lapper;
 import com.formation.soka.interfaces.Vivipare;
 import com.formation.thde.metier.Animal;
 
-public abstract class Felin extends Animal implements Lapper, Vivipare{
+public abstract class Felin extends Animal implements Lapper, Vivipare {
 
 	public Felin() {
 		super();
@@ -26,5 +26,9 @@ public abstract class Felin extends Animal implements Lapper, Vivipare{
 
 	@Override
 	public abstract void crier();
+
+	public void Vivipare() {
+		System.out.println("Les félins sont vivipares");
+	}
 
 }
