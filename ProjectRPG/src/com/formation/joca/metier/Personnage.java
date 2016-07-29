@@ -2,6 +2,7 @@ package com.formation.joca.metier;
 
 import com.formation.emma.inter.Soin;
 import com.formation.made.inter.Deplacement;
+import com.formation.thde.inter.EspritCombatif;
 
 public class Personnage implements EspritCombatif, Deplacement, Soin {
 
@@ -51,4 +52,23 @@ public class Personnage implements EspritCombatif, Deplacement, Soin {
 	public void soigner() {
 
 	}
+
+	@Override
+	public void soigne() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void deplacer() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void combat() {
+		// TODO Auto-generated method stub
+
+	}
+
 }
