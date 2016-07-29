@@ -1,8 +1,6 @@
 package com.formation.made.metier;
 
-import com.formation.thde.metier.Animal;
-
-public class Panda extends Animal {
+public class Panda extends Ursides {
 
 	public Panda() {
 		super(800, "Blanc et noir");
@@ -15,19 +13,19 @@ public class Panda extends Animal {
 
 	@Override
 	public void manger() {
-		System.out.println("je mange du bambou.");
+		System.out.println("le panda mange du bambou.");
 
 	}
 
 	@Override
 	public void boire() {
-		System.out.println("je bois de l'eau");
+		System.out.println("Le panda lappe");
 
 	}
 
 	@Override
 	public void deplacement() {
-		System.out.println("Je grimpe dans les forêts de bambous.");
+		System.out.println("le panda grimpe dans les forêts de bambous.");
 
 	}
 

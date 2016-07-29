@@ -245,5 +245,7 @@ public class Main {
 		ExoAlgo2 algo2 = new ExoAlgo2();
 		int nbDeDiviseur = algo2.solution(o);
 		System.out.println(nbDeDiviseur);
+		
+		
 	}
 }

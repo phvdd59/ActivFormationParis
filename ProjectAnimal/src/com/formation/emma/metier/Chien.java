@@ -23,10 +23,6 @@ public class Chien extends Canin {
 
 	}
 
-	@Override
-	public void deplacement() {
-		super.deplacement();
-	}
 
 	@Override
 	public void crier() {
