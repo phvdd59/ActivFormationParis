@@ -11,7 +11,7 @@ import com.formation.thde.metier.PasDeCombat;
 public class Civil extends Personnage {
 
 	public Civil() {
-		this(new PasDeCombat(), new NeBougePas(), new Sevanouir());
+		super(new PasDeCombat(), new NeBougePas(), new Sevanouir());
 	}
 	
 	public Civil(EspritCombatif combat, Deplacement deplacement, Soin soin) {
