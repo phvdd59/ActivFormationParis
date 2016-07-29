@@ -1,14 +1,14 @@
 package com.formation.joca.metier;
 
-import com.formation.etga.Interface.lapper;
+import com.formation.etga.Interface.Lapper;
 
-public class Pholidotes extends com.formation.thde.metier.Animal implements lapper {
+public class Pholidote extends com.formation.thde.metier.Animal implements Lapper {
 
-	public Pholidotes() {
+	public Pholidote() {
 		super();
 	}
 
-	public Pholidotes(int poids, String couleur) {
+	public Pholidote(int poids, String couleur) {
 		super(poids, couleur);
 	}
 
