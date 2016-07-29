@@ -17,20 +17,17 @@ public class Civil extends Personnage implements EspritCombatif, Deplacement, So
 
 	@Override
 	public void soigne() {
-		// TODO Auto-generated method stub
-
+		System.out.println("Prend du doliprane quand il a mal à la tête");
 	}
 
 	@Override
 	public void deplacer() {
-		// TODO Auto-generated method stub
-
+		System.out.println("Il gambade");
 	}
 
 	@Override
 	public void combat() {
-		// TODO Auto-generated method stub
-
+		System.out.println("Il a peur → → →");
 	}
 
 }
