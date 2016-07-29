@@ -22,7 +22,7 @@ public class Aigle extends Oiseaux {
 	@Override
 	public void boire() {
 		System.out.println("L'aigle recueille l'eau.\n En soirée je bois de l'eau mais aussi la journée.");
-
+//
 	}
 
 	@Override
