@@ -15,7 +15,7 @@ public class Guerrier extends Personnage {
 		this.deplacement = new DeplacementJeCi();
 		this.soin = new SoinJeCI();
 
-	}
+	}//
 
 	public Guerrier(EspritCombatif combat, Deplacement deplacement, Soin soin) {
 		super(combat, deplacement, soin);
