@@ -1,8 +1,8 @@
-package com.formation.thde.metier;
+package com.formation.comportement;
 
 import com.formation.thde.inter.EspritCombatif;
 
-public class CombatScalpel implements EspritCombatif {
+public class ThdeCombatScalpel implements EspritCombatif {
 
 	@Override
 	public void combat() {
