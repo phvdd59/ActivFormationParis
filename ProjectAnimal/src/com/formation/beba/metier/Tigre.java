@@ -2,7 +2,7 @@ package com.formation.beba.metier;
 
 import com.formation.thcr.metier.Felin;
 
-public class Tigre extends Felin {
+public class Tigre extends Felin implements Comparable<Tigre> {
 
 	public Tigre() {
 		super(300, "Classe");
@@ -41,6 +41,20 @@ public class Tigre extends Felin {
 	@Override
 	public void lapper() {
 		System.out.println("Je Lappe tout seul ! he toc !!!");
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+//		if (obj instanceof Tigre) {
+			Tigre t=(Tigre) obj;
+//		}
+		return super.equals(obj);
+	}
+
+	@Override
+	public int compareTo(Tigre t) {
+		
+		return 0;
 	}
 
 }
