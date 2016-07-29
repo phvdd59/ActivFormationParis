@@ -7,8 +7,9 @@ import com.formation.thde.inter.EspritCombatif;
 
 public class Medecin extends Personnage implements Soin, Deplacement, EspritCombatif {
 
-	public Medecin() {
-		//
+	public Medecin(EspritCombatif combat, Deplacement deplacement, Soin soin) {
+		super(combat, deplacement, soin);
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override
