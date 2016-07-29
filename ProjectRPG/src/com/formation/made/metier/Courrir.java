@@ -6,7 +6,7 @@ public class Courrir implements Deplacement {
 
 	@Override
 	public void deplacer() {
-		System.out.println("Cours Forest, cours!");
+		System.out.println("Je cours comme Forest!");
 
 	}
 

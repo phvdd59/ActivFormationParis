@@ -6,7 +6,7 @@ public class Sauter implements Deplacement {
 
 	@Override
 	public void deplacer() {
-		System.out.println("Jump Around");
+		System.out.println("Je saute");
 
 	}
 
