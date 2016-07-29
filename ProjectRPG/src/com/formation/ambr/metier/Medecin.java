@@ -19,7 +19,7 @@ public class Medecin extends Personnage implements Soin, Deplacement, EspritComb
 
 	@Override
 	public void deplacer() {
-		System.out.println("Je me déplace");
+		System.out.println("Je me déplace super vite grâce à mes prothèses bioniques");
 	}
 
 	@Override
