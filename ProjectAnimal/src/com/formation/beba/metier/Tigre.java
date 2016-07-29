@@ -1,6 +1,7 @@
 package com.formation.beba.metier;
 
 import com.formation.thcr.metier.Felin;
+import com.formation.thde.metier.Animal;
 
 public class Tigre extends Felin {
 
@@ -41,6 +42,17 @@ public class Tigre extends Felin {
 	@Override
 	public void lapper() {
 		System.out.println("Je Lappe tout seul ! he toc !!!");
+	}
+
+	@Override
+	public boolean egale(Animal animal) {
+		boolean result = false;
+		if(animal instanceof Tigre){
+			if (this.getCouleur().equals(animal.getCouleur()) && (this.getPoids()==animal.getPoids())){
+				result = true;
+			}
+		}
+		return result;
 	}
 
 }
