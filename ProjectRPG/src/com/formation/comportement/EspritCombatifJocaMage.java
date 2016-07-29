@@ -2,7 +2,7 @@ package com.formation.comportement;
 
 import com.formation.thde.inter.EspritCombatif;
 
-public class EspritCombatifJocafMage implements EspritCombatif {
+public class EspritCombatifJocaMage implements EspritCombatif {
 
 	@Override
 	public void combat() {

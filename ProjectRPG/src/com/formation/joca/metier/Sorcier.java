@@ -1,6 +1,7 @@
 package com.formation.joca.metier;
 
 import com.formation.comportement.DeplacementJocaTeleport;
+import com.formation.comportement.EspritCombatifJocaMage;
 import com.formation.comportement.SoinJocaMana;
 import com.formation.emma.inter.Soin;
 import com.formation.made.inter.Deplacement;
