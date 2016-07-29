@@ -14,20 +14,17 @@ public class Medecin extends Personnage implements Soin, Deplacement, EspritComb
 
 	@Override
 	public void combat() {
-		// TODO Auto-generated method stub
-
+		System.out.println("J'injecte une solution de curare");
 	}
 
 	@Override
 	public void deplacer() {
-		// TODO Auto-generated method stub
-
+		System.out.println("Je me déplace");
 	}
 
 	@Override
 	public void soigne() {
-		// TODO Auto-generated method stub
-
+		System.out.println("Je diagnostique et réalise les soins nécessaires");
 	}
 
 }
