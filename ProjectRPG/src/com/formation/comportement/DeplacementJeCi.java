@@ -1,4 +1,4 @@
-package com.formation.jeci.comporetement;
+package com.formation.comportement;
 
 import com.formation.made.inter.Deplacement;
 
@@ -10,4 +10,5 @@ public class DeplacementJeCi implements Deplacement{
 		
 	}
 
+	
 }

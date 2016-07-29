@@ -1,4 +1,4 @@
-package com.formation.jeci.comporetement;
+package com.formation.comportement;
 
 import com.formation.thde.inter.EspritCombatif;
 
@@ -10,3 +10,4 @@ public class EspritCombatifJeCi implements EspritCombatif {
 	}
 
 }
+
