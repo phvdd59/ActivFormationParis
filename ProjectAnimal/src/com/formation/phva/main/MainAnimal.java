@@ -35,7 +35,7 @@ public class MainAnimal {
 
 		ArrayList<Ovipare> lstOvipare = new ArrayList<Ovipare>();
 		lstOvipare.add(new Saumon(1, "rose"));
-		lstOvipare.add(new Aiqle(1, "rose"));
+		//lstOvipare.add(new Aiqle(1, "rose"));
 		for (int i = 0; i < lstOvipare.size(); i++) {
 			lstOvipare.get(i).pondre();
 		}
