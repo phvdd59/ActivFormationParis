@@ -1,9 +1,9 @@
 package com.formation.joca.metier;
 
-import com.formation.etga.Interface.lapper;
+import com.formation.etga.Interface.Lapper;
 import com.formation.thde.metier.Animal;
 
-public abstract class Canin extends Animal implements lapper {
+public abstract class Canin extends Animal implements Lapper {
 
 	public Canin(int poids, String couleur) {
 		super(poids, couleur);
