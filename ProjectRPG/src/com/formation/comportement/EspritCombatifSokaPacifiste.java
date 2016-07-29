@@ -6,7 +6,7 @@ public class EspritCombatifSokaPacifiste implements EspritCombatif {
 
 	@Override
 	public void combat() {
-		System.out.println("Je m'enfuis quand je peux!!");
+		System.out.println("Pas la guerre, pas la guerre, pas la guerre!!!");
 	}
 
 }
