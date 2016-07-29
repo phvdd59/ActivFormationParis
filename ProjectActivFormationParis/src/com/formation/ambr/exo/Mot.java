@@ -1,16 +1,14 @@
-package com.formation.joca.exo;
+package com.formation.ambr.exo;
 
 import com.formation.phva.exo.InterExoMot1;
 
 public class Mot implements InterExoMot1, Comparable<Mot> {
 
-	private String mot;
-	private int nb;
+	private String mot; // le mot
+	private int nb; // nbre d'occurences du mot
 
 	public Mot(String mot) {
-
-		this.mot = mot;
-		this.nb = 1;
+		// TODO 
 	}
 
 	public String getMot() {
@@ -31,36 +29,25 @@ public class Mot implements InterExoMot1, Comparable<Mot> {
 
 	@Override
 	public int compareTo(Mot o) {
-		int result = 0;
-
-		if (this.getNb() > o.getNb()) {
-			result = -1;
-		} else if (this.getNb() < o.getNb()) {
-			result = 1;
-		} else {
-			result = (int) this.getMot().compareTo(o.getMot());
-		}
-		return result;
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 	@Override
 	public void plusUn() {
-		this.nb++;
+		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public boolean equals(Object obj) {
-		Mot mot = (Mot) obj;
-		boolean result = false;
-		if (mot.getMot().equals(this.getMot())) {
-			result = true;
-		}
-		return result;
+		// TODO Auto-generated method stub
+		return super.equals(obj);
 	}
 
 	@Override
 	public String toString() {
-		return mot;
+		// TODO Auto-generated method stub
+		return super.toString();
 	}
 }

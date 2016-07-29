@@ -1,4 +1,4 @@
-package com.formation.joca.exo;
+package com.formation.anfr.exo;
 
 import com.formation.phva.exo.InterExoMot1;
 
@@ -8,9 +8,8 @@ public class Mot implements InterExoMot1, Comparable<Mot> {
 	private int nb;
 
 	public Mot(String mot) {
-
-		this.mot = mot;
-		this.nb = 1;
+		this.setMot(mot);
+		setNb(1);
 	}
 
 	public String getMot() {
@@ -31,36 +30,33 @@ public class Mot implements InterExoMot1, Comparable<Mot> {
 
 	@Override
 	public int compareTo(Mot o) {
-		int result = 0;
-
-		if (this.getNb() > o.getNb()) {
-			result = -1;
+		int compare = 0;
+		if (this.getNb() > o.getNb()){
+			compare = -1;
 		} else if (this.getNb() < o.getNb()) {
-			result = 1;
+			compare = 1;
 		} else {
-			result = (int) this.getMot().compareTo(o.getMot());
+			compare =this.getMot().compareTo(o.getMot());
 		}
-		return result;
+		return compare;
 	}
 
 	@Override
 	public void plusUn() {
-		this.nb++;
-
+		nb++;		
 	}
 
 	@Override
 	public boolean equals(Object obj) {
-		Mot mot = (Mot) obj;
-		boolean result = false;
-		if (mot.getMot().equals(this.getMot())) {
-			result = true;
+		boolean bool = false;
+		if (this.getClass().equals(obj.getClass())) {
+			bool = this.getMot().equals(((Mot) obj).getMot());
 		}
-		return result;
+		return bool;
 	}
 
 	@Override
 	public String toString() {
-		return mot;
+		return getMot()+ "("+getNb()+")";
 	}
 }

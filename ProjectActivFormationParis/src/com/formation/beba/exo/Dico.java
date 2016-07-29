@@ -40,28 +40,41 @@ public class Dico extends TreeMap<CleDico, ArrayList<Mot>>implements InterExoDic
 		}
 		lstMot.add(motA);
 		motA = null;
+		boolean enCours = false;
 		for (int i = 0; i < lstMot.size(); i++) {
-			if (motObj.contains(new Mot(lstMot.get(i)))) {
-				motObj.get(motObj.lastIndexOf(lstMot.get(i))).plusUn();
-			} else {
+			enCours = false;
+			Mot motTemp = new Mot(lstMot.get(i));
+			for (int j = 0; j < motObj.size(); j++) {
+
+				if (motObj.get(j).equals(motTemp)) {
+					motObj.get(j).plusUn();
+					enCours = true;
+				}
+			}
+			if (enCours == false) {
 				motObj.add(new Mot(lstMot.get(i)));
 			}
 		}
-		Collections.sort(lstMot);
-
-		ArrayList<Mot> motMultiple = new ArrayList<Mot>();
-		TreeMap<CleDico, ArrayList<Mot>> dico = new TreeMap<CleDico, ArrayList<Mot>>();
+		Collections.sort(motObj);
 
 		for (int i = 0; i < motObj.size(); i++) {
-			for (int j = 0; j < lstMot.get(i).length(); j++) {
+			int t = motObj.get(i).toString().length();
+			for (int j = 0; j < motObj.get(i).toString().length(); j++) {
 				String lettre = Character.toString(motObj.get(i).getMot().charAt(j));
 				int longM = motObj.get(i).getMot().length();
 				CleDico cle = new CleDico(lettre, longM);
-				if (dico.get(cle)==null) {
-					dico.put(cle, motMultiple);
+				
+				if (this.get(cle) == null) {
+					ArrayList<Mot> motMultiple = new ArrayList<Mot>();
+					motMultiple.add(motObj.get(i));
+					this.put(cle, motMultiple);
+				} else {
+					ArrayList<Mot> motMultiple = new ArrayList<Mot>();
+					motMultiple = this.get(cle);
+					motMultiple.add(motObj.get(i));
+					this.put(cle, motMultiple);
 				}
-				dico.
-			
+
 			}
 
 		}

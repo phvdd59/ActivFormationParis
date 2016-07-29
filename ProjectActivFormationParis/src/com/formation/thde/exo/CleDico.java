@@ -1,4 +1,4 @@
-package com.formation.beba.exo;
+package com.formation.thde.exo;
 
 public class CleDico implements Comparable<CleDico> {
 
@@ -29,20 +29,16 @@ public class CleDico implements Comparable<CleDico> {
 
 	@Override
 	public int compareTo(CleDico o) {
-		int compareCleD = 0;
-		compareCleD = this.getLettre().compareTo(o.getLettre());
-		if (compareCleD == 0) {
-			if (this.getLngMot() < o.getLngMot()) {
-				compareCleD = -1;
-			} else {
-				if (this.getLngMot() > o.getLngMot()) {
-					compareCleD = 1;
-				} else {
-					compareCleD = 0;
-				}
+		int result = 0;
+		if (this.getLettre().compareTo(o.getLettre()) != 0) {
+			result = this.getLettre().compareTo(o.getLettre());
+		} else {
+			if (this.getLngMot() > o.getLngMot()) {
+				result = -1;
+			} else if (this.getLngMot() < o.getLngMot()) {
+				result = 1;
 			}
 		}
-		return compareCleD;
+		return result;
 	}
-
 }

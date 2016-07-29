@@ -1,4 +1,4 @@
-package com.formation.joca.exo;
+package com.formation.thde.exo;
 
 import com.formation.phva.exo.InterExoMot1;
 
@@ -8,9 +8,8 @@ public class Mot implements InterExoMot1, Comparable<Mot> {
 	private int nb;
 
 	public Mot(String mot) {
-
 		this.mot = mot;
-		this.nb = 1;
+		nb = 1;
 	}
 
 	public String getMot() {
@@ -32,7 +31,6 @@ public class Mot implements InterExoMot1, Comparable<Mot> {
 	@Override
 	public int compareTo(Mot o) {
 		int result = 0;
-
 		if (this.getNb() > o.getNb()) {
 			result = -1;
 		} else if (this.getNb() < o.getNb()) {
@@ -45,15 +43,15 @@ public class Mot implements InterExoMot1, Comparable<Mot> {
 
 	@Override
 	public void plusUn() {
-		this.nb++;
+		this.nb += 1;
 
 	}
 
 	@Override
 	public boolean equals(Object obj) {
-		Mot mot = (Mot) obj;
 		boolean result = false;
-		if (mot.getMot().equals(this.getMot())) {
+		Mot temp = (Mot) obj;
+		if (this.getMot().equals(temp.getMot())) {
 			result = true;
 		}
 		return result;
@@ -61,6 +59,6 @@ public class Mot implements InterExoMot1, Comparable<Mot> {
 
 	@Override
 	public String toString() {
-		return mot;
+		return "[" + mot +" "+ nb + "]";
 	}
 }
