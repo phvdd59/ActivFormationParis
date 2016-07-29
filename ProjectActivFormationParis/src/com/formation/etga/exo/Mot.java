@@ -1,4 +1,4 @@
-package com.formation.jeci.exo;
+package com.formation.etga.exo;
 
 import com.formation.phva.exo.InterExoMot1;
 
@@ -9,7 +9,6 @@ public class Mot implements InterExoMot1, Comparable<Mot> {
 
 	public Mot(String mot) {
 		this.mot = mot;
-		this.nb = 1;
 	}
 
 	public String getMot() {
@@ -30,27 +29,14 @@ public class Mot implements InterExoMot1, Comparable<Mot> {
 
 	@Override
 	public int compareTo(Mot o) {
-		int result = 0;
-		if (this.getNb() < o.getNb()) {
-			result = 1;
-		} else if (this.getNb() > o.getNb()) {
-			result = -1;
-		} else if (this.getNb() == o.getNb()) {
-			if (this.getMot().toString().compareTo(o.getMot().toString()) < 0) {
-				result = this.getMot().toString().compareTo(o.getMot().toString());
-
-			} else if (this.getMot().toString().compareTo(o.getMot().toString()) > 0) {
-				result = this.getMot().toString().compareTo(o.getMot().toString());
-			}
-
-		}
-		return result;
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 	@Override
 	public void plusUn() {
-		nb += 1;
-
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
@@ -61,7 +47,7 @@ public class Mot implements InterExoMot1, Comparable<Mot> {
 
 	@Override
 	public String toString() {
-
-		return "mot: " + mot + ", poids " + nb;
-	}// a
+		// TODO Auto-generated method stub
+		return super.toString();
+	}
 }

@@ -8,12 +8,14 @@ public class MainDico {
 		MainDico mainDico = new MainDico();
 		mainDico.init();
 	}
- public void init() {
+
+	public void init() {
 	 Dico dic = new Dico();
-	 dic.ranger("Note that the ordering maintained by a tree map, like any sorted map, and whether or not an explicit comparator is provided, must be consistent with equals if this sorted map is to correctly implement the Map interface. (See Comparable or Comparator for a precise definition of consistent with equals.) This is so because the Map interface is defined in terms of the equals operation, but a sorted map performs all key comparisons using its compareTo (or compare) method, so two keys that are deemed equal by this method are, from the standpoint of the sorted map, equal. The behavior of a sorted map is well-defined even if its ordering is inconsistent with equals; it just fails to obey the general contract of the Map interface. ");
-	 System.out.println(dic.getListeMot("d", 3));
+	 dic.ranger("Strange C’est un titre qui touche les gens profondément, et de tous les âges expliquait dans un entretien accordé au site du Monde Oskar Guilbert, cofondateur et dirigeant du studio Dontnod. On nous a même envoyé une vidéo où des joueurs d’une vingtaine de nationalités se sont filmés sur Skype, et nous ont dit “merci” dans leur langue, en polonais, en arabe, en anglais… J’avais les larmes aux yeux. C’est un vrai phénomène générationnel. Des fans ont même tenté de financer via Kickstarter le développement d'une suite, avant que Square Enix ne siffle la fin de la récréation et fasse valoir ses Droits sur le jeu, dont il possède la propriété intellectuelle.Histoire d'évoquer un peu ce projet de future série, nous avons pu nous entretenir en exclusivité par téléphone avec Raoul Barbet, le Game Director du jeu; et Michel Koch, le directeur artistique et co-directeur du jeu.");
+	System.out.println(dic.getListeMot("d", 3));
 	 System.out.println(dic.getListeMot("t", 4));
 	 System.out.println(dic.getListeMot("t", 3));
-	 System.out.println(dic.getListeMot("m", 3));
+	 System.out.println(dic.getListeMot("o", 3));
+	 System.out.println(dic.getListeMot("s", 7));
  }
 }
