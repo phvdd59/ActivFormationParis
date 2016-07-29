@@ -34,5 +34,7 @@ public class Panda extends Ursides {
 		System.out.println("Je grogne pépèrement.");
 
 	}
+	
+	
 
 }

@@ -1,6 +1,8 @@
 package com.formation.thde.metier;
 
-public abstract class Animal {
+import com.formation.thde.inter.Egale;
+
+public abstract class Animal implements Egale {
 
 	private int poids;
 	private String couleur;
@@ -43,4 +45,7 @@ public abstract class Animal {
 	public String toString() {
 		return "Animal [poids=" + poids + ", couleur=" + couleur + "]";
 	}
+
+	@Override
+	public abstract boolean egale(Animal animal);
 }
