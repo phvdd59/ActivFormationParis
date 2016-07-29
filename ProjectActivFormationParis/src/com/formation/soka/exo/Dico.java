@@ -1,6 +1,7 @@
 package com.formation.soka.exo;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.TreeMap;
 
 import com.formation.phva.exo.InterExoDico1;
@@ -16,7 +17,7 @@ public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDi
 		char[] tabChar = virerLesBadCaracteres(texte);
 		ArrayList<String> listeMotsString = creerListeMotsString(tabChar);
 		ArrayList<Mot> listeMotsMot = creerListeMotsMot(listeMotsString);
-		associerCle(listeMotsMot);
+		ajouterCle(listeMotsMot);
 
 	}
 
@@ -48,12 +49,9 @@ public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDi
 		String s = null;
 		for (int i = 0; i < tabChar.length; i++) {
 			if (tabChar[i] == ' ') {
-				i++;
 				if (s != null) {
 					listeMotsString.add(s);
 					s = null;
-				} else {
-					i--;
 				}
 			} else {
 				if (s == null) {
@@ -80,22 +78,47 @@ public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDi
 				listeMotsMot.add(mot);
 			}
 		}
+		Collections.sort(listeMotsMot);
+
 		return listeMotsMot;
 	}
 
-	private void associerCle(ArrayList<Mot> listeMotsMot) {
-		
+	private void ajouterCle(ArrayList<Mot> listeMotsMot) {
+		CleDico cleDico = null;
+		for (int i = 0; i < listeMotsMot.size(); i++) {
+			for (int j = 0; j < listeMotsMot.get(i).toString().length(); j++) {
+				ArrayList<Mot> listeTempo = new ArrayList<Mot>();
+				listeTempo.add(listeMotsMot.get(i));
+				cleDico = new CleDico(listeMotsMot.get(i).toString().substring(j, j + 1), listeMotsMot.get(i).toString().length());
+				if (this.containsKey(cleDico)) {
+					ArrayList<Mot> lst = get(cleDico);
+					if (lst.contains(listeMotsMot.get(i))) {
+						Mot mot = lst.get(lst.indexOf(listeMotsMot.get(i)));
+						mot.plusUn();
+					}
+					this.get(cleDico).add(listeMotsMot.get(i));
+				} else {
+					put(cleDico, listeMotsMot);
+				}
+			}
+		}
 	}
 
 	/**
 	 * Trouver les mots contenant la lettre <lettre> avec une certaine longueur
 	 * <lngMot> Puis les trier par ordre d'utilisation puis par ordre
 	 * alphabétique Utiliser les méthodes de la classe <Mot>
+	 *
 	 */
 	@Override
 	public ArrayList<String> getListeMot(String lettre, int lngMot) {
 		// TODO Auto-generated method stub
-
-		return null;
+		CleDico cleDico = new CleDico(lettre, lngMot);
+		ArrayList<Mot> listeMot = new ArrayList<Mot>();
+		ArrayList<String> listeString = new ArrayList<String>();
+		for (Mot mot : listeMot) {
+			listeString.add(mot.getMot());
+		}
+		return listeString;
 	}
 }

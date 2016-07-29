@@ -32,7 +32,15 @@ public class Mot implements InterExoMot1, Comparable<Mot> {
 	@Override
 	public int compareTo(Mot o) {
 		// TODO Auto-generated method stub
-		return 0;
+		int x = 0;
+		if (getNb() < o.getNb()) {
+			x = 1;
+		} else if (getNb() > o.getNb()) {
+			x = -1;
+		} else {
+			x = getMot().compareTo(o.getMot());
+		}
+		return x;
 	}
 
 	@Override
