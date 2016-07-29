@@ -7,6 +7,10 @@ import com.formation.thde.inter.EspritCombatif;
 
 public class Civil extends Personnage implements EspritCombatif, Deplacement, Soin {
 
+	public Civil() {
+
+	}
+
 	public Civil(EspritCombatif combat, Deplacement deplacement, Soin soin) {
 		super(combat, deplacement, soin);
 	}
