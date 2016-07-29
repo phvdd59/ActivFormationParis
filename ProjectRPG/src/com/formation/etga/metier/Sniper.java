@@ -5,7 +5,7 @@ import com.formation.joca.metier.Personnage;
 import com.formation.made.inter.Deplacement;
 import com.formation.thde.inter.EspritCombatif;
 
-public class Sniper extends Personnage {
+public class Sniper extends Personnage implements EspritCombatif, Deplacement, Soin {
 
 	public Sniper() {
 		super();
@@ -19,18 +19,17 @@ public class Sniper extends Personnage {
 	}
 
 	@Override
-	public void combattre() {
-		System.out.println("Je combats avec mon snip aaiiiiggght #GrosCampeur");
-
+	public void soigne() {
+		System.out.println("Je me soigne tout seul avec mon super kit si c'est pas trop grave");
 	}
 
 	@Override
-	public void seDeplacer() {
+	public void deplacer() {
 		System.out.println("Pas trop trop");
 	}
 
 	@Override
-	public void soigner() {
-		System.out.println("Je me soigne tout seul avec mon super kit si c'est pas trop grave");
+	public void combat() {
+		System.out.println("Je combats avec mon snip aaiiiiggght #GrosCampeur");
 	}
 }
