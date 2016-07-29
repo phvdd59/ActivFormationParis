@@ -8,6 +8,7 @@ public class SoinJeCI implements Soin{
 	public void soigne() {
 	System.out.println("Les pansements c'est pour les enfants!!");
 	
+	
 		
 	}
 
