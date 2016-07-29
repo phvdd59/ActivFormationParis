@@ -1,8 +1,8 @@
 package com.formation.beba.metier;
 
-import com.formation.thde.metier.Animal;
+import com.formation.thcr.metier.Felin;
 
-public class Tigre extends Animal {
+public class Tigre extends Felin {
 
 	public Tigre() {
 		super(300, "Classe");
@@ -36,6 +36,11 @@ public class Tigre extends Animal {
 	public void crier() {
 		System.out.println("Graou");
 
+	}
+
+	@Override
+	public void lapper() {
+		System.out.println("Je Lappe tout seul ! he toc !!!");
 	}
 
 }
