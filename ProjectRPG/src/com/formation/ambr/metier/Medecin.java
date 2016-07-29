@@ -6,13 +6,13 @@ import com.formation.joca.metier.Personnage;
 import com.formation.made.inter.Deplacement;
 import com.formation.made.metier.Marcher;
 import com.formation.thde.inter.EspritCombatif;
-import com.formation.thde.metier.CombatCouteau;
+import com.formation.thde.metier.CombatMedecin;
 
 public class Medecin extends Personnage {
 
 	public Medecin() {
 		super();
-		this.combat = new CombatCouteau();
+		this.combat = new CombatMedecin();
 		this.soin = new PremierSoin();
 		this.deplacement = new Marcher();
 	}
