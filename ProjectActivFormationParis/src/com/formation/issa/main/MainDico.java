@@ -2,12 +2,13 @@ package com.formation.issa.main;
 
 import java.util.ArrayList;
 
+import com.formation.issa.exo.CleDico;
 import com.formation.issa.exo.Dico;
 
 public class MainDico {
 
 	public MainDico() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public static void main(String[] args) {
@@ -23,12 +24,16 @@ public class MainDico {
 		dico.ranger(texte);
 		dico.getListeMot("i", 4);
 		System.out.println(texte);
-		ArrayList<String>listmot = new ArrayList<String>();
-		listmot = dico.getListeMot("o", 4);
-		System.out.println(listmot);
-		for (String s : listmot) {
-		 System.out.println(s +",");
-		 }
+//		ArrayList<String>listmot = new ArrayList<String>();
+//		listmot = dico.getListeMot("o", 4);
+//		System.out.println(listmot);
+//		for (String s : listmot) {
+//		 System.out.println(s +",");
+//		 }
+	
+		CleDico cleDico=new CleDico(texte, 3);
+		
+		
 		
 		
 		

@@ -27,7 +27,7 @@ public class Mot implements InterExoMot1, Comparable<Mot> {
 
 	@Override
 	public int compareTo(Mot o) {
-		// TODO Auto-generated method stub
+		
 		return 0;
 	}
 
