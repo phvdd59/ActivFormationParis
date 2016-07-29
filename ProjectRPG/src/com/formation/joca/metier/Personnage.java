@@ -6,9 +6,9 @@ import com.formation.thde.inter.EspritCombatif;
 
 public abstract class Personnage {
 
-	private EspritCombatif combat;
-	private Deplacement deplacement;
-	private Soin soin;
+	public EspritCombatif combat;
+	public Deplacement deplacement;
+	public Soin soin;
 
 	public Personnage(EspritCombatif combat, Deplacement deplacement, Soin soin) {
 		super();
