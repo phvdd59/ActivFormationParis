@@ -1,8 +1,9 @@
 package com.formation.thcr.metier;
 
+import com.formation.etga.Interface.Lapper;
 import com.formation.thde.metier.Animal;
 
-public abstract class Felin extends Animal {
+public abstract class Felin extends Animal implements Lapper{
 
 	public Felin() {
 		super();

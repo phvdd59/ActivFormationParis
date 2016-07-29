@@ -1,8 +1,9 @@
 package com.formation.jeci.metier;
 
+import com.formation.jeci.interfacea.Recueille;
 import com.formation.thde.metier.Animal;
 
-public class Oiseaux extends Animal {
+public class Oiseaux extends Animal implements Recueille {
 
 	public Oiseaux() {
 		super.setPoids(2);
@@ -32,6 +33,12 @@ public class Oiseaux extends Animal {
 
 	@Override
 	public void crier() {
+
+	}
+
+	@Override
+	public void recueille() {
+		System.out.println("je recueille");
 
 	}
 
