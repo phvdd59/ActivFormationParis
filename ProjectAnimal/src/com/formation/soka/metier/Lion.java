@@ -1,6 +1,7 @@
 package com.formation.soka.metier;
 
 import com.formation.thcr.metier.Felin;
+import com.formation.thde.metier.Animal;
 
 public class Lion extends Felin {
 
@@ -36,6 +37,22 @@ public class Lion extends Felin {
 	@Override
 	public void lapper() {
 		System.out.println("Le lion lappe");
+	}
+
+	@Override
+	public void gestation() {
+		System.out.println("Le lion est vivipare");
+	}
+
+	@Override
+	public boolean egale(Animal animal) {
+		boolean b = false;
+		if (animal instanceof Lion) {
+			if (this.getCouleur().equals(animal.getCouleur()) && (this.getPoids() == animal.getPoids())) {
+				b = true;
+			}
+		}
+		return b;
 	}
 
 }
