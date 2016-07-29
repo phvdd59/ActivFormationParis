@@ -1,6 +1,6 @@
 package com.formation.joca.metier;
 
-public class Pangolin extends com.formation.thde.metier.Animal {
+public class Pangolin extends Pholidotes {
 
 	public Pangolin(int poids, String couleur) {
 		super(poids, couleur);
@@ -24,7 +24,7 @@ public class Pangolin extends com.formation.thde.metier.Animal {
 	}
 
 	public void boire() {
-		System.out.println("le pangolin boit du fanta" + "\u00a9" + ", sa boisson préférée");
+		System.out.println("le pangolin boit du fanta");
 
 	}
 
