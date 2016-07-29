@@ -1,9 +1,8 @@
 package com.formation.beba.metier;
 
 import com.formation.thcr.metier.Felin;
-import com.formation.thde.metier.Animal;
 
-public class Tigre extends Felin {
+public class Tigre extends Felin implements Comparable<Tigre> {
 
 	public Tigre() {
 		super(300, "Classe");
@@ -45,14 +44,17 @@ public class Tigre extends Felin {
 	}
 
 	@Override
-	public boolean egale(Animal animal) {
-		boolean result = false;
-		if(animal instanceof Tigre){
-			if (this.getCouleur().equals(animal.getCouleur()) && (this.getPoids()==animal.getPoids())){
-				result = true;
-			}
-		}
-		return result;
+	public boolean equals(Object obj) {
+//		if (obj instanceof Tigre) {
+			Tigre t=(Tigre) obj;
+//		}
+		return super.equals(obj);
+	}
+
+	@Override
+	public int compareTo(Tigre t) {
+		
+		return 0;
 	}
 
 }

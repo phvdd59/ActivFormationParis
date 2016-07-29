@@ -1,6 +1,6 @@
 package com.formation.anfr.metier;
 
-public class Poney extends Equidé {
+public class Poney extends Equide {
 
 	public Poney() {
 		super(1000, "rose");

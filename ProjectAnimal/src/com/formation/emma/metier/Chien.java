@@ -1,6 +1,7 @@
 package com.formation.emma.metier;
 
 import com.formation.joca.metier.Canin;
+import com.formation.thde.metier.Animal;
 
 public class Chien extends Canin {
 
@@ -23,11 +24,21 @@ public class Chien extends Canin {
 
 	}
 
-
 	@Override
 	public void crier() {
 		System.out.println("J'aboie");
 
 	}
 
+	@Override
+	public boolean egale(Animal animal) {
+		boolean result = false;
+		if (animal instanceof Chien) {
+			if (this.getCouleur().equals(animal.getCouleur()) && this.getPoids() == animal.getPoids()) {
+				result = true;
+			}
+
+		}
+		return result;
+	}
 }
