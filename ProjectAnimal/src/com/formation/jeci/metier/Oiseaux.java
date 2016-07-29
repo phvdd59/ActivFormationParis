@@ -22,7 +22,6 @@ public class Oiseaux extends Animal implements Recueille, Ovipare {
 
 	}
 
-	
 	@Override
 	public void boire() {
 
@@ -54,6 +53,12 @@ public class Oiseaux extends Animal implements Recueille, Ovipare {
 	public void eclore() {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public boolean egale(Animal animal) {
+
+		return false;
 	}
 
 }
