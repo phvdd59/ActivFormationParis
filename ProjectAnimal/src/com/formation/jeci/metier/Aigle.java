@@ -7,6 +7,7 @@ public class Aigle extends Oiseaux {
 		super.setCouleur("noir et blanc");
 
 	}
+
 	public Aigle(int poids, String couleur) {
 		super(poids, couleur);
 
@@ -20,8 +21,8 @@ public class Aigle extends Oiseaux {
 
 	@Override
 	public void boire() {
-		System.out.println("En soirée je bois de l'eau mais aussi la journée.");
-
+		System.out.println("L'aigle recueille l'eau.\n En soirée je bois de l'eau mais aussi la journée.");
+//
 	}
 
 	@Override
