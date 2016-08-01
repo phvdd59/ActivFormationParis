@@ -46,3 +46,4 @@ public class CleDico implements Comparable<CleDico> {
 		return "CleDico [lettre=" + lettre + ", lngMot=" + lngMot + "]";
 	}
 }
+
