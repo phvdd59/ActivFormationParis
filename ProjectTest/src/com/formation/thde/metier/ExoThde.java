@@ -1,5 +1,6 @@
 package com.formation.thde.metier;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class ExoThde {
@@ -14,27 +15,44 @@ public class ExoThde {
 	}
 
 	public ExoThde(String nom) {
-		//constructeur lalala
+		this.nom = nom;
+		this.adresseMail = "eleve@wanadoo.fr";
+		this.dateEmbauche = "01-01-1999";
+		this.tel = "+33600000000";
+		this.mdp = "1234";
 	}
 
 	public void setDate(Date date) {
 		//mettre sous la forme jj-mm-yyyy
+		SimpleDateFormat fd = new SimpleDateFormat("ddMMyyyy");
+		this.dateEmbauche = fd.format(date);
 	}
 
 	public void setCoordonnees(String adresseMail, String tel) {
-		//formatés
+		this.adresseMail = adresseMail;
+		this.tel = tel;
 	}
 
 	/*
 	 * permutation deux en deux du mot de passe
-	 * @param mdpCache
+	 * cache => clair
 	 * abcdef => badcfe
 	 */
 	public void setMdpCache(String mdp) {
+		//		String mdp2 = mdp;
+		//		for (int i = 0; i < mdp.length(); i += 2) {
+		//
+		//			mdp2.charAt(i) = mdp.charAt(i + 1);
+		//		}
+		//		this.mdp = mdp2;
 	}
 
 	public String getNom() {
 		return nom;
+	}
+
+	public void setTel(int numero) {
+		tel = Integer.toString(numero);
 	}
 
 	public void setNom(String nom) {
