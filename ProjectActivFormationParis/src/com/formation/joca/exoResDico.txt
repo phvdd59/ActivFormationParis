@@ -1,0 +1,18 @@
+joca:Collection
+
+joca rangerTexte0 (0/1): KO | exo.dico("")
+Index: 0, Size: 0
+joca rangerTexteRepete (0/1): KO | exo.dico("bbnjour bbnjour comment allez vous.le le le le le le la la li il il il te te te la li li lz")
+joca rangerTexteFable (0/2): KO | exo.dico(fable)
+joca rangerTexteNull (0/1): KO | exo.dico(null)
+null
+joca cleDicoCompareToStringInf (1/1):    | exo.cleDico("b",7) == exo.cleDico("a",7)
+joca cleDicoCompareToStringSup (1/1):    | exo.cleDico("b",7) == exo.cleDico("d",7)
+joca cleDicoCompareToLengthInf (0/1): KO | exo.cleDico("b",4) == exo.cleDico("b",7)
+joca cleDicoCompareToLengthInf (0/1): KO | exo.cleDico("b",7) == exo.cleDico("b",4)
+joca motCompareToEgal (1/1):    | exo.mot("bonjour") == exo.mot("b")
+joca rangerTexteSpeciaux (0/1): KO | exo.dico("░béteéèêëàâäùüûòöô         
+	         abdcdr        a,;:*^$pà)àç_è-(1345")
+Index: 0, Size: 0
+joca cleDicoCompareToEgal (1/1):    | exo.cleDico("b",7) == exo.cleDico("b",7)
+joca NOTE : (4 / 12) = 6 / 20
