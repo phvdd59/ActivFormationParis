@@ -13,11 +13,31 @@ public class Dico extends TreeMap<CleDico, ArrayList<Mot>>implements InterExoDic
 		ArrayList<Mot> motObj = new ArrayList<Mot>();
 		char[] data = texte.toCharArray();
 		for (int i = 0; i < data.length; i++) {
-			if (data[i] == ',' || data[i] == '?' || data[i] == ';' || data[i] == '.' || data[i] == ':' || data[i] == '!' || data[i] == '-' || data[i] == '\'') {
-				data[i] = ' ';
-			}
+			// if (data[i] == ',' || data[i] == '?' || data[i] == ';' || data[i]
+			// == '.' || data[i] == ':' || data[i] == '!' || data[i] == '-' ||
+			// data[i] == '\'') {
+			// data[i] = ' ';
+			// }
 			if ('A' <= data[i] && data[i] <= 'Z') {
 				data[i] = Character.toLowerCase(data[i]);
+			}
+			if (data[i] == 'é' || data[i] == 'è' || data[i] == 'ê') {
+				data[i] = 'e';
+			}
+			if (data[i] == 'à' || data[i] == 'â') {
+				data[i] = 'a';
+			}
+			if (data[i] == 'ç') {
+				data[i] = 'c';
+			}
+			if (data[i] == 'ô' || data[i] == 'ò') {
+				data[i] = 'o';
+			}
+			if (data[i] == 'û' || data[i] == 'ù') {
+				data[i] = 'u';
+			}
+			if ('a' >= data[i] && data[i] >= 'z') {
+				data[i] = ' ';
 			}
 		}
 		String motA = null;
