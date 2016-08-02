@@ -21,19 +21,19 @@ public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDi
 				CleDico cleDico = new CleDico(lettre, tab[i].length());
 
 //				for (int k = 0; k < size() - 1; k++) {
-//						if (cleDico.compareTo(cleDico.get(i))) == 1) {
+//						if (get(i).compareTo(cleDico()) == 1) {
 //							
 //						}
 											
-		//		}
+				}
 											
-											ArrayList<Mot> liste = this.get(cleDico);
+//											ArrayList<Mot> liste = this.get(cleDico);
 
 			}
 
 		}
 
-	}
+	//}
 
 	public String epuration(String texte) {
 		texte = texte.toLowerCase();

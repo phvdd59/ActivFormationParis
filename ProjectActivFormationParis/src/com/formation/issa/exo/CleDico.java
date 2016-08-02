@@ -38,9 +38,9 @@ public class CleDico implements Comparable<CleDico> {
 			}else{
 				retour=1;
 			}
-			retour = 0;
 			
-		} else if (this.lettre.compareTo(getLettre()) < 0 && this.lngMot<getLngMot()) {
+			
+		} else if (this.lettre.compareTo(getLettre()) < 0 ) {
 			retour = -1;
 		} else {
 			retour = 1;
