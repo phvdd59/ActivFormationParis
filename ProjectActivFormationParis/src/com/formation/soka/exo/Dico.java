@@ -17,14 +17,14 @@ public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDi
 		char[] tabChar = virerLesBadCaracteres(texte);
 		ArrayList<String> listeMotsString = creerListeMotsString(tabChar);
 		ArrayList<Mot> listeMotsMot = creerListeMotsMot(listeMotsString);
-		ajouterCle(listeMotsMot);
+		ajouterClesTreeMap(listeMotsMot);
 
 	}
 
 	private char[] virerLesBadCaracteres(String texte) {
 		char[] tabChar = texte.toCharArray();
 		for (int i = 0; i < tabChar.length; i++) {
-			if (tabChar[i] == '\'' || tabChar[i] == ',' || tabChar[i] == '&' || tabChar[i] == '!' || tabChar[i] == '?' || tabChar[i] == ',' || tabChar[i] == ':' || tabChar[i] == '/') {
+			if (tabChar[i] == '\'' || tabChar[i] == ',' || tabChar[i] == '&' || tabChar[i] == '!' || tabChar[i] == '?' || tabChar[i] == ',' || tabChar[i] == ':' || tabChar[i] == '/' || tabChar[i] == ';') {
 				tabChar[i] = ' ';
 			}
 			if (tabChar[i] == 'é' || tabChar[i] == 'è' || tabChar[i] == 'ê') {
@@ -83,24 +83,27 @@ public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDi
 		return listeMotsMot;
 	}
 
-	private void ajouterCle(ArrayList<Mot> listeMotsMot) {
-		CleDico cleDico = null;
+	private void ajouterClesTreeMap(ArrayList<Mot> listeMotsMot) {
+
 		for (int i = 0; i < listeMotsMot.size(); i++) {
 			for (int j = 0; j < listeMotsMot.get(i).toString().length(); j++) {
-				ArrayList<Mot> listeTempo = new ArrayList<Mot>();
-				listeTempo.add(listeMotsMot.get(i));
-				cleDico = new CleDico(listeMotsMot.get(i).toString().substring(j, j + 1), listeMotsMot.get(i).toString().length());
-				if (this.containsKey(cleDico)) {
-					ArrayList<Mot> lst = get(cleDico);
-					if (lst.contains(listeMotsMot.get(i))) {
-						Mot mot = lst.get(lst.indexOf(listeMotsMot.get(i)));
-						mot.plusUn();
-					}
-					this.get(cleDico).add(listeMotsMot.get(i));
+				String lettre = Character.toString(listeMotsMot.get(i).getMot().charAt(j));
+				int sizeMot = listeMotsMot.get(i).getMot().length();
+				CleDico cleDico = new CleDico(lettre, sizeMot);
+
+				if (this.get(cleDico) != null) {
+					ArrayList<Mot> listeTemp = new ArrayList<Mot>();
+					listeTemp = this.get(cleDico);
+					listeTemp.add(listeMotsMot.get(i));
+					this.put(cleDico, listeTemp);
 				} else {
-					put(cleDico, listeMotsMot);
+					ArrayList<Mot> listeTemp2 = new ArrayList<Mot>();
+					listeTemp2.add(listeMotsMot.get(i));
+					this.put(cleDico, listeTemp2);
 				}
+
 			}
+
 		}
 	}
 
@@ -111,11 +114,10 @@ public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDi
 	 *
 	 */
 	@Override
-	public ArrayList<String> getListeMot(String lettre, int lngMot) {
-		// TODO Auto-generated method stub
-		CleDico cleDico = new CleDico(lettre, lngMot);
+	public ArrayList<String> getListeMot(String lettre, int longueurMot) {
 		ArrayList<Mot> listeMot = new ArrayList<Mot>();
 		ArrayList<String> listeString = new ArrayList<String>();
+		CleDico cleDico = new CleDico(lettre, longueurMot);
 		for (Mot mot : listeMot) {
 			listeString.add(mot.getMot());
 		}
