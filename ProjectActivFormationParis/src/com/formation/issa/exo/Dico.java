@@ -3,8 +3,6 @@ package com.formation.issa.exo;
 import java.util.ArrayList;
 import java.util.TreeMap;
 
-import com.formation.phva.exo.CleDico;
-
 public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDico1 {
 
 	@Override

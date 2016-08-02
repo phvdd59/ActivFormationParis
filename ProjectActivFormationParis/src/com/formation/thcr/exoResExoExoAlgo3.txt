@@ -1,0 +1,11 @@
+thcr:Algo
+
+thcr test23 (0/2): KO | exo.solution(res, 23, "A", "B", "C")
+Index: 0, Size: 0
+thcr test0 (0/1): KO | exo.solution(res, 0, "A", "B", "C")
+null
+thcr test1 (0/1): KO | exo.solution(res, 1, "A", "B", "C")
+Index: 0, Size: 0
+thcr test2 (0/2): KO | exo.solution(res, 5, "A", "B", "C")
+Index: 0, Size: 0
+thcr NOTE : (0 / 6) = 0 / 20

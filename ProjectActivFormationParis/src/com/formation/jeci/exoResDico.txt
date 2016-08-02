@@ -1,0 +1,16 @@
+jeci:Collection
+
+jeci rangerTexte0 (0/1): KO | exo.dico("")
+jeci rangerTexteRepete (0/1): KO | exo.dico("bbnjour bbnjour comment allez vous.le le le le le le la la li il il il te te te la li li lz")
+jeci rangerTexteFable (0/2): KO | exo.dico(fable)
+jeci rangerTexteNull (0/1): KO | exo.dico(null)
+null
+jeci cleDicoCompareToStringInf (1/1):    | exo.cleDico("b",7) == exo.cleDico("a",7)
+jeci cleDicoCompareToStringSup (1/1):    | exo.cleDico("b",7) == exo.cleDico("d",7)
+jeci cleDicoCompareToLengthInf (1/1):    | exo.cleDico("b",4) == exo.cleDico("b",7)
+jeci cleDicoCompareToLengthInf (1/1):    | exo.cleDico("b",7) == exo.cleDico("b",4)
+jeci motCompareToEgal (1/1):    | exo.mot("bonjour") == exo.mot("b")
+jeci rangerTexteSpeciaux (0/1): KO | exo.dico("░béteéèêëàâäùüûòöô         
+	         abdcdr        a,;:*^$pà)àç_è-(1345")
+jeci cleDicoCompareToEgal (1/1):    | exo.cleDico("b",7) == exo.cleDico("b",7)
+jeci NOTE : (6 / 12) = 10 / 20

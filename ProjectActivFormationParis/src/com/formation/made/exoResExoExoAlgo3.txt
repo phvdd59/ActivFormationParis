@@ -1,0 +1,8 @@
+made test23 (0/2): KO | exo.solution(res, 23, "A", "B", "C")
+null
+made test0 (0/1): KO | exo.solution(res, 0, "A", "B", "C")
+null
+made test1 (0/1): KO | exo.solution(res, 1, "A", "B", "C")
+null
+made test2 (0/2): KO | exo.solution(res, 5, "A", "B", "C")
+null
