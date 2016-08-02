@@ -1,4 +1,4 @@
-beba:Algo
+	beba:Algo
 
 beba test23 (0/2): KO | exo.solution(res, 23, "A", "B", "C")
 -1
