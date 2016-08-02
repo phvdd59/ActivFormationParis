@@ -158,9 +158,9 @@ public class MainActiveFormationParisJoca {
 
 	private void init8() {
 		Dico exo8 = new Dico();
-		String texte = "bbnjour bbnjour comment allez vous.le le le le le le la la li il il il te te te la li li lz";
-		exo8.ranger(texte);
-		exo8.ranger(texte);
+		String texte = "bbnjour bbnjour comment allez vous.le le lii lii le le le le la la li il il il te te te la li li lz";
+		exo8.dico(texte);
+		exo8.dico(null);
 		// System.out.println(exo8.ranger(texte));
 
 		// Mot mot1 = new Mot("chat");
@@ -174,8 +174,8 @@ public class MainActiveFormationParisJoca {
 		
 		System.out.println(exo8.traitementTexte(texte));
 
-		System.out.println(exo8.getListeMot("b", 7));
-		System.out.println(exo8.get(new CleDico("b",7)).get(0).getNb());
+		System.out.println(exo8.getListeMot("l", 3));
+		System.out.println(exo8.get(new CleDico("l",3)).get(0).getNb());
 		
 		
 	}

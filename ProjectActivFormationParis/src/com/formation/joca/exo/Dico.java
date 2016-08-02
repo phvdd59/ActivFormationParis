@@ -19,6 +19,10 @@ public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDi
 		}
 	}
 
+	public void dico(String texte) {
+		ranger(texte);
+	}
+
 	@Override
 	public void ranger(String texte) {
 		ArrayList<Mot> texteRanger = traitementTexte(texte);
@@ -60,23 +64,26 @@ public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDi
 	}
 
 	public ArrayList<Mot> traitementTexte(String texte) {
-		String texteModif = texte;
-
-		texteModif = texteModif.toLowerCase();
-		texteModif = Normalizer.normalize(texteModif, Normalizer.Form.NFD);
-		texteModif = texteModif.replaceAll("\\p{M}", "");
-		texteModif = texteModif.replaceAll("\\W", " ");
-		texteModif = texteModif.replaceAll("\\s+", " ");
-		String[] tabMots = texteModif.split(" ");
-
 		ArrayList<Mot> listeMots = new ArrayList<Mot>();
-		for (int i = 0; i < tabMots.length; i++) {
-			Mot mot = new Mot(tabMots[i]);
-			if (listeMots.indexOf(mot) == -1) {
-				listeMots.add(mot);
-			} else {
-				listeMots.get(listeMots.indexOf(mot)).plusUn();
+		if (texte != null) {
+			String texteModif = texte;
+
+			texteModif = texteModif.toLowerCase();
+			texteModif = Normalizer.normalize(texteModif, Normalizer.Form.NFD);
+			texteModif = texteModif.replaceAll("\\p{M}", "");
+			texteModif = texteModif.replaceAll("\\W", " ");
+			texteModif = texteModif.replaceAll("\\s+", " ");
+			String[] tabMots = texteModif.split(" ");
+
+			for (int i = 0; i < tabMots.length; i++) {
+				Mot mot = new Mot(tabMots[i]);
+				if (listeMots.indexOf(mot) == -1) {
+					listeMots.add(mot);
+				} else {
+					listeMots.get(listeMots.indexOf(mot)).plusUn();
+				}
 			}
+
 		}
 		return listeMots;
 	}
