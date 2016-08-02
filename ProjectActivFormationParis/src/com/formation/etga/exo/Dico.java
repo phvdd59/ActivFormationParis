@@ -2,9 +2,12 @@ package com.formation.etga.exo;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Set;
 import java.util.TreeMap;
 
 import com.formation.phva.exo.InterExoDico1;
+import com.formation.thde.exo.CleDico;
+import com.formation.thde.exo.Mot;
 
 public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDico1 {
 
@@ -18,15 +21,12 @@ public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDi
 		texte.replaceAll("[îï]", "i");
 		texte.replaceAll("[ôö]", "o");
 		texte.replaceAll("[ûü]", "u");
-		texte = texte.replaceAll("\\W", " ");
-
-		texte.replaceAll("  ", " ");
-		texte.replaceAll("   ", " ");
-		texte.replaceAll("    ", " ");
+		texte.replaceAll("[ç]", "c");
+		texte = texte.replaceAll("\\W", " "); // Charactères spéciaux 
+		texte.replaceAll("\\s+", " "); // Un espace ou plus
 
 		// On split le texte dans un tableau de mot
 		String[] tabTexte = texte.split("[ ]");
-
 		// On créé une ArrayList de mot
 		ArrayList<Mot> listeMot = new ArrayList<Mot>();
 
@@ -41,7 +41,6 @@ public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDi
 				listeMot.add(mot);
 			}
 		}
-		
 		// Trier avec le compare to
 		Collections.sort(listeMot);
 		// pour toutes les lettres
@@ -61,13 +60,32 @@ public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDi
 
 	@Override
 	public ArrayList<String> getListeMot(String lettre, int lngMot) {
-		ArrayList<String> listeString = new ArrayList<String>();
-		ArrayList<Mot> listeMotFinale = new ArrayList<Mot>();
-		CleDico cle = new CleDico(lettre, lngMot);
-		listeMotFinale = this.get(cle);
-		for (int i = 0; i < listeMotFinale.size(); i++) {
-			listeString.add(listeMotFinale.get(i).toString());
+		ArrayList<String> listString = new ArrayList<String>();
+		ArrayList<Mot> listMots3 = new ArrayList<Mot>();
+		CleDico clef = new CleDico(lettre, lngMot);
+		listMots3 = this.get(clef);
+		for (int i = 0; i < listMots3.size(); i++) {
+			listString.add(listMots3.get(i).toString());
 		}
-		return listeString;
+		return listString;
+	}
+
+	public String toString() {
+		String s = "";
+		Set<java.util.Map.Entry<CleDico, ArrayList<Mot>>> set = entrySet();
+		for (java.util.Map.Entry<CleDico, ArrayList<Mot>> entry : set) {
+			s += entry.getKey().toString() + " : ";
+			ArrayList<Mot> lst = entry.getValue();
+			Collections.sort(lst);
+			for (int i = 0; i < lst.size(); i++) {
+				Mot mot = lst.get(i);
+				s += mot.toString();
+				if (i != lst.size() - 1) {
+					s += ",";
+				}
+			}
+			s += "\n";
+		}
+		return s;
 	}
 }
