@@ -18,6 +18,7 @@ public class ExoThcr {
 		//TODO
 	}
 	
+	
 	public ExoThcr(Date date){
 		
 	}
