@@ -12,9 +12,9 @@ public class MainDico {
 
 	public void init() {
 		Dico dico = new Dico();
-		String text = ("le dormeur doit se doit lever puis voila et doit encore se coucher");
+		String text = ("bbnjour bbnjour comment allez vous.le le le le le le la la li il il il te te te la li li lz");
 		dico.ranger(text);
-		System.out.println(dico.getListeMot("o", 4));
+		System.out.println(dico.toString());
 
 	}
 

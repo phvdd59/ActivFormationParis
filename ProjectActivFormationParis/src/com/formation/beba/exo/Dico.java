@@ -63,7 +63,7 @@ public class Dico extends TreeMap<CleDico, ArrayList<Mot>>implements InterExoDic
 				String lettre = Character.toString(motObj.get(i).getMot().charAt(j));
 				int longM = motObj.get(i).getMot().length();
 				CleDico cle = new CleDico(lettre, longM);
-				
+
 				if (this.get(cle) == null) {
 					ArrayList<Mot> motMultiple = new ArrayList<Mot>();
 					motMultiple.add(motObj.get(i));
@@ -71,8 +71,11 @@ public class Dico extends TreeMap<CleDico, ArrayList<Mot>>implements InterExoDic
 				} else {
 					ArrayList<Mot> motMultiple = new ArrayList<Mot>();
 					motMultiple = this.get(cle);
-					motMultiple.add(motObj.get(i));
-					this.put(cle, motMultiple);
+					if (!motMultiple.contains(motObj.get(i))) {
+						motMultiple.add(motObj.get(i));
+						this.put(cle, motMultiple);
+					}
+
 				}
 
 			}
