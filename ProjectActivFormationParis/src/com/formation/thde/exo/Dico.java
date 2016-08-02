@@ -7,7 +7,6 @@ import java.util.TreeMap;
 
 import com.formation.phva.exo.InterExoDico1;
 
-
 public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDico1 {
 
 	@Override
@@ -41,7 +40,9 @@ public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDi
 						listMots2.add(listMots.get(k));
 					}
 				}
-				this.put(new CleDico(Character.toString(i), j), listMots2);
+				if (listMots2.isEmpty() == false) {
+					this.put(new CleDico(Character.toString(i), j), listMots2);
+				}
 			}
 		}
 	}
