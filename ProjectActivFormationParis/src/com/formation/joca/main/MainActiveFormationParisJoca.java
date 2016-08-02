@@ -160,7 +160,6 @@ public class MainActiveFormationParisJoca {
 		Dico exo8 = new Dico();
 		String texte = "bbnjour bbnjour comment allez vous.le le lii lii le le le le la la li il il il te te te la li li lz";
 		exo8.dico(texte);
-		exo8.dico(null);
 		// System.out.println(exo8.ranger(texte));
 
 		// Mot mot1 = new Mot("chat");
