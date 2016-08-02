@@ -13,12 +13,16 @@ public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDi
 	public void ranger(String texte) {
 
 		texte = texte.toLowerCase();
-		texte.replaceAll("[����]", "e");
-		texte.replaceAll("[���]", "a");
-		texte.replaceAll("[��]", "i");
-		texte.replaceAll("[��]", "u");
-		texte.replaceAll("[��]", "o");
-		texte.replaceAll("[�]", "c");
+		texte.replaceAll("[éèêë]", "e");
+		texte.replaceAll("[âäàáåãæ]", "a");
+		texte.replaceAll("[îïíì]", "i");
+		texte.replaceAll("[ûúüù]", "u");
+		texte.replaceAll("[ôóõøöœò]", "o");
+		texte.replaceAll("ç", "c");
+		texte.replaceAll("ÿ", "y");
+		texte.replaceAll("š", "s");
+		texte.replaceAll("ñ", "n");
+		texte.replaceAll("ž", "z");
 		texte = texte.replaceAll("\\W", " ");
 		texte.replaceAll("   ", " ");
 		texte.replaceAll("  ", " ");
