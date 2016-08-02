@@ -1,4 +1,4 @@
-package com.formation.joca.metier;
+package com.formation.comportement;
 
 import com.formation.emma.inter.Soin;
 

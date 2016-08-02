@@ -3,6 +3,11 @@ package com.formation.thcr.main;
 import java.util.ArrayList;
 
 import com.formation.ambr.metier.Medecin;
+import com.formation.comportement.EspritCombatifAmbrMedCur;
+import com.formation.comportement.EspritCombatifEtgaCombatFusilALunette;
+import com.formation.comportement.EspritCombatifJeCi;
+import com.formation.comportement.EspritCombatifSokaPacifiste;
+import com.formation.comportement.EspritCombatifThcrCombatMainNue;
 import com.formation.emma.metier.Operation;
 import com.formation.emma.metier.PremierSoin;
 import com.formation.emma.metier.Sevanouir;
@@ -14,10 +19,6 @@ import com.formation.made.metier.Courrir;
 import com.formation.made.metier.Marcher;
 import com.formation.made.metier.NeBougePas;
 import com.formation.soka.metier.Civil;
-import com.formation.thde.metier.CombatCouteau;
-import com.formation.thde.metier.CombatPistolet;
-import com.formation.thde.metier.CombatScalpel;
-import com.formation.thde.metier.PasDeCombat;
 
 public class MainRPG {
 
@@ -28,11 +29,16 @@ public class MainRPG {
 
 	private void init() {
 		//TODO instanciation de tous les persos et mis en pllace des méthodes
-		Personnage civil = new Civil(new PasDeCombat(), new Courrir(), new Sevanouir());
-		Personnage sniper = new Sniper(new CombatPistolet(), new NeBougePas(), new PremierSoin());
-		Personnage guerrier = new Guerrier(new CombatCouteau(), new Marcher(), new PremierSoin());
-		Personnage medecin = new Medecin(new CombatCouteau(), new Courrir(), new PremierSoin());
-		Personnage chirurgien = new Chirurgien(new CombatScalpel(), new Courrir(), new Operation());
+		Personnage civil = new Civil(new EspritCombatifSokaPacifiste(), new Courrir(),
+				new Sevanouir());
+		Personnage sniper = new Sniper(new EspritCombatifEtgaCombatFusilALunette(),
+				new NeBougePas(), new PremierSoin());
+		Personnage guerrier = new Guerrier(new EspritCombatifThcrCombatMainNue(), new Marcher(),
+				new PremierSoin());
+		Personnage medecin = new Medecin(new EspritCombatifAmbrMedCur(), new Courrir(),
+				new PremierSoin());
+		Personnage chirurgien = new Chirurgien(new EspritCombatifJeCi(), new Courrir(),
+				new Operation());
 
 		Personnage civil2 = new Civil();
 		System.out.println(civil2.getClass().getName());
