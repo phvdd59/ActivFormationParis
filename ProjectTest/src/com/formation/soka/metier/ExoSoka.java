@@ -18,6 +18,7 @@ public class ExoSoka {
 		this.nom = nom;
 	}
 	
+	
 	public void setDate(Date date){
 		
 	}
