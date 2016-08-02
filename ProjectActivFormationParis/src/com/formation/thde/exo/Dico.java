@@ -2,6 +2,7 @@ package com.formation.thde.exo;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Set;
 import java.util.TreeMap;
 
 import com.formation.phva.exo.InterExoDico1;
@@ -12,11 +13,16 @@ public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDi
 	public void ranger(String texte) {
 
 		texte = texte.toLowerCase();
-		texte.replaceAll("[����]", "e");
-		texte.replaceAll("[���]", "a");
-		texte.replaceAll("[��]", "i");
-		texte.replaceAll("[��]", "u");
-		texte.replaceAll("[��]", "o");
+		texte.replaceAll("[éèêë]", "e");
+		texte.replaceAll("[âäàáåãæ]", "a");
+		texte.replaceAll("[îïíì]", "i");
+		texte.replaceAll("[ûúüù]", "u");
+		texte.replaceAll("[ôóõøöœò]", "o");
+		texte.replaceAll("ç", "c");
+		texte.replaceAll("ÿ", "y");
+		texte.replaceAll("š", "s");
+		texte.replaceAll("ñ", "n");
+		texte.replaceAll("ž", "z");
 		texte = texte.replaceAll("\\W", " ");
 		texte.replaceAll("   ", " ");
 		texte.replaceAll("  ", " ");
@@ -39,7 +45,9 @@ public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDi
 						listMots2.add(listMots.get(k));
 					}
 				}
-				this.put(new CleDico(Character.toString(i), j), listMots2);
+				if (listMots2.isEmpty() == false) {
+					this.put(new CleDico(Character.toString(i), j), listMots2);
+				}
 			}
 		}
 	}
@@ -56,4 +64,22 @@ public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDi
 		return listString;
 	}
 
+	public String toString() {
+		String s = "";
+		Set<java.util.Map.Entry<CleDico, ArrayList<Mot>>> set = entrySet();
+		for (java.util.Map.Entry<CleDico, ArrayList<Mot>> entry : set) {
+			s += entry.getKey().toString() + " : ";
+			ArrayList<Mot> lst = entry.getValue();
+			Collections.sort(lst);
+			for (int i = 0; i < lst.size(); i++) {
+				Mot mot = lst.get(i);
+				s += mot.toString();
+				if (i != lst.size() - 1) {
+					s += ",";
+				}
+			}
+			s += "\n";
+		}
+		return s;
+	}
 }

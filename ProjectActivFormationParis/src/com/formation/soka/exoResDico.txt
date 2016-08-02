@@ -2,6 +2,8 @@ soka:Collection
 
 soka rangerTexte0 (0/1): KO | exo.dico("")
 null
+soka rangerTexteRepete (0/1): KO | exo.dico("bbnjour bbnjour comment allez vous.le le le le le le la la li il il il te te te la li li lz")
+soka rangerTexteFable (0/2): KO | exo.dico(fable)
 soka rangerTexteNull (0/1): KO | exo.dico(null)
 null
 soka cleDicoCompareToStringInf (1/1):    | exo.cleDico("b",7) == exo.cleDico("a",7)
@@ -9,5 +11,7 @@ soka cleDicoCompareToStringSup (1/1):    | exo.cleDico("b",7) == exo.cleDico("d"
 soka cleDicoCompareToLengthInf (0/1): KO | exo.cleDico("b",4) == exo.cleDico("b",7)
 soka cleDicoCompareToLengthInf (0/1): KO | exo.cleDico("b",7) == exo.cleDico("b",4)
 soka motCompareToEgal (1/1):    | exo.mot("bonjour") == exo.mot("b")
+soka rangerTexteSpeciaux (0/1): KO | exo.dico("░béteéèêëàâäùüûòöô         
+	         abdcdr        a,;:*^$pà)àç_è-(1345")
 soka cleDicoCompareToEgal (1/1):    | exo.cleDico("b",7) == exo.cleDico("b",7)
 soka NOTE : (4 / 12) = 6 / 20

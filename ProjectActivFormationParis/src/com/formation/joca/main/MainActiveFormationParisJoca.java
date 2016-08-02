@@ -2,6 +2,7 @@ package com.formation.joca.main;
 
 import java.util.ArrayList;
 
+import com.formation.joca.exo.CleDico;
 import com.formation.joca.exo.Dico;
 import com.formation.joca.exo.ExoAlgo1;
 import com.formation.joca.exo.ExoAlgo2;
@@ -157,10 +158,8 @@ public class MainActiveFormationParisJoca {
 
 	private void init8() {
 		Dico exo8 = new Dico();
-		String texte = "loup lard lard lard lion lion loup lion lolo lica loup";
-		exo8.ranger(texte);
-		String texte2 = "loup  loup lica lard lion lolo loup lolo lica lica";
-		exo8.ranger(texte2);
+		String texte = "bbnjour bbnjour comment allez vous.le le lii lii le le le le la la li il il il te te te la li li lz";
+		exo8.dico(texte);
 		// System.out.println(exo8.ranger(texte));
 
 		// Mot mot1 = new Mot("chat");
@@ -171,9 +170,12 @@ public class MainActiveFormationParisJoca {
 		// .out.println(mot1.equals(mot3));
 
 		// exo8.ranger(texte);
+		
+		System.out.println(exo8.traitementTexte(texte));
 
-		System.out.println(exo8.getListeMot("l", 4));
-		System.out.println(exo8.getListeMot("o", 4));
-
+		System.out.println(exo8.getListeMot("l", 3));
+		System.out.println(exo8.get(new CleDico("l",3)).get(0).getNb());
+		
+		
 	}
 }

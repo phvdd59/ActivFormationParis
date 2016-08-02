@@ -8,7 +8,9 @@ public class Mot implements InterExoMot1, Comparable<Mot> {
 	private int nb;
 
 	public Mot(String mot) {
-		// TODO 
+		this.mot=mot;
+		nb=1;
+		
 	}
 
 	public String getMot() {
@@ -29,33 +31,29 @@ public class Mot implements InterExoMot1, Comparable<Mot> {
 
 	@Override
 	public int compareTo(Mot o) {
-		int retour=0;
-		if(this.mot==getMot()){
-			retour=0;
+
+		int res=-Integer.valueOf(getNb()).compareTo(o.getNb());
+		if(res==0){
+			res=getMot().compareTo(o.getMot());
 		}
-		else if(this.mot.compareTo(getMot())<0){
-			retour=-1;
-		}
-		else{
-			retour=1;
-		}
-		
-		return retour;
+		return res;
 	}
 
 	@Override
 	public void plusUn() {
-		ArrayList<Mot>listing=new ArrayList<Mot>();
-	if(this.mot.equals(getMot())){
-		//listing.add(listing.getMot()+1);
-	}
+	nb++;
 		
 	}
 
 	@Override
 	public boolean equals(Object obj) {
-		// TODO Auto-generated method stub
-		return super.equals(obj);
+		
+		boolean bRet=false;
+		if(obj instanceof Mot){
+			Mot mMot=(Mot) obj;
+			bRet=getMot().equals(mMot.getMot());
+		}
+		return bRet;
 	}
 
 	@Override

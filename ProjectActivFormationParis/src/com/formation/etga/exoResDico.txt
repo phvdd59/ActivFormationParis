@@ -1,16 +1,16 @@
 etga:Collection
 
-etga rangerTexte0 (1/1):    | exo.dico("")
+etga rangerTexte0 (0/1): KO | exo.dico("")
 etga rangerTexteRepete (0/1): KO | exo.dico("bbnjour bbnjour comment allez vous.le le le le le le la la li il il il te te te la li li lz")
 etga rangerTexteFable (0/2): KO | exo.dico(fable)
 etga rangerTexteNull (0/1): KO | exo.dico(null)
 null
-etga cleDicoCompareToStringInf (0/1): KO | exo.cleDico("b",7) == exo.cleDico("a",7)
-etga cleDicoCompareToStringSup (0/1): KO | exo.cleDico("b",7) == exo.cleDico("d",7)
+etga cleDicoCompareToStringInf (1/1):    | exo.cleDico("b",7) == exo.cleDico("a",7)
+etga cleDicoCompareToStringSup (1/1):    | exo.cleDico("b",7) == exo.cleDico("d",7)
 etga cleDicoCompareToLengthInf (0/1): KO | exo.cleDico("b",4) == exo.cleDico("b",7)
 etga cleDicoCompareToLengthInf (0/1): KO | exo.cleDico("b",7) == exo.cleDico("b",4)
 etga motCompareToEgal (1/1):    | exo.mot("bonjour") == exo.mot("b")
 etga rangerTexteSpeciaux (0/1): KO | exo.dico("░béteéèêëàâäùüûòöô         
 	         abdcdr        a,;:*^$pà)àç_è-(1345")
 etga cleDicoCompareToEgal (1/1):    | exo.cleDico("b",7) == exo.cleDico("b",7)
-etga NOTE : (3 / 12) = 5 / 20
+etga NOTE : (4 / 12) = 6 / 20

@@ -1,9 +1,9 @@
 emma:Algo
 
 emma testGrand (1/1):    | exo.solution(2147395600)
-emma testTemps (0/2): KO | exo.solution(2147483647) temps : 21.333 166.321
-emma testPremier (0/1): KO | exo.solution(2147483647) = -1 : attendu : 2
+emma testTemps (0/2): KO | exo.solution(2147483647) temps : 1501.24 150.124
+emma testPremier (1/1):    | exo.solution(2147483647)
 emma test0 (1/1):    | exo.solution(0)
 emma testClassique (2/2):    | exo.solution(24)
 emma testNegatif (1/1):    | exo.solution(-5)
-emma NOTE : (5 / 8) = 12 / 20
+emma NOTE : (6 / 8) = 15 / 20
