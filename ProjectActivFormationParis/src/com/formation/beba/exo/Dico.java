@@ -10,6 +10,9 @@ public class Dico extends TreeMap<CleDico, ArrayList<Mot>>implements InterExoDic
 
 	@Override
 	public void ranger(String texte) {
+		if (texte == null) {
+			texte = " ";
+		}
 		ArrayList<Mot> motObj = new ArrayList<Mot>();
 		char[] data = texte.toCharArray();
 		for (int i = 0; i < data.length; i++) {
@@ -21,20 +24,23 @@ public class Dico extends TreeMap<CleDico, ArrayList<Mot>>implements InterExoDic
 			if ('A' <= data[i] && data[i] <= 'Z') {
 				data[i] = Character.toLowerCase(data[i]);
 			}
-			if (data[i] == 'é' || data[i] == 'è' || data[i] == 'ê') {
+			if (data[i] == 'é' || data[i] == 'è' || data[i] == 'ê' || data[i] == 'ë') {
 				data[i] = 'e';
 			}
-			if (data[i] == 'à' || data[i] == 'â') {
+			if (data[i] == 'à' || data[i] == 'â' || data[i] == 'ä') {
 				data[i] = 'a';
 			}
 			if (data[i] == 'ç') {
 				data[i] = 'c';
 			}
-			if (data[i] == 'ô' || data[i] == 'ò') {
+			if (data[i] == 'ô' || data[i] == 'ò' || data[i] == 'ö') {
 				data[i] = 'o';
 			}
-			if (data[i] == 'û' || data[i] == 'ù') {
+			if (data[i] == 'û' || data[i] == 'ù' || data[i] == 'ü') {
 				data[i] = 'u';
+			}
+			if (data[i] == 'î' || data[i] == 'ì' || data[i] == 'ï') {
+				data[i] = 'i';
 			}
 			if ('a' >= data[i] && data[i] >= 'z') {
 				data[i] = ' ';
