@@ -29,7 +29,16 @@ public class CleDico implements Comparable<CleDico> {
 
 	@Override
 	public int compareTo(CleDico o) {
-		// TODO Auto-generated method stub
-		return 0;
+		int compare = 0;
+		if (this.getLettre().compareTo(o.getLettre()) == 0) {
+			if (this.getLngMot() > o.getLngMot()) {
+				return 1;
+			} else if (this.getLngMot() < o.getLngMot()) {
+				return -1;
+			}
+		} else {
+			return compare;
+		}
+		return compare;
 	}
 }
