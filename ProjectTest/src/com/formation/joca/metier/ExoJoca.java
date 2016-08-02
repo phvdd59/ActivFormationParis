@@ -10,8 +10,6 @@ public class ExoJoca {
 	private String tel; // +33612345678
 	private String mdp; // majuscule minuscule chiffre
 
-	
-
 	public String getNom() {
 		return nom;
 	}
@@ -47,17 +45,18 @@ public class ExoJoca {
 	public String getMdp() {
 		return mdp;
 	}
-	
+
 	public void setMdp(String mdp) {
 		this.mdp = mdp;
 	}
 
 	public void setDate(Date date) {
-
+		this.dateEmbauche = date.toString();
 	}
 
 	public void setCoordonnee(String adresseMail, String tel) {
-
+		this.tel = tel;
+		this.adresseMail = adresseMail;
 	}
 
 	/**
@@ -67,11 +66,26 @@ public class ExoJoca {
 	 */
 
 	public void setMdpCache(String mdpCache) {
-
+		char[] tabMdp = new char[mdpCache.length()];
+		for (int i = 0; i < tabMdp.length; i += 2) {
+			if (i != tabMdp.length - 1) {
+				char temp = tabMdp[i];
+				tabMdp[i] = tabMdp[i + 1];
+				tabMdp[i + 1] = temp;
+			}
+		}
+		String mdpfinal = "";
+		for (int i = 0; i < tabMdp.length; i++) {
+			mdpfinal += tabMdp[i];
+		}
+		this.mdp = mdpfinal;
 	}
-	
+
 	public ExoJoca() {
 
 	}
 
+	public ExoJoca(String nom) {
+		this.nom = nom;
+	}
 }
