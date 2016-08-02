@@ -51,13 +51,15 @@ public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDi
 
 					}
 				}
+				if (dico.isEmpty() == false) {
+					this.put(key, dico);
+				}
 				// System.out.println(dico);
 
-				this.put(key, dico);
 			}
 
 		}
-		// System.out.println(this.toString());
+		System.out.println(this.toString());
 
 	}
 
