@@ -9,6 +9,7 @@ public class Mot implements InterExoMot1, Comparable<Mot> {
 
 	public Mot(String mot) {
 		this.mot = mot;
+		nb = 1;
 	}
 
 	public String getMot() {
@@ -58,6 +59,6 @@ public class Mot implements InterExoMot1, Comparable<Mot> {
 
 	@Override
 	public String toString() {
-		return "Le mot : " + mot + ", a un poids de " + nb;
+		return "("+getMot() + ", " + getNb()+")";
 	}
 }
