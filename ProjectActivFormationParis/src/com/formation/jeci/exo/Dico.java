@@ -59,7 +59,6 @@ public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDi
 			}
 
 		}
-		System.out.println(this.toString());
 
 	}
 

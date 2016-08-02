@@ -11,6 +11,7 @@ public class MainBidon {
 		ExoSimple sommetableau = new ExoSimple();
 		int[] nouvotablo = { 1, 2, 3, 18, 35, 42 };
 		System.out.println(sommetableau.sumTableau(nouvotablo));
+		
 
 	}
 
