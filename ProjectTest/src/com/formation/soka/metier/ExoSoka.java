@@ -22,7 +22,7 @@ public class ExoSoka {
 	public void setDate(Date date){
 		
 	}
-	
+
 	public void setCoordonnee(String adresseMail, String tel){
 		
 	}
