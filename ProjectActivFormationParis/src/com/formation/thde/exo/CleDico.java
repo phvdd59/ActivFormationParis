@@ -34,11 +34,16 @@ public class CleDico implements Comparable<CleDico> {
 			result = this.getLettre().compareTo(o.getLettre());
 		} else {
 			if (this.getLngMot() > o.getLngMot()) {
-				result = -1;
-			} else if (this.getLngMot() < o.getLngMot()) {
 				result = 1;
+			} else if (this.getLngMot() < o.getLngMot()) {
+				result = -1;
 			}
 		}
 		return result;
+	}
+
+	@Override
+	public String toString() {
+		return "CleDico [" + lettre + ", " + lngMot + "]";
 	}
 }

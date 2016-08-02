@@ -12,6 +12,9 @@ public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDi
 	@Override
 	public void ranger(String texte) {
 
+		//		if (texte == null || texte == "") {
+		//
+		//		} else {
 		texte = texte.toLowerCase();
 		texte.replaceAll("[éèêë]", "e");
 		texte.replaceAll("[âäàáåãæ]", "a");
@@ -54,12 +57,16 @@ public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDi
 
 	@Override
 	public ArrayList<String> getListeMot(String lettre, int lngMot) {
+
 		ArrayList<String> listString = new ArrayList<String>();
 		ArrayList<Mot> listMots3 = new ArrayList<Mot>();
 		CleDico clef = new CleDico(lettre, lngMot);
 		listMots3 = this.get(clef);
+		// IIIIIIIIFFFFFFFF
+		if (listMots3!=null){
 		for (int i = 0; i < listMots3.size(); i++) {
 			listString.add(listMots3.get(i).toString());
+		}
 		}
 		return listString;
 	}
