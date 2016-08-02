@@ -51,13 +51,13 @@ public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDi
 
 					}
 				}
-//				System.out.println(dico);
+				// System.out.println(dico);
 
 				this.put(key, dico);
 			}
 
 		}
-		//System.out.println(this.toString());
+		// System.out.println(this.toString());
 
 	}
 
@@ -77,18 +77,18 @@ public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDi
 
 	@Override
 	public String toString() {
-		String retour="";
+		String retour = "";
 		Set<java.util.Map.Entry<CleDico, ArrayList<Mot>>> set = entrySet();
 		for (java.util.Map.Entry<CleDico, ArrayList<Mot>> entry : set) {
 			ArrayList<Mot> lst = entry.getValue();
-			retour+="[";
+			retour += "[";
 			for (int i = 0; i < lst.size(); i++) {
 				Mot m = lst.get(i);
-				retour+=m.toString()+",";
-				
+				retour += m.toString() + ",";
+
 			}
-			retour+="]\n";
-			
+			retour += "]\n";
+
 		}
 		return retour;
 	}

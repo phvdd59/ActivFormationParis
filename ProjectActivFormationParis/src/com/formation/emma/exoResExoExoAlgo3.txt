@@ -1,0 +1,8 @@
+emma test23 (0/2): KO | exo.solution(res, 23, "A", "B", "C")
+null
+emma test0 (0/1): KO | exo.solution(res, 0, "A", "B", "C")
+null
+emma test1 (0/1): KO | exo.solution(res, 1, "A", "B", "C")
+null
+emma test2 (0/2): KO | exo.solution(res, 5, "A", "B", "C")
+null

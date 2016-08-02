@@ -1,6 +1,6 @@
 package com.formation.phva.exo;
 
-public class CleDico {
+public class CleDico implements Comparable<CleDico> {
 
 	private String lettre;
 	private int lngMot;
@@ -20,5 +20,10 @@ public class CleDico {
 	}
 	public void setLngMot(int lngMot) {
 		this.lngMot = lngMot;
+	}
+	@Override
+	public int compareTo(CleDico arg0) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }
