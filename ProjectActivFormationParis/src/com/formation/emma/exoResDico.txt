@@ -1,0 +1,16 @@
+emma:Collection
+
+emma rangerTexte0 (1/1):    | exo.dico("")
+emma rangerTexteRepete (0/1): KO | exo.dico("bbnjour bbnjour comment allez vous.le le le le le le la la li il il il te te te la li li lz")
+emma rangerTexteFable (0/2): KO | exo.dico(fable)
+emma rangerTexteNull (0/1): KO | exo.dico(null)
+null
+emma cleDicoCompareToStringInf (1/1):    | exo.cleDico("b",7) == exo.cleDico("a",7)
+emma cleDicoCompareToStringSup (1/1):    | exo.cleDico("b",7) == exo.cleDico("d",7)
+emma cleDicoCompareToLengthInf (1/1):    | exo.cleDico("b",4) == exo.cleDico("b",7)
+emma cleDicoCompareToLengthInf (1/1):    | exo.cleDico("b",7) == exo.cleDico("b",4)
+emma motCompareToEgal (1/1):    | exo.mot("bonjour") == exo.mot("b")
+emma rangerTexteSpeciaux (0/1): KO | exo.dico("░béteéèêëàâäùüûòöô         
+	         abdcdr        a,;:*^$pà)àç_è-(1345")
+emma cleDicoCompareToEgal (1/1):    | exo.cleDico("b",7) == exo.cleDico("b",7)
+emma NOTE : (7 / 12) = 11 / 20

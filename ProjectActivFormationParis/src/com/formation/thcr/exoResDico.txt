@@ -1,0 +1,16 @@
+thcr:Collection
+
+thcr rangerTexte0 (0/1): KO | exo.dico("")
+thcr rangerTexteRepete (0/1): KO | exo.dico("bbnjour bbnjour comment allez vous.le le le le le le la la li il il il te te te la li li lz")
+thcr rangerTexteFable (0/2): KO | exo.dico(fable)
+thcr rangerTexteNull (0/1): KO | exo.dico(null)
+null
+thcr cleDicoCompareToStringInf (1/1):    | exo.cleDico("b",7) == exo.cleDico("a",7)
+thcr cleDicoCompareToStringSup (1/1):    | exo.cleDico("b",7) == exo.cleDico("d",7)
+thcr cleDicoCompareToLengthInf (0/1): KO | exo.cleDico("b",4) == exo.cleDico("b",7)
+thcr cleDicoCompareToLengthInf (0/1): KO | exo.cleDico("b",7) == exo.cleDico("b",4)
+thcr motCompareToEgal (1/1):    | exo.mot("bonjour") == exo.mot("b")
+thcr rangerTexteSpeciaux (0/1): KO | exo.dico("░béteéèêëàâäùüûòöô         
+	         abdcdr        a,;:*^$pà)àç_è-(1345")
+thcr cleDicoCompareToEgal (1/1):    | exo.cleDico("b",7) == exo.cleDico("b",7)
+thcr NOTE : (4 / 12) = 6 / 20

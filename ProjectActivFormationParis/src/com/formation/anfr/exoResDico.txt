@@ -1,0 +1,16 @@
+anfr:Collection
+
+anfr rangerTexte0 (1/1):    | exo.dico("")
+anfr rangerTexteRepete (1/1):    | exo.dico("bbnjour bbnjour comment allez vous.le le le le le le la la li il il il te te te la li li lz")
+anfr rangerTexteFable (0/2): KO | exo.dico(fable)
+anfr rangerTexteNull (0/1): KO | exo.dico(null)
+null
+anfr cleDicoCompareToStringInf (1/1):    | exo.cleDico("b",7) == exo.cleDico("a",7)
+anfr cleDicoCompareToStringSup (1/1):    | exo.cleDico("b",7) == exo.cleDico("d",7)
+anfr cleDicoCompareToLengthInf (1/1):    | exo.cleDico("b",4) == exo.cleDico("b",7)
+anfr cleDicoCompareToLengthInf (1/1):    | exo.cleDico("b",7) == exo.cleDico("b",4)
+anfr motCompareToEgal (1/1):    | exo.mot("bonjour") == exo.mot("b")
+anfr rangerTexteSpeciaux (0/1): KO | exo.dico("░béteéèêëàâäùüûòöô         
+	         abdcdr        a,;:*^$pà)àç_è-(1345")
+anfr cleDicoCompareToEgal (1/1):    | exo.cleDico("b",7) == exo.cleDico("b",7)
+anfr NOTE : (8 / 12) = 13 / 20

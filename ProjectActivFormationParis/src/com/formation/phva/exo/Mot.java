@@ -6,9 +6,7 @@ public class Mot implements InterExoMot1, Comparable<Mot> {
 	private int nb;
 
 	public Mot(String mot) {
-		
-		
-	
+		// TODO Auto-generated method stub
 	}
 
 	public String getMot() {
@@ -29,20 +27,12 @@ public class Mot implements InterExoMot1, Comparable<Mot> {
 
 	@Override
 	public int compareTo(Mot o) {
-		
-	
-		
-return -1;
+		return -1;
 	}
 
 	@Override
 	public void plusUn() {
-		for (int i = 0; i < mot.length(); i++) {
-			nb++;
-			
-		}
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
