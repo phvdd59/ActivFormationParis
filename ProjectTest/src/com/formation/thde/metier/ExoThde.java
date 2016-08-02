@@ -10,11 +10,11 @@ public class ExoThde {
 	private String tel; //+33612345678
 	private String mdp; //majuscule minuscule chiffre
 
-	public ExoThde(){
+	public ExoThde() {
 	}
-	
+
 	public ExoThde(String nom) {
-		//constructeur
+		//constructeur lalala
 	}
 
 	public void setDate(Date date) {
