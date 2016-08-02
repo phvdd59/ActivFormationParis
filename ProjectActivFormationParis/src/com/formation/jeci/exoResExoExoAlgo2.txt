@@ -1,9 +1,9 @@
 jeci:Algo
 
-jeci testGrand (1/1):    | exo.solution(2147395600)
-jeci testTemps (0/2): KO | exo.solution(2147483647) temps : 770.765 201.876
+jeci testGrand (0/1): KO | exo.solution(2147395600) = 4 : attendu : 135
+jeci testTemps (2/2):    | exo.solution(2147483647)
 jeci testPremier (1/1):    | exo.solution(2147483647)
 jeci test0 (1/1):    | exo.solution(0)
 jeci testClassique (0/2): KO | exo.solution(24)
 jeci testNegatif (1/1):    | exo.solution(-5)
-jeci NOTE : (4 / 8) = 10 / 20
+jeci NOTE : (5 / 8) = 12 / 20

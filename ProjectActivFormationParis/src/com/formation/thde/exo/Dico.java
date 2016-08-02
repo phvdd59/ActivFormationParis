@@ -2,9 +2,11 @@ package com.formation.thde.exo;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Set;
 import java.util.TreeMap;
 
 import com.formation.phva.exo.InterExoDico1;
+
 
 public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDico1 {
 
@@ -56,4 +58,22 @@ public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDi
 		return listString;
 	}
 
+	public String toString() {
+		String s = "";
+		Set<java.util.Map.Entry<CleDico, ArrayList<Mot>>> set = entrySet();
+		for (java.util.Map.Entry<CleDico, ArrayList<Mot>> entry : set) {
+			s += entry.getKey().toString() + " : ";
+			ArrayList<Mot> lst = entry.getValue();
+			Collections.sort(lst);
+			for (int i = 0; i < lst.size(); i++) {
+				Mot mot = lst.get(i);
+				s += mot.toString();
+				if (i != lst.size() - 1) {
+					s += ",";
+				}
+			}
+			s += "\n";
+		}
+		return s;
+	}
 }

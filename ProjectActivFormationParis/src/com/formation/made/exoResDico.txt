@@ -7,8 +7,8 @@ made rangerTexteFable (0/2): KO | exo.dico(fable)
 null
 made rangerTexteNull (0/1): KO | exo.dico(null)
 null
-made cleDicoCompareToStringInf (0/1): KO | exo.cleDico("b",7) == exo.cleDico("a",7)
-made cleDicoCompareToStringSup (0/1): KO | exo.cleDico("b",7) == exo.cleDico("d",7)
+made cleDicoCompareToStringInf (1/1):    | exo.cleDico("b",7) == exo.cleDico("a",7)
+made cleDicoCompareToStringSup (1/1):    | exo.cleDico("b",7) == exo.cleDico("d",7)
 made cleDicoCompareToLengthInf (1/1):    | exo.cleDico("b",4) == exo.cleDico("b",7)
 made cleDicoCompareToLengthInf (1/1):    | exo.cleDico("b",7) == exo.cleDico("b",4)
 made motCompareToEgal (0/1): KO | exo.mot("bonjour") == exo.mot("b")
@@ -17,4 +17,4 @@ made rangerTexteSpeciaux (0/1): KO | exo.dico("░béteéèêëàâäùüûòö�
 	         abdcdr        a,;:*^$pà)àç_è-(1345")
 null
 made cleDicoCompareToEgal (1/1):    | exo.cleDico("b",7) == exo.cleDico("b",7)
-made NOTE : (4 / 12) = 6 / 20
+made NOTE : (6 / 12) = 10 / 20
