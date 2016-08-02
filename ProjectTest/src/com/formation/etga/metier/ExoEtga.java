@@ -16,6 +16,10 @@ public class ExoEtga {
 
 	public ExoEtga(String nom) {
 		this.nom = nom;
+		this.adresseMail = "etga@gmail.com";
+		this.dateEmbauche = "08-03-1990";
+		this.tel = "+33634674768";
+		this.mdp = "mdpetga8";
 	}
 
 	public void setTel(int numero) {

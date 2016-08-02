@@ -19,7 +19,7 @@ public class ExoThdeTest {
 
 	@Test
 	public void testSetTel() {
-		//		exoThde.setTel (0601020304);
+		exoThde.setTel(0601020304);
 		Assert.assertEquals("num de tel incorrect", "+33601020304", exoThde.getTel());
 	}
 
