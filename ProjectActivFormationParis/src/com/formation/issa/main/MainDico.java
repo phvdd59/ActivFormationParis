@@ -20,11 +20,11 @@ public class MainDico {
 
 	public void init() {
 		Dico dico = new Dico();
-		String texte = new String();
-		texte = "Une intelligence artificielle écrit le scénario d’un court-métrage";
+		String texteEpurer = new String();
+		texteEpurer = "Une intelligence artificielle écrit le scénario d’un court-métrage";
 		// dico.ranger(texte);
 		dico.getListeMot("i", 4);
-		System.out.println(texte);
+		System.out.println(dico.epuration(texteEpurer));
 		ArrayList<Mot> listing = new ArrayList<Mot>();
 
 		// ArrayList<String>listmot = new ArrayList<String>();
@@ -34,7 +34,7 @@ public class MainDico {
 		// System.out.println(s +",");
 		// }
 
-		CleDico cleDico = new CleDico(texte, 3);
+		CleDico cleDico = new CleDico(texteEpurer, 3);
 
 	}
 

@@ -21,12 +21,12 @@ public class ExoAlgo3 implements ImplAlgo3 {
 			return null;
 		}
 		else if(indice==1){
-			lst=solution(lst, 1, a,b, c);
+			lst.add(new Mouvement(1, "a", "c"));
 		}
 		else{
-			lst=solution(lst, indice-1, a, c, b);
-			lst=solution(lst,indice, a, b, c);
-			lst=solution(lst, indice-1, b, a, c);
+			lst.add(new Mouvement(indice-1, "a", "b"));
+			lst.add(new Mouvement(indice, "a", "c"));
+			lst.add(new Mouvement(indice-1, "b", "c"));
 		}
 		return lst;
 	}
