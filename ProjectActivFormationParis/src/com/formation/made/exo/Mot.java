@@ -31,7 +31,7 @@ public class Mot implements InterExoMot1, Comparable<Mot> {
 	public int compareTo(Mot o) {// longeur du mot si c'est superieur c'est positif, si c'est inférieur c'est négatif, si c'est égal c'est 0
 
 		return this.compareTo(o);
-		
+
 	}
 
 	@Override
@@ -43,11 +43,11 @@ public class Mot implements InterExoMot1, Comparable<Mot> {
 	@Override
 	public boolean equals(Object obj) {
 		boolean egaux = false;
-		if (obj instanceof Mot)
-			;
-		Mot objet = (Mot) obj;
-		if (this.getMot() == objet.getMot()) {
-			egaux = true;
+		if (obj instanceof Mot) {
+			Mot objet = (Mot) obj;
+			if (this.getMot() == objet.getMot()) {
+				egaux = true;
+			}
 		}
 		return egaux;
 	}
