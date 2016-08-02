@@ -29,25 +29,35 @@ public class Mot implements InterExoMot1, Comparable<Mot> {
 
 	@Override
 	public int compareTo(Mot o) {
-		// TODO Auto-generated method stub
-		return 0;
+		int result = 0;
+		if (this.getNb() > o.getNb()) {
+			result = -1;
+		} else if (this.getNb() < o.getNb()) {
+			result = 1;
+		} else {
+			result = this.getMot().toString().compareTo(o.getMot().toString());
+		}
+		return result;
 	}
 
 	@Override
 	public void plusUn() {
-		// TODO Auto-generated method stub
-		
+		nb += 1;
+
 	}
 
 	@Override
 	public boolean equals(Object obj) {
-		// TODO Auto-generated method stub
-		return super.equals(obj);
+		boolean result = false;
+		Mot mot = (Mot) obj;
+		if (this.getMot().equals(mot.getMot())) {
+			result = true;
+		}
+		return result;
 	}
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return super.toString();
+		return "Le mot : " + mot + ", a un poids de " + nb;
 	}
 }

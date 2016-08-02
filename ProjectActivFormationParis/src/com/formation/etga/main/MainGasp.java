@@ -2,6 +2,7 @@ package com.formation.etga.main;
 
 import java.util.ArrayList;
 
+import com.formation.etga.exo.Dico;
 import com.formation.etga.exo.ExoAlgo3;
 import com.formation.phva.exo.Mouvement;
 
@@ -15,6 +16,7 @@ public class MainGasp {
 		//		mainGasp.init4();
 		//		mainGasp.init5();
 		mainGasp.init6();
+		mainGasp.init7();
 	}
 
 	//	private void init1() {
@@ -92,10 +94,10 @@ public class MainGasp {
 	//		ExoTableau2 exoTableau2 = new ExoTableau2();
 	//		int[] tab = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 	//		int[] tab1 = { 10, 11, 12 };
-	//		int a = 3; // valeur � ajouter � la fin
-	//		int p = 3; // position � laquelle le tab1 doit �tre inserer dans tab
+	//		int a = 3; // valeur à ajouter à la fin
+	//		int p = 3; // position à laquelle le tab1 doit être inserer dans tab
 	//		int d = 3; // en combien on divise le tab
-	//		int v = 15; // nombre � convertir en binaire
+	//		int v = 15; // nombre à convertir en binaire
 	//
 	//		int[] tabFinal1 = exoTableau2.inverserTableau(tab);
 	//		for (int i = 0; i < tabFinal1.length; i++) {
@@ -154,7 +156,24 @@ public class MainGasp {
 
 		ExoAlgo3 exoAlgo3 = new ExoAlgo3();
 		ArrayList<Mouvement> lst = new ArrayList<Mouvement>();
-		lst = exoAlgo3.solution(lst, 5, "A", "B", "C");
-		System.out.print(lst);
+		lst = exoAlgo3.solution(lst, 4, "A", "B", "C");
+		for (int i = 0; i < lst.size(); i++) {
+			System.out.println("Déplacement " + (i + 1) + " : " + lst.get(i).toString());
+		}
+		System.out.println("");
+		System.out.println("");
+	}
+
+	private void init7() {
+		Dico dico = new Dico();
+		String testText = "Vous savez, moi je ne crois pas qu’il y ait de bonne ou de mauvaise situation. Moi, si je devais résumer ma vie aujourd’hui avec vous, je dirais que c’est d’abord des rencontres. Des gens qui m’ont tendu la main, peut-être à un moment où je ne pouvais pas, où j’étais seul chez moi. Et c’est assez curieux de se dire que les hasards, les rencontres forgent une destinée... Parce que quand on a le goût de la chose, quand on a le goût de la chose bien faite, le beau geste, parfois on ne trouve pas l’interlocuteur en face je dirais, le miroir qui vous aide à avancer. Alors ça n’est pas mon cas, comme je disais là, puisque moi au contraire, j’ai pu : et je dis merci à la vie, je lui dis merci, je chante la vie, je danse la vie... je ne suis qu’amour ! Et finalement, quand beaucoup de gens aujourd’hui me disent « Mais comment fais-tu pour avoir cette humanité ?», et bien je leur réponds très simplement, je leur dis que c’est ce goût de l’amour ce goût donc qui m’a poussé aujourd’hui à entreprendre une construction mécanique, mais demain qui sait ? Peut-être simplement à me mettre au service de la communauté, à faire le don, le don de soi...";
+		dico.ranger(testText);
+		for (int i = 1; i < 10; i++) {
+			ArrayList<String> lst = dico.getListeMot("e", i);
+			if (lst.isEmpty() == true) {
+			} else {
+				System.out.println("mots de " + i + " lettres : " + lst.toString());
+			}
+		}
 	}
 }

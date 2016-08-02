@@ -8,9 +8,11 @@ import com.formation.comportement.EspritCombatifEtgaCombatFusilALunette;
 import com.formation.comportement.EspritCombatifJeCi;
 import com.formation.comportement.EspritCombatifSokaPacifiste;
 import com.formation.comportement.EspritCombatifThcrCombatMainNue;
-import com.formation.emma.metier.Operation;
-import com.formation.emma.metier.PremierSoin;
-import com.formation.emma.metier.Sevanouir;
+import com.formation.comportement.SoinEmmaSevanouir;
+import com.formation.comportement.SoinEmmaSoignePas;
+import com.formation.comportement.SoinJeCI;
+import com.formation.comportement.SoinScalpel;
+import com.formation.comportement.SoinSokaDoliprane;
 import com.formation.etga.metier.Sniper;
 import com.formation.issa.metier.Chirurgien;
 import com.formation.jeci.metier.Guerrier;
@@ -30,15 +32,15 @@ public class MainRPG {
 	private void init() {
 		//TODO instanciation de tous les persos et mis en pllace des méthodes
 		Personnage civil = new Civil(new EspritCombatifSokaPacifiste(), new Courrir(),
-				new Sevanouir());
+				new SoinEmmaSevanouir());
 		Personnage sniper = new Sniper(new EspritCombatifEtgaCombatFusilALunette(),
-				new NeBougePas(), new PremierSoin());
+				new NeBougePas(), new SoinSokaDoliprane());
 		Personnage guerrier = new Guerrier(new EspritCombatifThcrCombatMainNue(), new Marcher(),
-				new PremierSoin());
+				new SoinEmmaSoignePas());
 		Personnage medecin = new Medecin(new EspritCombatifAmbrMedCur(), new Courrir(),
-				new PremierSoin());
+				new SoinJeCI());
 		Personnage chirurgien = new Chirurgien(new EspritCombatifJeCi(), new Courrir(),
-				new Operation());
+				new SoinScalpel());
 
 		Personnage civil2 = new Civil();
 		System.out.println(civil2.getClass().getName());

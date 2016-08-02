@@ -31,7 +31,6 @@ public class Mot implements InterExoMot1, Comparable<Mot> {
 
 	@Override
 	public int compareTo(Mot o) {
-		// TODO Auto-generated method stub
 		int x = 0;
 		if (getNb() < o.getNb()) {
 			x = 1;
@@ -45,7 +44,6 @@ public class Mot implements InterExoMot1, Comparable<Mot> {
 
 	@Override
 	public void plusUn() {
-		// TODO Auto-generated method stub
 		nb++;
 
 	}
@@ -55,14 +53,13 @@ public class Mot implements InterExoMot1, Comparable<Mot> {
 		boolean b = false;
 		if (obj instanceof Mot) {
 			Mot mot = (Mot) obj;
-			b = this.getMot().toString().equals(mot.getMot().toString());
+			b = this.getMot().equals(mot.getMot());
 		}
 		return b;
 	}
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
 		return mot;
 	}
 }

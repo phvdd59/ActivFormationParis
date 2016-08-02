@@ -1,5 +1,7 @@
 package com.formation.made.exo;
 
+import java.util.ArrayList;
+
 import com.formation.phva.exo.ImpAlgo2;
 
 public class ExoAlgo2 implements ImpAlgo2 {
@@ -28,6 +30,38 @@ public class ExoAlgo2 implements ImpAlgo2 {
 			}
 			// listavaleurs.add(n);
 			compteur += 2;
+		}
+		// System.out.println(listavaleurs.toString());
+		return compteur;
+	}
+
+	public int solution2(int n) {
+		int compteur = -1;
+		ArrayList<Integer> listavaleurs = new ArrayList<>();
+		if (n <= 0) {
+		} else if (n > 0) {
+			if (n % 2 != 0) {
+				for (int i = 1; i <= n / 2; i++) {
+					if (n % i == 0) {
+						if (i * i == n) {
+							compteur++;
+						}
+						compteur += 2;
+						listavaleurs.add(i);
+					}
+				}
+			}
+		} else {
+			for (int i = 1; i <= n / 2; i++) {
+				if (n % i == 0) {
+					compteur = +2;
+					listavaleurs.add(i);
+					if (i * i == n) {
+						compteur -= 1;
+					}
+				}
+			}
+			// listavaleurs.add(n);
 		}
 		// System.out.println(listavaleurs.toString());
 		return compteur;
