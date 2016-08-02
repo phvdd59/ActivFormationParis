@@ -16,7 +16,7 @@ public class Chirurgien extends Personnage  {
 		this.combat= new EspritCombatifChirugien();
 		this.deplacement=new DeplacementChirurgien();
 		this.soin=new SoinScalpel();
-		// TODO Auto-generated constructor stub
+		
 	}
 	public Chirurgien(EspritCombatif combat, Deplacement deplacement, Soin soin) {
 		super(combat, deplacement, soin);

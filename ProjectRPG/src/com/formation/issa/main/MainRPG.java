@@ -19,8 +19,9 @@ public class MainRPG {
 	Personnage civil=new Civil();
 	Personnage guerrier=new Guerrier();
 	Personnage chirurgien=new Chirurgien();
-	//Personnage medecin=new Medecin();
+	Personnage medecin=new Medecin();
 	Personnage sniper=new Sniper();
+	
 		
 	}
 
