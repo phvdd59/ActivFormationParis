@@ -39,9 +39,9 @@ public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDi
 			for (int j = 0; j < tab[i].length(); j++) { // j ce sont les lettres
 				String lettre = tab[i].substring(j, j + 1); // j à j+1: il ne prend que j. Si on avait mis j à j+2,  il aurait pris 2 lettres
 				CleDico cleDico = new CleDico(lettre, tab[i].length());
-				ArrayList<Mot> lst = get(cleDico); // lst sera une liste de valeurs de cleDicos. Les valeurs sont des ArrayLists de mots?
+				ArrayList<Mot> lst = get(cleDico); // lst sera une liste de valeurs de cleDicos. Les valeurs sont des mots qui sont rangés dans une ArrayList de mots
 				//compareTo: je regarde la lettre, et ensuite si j'ai regardé la lettre et que ct égal, je compare la longueur
-				cleDico.compareTo(cleDico);
+				//cleDico.compareTo(cleDico);
 
 			}
 
