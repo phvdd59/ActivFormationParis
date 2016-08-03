@@ -51,14 +51,25 @@ public class ExoEtga {
 	 */
 
 	public void setMdpCache(String mdpCache) {
+		boolean valide = false;
 		char[] mdpList = mdpCache.toCharArray();
-		for (int i = 0; i < mdpList.length - 1; i += 2) {
-			char a = mdpList[i];
-			char b = mdpList[i + 1];
-			mdpList[i] = a;
-			mdpList[i + 1] = b;
+		for (int i = 0; i < mdpList.length; i++) {
+			if (Character.isLowerCase(i) || Character.isUpperCase(i) || Character.isDigit(i)) {
+				valide = true;
+			}
 		}
-		mdpList.
+		if (valide = true) {
+			for (int i = 0; i < mdpList.length - 1; i += 2) {
+				char a = mdpList[i];
+				char b = mdpList[i + 1];
+				mdpList[i] = a;
+				mdpList[i + 1] = b;
+			}
+			mdpCache = mdpList.toString();
+			this.mdp = mdpCache;
+		} else {
+			this.mdp = "Abc0";
+		}
 	}
 
 	public String getNom() {
