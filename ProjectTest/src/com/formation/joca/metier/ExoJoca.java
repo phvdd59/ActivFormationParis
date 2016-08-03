@@ -31,7 +31,7 @@ public class ExoJoca {
 
 	public void setAdresseMail(String adresseMail) {
 		if (!(adresseMail.indexOf('@') == -1) && !(adresseMail.indexOf('.') == -1)
-				&& adresseMail.indexOf('@') < adresseMail.indexOf('.')
+				&& adresseMail.indexOf('@') < adresseMail.lastIndexOf('.')
 				&& adresseMail.lastIndexOf("@") == adresseMail.indexOf("@")) {
 			this.adresseMail = adresseMail;
 		} else {
