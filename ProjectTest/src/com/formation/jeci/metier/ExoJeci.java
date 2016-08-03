@@ -124,7 +124,7 @@ public class ExoJeci {
 		this.tel = "numero de telephone non valide";
 		if (tel.indexOf("+") == 0) {
 			String tel1 = tel.substring(1);
-			System.out.println(tel1);
+			
 			if (tel1.matches("\\d+") == true) {
 				if (tel1.length() == 11) {
 					this.tel = tel;
