@@ -1,7 +1,6 @@
 package com.formation.etga.metier;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 
 public class ExoEtga {
@@ -35,12 +34,12 @@ public class ExoEtga {
 	}
 
 	public void setCoordonnee(String adresseMail, String tel) {
-//		if ((adresseMail.contains("@")) && ((adresseMail.contains(".com")) || (adresseMail.contains(".fr")))) {
+		if ((adresseMail.contains("@")) && ((adresseMail.contains(".com")) || (adresseMail.contains(".fr")))) {
 			this.adresseMail = adresseMail;
-//		}
-//		if ((tel.substring(0, 3) == "+336") && (tel.length() == 12)) {
-			this.tel = tel;
-//		}
+		}
+		//		if ((tel.substring(0, 3) == "+336") && (tel.length() == 12)) {
+		this.tel = tel;
+		//		}
 	}
 
 	/**
@@ -51,12 +50,11 @@ public class ExoEtga {
 
 	public void setMdpCache(String mdpCache) {
 		char[] mdpList = mdpCache.toCharArray();
-		for (int i = 0; i < mdpList.length -1; i+=2) {
+		for (int i = 0; i < mdpList.length - 1; i += 2) {
 			char a = mdpList[i];
-			char b = mdpList[i+1];
-			mdpList[i] =a;
-			mdpList [i+1] = b;
-			
+			char b = mdpList[i + 1];
+			mdpList[i] = a;
+			mdpList[i + 1] = b;
 		}
 	}
 
