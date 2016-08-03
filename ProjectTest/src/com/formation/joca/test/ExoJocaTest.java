@@ -98,7 +98,7 @@ public class ExoJocaTest {
 
 	@Test
 	public void testSetMdpCacheMauvais1() {
-		exo.setMdpCache("eL eTtssEBtno0261");
+		exo.setMdpCache("kokokjui54");
 		Assert.assertEquals("mot de passe non valide", exo.getMdp());
 	}
 
