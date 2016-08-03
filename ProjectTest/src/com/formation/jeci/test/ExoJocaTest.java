@@ -121,41 +121,48 @@ public class ExoJocaTest {
 		exoJoca.setCoordonnee("jerome@gmail.com", "+3362^1¨15040302");
 		Assert.assertEquals("coordonnee incorrecte", "jerome@gmail.com" + "numero de telephone non valide", exoJoca.getAdresseMail());
 	}
+
 	/*****************************************************************************************************************/
 	@Test
 	public void testmdpcache() {
 		exoJoca.setMdpCache("alLelou1");
-		Assert.assertEquals("mdp correct", "laeLolu" , exoJoca.getMdp());
+		Assert.assertEquals("mdp correct", "laeLolu", exoJoca.getMdp());
 	}
+
 	@Test
 	public void testmdpcache1() {
 		exoJoca.setMdpCache("alLelou1a");
-		Assert.assertEquals("mdp correct", "laeLolua" , exoJoca.getMdp());
+		Assert.assertEquals("mdp correct", "laeLolua", exoJoca.getMdp());
 	}
+
 	@Test
 	public void testmdpcache2() {
 		exoJoca.setMdpCache("alleléui");
-		Assert.assertEquals("mdp incorrect", "mot de passe non valide" , exoJoca.getMdp());
+		Assert.assertEquals("mdp incorrect", "mot de passe non valide", exoJoca.getMdp());
 	}
+
 	@Test
 	public void testmdpcache3() {
 		exoJoca.setMdpCache("alleloui");
-		Assert.assertEquals("mdp incorrect", "mot de passe non valide" , exoJoca.getMdp());
+		Assert.assertEquals("mdp incorrect", "mot de passe non valide", exoJoca.getMdp());
 	}
+
 	@Test
 	public void testmdpcache4() {
 		exoJoca.setMdpCache("ALLELOUI1");
-		Assert.assertEquals("mdp incorrect", "mot de passe non valide" , exoJoca.getMdp());
+		Assert.assertEquals("mdp incorrect", "mot de passe non valide", exoJoca.getMdp());
 	}
+
 	@Test
 	public void testmdpcache5() {
 		exoJoca.setMdpCache("al.L11lol");
-		Assert.assertEquals("mdp incorrect", "mot de passe non valide" , exoJoca.getMdp());
+		Assert.assertEquals("mdp incorrect", "mot de passe non valide", exoJoca.getMdp());
 	}
+
 	@Test
 	public void testmdpcache6() {
 		exoJoca.setMdpCache(null);
-		Assert.assertEquals("mdp incorrect", "mot de passe non valide" , exoJoca.getMdp());
+		Assert.assertEquals("mdp incorrect", "mot de passe non valide", exoJoca.getMdp());
 	}
-	
+
 }
