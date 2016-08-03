@@ -53,7 +53,6 @@ public class MainFlux {
 
 	public void wipeConsole() throws AWTException {
 		Robot robbie = new Robot();
-		//shows the Console View
 		robbie.keyPress(KeyEvent.VK_ALT);
 		robbie.keyPress(KeyEvent.VK_SHIFT);
 		robbie.keyPress(KeyEvent.VK_Q);
@@ -63,7 +62,6 @@ public class MainFlux {
 		robbie.keyPress(KeyEvent.VK_C);
 		robbie.keyRelease(KeyEvent.VK_C);
 
-		//clears the console
 		robbie.keyPress(KeyEvent.VK_SHIFT);
 		robbie.keyPress(KeyEvent.VK_F10);
 		robbie.keyRelease(KeyEvent.VK_SHIFT);
