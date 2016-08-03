@@ -49,7 +49,7 @@ public class ExoJeci {
 	public void setMdpCache(String mdpCache) {
 		setMdp(mdpCache);
 		String o = getMdp();
-		if (o != null) {
+		if (o != null && o.compareTo("mot de passe non valide") != 0) {
 			for (int i = 0; i < o.length(); i += 2) {
 				char a = ' ';
 				a = o.charAt(i);
