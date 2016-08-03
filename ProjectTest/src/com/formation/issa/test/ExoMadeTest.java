@@ -45,7 +45,27 @@ public class ExoMadeTest {
 	@Test
 	public void testSetMdpCache() {
 		exoMade.setMdpCache("Aclelekkl8");
-		Assert.assertEquals("Aclelekkl8", getMdp());
+		Assert.assertEquals("cAelelkk8l", exoMade.getMdp());
+	}
+	@Test
+	public void testSetMdpCachePonc() {
+		exoMade.setMdpCache("Abcdef!");
+		Assert.assertEquals("bAdcfe!", exoMade.getMdp());
+	}
+	@Test
+	public void testSetMdpCacheImpair(){
+		exoMade.setMdpCache("Ebcdg");
+		Assert.assertEquals("bEdcg", exoMade.getMdp());
+	}
+	@Test
+	public void testSetMdpCacheMAJ(){
+	exoMade.setMdpCache("ABCDEF");	
+	Assert.assertEquals(null, exoMade.getMdp());
+	}
+	@Test
+	public void testSetMdpCacheMIN(){
+		exoMade.setMdpCache("adfer");
+		Assert.assertEquals(null, exoMade.getMdp());
 	}
 
 }

@@ -67,9 +67,11 @@ public class ExoJoca {
 
 	public void setDateEmbauche(String dateEmbauche) {
 		if (dateEmbauche != null) {
-			this.dateEmbauche = dateEmbauche;
-		} else {
-			this.dateEmbauche = "date non valide";
+			if (Pattern.compile("^[0-3][0-9]-[0-1][0-9]-[0-9]{4}$").matcher(dateEmbauche).find()) {
+				this.dateEmbauche = dateEmbauche;
+			} else {
+				this.dateEmbauche = "date non valide";
+			}
 		}
 	}
 
@@ -79,11 +81,7 @@ public class ExoJoca {
 
 	public void setTel(String tel) {
 		if (tel != null) {
-			if (tel.toCharArray()[0] == '0' && tel.length() == 10 && tel.matches("[0-9]+")) {
-				String temp = "";
-				temp = "+33" + tel.substring(1);
-				this.tel = temp;
-			} else if (tel.toCharArray()[0] == '+' && tel.length() == 12 && tel.substring(0).matches("[0-9+]+")) {
+			if (tel.toCharArray()[0] == '+' && tel.length() == 12 && tel.substring(0).matches("[0-9+]+")) {
 				this.tel = tel;
 			} else {
 				this.tel = "numero de telephone non valide";
@@ -113,7 +111,7 @@ public class ExoJoca {
 	}
 
 	public void setDate(Date date) {
-		SimpleDateFormat fd = new SimpleDateFormat("dd/MM/yyyy");
+		SimpleDateFormat fd = new SimpleDateFormat("dd-MM-yyyy");
 		this.setDateEmbauche(fd.format(date));
 	}
 
