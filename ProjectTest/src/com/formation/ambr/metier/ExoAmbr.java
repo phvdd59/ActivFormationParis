@@ -25,6 +25,22 @@ public class ExoAmbr {
 	}
 
 	public void setCoordonnee(String adresseMail, String tel) {
+		boolean A = adresseMail.contains("@") && adresseMail.contains("."); // returns true if adresseMail contains @ and .
+		//boolean B = adresseMail.contains("*@*.*");
+		//boolean C = adresseMail.matches("\\b@\\B") && adresseMail.matches("\\b.\\B"); // matches the expression @ on a non-word boundary (\\B). Si c'était \\b, il trouve que si le mot est entouré d'espaces. On peut changer des deux côtés du mot
+		if (A == true) {
+			adresseMail = adresseMail;
+		} else {
+			adresseMail = null;
+
+		}
+	}
+
+	public void adrMail(String adresseMail) {
+
+	}
+
+	public void numTel(String tel) {
 
 	}
 
@@ -39,7 +55,7 @@ public class ExoAmbr {
 	public void setMdpCache(String mdpCache) {
 		// protection pour caractères spéciaux et espaces
 		String mdpCache2 = mdpCache.replaceAll("\\W", "");
-		if (mdpCache2 != mdpCache || mdpCache=="") {
+		if (mdpCache2 != mdpCache || mdpCache == "") {
 			mdp = null;
 		} else {
 

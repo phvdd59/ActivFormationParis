@@ -2,7 +2,6 @@ package com.formation.soka.metier;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Locale;
 
 public class ExoSoka {
 
@@ -54,11 +53,9 @@ public class ExoSoka {
 		} else {
 			this.adresseMail = null;
 		}
-
 		//
 		if (tel != null) {
 			char[] tabChar = tel.toCharArray();
-
 			for (int i = 3; i < tabChar.length; i++) {
 				if (tel.length() == 12 && tel.startsWith("+33") && Character.isDigit(tabChar[i])) {
 					if (tabChar[i] >= 0 || tabChar[i] <= 9) {
@@ -71,7 +68,6 @@ public class ExoSoka {
 		} else {
 			this.tel = null;
 		}
-
 	}
 
 	/**
