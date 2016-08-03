@@ -73,7 +73,7 @@ public class ExoBeba {
 			this.tel = null;
 		}
 		for (int i = 1; i < tel.length(); i++) {
-			if (tel.charAt(i) < 0 && tel.charAt(i) > 0) {
+			if (tel.charAt(i) < 0 && tel.charAt(i) > 9) {
 				this.tel = null;
 			}
 		}
