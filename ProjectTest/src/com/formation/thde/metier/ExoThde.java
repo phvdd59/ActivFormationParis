@@ -33,7 +33,7 @@ public class ExoThde {
 	}
 
 	public void setCoordonnees(String adresseMail, String tel) {
-		if (adresseMail.contains("@") && (adresseMail.endsWith(".com") || adresseMail.endsWith(".fr")))
+		if (adresseMail.contains("@") && (adresseMail.endsWith(".com") || adresseMail.endsWith(".fr") || adresseMail.endsWith(".be") || adresseMail.endsWith(".de")))
 			this.adresseMail = adresseMail;
 		else {
 			this.adresseMail = "pasbon@wanadoo.fr";
