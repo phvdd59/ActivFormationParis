@@ -33,6 +33,12 @@ public class ExoIssa {
 	}
 
 	public void setCoordonnee(String adressMail, String tel) {
+		if(tel==null){
+			this.tel=null;
+		}
+		if(adressMail==null){
+			this.adresseMail=null;
+		}
 		if (tel.length() == 12 && tel.startsWith("+3")) {
 			this.tel = tel;
 		}
@@ -49,6 +55,9 @@ public class ExoIssa {
 	 */
 
 	public void setMdpCache(String mdpCache) {
+		if(mdpCache==null){
+			this.setMdpCache(null);
+		}
 		mdpCache = "Acdef9";
 		char[] charArray = mdpCache.toCharArray();
 		for (int i = 0; i < charArray.length; i++) {

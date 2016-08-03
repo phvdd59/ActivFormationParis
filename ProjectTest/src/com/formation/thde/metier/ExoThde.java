@@ -18,31 +18,35 @@ public class ExoThde {
 		this.nom = nom;
 		this.adresseMail = "eleve@wanadoo.fr";
 		this.dateEmbauche = "01-01-1999";
-		this.tel = "+33000000000";
-		this.mdp = "1234";
+		this.tel = "+33600000000";
+		this.mdp = "Abc0";
 	}
 
 	public void setDate(Date date) {
-		SimpleDateFormat fd = new SimpleDateFormat("dd-MM-yyyy");
-		this.dateEmbauche = fd.format(date);
+		Date auj = new Date();
+		if (date.after(auj)) {
+			this.dateEmbauche = "01-01-1900";
+		} else {
+			SimpleDateFormat fd = new SimpleDateFormat("dd-MM-yyyy");
+			this.dateEmbauche = fd.format(date);
+		}
 	}
 
 	public void setCoordonnees(String adresseMail, String tel) {
-
-		if (adresseMail.contains("@") && adresseMail.contains("."))
+		if (adresseMail.contains("@") && (adresseMail.endsWith(".com") || adresseMail.endsWith(".fr")))
 			this.adresseMail = adresseMail;
 		else {
-			this.adresseMail = "pasbon@gmail.com";
+			this.adresseMail = "pasbon@wanadoo.fr";
 		}
 
 		char charTemp = 'a';
 		if (tel.length() != 12 || tel.charAt(0) != '+') {
-			this.tel = "+336000000";
+			this.tel = "+33600000000";
 		} else {
 			for (int i = 1; i < tel.length(); i++) {
 				charTemp = tel.charAt(i);
 				if (Character.isDigit(charTemp) == false) {
-					this.tel = "+336000000";
+					this.tel = "+33600000000";
 					break;
 				} else {
 					this.tel = tel;

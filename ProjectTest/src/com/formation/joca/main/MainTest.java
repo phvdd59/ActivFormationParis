@@ -14,13 +14,16 @@ public class MainTest {
 
 		exo.setTel("+33698783875");
 		System.out.println(exo.getTel());
-		
-		exo.setNom("DeCrapal48");
+
+		exo.setNom("Crapal");
 		System.out.println(exo.getNom());
-		
+
+		ExoJoca exo2 = new ExoJoca("De_Crapal");
+		System.out.println(exo2.getNom());
+
 		exo.setAdresseMail("johanncassagne@gmail.com");
 		System.out.println(exo.getAdresseMail());
-		
+
 		exo.setMdp("Mp8");
 		System.out.println(exo.getMdp());
 

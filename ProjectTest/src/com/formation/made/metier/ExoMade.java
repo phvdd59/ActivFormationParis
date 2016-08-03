@@ -25,13 +25,24 @@ public class ExoMade {
 	}
 
 	public void setCoordonnees(String adresseMail, String tel) {
+		if (adresseMail == null) {
+			this.adresseMail = null;
+		}
+		if (tel == null) {
+			this.tel = null;
+		}
 		if (tel.length() == 12 && tel.startsWith("+3")) {
 			this.tel = tel;
+		} else {
+			this.tel = null;
 		}
 		if (adresseMail.contains("@")) {
 			if (adresseMail.contains(".com") || adresseMail.contains(".fr")) {
 				this.adresseMail = adresseMail;
 			}
+
+		} else {
+			this.adresseMail = null;
 		}
 
 	}
@@ -43,6 +54,14 @@ public class ExoMade {
 	 */
 
 	public void setMdpCache(String mdpCache) {
+		if (mdpCache == null) {
+			this.mdp = null;
+		}
+		char[] tabchar = mdpCache.toCharArray();
+		for (int i = 0; i < tabchar.length; i++) {
+
+		}
+
 		if (!mdpCache.toLowerCase().equals(mdpCache) || !mdpCache.toUpperCase().equals(mdpCache)) {
 
 			String[] tabstring = new String[mdpCache.length()];
@@ -60,8 +79,10 @@ public class ExoMade {
 				stringMdp += tabMdpCache[i];
 			}
 			this.mdp = stringMdp;
+		} else {
+			this.mdp = null;
+			System.out.println("le mdp doit contenir des maj et des min");
 		}
-
 	}
 
 	public void setTel(int numero) { // ceci est un exemple

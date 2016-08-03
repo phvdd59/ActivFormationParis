@@ -19,16 +19,14 @@ public class MainTest {
 		ExoThde exo = new ExoThde("pouette");
 		exo.setMdpCache("abC1");
 		System.out.println(exo.getMdp());
-		
+
 		exo.setCoordonnees("doodeedoo@gmail.com", "+5420a000000");
 		System.out.println(exo.getAdresseMail());
 		System.out.println(exo.getTel());
 
-		SimpleDateFormat fd = new SimpleDateFormat("ddMMyyyy");
-		String s = fd.format(new Date());
-		Date date = new Date();
+		SimpleDateFormat fd = new SimpleDateFormat("dd-MM-yyyy");
 		try {
-			Date d = fd.parse("15091988");
+			Date d = fd.parse("01-01-2000");
 			exo.setDate(d);
 		} catch (ParseException e1) {
 			e1.printStackTrace();

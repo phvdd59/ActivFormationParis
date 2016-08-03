@@ -5,7 +5,7 @@ import com.formation.emma.metier.ExoEmma;
 public class MainTest {
 
 	public static void main(String[] args) {
-		String mot = "blablac";
+		String mot = "blablac!";
 		ExoEmma a = new ExoEmma();
 		a.setMdpCache(mot);
 		System.out.println(a.getMdp());;
