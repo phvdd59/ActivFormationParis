@@ -37,10 +37,15 @@ public class MainTest {
 			e.printStackTrace();
 		}
 
-		// setMdp
+		// setMdpCache
 		//ASuleT5!
 		exoAmbr.setMdpCache("ASuleT5!");
 		System.out.println(exoAmbr.getMdp());
+		
+		// setCoordonnee
+		exoAmbr.setCoordonnee("ambrault@gmail.com", "0619195441");
+		System.out.println(exoAmbr.getAdresseMail());
+		System.out.println(exoAmbr.getTel());
 
 	}
 
