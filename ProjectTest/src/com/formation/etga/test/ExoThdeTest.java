@@ -53,7 +53,7 @@ public class ExoThdeTest {
 		} catch (ParseException e1) {
 			e1.printStackTrace();
 		}
-		Assert.assertEquals("date pas OK", "01-01-1900", exoThde.getDateEmbauche());
+		Assert.assertEquals("date pas OK", "01-01-1980", exoThde.getDateEmbauche());
 	}
 
 	@Test

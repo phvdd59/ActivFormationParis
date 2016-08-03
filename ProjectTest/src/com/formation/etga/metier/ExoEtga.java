@@ -27,7 +27,6 @@ public class ExoEtga {
 	}
 
 	public void setDate(Date date) {
-		//		Date date = new Date();
 		SimpleDateFormat dateEmbauche = new SimpleDateFormat("dd-MM-yyyy");
 		this.dateEmbauche = dateEmbauche.format(date);
 	}
@@ -38,7 +37,6 @@ public class ExoEtga {
 		} else {
 			this.adresseMail = "pasbon@wanadoo.fr";
 		}
-
 		if ((tel.startsWith("+336")) && (tel.length() == 12)) {
 			this.tel = tel;
 		} else {
