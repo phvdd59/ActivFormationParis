@@ -24,17 +24,25 @@ public class ExoSoka {
 			SimpleDateFormat fd = new SimpleDateFormat("dd-mm-yyyy");
 			String s = fd.format(date);
 			this.dateEmbauche = s;
+		} else {
+			this.dateEmbauche = null;
 		}
-		this.dateEmbauche = null;
+
 	}
 
 	public void setCoordonnee(String adresseMail, String tel) {
-		if (adresseMail != null && tel != null) {
+		if (adresseMail != null) {
 			if (adresseMail.contains("@") && (adresseMail.endsWith(".fr") || adresseMail.endsWith(".com"))) {
 				this.adresseMail = adresseMail.toLowerCase();
 			} else {
 				this.adresseMail = "";
 			}
+		} else {
+			this.adresseMail = null;
+		}
+
+		//
+		if (tel != null) {
 			char[] tabChar = tel.toCharArray();
 
 			for (int i = 3; i < tabChar.length; i++) {
@@ -46,9 +54,10 @@ public class ExoSoka {
 					this.tel = "";
 				}
 			}
+		} else {
+			this.tel = null;
 		}
-		this.adresseMail = null;
-		this.tel = null;
+
 	}
 
 	/**
@@ -106,8 +115,9 @@ public class ExoSoka {
 			} else {
 				this.mdp = "";
 			}
+		} else {
+			this.mdp = null;
 		}
-		this.mdp = null;
 
 	}
 

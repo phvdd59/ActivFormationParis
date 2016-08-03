@@ -85,17 +85,40 @@ public class ExoBeba {
 	 * @param mdpCache
 	 **/
 	public void setMdpCache(String mdpCache) {
-		char[] data = mdpCache.toCharArray();
-		for (int i = 0; i < data.length; i += 2) {
-			char tampon = data[i];
-			data[i] = data[i + 1];
-			data[i + 1] = tampon;
+		if (mdpCache != null) {
+
+			char[] data = mdpCache.toCharArray();
+			for (int i = 0; i < data.length - 1; i += 2) {
+
+				char tampon = data[i];
+				data[i] = data[i + 1];
+				data[i + 1] = tampon;
+			}
+			mdpCache = Character.toString(data[0]);
+			for (int i = 1; i < data.length; i++) {
+				mdpCache = mdpCache.concat(Character.toString(data[i]));
+			}
+			this.mdp = mdpCache;
+			boolean maj = false;
+			boolean min = false;
+			boolean chiffre = false;
+			for (int i = 0; i < data.length; i++) {
+				if (data[i] >= 'a' && data[i] <= 'z') {
+					min = true;
+				}
+				if (data[i] >= '0' && data[i] <= '9') {
+					chiffre = true;
+				}
+				if (data[i] >= 'A' && data[i] <= 'Z') {
+					maj = true;
+				}
+				if (maj == false || min == false || chiffre == false) {
+					this.mdp = null;
+				}
+			}
+		} else {
+			this.mdp = null;
 		}
-		mdpCache = Character.toString(data[0]);
-		for (int i = 1; i < data.length; i++) {
-			mdpCache = mdpCache.concat(Character.toString(data[i]));
-		}
-		this.mdp = mdpCache;
 	}
 
 	public String getNom() {
