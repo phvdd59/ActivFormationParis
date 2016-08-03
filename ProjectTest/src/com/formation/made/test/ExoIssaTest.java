@@ -35,35 +35,56 @@ public class ExoIssaTest {
 	@Test
 	public void testSetCoordonneeOK() {
 		exoIssa.setCoordonnee("monadresse@fournisseur.com", "+33661806482");
-		Assert.assertEquals("monadresse@fournisseur.com",exoIssa.getAdresseMail());
-		Assert.assertEquals("+33661806482",exoIssa.getTel());
+		Assert.assertEquals("monadresse@fournisseur.com", exoIssa.getAdressMail());
+		Assert.assertEquals("+33661806482", exoIssa.getTel());
 	}
 
 	@Test
 	public void testSetCoordonneeMailNull() {
 		exoIssa.setCoordonnee(null, "+33661806482");
-		Assert.assertEquals(null,exoIssa.getAdresseMail());
-		Assert.assertEquals("+33661806482",exoIssa.getTel());
-	}
-	@Test
-	public void testSetCoordonneetelNull() {
-		exoIssa.setCoordonnee(null, "+33661806482");
-		Assert.assertEquals(null,exoIssa.getAdresseMail());
-		Assert.assertEquals("+33661806482",exoIssa.getTel());
+		Assert.assertEquals(null, exoIssa.getAdressMail());
+		Assert.assertEquals("+33661806482", exoIssa.getTel());
 	}
 
 	@Test
+	public void testSetCoordonneeTelNull() {
+		exoIssa.setCoordonnee("monadresse@fournisseur.com", null);
+		Assert.assertEquals("monadresse@fournisseur.com", exoIssa.getAdressMail());
+		Assert.assertEquals(null, exoIssa.getTel());
+	}
+	@Test
+	public void testSetCoordonneeMailsansarobase(){
+		exoIssa.setCoordonnee("monadressefournisseur.com", "+33661806482");
+		Assert.assertEquals(null, exoIssa.getAdressMail());
+		Assert.assertEquals("+33661806482", exoIssa.getTel());
+	}
+	
+	@Test
+	public void testSetCoordonneeTelSansPlus(){
+		exoIssa.setCoordonnee("monadresse@fournisseur.com", "33661806482");
+		Assert.assertEquals("monadresse@fournisseur.com", exoIssa.getAdressMail());
+		Assert.assertEquals(null, exoIssa.getTel());
+	}
+	public void testSetCoordonneeTelPlusLong(){
+		exoIssa.setCoordonnee("monadresse@fournisseur.com", "33661806482");
+		Assert.assertEquals("monadresse@fournisseur.com", exoIssa.getAdressMail());
+		Assert.assertEquals(null, exoIssa.getTel());
+	}
+	
+	
+
+	@Test
 	public void testSetMdpCache() {
-//		ExoIssa.setMdp("AbCd1234");
-//		String mdpCache = "bAdC2143";
-//		Assert.assertEquals("Inversion bonne", (exoIssa.setMdpCache("AbCd1234") == mdpCache));
-//
-//		String mdpCache = "bAdC 2143";
-//		Assert.assertEquals("avec un espace", (exoIssa.setMdpCache("AbCd1234") == mdpCache));
-//
-//		String mdpCache = "bacd2143";
-//		Assert.assertEquals("sans majuscule", (exoIssa.setMdpCache("AbCd1234") == mdpCache));
-//		Assert.fail("Not yet implemented");
+		// ExoIssa.setMdp("AbCd1234");
+		// String mdpCache = "bAdC2143";
+		// Assert.assertEquals("Inversion bonne", (exoIssa.setMdpCache("AbCd1234") == mdpCache));
+		//
+		// String mdpCache = "bAdC 2143";
+		// Assert.assertEquals("avec un espace", (exoIssa.setMdpCache("AbCd1234") == mdpCache));
+		//
+		// String mdpCache = "bacd2143";
+		// Assert.assertEquals("sans majuscule", (exoIssa.setMdpCache("AbCd1234") == mdpCache));
+		// Assert.fail("Not yet implemented");
 	}
 
 }
