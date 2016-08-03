@@ -9,7 +9,7 @@ public class MainTest {
 		ExoEmma a = new ExoEmma();
 		a.setMdpCache(mot);
 		System.out.println(a.getMdp());;
-a.setCoordonnee("adresse@gmail.com", "0611327171");
+a.setCoordonnee("adresse@gmail.com", "06!1327171");
 
 
 	}
