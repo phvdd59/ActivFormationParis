@@ -117,20 +117,24 @@ public class ExoJoca {
 	 */
 
 	public void setMdpCache(String mdpCache) {
-		char[] tabMdp = new char[mdpCache.length()];
-		tabMdp = mdpCache.toCharArray();
-		for (int i = 0; i < tabMdp.length; i += 2) {
-			if (i != tabMdp.length - 1) {
-				char temp = tabMdp[i];
-				tabMdp[i] = tabMdp[i + 1];
-				tabMdp[i + 1] = temp;
+		if (mdpCache != null) {
+			char[] tabMdp = new char[mdpCache.length()];
+			tabMdp = mdpCache.toCharArray();
+			for (int i = 0; i < tabMdp.length; i += 2) {
+				if (i != tabMdp.length - 1) {
+					char temp = tabMdp[i];
+					tabMdp[i] = tabMdp[i + 1];
+					tabMdp[i + 1] = temp;
+				}
 			}
+			String mdpfinal = "";
+			for (int i = 0; i < tabMdp.length; i++) {
+				mdpfinal += tabMdp[i];
+			}
+			this.setMdp(mdpfinal);
+		} else {
+			this.mdp = "mot de passe non valide";
 		}
-		String mdpfinal = "";
-		for (int i = 0; i < tabMdp.length; i++) {
-			mdpfinal += tabMdp[i];
-		}
-		this.setMdp(mdpfinal);
 	}
 
 	public ExoJoca() {
