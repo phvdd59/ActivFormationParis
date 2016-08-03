@@ -1,4 +1,4 @@
-package com.formation.jeci.metier;
+package com.formation.joca.metier;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -106,5 +106,5 @@ public class ExoJocaTest {
 		exoJoca.setCoordonnee("jerome@gmail.com", "+3362^1¨15040302");
 		Assert.assertEquals("coordonnee incorrecte", "jerome@gmail.com" + "+3362^1¨15040302", exoJoca.getAdresseMail());
 	}
-	
+
 }
