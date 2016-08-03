@@ -3,6 +3,7 @@ package com.formation.jeci.metier;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.regex.Pattern;
 
 public class ExoJeci {
 	private String nom;// erreur "nom non valide"
@@ -11,7 +12,6 @@ public class ExoJeci {
 	private String tel; // +336123456789 erreur "numero de telephone non valide"
 	private String mdp;// majuscule minuscule chiffre "mot de passe non valide"
 
-	
 	public ExoJeci() {
 		nom = "lalala";
 		adresseMail = "chatroulette@gmail.fr";
@@ -122,9 +122,11 @@ public class ExoJeci {
 	}
 
 	public void setMdp(String mdp) {
-		if (mdp.length() >= 3 && mdp.contains("\\d") && mdp.contains("\\w") && mdp.contains("\\W")) {
+		if (mdp.length() >= 3 && mdp.matches("\\w+") && Pattern.compile("[a-z]").matcher(mdp).find() && Pattern.compile("\\d").matcher(mdp).find() && Pattern.compile("[A-Z]").matcher(mdp).find()) {
 			this.mdp = mdp;
+		} else {
+			this.mdp = "mot de passe non valide";
 		}
-		this.mdp = "mot de passe non valide";
+
 	}
 }
