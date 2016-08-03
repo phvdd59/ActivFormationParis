@@ -40,8 +40,7 @@ public class ExoIssa {
 			this.adresseMail=adressMail;
 		}
 		
-		setCoordonnee(adressMail, tel);
-
+		
 	}
 
 	/**
