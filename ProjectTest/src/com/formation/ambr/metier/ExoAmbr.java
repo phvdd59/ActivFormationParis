@@ -39,7 +39,7 @@ public class ExoAmbr {
 	public void setMdpCache(String mdpCache) {
 		// protection pour caractères spéciaux et espaces
 		String mdpCache2 = mdpCache.replaceAll("\\W", "");
-		if (mdpCache2 != mdpCache) {
+		if (mdpCache2 != mdpCache || mdpCache=="") {
 			mdp = null;
 		} else {
 
