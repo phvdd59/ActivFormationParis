@@ -49,7 +49,7 @@ public class ExoAnfr {
 		if (adresseMail.contains("@")) {
 			String[] mail = adresseMail.split("@");
 
-			if (mail[1].contains(".com") || mail[1].contains(".fr")) {
+			if ((mail[1].contains(".com") || mail[1].contains(".fr")) && (mail.length ==2)) {
 				boolean charanommage = true;
 				char[] tab1 = mail[0].trim().toCharArray();
 
