@@ -1,5 +1,6 @@
 package com.formation.joca.metier;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class ExoJoca {
@@ -23,7 +24,12 @@ public class ExoJoca {
 	}
 
 	public void setAdresseMail(String adresseMail) {
-		this.adresseMail = adresseMail;
+		if (!(adresseMail.indexOf('@') == -1) && !(adresseMail.indexOf('.') == -1)
+				&& adresseMail.indexOf('@') < adresseMail.indexOf('.')) {
+			this.adresseMail = adresseMail;
+		} else {
+			System.out.println("erreur adresse mail");
+		}
 	}
 
 	public String getDateEmbauche() {
@@ -39,7 +45,17 @@ public class ExoJoca {
 	}
 
 	public void setTel(String tel) {
-		this.tel = tel;
+		CharSequence chiffre = "0123456789";
+		if (tel.toCharArray()[0] == '0' && tel.length() == 10 && tel.matches("[0-9]+")) {
+			String temp = "";
+			temp = "+33" + tel.substring(1);
+			this.tel = temp;
+		} else if (tel.toCharArray()[0] == '+' && tel.length() == 12 && tel.substring(1).matches("[0-9]+")) {
+			this.tel = tel;
+		} else {
+			System.out.println("erreur numero telephone");
+		}
+
 	}
 
 	public String getMdp() {
@@ -51,12 +67,14 @@ public class ExoJoca {
 	}
 
 	public void setDate(Date date) {
-		this.dateEmbauche = date.toString();
+		SimpleDateFormat fd = new SimpleDateFormat("dd/MM/yyyy");
+		this.dateEmbauche = fd.format(date);
 	}
 
 	public void setCoordonnee(String adresseMail, String tel) {
-		this.tel = tel;
-		this.adresseMail = adresseMail;
+
+		this.setTel(tel);
+		this.setAdresseMail(adresseMail);
 	}
 
 	/**
@@ -67,6 +85,7 @@ public class ExoJoca {
 
 	public void setMdpCache(String mdpCache) {
 		char[] tabMdp = new char[mdpCache.length()];
+		tabMdp = mdpCache.toCharArray();
 		for (int i = 0; i < tabMdp.length; i += 2) {
 			if (i != tabMdp.length - 1) {
 				char temp = tabMdp[i];

@@ -1,19 +1,19 @@
 package com.formation.joca.test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.fail;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import com.formation.joca.metier.ExoJoca;
 
-public class ExoJeciTest {
-	
+public class ExoJocaTest {
 	ExoJoca exo;
 
-	@Test
-	public void testExoJeciString() {
-		fail("Not yet implemented");
+	@Before
+	public void init() {
+		exo = new ExoJoca();
 	}
 
 	@Test
@@ -30,6 +30,11 @@ public class ExoJeciTest {
 	public void testSetMdpCache() {
 		exo.setMdpCache("elettssebtno0261");
 		Assert.assertEquals("letestestbon2016", exo.getMdp());
+	}
+
+	@Test
+	public void testExoJocaString() {
+		fail("Not yet implemented");
 	}
 
 }
