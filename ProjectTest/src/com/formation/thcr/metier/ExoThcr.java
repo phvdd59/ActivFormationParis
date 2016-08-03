@@ -40,17 +40,18 @@ public class ExoThcr {
 	}
 
 	public void setCoordonnee(String adresseMail, String tel) {
-		if (adresseMail != null && tel != null) {
+		if (adresseMail != null) {
 			if (adresseMail.matches("[a-zA-Z_0-9.]{1,}@[a-zA-Z0-9]{1,}\\.[a-zA-Z]{1,}")) {
 				this.adresseMail = adresseMail.toLowerCase();
 				//Mise en forme sous minuscule
 			} else {
-
+				setAdresseMail("");
 			}
+		}
+		if (tel != null) {
 			if (tel.matches("\\+33[1-9]{1}[0-9]{8}")) {
 				this.tel = tel;
 			} else {
-				setAdresseMail("");
 				setTel("");
 			}
 		}
