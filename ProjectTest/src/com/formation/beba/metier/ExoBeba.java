@@ -58,7 +58,14 @@ public class ExoBeba {
 		} else {
 			this.tel = null;
 		}
-
+		if (tel.charAt(1) != '+') {
+			this.tel = null;
+		}
+		for (int i = 1; i < tel.length(); i++) {
+			if (tel.charAt(i) < 0 && tel.charAt(i) > 0) {
+				this.tel = null;
+			}
+		}
 	}
 
 	/**
