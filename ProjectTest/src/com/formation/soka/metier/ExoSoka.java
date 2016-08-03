@@ -14,7 +14,6 @@ public class ExoSoka {
 	public ExoSoka() {
 
 	}
-	
 
 	public ExoSoka(String nom) {
 		if (nom != null) {
