@@ -59,6 +59,7 @@ public class ExoJeci {
 			}
 
 		}
+		setMdp(o);
 
 	}
 
