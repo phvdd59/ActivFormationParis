@@ -1,7 +1,5 @@
 package com.formation.joca.test;
 
-import static org.junit.Assert.fail;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -52,13 +50,12 @@ public class ExoJeciTest {
 
 	}
 
-
 	@Test
 	public void testSetCoordonneeBon1() {
 		exo.setCoordonnee("grenouillemouillee@gmail.com", "0123456789");
 		Assert.assertEquals("numero de telephone non valide", exo.getTel());
 		Assert.assertEquals("grenouillemouillee@gmail.com", exo.getAdresseMail());
-		
+
 	}
 
 	@Test
