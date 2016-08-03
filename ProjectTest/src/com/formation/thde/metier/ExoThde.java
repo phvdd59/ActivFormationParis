@@ -25,7 +25,7 @@ public class ExoThde {
 	public void setDate(Date date) {
 		Date auj = new Date();
 		if (date.after(auj)) {
-			this.dateEmbauche = "01-01-1900";
+			this.dateEmbauche = "01-01-1980";
 		} else {
 			SimpleDateFormat fd = new SimpleDateFormat("dd-MM-yyyy");
 			this.dateEmbauche = fd.format(date);

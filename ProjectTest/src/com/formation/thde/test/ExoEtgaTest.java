@@ -43,6 +43,7 @@ public class ExoEtgaTest {
 		}
 		Assert.assertEquals("date correcte", "01-01-2000", exoEtga.getDateEmbauche());
 	}
+
 	@Test
 	public void testSetDateFutur() {
 		SimpleDateFormat fd = new SimpleDateFormat("dd-MM-yyyy");
@@ -52,7 +53,7 @@ public class ExoEtgaTest {
 		} catch (ParseException e1) {
 			e1.printStackTrace();
 		}
-		Assert.assertEquals("date incorrecte", "01-01-2000", exoEtga.getDateEmbauche());
+		Assert.assertEquals("date incorrecte", "01-01-1900", exoEtga.getDateEmbauche());
 	}
 
 	@Test
@@ -65,6 +66,12 @@ public class ExoEtgaTest {
 	@Test
 	public void testSetCoordonneeMailIncorrect() {
 		exoEtga.setCoordonnee("elevewanadoofr", "+33605040302");
+		Assert.assertEquals("coordonnees mail pas OK", "pasbon@wanadoo.fr", exoEtga.getAdresseMail());
+	}
+
+	@Test
+	public void testSetCoordonneeMailIncorrect2() {
+		exoEtga.setCoordonnee("eleve@w@a@nadoo.fr", "+33605040302");
 		Assert.assertEquals("coordonnees mail pas OK", "pasbon@wanadoo.fr", exoEtga.getAdresseMail());
 	}
 
