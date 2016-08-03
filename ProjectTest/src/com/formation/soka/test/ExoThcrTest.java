@@ -125,7 +125,7 @@ public class ExoThcrTest {
 		String tel = "+33659874936";
 		exoThcr.setCoordonnee(adresseMail, tel);
 		Assert.assertNull(adresseMail, exoThcr.getAdresseMail());
-	}
+	} 
 
 	@Test
 	public void testSetAdresseLowerCase() {
