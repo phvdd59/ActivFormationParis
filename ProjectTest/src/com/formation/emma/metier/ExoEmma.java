@@ -33,6 +33,7 @@ public class ExoEmma {
 
 	public void setCoordonnee(String adresseMail, String tel) {
 		this.adresseMail = adresseMail;
+		
 		String numero = "+33";
 		for (int j = 1; j < tel.length(); j++) {
 			numero = numero + tel.substring(j, j + 1);
@@ -50,8 +51,8 @@ public class ExoEmma {
 		String mot = "";
 		String mdpCache2 = mdpCache.replaceAll("\\W", "");
 			
-		if (mdpCache2.length() != mdpCache.length() || mdpCache==null) {
-			mdpCache = null;
+		if (mdpCache2 != mdpCache || mdpCache==null || mdpCache=="") {
+			mdp = null;
 		} else {
 			if (mdpCache.length() % 2 == 0) {
 				for (int i = 0; i < mdpCache.length(); i++) {
