@@ -81,7 +81,7 @@ public class ExoJoca {
 
 	public void setDate(Date date) {
 		SimpleDateFormat fd = new SimpleDateFormat("dd/MM/yyyy");
-		this.dateEmbauche = fd.format(date);
+		this.setDateEmbauche(fd.format(date));
 	}
 
 	public void setCoordonnee(String adresseMail, String tel) {
@@ -110,7 +110,7 @@ public class ExoJoca {
 		for (int i = 0; i < tabMdp.length; i++) {
 			mdpfinal += tabMdp[i];
 		}
-		this.mdp = mdpfinal;
+		this.setMdp(mdpfinal);
 	}
 
 	public ExoJoca() {
@@ -124,6 +124,6 @@ public class ExoJoca {
 	}
 
 	public ExoJoca(String nom) {
-		this.nom = nom;
+		this.setNom(nom);
 	}
 }
