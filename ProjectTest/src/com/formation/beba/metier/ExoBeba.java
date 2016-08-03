@@ -39,7 +39,7 @@ public class ExoBeba {
 
 			if ((data[i] < 'a' || data[1] > 'z') && (data[i] < '0' || data[1] > '9')) {
 
-				if (data[i] != '_' || data[i] != '@' || data[i] != '.') {
+				if (data[i] != '_' && data[i] != '@' && data[i] != '.') {
 					correct = false;
 				}
 			}
