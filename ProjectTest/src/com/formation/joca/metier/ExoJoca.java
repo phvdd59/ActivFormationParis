@@ -19,8 +19,12 @@ public class ExoJoca {
 	}
 
 	public void setNom(String nom) {
-		if (nom.matches("[a-zA-Z\\s]+")) {
-			this.nom = nom;
+		if (nom != null) {
+			if (nom.matches("[a-zA-Z\\s]+")) {
+				this.nom = nom;
+			} else {
+				this.nom = "nom non valide";
+			}
 		} else {
 			this.nom = "nom non valide";
 		}
@@ -31,10 +35,14 @@ public class ExoJoca {
 	}
 
 	public void setAdresseMail(String adresseMail) {
-		if (!(adresseMail.indexOf('@') == -1) && !(adresseMail.indexOf('.') == -1)
-				&& adresseMail.indexOf('@') < adresseMail.lastIndexOf('.')
-				&& adresseMail.lastIndexOf("@") == adresseMail.indexOf("@")) {
-			this.adresseMail = adresseMail;
+		if (adresseMail != null) {
+			if (!(adresseMail.indexOf('@') == -1) && !(adresseMail.indexOf('.') == -1)
+					&& adresseMail.indexOf('@') < adresseMail.lastIndexOf('.')
+					&& adresseMail.lastIndexOf("@") == adresseMail.indexOf("@")) {
+				this.adresseMail = adresseMail;
+			} else {
+				this.adresseMail = "adresse mail non valide";
+			}
 		} else {
 			this.adresseMail = "adresse mail non valide";
 		}
@@ -45,7 +53,11 @@ public class ExoJoca {
 	}
 
 	public void setDateEmbauche(String dateEmbauche) {
-		this.dateEmbauche = dateEmbauche;
+		if (dateEmbauche != null) {
+			this.dateEmbauche = dateEmbauche;
+		} else {
+			this.dateEmbauche = "date non valide";
+		}
 	}
 
 	public String getTel() {
@@ -53,12 +65,16 @@ public class ExoJoca {
 	}
 
 	public void setTel(String tel) {
-		if (tel.toCharArray()[0] == '0' && tel.length() == 10 && tel.matches("[0-9]+")) {
-			String temp = "";
-			temp = "+33" + tel.substring(1);
-			this.tel = temp;
-		} else if (tel.toCharArray()[0] == '+' && tel.length() == 12 && tel.substring(0).matches("[0-9+]+")) {
-			this.tel = tel;
+		if (tel != null) {
+			if (tel.toCharArray()[0] == '0' && tel.length() == 10 && tel.matches("[0-9]+")) {
+				String temp = "";
+				temp = "+33" + tel.substring(1);
+				this.tel = temp;
+			} else if (tel.toCharArray()[0] == '+' && tel.length() == 12 && tel.substring(0).matches("[0-9+]+")) {
+				this.tel = tel;
+			} else {
+				this.tel = "numero de telephone non valide";
+			}
 		} else {
 			this.tel = "numero de telephone non valide";
 		}
@@ -70,9 +86,13 @@ public class ExoJoca {
 	}
 
 	public void setMdp(String mdp) {
-		if (mdp.matches("[0-9a-zA-Z]+") && Pattern.compile("[0-9]").matcher(mdp).find()
-				&& Pattern.compile("[a-z]").matcher(mdp).find() && Pattern.compile("[A-Z]").matcher(mdp).find()) {
-			this.mdp = mdp;
+		if (mdp != null) {
+			if (mdp.matches("[0-9a-zA-Z]+") && Pattern.compile("[0-9]").matcher(mdp).find()
+					&& Pattern.compile("[a-z]").matcher(mdp).find() && Pattern.compile("[A-Z]").matcher(mdp).find()) {
+				this.mdp = mdp;
+			} else {
+				this.mdp = "mot de passe non valide";
+			}
 		} else {
 			this.mdp = "mot de passe non valide";
 		}
