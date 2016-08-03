@@ -12,8 +12,14 @@ public class MainTest {
 		exo.setDate(datetest);
 		System.out.println(exo.getDateEmbauche());
 
-		exo.setTel("+336987p3475");
+		exo.setTel("+33698783875");
 		System.out.println(exo.getTel());
+		
+		exo.setNom("De_Crapal");
+		System.out.println(exo.getNom());
+		
+		exo.setAdresseMail("johanncassagne@gmail.com");
+		System.out.println(exo.getAdresseMail());
 
 	}
 
