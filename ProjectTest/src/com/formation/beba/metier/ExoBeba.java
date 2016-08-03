@@ -22,7 +22,6 @@ public class ExoBeba {
 	public void setDate(Date date) {
 
 		SimpleDateFormat fd = new SimpleDateFormat("dd-mm-yyyy");
-		// String s=fd.format(new Date());
 
 		String s = fd.format(date);
 		this.dateEmbauche = s;
