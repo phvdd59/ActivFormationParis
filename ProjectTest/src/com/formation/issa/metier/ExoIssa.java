@@ -34,9 +34,6 @@ public class ExoIssa {
 
 	public void setCoordonnee(String adressMail, String tel) {
 		
-		if(adressMail==null){
-			this.adresseMail=null;
-		}
 		if (tel.length() == 12 && tel.startsWith("+3")) {
 			this.tel = tel;
 		}
@@ -47,7 +44,7 @@ public class ExoIssa {
 			this.adresseMail = adressMail;
 		}
 		else{
-			this.adresseMail=adressMail;
+			this.adresseMail=null;
 		}
 
 	}
