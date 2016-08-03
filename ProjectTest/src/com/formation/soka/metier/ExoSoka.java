@@ -31,12 +31,18 @@ public class ExoSoka {
 	}
 
 	public void setCoordonnee(String adresseMail, String tel) {
-		if (adresseMail != null && tel != null) {
+		if (adresseMail != null) {
 			if (adresseMail.contains("@") && (adresseMail.endsWith(".fr") || adresseMail.endsWith(".com"))) {
 				this.adresseMail = adresseMail.toLowerCase();
 			} else {
 				this.adresseMail = "";
 			}
+		} else {
+			this.adresseMail = null;
+		}
+
+		//
+		if (tel != null) {
 			char[] tabChar = tel.toCharArray();
 
 			for (int i = 3; i < tabChar.length; i++) {
@@ -49,7 +55,6 @@ public class ExoSoka {
 				}
 			}
 		} else {
-			this.adresseMail = null;
 			this.tel = null;
 		}
 
