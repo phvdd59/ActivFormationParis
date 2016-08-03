@@ -2,6 +2,8 @@ package com.formation.joca.test;
 
 import static org.junit.Assert.fail;
 
+import java.util.Date;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -42,7 +44,8 @@ public class ExoJocaTest {
 
 	@Test
 	public void testSetDateBon() {
-		fail("Not yet implemented");
+		Date dateTest = new Date();
+		
 	}
 
 	@Test
