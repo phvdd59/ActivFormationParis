@@ -86,7 +86,8 @@ public class ExoBeba {
 	 **/
 	public void setMdpCache(String mdpCache) {
 		char[] data = mdpCache.toCharArray();
-		for (int i = 0; i < data.length; i += 2) {
+		for (int i = 0; i < data.length - 1; i += 2) {
+
 			char tampon = data[i];
 			data[i] = data[i + 1];
 			data[i + 1] = tampon;
