@@ -45,10 +45,14 @@ public class ExoBeba {
 			}
 		}
 		boolean secondCorrect = false;
+		int nbAt = 0;
 		for (int i = 1; i < data.length; i++) {
 			if (data[i] == ('@')) {
 				secondCorrect = true;
-				break;
+				nbAt++;
+			}
+			if (nbAt > 1) {
+				secondCorrect = false;
 			}
 		}
 		boolean troisiemeCorrect = false;
