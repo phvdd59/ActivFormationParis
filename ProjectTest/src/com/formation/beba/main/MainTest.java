@@ -13,7 +13,7 @@ public class MainTest {
 	private static void init() {
 		ExoBeba exoBeba = new ExoBeba();
 
-		exoBeba.setMdpCache("AbCdEf");
+		exoBeba.setMdpCache("0123647");
 
 	}
 

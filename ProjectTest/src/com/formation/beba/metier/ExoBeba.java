@@ -112,9 +112,10 @@ public class ExoBeba {
 				if (data[i] >= 'A' && data[i] <= 'Z') {
 					maj = true;
 				}
-				if (maj == false || min == false || chiffre == false) {
-					this.mdp = null;
-				}
+
+			}
+			if (maj == false || min == false || chiffre == false) {
+				this.mdp = null;
 			}
 		} else {
 			this.mdp = null;
