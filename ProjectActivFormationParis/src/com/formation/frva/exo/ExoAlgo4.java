@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import com.formation.phva.exo.Terme;
 
-public class ExoAlgo4 implements com.formation.phva.exo.InterAlgo4 {
+public class ExoAlgo4 implements com.formation.phva.cor.InterAlgo4 {
 
 	@Override
 	public char[][] solution(int width, int height, ArrayList<com.formation.phva.exo.Terme> lst) {
