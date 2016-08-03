@@ -29,8 +29,8 @@ public class ExoMadeTest {
 
 	@Test
 	public void testSetCoordonnes() {
-		exoMade.setTel("0652120292");
-		Assert.assertEquals("numero de tel incorrect", "0652120292", exoMade.getTel());
+		exoMade.setCoordonnees("dupont@outlook.fr"+"336521202925");		
+		Assert.assertEquals("adresse mail valide et tel valide",(exoMade.getAdresseMail() && exoMade.getTel());
 		
 		
 	}

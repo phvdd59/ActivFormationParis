@@ -33,14 +33,13 @@ public class ExoIssa {
 	}
 
 	public void setCoordonnee(String adressMail, String tel) {
-		if(tel.length()==12 && tel.startsWith("+3")){
-			this.tel=tel;
+		if (tel.length() == 12 && tel.startsWith("+3")) {
+			this.tel = tel;
 		}
-		if(adressMail.contains("@")&& adressMail.contains("fr")||adressMail.contains("com")){
-			this.adresseMail=adressMail;
+		if (adressMail.contains("@") && adressMail.contains("fr") || adressMail.contains("com")) {
+			this.adresseMail = adressMail;
 		}
-		
-		
+
 	}
 
 	/**
@@ -50,8 +49,7 @@ public class ExoIssa {
 	 */
 
 	public void setMdpCache(String mdpCache) {
-		mdpCache = "acdef9";
-		mdpCache=mdpCache.substring(0,1).toUpperCase();
+		mdpCache = "Acdef9";
 		char[] charArray = mdpCache.toCharArray();
 		for (int i = 0; i < charArray.length; i++) {
 			System.out.println(charArray[i]);
