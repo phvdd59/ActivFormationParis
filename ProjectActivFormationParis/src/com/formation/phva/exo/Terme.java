@@ -10,6 +10,9 @@ public class Terme {
 	private Point pos;
 	private boolean sens;
 
+	public Terme() {
+	}
+
 	public Terme(String nom, Point pos, boolean sens) {
 		super();
 		this.nom = epuration(nom);
