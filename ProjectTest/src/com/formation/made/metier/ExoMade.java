@@ -54,10 +54,14 @@ public class ExoMade {
 	 */
 
 	public void setMdpCache(String mdpCache) {
-		if(mdpCache==null){
-			this.mdp=null;
+		if (mdpCache == null) {
+			this.mdp = null;
 		}
-	
+		char[] tabchar = mdpCache.toCharArray();
+		for (int i = 0; i < tabchar.length; i++) {
+
+		}
+
 		if (!mdpCache.toLowerCase().equals(mdpCache) || !mdpCache.toUpperCase().equals(mdpCache)) {
 
 			String[] tabstring = new String[mdpCache.length()];
@@ -75,10 +79,9 @@ public class ExoMade {
 				stringMdp += tabMdpCache[i];
 			}
 			this.mdp = stringMdp;
-		}
-		else{
-			this.mdp=null;
-			System.out.println("");
+		} else {
+			this.mdp = null;
+			System.out.println("le mdp doit contenir des maj et des min");
 		}
 	}
 
