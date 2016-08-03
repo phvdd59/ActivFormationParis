@@ -1,9 +1,13 @@
 package com.formation.etga.main;
 
+import com.formation.etga.metier.ExoEtga;
+
 public class MainTest {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		ExoEtga exoEtga = new ExoEtga ();
+		exoEtga.setMdpCache("ABcd08");
+		System.out.println(exoEtga.getMdp());
 
 	}
 

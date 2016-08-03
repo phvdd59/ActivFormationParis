@@ -54,18 +54,21 @@ public class ExoEtga {
 		boolean valide = false;
 		char[] mdpList = mdpCache.toCharArray();
 		for (int i = 0; i < mdpList.length; i++) {
-			if (Character.isLowerCase(i) || Character.isUpperCase(i) || Character.isDigit(i)) {
+			if (Character.isLowerCase(mdpList[i]) || Character.isUpperCase(mdpList[i]) || Character.isDigit(mdpList[i])) {
 				valide = true;
 			}
 		}
-		if (valide = true) {
+		if (valide == true) {
 			for (int i = 0; i < mdpList.length - 1; i += 2) {
 				char a = mdpList[i];
 				char b = mdpList[i + 1];
-				mdpList[i] = a;
-				mdpList[i + 1] = b;
+				mdpList[i] = b;
+				mdpList[i + 1] = a;
 			}
-			mdpCache = mdpList.toString();
+			mdpCache = "";
+			for (int j = 0; j < mdpList.length; j++) {
+				mdpCache = mdpCache.concat(Character.toString(mdpList[j]));
+			}
 			this.mdp = mdpCache;
 		} else {
 			this.mdp = "Abc0";
