@@ -5,11 +5,11 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class ExoJeci {
-	private String nom;
-	private String adresseMail;
+	private String nom;// erreur "nom non valide"
+	private String adresseMail;// erreur "adresse mail non valide"
 	private String dateEmbauche;// jj-MM-YYYYY
-	private String tel; // +336123456789
-	private String mdp;// majuscule minuscule chiffre
+	private String tel; // +336123456789 erreur "numero de telephone non valide"
+	private String mdp;// majuscule minuscule chiffre "mot de passe non valide"
 
 	public ExoJeci() {
 		nom = "lalala";
@@ -75,13 +75,13 @@ public class ExoJeci {
 	}
 
 	public void setAdresseMail(String adresseMail) {
-		this.adresseMail = null;
+		this.adresseMail = "adresse mail non valide";
 		if (adresseMail.contains("@" + ".")) {
 			if (adresseMail.indexOf('@') < adresseMail.indexOf('.')) {
 				this.adresseMail = adresseMail;
 			}
 		} else {
-			this.adresseMail = null;
+			this.adresseMail = "adresse mail non valide";
 		}
 
 	}
@@ -101,7 +101,7 @@ public class ExoJeci {
 	}
 
 	public void setTel(String tel) {
-		this.tel = null;
+		this.tel = "numero de telephone non valide";
 		if (tel.indexOf("+") == 0) {
 			String tel1 = tel.substring(1);
 
@@ -123,6 +123,6 @@ public class ExoJeci {
 		if (mdp.length() >= 3 && mdp.contains("\\d") && mdp.contains("\\w") && mdp.contains("\\W")) {
 			this.mdp = mdp;
 		}
-		this.mdp = null;
+		this.mdp = "mot de passe non valide";
 	}
 }
