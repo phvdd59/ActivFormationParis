@@ -15,7 +15,7 @@ public class MainTest {
 		exo.setTel("+33698783875");
 		System.out.println(exo.getTel());
 		
-		exo.setNom("De_Crapal");
+		exo.setNom("DeCrapal48");
 		System.out.println(exo.getNom());
 		
 		exo.setAdresseMail("johanncassagne@gmail.com");
