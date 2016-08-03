@@ -50,15 +50,31 @@ public class ExoJeci {
 	public void setMdpCache(String mdpCache) {
 		setMdp(mdpCache);
 		String o = getMdp();
+		String c = "";
 		if (o != null && o.compareTo("mot de passe non valide") != 0) {
-			for (int i = 0; i < o.length(); i += 2) {
-				char a = ' ';
-				a = o.charAt(i);
-				char b = o.charAt(i + 1);
-				o.replace(o.charAt(i), a);
-				o.replace(o.charAt(i + 1), b);
-			}
+			if (o.length() % 2 == 0) {
 
+				for (int i = 0; i < o.length(); i += 2) {
+
+					String a = "";
+					a = o.substring(i, i + 1);
+					String b = o.substring(i + 1, i + 2);
+					c += b + a;
+
+				}
+				o = c;
+			} else {
+				for (int i = 0; i < o.length() - 1; i += 2) {
+
+					String a = "";
+					a = o.substring(i, i + 1);
+					String b = o.substring(i + 1, i + 2);
+					c += b + a;
+
+				}
+				c += o.substring(o.length() - 1);
+				o = c;
+			}
 		}
 		setMdp(o);
 
