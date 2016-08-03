@@ -33,7 +33,7 @@ public class ExoIssa {
 	}
 
 	public void setCoordonnee(String adressMail, String tel) {		
-		adressMail = "nom" + "@" + "gmail";
+		adressMail = "nom" + "@" + "gmail"+"com";
 		tel = "+336612345678";
 		setCoordonnee(adressMail, tel);
 
@@ -86,6 +86,26 @@ public class ExoIssa {
 
 	public String getMdp() {
 		return mdp;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public void setAdresseMail(String adresseMail) {
+		this.adresseMail = adresseMail;
+	}
+
+	public void setDateEmbauche(String dateEmbauche) {
+		this.dateEmbauche = dateEmbauche;
+	}
+
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
+
+	public void setMdp(String mdp) {
+		this.mdp = mdp;
 	}
 
 }
