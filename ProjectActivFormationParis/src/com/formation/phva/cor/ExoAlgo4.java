@@ -7,10 +7,9 @@ import com.formation.phva.exception.CruciException;
 import com.formation.phva.exception.CruciHeightException;
 import com.formation.phva.exception.CruciNullException;
 import com.formation.phva.exception.CruciWidthException;
-import com.formation.phva.exo.InterAlgo4;
 import com.formation.phva.exo.Terme;
 
-public class ExoAlgo4 implements com.formation.phva.exo.InterAlgo4 {
+public class ExoAlgo4 implements com.formation.phva.cor.InterAlgo4 {
 
 	/**
 	 * ma methode solution doit intégrer une liste de terme sous forme 
