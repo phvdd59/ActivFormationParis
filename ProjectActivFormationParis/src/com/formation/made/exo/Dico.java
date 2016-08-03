@@ -43,32 +43,41 @@ public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDi
 	public String epuration(String texte) {
 		String texteepure = new String();
 		String texteSansMaj = texte.toLowerCase(); // on met le texte en minuscule
-		char[] tabChar=texteSansMaj.toCharArray();
+		char[] tabChar = texteSansMaj.toCharArray();
 		for (int i = 0; i < tabChar.length; i++) {
-			char v=tabChar[i];
-			if(v>='à' && v<='ä' ){
-				tabChar[i]='a';			
+			char v = tabChar[i];
+			if (v >= 'à' && v <= 'ä') {
+				tabChar[i] = 'a';
 			}
-			
-			
-			
+			if (v >= 'é' && v <= 'ë') {
+				tabChar[i] = 'e';
+			}
+			if (v >= 'ì' && v <= 'ï') {
+				tabChar[i] = 'i';
+			}
+			if (v >= 'ö' && v <= 'ô') {
+				tabChar[i] = 'o';
+			}
+			if (v >= 'ù' && v <= 'ü') {
+				tabChar[i] = 'u';
+			}
+			if (v >= 'ç' && v <= 'ç') {
+				tabChar[i] = 'c';
+			}
+			if (v < 'a' && v > 'z') {
+				tabChar[i] = ' ';
+			}
+
 		}
-		String[] caracspeciaux = { "!", "?", ".", "'", "  " }; // creer le tableau de la ponctuation pour le remplacer
-		for (String string : caracspeciaux) {
-			texte = texteSansMaj.replace(string, " ");
-			texteSansMaj = texte;
+		String texteepure2 = "";
+
+		for (char c : tabChar) {
+			texteepure2 += c;
 		}
 
-		texte = texte.replaceAll("é", "e");
-		texte = texte.replace("è", "e");
-		texte = texte.replace("ê", "e");
-		texte = texte.replace("à", "a");
-		texte = texte.replace("â", "a");
-		texte = texte.replace("ù", "u");
-		texte = texte.replace("ô", "o");
-		texte = texte.replace("\\p{Punct}"," ");
-		texte = texte.replace("\\s+", " "); //pour enlever les double triple .. espace
-		texteepure = texte;
+		texteepure2 = texteepure2.replace("\\p{Punct}", " "); // pour enlever la ponctuation
+		texteepure2 = texteepure2.replace("\\s+", " "); // pour enlever les double triple .. espace
+		texteepure = texteepure2;
 		return texteepure;
 	}
 
@@ -81,7 +90,7 @@ public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDi
 			CleDico cleDico = new CleDico(lettre, lngMot);
 			if (containsKey(cleDico)) {
 				ArrayList<Mot> lst = get(cleDico);
-				Collections.sort(lst);   //utilise le compare tout
+				Collections.sort(lst); // utilise le compare tout
 				for (Mot mot : lst) {
 					lstString.add(mot.getMot());
 				}
