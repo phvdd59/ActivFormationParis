@@ -24,7 +24,7 @@ public class ExoMade {
 
 	}
 
-	public void setCoordonnes(String adresseMail, String tel) {
+	public void setCoordonnees(String adresseMail, String tel) {
 		if (tel.length() == 12 && tel.startsWith("+3")) {
 			this.tel = tel;
 		}
@@ -44,7 +44,7 @@ public class ExoMade {
 
 	public void setMdpCache(String mdpCache) {
 		if (!mdpCache.toLowerCase().equals(mdpCache) || !mdpCache.toUpperCase().equals(mdpCache)) {
-			
+
 			String[] tabstring = new String[mdpCache.length()];
 			for (int i = 0; i < tabstring.length; i++) {
 				tabstring[i] = mdpCache.substring(i, i + 1);
