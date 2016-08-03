@@ -24,8 +24,10 @@ public class ExoSoka {
 			SimpleDateFormat fd = new SimpleDateFormat("dd-mm-yyyy");
 			String s = fd.format(date);
 			this.dateEmbauche = s;
+		} else {
+			this.dateEmbauche = null;
 		}
-		this.dateEmbauche = null;
+
 	}
 
 	public void setCoordonnee(String adresseMail, String tel) {
@@ -46,9 +48,11 @@ public class ExoSoka {
 					this.tel = "";
 				}
 			}
+		} else {
+			this.adresseMail = null;
+			this.tel = null;
 		}
-		this.adresseMail = null;
-		this.tel = null;
+
 	}
 
 	/**
@@ -106,8 +110,9 @@ public class ExoSoka {
 			} else {
 				this.mdp = "";
 			}
+		} else {
+			this.mdp = null;
 		}
-		this.mdp = null;
 
 	}
 
