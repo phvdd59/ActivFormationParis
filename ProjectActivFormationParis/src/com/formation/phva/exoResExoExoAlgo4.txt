@@ -1,6 +1,8 @@
 phva:Algo
 
 phva testNull (1/1): OK | exo.solution(10, 10, null)
-phva testVide (1/1):    | exo.solution(10,10,lst)
+phva testNull (0/1):    | solution(10,10,null) doit lever l'exeption CruciNullException
+phva testNull (0/1): KO | exo.solution(10, 10, null) ne leve pas la bonne exception
 phva testNull (1/1): OK | exo.solution(10, 10, null)
-phva testVide (1/1):    | exo.solution(10,10,lst)
+phva testNull (0/1):    | solution(10,10,null) doit lever l'exeption CruciNullException
+phva testNull (0/1): KO | exo.solution(10, 10, null) ne leve pas la bonne exception
