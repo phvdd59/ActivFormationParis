@@ -30,8 +30,8 @@ public class ExoSoka {
 
 	public void setCoordonnee(String adresseMail, String tel) {
 		if (adresseMail != null && tel != null) {
-			if (adresseMail.contains("@") || adresseMail.endsWith(".fr") || adresseMail.endsWith(".com")) {
-				this.adresseMail = adresseMail;
+			if (adresseMail.contains("@") && (adresseMail.endsWith(".fr") || adresseMail.endsWith(".com"))) {
+				this.adresseMail = adresseMail.toLowerCase();
 			} else {
 				this.adresseMail = "";
 			}
