@@ -6,38 +6,38 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.formation.joca.metier.ExoJoca;
+import com.formation.jeci.metier.ExoJeci;
 
 public class ExoJeciTest {
 
-	ExoJoca exo;
+	ExoJeci exo;
 
 	@Before
 	public void init() {
-		exo = new ExoJoca();
+		exo = new ExoJeci();
 	}
 
 	@Test
 	public void testExoJeciStringBon1() {
-		ExoJoca exo2 = new ExoJoca("Crapal");
+		ExoJeci exo2 = new ExoJeci("Crapal");
 		Assert.assertEquals("Crapal", exo2.getNom());
 	}
 
 	@Test
 	public void testExoJeciStringBon2() {
-		ExoJoca exo2 = new ExoJoca("De Crapal");
+		ExoJeci exo2 = new ExoJeci("De Crapal");
 		Assert.assertEquals("De Crapal", exo2.getNom());
 	}
 
 	@Test
 	public void testExoJeciStringMauvais1() {
-		ExoJoca exo2 = new ExoJoca("Crapal48");
+		ExoJeci exo2 = new ExoJeci("Crapal48");
 		Assert.assertEquals("nom non valide", exo2.getNom());
 	}
 
 	@Test
 	public void testExoJeciStringMauvais2() {
-		ExoJoca exo2 = new ExoJoca("De_Crapal");
+		ExoJeci exo2 = new ExoJeci("De_Crapal");
 		Assert.assertEquals("nom non valide", exo2.getNom());
 	}
 
