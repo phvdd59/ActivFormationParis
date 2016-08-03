@@ -13,8 +13,8 @@ public class ExoIssa {
 
 	public ExoIssa() {
 		nom = "Dupont";
-		adressMail="dupont@outlook.fr";
-		tel="+336598780212";
+		adressMail = "dupont@outlook.fr";
+		tel = "+336598780212";
 	}
 
 	public ExoIssa(String nom) {
@@ -35,33 +35,39 @@ public class ExoIssa {
 	}
 
 	public void setCoordonnee(String adressMail, String tel) {
-		
-		if(this.tel==null){
-			this.tel=null;
-		}
-		else{
-			this.tel=tel;
-		}
-//		if (tel.length() == 12 && tel.startsWith("+3")) {
-//			this.tel = tel;
-//		}
-//		else{
-//			this.tel=null;
-//		}
-		if(this.adressMail==null){
-			this.adressMail=null;
-		}
-		else{
-			this.adressMail=adressMail;
-		}
-//		if (adressMail.contains("@")) {
-//			this.adressMail = adressMail;
-//		}
-//		else{
-//			this.adressMail=null;
-//		}
+		if (tel == null) {
+			this.tel = null;
+		} else {
 
+			if (tel.startsWith("+3")) {
+				this.tel = tel;
+			} else {
+				this.tel = null;
+			}
+		}
+		// if (tel.length() == 12 && tel.startsWith("+3")) {
+		// this.tel = tel;
+		// }
+		// else{
+		// this.tel=null;
+		// }
+
+		if (adressMail == null) {
+			this.adressMail = null;
+		} else {
+			if (adressMail.contains("@")) {
+				this.adressMail = adressMail;
+			} else {
+				this.adressMail = null;
+			}
+		}
 	}
+	// if (adressMail.contains("@")) {
+	// this.adressMail = adressMail;
+	// }
+	// else{
+	// this.adressMail=null;
+	// }
 
 	/**
 	 * permutation deux en deux du mot de passe
@@ -70,7 +76,7 @@ public class ExoIssa {
 	 */
 
 	public void setMdpCache(String mdpCache) {
-		if(mdpCache==null){
+		if (mdpCache == null) {
 			this.setMdpCache(null);
 		}
 		mdpCache = "Acdef9";
@@ -79,15 +85,30 @@ public class ExoIssa {
 			System.out.println(charArray[i]);
 		}
 		char[] charArray1 = new char[charArray.length];
+		if (charArray.length % 2 == 0) {
 
-		for (int j = 0; j < charArray.length; j++) {
+			for (int j = 0; j < charArray.length; j++) {
 
-			if (j == 0 || j % 2 == 0) {
-				charArray1[j + 1] = charArray[j];
-			} else {
-				charArray1[j - 1] = charArray[j];
+				if (j == 0 || j % 2 == 0) {
+					charArray1[j + 1] = charArray[j];
+				} else {
+					charArray1[j - 1] = charArray[j];
+				}
+
 			}
+		}
+		if (charArray.length != 0) {
+			for (int j = 0; j < charArray.length; j++) {
 
+				if (j == 0 || j % 2 == 0) {
+					charArray1[j + 1] = charArray[j];
+				} else if (j == charArray.length - 1) {
+					charArray1[j] = charArray[j];
+				} else {
+					charArray1[j - 1] = charArray[j];
+				}
+
+			}
 		}
 		System.out.println(charArray1);
 		String mdp = new String(charArray1);
