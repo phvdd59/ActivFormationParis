@@ -32,9 +32,14 @@ public class ExoIssa {
 
 	}
 
-	public void setCoordonnee(String adressMail, String tel) {		
-		adressMail = "nom" + "@" + "gmail"+"com";
-		tel = "+336612345678";
+	public void setCoordonnee(String adressMail, String tel) {
+		if(tel.length()==12 && tel.startsWith("+3")){
+			this.tel=tel;
+		}
+		if(adressMail.contains("@")&& adressMail.contains("fr")||adressMail.contains("com")){
+			this.adresseMail=adressMail;
+		}
+		
 		setCoordonnee(adressMail, tel);
 
 	}
