@@ -35,9 +35,12 @@ public class ExoEmma {
 		this.adresseMail = adresseMail;
 		
 		String numero = "+33";
+		if(numero.length()>10 ){
+			this.tel = null;
+		}else{
 		for (int j = 1; j < tel.length(); j++) {
 			numero = numero + tel.substring(j, j + 1);
-		}
+		}}
 		this.tel = numero;
 	}
 
@@ -70,8 +73,8 @@ public class ExoEmma {
 				}
 				mot = mot + mdpCache.substring(mdpCache.length() - 1);
 			}
-		}
-		mdp=mot;
+			mdp=mot;
+		}	
 	}
 
 	public String getNom() {
