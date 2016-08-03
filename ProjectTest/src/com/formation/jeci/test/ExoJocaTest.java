@@ -1,4 +1,4 @@
-package com.formation.joca.metier;
+package com.formation.jeci.test;
 
 import org.junit.Assert;
 import org.junit.Before;

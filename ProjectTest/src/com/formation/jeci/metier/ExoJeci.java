@@ -37,7 +37,8 @@ public class ExoJeci {
 
 	}
 
-	/*a
+	/*
+	 * a
 	 * 
 	 * permutation deux en deux du motdepasse
 	 * 
@@ -46,9 +47,10 @@ public class ExoJeci {
 	 * 
 	 */
 	public void setMdpCache(String mdpCache) {
+		setMdp(mdpCache);
 		String o = getMdp();
-		if (mdpCache != null) {
-			for (int i = 0; i < o.length(); i+=2) {
+		if (o != null) {
+			for (int i = 0; i < o.length(); i += 2) {
 				char a = ' ';
 				a = o.charAt(i);
 				char b = o.charAt(i + 1);
@@ -104,7 +106,7 @@ public class ExoJeci {
 			String tel1 = tel.substring(1);
 
 			if (tel1.contains("\\d") == true) {
-				if (tel1.length() == 9) {
+				if (tel1.length() == 11) {
 					this.tel = tel;
 				}
 
