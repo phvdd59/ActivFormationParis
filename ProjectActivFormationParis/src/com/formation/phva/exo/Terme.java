@@ -79,7 +79,7 @@ public class Terme {
 				}
 			}
 		}
-		return sRet.trim();
+		return sRet.trim().toUpperCase();
 	}
 
 	@Override

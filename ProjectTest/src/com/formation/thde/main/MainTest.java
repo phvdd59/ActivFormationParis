@@ -26,7 +26,7 @@ public class MainTest {
 
 		SimpleDateFormat fd = new SimpleDateFormat("dd-MM-yyyy");
 		try {
-			Date d = fd.parse("01-01-2000");
+			Date d = fd.parse("01-01-2030");
 			exo.setDate(d);
 		} catch (ParseException e1) {
 			e1.printStackTrace();

@@ -27,21 +27,23 @@ public class ExoEtga {
 	}
 
 	public void setDate(Date date) {
+		//		Date date = new Date();
 		SimpleDateFormat dateEmbauche = new SimpleDateFormat("dd-MM-yyyy");
-		//		String date = dateFormat.format(new Date());
-		//		date = dateFormat.parse(dateEmbauche);
-		//		return dateEmbauche;
+		this.dateEmbauche = dateEmbauche.format(date);
 	}
 
 	public void setCoordonnee(String adresseMail, String tel) {
-		if ((adresseMail.contains("@")) && ((adresseMail.contains(".com")) || (adresseMail.contains(".fr")))) {
+		if ((adresseMail.contains("@")) && adresseMail.contains("@@") == false && (adresseMail.endsWith(".com")) || (adresseMail.endsWith(".fr"))) {
 			this.adresseMail = adresseMail;
 		} else {
 			this.adresseMail = "pasbon@wanadoo.fr";
 		}
-		//		if ((tel.substring(0, 3) == "+336") && (tel.length() == 12)) {
-		this.tel = tel;
-		//		}
+
+		if ((tel.startsWith("+336")) && (tel.length() == 12)) {
+			this.tel = tel;
+		} else {
+			this.tel = "+33600000000";
+		}
 	}
 
 	/**
@@ -52,17 +54,21 @@ public class ExoEtga {
 
 	public void setMdpCache(String mdpCache) {
 		boolean valide = false;
+		boolean lowerCase = false;
+		boolean upperCase = false;
+		boolean digit = false;
 		char[] mdpList = mdpCache.toCharArray();
 		for (int i = 0; i < mdpList.length; i++) {
 			if (Character.isLowerCase(mdpList[i])) {
-				valide = true;
+				lowerCase = true;
 			} else if (Character.isUpperCase(mdpList[i])) {
-				valide = true;
+				upperCase = true;
 			} else if (Character.isDigit(mdpList[i])) {
-				valide = true;
-			} else {
-				valide = false;
+				digit = true;
 			}
+		}
+		if (lowerCase == true && upperCase == true && digit == true) {
+			valide = true;
 		}
 		if (valide == true) {
 			for (int i = 0; i < mdpList.length - 1; i += 2) {
