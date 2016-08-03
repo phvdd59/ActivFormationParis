@@ -10,6 +10,7 @@ public class Terme {
 	private Point pos;
 	private boolean sens;
 
+	
 	public Terme() {
 	}
 
