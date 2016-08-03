@@ -81,11 +81,7 @@ public class ExoJoca {
 
 	public void setTel(String tel) {
 		if (tel != null) {
-			if (tel.toCharArray()[0] == '0' && tel.length() == 10 && tel.matches("[0-9]+")) {
-				String temp = "";
-				temp = "+33" + tel.substring(1);
-				this.tel = temp;
-			} else if (tel.toCharArray()[0] == '+' && tel.length() == 12 && tel.substring(0).matches("[0-9+]+")) {
+			if (tel.toCharArray()[0] == '+' && tel.length() == 12 && tel.substring(0).matches("[0-9+]+")) {
 				this.tel = tel;
 			} else {
 				this.tel = "numero de telephone non valide";

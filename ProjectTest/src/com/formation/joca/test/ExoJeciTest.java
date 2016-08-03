@@ -59,8 +59,9 @@ public class ExoJeciTest {
 	@Test
 	public void testSetCoordonneeBon1() {
 		exo.setCoordonnee("grenouille_mouillee@gmail.com", "0123456789");
+		Assert.assertEquals("numero de telephone non valide", exo.getTel());
 		Assert.assertEquals("grenouille_mouillee@gmail.com", exo.getAdresseMail());
-		Assert.assertEquals("+33123456789", exo.getTel());
+		
 	}
 
 	@Test
