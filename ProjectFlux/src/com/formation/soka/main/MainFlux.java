@@ -40,7 +40,7 @@ public class MainFlux {
 							}else{
 								System.out.println("totooo");
 							}
-							
+						
 						}
 						//						for (int i = 0; i < fn.length; i++) {
 						//							String file = null; 
