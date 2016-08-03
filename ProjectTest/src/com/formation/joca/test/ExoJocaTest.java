@@ -48,7 +48,6 @@ public class ExoJocaTest {
 		Date dateTest = new Date();
 		exo.setDate(dateTest);
 		Assert.assertEquals(new SimpleDateFormat("dd-MM-yyyy").format(dateTest), exo.getDateEmbauche());
-
 	}
 
 	@Test
