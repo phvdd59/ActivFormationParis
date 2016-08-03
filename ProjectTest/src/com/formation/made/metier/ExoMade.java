@@ -25,14 +25,12 @@ public class ExoMade {
 	}
 
 	public void setCoordonnees(String adresseMail, String tel) {
-		// if (tel.length() == 12 && tel.startsWith("+3")) {
-		this.tel = tel;
-		// }
-		// if (adresseMail.contains("@")) {
-		// if (adresseMail.contains(".com") || adresseMail.contains(".fr")) {
-		this.adresseMail = adresseMail;
-		// }
-		// }
+		if (tel.length() == 12 && tel.startsWith("+3")) {
+			this.tel = tel;
+		}
+		if (adresseMail.contains(".com") || adresseMail.contains(".fr")) {
+			this.adresseMail = adresseMail;
+		}
 
 	}
 
