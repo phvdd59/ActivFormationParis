@@ -52,7 +52,7 @@ public class ExoJeciTest {
 	}
 
 	@Test
-	public void testSetDateMauvais() {
+	public void testSetDateMauvais2() {
 		fail("Not yet implemented");
 	}
 
