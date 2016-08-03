@@ -37,7 +37,7 @@ public class ExoJeci {
 
 	}
 
-	/*
+	/*a
 	 * 
 	 * permutation deux en deux du motdepasse
 	 * 
