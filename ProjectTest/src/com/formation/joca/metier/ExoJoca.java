@@ -67,9 +67,11 @@ public class ExoJoca {
 
 	public void setDateEmbauche(String dateEmbauche) {
 		if (dateEmbauche != null) {
-			this.dateEmbauche = dateEmbauche;
-		} else {
-			this.dateEmbauche = "date non valide";
+			if (Pattern.compile("^[0-3][0-9]\\[0-1][0-9]\\[0-9]{4}$").matcher(dateEmbauche).find()) {
+				this.dateEmbauche = dateEmbauche;
+			} else {
+				this.dateEmbauche = "date non valide";
+			}
 		}
 	}
 
