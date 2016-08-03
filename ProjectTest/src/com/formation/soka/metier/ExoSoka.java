@@ -1,5 +1,6 @@
 package com.formation.soka.metier;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class ExoSoka {
@@ -19,19 +20,28 @@ public class ExoSoka {
 	}
 
 	public void setDate(Date date) {
-
+		if (date != null) {
+			SimpleDateFormat fd = new SimpleDateFormat("dd-mm-yyyy");
+			String s = fd.format(date);
+			this.dateEmbauche = s;
+		}
 	}
 
 	public void setCoordonnee(String adresseMail, String tel) {
-		if (adresseMail.contains("@") || adresseMail.contains(".fr") || adresseMail.contains(".com")) {
+		if (adresseMail != null && tel != null) {
 
-			this.adresseMail = adresseMail;
+			if (adresseMail.contains("@") || adresseMail.contains(".fr") || adresseMail.contains(".com")) {
+				this.adresseMail = adresseMail;
+			}
+			char[] tabChar = tel.toCharArray();
+			if (tel.length() == 12 && tabChar[0] == '+') {
+				for (int i = 1; i < tabChar.length; i++) {
+					if (tabChar[i] >= 0 || tabChar[i] <= 9) {
+						this.tel = tel;
+					}
+				}
+			}
 		}
-		if (tel.length() == 11) {
-			// dire aussi qu'il faut qu'il commence par +
-			this.tel = tel;
-		}
-
 	}
 
 	/**
@@ -41,51 +51,52 @@ public class ExoSoka {
 	 */
 
 	public void setMdp(String mdpCache) {
+		if (mdpCache != null) {
+			//Doit donc contenir au moins une minuscule, une maj et un chiffre
+			char[] tabChar = mdpCache.toCharArray();
+			char[] tabChar2 = new char[tabChar.length];
+			String s = "";
+			boolean caracMaj = false;
+			boolean caracMin = false;
+			boolean caracDigit = false;
 
-		//Doit donc contenir au moins une minuscule, une maj et un chiffre
-		char[] tabChar = mdpCache.toCharArray();
-		char[] tabChar2 = new char[tabChar.length];
-		String s = "";
-		boolean caracMaj = false;
-		boolean caracMin = false;
-		boolean caracDigit = false;
-
-		for (int i = 0; i < tabChar.length; i++) {
-			if (Character.isUpperCase(tabChar[i])) {
-				caracMaj = true;
-			}
-			if (Character.isLowerCase(tabChar[i])) {
-				caracMin = true;
-			}
-			if (Character.isDigit(tabChar[i])) {
-				caracDigit = true;
-			}
-		}
-		if (caracMaj == true && caracMin == true && caracDigit == true) {
-			if (tabChar.length % 2 == 0) {
-				for (int i = 0; i < tabChar.length; i++) {
-					if (i % 2 == 0) {
-						tabChar2[i] = tabChar[i + 1];
-					} else {
-						tabChar2[i] = tabChar[i - 1];
-					}
-					s = s.concat(Character.toString(tabChar2[i]));
+			for (int i = 0; i < tabChar.length; i++) {
+				if (Character.isUpperCase(tabChar[i])) {
+					caracMaj = true;
 				}
-			} else {
-
-				for (int i = 0; i < tabChar2.length - 1; i++) {
-					tabChar2[tabChar.length - 1] = tabChar[tabChar.length - 1];
-					if (i % 2 == 0) {
-						tabChar2[i] = tabChar[i + 1];
-					} else {
-						tabChar2[i] = tabChar[i - 1];
-					}
-
-					s = s.concat(Character.toString(tabChar2[i]));
+				if (Character.isLowerCase(tabChar[i])) {
+					caracMin = true;
 				}
-				s = s.concat(Character.toString(tabChar2[tabChar.length - 1]));
+				if (Character.isDigit(tabChar[i])) {
+					caracDigit = true;
+				}
 			}
-			this.mdp = s;
+			if (caracMaj == true && caracMin == true && caracDigit == true) {
+				if (tabChar.length % 2 == 0) {
+					for (int i = 0; i < tabChar.length; i++) {
+						if (i % 2 == 0) {
+							tabChar2[i] = tabChar[i + 1];
+						} else {
+							tabChar2[i] = tabChar[i - 1];
+						}
+						s = s.concat(Character.toString(tabChar2[i]));
+					}
+				} else {
+
+					for (int i = 0; i < tabChar2.length - 1; i++) {
+						tabChar2[tabChar.length - 1] = tabChar[tabChar.length - 1];
+						if (i % 2 == 0) {
+							tabChar2[i] = tabChar[i + 1];
+						} else {
+							tabChar2[i] = tabChar[i - 1];
+						}
+
+						s = s.concat(Character.toString(tabChar2[i]));
+					}
+					s = s.concat(Character.toString(tabChar2[tabChar.length - 1]));
+				}
+				this.mdp = s;
+			}
 		}
 	}
 
