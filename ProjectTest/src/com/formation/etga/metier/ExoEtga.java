@@ -31,21 +31,25 @@ public class ExoEtga {
 		//		String date = dateFormat.format(new Date());
 		//		date = dateFormat.parse(dateEmbauche);
 		//		return dateEmbauche;
-
 	}
 
 	public void setCoordonnee(String adresseMail, String tel) {
-		this.adresseMail = adresseMail;
-		this.tel = tel;
+		if ((adresseMail.contains("@")) && ((adresseMail.contains(".com")) || (adresseMail.contains(".fr")))) {
+			this.adresseMail = adresseMail;
+		}
+		if ((tel.substring(0, 3) == "+336") && (tel.length() == 12)) {
+			this.tel = tel;
+		}
 	}
 
 	/**
-	 * permutation 2 en 2 du mdp mdp : cache ---> clair BAdcFE --> ABcdEF
+	 * permutation 2 en 2 du mdp mdp cache ---> clair BAdcFE --> ABcdEF
 	 * 
 	 * @param mdpCache
 	 */
 
 	public void setMdpCache(String mdpCache) {
+		//	if ((mdpCache.contains(ower.)	
 
 	}
 
