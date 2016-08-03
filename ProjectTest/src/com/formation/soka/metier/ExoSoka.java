@@ -30,14 +30,18 @@ public class ExoSoka {
 	}
 
 	public void setDate(Date date) {
+		Date dates = new Date();
 		if (date != null) {
-			SimpleDateFormat fd = new SimpleDateFormat("dd-mm-yyyy", Locale.FRENCH);
+			SimpleDateFormat fd = new SimpleDateFormat("dd-mm-yyyy");
 			String s = fd.format(date);
-			this.dateEmbauche = s;
+			if (date.compareTo(dates) < 0) {
+				this.dateEmbauche = s;
+			} else {
+				this.dateEmbauche = fd.format(dates);
+			}
 		} else {
 			this.dateEmbauche = null;
 		}
-
 	}
 
 	public void setCoordonnee(String adresseMail, String tel) {
