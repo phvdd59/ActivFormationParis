@@ -8,6 +8,12 @@ public class ExoAlgo4 implements com.formation.phva.exo.InterAlgo4 {
 
 	@Override
 	public char[][] solution(int width, int height, ArrayList<com.formation.phva.exo.Terme> lst) {
+// 		HORIZONTAL (8 sur 12
+//		"PISCINES","ANORMALES","GENOISE ","ER ATEMI"," TATA EN","PENITENT","O TEINTE", "ICI OR R","NO SNOBE","TUBE BIS","E USUELS", "RIS VELE"
+// 
+//		HORIZONTAL  
+//     	"DATTIERS","EREINTEE","COMEDIEN","AMENER T"," ART API","OTA MIAM", "BEIGE RE","S REGAIN","EPELER T","DES VELA","ET METAL","REPU ESE" 
+		
 		char[][] tab = null;
 		if (lst != null){
 			tab = new char[height][width];
