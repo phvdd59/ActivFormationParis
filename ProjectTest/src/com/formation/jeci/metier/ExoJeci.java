@@ -95,8 +95,10 @@ public class ExoJeci {
 	public void setAdresseMail(String adresseMail) {
 		this.adresseMail = "adresse mail non valide";
 		if (adresseMail.contains("@" + ".")) {
-			if (adresseMail.indexOf('@') < adresseMail.indexOf('.')) {
+			if (adresseMail.indexOf('@') < adresseMail.lastIndexOf(".")) {
 				this.adresseMail = adresseMail;
+			} else {
+				this.adresseMail = "adresse mail non valide";
 			}
 		} else {
 			this.adresseMail = "adresse mail non valide";
