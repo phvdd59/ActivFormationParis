@@ -12,20 +12,22 @@ public class MainTest {
 		exo.setDate(datetest);
 		System.out.println(exo.getDateEmbauche());
 
-		exo.setTel("+33698783875");
-		System.out.println(exo.getTel());
+		/*
+		 * exo.setTel("+33698783875"); System.out.println(exo.getTel());
+		 * 
+		 * exo.setNom("Crapal"); System.out.println(exo.getNom());
+		 * 
+		 * ExoJoca exo2 = new ExoJoca("De_Crapal");
+		 * System.out.println(exo2.getNom());
+		 * 
+		 * exo.setAdresseMail2("johanncassagne@gmail.com");
+		 * System.out.println(exo.getAdresseMail());
+		 * 
+		 * exo.setMdp("Mp8"); System.out.println(exo.getMdp());
+		 */
 
-		exo.setNom("Crapal");
-		System.out.println(exo.getNom());
-
-		ExoJoca exo2 = new ExoJoca("De_Crapal");
-		System.out.println(exo2.getNom());
-
-		exo.setAdresseMail("johanncassagne@gmail.com");
+		exo.setAdresseMail2("johanncassagne@gmail.com");
 		System.out.println(exo.getAdresseMail());
-
-		exo.setMdp("Mp8");
-		System.out.println(exo.getMdp());
 
 	}
 

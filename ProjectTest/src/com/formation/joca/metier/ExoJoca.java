@@ -34,11 +34,24 @@ public class ExoJoca {
 		return adresseMail;
 	}
 
-	public void setAdresseMail(String adresseMail) {
+	public void setAdresseMail2(String adresseMail) {
 		if (adresseMail != null) {
 			if (!(adresseMail.indexOf('@') == -1) && !(adresseMail.indexOf('.') == -1)
 					&& adresseMail.indexOf('@') < adresseMail.lastIndexOf('.')
 					&& adresseMail.lastIndexOf("@") == adresseMail.indexOf("@")) {
+				this.adresseMail = adresseMail;
+			} else {
+				this.adresseMail = "adresse mail non valide";
+			}
+		} else {
+			this.adresseMail = "adresse mail non valide";
+		}
+	}
+
+	public void setAdresseMail(String adresseMail) {
+		if (adresseMail != null) {
+			if (Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE)
+					.matcher(adresseMail).find()) {
 				this.adresseMail = adresseMail;
 			} else {
 				this.adresseMail = "adresse mail non valide";
