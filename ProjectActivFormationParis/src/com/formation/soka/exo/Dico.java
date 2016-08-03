@@ -24,20 +24,31 @@ public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDi
 	private char[] virerLesBadCaracteres(String texte) {
 		char[] tabChar = texte.toCharArray();
 		for (int i = 0; i < tabChar.length; i++) {
-			if (tabChar[i] == '\'' || tabChar[i] == ',' || tabChar[i] == '&' || tabChar[i] == '!' || tabChar[i] == '?' || tabChar[i] == ',' || tabChar[i] == ':' || tabChar[i] == '/' || tabChar[i] == ';') {
+			int x = tabChar[i];
+			if (x == '\'' || x == ',' || x == '.' || x == '&' || x == '!' || x == '_' || x == '(' || x == ')' || x == '[' || x == ']' || x == '{' || x == '}' || x == '"' || x == '&' || x == '@' || x == '+' || x == '=' || x == '*' || x == '°' || x == '-' || x == '?' || x == ',' || x == ':'
+					|| x == '/' || x == ';') {
 				tabChar[i] = ' ';
 			}
-			if (tabChar[i] == 'é' || tabChar[i] == 'è' || tabChar[i] == 'ê') {
+			if (x >= 'è' && x <= 'ë') {
 				tabChar[i] = 'e';
 			}
-			if (tabChar[i] == 'à') {
+			if (x >= 'à' && x <= 'æ') {
 				tabChar[i] = 'a';
 			}
-			if (tabChar[i] == 'ù') {
+			if (x >= 'ù' && x <= 'ü') {
 				tabChar[i] = 'u';
+			}
+			if (x >= 'ò' && x <= 'ö') {
+				tabChar[i] = 'o';
+			}
+			if (x >= 'ì' && x <= 'ï') {
+				tabChar[i] = 'i';
 			}
 			if (tabChar[i] == 'ç') {
 				tabChar[i] = 'c';
+			}
+			if (tabChar[i] == 'ý') {
+				tabChar[i] = 'y';
 			}
 
 		}
@@ -84,26 +95,33 @@ public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDi
 	}
 
 	private void ajouterClesTreeMap(ArrayList<Mot> listeMotsMot) {
-
+		boolean premiere = true;
+		CleDico cleDico = null;
 		for (int i = 0; i < listeMotsMot.size(); i++) {
 			for (int j = 0; j < listeMotsMot.get(i).toString().length(); j++) {
-				String lettre = Character.toString(listeMotsMot.get(i).getMot().charAt(j));
-				int sizeMot = listeMotsMot.get(i).getMot().length();
-				CleDico cleDico = new CleDico(lettre, sizeMot);
+				//				ArrayList<Mot> listeTempo = new ArrayList<Mot>();
+				//				listeTempo.add(listeMotsMot.get(i));
+				cleDico = new CleDico(listeMotsMot.get(i).toString().substring(j, j + 1), listeMotsMot.get(i).toString().length());
+				ArrayList<Mot> lst = get(cleDico);
+				if (this.containsKey(cleDico)) {
 
-				if (this.get(cleDico) != null) {
-					ArrayList<Mot> listeTemp = new ArrayList<Mot>();
-					listeTemp = this.get(cleDico);
-					listeTemp.add(listeMotsMot.get(i));
-					this.put(cleDico, listeTemp);
+					if (lst.contains(listeMotsMot.get(i))) {
+						Mot mot = lst.get(lst.indexOf(listeMotsMot.get(i)));
+						//						if (premiere) {
+						//							mot.plusUn();
+						//						}
+					} else {
+						lst.add(listeMotsMot.get(i));
+					}
+					//this.get(cleDico).add(listeMotsMot.get(i));
 				} else {
-					ArrayList<Mot> listeTemp2 = new ArrayList<Mot>();
-					listeTemp2.add(listeMotsMot.get(i));
-					this.put(cleDico, listeTemp2);
+					//ArrayList<Mot> 
+					lst = new ArrayList<Mot>();
+					lst.add(listeMotsMot.get(i));
+					put(cleDico, lst);
 				}
-
+				premiere = false;
 			}
-
 		}
 	}
 

@@ -31,15 +31,21 @@ public class Mot implements InterExoMot1, Comparable<Mot> {
 
 	@Override
 	public int compareTo(Mot o) {
-		int x = 0;
-		if (getNb() < o.getNb()) {
-			x = 1;
-		} else if (getNb() > o.getNb()) {
-			x = -1;
-		} else {
-			x = getMot().compareTo(o.getMot());
+		int ret = -Integer.valueOf(getNb()).compareTo(Integer.valueOf(o.getNb()));
+		if (ret == 0) {
+			ret = getMot().compareTo(o.getMot());
 		}
-		return x;
+
+		return ret;
+		//		int x = 0;
+		//		if (getNb() < o.getNb()) {
+		//			x = 1;
+		//		} else if (getNb() > o.getNb()) {
+		//			x = -1;
+		//		} else {
+		//			x = getMot().compareTo(o.getMot());
+		//		}
+		//		return x;
 	}
 
 	@Override
@@ -60,6 +66,7 @@ public class Mot implements InterExoMot1, Comparable<Mot> {
 
 	@Override
 	public String toString() {
+//		return getMot() + " , " + getNb()
 		return mot;
 	}
 }

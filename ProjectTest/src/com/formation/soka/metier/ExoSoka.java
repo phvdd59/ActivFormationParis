@@ -25,23 +25,30 @@ public class ExoSoka {
 			String s = fd.format(date);
 			this.dateEmbauche = s;
 		}
+		this.dateEmbauche = null;
 	}
 
 	public void setCoordonnee(String adresseMail, String tel) {
 		if (adresseMail != null && tel != null) {
-
-			if (adresseMail.contains("@") || adresseMail.contains(".fr") || adresseMail.contains(".com")) {
+			if (adresseMail.contains("@") || adresseMail.endsWith(".fr") || adresseMail.endsWith(".com")) {
 				this.adresseMail = adresseMail;
+			} else {
+				this.adresseMail = "";
 			}
 			char[] tabChar = tel.toCharArray();
-			if (tel.length() == 12 && tabChar[0] == '+') {
-				for (int i = 1; i < tabChar.length; i++) {
+
+			for (int i = 3; i < tabChar.length; i++) {
+				if (tel.length() == 12 && tel.startsWith("+33") && Character.isDigit(tabChar[i])) {
 					if (tabChar[i] >= 0 || tabChar[i] <= 9) {
 						this.tel = tel;
 					}
+				} else {
+					this.tel = "";
 				}
 			}
 		}
+		this.adresseMail = null;
+		this.tel = null;
 	}
 
 	/**
@@ -96,8 +103,12 @@ public class ExoSoka {
 					s = s.concat(Character.toString(tabChar2[tabChar.length - 1]));
 				}
 				this.mdp = s;
+			} else {
+				this.mdp = "";
 			}
 		}
+		this.mdp = null;
+
 	}
 
 	public String getNom() {
