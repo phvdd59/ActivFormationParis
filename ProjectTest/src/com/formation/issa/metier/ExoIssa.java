@@ -6,13 +6,15 @@ import java.util.Date;
 
 public class ExoIssa {
 	private String nom;
-	private String adresseMail;
+	private String adressMail;
 	private String dateEmbauche;// JJ-MM-YYYY
 	private String tel;// +336612345678
 	private String mdp;// Majsucule minuscule chiffre
 
 	public ExoIssa() {
 		nom = "Dupont";
+		adressMail="dupont@outlook.fr";
+		tel="+336598780212";
 	}
 
 	public ExoIssa(String nom) {
@@ -41,10 +43,10 @@ public class ExoIssa {
 			this.tel=null;
 		}
 		if (adressMail.contains("@") && adressMail.contains("fr") || adressMail.contains("com")) {
-			this.adresseMail = adressMail;
+			this.adressMail = adressMail;
 		}
 		else{
-			this.adresseMail=null;
+			this.adressMail=null;
 		}
 
 	}
@@ -84,8 +86,8 @@ public class ExoIssa {
 		return nom;
 	}
 
-	public String getAdresseMail() {
-		return adresseMail;
+	public String getAdressMail() {
+		return adressMail;
 	}
 
 	public String getDateEmbauche() {
@@ -104,8 +106,8 @@ public class ExoIssa {
 		this.nom = nom;
 	}
 
-	public void setAdresseMail(String adresseMail) {
-		this.adresseMail = adresseMail;
+	public void setAdressMail(String adressMail) {
+		this.adressMail = adressMail;
 	}
 
 	public void setDateEmbauche(String dateEmbauche) {
