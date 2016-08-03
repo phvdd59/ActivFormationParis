@@ -54,8 +54,14 @@ public class ExoEtga {
 		boolean valide = false;
 		char[] mdpList = mdpCache.toCharArray();
 		for (int i = 0; i < mdpList.length; i++) {
-			if (Character.isLowerCase(mdpList[i]) || Character.isUpperCase(mdpList[i]) || Character.isDigit(mdpList[i])) {
+			if (Character.isLowerCase(mdpList[i])) {
 				valide = true;
+			} else if (Character.isUpperCase(mdpList[i])) {
+				valide = true;
+			} else if (Character.isDigit(mdpList[i])) {
+				valide = true;
+			} else {
+				valide = false;
 			}
 		}
 		if (valide == true) {
