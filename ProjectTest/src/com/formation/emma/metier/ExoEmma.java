@@ -34,14 +34,24 @@ public class ExoEmma {
 	public void setCoordonnee(String adresseMail, String tel) {
 		this.adresseMail = adresseMail;
 		
+		boolean indicetel = true;
+		char[] cs = tel.toCharArray();
+		for ( int i = 0; i< cs.length;i++){
+		   if ( ! Character.isDigit(cs[i])){
+			  indicetel = false ;
+			  break;
+		   }
+		}
+		
 		String numero = "+33";
-		if(numero.length()>10 ){
+		if (tel.length() != 10 || indicetel==false) {
 			this.tel = null;
-		}else{
-		for (int j = 1; j < tel.length(); j++) {
-			numero = numero + tel.substring(j, j + 1);
-		}}
-		this.tel = numero;
+		} else {
+			for (int j = 1; j < tel.length(); j++) {
+				numero = numero + tel.substring(j, j + 1);
+			}
+			this.tel = numero;
+		}
 	}
 
 	/**
@@ -53,8 +63,8 @@ public class ExoEmma {
 	public void setMdpCache(String mdpCache) {
 		String mot = "";
 		String mdpCache2 = mdpCache.replaceAll("\\W", "");
-			
-		if (mdpCache2 != mdpCache || mdpCache==null || mdpCache=="") {
+
+		if (mdpCache2 != mdpCache || mdpCache == null || mdpCache == "") {
 			mdp = null;
 		} else {
 			if (mdpCache.length() % 2 == 0) {
@@ -73,8 +83,8 @@ public class ExoEmma {
 				}
 				mot = mot + mdpCache.substring(mdpCache.length() - 1);
 			}
-			mdp=mot;
-		}	
+			mdp = mot;
+		}
 	}
 
 	public String getNom() {
