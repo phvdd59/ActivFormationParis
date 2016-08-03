@@ -6,8 +6,6 @@ import java.util.Set;
 import java.util.TreeMap;
 
 import com.formation.phva.exo.InterExoDico1;
-import com.formation.thde.exo.CleDico;
-import com.formation.thde.exo.Mot;
 
 public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDico1 {
 
@@ -43,6 +41,7 @@ public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDi
 		}
 		// Trier avec le compare to
 		Collections.sort(listeMot);
+
 		// pour toutes les lettres
 		for (char i = 'a'; i <= 'z'; i++) {
 			// pour tous les mots (le plus long on dit que c'est de 26 lettres)

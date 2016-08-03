@@ -18,19 +18,37 @@ public class ExoThde {
 		this.nom = nom;
 		this.adresseMail = "eleve@wanadoo.fr";
 		this.dateEmbauche = "01-01-1999";
-		this.tel = "+33600000000";
+		this.tel = "+33000000000";
 		this.mdp = "1234";
 	}
 
 	public void setDate(Date date) {
-		//mettre sous la forme jj-mm-yyyy
-		SimpleDateFormat fd = new SimpleDateFormat("ddMMyyyy");
+		SimpleDateFormat fd = new SimpleDateFormat("dd-MM-yyyy");
 		this.dateEmbauche = fd.format(date);
 	}
 
 	public void setCoordonnees(String adresseMail, String tel) {
-		this.adresseMail = adresseMail;
-		this.tel = tel;
+
+		if (adresseMail.contains("@") && adresseMail.contains("."))
+			this.adresseMail = adresseMail;
+		else {
+			this.adresseMail = "pasbon@gmail.com";
+		}
+
+		char charTemp = 'a';
+		if (tel.length() != 12 || tel.charAt(0) != '+') {
+			this.tel = "+336000000";
+		} else {
+			for (int i = 1; i < tel.length(); i++) {
+				charTemp = tel.charAt(i);
+				if (Character.isDigit(charTemp) == false) {
+					this.tel = "+336000000";
+					break;
+				} else {
+					this.tel = tel;
+				}
+			}
+		}
 	}
 
 	/*
@@ -39,16 +57,40 @@ public class ExoThde {
 	 * abcdef => badcfe
 	 */
 	public void setMdpCache(String mdp) {
-		//		String mdp2 = mdp;
-		//		for (int i = 0; i < mdp.length(); i += 2) {
-		//
-		//			mdp2.charAt(i) = mdp.charAt(i + 1);
-		//		}
-		//		this.mdp = mdp2;
+		boolean lowercpt = false;
+		boolean uppercpt = false;
+		boolean numbercpt = false;
+		char[] mdpChar = new char[mdp.length()];
+		mdpChar = mdp.toCharArray();
+		for (int i = 1; i < mdpChar.length; i += 2) {
+			if (Character.isLowerCase(mdpChar[i]) || Character.isLowerCase(mdpChar[i - 1])) {
+				lowercpt = true;
+			}
+			if (Character.isUpperCase(mdpChar[i]) || Character.isUpperCase(mdpChar[i - 1])) {
+				uppercpt = true;
+			}
+			if (Character.isDigit(mdpChar[i]) || Character.isDigit(mdpChar[i - 1])) {
+				numbercpt = true;
+			}
+			if (i % 2 == 1 && i != 0) {
+				char temp = mdpChar[i];
+				mdpChar[i] = mdpChar[i - 1];
+				mdpChar[i - 1] = temp;
+			}
+		}
+		if (lowercpt == true && uppercpt == true && numbercpt == true) {
+			String newMdp = "";
+			for (int j = 0; j < mdpChar.length; j++) {
+				newMdp = newMdp.concat(Character.toString(mdpChar[j]));
+			}
+			this.mdp = newMdp;
+		} else {
+			this.mdp = "Abc0";
+		}
 	}
 
 	public String getNom() {
-		return nom;
+		return this.nom;
 	}
 
 	public void setTel(int numero) {
@@ -60,7 +102,7 @@ public class ExoThde {
 	}
 
 	public String getAdresseMail() {
-		return adresseMail;
+		return this.adresseMail;
 	}
 
 	public void setAdresseMail(String adresseMail) {
@@ -68,7 +110,7 @@ public class ExoThde {
 	}
 
 	public String getDateEmbauche() {
-		return dateEmbauche;
+		return this.dateEmbauche;
 	}
 
 	public void setDateEmbauche(String dateEmbauche) {
@@ -76,7 +118,7 @@ public class ExoThde {
 	}
 
 	public String getTel() {
-		return tel;
+		return this.tel;
 	}
 
 	public void setTel(String tel) {
@@ -84,7 +126,7 @@ public class ExoThde {
 	}
 
 	public String getMdp() {
-		return mdp;
+		return this.mdp;
 	}
 
 	public void setMdp(String mdp) {

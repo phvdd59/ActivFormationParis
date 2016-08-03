@@ -1,6 +1,8 @@
 package com.formation.joca.metier;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.regex.Pattern;
 
 public class ExoJoca {
 
@@ -11,11 +13,17 @@ public class ExoJoca {
 	private String mdp; // majuscule minuscule chiffre
 
 	public String getNom() {
+
 		return nom;
+
 	}
 
 	public void setNom(String nom) {
-		this.nom = nom;
+		if (nom.matches("[a-zA-Z\\s]+")) {
+			this.nom = nom;
+		} else {
+			this.nom = "nom non valide";
+		}
 	}
 
 	public String getAdresseMail() {
@@ -23,7 +31,13 @@ public class ExoJoca {
 	}
 
 	public void setAdresseMail(String adresseMail) {
-		this.adresseMail = adresseMail;
+		if (!(adresseMail.indexOf('@') == -1) && !(adresseMail.indexOf('.') == -1)
+				&& adresseMail.indexOf('@') < adresseMail.lastIndexOf('.')
+				&& adresseMail.lastIndexOf("@") == adresseMail.indexOf("@")) {
+			this.adresseMail = adresseMail;
+		} else {
+			this.adresseMail = "adresse mail non valide";
+		}
 	}
 
 	public String getDateEmbauche() {
@@ -39,7 +53,16 @@ public class ExoJoca {
 	}
 
 	public void setTel(String tel) {
-		this.tel = tel;
+		if (tel.toCharArray()[0] == '0' && tel.length() == 10 && tel.matches("[0-9]+")) {
+			String temp = "";
+			temp = "+33" + tel.substring(1);
+			this.tel = temp;
+		} else if (tel.toCharArray()[0] == '+' && tel.length() == 12 && tel.substring(0).matches("[0-9+]+")) {
+			this.tel = tel;
+		} else {
+			this.tel = "numero de telephone non valide";
+		}
+
 	}
 
 	public String getMdp() {
@@ -47,16 +70,24 @@ public class ExoJoca {
 	}
 
 	public void setMdp(String mdp) {
-		this.mdp = mdp;
+		if (mdp.matches("[0-9a-zA-Z]+") && Pattern.compile("[0-9]").matcher(mdp).find()
+				&& Pattern.compile("[a-z]").matcher(mdp).find() && Pattern.compile("[A-Z]").matcher(mdp).find()) {
+			this.mdp = mdp;
+		} else {
+			this.mdp = "mot de passe non valide";
+		}
+
 	}
 
 	public void setDate(Date date) {
-		this.dateEmbauche = date.toString();
+		SimpleDateFormat fd = new SimpleDateFormat("dd/MM/yyyy");
+		this.dateEmbauche = fd.format(date);
 	}
 
 	public void setCoordonnee(String adresseMail, String tel) {
-		this.tel = tel;
-		this.adresseMail = adresseMail;
+
+		this.setTel(tel);
+		this.setAdresseMail(adresseMail);
 	}
 
 	/**
@@ -67,6 +98,7 @@ public class ExoJoca {
 
 	public void setMdpCache(String mdpCache) {
 		char[] tabMdp = new char[mdpCache.length()];
+		tabMdp = mdpCache.toCharArray();
 		for (int i = 0; i < tabMdp.length; i += 2) {
 			if (i != tabMdp.length - 1) {
 				char temp = tabMdp[i];
@@ -82,6 +114,12 @@ public class ExoJoca {
 	}
 
 	public ExoJoca() {
+
+		this.nom = "cassagne";
+		this.adresseMail = "jojolatruite@gmail.com";
+		this.dateEmbauche = "26-09-2016"; // jj-mm-yyyy
+		this.tel = "0654879625"; // +33612345678
+		this.mdp = "lemotdepasse";
 
 	}
 

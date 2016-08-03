@@ -1,5 +1,7 @@
 package com.formation.ambr.metier;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 
 public class ExoAmbr {
@@ -11,11 +13,11 @@ public class ExoAmbr {
 	private String mdp; // majuscule minuscule chiffre
 
 	public ExoAmbr() {
-
+		this.nom = nom;
 	}
 
 	public ExoAmbr(String nom) {
-		// TODO
+		this.nom = nom;
 	}
 
 	public void setDate(Date date) {
@@ -27,12 +29,42 @@ public class ExoAmbr {
 	}
 
 	/**
-	 * permutation deux en deux du mot de passe: ABcdEf ---> BAdcfE
+	 * permutation deux en deux du mot de passe:
+	 * 
+	 * cache ---> clair / BAdcfE ---> ABcdEf
 	 * 
 	 * @param mdpCache
 	 */
 
-	public void setMdp(String mdpCache) {
+	public void setMdpCache(String mdpCache) {
+		// protection pour caractères spéciaux et espaces
+		String mdpCache2 = mdpCache.replaceAll("\\W", "");
+		if (mdpCache2 != mdpCache) {
+			mdp = null;
+		}
+
+		// 1.transformer le mdpCache en tableau
+		//char[] tab = mdpCache.toCharArray(); // autre méthode
+		String[] tab = mdpCache.split("");
+
+		// 2.ranger les valeurs du tableau dans une liste
+		ArrayList<String> lst = new ArrayList<String>();
+		for (int i = 0; i < tab.length; i++) {
+			lst.add(tab[i]);
+		}
+
+		// 3.permuter
+		for (int i = 0; i < lst.size() - 1; i += 2) {
+			int j = i + 1;
+			Collections.swap(lst, i, j);
+		}
+
+		//4. reformer le mot de passe
+		String mdp2 = new String();
+		for (String s : lst) {
+			mdp2 += s;
+		}
+		mdp = mdp2;
 
 	}
 
@@ -64,12 +96,16 @@ public class ExoAmbr {
 		return tel;
 	}
 
-	public void setTel(String tel) {
+	public void setTel(String tel) { // objectif de la méthode: on lui donne un numéro, elle doit le renvoyer en string
 		this.tel = tel;
 	}
 
 	public String getMdp() {
 		return mdp;
+	}
+
+	public void setMdp(String mdp) {
+		this.mdp = mdp;
 	}
 
 }

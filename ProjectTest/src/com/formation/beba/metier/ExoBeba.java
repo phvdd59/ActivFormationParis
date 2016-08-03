@@ -21,8 +21,7 @@ public class ExoBeba {
 
 	public void setDate(Date date) {
 
-		SimpleDateFormat fd = new SimpleDateFormat("dd-mm-yyyy");
-		// String s=fd.format(new Date());
+		SimpleDateFormat fd = new SimpleDateFormat("dd-MM-yyyy");
 
 		String s = fd.format(date);
 		this.dateEmbauche = s;
@@ -36,14 +35,24 @@ public class ExoBeba {
 		this.addresseMail = addressMail;
 		boolean correct = true;
 		char[] data = addressMail.toCharArray();
-		if ((data[1] < 'a' && data[1] > 'z') || (data[1] < '0' && data[1] > '9')) {
-			correct = false;
+		for (int i = 0; i < data.length; i++) {
+
+			if ((data[i] < 'a' || data[1] > 'z') && (data[i] < '0' || data[1] > '9')) {
+
+				if (data[i] != '_' || data[i] != '@' || data[i] != '.') {
+					correct = false;
+				}
+			}
 		}
 		boolean secondCorrect = false;
+		int nbAt = 0;
 		for (int i = 1; i < data.length; i++) {
 			if (data[i] == ('@')) {
 				secondCorrect = true;
-				break;
+				nbAt++;
+			}
+			if (nbAt > 1) {
+				secondCorrect = false;
 			}
 		}
 		boolean troisiemeCorrect = false;
@@ -52,14 +61,22 @@ public class ExoBeba {
 		}
 		if (troisiemeCorrect && secondCorrect && correct) {
 			this.addresseMail = addressMail;
-		} else
+		} else {
 			this.addresseMail = null;
+		}
 		if (tel.length() == 12) {
 			this.tel = tel;
 		} else {
 			this.tel = null;
 		}
-
+		if (tel.charAt(0) != '+') {
+			this.tel = null;
+		}
+		for (int i = 1; i < tel.length(); i++) {
+			if (tel.charAt(i) < '0' || tel.charAt(i) > '9') {
+				this.tel = null;
+			}
+		}
 	}
 
 	/**

@@ -31,22 +31,45 @@ public class ExoEtga {
 		//		String date = dateFormat.format(new Date());
 		//		date = dateFormat.parse(dateEmbauche);
 		//		return dateEmbauche;
-
 	}
 
 	public void setCoordonnee(String adresseMail, String tel) {
-		this.adresseMail = adresseMail;
+		if ((adresseMail.contains("@")) && ((adresseMail.contains(".com")) || (adresseMail.contains(".fr")))) {
+			this.adresseMail = adresseMail;
+		} else {
+			this.adresseMail = "pasbon@wanadoo.fr";
+		}
+		//		if ((tel.substring(0, 3) == "+336") && (tel.length() == 12)) {
 		this.tel = tel;
+		//		}
 	}
 
 	/**
-	 * permutation 2 en 2 du mdp mdp : cache ---> clair BAdcFE --> ABcdEF
+	 * permutation 2 en 2 du mdp mdp cache ---> clair BAdcFE --> ABcdEF
 	 * 
 	 * @param mdpCache
 	 */
 
 	public void setMdpCache(String mdpCache) {
-
+		boolean valide = false;
+		char[] mdpList = mdpCache.toCharArray();
+		for (int i = 0; i < mdpList.length; i++) {
+			if (Character.isLowerCase(i) || Character.isUpperCase(i) || Character.isDigit(i)) {
+				valide = true;
+			}
+		}
+		if (valide = true) {
+			for (int i = 0; i < mdpList.length - 1; i += 2) {
+				char a = mdpList[i];
+				char b = mdpList[i + 1];
+				mdpList[i] = a;
+				mdpList[i + 1] = b;
+			}
+			mdpCache = mdpList.toString();
+			this.mdp = mdpCache;
+		} else {
+			this.mdp = "Abc0";
+		}
 	}
 
 	public String getNom() {
