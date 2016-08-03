@@ -16,28 +16,27 @@ public class ExoThcr {
 	}
 
 	public ExoThcr(String nom) {
-		
-		if(nom.matches("\\p{IsLatin}")){
+
+		if (nom.matches("\\p{IsLatin}")) {
 			this.nom = nom;
-		}else{
+		} else {
 			this.nom = null;
 		}
-		
-		
+
 	}
 
-	public ExoThcr(Date date) {
+	public void setDate(Date date) {
 		if (date != null) {
 			SimpleDateFormat fd = new SimpleDateFormat("dd-mm-yyyy");
 			fd.setLenient(false);
-			dateEmbauche = fd.format(date);
+			this.dateEmbauche = fd.format(date);
 		}
 
 	}
 
 	public void setCoordonnee(String adresseMail, String tel) {
 		if (adresseMail != null && tel != null) {
-			if (adresseMail.matches("[a-zA-Z_0-9]{1,32}@[a-zA-Z]{1,32}\\.[a-zA-Z]{1,32}")) {
+			if (adresseMail.matches("[a-zA-Z_0-9.]{1,32}@[a-zA-Z]{1,32}\\.[a-zA-Z]{1,32}")) {
 				this.adresseMail = adresseMail.toLowerCase();
 				//Mise en forme sous minuscule
 			} else {
@@ -84,14 +83,12 @@ public class ExoThcr {
 					break;
 				}
 			}
-			for (int i = 0; i < c.length; i++) {
-				if (!MdpCache.matches("[^a-zA-Z0-9]")) {
-					o = true;
-					break;
-				}
+			if (!MdpCache.matches("[^a-zA-Z0-9]")) {
+				o = true;
 			}
-			if (nu && lc && uc && o)
+			if (nu && lc && uc && o){
 				b = true;
+			}
 			if (c.length % 2 == 0 && b) {
 				for (int i = 0; i < c.length - 1; i = i + 2) {
 					char tmp = c[i];
