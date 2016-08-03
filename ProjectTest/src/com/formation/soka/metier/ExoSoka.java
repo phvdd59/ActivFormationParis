@@ -23,8 +23,8 @@ public class ExoSoka {
 	}
 
 	public void setCoordonnee(String adresseMail, String tel) {
-		if (adresseMail.contains("@")) {
-			// il faut un .frou .com ou autre??! 
+		if (adresseMail.contains("@") || adresseMail.contains(".fr") || adresseMail.contains(".com")) {
+
 			this.adresseMail = adresseMail;
 		}
 		if (tel.length() == 11) {
@@ -46,30 +46,47 @@ public class ExoSoka {
 		char[] tabChar = mdpCache.toCharArray();
 		char[] tabChar2 = new char[tabChar.length];
 		String s = "";
-		if (tabChar.length % 2 == 0) {
-			for (int i = 0; i < tabChar.length; i++) {
-				if (i % 2 == 0) {
-					tabChar2[i] = tabChar[i + 1];
-				} else {
-					tabChar2[i] = tabChar[i - 1];
-				}
-				s = s.concat(Character.toString(tabChar2[i]));
-			}
-		} else {
-			
-			for (int i = 0; i < tabChar2.length - 1; i++) {
-				tabChar2[tabChar.length - 1] = tabChar[tabChar.length - 1];
-				if (i % 2 == 0) {
-					tabChar2[i] = tabChar[i + 1];
-				} else {
-					tabChar2[i] = tabChar[i - 1];
-				}
+		boolean caracMaj = false;
+		boolean caracMin = false;
+		boolean caracDigit = false;
 
-				s = s.concat(Character.toString(tabChar2[i]));
+		for (int i = 0; i < tabChar.length; i++) {
+			if (Character.isUpperCase(tabChar[i])) {
+				caracMaj = true;
 			}
-
+			if (Character.isLowerCase(tabChar[i])) {
+				caracMin = true;
+			}
+			if (Character.isDigit(tabChar[i])) {
+				caracDigit = true;
+			}
 		}
-		this.mdp = s;
+		if (caracMaj == true && caracMin == true && caracDigit == true) {
+			if (tabChar.length % 2 == 0) {
+				for (int i = 0; i < tabChar.length; i++) {
+					if (i % 2 == 0) {
+						tabChar2[i] = tabChar[i + 1];
+					} else {
+						tabChar2[i] = tabChar[i - 1];
+					}
+					s = s.concat(Character.toString(tabChar2[i]));
+				}
+			} else {
+
+				for (int i = 0; i < tabChar2.length - 1; i++) {
+					tabChar2[tabChar.length - 1] = tabChar[tabChar.length - 1];
+					if (i % 2 == 0) {
+						tabChar2[i] = tabChar[i + 1];
+					} else {
+						tabChar2[i] = tabChar[i - 1];
+					}
+
+					s = s.concat(Character.toString(tabChar2[i]));
+				}
+				s = s.concat(Character.toString(tabChar2[tabChar.length - 1]));
+			}
+			this.mdp = s;
+		}
 	}
 
 	public String getNom() {
