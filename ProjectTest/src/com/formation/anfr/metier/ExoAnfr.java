@@ -57,7 +57,7 @@ public class ExoAnfr {
 					c = Character.toLowerCase(c);
 					if ((c < 'a') || (c > 'z')) {
 						if ((c < '0') || (c > '9')) {
-							if (c != '.') {
+							if ((c != '.') && (c != '_')) {
 								charanommage = false;
 							}
 						}
