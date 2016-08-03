@@ -2,6 +2,7 @@ package com.formation.joca.test;
 
 import static org.junit.Assert.fail;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.junit.Assert;
@@ -45,7 +46,9 @@ public class ExoJocaTest {
 	@Test
 	public void testSetDateBon() {
 		Date dateTest = new Date();
-		
+		exo.setDate(dateTest);
+		Assert.assertEquals(new SimpleDateFormat("dd-MM-yyyy").format(dateTest), exo.getDateEmbauche());
+
 	}
 
 	@Test
