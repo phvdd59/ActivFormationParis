@@ -35,8 +35,14 @@ public class ExoBeba {
 		this.addresseMail = addressMail;
 		boolean correct = true;
 		char[] data = addressMail.toCharArray();
-		if ((data[1] < 'a' && data[1] > 'z') || (data[1] < '0' && data[1] > '9')) {
-			correct = false;
+		for (int i = 0; i < data.length; i++) {
+
+			if ((data[i] < 'a' && data[1] > 'z') || (data[i] < '0' && data[1] > '9')) {
+
+				if (data[i] != '_' || data[i] != '@' || data[i] != '.') {
+					correct = false;
+				}
+			}
 		}
 		boolean secondCorrect = false;
 		for (int i = 1; i < data.length; i++) {
@@ -51,8 +57,9 @@ public class ExoBeba {
 		}
 		if (troisiemeCorrect && secondCorrect && correct) {
 			this.addresseMail = addressMail;
-		} else
+		} else {
 			this.addresseMail = null;
+		}
 		if (tel.length() == 12) {
 			this.tel = tel;
 		} else {
