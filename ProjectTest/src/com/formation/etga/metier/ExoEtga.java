@@ -36,6 +36,8 @@ public class ExoEtga {
 	public void setCoordonnee(String adresseMail, String tel) {
 		if ((adresseMail.contains("@")) && ((adresseMail.contains(".com")) || (adresseMail.contains(".fr")))) {
 			this.adresseMail = adresseMail;
+		} else {
+			this.adresseMail = "pasbon@wanadoo.fr";
 		}
 		//		if ((tel.substring(0, 3) == "+336") && (tel.length() == 12)) {
 		this.tel = tel;
@@ -56,6 +58,7 @@ public class ExoEtga {
 			mdpList[i] = a;
 			mdpList[i + 1] = b;
 		}
+		mdpList.
 	}
 
 	public String getNom() {
