@@ -28,16 +28,24 @@ public class ExoMadeTest {
 	}
 
 	@Test
-	public void testSetCoordonnes() {
-		exoMade.setCoordonnees("dupont@outlook.fr"+"336521202925");		
-		Assert.assertEquals("adresse mail valide et tel valide",(exoMade.getAdresseMail() && exoMade.getTel());
-		
-		
+	public void testSetCoordonnees() {
+		exoMade.setCoordonnees("dupont@outlook.fr","+336521202925");		
+		Assert.assertEquals("dupont@outlook.fr",exoMade.getAdresseMail());
+		Assert.assertEquals("+336521202925", exoMade.getTel());
+
+	}
+	@Test
+	public void  testSetCoordonneesnull() {
+		exoMade.setCoordonnees(null,null);		
+		Assert.assertEquals(null,exoMade.getAdresseMail());
+		Assert.assertEquals(null, exoMade.getTel());
+
 	}
 
 	@Test
 	public void testSetMdpCache() {
-		Assert.fail("Not yet implemented");
+		exoMade.setMdpCache("Aclelekkl8");
+		Assert.assertEquals("Aclelekkl8", getMdp());
 	}
 
 }
