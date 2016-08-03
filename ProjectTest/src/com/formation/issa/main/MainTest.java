@@ -24,8 +24,7 @@ public class MainTest {
 		//String mdp = new String(charArray1);
 		mdpCache = "Acdef9";
 		char[] charArray = mdpCache.toCharArray();
-		adressMail=null;
-		tel=null;
+		exoIssa.setCoordonnee(null, null);
 		System.out.println(exoIssa.getAdressMail());
 		System.out.println(exoIssa.getTel());
 
