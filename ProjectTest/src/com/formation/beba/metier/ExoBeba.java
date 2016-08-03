@@ -37,7 +37,7 @@ public class ExoBeba {
 		char[] data = addressMail.toCharArray();
 		for (int i = 0; i < data.length; i++) {
 
-			if ((data[i] < 'a' && data[1] > 'z') || (data[i] < '0' && data[1] > '9')) {
+			if ((data[i] < 'a' || data[1] > 'z') && (data[i] < '0' || data[1] > '9')) {
 
 				if (data[i] != '_' || data[i] != '@' || data[i] != '.') {
 					correct = false;
