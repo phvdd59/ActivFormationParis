@@ -2,6 +2,7 @@ package com.formation.joca.metier;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.regex.Pattern;
 
 public class ExoJoca {
 
@@ -69,7 +70,8 @@ public class ExoJoca {
 	}
 
 	public void setMdp(String mdp) {
-		if (mdp.matches("[0-9a-zA-Z]+")) {
+		if (mdp.matches("[0-9a-zA-Z]+") && Pattern.compile("[0-9]").matcher(mdp).find()
+				&& Pattern.compile("[a-z]").matcher(mdp).find() && Pattern.compile("[A-Z]").matcher(mdp).find()) {
 			this.mdp = mdp;
 		} else {
 			this.mdp = "mot de passe non valide";
