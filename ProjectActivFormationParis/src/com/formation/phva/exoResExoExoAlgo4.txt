@@ -1,0 +1,6 @@
+phva:Algo
+
+phva testNull (1/1): OK | exo.solution(10, 10, null)
+phva testVide (1/1):    | exo.solution(10,10,lst)
+phva testNull (1/1): OK | exo.solution(10, 10, null)
+phva testVide (1/1):    | exo.solution(10,10,lst)
