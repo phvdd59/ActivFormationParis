@@ -20,13 +20,17 @@ public class ExoBeba {
 	}
 
 	public void setDate(Date date) {
+		if (date == null) {
+			this.dateEmbauche = null;
+		} else {
 
-		SimpleDateFormat fd = new SimpleDateFormat("dd-MM-yyyy");
+			SimpleDateFormat fd = new SimpleDateFormat("dd-MM-yyyy");
 
-		String s = fd.format(date);
-		this.dateEmbauche = s;
-		if (s.length() != 10) {
-			dateEmbauche = null;
+			String s = fd.format(date);
+			this.dateEmbauche = s;
+			if (s.length() != 10) {
+				dateEmbauche = null;
+			}
 		}
 	}
 
