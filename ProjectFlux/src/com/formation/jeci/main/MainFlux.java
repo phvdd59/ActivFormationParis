@@ -13,6 +13,7 @@ public class MainFlux {
 
 	}
 
+	
 	private void init() {
 		BufferedReader stdIn = null;
 		stdIn = new BufferedReader(new InputStreamReader(System.in));
