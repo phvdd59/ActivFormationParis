@@ -12,11 +12,17 @@ public class ExoJoca {
 	private String mdp; // majuscule minuscule chiffre
 
 	public String getNom() {
+
 		return nom;
+
 	}
 
 	public void setNom(String nom) {
-		this.nom = nom;
+		if (nom.matches("[a-zA-Z\\s]+")) {
+			this.nom = nom;
+		} else {
+			this.nom = "nom non valide";
+		}
 	}
 
 	public String getAdresseMail() {
@@ -25,10 +31,11 @@ public class ExoJoca {
 
 	public void setAdresseMail(String adresseMail) {
 		if (!(adresseMail.indexOf('@') == -1) && !(adresseMail.indexOf('.') == -1)
-				&& adresseMail.indexOf('@') < adresseMail.indexOf('.')) {
+				&& adresseMail.indexOf('@') < adresseMail.indexOf('.')
+				&& adresseMail.lastIndexOf("@") == adresseMail.indexOf("@")) {
 			this.adresseMail = adresseMail;
 		} else {
-			System.out.println("erreur adresse mail");
+			this.adresseMail = "adresse mail non valide";
 		}
 	}
 
@@ -45,15 +52,14 @@ public class ExoJoca {
 	}
 
 	public void setTel(String tel) {
-		CharSequence chiffre = "0123456789";
 		if (tel.toCharArray()[0] == '0' && tel.length() == 10 && tel.matches("[0-9]+")) {
 			String temp = "";
 			temp = "+33" + tel.substring(1);
 			this.tel = temp;
-		} else if (tel.toCharArray()[0] == '+' && tel.length() == 12 && tel.substring(1).matches("[0-9]+")) {
+		} else if (tel.toCharArray()[0] == '+' && tel.length() == 12 && tel.substring(0).matches("[0-9+]+")) {
 			this.tel = tel;
 		} else {
-			System.out.println("erreur numero telephone");
+			this.tel = "numero de telephone non valide";
 		}
 
 	}
@@ -63,7 +69,12 @@ public class ExoJoca {
 	}
 
 	public void setMdp(String mdp) {
-		this.mdp = mdp;
+		if (mdp.matches("[0-9a-zA-Z]+")) {
+			this.mdp = mdp;
+		} else {
+			this.mdp = "mot de passe non valide";
+		}
+
 	}
 
 	public void setDate(Date date) {
@@ -101,6 +112,12 @@ public class ExoJoca {
 	}
 
 	public ExoJoca() {
+
+		this.nom = "cassagne";
+		this.adresseMail = "jojolatruite@gmail.com";
+		this.dateEmbauche = "26-09-2016"; // jj-mm-yyyy
+		this.tel = "0654879625"; // +33612345678
+		this.mdp = "lemotdepasse";
 
 	}
 
