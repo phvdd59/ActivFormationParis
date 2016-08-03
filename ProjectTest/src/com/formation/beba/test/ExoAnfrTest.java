@@ -45,7 +45,7 @@ public class ExoAnfrTest {
 	@Test
 	public void testsetCoordonnée2() {
 
-		exoAnfr.setCoordonee("b.basdevant@gmail.co", "0682096369");
+		exoAnfr.setCoordonee("antoine@tan.frere@gmail.com", "0682096369");
 		Assert.assertEquals(null, exoAnfr.getAdresseMail());
 		System.out.println();
 
