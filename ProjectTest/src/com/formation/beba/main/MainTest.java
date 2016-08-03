@@ -13,7 +13,7 @@ public class MainTest {
 	private static void init() {
 		ExoBeba exoBeba = new ExoBeba();
 
-		exoBeba.setCoordonnee("antoinetan.frere@gmail.com", "+33682096369");
+		exoBeba.setMdpCache("AbCdEf");
 
 	}
 

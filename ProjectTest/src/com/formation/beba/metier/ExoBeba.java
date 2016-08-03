@@ -95,6 +95,7 @@ public class ExoBeba {
 		for (int i = 1; i < data.length; i++) {
 			mdpCache = mdpCache.concat(Character.toString(data[i]));
 		}
+		this.mdp = mdpCache;
 	}
 
 	public String getNom() {
