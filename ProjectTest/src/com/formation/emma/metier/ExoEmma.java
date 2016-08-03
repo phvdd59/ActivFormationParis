@@ -1,6 +1,9 @@
 package com.formation.emma.metier;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import org.hamcrest.core.SubstringMatcher;
 
 public class ExoEmma {
 
@@ -10,20 +13,31 @@ public class ExoEmma {
 	private String tel; //+33612121212 
 	private String mdp; // majuscule minuscule chiffre
 
-	public ExoEmma(){
-		
-	}
-	
-	public ExoEmma(String nom) {
+	public ExoEmma() {
+		this.nom = nom;
+		this.mdp = mdp;
+		this.adresseMail = adresseMail;
+		this.tel = tel;
+		this.dateEmbauche = dateEmbauche;
 
+	}
+
+	public ExoEmma(String nom) {
+		this.nom = nom;
 	}
 
 	public void setDate(Date date) {
+		this.dateEmbauche = dateEmbauche;
 
 	}
 
 	public void setCoordonnee(String adresseMail, String tel) {
-
+		this.adresseMail = adresseMail;
+		String numero = "+33";
+		for (int j = 1; j < tel.length(); j++) {
+			numero = numero + tel.substring(j, j + 1);
+		}
+		this.tel = numero;
 	}
 
 	/**
@@ -33,7 +47,30 @@ public class ExoEmma {
 	 */
 
 	public void setMdpCache(String mdpCache) {
-
+		String mot = "";
+		String mdpCache2 = mdpCache.replaceAll("\\W", "");
+			
+		if (mdpCache2.length() != mdpCache.length() || mdpCache==null) {
+			mdpCache = null;
+		} else {
+			if (mdpCache.length() % 2 == 0) {
+				for (int i = 0; i < mdpCache.length(); i++) {
+					String lettre1 = mdpCache.substring(i + 1, i + 2);
+					String lettre2 = mdpCache.substring(i, i + 1);
+					mot = mot + lettre1 + lettre2;
+					i++;
+				}
+			} else {
+				for (int i = 0; i < mdpCache.length() - 1; i++) {
+					String lettre1 = mdpCache.substring(i + 1, i + 2);
+					String lettre2 = mdpCache.substring(i, i + 1);
+					mot = mot + lettre1 + lettre2;
+					i++;
+				}
+				mot = mot + mdpCache.substring(mdpCache.length() - 1);
+			}
+		}
+		mdp=mot;
 	}
 
 	public String getNom() {
