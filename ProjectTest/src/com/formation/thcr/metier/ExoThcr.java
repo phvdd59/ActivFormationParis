@@ -17,11 +17,12 @@ public class ExoThcr {
 
 	public ExoThcr(String nom) {
 
-		if (nom.matches("\\p{IsLatin}")) {
-			this.nom = nom;
-		} else {
-			this.nom = null;
-		}
+		this.nom = nom;
+		//		if (nom.matches("\\p{IsLatin}")) {
+		//			this.nom = nom;
+		//		} else {
+		//			this.nom = null;
+		//		}
 
 	}
 
@@ -45,7 +46,8 @@ public class ExoThcr {
 			if (tel.matches("\\+33[0-9]{9}")) {
 				this.tel = tel;
 			} else {
-
+				setAdresseMail("");
+				setTel("");
 			}
 		}
 	}
@@ -86,7 +88,7 @@ public class ExoThcr {
 			if (!MdpCache.matches("[^a-zA-Z0-9]")) {
 				o = true;
 			}
-			if (nu && lc && uc && o){
+			if (nu && lc && uc && o) {
 				b = true;
 			}
 			if (c.length % 2 == 0 && b) {
