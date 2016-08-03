@@ -39,7 +39,7 @@ public class MainTest {
 
 		// setMdp
 
-		String mdp = exoAmbr.setMdp("ASuleT5");
+		String mdp = exoAmbr.setMdpCache("ASuleT5");
 		System.out.println(mdp);
 
 	}

@@ -40,7 +40,7 @@ public class ExoAmbr {
 	 * @param mdpCache
 	 */
 
-	public String setMdp(String mdpCache) {
+	public String setMdpCache (String mdpCache) {
 		// protection pour caractères spéciaux et espaces
 		String mdpCache2 = mdpCache.replaceAll("\\W", "");
 		if (mdpCache2 != mdpCache) {
@@ -106,6 +106,10 @@ public class ExoAmbr {
 
 	public String getMdp() {
 		return mdp;
+	}
+
+	public void setMdp(String mdp) {
+		this.mdp = mdp;
 	}
 
 }
