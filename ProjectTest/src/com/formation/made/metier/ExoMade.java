@@ -54,6 +54,10 @@ public class ExoMade {
 	 */
 
 	public void setMdpCache(String mdpCache) {
+		if(mdpCache==null){
+			this.mdp=null;
+		}
+	
 		if (!mdpCache.toLowerCase().equals(mdpCache) || !mdpCache.toUpperCase().equals(mdpCache)) {
 
 			String[] tabstring = new String[mdpCache.length()];
@@ -72,7 +76,10 @@ public class ExoMade {
 			}
 			this.mdp = stringMdp;
 		}
-
+		else{
+			this.mdp=null;
+			System.out.println("");
+		}
 	}
 
 	public void setTel(int numero) { // ceci est un exemple

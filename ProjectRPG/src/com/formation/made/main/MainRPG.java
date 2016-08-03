@@ -1,5 +1,6 @@
 package com.formation.made.main;
 
+import com.formation.joca.metier.Personnage;
 import com.formation.soka.metier.Civil;
 
 public class MainRPG {
@@ -11,7 +12,10 @@ public class MainRPG {
 	}
 
 	private void init() {
-		Civil civil = new Civil();
+//		Personnage civil = new Civil();
+//		civil.combattre();
+//		civil.seDeplacer();
+//		civil.soigner();
 
 	}
 
