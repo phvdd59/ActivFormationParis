@@ -1,7 +1,5 @@
 package com.formation.ambr.metier;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
@@ -15,7 +13,7 @@ public class ExoAmbr {
 	private String mdp; // majuscule minuscule chiffre
 
 	public ExoAmbr() {
-
+		this.nom = nom;
 	}
 
 	public ExoAmbr(String nom) {
@@ -23,9 +21,7 @@ public class ExoAmbr {
 	}
 
 	public void setDate(Date date) {
-		
-		
-		
+
 	}
 
 	public void setCoordonnee(String adresseMail, String tel) {
@@ -40,11 +36,11 @@ public class ExoAmbr {
 	 * @param mdpCache
 	 */
 
-	public String setMdpCache (String mdpCache) {
+	public void setMdpCache(String mdpCache) {
 		// protection pour caractères spéciaux et espaces
 		String mdpCache2 = mdpCache.replaceAll("\\W", "");
 		if (mdpCache2 != mdpCache) {
-			return null;
+			mdp = null;
 		}
 
 		// 1.transformer le mdpCache en tableau
@@ -64,11 +60,11 @@ public class ExoAmbr {
 		}
 
 		//4. reformer le mot de passe
-		String mdp = new String();
+		String mdp2 = new String();
 		for (String s : lst) {
-			mdp += s;
+			mdp2 += s;
 		}
-		return mdp;
+		mdp = mdp2;
 
 	}
 
