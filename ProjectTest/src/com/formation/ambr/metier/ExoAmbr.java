@@ -41,31 +41,31 @@ public class ExoAmbr {
 		String mdpCache2 = mdpCache.replaceAll("\\W", "");
 		if (mdpCache2 != mdpCache) {
 			mdp = null;
+		} else {
+
+			// 1.transformer le mdpCache en tableau
+			//char[] tab = mdpCache.toCharArray(); // autre méthode
+			String[] tab = mdpCache.split("");
+
+			// 2.ranger les valeurs du tableau dans une liste
+			ArrayList<String> lst = new ArrayList<String>();
+			for (int i = 0; i < tab.length; i++) {
+				lst.add(tab[i]);
+			}
+
+			// 3.permuter
+			for (int i = 0; i < lst.size() - 1; i += 2) {
+				int j = i + 1;
+				Collections.swap(lst, i, j);
+			}
+
+			//4. reformer le mot de passe
+			String mdp2 = new String();
+			for (String s : lst) {
+				mdp2 += s;
+			}
+			mdp = mdp2;
 		}
-
-		// 1.transformer le mdpCache en tableau
-		//char[] tab = mdpCache.toCharArray(); // autre méthode
-		String[] tab = mdpCache.split("");
-
-		// 2.ranger les valeurs du tableau dans une liste
-		ArrayList<String> lst = new ArrayList<String>();
-		for (int i = 0; i < tab.length; i++) {
-			lst.add(tab[i]);
-		}
-
-		// 3.permuter
-		for (int i = 0; i < lst.size() - 1; i += 2) {
-			int j = i + 1;
-			Collections.swap(lst, i, j);
-		}
-
-		//4. reformer le mot de passe
-		String mdp2 = new String();
-		for (String s : lst) {
-			mdp2 += s;
-		}
-		mdp = mdp2;
-
 	}
 
 	public String getNom() {
