@@ -34,9 +34,11 @@ public class MainFlux {
 						fn = f.listFiles();
 						for (File file : fn) {
 							//System.out.println(file.getName());
-							if (file.isFile()) {
-								System.out.println(file.getName().substring(file.getName().lastIndexOf(".") + 1)+" totooo");
+							if (file.isFile() && file.getName().contains(".")) {
+								System.out.println(file.getName().substring(file.getName().lastIndexOf(".") + 1) + " totooo");
 
+							}else{
+								System.out.println("totooo");
 							}
 						}
 						//						for (int i = 0; i < fn.length; i++) {
