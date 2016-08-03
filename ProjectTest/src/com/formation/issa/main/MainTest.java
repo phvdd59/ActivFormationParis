@@ -36,6 +36,7 @@ public class MainTest {
 		} else {
 			System.out.println(exoIssa.getTel());
 		}
+		System.out.println(exoIssa.getMdp());
 
 	}
 
