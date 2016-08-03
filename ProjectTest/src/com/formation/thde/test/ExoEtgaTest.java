@@ -53,7 +53,7 @@ public class ExoEtgaTest {
 		} catch (ParseException e1) {
 			e1.printStackTrace();
 		}
-		Assert.assertEquals("date incorrecte", "01-01-1900", exoEtga.getDateEmbauche());
+		Assert.assertEquals("date incorrecte", "01-01-1980", exoEtga.getDateEmbauche());
 	}
 
 	@Test
