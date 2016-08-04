@@ -5,14 +5,61 @@ import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 
 public class MainFlux {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		MainFlux mainFlux = new MainFlux();
-		mainFlux.init();
+		//mainFlux.init();
+		mainFlux.initEcriture();
+		mainFlux.initLecture();
+	}
+
+	public void initLecture() {
+		File file = new File("./src/com/formation/etga/data/texte.txt");
+		BufferedReader bIn = null;
+		try {
+			bIn = new BufferedReader(new FileReader(file));
+			String line = bIn.readLine();
+			while (line != null) {
+				System.out.println(line);
+				line = bIn.readLine();
+			}
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				bIn.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	public void initEcriture() throws Exception {
+		File file = new File("./src/com/formation/jeci/data/texte.txt");
+		PrintWriter out = null;
+		try {
+			System.out.println(file.getCanonicalPath());
+			out = new PrintWriter(file);
+			out.println("Bonjour tout le monde.");
+			out.println("ceci doit apparaitre dans le fichier");
+			out.flush();
+			out.print("Suite de la phrase");
+			out.print("Autre suite de la phrase");
+		} catch (IOException e) {
+			System.out.println("recommencer le traitement");
+		} finally {
+			out.close();
+		}
 	}
 
 	public void init() {
