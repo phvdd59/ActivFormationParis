@@ -19,17 +19,17 @@ public class MainFlux {
 	private void initImage() {
 		File fileIn = new File("./src/com/formation/phva/data/image.bmp");
 		File fileOut = new File("./src/com/formation/joca/data/image.bmp");
-		FileInputStream fileInputStream = null;
-		FileOutputStream fileOutputStream = null;
+		FileInputStream fluxIn = null;
+		FileOutputStream fluxOut = null;
 		int readUnByte = 0;
 
 		try {
-			fileInputStream = new FileInputStream(fileIn);
-			fileOutputStream = new FileOutputStream(fileOut);
-			readUnByte = fileInputStream.read();
+			fluxIn = new FileInputStream(fileIn);
+			fluxOut = new FileOutputStream(fileOut);
+			readUnByte = fluxIn.read();
 			while (readUnByte != -1) {
-				fileOutputStream.write(readUnByte);
-				readUnByte = fileInputStream.read();
+				fluxOut.write(readUnByte);
+				readUnByte = fluxIn.read();
 			}
 
 		} catch (FileNotFoundException e) {
@@ -37,6 +37,13 @@ public class MainFlux {
 		} catch (IOException e) {
 			e.printStackTrace();
 
+		} finally {
+			try {
+				fluxIn.close();
+				fluxOut.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 
