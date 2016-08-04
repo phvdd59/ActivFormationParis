@@ -37,6 +37,11 @@ public class ExoAlgo4 implements com.formation.phva.exo.InterAlgo4 {
 		}
 
 		char[][] tableauFini = new char[height][width];
+		for (int i = 0; i < height; i++) {
+			for (int j = 0; j < width; j++) {
+				tableauFini[i][j] = ' ';
+			}
+		}
 
 		char[] nomChar;
 		int x;
@@ -62,7 +67,7 @@ public class ExoAlgo4 implements com.formation.phva.exo.InterAlgo4 {
 					throw new CruciDebordeException(lst.get(i));
 				}
 				try {
-					if (tableauFini[y][x] != nomChar[j] && tableauFini[y][x] != 0) {
+					if (tableauFini[y][x] != nomChar[j] && tableauFini[y][x] != ' ') {
 						//croisement, on continue mais l'ancienne valeur est bonne
 						throw new CruciCroisementException(lst.get(i), j);
 					}

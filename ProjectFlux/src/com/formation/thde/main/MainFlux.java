@@ -5,6 +5,7 @@ import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -21,9 +22,11 @@ public class MainFlux {
 	}
 
 	public void initLecture() {
-		File file = new File("./src/com/formation/etga/data/texte.txt");
+		File file = new File("./src/com/formation/phva/data/texte.txt");
 		BufferedReader bIn = null;
+		InputStreamReader inputStreamReader =null;
 		try {
+		inputStreamReader = new InputStreamReader(new FileInputStream(file), "UTF-8");
 			bIn = new BufferedReader(new FileReader(file));
 			String line = bIn.readLine();
 			while (line != null) {
