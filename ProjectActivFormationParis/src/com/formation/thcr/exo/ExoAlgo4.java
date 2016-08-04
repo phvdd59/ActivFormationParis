@@ -30,29 +30,26 @@ public class ExoAlgo4 implements com.formation.phva.exo.InterAlgo4 {
 	 */
 	@Override
 	public char[][] solution(int width, int height, ArrayList<Terme> lst) throws CruciException {
-		char[][] sol = new char[width][height];
-
-		for (int i = 0; i < sol.length; i++) {
-			for (int j = 0; j < sol[0].length; j++) {
-				sol[i][j] = ' ';
-			}
-		}
-
-		for (int i = 0; i < lst.size(); i++) {
-			if (lst.get(i).isSens() == Terme.VERTICAL) {
-				if (lst.get(i).getNom().length() > height) {
-					throw new CruciHeightException();
-				}
-			} else if (lst.get(i).isSens() == Terme.HORIZONTAL) {
-				if (lst.get(i).getNom().length() > width) {
-					throw new CruciWidthException();
-				}
-			}
-		}
-
-		//Verification null
-
+		char[][] sol = null;
 		if (lst != null) {
+			sol = new char[width][height];
+			for (int i = 0; i < sol.length; i++) {
+				for (int j = 0; j < sol[0].length; j++) {
+					sol[i][j] = ' ';
+				}
+			}
+
+			for (int i = 0; i < lst.size(); i++) {
+				if (lst.get(i).isSens() == Terme.VERTICAL) {
+					if (lst.get(i).getNom().length() > height) {
+						throw new CruciHeightException();
+					}
+				} else if (lst.get(i).isSens() == Terme.HORIZONTAL) {
+					if (lst.get(i).getNom().length() > width) {
+						throw new CruciWidthException();
+					}
+				}
+			}
 
 			for (int i = 0; i < lst.size(); i++) {
 				//				System.out.println(lst.get(i).toString());
@@ -129,7 +126,6 @@ public class ExoAlgo4 implements com.formation.phva.exo.InterAlgo4 {
 				}
 			}
 		} else {
-			sol = null;
 			throw new CruciNullException();
 		}
 		return sol;
