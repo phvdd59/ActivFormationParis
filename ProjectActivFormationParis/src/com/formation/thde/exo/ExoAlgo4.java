@@ -63,7 +63,7 @@ public class ExoAlgo4 implements com.formation.phva.exo.InterAlgo4 {
 				}
 				try {
 					if (tableauFini[y][x] != nomChar[j] && tableauFini[y][x] != 0) {
-						//croisement, on continue mais l'ancienne est bonne
+						//croisement, on continue mais l'ancienne valeur est bonne
 						throw new CruciCroisementException(lst.get(i), j);
 					}
 					tableauFini[y][x] = nomChar[j];
