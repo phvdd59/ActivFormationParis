@@ -38,7 +38,7 @@ public class ExoAlgo4 implements com.formation.phva.exo.InterAlgo4 {
 				System.out.println(lst.get(i).toString());
 				if (lst.get(i).isSens() == Terme.HORIZONTAL) {
 					int verifDepassement = (int) lst.get(i).getPos().getX() + lst.get(i).getNom().length();
-					if (verifDepassement >= width) {
+					if (verifDepassement > width) {
 						throw new CruciWidthException();
 					}
 					for (int j = 0; j < lst.get(i).getNom().length(); j++) {
@@ -46,7 +46,7 @@ public class ExoAlgo4 implements com.formation.phva.exo.InterAlgo4 {
 					}
 				} else {
 					int verifDepassement = (int) lst.get(i).getPos().getY() + lst.get(i).getNom().length();
-					if (verifDepassement >= height) {
+					if (verifDepassement > height) {
 						throw new CruciHeightException();
 					}
 					for (int j = 0; j < lst.get(i).getNom().length(); j++) {
