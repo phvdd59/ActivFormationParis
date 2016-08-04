@@ -66,12 +66,11 @@ public class ExoAlgo4 implements com.formation.phva.exo.InterAlgo4 {
 						//croisement, on continue mais l'ancienne est bonne
 						throw new CruciCroisementException(lst.get(i), j);
 					}
+					tableauFini[y][x] = nomChar[j];
 				} catch (CruciCroisementException e) {
 					System.out.println(e.getMessage());
 					System.out.println(e.getStackTrace());
 				} finally {
-					tableauFini[y][x] = nomChar[j];
-
 					if (sens == true) {
 						y++;
 					} else {
