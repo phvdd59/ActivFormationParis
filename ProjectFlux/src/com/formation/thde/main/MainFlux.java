@@ -50,7 +50,7 @@ public class MainFlux {
 		try {
 			System.out.println(file.getCanonicalPath());
 			out = new PrintWriter(file);
-			out.println("Bonjour tout le monde.");
+			out.println("Bonjour tout le monde");
 			out.println("ceci doit apparaitre dans le fichier");
 			out.flush();
 			out.print("(ノಠ益ಠ)ノ彡┻━┻");
