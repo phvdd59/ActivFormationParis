@@ -33,7 +33,7 @@ public class MainActiveFormationParisJoca {
 		Terme terme3 = new Terme("asci", new Point(2, 0), true);
 		Terme terme4 = new Terme("corp", new Point(0, 0), true);
 		Terme terme5 = new Terme("tete", new Point(3, 0), true);
-		Terme terme6 = new Terme("ect", new Point(1, 2), false);
+		Terme terme6 = new Terme("eMt", new Point(1, 2), false);
 
 		ArrayList<Terme> lst = new ArrayList<Terme>();
 		lst.add(terme1);
