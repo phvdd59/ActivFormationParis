@@ -13,7 +13,7 @@ public class MainFlux {
 	public static void main(String[] args) throws Exception {
 		MainFlux m = new MainFlux();
 		// m.init();
-		// m.initEcriture();
+		 m.initEcriture();
 		m.initLecture();
 
 	}
@@ -44,7 +44,7 @@ public class MainFlux {
 	}
 
 	private void initEcriture() throws Exception {
-		File file = new File("./src/com/formation/etga/data/texte.txt");
+		File file = new File("./src/com/formation/jeci/data/texte.txt");
 		PrintWriter out = null;
 		try {
 			System.out.println(file.getCanonicalPath());
