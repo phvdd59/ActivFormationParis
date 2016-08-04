@@ -48,10 +48,9 @@ public class ExoAlgo4 implements com.formation.phva.exo.InterAlgo4 {
 					if (lst.get(j).isSens() == Terme.VERTICAL) {
 						for (int i = 0; i < motEpele.length; i++) {
 							try {
-								if (motEpele[i] + x > tableau.length) {
+								if (i + x > tableau.length) {
 									throw new CruciDebordeException();
-									// ajouter infos
-								} else if () {
+								} else if (tableau[x][y]>'a' && tableau[x][y]<'z') {
 									throw new CruciCroisementException();
 								} else {
 									tableau[x][y] = motEpele[i];
@@ -69,10 +68,9 @@ public class ExoAlgo4 implements com.formation.phva.exo.InterAlgo4 {
 					} else {
 						for (int i = 0; i < motEpele.length; i++) {
 							try {
-								if (motEpele[i] + y > tableau.length) {
+								if (i + y > tableau.length) {
 									throw new CruciDebordeException();
-									// ajouter infos
-								} else if () {
+								} else if (tableau[x][y]>'a' && tableau[x][y]<'z') {
 									throw new CruciCroisementException();
 								} else {
 									tableau[x][y] = motEpele[i];
