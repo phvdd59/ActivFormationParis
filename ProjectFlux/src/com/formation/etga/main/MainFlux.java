@@ -46,7 +46,7 @@ public class MainFlux {
 		try {
 			System.out.println(file.getCanonicalPath());
 			out = new PrintWriter(file);
-			out.println("Bonjour tout le monde.");
+			out.println("Bonjour thomas.");
 			out.println("Ceci doit apparaitre dans le fichier");
 			out.flush(); // transmission du flux sur le périph correspondant pour ne pas bloquer le programme
 			out.print("Suite de la phrase");
