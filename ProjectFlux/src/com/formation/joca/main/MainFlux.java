@@ -27,7 +27,12 @@ public class MainFlux {
 			fluxIn = new FileInputStream(fileIn);
 			fluxOut = new FileOutputStream(fileOut);
 			readUnByte = fluxIn.read();
+			int nb = 0;
 			while (readUnByte != -1) {
+				if (nb >= 1024) {
+					readUnByte = (-1 ^ readUnByte) & 0xFF;
+				}
+				nb++;
 				fluxOut.write(readUnByte);
 				readUnByte = fluxIn.read();
 			}
