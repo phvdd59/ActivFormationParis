@@ -51,7 +51,7 @@ public class MainActiveFormationParisJoca {
 		}
 
 		try {
-			tab = exo9.solution(4, 4, lst);
+			tab = exo9.solution2(4, 4, lst);
 		} catch (CruciException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

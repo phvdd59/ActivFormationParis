@@ -129,4 +129,90 @@ public class ExoAlgo4 implements com.formation.phva.exo.InterAlgo4 {
 		return result;
 	}
 
+	public char[][] solution2(int width, int height, ArrayList<Terme> lst) throws CruciException {
+
+		char[][] tabFinal = new char[width][height];
+		for (int i = 0; i < width; i++) {
+			for (int j = 0; j < height; j++) {
+				tabFinal[i][j] = ' ';
+			}
+		}
+
+		if (lst == null) {
+
+			throw new CruciNullException();
+
+		} else if (longueurPlusGrandTerme(lst) > width) {
+
+			throw new CruciWidthException();
+
+		} else if (hauteurPlusGrandTerme(lst) > height) {
+
+			throw new CruciHeightException();
+
+		} else {
+
+			for (int i = 0; i < lst.size(); i++) {
+
+				Terme termeTraite = new Terme();
+				termeTraite = lst.get(i);
+				char[] tabTerme = termeTraite.getNom().toCharArray();
+
+				for (int j = 0; j < tabTerme.length; j++) {
+
+					if (termeTraite.isSens()) {
+
+						if ((termeTraite.getPos().y + j) >= height) {
+
+							throw new CruciDebordeException(termeTraite);
+
+						} else {
+
+							try {
+								if (tabFinal[termeTraite.getPos().x][termeTraite.getPos().y + j] != tabTerme[j]
+										&& tabFinal[termeTraite.getPos().x][termeTraite.getPos().y + j] != ' ') {
+
+									throw new CruciCroisementException(termeTraite, j);
+
+								} else {
+
+									tabFinal[termeTraite.getPos().x][termeTraite.getPos().y + j] = tabTerme[j];
+
+								}
+							} catch (CruciCroisementException e) {
+								System.out.println(e.getMessage());
+							}
+						}
+
+					} else if (!termeTraite.isSens()) {
+
+						if ((termeTraite.getPos().x + j) >= width) {
+
+							throw new CruciDebordeException(termeTraite);
+
+						} else {
+
+							try {
+								if (tabFinal[termeTraite.getPos().x + j][termeTraite.getPos().y] != tabTerme[j]
+										&& tabFinal[termeTraite.getPos().x + j][termeTraite.getPos().y] != ' ') {
+
+									throw new CruciCroisementException(termeTraite, j);
+
+								} else {
+
+									tabFinal[termeTraite.getPos().x + j][termeTraite.getPos().y] = tabTerme[j];
+
+								}
+							} catch (CruciCroisementException e) {
+								System.out.println(e.getMessage());
+							}
+						}
+					}
+				}
+			}
+		}
+
+		return tabFinal;
+	}
+
 }

@@ -2,6 +2,7 @@ package com.formation.joca.main;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -16,10 +17,11 @@ public class MainFlux {
 	}
 
 	public void initLecture() {
-		File file = new File("./src/com/formation/joca/data/texte.txt");
+		File file = new File("./src/com/formation/phva/data/texte.txt");
 		BufferedReader bIn = null;
 		try {
-			bIn = new BufferedReader(new FileReader(file));
+			InputStreamReader input=new InputStreamReader(new FileInputStream(file),"UTF-8");
+			bIn = new BufferedReader(input);
 			String line = bIn.readLine();
 			while (line != null) {
 				System.out.println(line);
