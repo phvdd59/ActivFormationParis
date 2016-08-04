@@ -13,7 +13,7 @@ public class MainFlux {
 	public static void main(String[] args) throws Exception {
 		MainFlux m = new MainFlux();
 		// m.init();
-		m.initEcriture();
+		// m.initEcriture();
 		m.initLecture();
 
 	}
@@ -24,8 +24,11 @@ public class MainFlux {
 		BufferedReader bIn = null;
 		try {
 			bIn = new BufferedReader(new FileReader(file));
-			String line = bIn.readLine();
-
+			String ligne = bIn.readLine();
+			while (ligne != null) {
+				System.out.println(ligne);
+				ligne = bIn.readLine();
+			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e1) {
@@ -49,7 +52,7 @@ public class MainFlux {
 			out.println("bonjour tout monde.");
 			out.println("♥ceci doit apparaitre dans le fichier♥");
 			out.flush();
-			out.println("Suite de la phrase");
+			out.println("Suite de la phrase: thomas est un tocard");
 		} catch (IOException e) {
 			System.out.println("recommencer le traitement");
 		} finally {
