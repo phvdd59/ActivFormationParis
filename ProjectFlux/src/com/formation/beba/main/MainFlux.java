@@ -4,13 +4,32 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.util.Arrays;
 
 public class MainFlux {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		MainFlux mainFlux = new MainFlux();
-		mainFlux.init();
+		mainFlux.initEcriture();
+	}
+
+	public void initEcriture() throws Exception {
+		File file = new File("./src/com/formation/beba/data/texte.txt");
+		PrintWriter out = null;
+		try {
+			System.out.println(file.getCanonicalPath());
+			out = new PrintWriter(file);
+			out.println("Bonjour tout le monde ");
+			out.println("ceci doit apparaitre dans le fichiers!");
+			out.flush();
+			out.print("Suite de la phrase");
+		} catch (IOException e) {
+			System.out.println("recomencer le traitement");
+		} finally {
+			out.close();
+		}
+
 	}
 
 	public void init() {
