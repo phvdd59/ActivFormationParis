@@ -1,15 +1,13 @@
 package com.formation.joca.main;
 
-import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-
-import javax.imageio.ImageIO;
 
 public class MainFlux {
 
@@ -19,13 +17,27 @@ public class MainFlux {
 	}
 
 	private void initImage() {
-		BufferedImage image = null;
+		File fileIn = new File("./src/com/formation/phva/data/image.bmp");
+		File fileOut = new File("./src/com/formation/joca/data/image.bmp");
+		FileInputStream fileInputStream = null;
+		FileOutputStream fileOutputStream = null;
+		int readUnByte = 0;
+
 		try {
-			image = ImageIO.read(new File("./src/com/formation/phva/data/image.bmp"));
+			fileInputStream = new FileInputStream(fileIn);
+			fileOutputStream = new FileOutputStream(fileOut);
+			readUnByte = fileInputStream.read();
+			while (readUnByte != -1) {
+				fileOutputStream.write(readUnByte);
+				readUnByte = fileInputStream.read();
+			}
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
+
 		}
-		System.out.println(image);
 	}
 
 	public void initLecture() {
