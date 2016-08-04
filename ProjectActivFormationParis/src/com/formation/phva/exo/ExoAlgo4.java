@@ -15,8 +15,6 @@ public class ExoAlgo4 implements com.formation.phva.exo.InterAlgo4 {
 	 * ma methode solution doit intégrer une liste de terme sous forme 
 	 * d'un tableau à deux dimensions 
 	 * 
-	 * les cas annormaux seront traité en grande partie sur la base des 
-	 * exeption cruciExeption.
 	 * 
 	 * example :
 	 * 
@@ -32,7 +30,10 @@ public class ExoAlgo4 implements com.formation.phva.exo.InterAlgo4 {
      * "DES VELA"
      * "ET METAL"
      * "REPU ESE"
-     *  
+	 *
+ 	 * les cas annormaux seront traité en grande partie sur la base des 
+	 * exeption cruciExeption.
+	 *  
 	 */
 	@Override
 	public char[][] solution(int width, int height, ArrayList<Terme> lst) throws CruciException {
