@@ -22,6 +22,7 @@ public class MainExoTab2DimTab {
 		ExoTableau2 exoTab2D =new ExoTableau2();
 		int tabF[]={1,7,8,2,4,6};
 		int d=3;
+		
 		System.out.println(exoTab2D.changerDimensionTableau(tabF, d));
 		
 	}
