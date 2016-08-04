@@ -1,5 +1,6 @@
 package com.formation.joca.main;
 
+import java.awt.Point;
 import java.util.ArrayList;
 
 import com.formation.joca.exo.CleDico;
@@ -7,17 +8,53 @@ import com.formation.joca.exo.Dico;
 import com.formation.joca.exo.ExoAlgo1;
 import com.formation.joca.exo.ExoAlgo2;
 import com.formation.joca.exo.ExoAlgo3;
+import com.formation.joca.exo.ExoAlgo4;
 import com.formation.joca.exo.ExoArrayList1;
 import com.formation.joca.exo.ExoSimple;
 import com.formation.joca.exo.ExoTableau1;
 import com.formation.joca.exo.ExoTableau2;
+import com.formation.phva.exception.CruciException;
 import com.formation.phva.exo.Mouvement;
+import com.formation.phva.exo.Terme;
 
 public class MainActiveFormationParisJoca {
 
 	public static void main(String[] arg) {
 		MainActiveFormationParisJoca test = new MainActiveFormationParisJoca();
-		test.init8();
+		test.init9();
+	}
+
+	private void init9() {
+
+		ExoAlgo4 exo9 = new ExoAlgo4();
+
+		Terme terme1 = new Terme("chat", new Point(0, 0), false);
+		Terme terme2 = new Terme("et", new Point(1, 2), true);
+		Terme terme3 = new Terme("asci", new Point(2, 0), true);
+		Terme terme4 = new Terme("corp", new Point(0, 0), true);
+		Terme terme5 = new Terme("tete", new Point(3, 0), true);
+
+		ArrayList<Terme> lst = new ArrayList<Terme>();
+		lst.add(terme1);
+		lst.add(terme2);
+		lst.add(terme3);
+		lst.add(terme4);
+		lst.add(terme5);
+
+		char[][] tab = new char[4][4];
+		try {
+			tab = exo9.solution(4, 4, lst);
+		} catch (CruciException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		for (int i = 0; i < 4; i++) {
+			System.out.println(" ");
+			for (int j = 0; j < 4; j++) {
+				System.out.print(tab[j][i]);
+			}
+		}
 	}
 
 	public void afficherTableau(int[] tab) {
@@ -170,12 +207,11 @@ public class MainActiveFormationParisJoca {
 		// .out.println(mot1.equals(mot3));
 
 		// exo8.ranger(texte);
-		
+
 		System.out.println(exo8.traitementTexte(texte));
 
 		System.out.println(exo8.getListeMot("l", 3));
-		System.out.println(exo8.get(new CleDico("l",3)).get(0).getNb());
-		
-		
+		System.out.println(exo8.get(new CleDico("l", 3)).get(0).getNb());
+
 	}
 }
