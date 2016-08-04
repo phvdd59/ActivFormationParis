@@ -53,7 +53,7 @@ public class MainFlux {
 			out.println("Bonjour tout le monde.");
 			out.println("ceci doit apparaitre dans le fichier");
 			out.flush();
-			out.print("Suite de la phrase");
+			out.print("(ノಠ益ಠ)ノ彡┻━┻");
 			out.print("Autre suite de la phrase");
 		} catch (IOException e) {
 			System.out.println("recommencer le traitement");
