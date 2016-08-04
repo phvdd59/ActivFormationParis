@@ -30,16 +30,15 @@ public class ExoAlgo4 implements com.formation.phva.exo.InterAlgo4 {
 			int posX = lst.get(i).getPos().x;
 			int posY = lst.get(i).getPos().y;
 			if (lst.get(i).isSens() == Terme.HORIZONTAL) {
-				for (int j = posX; j < lst.get(i).getNom().length() + posX; j++) {
+				for (int j = posX; j < posX + lst.get(i).getNom().length(); j++) {
 					tabChar[j][posY] = lst.get(i).getNom().charAt(j - posX);
 				}
 			} else if (lst.get(i).isSens() == Terme.VERTICAL) {
-				for (int j = posY; j < lst.get(i).getNom().length() + posY; j++) {
+				for (int j = posY; j < posY + lst.get(i).getNom().length(); j++) {
 					tabChar[posX][j] = lst.get(i).getNom().charAt(j - posY);
 				}
 			}
 		}
 		return tabChar;
 	}
-
 }
