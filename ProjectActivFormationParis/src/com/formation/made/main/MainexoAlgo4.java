@@ -4,6 +4,7 @@ import java.awt.Point;
 import java.util.ArrayList;
 
 import com.formation.made.exo.ExoAlgo4;
+import com.formation.phva.exception.CruciException;
 import com.formation.phva.exo.Terme;
 
 public class MainexoAlgo4 {
@@ -21,8 +22,12 @@ public class MainexoAlgo4 {
 		ArrayList<Terme> lstTerme = new ArrayList<Terme>();
 		lstTerme.add(terme);
 		lstTerme.add(terme2);
-		exoAlgo4.solution(7, 8, lstTerme);
-		System.out.println("hello world");
+		try {
+			exoAlgo4.solution(7, 8, lstTerme);
+		} catch (CruciException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 
