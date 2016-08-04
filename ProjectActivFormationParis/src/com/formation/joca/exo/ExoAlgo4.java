@@ -3,6 +3,7 @@ package com.formation.joca.exo;
 import java.awt.Point;
 import java.util.ArrayList;
 
+import com.formation.phva.exception.CruciDebordeException;
 import com.formation.phva.exception.CruciException;
 import com.formation.phva.exception.CruciHeightException;
 import com.formation.phva.exception.CruciNullException;
@@ -57,9 +58,17 @@ public class ExoAlgo4 implements com.formation.phva.exo.InterAlgo4 {
 				char[] tabTerme = termeTraite.getNom().toCharArray();
 				for (int j = 0; j < tabTerme.length; j++) {
 					if (termeTraite.isSens()) {
-						tabFinal[termeTraite.getPos().x][termeTraite.getPos().y + j] = tabTerme[j];
+						if ((termeTraite.getPos().y + j) >= height) {
+							throw new CruciDebordeException(termeTraite);
+						} else {
+							tabFinal[termeTraite.getPos().x][termeTraite.getPos().y + j] = tabTerme[j];
+						}
 					} else if (!termeTraite.isSens()) {
-						tabFinal[termeTraite.getPos().x + j][termeTraite.getPos().y] = tabTerme[j];
+						if ((termeTraite.getPos().x + j) >= width) {
+							throw new CruciDebordeException(termeTraite);
+						} else {
+							tabFinal[termeTraite.getPos().x + j][termeTraite.getPos().y] = tabTerme[j];
+						}
 					}
 
 				}
