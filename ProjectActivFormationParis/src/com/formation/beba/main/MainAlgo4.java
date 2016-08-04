@@ -2,10 +2,8 @@ package com.formation.beba.main;
 
 import java.awt.Point;
 import java.util.ArrayList;
-import java.util.Arrays;
 
-import com.formation.beba.exo.ExoAlgo4;
-import com.formation.phva.exception.CruciException;
+import com.formation.beba.exo.ExoAlgo4Bis;
 import com.formation.phva.exo.Terme;
 
 public class MainAlgo4 {
@@ -18,16 +16,14 @@ public class MainAlgo4 {
 
 	private void init() {
 		Point pos1 = new Point(2, 2);
-		Terme terme = new Terme("nom", pos1, false);
+		Terme terme = new Terme("oooo", pos1, false);
 		ArrayList<Terme> lstTerme = new ArrayList<Terme>();
-		ExoAlgo4 exo = new ExoAlgo4();
+		ExoAlgo4Bis exo = new ExoAlgo4Bis();
 		lstTerme.add(terme);
-		try {
-			exo.solution(8, 8, lstTerme);
-		} catch (CruciException e) {
-			e.printStackTrace();
-		}
-		System.out.println(exo);
+		Point pos2 = new Point(3, 1);
+		Terme terme2 = new Terme("nnnn", pos2, true);
+		lstTerme.add(terme2);
+		exo.solution(8, 8, lstTerme);
 
 	}
 
