@@ -22,7 +22,8 @@ public class ExoAlgo4 implements com.formation.phva.exo.InterAlgo4 {
 	 *
 	 * les cas annormaux seront traité en grande partie sur la base des exeption
 	 * cruciExeption.
-	 * @throws CruciNullException 
+	 * 
+	 * @throws CruciNullException
 	 * 
 	 */
 	@Override
@@ -30,6 +31,7 @@ public class ExoAlgo4 implements com.formation.phva.exo.InterAlgo4 {
 		char[][] sol = new char[width][height];
 
 		//Verification null
+
 		if (lst != null) {
 
 			for (int i = 0; i < lst.size(); i++) {
