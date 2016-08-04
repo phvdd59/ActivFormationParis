@@ -58,6 +58,12 @@ public class ExoIssaTest {
 		Assert.assertEquals(null, exoIssa.getAdressMail());
 		Assert.assertEquals("+33661806482", exoIssa.getTel());
 	}
+	@Test
+	public void testSetCoordonneeMailsanspointcom(){
+		exoIssa.setCoordonnee("monadresse@fournisseurco", "+33661806482");
+		Assert.assertEquals(null, exoIssa.getAdressMail());
+		Assert.assertEquals("+33661806482", exoIssa.getTel());
+	}
 	
 	@Test
 	public void testSetCoordonneeTelSansPlus(){
@@ -70,7 +76,6 @@ public class ExoIssaTest {
 		Assert.assertEquals("monadresse@fournisseur.com", exoIssa.getAdressMail());
 		Assert.assertEquals(null, exoIssa.getTel());
 	}
-	
 	
 
 	@Test
