@@ -31,6 +31,12 @@ public class ExoMade {
 			this.adresseMail = adresseMail;
 		}
 		if (tel.length() == 12 && tel.startsWith("+3")) {
+			String numero = tel.substring(1);
+			for (char c : numero.toCharArray()) {
+				if (!Character.isDigit(c)) {
+					break;
+				}
+			}
 			this.tel = tel;
 		}
 	}
@@ -45,10 +51,13 @@ public class ExoMade {
 		if (mdpCache == null) {
 			this.mdp = null;
 		}
-		boolean aumoinsuninteger = true;
-		char[] tabchar = mdpCache.toCharArray();
-		for (int i = 0; i < tabchar.length; i++) {
 
+		char[] tabchar = mdpCache.toCharArray();
+
+		for (int i = 0; i < tabchar.length; i++) {
+			if (Character.isDigit(tabchar[i])) {
+				break;
+			}
 		}
 
 		if (!mdpCache.toLowerCase().equals(mdpCache) || !mdpCache.toUpperCase().equals(mdpCache)) {
