@@ -1,0 +1,4 @@
+Bonjour tout le monde. 
+Ceci doit apparaitre dans le fichier. 
+Suite de la phrase
+Salut Isma :)
