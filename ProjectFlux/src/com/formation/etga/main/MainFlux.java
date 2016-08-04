@@ -13,20 +13,20 @@ public class MainFlux {
 	public static void main(String[] args) {
 		MainFlux m = new MainFlux();
 		//		m.init();
-		//		m.initEcriture();
-		m. initLecture();
+		m.initEcriture();
+		m.initLecture();
 	}
 
 	public void initLecture() {
 		File file = new File("./src/com/formation/thde/data/texte.txt");
-		BufferedReader bIn = null; 
+		BufferedReader bIn = null;
 		try {
 			bIn = new BufferedReader(new FileReader(file));
 			String line = bIn.readLine();
 			while (line != null) {
 				System.out.println(line);
 				line = bIn.readLine();
-			}	
+			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -39,7 +39,7 @@ public class MainFlux {
 			}
 		}
 	}
-	
+
 	public void initEcriture() {
 		File file = new File("./src/com/formation/etga/data/texte.txt");
 		PrintWriter out = null; //on declare les variables en dehors du try et on les instancies.

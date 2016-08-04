@@ -2,15 +2,64 @@ package com.formation.ambr.main;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 
 public class MainFlux {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		MainFlux mainFlux = new MainFlux();
-		mainFlux.init();
+		mainFlux.initEcriture();
 
+	}
+
+	public void initLecture() {
+		File file = new File("./src/com/formation/ambr/data/texte.txt");
+		BufferedReader bIn = null; // déclaration
+		try {
+			bIn = new BufferedReader(new FileReader(file)); // instanciation
+			String line = bIn.readLine();
+			while (line != null) {
+				System.out.println(line);
+				line = bIn.readLine();
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				bIn.close(); // on l'a surround par un try-catch, au cas où ça planterait
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+
+	public void initEcriture() throws IOException { // indique que cette exception est suffisamment grave pour faire planter le programme
+		File file = new File("./src/com/formation/ambr/data/texte.txt");
+		PrintWriter out = null;
+		try {
+			System.out.println(file.getCanonicalPath());
+			out = new PrintWriter(file);
+			out.println("bonjour tout le monde.");
+			out.println("ceci doit apparaitre dans le fichier.");
+			out.flush(); // flush permet de sauvegarder sur le périphérique spécifié (chemin de fichier spécifié dans File) avec garantie de cette sauvegarde. Ici c'est sur C:
+			out.print("suite de la phrase");
+			out.print("autre suite de la phrase");
+			out.print("autre suite de la phrase 2");
+			out.print("autre suite de la phrase 3");
+		} catch (IOException e) {
+			System.out.println("recommencer le traitement");
+		} finally {
+			out.close();
+		}
 	}
 
 	public void init() {
