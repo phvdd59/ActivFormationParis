@@ -83,6 +83,6 @@ public class Terme {
 
 	@Override
 	public String toString() {
-		return nom + " (" + pos.y + "," + pos.x + "," + ((sens) ? "H" : "V") + ")";
+		return nom + " (" + pos.y + "," + pos.x + "," + ((sens == HORIZONTAL) ? "H" : "V") + ")";
 	}
 }
