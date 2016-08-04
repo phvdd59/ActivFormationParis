@@ -45,7 +45,7 @@ public class MainFlux {
 	}
 
 	public void initEcriture() throws Exception {
-		File file = new File("./src/com/formation/jeci/data/texte.txt");
+		File file = new File("./src/com/formation/thde/data/texte.txt");
 		PrintWriter out = null;
 		try {
 			System.out.println(file.getCanonicalPath());
