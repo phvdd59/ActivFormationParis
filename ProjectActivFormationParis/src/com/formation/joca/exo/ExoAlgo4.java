@@ -27,8 +27,8 @@ public class ExoAlgo4 implements com.formation.phva.exo.InterAlgo4 {
 	 * cruciExeption.
 	 * 
 	 */
-	@Override
-	public char[][] solution(int width, int height, ArrayList<Terme> lst) throws CruciException {
+
+	public char[][] solution2(int width, int height, ArrayList<Terme> lst) throws CruciException {
 
 		char[][] tabFinal = new char[width][height];
 		for (int i = 0; i < width; i++) {
@@ -129,7 +129,8 @@ public class ExoAlgo4 implements com.formation.phva.exo.InterAlgo4 {
 		return result;
 	}
 
-	public char[][] solution2(int width, int height, ArrayList<Terme> lst) throws CruciException {
+	@Override
+	public char[][] solution(int width, int height, ArrayList<Terme> lst) throws CruciException {
 
 		char[][] tabFinal = new char[width][height];
 		for (int i = 0; i < width; i++) {
