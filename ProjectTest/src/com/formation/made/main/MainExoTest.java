@@ -1,5 +1,8 @@
 package com.formation.made.main;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import com.formation.made.metier.ExoMade;
 
 public class MainExoTest {
@@ -15,9 +18,14 @@ public class MainExoTest {
 		String mdp = "Abc123456";
 		exoMade.setMdpCache(mdp);
 		System.out.println(exoMade.getMdp());
-		exoMade.setCoordonnees("monadresse@fournisseur.com", "+336521202925");
-		System.out.println(exoMade.getAdresseMail().equals("monadresse@fournisseur.com"));
+		exoMade.setCoordonnees("@.com", "+33365212090");
+		System.out.println(exoMade.getAdresseMail());
 		System.out.println(exoMade.getTel());
+
+		Pattern pattern = Pattern.compile("\\d");
+		Pattern pattern2 = Pattern.compile("\\W");
+		Matcher matcher = pattern2.matcher("aaaaaaaaa");
+		System.out.println(matcher.find());
 	}
 
 }
