@@ -2,11 +2,11 @@ package com.formation.thcr.exo;
 
 import java.util.ArrayList;
 
-import com.formation.phva.exo.Terme;
 import com.formation.phva.exception.CruciException;
-import com.formation.thcr.exception.CruciHeightException;
-import com.formation.thcr.exception.CruciNullException;
-import com.formation.thcr.exception.CruciWidthException;
+import com.formation.phva.exception.CruciHeightException;
+import com.formation.phva.exception.CruciNullException;
+import com.formation.phva.exception.CruciWidthException;
+import com.formation.phva.exo.Terme;
 
 public class ExoAlgo4 implements com.formation.phva.exo.InterAlgo4 {
 
@@ -23,12 +23,15 @@ public class ExoAlgo4 implements com.formation.phva.exo.InterAlgo4 {
 	 * les cas annormaux seront traité en grande partie sur la base des exeption
 	 * cruciExeption.
 	 * 
+	 * @throws CruciNullException
+	 * 
 	 */
 	@Override
 	public char[][] solution(int width, int height, ArrayList<Terme> lst) throws CruciException {
 		char[][] sol = new char[width][height];
 
 		//Verification null
+
 		if (lst != null) {
 
 			for (int i = 0; i < lst.size(); i++) {
@@ -36,7 +39,7 @@ public class ExoAlgo4 implements com.formation.phva.exo.InterAlgo4 {
 				if (lst.get(i).isSens() == Terme.HORIZONTAL) {
 					int verifDepassement = (int) lst.get(i).getPos().getX() + lst.get(i).getNom().length();
 					if (verifDepassement >= width) {
-						new CruciWidthException();
+						throw new CruciWidthException();
 					}
 					for (int j = 0; j < lst.get(i).getNom().length(); j++) {
 						sol[(int) lst.get(i).getPos().getX() + j][(int) lst.get(i).getPos().getY()] = lst.get(i).getNom().charAt(j);
@@ -44,7 +47,7 @@ public class ExoAlgo4 implements com.formation.phva.exo.InterAlgo4 {
 				} else {
 					int verifDepassement = (int) lst.get(i).getPos().getY() + lst.get(i).getNom().length();
 					if (verifDepassement >= height) {
-						new CruciHeightException();
+						throw new CruciHeightException();
 					}
 					for (int j = 0; j < lst.get(i).getNom().length(); j++) {
 						sol[(int) lst.get(i).getPos().getX()][(int) lst.get(i).getPos().getY() + j] = lst.get(i).getNom().charAt(j);
@@ -53,7 +56,7 @@ public class ExoAlgo4 implements com.formation.phva.exo.InterAlgo4 {
 			}
 		} else {
 			sol = null;
-			new CruciNullException();
+			throw new CruciNullException();
 		}
 		return sol;
 	}
