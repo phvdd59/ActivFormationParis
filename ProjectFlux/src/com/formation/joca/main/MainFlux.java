@@ -1,5 +1,6 @@
 package com.formation.joca.main;
 
+import java.awt.Point;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -9,11 +10,17 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 
+import com.formation.joca.metier.Terme;
+
 public class MainFlux {
 
 	public static void main(String[] args) {
 		MainFlux m = new MainFlux();
-		m.initImage();
+		m.initObject();
+	}
+
+	private void initObject() {
+		Terme terme = new Terme("wagon",new Point(2,9), Terme.HORIZONTAL);
 	}
 
 	private void initImage() {

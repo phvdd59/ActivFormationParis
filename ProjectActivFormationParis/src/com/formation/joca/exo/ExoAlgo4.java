@@ -27,7 +27,7 @@ public class ExoAlgo4 implements com.formation.phva.exo.InterAlgo4 {
 	 * cruciExeption.
 	 * 
 	 */
-
+	/*
 	public char[][] solution2(int width, int height, ArrayList<Terme> lst) throws CruciException {
 
 		char[][] tabFinal = new char[width][height];
@@ -103,7 +103,7 @@ public class ExoAlgo4 implements com.formation.phva.exo.InterAlgo4 {
 		}
 
 		return tabFinal;
-	}
+	}*/
 
 	public int longueurPlusGrandTerme(ArrayList<Terme> lst) {
 		int result = 0;
