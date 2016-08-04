@@ -8,6 +8,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 
 import com.formation.joca.metier.Terme;
@@ -16,11 +18,51 @@ public class MainFlux {
 
 	public static void main(String[] args) {
 		MainFlux m = new MainFlux();
-		m.initObject();
+		m.initLectureObject();
+	}
+
+	private void initLectureObject() {
+
+		File file = new File("./src/com/formation/joca/data/terme1.ser");
+		ObjectInputStream inStream = null;
+
+		try {
+			inStream = new ObjectInputStream(new FileInputStream(file));
+			System.out.println(inStream.readObject());
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				inStream.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
 	private void initObject() {
-		Terme terme = new Terme("wagon",new Point(2,9), Terme.HORIZONTAL);
+		Terme terme = new Terme("wagon", new Point(2, 9), Terme.HORIZONTAL);
+		File file = new File("./src/com/formation/joca/data/terme1.ser");
+		ObjectOutputStream outStream = null;
+
+		try {
+			outStream = new ObjectOutputStream(new FileOutputStream(file));
+			outStream.writeObject("booba");
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				outStream.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
 	private void initImage() {
