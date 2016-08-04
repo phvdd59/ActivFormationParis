@@ -21,6 +21,7 @@ public class MainFlux {
 		File file = new File("./src/com/formation/soka/data/texte.txt");
 		BufferedReader bIn = null;
 		try {
+			
 			bIn = new BufferedReader(new FileReader(file));
 			String line = bIn.readLine(); 
 			while(line!=null){
