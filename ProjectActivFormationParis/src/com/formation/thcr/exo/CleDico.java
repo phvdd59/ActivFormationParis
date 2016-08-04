@@ -37,5 +37,10 @@ public class CleDico implements Comparable<CleDico>{
 		return result;
 	}
 	
+	@Override
+	public String toString() {
+		return "[" + lettre + ", " + lngMot + "]";
+	}
+	
 	
 }

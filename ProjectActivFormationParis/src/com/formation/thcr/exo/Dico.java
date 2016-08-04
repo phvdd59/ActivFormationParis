@@ -1,10 +1,10 @@
 package com.formation.thcr.exo;
 
+import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Map.Entry;
-import java.util.Set;
 import java.util.TreeMap;
+import java.util.regex.Pattern;
 
 import com.formation.phva.exo.InterExoDico1;
 
@@ -13,7 +13,9 @@ public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDi
 	@Override
 	public void ranger(String texte) {
 
-		String tmp = texte.toLowerCase().replaceAll("[^a-z]", " ");
+		String tmp = epuration(texte);
+		
+		System.out.println(tmp);
 
 		String[] tabMots = tmp.split(" ");
 
@@ -29,10 +31,22 @@ public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDi
 		}
 
 		//Creation des cledico
-		for (int j = 1; j <= 26; j++) {
-			for (int i = 'a'; i <= 'z'; i++) {
-				CleDico cleDico = new CleDico(String.valueOf((char) i), j);
-				this.put(cleDico, new ArrayList<Mot>());
+		//		for (int j = 1; j <= 26; j++) {
+		//			for (int i = 'a'; i <= 'z'; i++) {
+		//				CleDico cleDico = new CleDico(String.valueOf((char) i), j);
+		//				this.put(cleDico, new ArrayList<Mot>());
+		//			}
+		//		}
+
+		//Creation cle dico 2
+		for (int i = 0; i < mots.size(); i++) {
+			for (int j = 0; j < mots.get(i).getMot().length(); j++) {
+				char c = mots.get(i).getMot().charAt(j);
+				CleDico cle = new CleDico(String.valueOf(c), mots.get(i).getMot().length());
+				if (this.get(cle) == null) {
+					ArrayList<Mot> lst = new ArrayList<Mot>();
+					this.put(cle, lst);
+				}
 			}
 		}
 
@@ -49,6 +63,7 @@ public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDi
 
 	@Override
 	public ArrayList<String> getListeMot(String lettre, int lngMot) {
+		//Protection
 		ArrayList<String> listString = new ArrayList<String>();
 		ArrayList<Mot> listMot = new ArrayList<Mot>();
 		CleDico cleDico = new CleDico(lettre, lngMot);
@@ -62,22 +77,36 @@ public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDi
 
 	public String epuration(String texte) {
 
-		String tmp = texte.toLowerCase(); // ne rendre que des minuscules
-		//remplacement caractère spéciaux 
-		tmp = tmp.replace("'", " ");
-		tmp = tmp.replace(",", " ");
-		tmp = tmp.replace("é", "e");
-		tmp = tmp.replace("è", "e");
-		tmp = tmp.replace("ê", "e");
-		tmp = tmp.replace("ç", "c");
-		tmp = tmp.replace("à", "a");
-		tmp = tmp.replace("?", " ");
-		tmp = tmp.replace("!", " ");
-		tmp = tmp.replace(".", " ");
-		tmp = tmp.replace("\t", " ");
-		tmp = tmp.replace("\n", " ");
-		tmp = tmp.replace("   ", " ");
-		tmp = tmp.replace("  ", " ");
+		String tmp = "";
+		if (texte != null) {
+			
+			tmp = texte.toLowerCase();
+//			char[] c = tmp.toCharArray();
+//			for (int i = 0; i < c.length; i++) {
+//				if(c[i]>= 'à'&&c[i]<='å'){
+//					c[i] = 'a';
+//				}if()
+//			}
+			tmp = Normalizer.normalize(tmp, Normalizer.Form.NFD).replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
+			tmp = tmp.replaceAll("\\p{Punct}", " ");
+			tmp = tmp.replaceAll("[0-9]", " ");
+			tmp = tmp.replaceAll("\\p{Sc}", " ");
+			tmp = tmp.replaceAll("\\s", " ");
+//			tmp = tmp.replace("'", " ");
+//			tmp = tmp.replace(",", " ");
+//			tmp = tmp.replace("é", "e");
+//			tmp = tmp.replace("è", "e");
+//			tmp = tmp.replace("ê", "e");
+//			tmp = tmp.replace("ç", "c");
+//			tmp = tmp.replace("à", "a");
+//			tmp = tmp.replace("?", " ");
+//			tmp = tmp.replace("!", " ");
+//			tmp = tmp.replace(".", " ");
+//			tmp = tmp.replace("\t", " ");
+//			tmp = tmp.replace("\n", " ");
+//			tmp = tmp.replace("   ", " ");
+//			tmp = tmp.replace("  ", " ");
+		}
 
 		return tmp;
 

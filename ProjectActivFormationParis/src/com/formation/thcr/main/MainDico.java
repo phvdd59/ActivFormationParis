@@ -13,8 +13,7 @@ public class MainDico {
 
 	private void init() {
 
-		String s = "Bonjour, bananes, abricot, melons, origan"
-				+ " JAsmin?, lARd, lard, lard, Loup, lArd, louP, loup.";
+		String s = "banane lard LarD Loup, Loup, lard";
 		//		String s2 = "a aa aaa abb aa aaa b abb abb aaa b bb bbb abb aaba bab bbab";
 		Dico dico = new Dico();
 
@@ -22,8 +21,10 @@ public class MainDico {
 		dico.ranger(s);
 		System.out.println();
 		CleDico cle = new CleDico("l", 4);
+		System.out.println(dico.navigableKeySet());
 		System.out.println(dico.getListeMot(cle.getLettre(), cle.getLngMot()));
-		System.out.println(dico.get(cle));
+		System.out.println(dico);
+		
 
 	}
 
