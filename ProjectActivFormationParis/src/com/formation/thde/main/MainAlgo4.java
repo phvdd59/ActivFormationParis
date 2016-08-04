@@ -13,7 +13,7 @@ public class MainAlgo4 {
 		MainAlgo4 mainAlgo4 = new MainAlgo4();
 		mainAlgo4.init();
 	}
-
+//
 	public void init() {
 		ExoAlgo4 exo = new ExoAlgo4();
 		ArrayList<Terme> lst = new ArrayList<Terme>();
