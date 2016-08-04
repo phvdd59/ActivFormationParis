@@ -36,7 +36,7 @@ public class ExoAlgo4 implements com.formation.phva.exo.InterAlgo4 {
 			}
 
 		}
-		return null;
+		return cruci;
 	}
 
 }
