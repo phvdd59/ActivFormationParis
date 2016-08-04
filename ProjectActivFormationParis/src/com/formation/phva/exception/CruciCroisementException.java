@@ -11,14 +11,15 @@ public class CruciCroisementException extends CruciException {
 		super();
 	}
 
-	public CruciCroisementException(Terme terme,int pos) {
+	public CruciCroisementException(Terme terme, int pos) {
 		super();
 		this.terme = terme;
 	}
 
 	@Override
 	public String getMessage() {
-		return super.getMessage() + "Croisement incorrect : "+terme.toString()+" position : "+pos+" ==> Lettre remplacé.";
+		return super.getMessage() + "Croisement incorrect : " + terme.toString() + " position : " + pos
+				+ " ==> Lettre remplacé.";
 	}
 
 }
