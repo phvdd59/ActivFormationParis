@@ -2,6 +2,8 @@ package com.formation.beba.main;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
@@ -11,7 +13,34 @@ public class MainFlux {
 
 	public static void main(String[] args) throws Exception {
 		MainFlux mainFlux = new MainFlux();
-		mainFlux.initEcriture();
+		mainFlux.initLecture();
+	}
+
+	public void initLecture() throws Exception {
+		File file = new File("./src/com/formation/anfr/data/texte.txt");
+		BufferedReader bIn = null;
+
+		try {
+			System.out.println(file.getCanonicalPath());
+			bIn = new BufferedReader(new FileReader(file));
+			String line = bIn.readLine();
+			while (line != null) {
+				System.out.println(line);
+				line = bIn.readLine();
+
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				bIn.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
 	public void initEcriture() throws Exception {
