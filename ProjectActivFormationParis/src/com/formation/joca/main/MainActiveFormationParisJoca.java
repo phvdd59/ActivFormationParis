@@ -33,6 +33,7 @@ public class MainActiveFormationParisJoca {
 		Terme terme3 = new Terme("asci", new Point(2, 0), true);
 		Terme terme4 = new Terme("corp", new Point(0, 0), true);
 		Terme terme5 = new Terme("tete", new Point(3, 0), true);
+		Terme terme6 = new Terme("ect", new Point(1, 2), false);
 
 		ArrayList<Terme> lst = new ArrayList<Terme>();
 		lst.add(terme1);
@@ -40,6 +41,7 @@ public class MainActiveFormationParisJoca {
 		lst.add(terme3);
 		lst.add(terme4);
 		lst.add(terme5);
+		lst.add(terme6);
 
 		char[][] tab = new char[4][4];
 		for (int i = 0; i < 4; i++) {
