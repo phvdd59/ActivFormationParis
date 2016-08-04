@@ -68,8 +68,6 @@ public class ExoAlgo4 implements com.formation.phva.exo.InterAlgo4 {
 					}
 					tableauFini[y][x] = nomChar[j];
 				} catch (CruciCroisementException e) {
-					System.out.println(e.getMessage());
-					System.out.println(e.getStackTrace());
 				} finally {
 					if (sens == true) {
 						y++;
