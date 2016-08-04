@@ -4,12 +4,32 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 
 public class MainFlux {
 
 	public static void main(String[] args) {
 		MainFlux m = new MainFlux();
-		m.init();
+		m.initEcriture();
+	}
+
+	private void initEcriture() {
+		File file = new File("./src/com/formation/joca/data/texte.txt");
+		PrintWriter out=null;
+		
+		try {
+			System.out.println(file.getCanonicalPath());
+			out = new PrintWriter(file);
+			out.println("bonjour tout le monde");
+			out.println("ceci doit apparaitre dans le fichier");
+			out.flush();
+			out.print("suite de la phrase");
+		} catch (IOException e){
+			System.out.println("recommencer le traitement");
+		} finally {
+			out.close();
+		}
+		
 	}
 
 	private void init() {
