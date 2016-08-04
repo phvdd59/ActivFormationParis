@@ -2,6 +2,7 @@ package com.formation.emma.exo;
 
 import java.util.ArrayList;
 
+import com.formation.phva.exception.CruciCroisementException;
 import com.formation.phva.exception.CruciDebordeException;
 import com.formation.phva.exception.CruciException;
 import com.formation.phva.exception.CruciHeightException;
@@ -42,25 +43,56 @@ public class ExoAlgo4 implements com.formation.phva.exo.InterAlgo4 {
 				for (int j = 0; j < lst.size(); j++) {
 					int x = (int) lst.get(j).getPos().getX();
 					int y = (int) lst.get(j).getPos().getY();
-
 					char[] motEpele = lst.get(j).getNom().trim().toLowerCase().toCharArray();
 
-					if (lst.get(j).isSens() == true) {
+					if (lst.get(j).isSens() == Terme.VERTICAL) {
 						for (int i = 0; i < motEpele.length; i++) {
-							tableau[x][y] = motEpele[i];
-							x++;
+							try {
+								if (motEpele[i] + x > tableau.length) {
+									throw new CruciDebordeException();
+									// ajouter infos
+								} else if () {
+									throw new CruciCroisementException();
+								} else {
+									tableau[x][y] = motEpele[i];
+									x++;
+								}
+							} catch (CruciDebordeException e) {
+
+							} catch (CruciCroisementException e1) {
+
+							} finally {
+
+							}
 						}
+
 					} else {
 						for (int i = 0; i < motEpele.length; i++) {
-							tableau[x][y] = motEpele[i];
-							y++;
+							try {
+								if (motEpele[i] + y > tableau.length) {
+									throw new CruciDebordeException();
+									// ajouter infos
+								} else if () {
+									throw new CruciCroisementException();
+								} else {
+									tableau[x][y] = motEpele[i];
+									y++;
+								}
+							} catch (CruciDebordeException e) {
+
+							} catch (CruciCroisementException e1) {
+
+							} finally {
+
+							}
 						}
+
 					}
 				}
 			}
-
-			return tableau;
 		}
+
+		return tableau;
 
 	}
 }
