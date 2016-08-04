@@ -55,35 +55,50 @@ public class ExoAlgo4 implements com.formation.phva.exo.InterAlgo4 {
 
 				Terme termeTraite = new Terme();
 				termeTraite = lst.get(i);
-
 				char[] tabTerme = termeTraite.getNom().toCharArray();
+
 				for (int j = 0; j < tabTerme.length; j++) {
+
 					if (termeTraite.isSens()) {
+
 						if ((termeTraite.getPos().y + j) >= height) {
+
 							throw new CruciDebordeException(termeTraite);
+
 						} else {
+
 							if (tabFinal[termeTraite.getPos().x][termeTraite.getPos().y + j] != tabTerme[j]
 									&& tabFinal[termeTraite.getPos().x][termeTraite.getPos().y + j] != ' ') {
+
 								throw new CruciCroisementException(termeTraite, j);
+
 							} else {
+
 								tabFinal[termeTraite.getPos().x][termeTraite.getPos().y + j] = tabTerme[j];
+
 							}
 						}
 					} else if (!termeTraite.isSens()) {
+
 						if ((termeTraite.getPos().x + j) >= width) {
+
 							throw new CruciDebordeException(termeTraite);
+
 						} else {
+
 							if (tabFinal[termeTraite.getPos().x + j][termeTraite.getPos().y] != tabTerme[j]
 									&& tabFinal[termeTraite.getPos().x + j][termeTraite.getPos().y] != ' ') {
+
 								throw new CruciCroisementException(termeTraite, j);
+
 							} else {
+
 								tabFinal[termeTraite.getPos().x + j][termeTraite.getPos().y] = tabTerme[j];
+
 							}
 						}
 					}
-
 				}
-
 			}
 		}
 
