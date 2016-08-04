@@ -32,12 +32,12 @@ public class ExoAlgo4 implements com.formation.phva.exo.InterAlgo4 {
 			if (terme.isSens() == false) {
 				for (int j = 0; j < tabCharTerme.length; j++) {
 					tabcruci[intPointy][j] = tabCharTerme[j];
-					System.out.println(tabcruci[intPointy][j]);
+					// System.out.println(tabcruci[intPointy][j]);
 				}
 			} else {
 				for (int j = 0; j < tabCharTerme.length; j++) {
 					tabcruci[j][intPointx] = tabCharTerme[j];
-					System.out.println(tabcruci[j][intPointx]);
+					// System.out.println(tabcruci[j][intPointx]);
 				}
 			}
 		}
