@@ -1,8 +1,13 @@
 package com.formation.joca.metier;
 
 import java.awt.Point;
+import java.io.Serializable;
 
-public class Terme {
+public class Terme implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public static final boolean HORIZONTAL = false;
 	public static final boolean VERTICAL = true;
 
@@ -87,4 +92,6 @@ public class Terme {
 	public String toString() {
 		return nom + " (" + pos.y + "," + pos.x + "," + ((sens == HORIZONTAL) ? "H" : "V") + ")";
 	}
+	
+	
 }

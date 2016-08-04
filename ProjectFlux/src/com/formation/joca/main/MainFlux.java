@@ -18,6 +18,7 @@ public class MainFlux {
 
 	public static void main(String[] args) {
 		MainFlux m = new MainFlux();
+		m.initObject();
 		m.initLectureObject();
 	}
 
@@ -28,13 +29,33 @@ public class MainFlux {
 
 		try {
 			inStream = new ObjectInputStream(new FileInputStream(file));
-			System.out.println(inStream.readObject());
+
+			Object a = inStream.readObject();
+			String sa = (String) a;
+			if (a instanceof String) {
+
+				System.out.println(sa);
+			}
+
+			Object b = inStream.readObject();
+			if (b instanceof String) {
+				String s = (String) b;
+				System.out.println(s);
+			}
+			Object c = inStream.readObject();
+			if (c instanceof Terme) {
+				Terme t=(Terme)c;
+				System.out.println(t.toString());
+			}
+
 		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+
 		} catch (FileNotFoundException e) {
+
 			e.printStackTrace();
+
 		} catch (IOException e) {
-			e.printStackTrace();
+
 		} finally {
 			try {
 				inStream.close();
@@ -52,6 +73,9 @@ public class MainFlux {
 		try {
 			outStream = new ObjectOutputStream(new FileOutputStream(file));
 			outStream.writeObject("booba");
+			outStream.writeObject("joestarr");
+			outStream.writeObject(terme);
+
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
