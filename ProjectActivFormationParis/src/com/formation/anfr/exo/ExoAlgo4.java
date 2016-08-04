@@ -3,7 +3,7 @@ package com.formation.anfr.exo;
 import java.awt.Point;
 import java.util.ArrayList;
 
-import com.formation.anfr.exception.CruciCroisementException;
+import com.formation.phva.exception.CruciCroisementException;
 import com.formation.phva.exception.CruciDebordeException;
 import com.formation.phva.exception.CruciException;
 import com.formation.phva.exception.CruciHeightException;
@@ -38,6 +38,10 @@ public class ExoAlgo4 implements com.formation.phva.exo.InterAlgo4 {
 		if (height <= 0) {
 			throw new CruciHeightException();
 		}
+		if (lst == null) {
+			throw new CruciNullException();
+		}
+
 
 		char[][] soluce = new char[height][width];
 
