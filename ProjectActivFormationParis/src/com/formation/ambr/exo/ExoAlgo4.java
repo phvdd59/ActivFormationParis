@@ -29,7 +29,7 @@ public class ExoAlgo4 implements com.formation.phva.exo.InterAlgo4 {
 
 		ArrayList<Terme> lst1 = new ArrayList<Terme>();
 
-		String txt = new String();
+		String txt = new String("dattiers éreintée comédien");
 		//String txtEpure = Terme.epuration(txt);
 
 		for (int i = 0; i < tab.length; i++) {
