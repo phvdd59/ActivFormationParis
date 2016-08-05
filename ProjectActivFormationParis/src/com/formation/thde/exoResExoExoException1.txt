@@ -1,0 +1,14 @@
+thde:Exception
+
+thde testDebordeX (0/1): KO | exo.solution(10, 10, lst) ne leve pas la bonne exception
+thde testDebordeY (0/1): KO | exo.solution(10, 10, lst) ne leve pas la bonne exception
+thde testWidth (1/1): OK | exo.solution(-10, 10, lst)
+thde testNull (1/1): OK | exo.solution(10, 10, null)
+thde testCroisement (0/2): KO | exo.solution(10, 10, lst)Cruci Debordement du terme : BONJOUR (3,3,V) Incorrect
+thde testHeight (1/1): OK | exo.solution(-10, 10, lst)
+thde testNormal (0/1): KO | exo.solution(10, 12, lst)Cruci Pas de liste de Terme
+thde testDebordeX (0/1): KO | exo.solution(10, 10, lst)
+10
+thde testDebordeY (0/1): KO | exo.solution(10, 10, lst)
+10
+thde NOTE : (3 / 10) = 6 / 20
