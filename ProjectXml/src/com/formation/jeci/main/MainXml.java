@@ -27,20 +27,46 @@ public class MainXml {
 			ArrayList<Terme> lst = new ArrayList<>();
 			while (ligne != null) {
 				if (ligne.contains("<Terme ")) {
-					String nb1 = ligne.substring(ligne.lastIndexOf("x=") + 3, ligne.indexOf("y") - 2);
-					String nb2 = ligne.substring(ligne.lastIndexOf("y=") + 3, ligne.indexOf("s") - 2);
-					int a = Integer.parseInt(nb1);
-					int b = Integer.parseInt(nb2);
+					String chaineString = ligne;
+					while (ligne.contains("</Terme>") == false) {
+						chaineString += bIn.readLine();
+						ligne = chaineString;
 
-					String sens = ligne.substring(ligne.lastIndexOf("s") + 3, ligne.lastIndexOf("'") - 1);
-					boolean yolo;
-					if (sens.contains("H")) {
-						yolo = false;
-					} else {
-						yolo = true;
 					}
-					ligne = bIn.readLine();
-					String nom = ligne;
+					chaineString = chaineString.replace("\t", " ");
+					chaineString = chaineString.replaceAll("\\s+", " ");
+					chaineString = chaineString.replace("= ", "=");
+					chaineString = chaineString.replace(" =", "=");
+					
+					chaineString = chaineString.replace("</Terme>", "");
+					String nom = chaineString.substring(chaineString.indexOf(">")+1);
+					nom.replaceAll(" ", "");
+					String[] tabMot = chaineString.split(" ");
+					int a = 0;
+					int b = 0;
+
+					boolean yolo = true;
+					for (int i = 0; i < tabMot.length; i++) {
+						if (tabMot[i].contains("x=")) {
+							String nb1 = tabMot[i].substring(tabMot[i].lastIndexOf("x=") + 3, tabMot[i].length() - 1);
+							a = Integer.parseInt(nb1);
+
+						}
+						if (tabMot[i].contains("y=")) {
+							String nb2 = tabMot[i].substring(tabMot[i].lastIndexOf("y=") + 3, tabMot[i].length() - 1);
+							b = Integer.parseInt(nb2);
+						}
+						if (tabMot[i].contains("VERTICAL")) {
+							yolo = true;
+
+						}
+						if (tabMot[i].contains("HORIZONTAL")) {
+							yolo = false;
+
+						}
+
+					}
+
 					Terme terme = new Terme(nom, new Point(a, b), yolo);
 
 					lst.add(terme);
@@ -49,7 +75,9 @@ public class MainXml {
 
 			}
 			System.out.println(lst);
-		} catch (FileNotFoundException e) {
+		} catch (
+
+		FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e1) {
 			e1.printStackTrace();
