@@ -56,12 +56,12 @@ public class ExoAlgo4 implements com.formation.phva.exo.InterAlgo4 {
 				if (lst.get(i).isSens() == Terme.HORIZONTAL) {
 					int verifDepassement = (int) lst.get(i).getPos().getX() + lst.get(i).getNom().length();
 					if (verifDepassement > width) {
-							throw new CruciDebordeException(lst.get(i));
+						throw new CruciDebordeException(lst.get(i));
 					} else {
 						for (int j = 0; j < lst.get(i).getNom().length(); j++) {
-							if (sol[(int) lst.get(i).getPos().getX() + j][(int) lst.get(i).getPos().getY()] == ' '
-									|| lst.get(i).getNom().charAt(j) == sol[(int) lst.get(i).getPos().getX() + j][(int) lst.get(i).getPos().getY()]) {
-								sol[(int) lst.get(i).getPos().getX() + j][(int) lst.get(i).getPos().getY()] = lst.get(i).getNom().charAt(j);
+							if (sol[(int) lst.get(i).getPos().getY()][(int) lst.get(i).getPos().getX() + j] == ' '
+									|| lst.get(i).getNom().charAt(j) == sol[(int) lst.get(i).getPos().getY()][(int) lst.get(i).getPos().getX() + j]) {
+								sol[(int) lst.get(i).getPos().getY()][(int) lst.get(i).getPos().getY() + j] = lst.get(i).getNom().charAt(j);
 							} else {
 								try {
 									throw new CruciCroisementException(lst.get(i), j);
@@ -75,12 +75,12 @@ public class ExoAlgo4 implements com.formation.phva.exo.InterAlgo4 {
 				} else if (lst.get(i).isSens() == Terme.VERTICAL) {
 					int verifDepassement = (int) lst.get(i).getPos().getY() + lst.get(i).getNom().length();
 					if (verifDepassement > height) {
-							throw new CruciDebordeException(lst.get(i));
+						throw new CruciDebordeException(lst.get(i));
 					} else {
 						for (int j = 0; j < lst.get(i).getNom().length(); j++) {
-							if (sol[(int) lst.get(i).getPos().getX()][(int) lst.get(i).getPos().getY() + j] == ' '
-									|| lst.get(i).getNom().charAt(j) == sol[(int) lst.get(i).getPos().getX()][(int) lst.get(i).getPos().getY() + j]) {
-								sol[(int) lst.get(i).getPos().getX()][(int) lst.get(i).getPos().getY() + j] = lst.get(i).getNom().charAt(j);
+							if (sol[(int) lst.get(i).getPos().getY() + j][(int) lst.get(i).getPos().getX()] == ' '
+									|| lst.get(i).getNom().charAt(j) == sol[(int) lst.get(i).getPos().getY() + j][(int) lst.get(i).getPos().getX()]) {
+								sol[(int) lst.get(i).getPos().getY() + j][(int) lst.get(i).getPos().getY()] = lst.get(i).getNom().charAt(j);
 							} else {
 								try {
 									throw new CruciCroisementException(lst.get(i), j);
