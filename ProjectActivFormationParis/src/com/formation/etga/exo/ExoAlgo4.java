@@ -26,15 +26,15 @@ public class ExoAlgo4 implements com.formation.phva.exo.InterAlgo4 {
 
 		char[][] tabSolution = new char[height][width];
 
-		int val = 0;
-		for (int i = 0; i < width; i++) {
-			for (int j = 0; j < height; j++) {
-				//				tabSolution[i][j] = lst.get(val).getNom();
-				val++;
-			}
+//		int val = 0;
+//		for (int i = 0; i < width; i++) {
+//			for (int j = 0; j < height; j++) {
+//				//				tabSolution[i][j] = lst.get(val).getNom();
+//				val++;
+//			}
+//
+//		}
 
-		}
-
-		return null;
+		return tabSolution;
 	}
 }
