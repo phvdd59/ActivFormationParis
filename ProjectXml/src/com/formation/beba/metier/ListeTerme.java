@@ -1,4 +1,4 @@
-package com.formation.beba.main;
+package com.formation.beba.metier;
 
 import java.awt.Point;
 import java.io.BufferedReader;
@@ -9,26 +9,12 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-import com.formation.beba.metier.ListeTerme;
-import com.formation.beba.metier.Terme;
+public class ListeTerme extends ArrayList<Terme> {
 
-public class MainXml {
+	private static final long serialVersionUID = 1L;
 
-	public static void main(String[] args) {
-		MainXml main = new MainXml();
-		// main.lectureXML();
-		main.init();
-	}
-
-	public void init() {
-		File file = new File("./src/com/formation/beba/XML/ListeTerme.xml");
-		ListeTerme lstTerme=new ListeTerme();
-		
-		lstTerme.lectureXML(file);
-	}
-
-	public void lectureXML() {
-		File file = new File("./src/com/formation/beba/XML/ListeTerme.xml");
+	public ArrayList<Terme> lectureXML(File file) {
+		// File file = new File("./src/com/formation/beba/XML/ListeTerme.xml");
 		BufferedReader bIn = null;
 
 		ArrayList<String> string = new ArrayList<String>();
@@ -56,15 +42,19 @@ public class MainXml {
 				e.printStackTrace();
 			}
 		}
-		String nom;
+		String nom = null;
 		String posX = "0";
 		String posY = "0";
 		Point point;
 		boolean sens = false;
 		boolean termeEnCours = false;
+		boolean nomTrouve = false;
 		for (int i = 0; i < string.size() - 1; i++) {
 			if (termeEnCours) {
-				nom = string.get(i);
+				if (!nomTrouve) {
+					nom = string.get(i);
+				}
+
 				termeEnCours = false;
 				if (posX != null && posY != null) {
 					if (Integer.valueOf(posX) >= 0 && Integer.valueOf(posY) >= 0) {
@@ -73,9 +63,6 @@ public class MainXml {
 					}
 				}
 
-				// point = new Point(Integer.valueOf(posX),
-				// Integer.valueOf(posY));
-				// terme.add(new Terme(nom, point, sens));
 			}
 
 			int posXnb;
@@ -121,9 +108,25 @@ public class MainXml {
 				} else if (string.get(i).contains("VERTIC")) {
 					sens = true;
 				}
+				if (string.get(i).length() > string.get(i).lastIndexOf('>') + 1) {
+					j = 0;
+					boolean encoreDuNom = false;
+					while (!encoreDuNom) {
+						j++;
+						char test=string.get(i).charAt(string.get(i).lastIndexOf('>') + j);
+						if ((string.get(i).charAt(lastIndexOf('>') + j) >= 'a' && string.get(i).charAt(lastIndexOf('>') + j) <= 'z') || (string.get(i).charAt(lastIndexOf('>') + j) >= 'A' && string.get(i).charAt(lastIndexOf('>') + j) <= 'Z')) {
+							nom = nom.concat(string.get(i).substring(lastIndexOf('>') + j, lastIndexOf('>') + j + 1));
+						} else {
+							encoreDuNom = true;
+							nomTrouve = true;
 
+						}
+
+					}
+				}
 			}
 		}
 		System.out.println(terme);
+		return terme;
 	}
 }

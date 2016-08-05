@@ -1,9 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ListTerme>
-	<Terme x='2' y='1' sens='VERTICAL'>
+	<Terme y='1' x='2' sens='VERTICAL'>
 		WAGON
 	</Terme>
 	<Terme x='1' y='2' sens='HORIZONTAL'>
 		WAGON
 	</Terme>
+	<TOTO x='4' y='5' sens='BONJOUR'>
+		COCO
+	</TOTO>
+	<Terme y='1' x='2' sens='VERTICAL'>
+		WAGON1
+	</Terme>
+	<Terme y='1' x="2" sens='VERTICAL'>
+		WAGgON
+	</Terme>
+	<TermeAutre y='1' x='2' sens='VERTICAL'>
+		WAGggON
+	</TermeAutre>
+	<Terme x='2' sens='VERTICAL'>
+		WAGgggON
+	</Terme>
+	<Terme y='1' sens='VERTICAL'>
+		WAGggggON
+	</Terme>
+	<Terme>
+		WAGgggggON
+	</Terme>
+	<Terme y='1' x='2' sens="VERTICAL">
+		WAGggggggON
+
+	</Terme>
+	<Terme y='1' x='2' sens="VERTICAL">
+		WAGgggggggON
+	</Terme>
+
+	<Terme y='1' x='2' sens="VERTICAL">WAGggggggggON
+	</Terme>
+	<Terme y='1' x='2' sens="VERTICAL">WAGgggggggggggON</Terme>
+
+	<Terme />
+	<Terme y='1' x='2' sens="VERTICAL">BONJOUR</Terme>
 </ListTerme>
