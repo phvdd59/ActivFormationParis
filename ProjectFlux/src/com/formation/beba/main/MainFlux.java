@@ -2,7 +2,6 @@ package com.formation.beba.main;
 
 import java.awt.Point;
 import java.io.BufferedReader;
-import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -12,70 +11,72 @@ import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
-import java.util.Arrays;
 
 import com.formation.beba.Metier.Terme;
 
 public class MainFlux {
 
-	public static void main(String[] args) throws Exception {
-		MainFlux mainFlux = new MainFlux();
-		// mainFlux.init();
-		// mainFlux.initLecture();
-		// mainFlux.initEcriture();
-		// mainFlux.initImage();
-		mainFlux.initObjet();
-		mainFlux.initLireObjet();
+	public static void main(String[] args) throws Exception { // throws
+																// exception
+																// arrete le
+																// programme
+																// alors que try
+																// catch sort
+																// l'exception
+																// avec try et
+																// la met dans
+																// catch, permet
+																// de continuer
+																// le programme
+		MainFlux mainflux = new MainFlux();
+		mainflux.initEcritureObject();
+		mainflux.initLectureObject();
 	}
 
-	public void initLireObjet() throws Exception {
-
-		File file = new File("./src/com/formation/beba/data/terme1.ser");
-		ObjectInputStream IStream = null;
+	private void initLectureObject() {
+		File file = new File("./src/com/formation/emma/data/terme1.ser");
+		ObjectInputStream iStream = null;
 
 		try {
-			IStream = new ObjectInputStream(new FileInputStream(file));
-			// Object a = IStream.readObject();
+			iStream = new ObjectInputStream(new FileInputStream(file));
 			while (true) {
-				Object a = IStream.readObject();
-				if (a instanceof String) {
-					String s = (String) a;
+				Object o = iStream.readObject();
+				if (o instanceof String) {
+					String s = (String) o;
 					System.out.println(s);
-				} else if (a instanceof Terme) {
-					Terme s = (Terme) a;
-
+				} else if (o instanceof Terme) {
+					Terme s = (Terme) o;
 					System.out.println(s);
 				}
-
 			}
+
+		} catch (ClassNotFoundException e) {
 
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
-		} catch (EOFException e) {
-
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
-
-			IStream.close();
-
+			try {
+				iStream.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 
 	}
 
-	public void initObjet() throws Exception {
+	private void initEcritureObject() {
 		Terme terme = new Terme("wagon", new Point(2, 9), Terme.HORIZONTAL);
-		File file = new File("./src/com/formation/beba/data/terme1.ser");
+		File file = new File("./src/com/formation/emma/data/terme1.ser");
 		ObjectOutputStream oStream = null;
 
 		try {
 			oStream = new ObjectOutputStream(new FileOutputStream(file));
-			oStream.writeObject("Gros Sac");
+			oStream.writeObject("emilie");
+			oStream.writeObject("thomas");
 			oStream.writeObject(terme);
-			oStream.writeObject("test");
-			oStream.writeObject("rien");
-			oStream.writeObject(terme);
-			oStream.flush();
+
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -83,69 +84,64 @@ public class MainFlux {
 		} finally {
 			try {
 				oStream.close();
-			} catch (IOException e2) {
-				e2.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
 			}
-
 		}
 
 	}
 
-	public void initImage() throws Exception {
+	public void initImage() {
+		File image = new File("./src/com/formation/phva/data/image.bmp");
 		FileInputStream fluxDentree = null;
+		File file = new File("./src/com/formation/emma/data/image.bmp");
 		FileOutputStream fluxDeSortie = null;
-		File fileIn = new File("./src/com/formation/phva/data/image2.bmp");
-		File fileOut = new File("./src/com/formation/beba/data/image.bmp");
-		int readUnByte;
-		int nb = 0;
+
 		try {
-			fluxDentree = new FileInputStream(fileIn);
-			fluxDeSortie = new FileOutputStream(fileOut);
-			readUnByte = fluxDentree.read();
-			while (readUnByte != -1) {
-				if (nb >= 256) {
-					readUnByte = (-1 ^ readUnByte) & 0xFF;
-				}
-				nb++;
-				fluxDeSortie.write(readUnByte);
-				readUnByte = fluxDentree.read();
+			fluxDentree = new FileInputStream(image);
+			fluxDeSortie = new FileOutputStream(file);
+
+			int picture = fluxDentree.read();
+			while (picture != -1) {
+
+				fluxDeSortie.write(picture);
+				picture = fluxDentree.read();
 			}
+
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
 		} finally {
-			fluxDentree.close();
-			fluxDeSortie.close();
+			try {
+				fluxDentree.close();
+				fluxDeSortie.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
-
-		// File file = new File("./src/com/formation/beba/data/image2.bmp");
-		// File file2 = new File("./src/com/formation/beba/data/image.bmp");
-		// BufferedImage image = ImageIO.read(file);
-		// System.out.println(file);
-		// out = new (file2);
-
-		// BufferedImage bIm=null;
-		// Image image = toolkit.getImage(file);
-		// bIm=new BufferedIma;
-
 	}
 
-	public void initLecture() throws Exception {
+	public void initLecture() {
 		File file = new File("./src/com/formation/phva/data/texte.txt");
 		BufferedReader bIn = null;
-
+		InputStreamReader inputStreamReader = null;
 		try {
-			InputStreamReader inputStreamReader = new InputStreamReader(new FileInputStream(file), "UTF-8");
-			System.out.println(file.getCanonicalPath());
+			inputStreamReader = new InputStreamReader(new FileInputStream(file), "UTF-8"); // pour
+																							// corriger
+																							// les
+																							// caracteres
+																							// speciaux
+																							// d'un
+																							// texte
 			bIn = new BufferedReader(inputStreamReader);
 			String line = bIn.readLine();
 			while (line != null) {
 				System.out.println(line);
 				line = bIn.readLine();
-
 			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
-
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
@@ -158,49 +154,87 @@ public class MainFlux {
 	}
 
 	public void initEcriture() throws Exception {
-		File file = new File("./src/com/formation/beba/data/texte.txt");
-		PrintWriter out = null;
+		File file = new File("./src/com/formation/emma/data/texte.txt");
+		PrintWriter out = null; // on declare les flux à l'exterieur pas dans
+								// le try
 		try {
 			System.out.println(file.getCanonicalPath());
 			out = new PrintWriter(file);
-			out.println("Bonjour tout le monde ");
-			out.println("ceci doit apparaitre dans le fichiers!♦");
-			out.flush();
-			out.print("Suite de la phrase");
+			out.println("bonjour tout le monde");
+			out.println("ceci doit apparaitre♥ dans le fichier");
+			out.flush(); // sauvegarde sur le disque les données entrées
+							// avant. Peut permettre aux autres de lire le
+							// début du fichiers si travaille dessus
+			out.println("suite de la phrase");
 		} catch (IOException e) {
-			System.out.println("recomencer le traitement");
+			System.out.println("recommencer traitement");
 		} finally {
 			out.close();
 		}
-
+		// quand run le main clik droit sur dossier refresh et voit le fichier
+		// texte apparaitre
 	}
 
 	public void init() {
 		BufferedReader stdIn = null;
-		stdIn = new BufferedReader(new InputStreamReader(System.in));
+		stdIn = new BufferedReader(new InputStreamReader(System.in)); // system.in
+																		// envoie
+																		// données
+																		// du
+																		// clavier
+																		// qui
+																		// sont
+																		// chiffrées
+																		// donc
+																		// fait
+																		// inputstreamreader
+																		// pour
+																		// transformer
+																		// binaire
+																		// en
+																		// charactere
 		try {
-
 			String ligne = stdIn.readLine();
+			File file = new File("c:/DevFormation");
 			while (!ligne.equals("")) {
 				// System.out.println(ligne);
+				File f = new File(ligne);
+				// System.out.println("existe :" + f.exists() + " repertoire " +
+				// (f.isDirectory() ? "oui" : "non") + " path " +
+				// f.getCanonicalPath());
 
-				File file = new File(ligne);
-				System.out.println("Existe: " + file.exists() + " est un repertoire: " + file.isDirectory() + " path: " + file.getCanonicalPath());
-				System.out.println("liste de fichier:");
-				if (file.isDirectory()) {
-					System.out.println(Arrays.toString(file.listFiles()));
-					File[] fileAll = file.listFiles();
-					System.out.println("liste des ext");
-					for (int i = 0; i < fileAll.length; i++) {
-						if (!fileAll[i].isDirectory()) {
-							if (fileAll[i].getName().contains(".")) {
+				if (file.exists()) {
+					// 1er methode
+					// String[] fichiers = null;
+					// fichiers = f.list();
+					// for (int i = 0; i < fichiers.length; i++) {
+					// System.out.println(fichiers[i]);
+					// }
 
-								System.out.print(fileAll[i].getName().substring(fileAll[i].getName().lastIndexOf('.') + 1) + ", ");
+					// 2ie methode
+					File[] fichiers2 = null;
+					fichiers2 = f.listFiles();
+					for (int i = 0; i < fichiers2.length; i++) {
+						String nomDuFichier = null;
+						File monFichier2 = fichiers2[i];
+						if (monFichier2.isFile()) {
+							nomDuFichier = monFichier2.getName();
+							// System.out.println(nomDuFichier);
+
+							String suffixe = "";
+							if (nomDuFichier.contains(".")) {
+								suffixe = nomDuFichier.substring(nomDuFichier.lastIndexOf(".") + 1);
+								System.out.println(suffixe);
+							} else {
+								System.out.println("");
 							}
+						} else {
+							System.out.println("");
 						}
 					}
 
 				}
+
 				ligne = stdIn.readLine();
 			}
 		} catch (IOException e) {
