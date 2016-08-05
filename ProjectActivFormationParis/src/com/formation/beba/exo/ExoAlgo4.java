@@ -24,6 +24,13 @@ public class ExoAlgo4 implements com.formation.phva.exo.InterAlgo4 {
 	@Override
 	public char[][] solution(int width, int height, ArrayList<Terme> lst) throws CruciException {
 		char[][] cruci = new char[width][height];
+
+		for (int i = 0; i < cruci.length; i++) {
+			for (int j = 0; j < cruci[0].length; j++) {
+				cruci[i][j] = ' ';
+			}
+		}
+
 		for (int i = 0; i < lst.size(); i++) {
 			if (lst.get(i).isSens()) {
 				for (int j = lst.get(i).getPos().y; j < lst.get(i).getNom().length() + lst.get(i).getPos().y; j++) {
