@@ -22,12 +22,12 @@ public class MainFlux {
 
 	public static void main(String[] args) throws Exception {
 		MainFlux mainFlux = new MainFlux();
-		//mainFlux.init();
-		mainFlux.initEcriture();
-		mainFlux.initLecture();
-		mainFlux.initImage();
-		mainFlux.initEcritureObject();
-		mainFlux.initLectureObject();
+		mainFlux.init();
+//		mainFlux.initEcriture();
+//		mainFlux.initLecture();
+//		mainFlux.initImage();
+//		mainFlux.initEcritureObject();
+//		mainFlux.initLectureObject();
 	}
 
 	public void initLectureObject() {
