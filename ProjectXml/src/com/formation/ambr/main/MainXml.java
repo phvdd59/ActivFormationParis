@@ -18,7 +18,7 @@ public class MainXml {
 	}
 
 	public void lectureXml() {
-		File file = new File("./src/com/formation/ambr/xml/ListTerme.xml");
+		File file = new File("./src/com/formation/phva/xml/ListTerme.xml");
 		// flux caractère input -> reader
 		BufferedReader br = null;
 		try {
