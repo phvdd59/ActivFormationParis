@@ -1,31 +1,128 @@
 package com.formation.joca.main;
 
-import java.awt.image.BufferedImage;
+import java.awt.Point;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 
-import javax.imageio.ImageIO;
+import com.formation.joca.metier.Terme;
 
 public class MainFlux {
 
 	public static void main(String[] args) {
 		MainFlux m = new MainFlux();
-		m.initImage();
+		m.initObject();
+		m.initLectureObject();
+	}
+
+	private void initLectureObject() {
+
+		File file = new File("./src/com/formation/joca/data/terme1.ser");
+		ObjectInputStream inStream = null;
+
+		try {
+			inStream = new ObjectInputStream(new FileInputStream(file));
+
+			Object a = inStream.readObject();
+			String sa = (String) a;
+			if (a instanceof String) {
+
+				System.out.println(sa);
+			}
+
+			Object b = inStream.readObject();
+			if (b instanceof String) {
+				String s = (String) b;
+				System.out.println(s);
+			}
+			Object c = inStream.readObject();
+			if (c instanceof Terme) {
+				Terme t=(Terme)c;
+				System.out.println(t.toString());
+			}
+
+		} catch (ClassNotFoundException e) {
+
+		} catch (FileNotFoundException e) {
+
+			e.printStackTrace();
+
+		} catch (IOException e) {
+
+		} finally {
+			try {
+				inStream.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	private void initObject() {
+		Terme terme = new Terme("wagon", new Point(2, 9), Terme.HORIZONTAL);
+		File file = new File("./src/com/formation/joca/data/terme1.ser");
+		ObjectOutputStream outStream = null;
+
+		try {
+			outStream = new ObjectOutputStream(new FileOutputStream(file));
+			outStream.writeObject("booba");
+			outStream.writeObject("joestarr");
+			outStream.writeObject(terme);
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				outStream.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
 	private void initImage() {
-		BufferedImage image = null;
+		File fileIn = new File("./src/com/formation/phva/data/image.bmp");
+		File fileOut = new File("./src/com/formation/joca/data/image.bmp");
+		FileInputStream fluxIn = null;
+		FileOutputStream fluxOut = null;
+		int readUnByte = 0;
+
 		try {
-			image = ImageIO.read(new File("./src/com/formation/phva/data/image.bmp"));
+			fluxIn = new FileInputStream(fileIn);
+			fluxOut = new FileOutputStream(fileOut);
+			readUnByte = fluxIn.read();
+			int nb = 0;
+			while (readUnByte != -1) {
+				if (nb >= 1024) {
+					readUnByte = (-1 ^ readUnByte) & 0xFF;
+				}
+				nb++;
+				fluxOut.write(readUnByte);
+				readUnByte = fluxIn.read();
+			}
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
+
+		} finally {
+			try {
+				fluxIn.close();
+				fluxOut.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
-		System.out.println(image);
 	}
 
 	public void initLecture() {
