@@ -31,13 +31,11 @@ public class ExoAlgo4 implements com.formation.phva.exo.InterAlgo4 {
 			char[] tabCharTerme = stringTerme.toCharArray();
 			if (terme.isSens() == false) {
 				for (int j = 0; j < tabCharTerme.length; j++) {
-					tabcruci[intPointy][j] = tabCharTerme[j];
-					// System.out.println(tabcruci[intPointy][j]);
+					tabcruci[intPointy][j + intPointx] = tabCharTerme[j];
 				}
 			} else {
 				for (int j = 0; j < tabCharTerme.length; j++) {
-					tabcruci[j][intPointx] = tabCharTerme[j];
-					// System.out.println(tabcruci[j][intPointx]);
+					tabcruci[j + intPointy][intPointx] = tabCharTerme[j];
 				}
 			}
 		}
