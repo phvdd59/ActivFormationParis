@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListeTerme>
+	<Terme x='2' y='1' sens='VERTICAL'>
+		WAGON2 DANSTON CUL^^ULU
+	</Terme>
+	<Terme x='1' y='2' sens='HORIZONTAL'>
+		WAGON1
+	</Terme>
+	<Terme y='12' x='2' sens='HORIZONTAL'>
+		MOM
+	</Terme>
+	<Term x='1' y='2' sens='HORIZONTAL'>
+		MAMAN
+	</Term>
+</ListeTerme>

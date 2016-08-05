@@ -12,6 +12,7 @@ import com.formation.phva.exo.InterException1;
 
 public class ExoException1 implements InterException1 {
 
+	@SuppressWarnings("finally")
 	public char[][] solution(int width, int height, ArrayList<com.formation.phva.exo.Terme> lst) throws CruciException {
 
 		char[][] cruci = null;
