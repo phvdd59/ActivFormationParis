@@ -1,6 +1,5 @@
 package com.formation.etga.exo;
 
-import java.awt.Point;
 import java.util.ArrayList;
 
 import com.formation.phva.exception.CruciException;
@@ -24,29 +23,26 @@ public class ExoAlgo4 implements com.formation.phva.exo.InterAlgo4 {
 	 */
 	@Override
 	public char[][] solution(int width, int height, ArrayList<Terme> lst) throws CruciException {
-		Terme t1 = new Terme("AB", new Point(0, 0), Terme.HORIZONTAL);
-		lst.add(t1);
-		Terme t2 = new Terme("AC", new Point(0, 0), Terme.VERTICAL);
-		lst.add(t2);
-		Terme t3 = new Terme("CD", new Point(0, 1), Terme.HORIZONTAL);
-		lst.add(t3);
-		Terme t4 = new Terme("BD", new Point(1, 1), Terme.VERTICAL);
-		lst.add(t4);
+
+		char[][] tabSolution = new char[height][width]; // on initialise ce que l'on veut en resultat
 
 		for (int i = 0; i < lst.size(); i++) {
-			char[] nomChar = lst.get(i).getNom().toCharArray();
-		}
+			Terme terme = lst.get(i); // on isole tous les termes
+			String nom = terme.getNom(); // on recup les noms
+			char[] nomChar = nom.toCharArray(); // on transforme les noms en tab de char
+			int xMot = (int) lst.get(i).getPos().getX(); // on recup les X
+			int yMot = (int) lst.get(i).getPos().getY(); // on recup les Y
 
-		char[][] tabSolution = new char[height][width];
-		int val = 0;
-		for (int i = 0; i < width; i++) {
-			for (int j = 0; j < height; j++) {
-				//				tabSolution[i][j] = lst.get(val).getNom();
-				val++;
+			if (terme.isSens() == Terme.HORIZONTAL) { // pour tous les termes horizontaux
+				for (int j = 0; j < nomChar.length; j++) { // on boucle sur chaque mot 
+					tabSolution[yMot][j] = nomChar[j]; // tableau = nom du char correspondant
+				}
+			} else if (terme.isSens() == Terme.VERTICAL) { // pour tous les termes verticaux
+				for (int k = 0; k < nomChar.length; k++) { // on boucle sur chaque mot 
+					tabSolution[k][xMot] = nomChar[k]; // tableau = nom du char correspondant
+				}
 			}
-
 		}
-
-		return null;
+		return tabSolution; // on retourne le resultat
 	}
 }
