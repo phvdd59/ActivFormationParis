@@ -29,7 +29,7 @@ public class MainAlgo4 {
 		lst.add(term3);
 
 		try {
-			char[][] tab = exo.solution(2, 2, lst);
+			char[][] tab = exo.solution(10, 10, lst);
 			System.out.println(tab);
 		} catch (CruciException e) {
 			e.printStackTrace();
