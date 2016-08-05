@@ -59,8 +59,9 @@ public class ExoException1 implements InterException1 {
 						}
 					} catch (CruciCroisementException e) {
 						e.printStackTrace();
+					} finally {
+						return cruci;
 					}
-
 				}
 			}
 		}
