@@ -7,7 +7,7 @@ etga testDebordeY (0/1): KO | exo.solution(10, 10, lst)
 etga testWidth (0/1): KO | exo.solution(-10, 10, lst)
 null
 etga testNull (1/1): OK | exo.solution(10, 10, null)
-etga testCroisement (0/2): KO | exo.solution(10, 10, lst)
+etga testCroisement (0/2): KO | exo.solution(10, 12, lst)
 etga testHeight (0/1): KO | exo.solution(10, -10, lst)
 null
 etga testNormal (0/1): KO | exo.solution(10, 12, lst)

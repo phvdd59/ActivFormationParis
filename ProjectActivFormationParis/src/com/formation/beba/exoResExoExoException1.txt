@@ -5,9 +5,9 @@ beba testDebordeX (0/1): KO | exo.solution(10, 10, lst)
 beba testDebordeY (0/1): KO | exo.solution(10, 10, lst) ne leve pas la bonne exception
 beba testWidth (1/1): OK | exo.solution(-10, 10, lst)
 beba testNull (1/1): OK | exo.solution(10, 10, null)
-beba testCroisement (0/2): KO | exo.solution(10, 10, lst)
+beba testCroisement (0/2): KO | exo.solution(10, 12, lst)
 beba testHeight (1/1): OK | exo.solution(-10, 10, lst)
 beba testNormal (0/1): KO | exo.solution(10, 12, lst)
-beba testDebordeX (1/1): OK | exo.solution(-10, 10, lst)
+beba testDebordeX (1/1): OK | exo.solution(10, 10, lst)
 beba testDebordeY (0/1): KO | exo.solution(10, 10, lst) ne leve pas la bonne exception
 beba NOTE : (4 / 10) = 8 / 20

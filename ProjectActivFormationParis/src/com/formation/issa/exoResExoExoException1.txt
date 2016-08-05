@@ -5,7 +5,7 @@ issa testDebordeY (0/1): KO | exo.solution(10, 10, lst) ne leve pas la bonne exc
 issa testWidth (0/1): KO | exo.solution(-10, 10, lst)
 null
 issa testNull (1/1): OK | exo.solution(10, 10, null)
-issa testCroisement (0/2): KO | exo.solution(10, 10, lst)Cruci Largeur Incorrect
+issa testCroisement (0/2): KO | exo.solution(10, 12, lst)Cruci Largeur Incorrect
 issa testHeight (0/1): KO | exo.solution(10, -10, lst)
 null
 issa testNormal (0/1): KO | exo.solution(10, 12, lst)

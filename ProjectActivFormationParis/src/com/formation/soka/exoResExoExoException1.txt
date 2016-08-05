@@ -15,3 +15,54 @@ soka testDebordeX (0/1): KO | exo.solution(10, 10, lst)
 null
 soka testDebordeY (0/1): KO | exo.solution(10, 10, lst)
 null
+soka testDebordeX (0/1): KO | exo.solution(10, 10, lst)
+null
+soka testDebordeY (0/1): KO | exo.solution(10, 10, lst)
+null
+soka testWidth (0/1): KO | exo.solution(-10, 10, lst)
+null
+soka testNull (1/1): OK | exo.solution(10, 10, null)
+soka testDebordeY (0/2): KO | exo.solution(10, 10, lst)
+null
+soka testHeight (0/1): KO | exo.solution(10, -10, lst)
+null
+soka testNormal (0/1): KO | exo.solution(10, 12, lst)
+null
+soka testDebordeX (0/1): KO | exo.solution(10, 10, lst)
+null
+soka testDebordeY (0/1): KO | exo.solution(10, 10, lst)
+null
+soka testDebordeX (0/1): KO | exo.solution(10, 10, lst)
+null
+soka testDebordeY (0/1): KO | exo.solution(10, 10, lst)
+null
+soka testWidth (0/1): KO | exo.solution(-10, 10, lst)
+null
+soka testNull (1/1): OK | exo.solution(10, 10, null)
+soka testDebordeY (0/2): KO | exo.solution(10, 12, lst)
+null
+soka testHeight (0/1): KO | exo.solution(10, -10, lst)
+null
+soka testNormal (0/1): KO | exo.solution(10, 12, lst)
+null
+soka testDebordeX (0/1): KO | exo.solution(10, 10, lst)
+null
+soka testDebordeY (0/1): KO | exo.solution(10, 10, lst)
+null
+soka testDebordeX (0/1): KO | exo.solution(10, 10, lst)
+null
+soka testDebordeY (0/1): KO | exo.solution(10, 10, lst)
+null
+soka testWidth (0/1): KO | exo.solution(-10, 10, lst)
+null
+soka testNull (1/1): OK | exo.solution(10, 10, null)
+soka testDebordeY (0/2): KO | exo.solution(10, 12, lst)
+null
+soka testHeight (0/1): KO | exo.solution(10, -10, lst)
+null
+soka testNormal (0/1): KO | exo.solution(10, 12, lst)
+null
+soka testDebordeX (0/1): KO | exo.solution(10, 10, lst)
+null
+soka testDebordeY (0/1): KO | exo.solution(10, 10, lst)
+null

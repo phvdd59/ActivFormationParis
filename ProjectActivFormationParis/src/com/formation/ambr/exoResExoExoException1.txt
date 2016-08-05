@@ -7,7 +7,7 @@ ambr testDebordeY (0/1): KO | exo.solution(10, 10, lst)
 ambr testWidth (0/1): KO | exo.solution(-10, 10, lst)
 null
 ambr testNull (1/1): OK | exo.solution(10, 10, null)
-ambr testCroisement (0/2): KO | exo.solution(10, 10, lst)
+ambr testCroisement (0/2): KO | exo.solution(10, 12, lst)
 ambr testHeight (0/1): KO | exo.solution(10, -10, lst)
 null
 ambr testNormal (1/1):    | solution(10,12,lst)
