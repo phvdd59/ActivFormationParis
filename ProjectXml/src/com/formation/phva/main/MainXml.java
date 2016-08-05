@@ -6,5 +6,9 @@ public class MainXml {
 		MainXml main = new MainXml();
 
 	}
+	
+	public void lectureXml() {
+		
+	}
 
 }
