@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import com.formation.phva.exception.CruciException;
 
-public class ExoException1 {
+public class ExoException1 implements InterException1 {
 
 	public char[][] solution(int width, int height, ArrayList<com.formation.phva.exo.Terme> lst) throws CruciException {
 		char[][] cruci = new char[height][width];
