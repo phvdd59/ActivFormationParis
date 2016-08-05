@@ -43,7 +43,7 @@ public class ExoAlgo4 implements com.formation.phva.exo.InterAlgo4 {
 		
 	for (int i = 0; i <charArray.length; i++) {
 		for (int j = 0; j < charArray.length; j++) {
-			charArray[i][j]=charArray[(lst.get(i).substring(i,i+1)][i];
+			//charArray[i][j]=charArray[(lst.get(i).substring(i,i+1)][i];
 		}
 	}
 		// TODO Auto-generated method stub
