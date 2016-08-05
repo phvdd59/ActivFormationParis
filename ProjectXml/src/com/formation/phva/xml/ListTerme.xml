@@ -1,43 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ListTerme>
 	<Terme y='1' x='2'    sens='VERTICAL'>
-		WAGON
+		WAGONA
 	</Terme>
 	<Terme x='1' y = '2' sens='HORIZONTAL'>
-		WAGON
+		WAGONB
 	</Terme>
 	<TOTO x =    '4' y='5' sens='BONJOUR'>
-		COCO
+		COCOC
 	</TOTO>
 	<Terme      y='1' x='2' sens=     'VERTICAL'>
-		WAGON1
+		WAGOND
 	</Terme>
 	<Terme y='1' x="2" sens='VERTICAL'>
-		WAGON
+		WAGONE
 	</Terme>
 	<TermeAutre y='1' x='2' sens='VERTICAL'>
-		WAGON
+		WAGONF
 	</TermeAutre>
 	<Terme x='2' sens='VERTICAL'>
-		WAGON
+		WAGONG
 	</Terme>
 	<Terme    y='1' sens='VERTICAL'>
-		WAGON
+		WAGONH
 	</Terme>
 	<Terme>
-		WAGON
+		WAGONI
 	</Terme>
 	<Terme y='1' x='2'     sens="VERTICAL">
-		WAGON
+		WAGONJ
 		
 	</Terme>
 	<Terme y='1' x='2'     sens="VERTICAL">
-		WAGON
+		WAGONK
 	</Terme>
 
-	<Terme y='1' x='2'     sens="VERTICAL">WAGON
+	<Terme y='1' x='2'     sens="VERTICAL">WAGONL
 	</Terme>
-	<Terme y='1' x='2'     sens="VERTICAL">WAGON</Terme>
+	<Terme y='1' x='2'     sens="VERTICAL">WAGONM</Terme>
 
 	<Terme/>
 	<Terme 
