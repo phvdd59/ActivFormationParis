@@ -24,6 +24,8 @@ public class MainFlux {
 
 	}
 
+	//salut
+
 	private void initLectureObject() {
 		File file = new File("./src/com/formation/ambr/data/terme1.ser");
 		ObjectInputStream iStream = null;
