@@ -67,7 +67,6 @@ public class ExoException1 implements InterException1 {
 									//System.out.println(e.getMessage());
 								}
 							}
-
 						}
 					}
 				}
