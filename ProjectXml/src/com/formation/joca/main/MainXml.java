@@ -15,7 +15,7 @@ public class MainXml {
 	}
 
 	public void lectureXml() {
-		File fichier = new File("C:/DevFormation/ActivFormationParis/ProjectXml.src/com/formation/joca/xml/ListeTerme.xml");
+		File fichier = new File("C:/DevFormation/ActivFormationParis/ProjectXml.src/com/formation/joca/xml/toto.txt");
 		BufferedReader bIn = null;
 		
 		try {
