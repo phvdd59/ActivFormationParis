@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
@@ -12,11 +13,49 @@ public class MainFlux {
 
 	public static void main(String[] args) {
 		MainFlux m = new MainFlux();
-		m.initLecture();
+		//m.initLecture();
 		m.initImage();
 	}
 
 	public void initImage() {
+		File fIn = new File("./src/com/formation/phva/data/image.bmp");
+		File fOut = new File("./src/com/formation/phva/data/image2.bmp");
+		FileInputStream ficSource = null;
+		FileOutputStream ficDest = null;
+		try {
+			ficSource = new FileInputStream(fIn);
+		} catch (FileNotFoundException ex) {
+			System.out.println(ex);
+			System.exit(1);
+		}
+		try {
+			ficDest = new FileOutputStream(fOut);
+		} catch (FileNotFoundException ex) {
+			System.out.println(ex);
+			System.exit(2);
+		}
+		try {
+			int nb = 0;
+			int octet = ficSource.read();
+			while (octet != -1) {
+				if (nb > 1024) {
+					octet = (-1 ^ octet) & 0xFF;
+				}
+				ficDest.write(octet);
+				nb++;
+				octet = ficSource.read();
+			}
+		} catch (IOException ex) {
+			System.out.println(ex);
+			System.exit(3);
+		}
+		try {
+			ficSource.close();
+			ficDest.close();
+		} catch (IOException ex) {
+			System.out.println(ex);
+			System.exit(3);
+		}
 
 	}
 
