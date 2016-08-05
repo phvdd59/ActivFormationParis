@@ -66,7 +66,7 @@ public class ExoAlgo4 implements com.formation.phva.exo.InterAlgo4 {
 								try {
 									throw new CruciCroisementException(lst.get(i), j);
 								} catch (CruciCroisementException e) {
-									System.out.println(e.getMessage());
+									//System.out.println(e.getMessage());
 								}
 							}
 
@@ -85,7 +85,7 @@ public class ExoAlgo4 implements com.formation.phva.exo.InterAlgo4 {
 								try {
 									throw new CruciCroisementException(lst.get(i), j);
 								} catch (CruciCroisementException e) {
-									System.out.println(e.getMessage());
+									//System.out.println(e.getMessage());
 								}
 							}
 						}
