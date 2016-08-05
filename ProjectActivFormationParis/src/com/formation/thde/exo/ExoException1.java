@@ -28,44 +28,50 @@ public class ExoException1 implements InterException1 {
 				cruci[i][j] = ' ';
 			}
 		}
-		try {
-			for (Terme terme : lst) {
+		for (Terme terme : lst) {
 
-				if (terme.getPos().x < 0 || terme.getPos().x > height || terme.getPos().y < 0 || terme.getPos().y > width) {
-					throw new CruciNullException();
-				}
-				char[] tab = terme.getNom().toCharArray();
+			if (terme.getPos().x < 0 || terme.getPos().x > height || terme.getPos().y < 0 || terme.getPos().y > width) {
+				throw new CruciNullException();
+			}
+			char[] tab = terme.getNom().toCharArray();
 
-				if (terme.isSens() == Terme.HORIZONTAL) {
-
-					for (int i = 0; i < tab.length; i++) {
+			if (terme.isSens() == Terme.HORIZONTAL) {
+				for (int i = 0; i < tab.length; i++) {
+					try {
 						if (terme.getPos().x + i > height) {
 							throw new CruciDebordeException(lst.get(i));
 						}
-						if (cruci[terme.getPos().y][terme.getPos().x + i] != tab[i] && tab[i] != ' ') {
+						if (cruci[terme.getPos().y][terme.getPos().x + i] != tab[i] && cruci[terme.getPos().y][terme.getPos().x + i] != ' ') {
 							throw new CruciCroisementException(terme, i);
 						}
 						cruci[terme.getPos().y][terme.getPos().x + i] = tab[i];
+					} catch (CruciCroisementException e) {
+
+					} finally {
+
 					}
+				}
 
-				} else {
-
-					for (int i = 0; i < tab.length; i++) {
+			} else {
+				for (int i = 0; i < tab.length; i++) {
+					try {
 						if (terme.getPos().y + i > width) {
 							throw new CruciDebordeException(terme);
 						}
-						if (cruci[terme.getPos().y + i][terme.getPos().x] != tab[i] && tab[i] != ' ') {
+						if (cruci[terme.getPos().y + i][terme.getPos().x] != tab[i] && cruci[terme.getPos().y + i][terme.getPos().x] != ' ') {
 							throw new CruciCroisementException(terme, i);
 						}
 						cruci[terme.getPos().y + i][terme.getPos().x] = tab[i];
+					} catch (CruciCroisementException e) {
+
+					} finally {
+
 					}
 				}
+
 			}
-		} catch (CruciCroisementException e) {
-
-		} finally {
-
 		}
+
 		return cruci;
 	}
 }
