@@ -2,8 +2,6 @@ package com.formation.emma.exo;
 
 import java.util.ArrayList;
 
-import javax.swing.SpringLayout.Constraints;
-
 import com.formation.phva.exception.CruciCroisementException;
 import com.formation.phva.exception.CruciDebordeException;
 import com.formation.phva.exception.CruciException;
