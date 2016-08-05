@@ -10,6 +10,7 @@ import com.formation.joca.exo.ExoAlgo2;
 import com.formation.joca.exo.ExoAlgo3;
 import com.formation.joca.exo.ExoAlgo4;
 import com.formation.joca.exo.ExoArrayList1;
+import com.formation.joca.exo.ExoException1;
 import com.formation.joca.exo.ExoSimple;
 import com.formation.joca.exo.ExoTableau1;
 import com.formation.joca.exo.ExoTableau2;
@@ -26,14 +27,14 @@ public class MainActiveFormationParisJoca {
 
 	private void init9() {
 
-		ExoAlgo4 exo9 = new ExoAlgo4();
+		ExoException1 exo9 = new ExoException1();
 
 		Terme terme1 = new Terme("chat", new Point(0, 0), false);
 		Terme terme2 = new Terme("et", new Point(1, 2), true);
 		Terme terme3 = new Terme("asci", new Point(2, 0), true);
 		Terme terme4 = new Terme("corp", new Point(0, 0), true);
 		Terme terme5 = new Terme("tete", new Point(3, 0), true);
-		Terme terme6 = new Terme("eMt", new Point(1, 2), false);
+		Terme terme6 = new Terme("ect", new Point(1, 2), false);
 
 		ArrayList<Terme> lst = new ArrayList<Terme>();
 		lst.add(terme1);
@@ -60,7 +61,7 @@ public class MainActiveFormationParisJoca {
 		for (int i = 0; i < 4; i++) {
 			System.out.println(" ");
 			for (int j = 0; j < 4; j++) {
-				System.out.print(tab[j][i]);
+				System.out.print(tab[i][j]);
 			}
 		}
 	}
