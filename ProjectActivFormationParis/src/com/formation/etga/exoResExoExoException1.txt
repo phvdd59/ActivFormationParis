@@ -1,8 +1,8 @@
 etga:Exception
 
-etga testDebordeX (0/1): KO | exo.solution(10, 10, lst)
+etga testDebordeX (0/1): KO | exo.solution(10, 10, lst) --> BONJOUR (-1,4) H
 -1
-etga testDebordeY (0/1): KO | exo.solution(10, 10, lst)
+etga testDebordeY (0/1): KO | exo.solution(10, 10, lst) --> BONJOUR (4,-1) V
 -1
 etga testWidth (0/1): KO | exo.solution(-10, 10, lst)
 null
@@ -11,6 +11,6 @@ etga testCroisement (0/2): KO | exo.solution(10, 12, lst)
 etga testHeight (0/1): KO | exo.solution(10, -10, lst)
 null
 etga testNormal (0/1): KO | exo.solution(10, 12, lst)
-etga testDebordeX (0/1): KO | exo.solution(10, 10, lst) ne leve pas la bonne exception
-etga testDebordeY (0/1): KO | exo.solution(10, 10, lst) ne leve pas la bonne exception
+etga testDebordeX (0/1): KO | exo.solution(10, 10, lst) ne leve pas la bonne exception --> BONJOUR (5,4) H
+etga testDebordeY (0/1): KO | exo.solution(10, 10, lst) ne leve pas la bonne exception --> BONJOUR (4,5) V
 etga NOTE : (1 / 10) = 2 / 20

@@ -1,7 +1,7 @@
 issa:Exception
 
-issa testDebordeX (0/1): KO | exo.solution(10, 10, lst) ne leve pas la bonne exception
-issa testDebordeY (0/1): KO | exo.solution(10, 10, lst) ne leve pas la bonne exception
+issa testDebordeX (0/1): KO | exo.solution(10, 10, lst) ne leve pas la bonne exception --> BONJOUR (-1,4) H
+issa testDebordeY (0/1): KO | exo.solution(10, 10, lst) ne leve pas la bonne exception --> BONJOUR (4,-1) V
 issa testWidth (0/1): KO | exo.solution(-10, 10, lst)
 null
 issa testNull (1/1): OK | exo.solution(10, 10, null)
@@ -9,6 +9,6 @@ issa testCroisement (0/2): KO | exo.solution(10, 12, lst)Cruci Largeur Incorrect
 issa testHeight (0/1): KO | exo.solution(10, -10, lst)
 null
 issa testNormal (0/1): KO | exo.solution(10, 12, lst)
-issa testDebordeX (0/1): KO | exo.solution(10, 10, lst) ne leve pas la bonne exception
-issa testDebordeY (0/1): KO | exo.solution(10, 10, lst) ne leve pas la bonne exception
+issa testDebordeX (0/1): KO | exo.solution(10, 10, lst) ne leve pas la bonne exception --> BONJOUR (5,4) H
+issa testDebordeY (0/1): KO | exo.solution(10, 10, lst) ne leve pas la bonne exception --> BONJOUR (4,5) V
 issa NOTE : (1 / 10) = 2 / 20

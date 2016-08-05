@@ -1,8 +1,8 @@
 phva:Exception
 
-phva testDebordeX (0/1): KO | exo.solution(10, 10, lst)
+phva testDebordeX (0/1): KO | exo.solution(10, 10, lst) --> BONJOUR (-1,4) H
 -1
-phva testDebordeY (0/1): KO | exo.solution(10, 10, lst)
+phva testDebordeY (0/1): KO | exo.solution(10, 10, lst) --> BONJOUR (4,-1) V
 -1
 phva testWidth (0/1): KO | exo.solution(-10, 10, lst)
 null
@@ -10,8 +10,8 @@ phva testNull (1/1): OK | exo.solution(10, 10, null)
 phva testCroisement (0/2): KO | exo.solution(10, 12, lst)
 phva testHeight (0/1): KO | exo.solution(10, -10, lst)
 null
-phva testNormal (1/1):    | solution(10,12,lst)
-phva testDebordeX (0/1): KO | exo.solution(10, 10, lst)
+phva testNormal (1/1):  OK | solution(10,12,lst)
+phva testDebordeX (0/1): KO | exo.solution(10, 10, lst) --> BONJOUR (5,4) H
 10
-phva testDebordeY (0/1): KO | exo.solution(10, 10, lst)
+phva testDebordeY (0/1): KO | exo.solution(10, 10, lst) --> BONJOUR (4,5) V
 10

@@ -1,16 +1,16 @@
 thcr:Exception
 
-thcr testDebordeX (0/1): KO | exo.solution(10, 10, lst)
+thcr testDebordeX (0/1): KO | exo.solution(10, 10, lst) --> BONJOUR (-1,4) H
 -1
-thcr testDebordeY (0/1): KO | exo.solution(10, 10, lst)
+thcr testDebordeY (0/1): KO | exo.solution(10, 10, lst) --> BONJOUR (4,-1) V
 -1
 thcr testWidth (0/1): KO | exo.solution(-10, 10, lst)
 null
 thcr testNull (1/1): OK | exo.solution(10, 10, null)
-thcr testCroisement (2/2):    | solution(10,12,lst)
+thcr testCroisement (2/2): OK | solution(10,12,lst)
 thcr testHeight (0/1): KO | exo.solution(10, -10, lst)
 null
-thcr testNormal (1/1):    | solution(10,12,lst)
-thcr testDebordeX (1/1): OK | exo.solution(10, 10, lst)
-thcr testDebordeY (1/1): OK | exo.solution(10, 10, lst)
+thcr testNormal (1/1):  OK | solution(10,12,lst)
+thcr testDebordeX (1/1): OK | exo.solution(10, 10, lst) --> BONJOUR (5,4) H
+thcr testDebordeY (1/1): OK | exo.solution(10, 10, lst) --> BONJOUR (4,5) V
 thcr NOTE : (6 / 10) = 12 / 20

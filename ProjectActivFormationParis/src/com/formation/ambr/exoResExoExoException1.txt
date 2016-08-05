@@ -1,8 +1,8 @@
 ambr:Exception
 
-ambr testDebordeX (0/1): KO | exo.solution(10, 10, lst)
+ambr testDebordeX (0/1): KO | exo.solution(10, 10, lst) --> BONJOUR (-1,4) H
 -1
-ambr testDebordeY (0/1): KO | exo.solution(10, 10, lst)
+ambr testDebordeY (0/1): KO | exo.solution(10, 10, lst) --> BONJOUR (4,-1) V
 -1
 ambr testWidth (0/1): KO | exo.solution(-10, 10, lst)
 null
@@ -10,9 +10,9 @@ ambr testNull (1/1): OK | exo.solution(10, 10, null)
 ambr testCroisement (0/2): KO | exo.solution(10, 12, lst)
 ambr testHeight (0/1): KO | exo.solution(10, -10, lst)
 null
-ambr testNormal (1/1):    | solution(10,12,lst)
-ambr testDebordeX (0/1): KO | exo.solution(10, 10, lst)
+ambr testNormal (1/1):  OK | solution(10,12,lst)
+ambr testDebordeX (0/1): KO | exo.solution(10, 10, lst) --> BONJOUR (5,4) H
 10
-ambr testDebordeY (0/1): KO | exo.solution(10, 10, lst)
+ambr testDebordeY (0/1): KO | exo.solution(10, 10, lst) --> BONJOUR (4,5) V
 10
 ambr NOTE : (2 / 10) = 4 / 20

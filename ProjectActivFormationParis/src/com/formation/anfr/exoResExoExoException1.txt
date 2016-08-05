@@ -1,12 +1,12 @@
 anfr:Exception
 
-anfr testDebordeX (0/1):    | solution(10,10,lst)  ne releve pas d'exception
-anfr testDebordeY (0/1): KO | exo.solution(10, 10, lst) ne leve pas la bonne exception
-anfr testWidth (0/1):    | solution(-10,10,lst) ne releve pas d'exception
+anfr testDebordeX (0/1):  KO | solution(10,10,lst)  ne releve pas d'exception --> BONJOUR (-1,4) H
+anfr testDebordeY (0/1): KO | exo.solution(10, 10, lst) ne leve pas la bonne exception --> BONJOUR (4,-1) V
+anfr testWidth (0/1):  KO | solution(-10,10,lst) ne releve pas d'exception
 anfr testNull (1/1): OK | exo.solution(10, 10, null)
-anfr testCroisement (2/2):    | solution(10,12,lst)
-anfr testHeight (0/1):    | solution(10,-10,lst)  ne releve pas d'exception
+anfr testCroisement (2/2): OK | solution(10,12,lst)
+anfr testHeight (0/1):  KO | solution(10,-10,lst)  ne releve pas d'exception
 anfr testNormal (0/1): KO | exo.solution(10, 12, lst)
-anfr testDebordeX (0/1): KO | exo.solution(10, 10, lst) ne leve pas la bonne exception
-anfr testDebordeY (0/1):    | solution(10,10,lst)  ne releve pas d'exception
+anfr testDebordeX (0/1): KO | exo.solution(10, 10, lst) ne leve pas la bonne exception --> BONJOUR (5,4) H
+anfr testDebordeY (0/1):  KO | solution(10,10,lst)  ne releve pas d'exception --> BONJOUR (4,5) V
 anfr NOTE : (3 / 10) = 6 / 20

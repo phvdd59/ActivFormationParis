@@ -1,14 +1,14 @@
 made:Exception
 
-made testDebordeX (0/1): KO | exo.solution(10, 10, lst)
+made testDebordeX (0/1): KO | exo.solution(10, 10, lst) --> BONJOUR (-1,4) H
 -1
-made testDebordeY (0/1): KO | exo.solution(10, 10, lst)
+made testDebordeY (0/1): KO | exo.solution(10, 10, lst) --> BONJOUR (4,-1) V
 -1
 made testWidth (1/1): OK | exo.solution(-10, 10, lst)
 made testNull (1/1): OK | exo.solution(10, 10, null)
 made testCroisement (0/2): KO | exo.solution(10, 12, lst)
 made testHeight (1/1): OK | exo.solution(-10, 10, lst)
-made testNormal (1/1):    | solution(10,12,lst)
-made testDebordeX (1/1): OK | exo.solution(10, 10, lst)
-made testDebordeY (1/1): OK | exo.solution(10, 10, lst)
+made testNormal (1/1):  OK | solution(10,12,lst)
+made testDebordeX (1/1): OK | exo.solution(10, 10, lst) --> BONJOUR (5,4) H
+made testDebordeY (1/1): OK | exo.solution(10, 10, lst) --> BONJOUR (4,5) V
 made NOTE : (6 / 10) = 12 / 20
