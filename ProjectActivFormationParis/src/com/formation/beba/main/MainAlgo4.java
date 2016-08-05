@@ -3,7 +3,7 @@ package com.formation.beba.main;
 import java.awt.Point;
 import java.util.ArrayList;
 
-import com.formation.beba.exo.ExoAlgo4Bis;
+import com.formation.beba.exo.ExoException1;
 import com.formation.phva.exception.CruciException;
 import com.formation.phva.exo.Terme;
 
@@ -19,12 +19,12 @@ public class MainAlgo4 {
 		Point pos1 = new Point(2, 2);
 		Terme terme = new Terme("oooo", pos1, false);
 		ArrayList<Terme> lstTerme = new ArrayList<Terme>();
-		ExoAlgo4Bis exo = new ExoAlgo4Bis();
+		ExoException1 exo = new ExoException1();
 		lstTerme.add(terme);
 		Point pos2 = new Point(3, 1);
 		Terme terme2 = new Terme("nnnn", pos2, true);
 		lstTerme.add(terme2);
-		exo.solution(8, 8, lstTerme);
+		exo.solution(5, -5, lstTerme);
 
 	}
 

@@ -20,7 +20,7 @@ public class ExoException1 implements InterException1 {
 		if (width <= 0) {
 			throw new CruciWidthException();
 		}
-		if (width <= 0) {
+		if (height <= 0) {
 			throw new CruciHeightException();
 		}
 
