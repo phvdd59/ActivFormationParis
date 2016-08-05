@@ -25,9 +25,9 @@ public class ExoException1 implements InterException1 {
 			if (terme.isSens() == Terme.HORIZONTAL) {
 				for (int i = 0; i < tab.length; i++) {
 					cruci[terme.getPos().y][terme.getPos().x + i] = tab[i];
-					if (cruciDeborde()) {
-						throw new CruciDebordeException();
-					}
+//					if (cruciDeborde()) {
+//						throw new CruciDebordeException();
+//					}
 
 				}
 			} else {
@@ -39,7 +39,7 @@ public class ExoException1 implements InterException1 {
 		return cruci;
 	}
 
-	public boolean cruciDeborde() {
-		return tab[i].length > cruci[i].length;
-	}
+//	public boolean cruciDeborde() {
+//		return tab[i].length > cruci[i].length;
+//	}
 }
