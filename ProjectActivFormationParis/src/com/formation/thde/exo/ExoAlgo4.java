@@ -63,7 +63,6 @@ public class ExoAlgo4 implements com.formation.phva.exo.InterAlgo4 {
 			for (int j = 0; j < nomChar.length; j++) {
 				//debordement on sort
 				if (x > height || y > width) {
-					i++;
 					throw new CruciDebordeException(lst.get(i));
 				}
 				try {
