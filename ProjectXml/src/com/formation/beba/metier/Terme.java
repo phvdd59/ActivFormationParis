@@ -72,9 +72,14 @@ public class Terme {
 				} else if (v >= 'a' && v <= 'z') {
 					sRet += (char) v;
 				} else {
-					if (i != 0 && !sRet.substring(sRet.length() - 1).equals(" ")) {
-						sRet += " ";
+					try {
+						if (i != 0 && !sRet.substring(sRet.length() - 1).equals(" ")) {
+							sRet += " ";
+						}
+					} catch (StringIndexOutOfBoundsException e) {
+						// TODO: handle exception
 					}
+					
 				}
 			}
 		}
