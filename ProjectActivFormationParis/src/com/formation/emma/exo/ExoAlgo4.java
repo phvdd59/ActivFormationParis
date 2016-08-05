@@ -43,7 +43,7 @@ public class ExoAlgo4 implements com.formation.phva.exo.InterAlgo4 {
 				for (int j = 0; j < lst.size(); j++) {
 					int x = (int) lst.get(j).getPos().getX();
 					int y = (int) lst.get(j).getPos().getY();
-					char[] motEpele = lst.get(j).getNom().trim().toLowerCase().toCharArray();
+					char[] motEpele = lst.get(j).getNom().toCharArray();
 
 					if (lst.get(j).isSens() == Terme.VERTICAL) {
 						for (int i = 0; i < motEpele.length; i++) {
@@ -53,8 +53,8 @@ public class ExoAlgo4 implements com.formation.phva.exo.InterAlgo4 {
 								} else if (tableau[x][y]>'a' && tableau[x][y]<'z') {
 									throw new CruciCroisementException();
 								} else {
-									tableau[x][y] = motEpele[i];
-									x++;
+									tableau[x+i][y] = motEpele[i];
+									
 								}
 							} catch (CruciDebordeException e) {
 
@@ -73,8 +73,8 @@ public class ExoAlgo4 implements com.formation.phva.exo.InterAlgo4 {
 								} else if (tableau[x][y]>'a' && tableau[x][y]<'z') {
 									throw new CruciCroisementException();
 								} else {
-									tableau[x][y] = motEpele[i];
-									y++;
+									tableau[x+i][y] = motEpele[i];
+								
 								}
 							} catch (CruciDebordeException e) {
 
