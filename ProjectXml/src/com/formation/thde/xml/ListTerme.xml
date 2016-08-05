@@ -1,1 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<ListTerme>
+	<Terme x='2' y='1' sense='VERTICAL'>
+		WAGON1
+	</Terme>
+	<Terme x='1' y='2' sense='HORIZONTAL'>
+		WAGON2
+	</Terme>
+</ListTerme>
