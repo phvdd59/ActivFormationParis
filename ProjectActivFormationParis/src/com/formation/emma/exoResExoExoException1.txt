@@ -1,0 +1,14 @@
+emma:Exception
+
+emma testDebordeX (0/1): KO | exo.solution(10, 10, lst)
+-1
+emma testDebordeY (0/1): KO | exo.solution(10, 10, lst)
+-1
+emma testWidth (1/1): OK | exo.solution(-10, 10, lst)
+emma testNull (1/1): OK | exo.solution(10, 10, null)
+emma testCroisement (2/2):    | solution(10,12,lst)
+emma testHeight (1/1): OK | exo.solution(-10, 10, lst)
+emma testNormal (1/1):    | solution(10,12,lst)
+emma testDebordeX (0/1): KO | exo.solution(10, 10, lst) ne leve pas la bonne exception
+emma testDebordeY (0/1): KO | exo.solution(10, 10, lst) ne leve pas la bonne exception
+emma NOTE : (6 / 10) = 12 / 20

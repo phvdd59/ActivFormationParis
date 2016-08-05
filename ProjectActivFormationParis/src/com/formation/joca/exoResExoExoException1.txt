@@ -1,0 +1,16 @@
+joca:Exception
+
+joca testDebordeX (0/1): KO | exo.solution(10, 10, lst)
+-1
+joca testDebordeY (0/1): KO | exo.solution(10, 10, lst)
+-1
+joca testWidth (0/1): KO | exo.solution(-10, 10, lst)
+null
+joca testNull (1/1): OK | exo.solution(10, 10, null)
+joca testCroisement (2/2):    | solution(10,12,lst)
+joca testHeight (0/1): KO | exo.solution(10, -10, lst)
+null
+joca testNormal (1/1):    | solution(10,12,lst)
+joca testDebordeX (1/1): OK | exo.solution(-10, 10, lst)
+joca testDebordeY (1/1): OK | exo.solution(-10, 10, lst)
+joca NOTE : (6 / 10) = 12 / 20

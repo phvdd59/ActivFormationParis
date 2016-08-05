@@ -1,0 +1,12 @@
+jeci:Exception
+
+jeci testDebordeX (1/1): OK | exo.solution(-10, 10, lst)
+jeci testDebordeY (1/1): OK | exo.solution(-10, 10, lst)
+jeci testWidth (1/1): OK | exo.solution(-10, 10, lst)
+jeci testNull (1/1): OK | exo.solution(10, 10, null)
+jeci testHeight (1/1): OK | exo.solution(-10, 10, lst)
+jeci testDebordeX (0/1): KO | exo.solution(10, 10, lst)
+String index out of range: 7
+jeci testDebordeY (0/1): KO | exo.solution(10, 10, lst)
+String index out of range: 7
+jeci NOTE : (5 / 10) = 10 / 20
