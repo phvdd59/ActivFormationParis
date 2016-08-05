@@ -56,24 +56,7 @@ public class ExoAlgo4 implements com.formation.phva.exo.InterAlgo4 {
 				if (lst.get(i).isSens() == Terme.HORIZONTAL) {
 					int verifDepassement = (int) lst.get(i).getPos().getX() + lst.get(i).getNom().length();
 					if (verifDepassement > width) {
-						try {
-							for (int j = 0; j < width - (int) lst.get(i).getPos().getX(); j++) {
-								if (sol[(int) lst.get(i).getPos().getX() + j][(int) lst.get(i).getPos().getY()] == ' ' || lst.get(i).getNom()
-										.charAt(j) == sol[(int) lst.get(i).getPos().getX() + j][(int) lst.get(i).getPos().getY()]) {
-									sol[(int) lst.get(i).getPos().getX() + j][(int) lst.get(i).getPos().getY()] = lst.get(i).getNom().charAt(j);
-								} else {
-									try {
-										throw new CruciCroisementException(lst.get(i), j);
-									} catch (CruciCroisementException e) {
-										System.out.println(e.getMessage());
-									}
-								}
-
-							}
 							throw new CruciDebordeException(lst.get(i));
-						} catch (CruciDebordeException e) {
-							System.out.println(e.getMessage());
-						}
 					} else {
 						for (int j = 0; j < lst.get(i).getNom().length(); j++) {
 							if (sol[(int) lst.get(i).getPos().getX() + j][(int) lst.get(i).getPos().getY()] == ' '
@@ -92,23 +75,7 @@ public class ExoAlgo4 implements com.formation.phva.exo.InterAlgo4 {
 				} else if (lst.get(i).isSens() == Terme.VERTICAL) {
 					int verifDepassement = (int) lst.get(i).getPos().getY() + lst.get(i).getNom().length();
 					if (verifDepassement > height) {
-						try {
-							for (int j = 0; j < height - (int) lst.get(i).getPos().getY(); j++) {
-								if (sol[(int) lst.get(i).getPos().getX()][(int) lst.get(i).getPos().getY() + j] == ' ' || lst.get(i).getNom()
-										.charAt(j) == sol[(int) lst.get(i).getPos().getX()][(int) lst.get(i).getPos().getY() + j]) {
-									sol[(int) lst.get(i).getPos().getX()][(int) lst.get(i).getPos().getY() + j] = lst.get(i).getNom().charAt(j);
-								} else {
-									try {
-										throw new CruciCroisementException(lst.get(i), j);
-									} catch (CruciCroisementException e) {
-										System.out.println(e.getMessage());
-									}
-								}
-							}
 							throw new CruciDebordeException(lst.get(i));
-						} catch (CruciDebordeException e) {
-							System.out.println(e.getMessage());
-						}
 					} else {
 						for (int j = 0; j < lst.get(i).getNom().length(); j++) {
 							if (sol[(int) lst.get(i).getPos().getX()][(int) lst.get(i).getPos().getY() + j] == ' '
