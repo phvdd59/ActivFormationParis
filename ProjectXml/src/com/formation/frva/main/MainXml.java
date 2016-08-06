@@ -9,6 +9,7 @@ public class MainXml {
 		// bonjour
 		// coucou
 		// beubeu
+		//
 	}
 	
 	public void lectureXml() {
