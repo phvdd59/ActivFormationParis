@@ -1,0 +1,23 @@
+beba:Syntaxe
+
+beba qcm[1] : BON (1/1)
+beba qcm[2] : BON (1/1)
+beba qcm[3] : BON (1/1)
+beba qcm[4] : BON (1/1)
+beba qcm[5] : BON (1/1)
+beba qcm[6] : BON (1/1)
+beba qcm[7] : BON (1/1)
+beba qcm[8] : BON (1/1)
+beba qcm[9] : BON (1/1)
+beba qcm[10] : BON (1/1)
+beba qcm[11] : BON (1/1)
+beba qcm[12] : BON (1/1)
+beba qcm[13] : BON (1/1)
+beba qcm[14] : BON (1/1)
+beba qcm[15] : BON (1/1)
+beba qcm[16] : BON (1/1)
+beba qcm[17] : BON (1/1)
+beba qcm[18] : BON (1/1)
+beba qcm[19] : BON (1/1)
+beba qcm[20] : BON (1/1)
+beba NOTE : (20 / 20) = 20,00 / 20

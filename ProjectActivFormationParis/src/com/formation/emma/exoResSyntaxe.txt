@@ -1,0 +1,23 @@
+emma:Syntaxe
+
+emma qcm[1] : BON (1/1)
+emma qcm[2] : BON (1/1)
+emma qcm[3] : BON (1/1)
+emma qcm[4] : BON (1/1)
+emma qcm[5] : BON (1/1)
+emma qcm[6] : BON (1/1)
+emma qcm[7] : BON (1/1)
+emma qcm[8] : BON (1/1)
+emma qcm[9] : BON (1/1)
+emma qcm[10] : BON (1/1)
+emma qcm[11] : BON (1/1)
+emma qcm[12] : BON (1/1)
+emma qcm[13] : BON (1/1)
+emma qcm[14] : BON (1/1)
+emma qcm[15] : BON (1/1)
+emma qcm[16] : BON (1/1)
+emma qcm[17] : BON (1/1)
+emma qcm[18] : BON (1/1)
+emma qcm[19] : BON (1/1)
+emma qcm[20] : BON (1/1)
+emma NOTE : (20 / 20) = 20,00 / 20

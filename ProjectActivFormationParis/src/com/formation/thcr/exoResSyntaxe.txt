@@ -1,0 +1,23 @@
+thcr:Syntaxe
+
+thcr qcm[1] : BON
+thcr qcm[2] : BON
+thcr qcm[3] : BON
+thcr qcm[4] : BON
+thcr qcm[5] : BON
+thcr qcm[6] : BON
+thcr qcm[7] : BON
+thcr qcm[8] : BON
+thcr qcm[9] : BON
+thcr qcm[10] : BON
+thcr qcm[11] : BON
+thcr qcm[12] : BON
+thcr qcm[13] : BON
+thcr qcm[14] : BON
+thcr qcm[15] : BON
+thcr qcm[16] : BON
+thcr qcm[17] : BON
+thcr qcm[18] : BON
+thcr qcm[19] : BON
+thcr qcm[20] : BON
+thcr NOTE : (20 / 20) = 20,00 / 20

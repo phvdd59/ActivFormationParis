@@ -17,7 +17,7 @@ public class CruciDebordeException extends CruciException {
 
 	@Override
 	public String getMessage() {
-		return super.getMessage() + "Debordement du terme : "+terme.toString()+" Incorrect";
+		return super.getMessage() + "Debordement du terme : " + ((terme == null) ? "NULL" : terme.toString()) + " Incorrect";
 	}
 
 }

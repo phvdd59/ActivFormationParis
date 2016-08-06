@@ -1,4 +1,4 @@
-anfr:Exception
+anfr:Exceptions
 
 anfr testDebordeX (0/1):  KO | solution(10,10,lst)  ne releve pas d'exception --> BONJOUR (-1,4) H
 anfr testDebordeY (0/1): KO | exo.solution(10, 10, lst) ne leve pas la bonne exception --> BONJOUR (4,-1) V

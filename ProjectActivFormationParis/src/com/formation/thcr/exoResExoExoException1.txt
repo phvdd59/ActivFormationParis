@@ -1,4 +1,4 @@
-thcr:Exception
+thcr:Exceptions
 
 thcr testDebordeX (0/1): KO | exo.solution(10, 10, lst) --> BONJOUR (-1,4) H
 -1

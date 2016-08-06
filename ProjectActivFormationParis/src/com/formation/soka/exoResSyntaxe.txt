@@ -1,0 +1,23 @@
+soka:Syntaxe
+
+soka qcm[1] : BON (1/1)
+soka qcm[2] : BON (1/1)
+soka qcm[3] : BON (1/1)
+soka qcm[4] : BON (1/1)
+soka qcm[5] : BON (1/1)
+soka qcm[6] : BON (1/1)
+soka qcm[7] : BON (1/1)
+soka qcm[8] : BON (1/1)
+soka qcm[9] : BON (1/1)
+soka qcm[10] : BON (1/1)
+soka qcm[11] : BON (1/1)
+soka qcm[12] : BON (1/1)
+soka qcm[13] : BON (1/1)
+soka qcm[14] : BON (1/1)
+soka qcm[15] : BON (1/1)
+soka qcm[16] : BON (1/1)
+soka qcm[17] : BON (1/1)
+soka qcm[18] : BON (1/1)
+soka qcm[19] : BON (1/1)
+soka qcm[20] : BON (1/1)
+soka NOTE : (20 / 20) = 20,00 / 20

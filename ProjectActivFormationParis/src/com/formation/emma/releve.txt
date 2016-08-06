@@ -1,4 +1,4 @@
-Syntaxe:-1
+Syntaxe:20.00
 Tableau:18.18
 Algo:14.00
 Versionning:-1
@@ -6,7 +6,7 @@ Objet:-1
 UML:-1
 Collection:20.00
 Tri:-1
-Exceptions:-1
+Exceptions:12.00
 Flux:-1
 Evenement:-1
 XML:-1

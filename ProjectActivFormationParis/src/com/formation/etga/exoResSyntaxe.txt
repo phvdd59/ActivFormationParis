@@ -1,0 +1,23 @@
+etga:Syntaxe
+
+etga qcm[1] : BON (1/1)
+etga qcm[2] : BON (1/1)
+etga qcm[3] : BON (1/1)
+etga qcm[4] : BON (1/1)
+etga qcm[5] : BON (1/1)
+etga qcm[6] : BON (1/1)
+etga qcm[7] : BON (1/1)
+etga qcm[8] : BON (1/1)
+etga qcm[9] : BON (1/1)
+etga qcm[10] : BON (1/1)
+etga qcm[11] : BON (1/1)
+etga qcm[12] : BON (1/1)
+etga qcm[13] : BON (1/1)
+etga qcm[14] : BON (1/1)
+etga qcm[15] : BON (1/1)
+etga qcm[16] : BON (1/1)
+etga qcm[17] : BON (1/1)
+etga qcm[18] : BON (1/1)
+etga qcm[19] : BON (1/1)
+etga qcm[20] : BON (1/1)
+etga NOTE : (20 / 20) = 20,00 / 20
