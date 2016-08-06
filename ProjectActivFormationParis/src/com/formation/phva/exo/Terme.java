@@ -80,7 +80,6 @@ public class Terme {
 		}
 		return sRet.trim().toUpperCase();
 	}
-	
 
 	@Override
 	public String toString() {

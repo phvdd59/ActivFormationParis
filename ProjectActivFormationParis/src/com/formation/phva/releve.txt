@@ -1,12 +1,12 @@
-Syntaxe:-1
-Tableau:18.18
-Algo:14.00
+Syntaxe:18.00
+Tableau:3.12
+Algo:6.00
 Versionning:-1
 Objet:-1
 UML:-1
-Collection:20.00
+Collection:1.21
 Tri:-1
-Exceptions:-1
+Exceptions:4.00
 Flux:-1
 Evenement:-1
 XML:-1

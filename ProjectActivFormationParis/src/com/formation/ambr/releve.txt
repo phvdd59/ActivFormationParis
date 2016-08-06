@@ -6,7 +6,7 @@ Objet:-1
 UML:-1
 Collection:3.64
 Tri:-1
-Exceptions:-1
+Exceptions:4.00
 Flux:-1
 Evenement:-1
 XML:-1

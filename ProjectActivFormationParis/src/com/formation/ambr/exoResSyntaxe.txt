@@ -1,0 +1,23 @@
+ambr:Syntaxe
+
+ambr qcm[1] : ?
+ambr qcm[2] : ?
+ambr qcm[3] : ?
+ambr qcm[4] : ?
+ambr qcm[5] : ?
+ambr qcm[6] : ?
+ambr qcm[7] : ?
+ambr qcm[8] : ?
+ambr qcm[9] : ?
+ambr qcm[10] : ?
+ambr qcm[11] : ?
+ambr qcm[12] : ?
+ambr qcm[13] : ?
+ambr qcm[14] : ?
+ambr qcm[15] : ?
+ambr qcm[16] : ?
+ambr qcm[17] : ?
+ambr qcm[18] : ?
+ambr qcm[19] : ?
+ambr qcm[20] : ?
+ambr NOTE : (10 / 20) = 10,00 / 20

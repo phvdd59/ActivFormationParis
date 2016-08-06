@@ -18,7 +18,7 @@ public class CruciMotComposeException extends CruciException {
 
 	@Override
 	public String getMessage() {
-		return super.getMessage() + "Attention mot compose : ["+terme.toString()+"] position : "+pos+" ==> Lettre remplacé.";
+		return super.getMessage() + "Attention mot compose : ["+((terme != null)?"NULL":terme.toString())+"] position : "+pos+" ==> Lettre remplacé.";
 	}
 
 }
