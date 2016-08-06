@@ -7,7 +7,7 @@ public class MainXml {
 		// commentaire fr
 		// Autre commentaires
 		// bonjour
-		// coucou
+		// beu
 	}
 	
 	public void lectureXml() {
