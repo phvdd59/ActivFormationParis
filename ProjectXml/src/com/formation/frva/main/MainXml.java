@@ -10,6 +10,7 @@ public class MainXml {
 		// coucou
 		// beubeu
 		// francoise fait une bonne modif 
+		// Ma modif
 	}
 	
 	public void lectureXml() {
