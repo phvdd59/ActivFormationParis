@@ -139,6 +139,7 @@ public class ExoFlux1 extends ArrayList<Terme> {
 					flag = true;
 					System.out.println("lancement de la sauvegarde");
 					this.save();
+					System.out.println("sauvegarde réussie !");
 				} else {
 					System.out.println("Attention repondre par \"O\" ou \"o\" ou \"N\" ou \"n\"");
 				}
