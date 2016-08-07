@@ -1,0 +1,6 @@
+{"mot":"MELON","posX":1,"posY":2,"sens":true}
+{"mot":"BATEAU","posX":3,"posY":2,"sens":false}
+{"mot":"BOULET","posX":2,"posY":3,"sens":true}
+{"mot":"MARCHE","posX":2,"posY":7,"sens":false}
+{"mot":"ICI","posX":5,"posY":4,"sens":false}
+{"mot":"KIWI","posX":2,"posY":3,"sens":false}
