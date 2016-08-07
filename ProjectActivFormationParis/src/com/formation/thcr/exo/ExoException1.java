@@ -44,7 +44,8 @@ public class ExoException1 implements InterException1 {
 				if (terme.isSens() == Terme.HORIZONTAL) {
 					int verifDepassement = terme.getPos().x + terme.getNom().length();
 					int verifDepassement2 = terme.getPos().y;
-					if (verifDepassement > width || verifDepassement2 > height) {
+					int verifDepassement3 = terme.getPos().x;
+					if (verifDepassement > width || verifDepassement2 > height || verifDepassement2 < 0 || verifDepassement3 < 0) {
 						throw new CruciDebordeException();
 					} else {
 						for (int i = 0; i < tab.length; i++) {
@@ -62,7 +63,8 @@ public class ExoException1 implements InterException1 {
 				} else {
 					int verifDepassement = terme.getPos().y + terme.getNom().length();
 					int verifDepassement2 = terme.getPos().x;
-					if (verifDepassement > height || verifDepassement2 > width) {
+					int verifDepassement3 = terme.getPos().y;
+					if (verifDepassement > height || verifDepassement2 > width || verifDepassement2 < 0 || verifDepassement3 < 0) {
 						throw new CruciDebordeException();
 					} else {
 						for (int i = 0; i < tab.length; i++) {
