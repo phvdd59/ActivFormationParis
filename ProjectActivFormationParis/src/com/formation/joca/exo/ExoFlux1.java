@@ -206,6 +206,7 @@ public class ExoFlux1 extends ArrayList<Terme> {
 				} else if (subSens.equals("true")) {
 					terme.setSens(Terme.VERTICAL);
 				}
+
 				this.add(terme);
 				line = chargement.readLine();
 			}
