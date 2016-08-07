@@ -32,10 +32,10 @@ public class MainActiveFormationParisJoca {
 			System.out.println(exo10.get(i).toString());
 		}
 
-		/*
-		 * exo10.recup(); for (int i = 0; i < exo10.size(); i++) {
-		 * System.out.println(exo10.get(i).toString()); }
-		 */
+		
+		 //exo10.recup(); for (int i = 0; i < exo10.size(); i++) {
+		 //System.out.println(exo10.get(i).toString()); }
+		 
 	}
 
 	private void init9() {
