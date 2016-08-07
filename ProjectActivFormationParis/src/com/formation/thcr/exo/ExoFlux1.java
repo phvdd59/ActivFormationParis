@@ -75,6 +75,7 @@ public class ExoFlux1 extends ArrayList<Terme> {
 				System.out.println("7.Afficher Solution (Dangereux)");
 				System.out.println("8.quitter");
 				choixMenu = bInStr.readLine();
+				System.out.println();
 				switch (choixMenu) {
 					case "1":
 						/**********************************
@@ -82,44 +83,46 @@ public class ExoFlux1 extends ArrayList<Terme> {
 						 */
 						System.out.println("Création Terme");
 						System.out.print("entrer sMot : ");
-						String nom = bInStr.readLine();
+						String sMot = bInStr.readLine();
 						System.out.print("entrer sPosX : ");
 						int checkPosX = -1;
 						while (checkPosX < 0) {
-							checkPosX = Integer.valueOf(bInStr.readLine());
+							double doublePosX = Double.valueOf(bInStr.readLine());
+							checkPosX = (int) doublePosX;
 							if (checkPosX < 0) {
 								System.out.println("Position X négative");
 								System.out.print("sPosX : ");
 							}
 						}
-						int posX = checkPosX;
+						int sPosX = checkPosX;
 						System.out.print("entrer sPosY : ");
 						int checkPosY = -1;
 						while (checkPosY < 0) {
-							checkPosY = Integer.valueOf(bInStr.readLine());
+							double doublePosY = Double.valueOf(bInStr.readLine());
+							checkPosY = (int) doublePosY;
 							if (checkPosY < 0) {
 								System.out.println("Position Y négative");
 								System.out.print("sPosY : ");
 							}
 						}
-						int posY = checkPosY;
+						int sPosY = checkPosY;
 						System.out.println("entrer sSens : \n1.HORIZONTAL\n2.VERTICAL");
-						boolean sens = false;
+						boolean sSens = false;
 						int checkSens = 0;
 						System.out.print("sSens : ");
 						while (!(checkSens == 1 || checkSens == 2)) {
 							checkSens = Integer.valueOf(bInStr.readLine());
 							if (checkSens == 1) {
-								sens = Terme.HORIZONTAL;
+								sSens = Terme.HORIZONTAL;
 							} else if (checkSens == 2) {
-								sens = Terme.VERTICAL;
+								sSens = Terme.VERTICAL;
 							} else {
 								System.out.println("recommencer saisie");
 								System.out.println("entrer sSens : \n1.HORIZONTAL\n2.VERTICAL");
 								System.out.print("sSens : ");
 							}
 						}
-						this.add(new Terme(nom, new Point(posX, posY), sens));
+						this.add(new Terme(sMot, new Point(sPosX, sPosY), sSens));
 						System.out.println();
 						System.out.println("Création du terme : " + this.get(this.size() - 1));
 						System.out.println();
@@ -201,7 +204,6 @@ public class ExoFlux1 extends ArrayList<Terme> {
 								System.out.println("largeur négative");
 							}
 						}
-						System.out.println();
 						System.out.println("entrez hauteur");
 						while(height<0){
 							System.out.print("sHauteur : ");
@@ -210,7 +212,6 @@ public class ExoFlux1 extends ArrayList<Terme> {
 								System.out.println("hauteur négative");
 							}
 						}
-						System.out.println();
 						char[][] sol = null;
 						try {
 							sol = exo.solution(width, height, this);
