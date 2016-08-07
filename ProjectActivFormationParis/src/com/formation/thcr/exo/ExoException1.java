@@ -16,6 +16,12 @@ public class ExoException1 implements InterException1 {
 	public char[][] solution(int width, int height, ArrayList<com.formation.phva.exo.Terme> lst) throws CruciException {
 		char[][] cruci = null;
 		if (lst != null) {
+			if (width < 0) {
+				throw new CruciWidthException();
+			}
+			if (height < 0) {
+				throw new CruciHeightException();
+			}
 			cruci = new char[height][width];
 			for (Terme terme : lst) {
 				if (terme.isSens() == Terme.VERTICAL) {
@@ -36,8 +42,9 @@ public class ExoException1 implements InterException1 {
 			for (Terme terme : lst) {
 				char[] tab = terme.getNom().toCharArray();
 				if (terme.isSens() == Terme.HORIZONTAL) {
-					int verifDepassement = (int) terme.getPos().getX() + terme.getNom().length();
-					if (verifDepassement > width) {
+					int verifDepassement = terme.getPos().x + terme.getNom().length();
+					int verifDepassement2 = terme.getPos().y;
+					if (verifDepassement > width || verifDepassement2 > height) {
 						throw new CruciDebordeException();
 					} else {
 						for (int i = 0; i < tab.length; i++) {
@@ -53,8 +60,9 @@ public class ExoException1 implements InterException1 {
 						}
 					}
 				} else {
-					int verifDepassement = (int) terme.getPos().getY() + terme.getNom().length();
-					if (verifDepassement > height) {
+					int verifDepassement = terme.getPos().y + terme.getNom().length();
+					int verifDepassement2 = terme.getPos().x;
+					if (verifDepassement > height || verifDepassement2 > width) {
 						throw new CruciDebordeException();
 					} else {
 						for (int i = 0; i < tab.length; i++) {
