@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
+	<!DOCTYPE ListeTerme [
+	<!ELEMENT ListeTerme (Terme)* >
+		<!ELEMENT Terme(nom) >
+		<!ATTLIST Terme posX CDATA #REQUIRED>
+		<!ATTLIST Terme posY CDATA #REQUIRED>
+		<!ATTLIST Terme sens (HORIZONTAL|VERTICAL) CDATA #REQUIRED>
+		<!ELEMENT  nom EMPTY>
+	]>
+
 <ListTerme>
 	<Terme y='1' x='2'    sens='VERTICAL'>
 		WAGONA
