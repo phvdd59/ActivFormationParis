@@ -2,7 +2,11 @@ package com.formation.soka.exo;
 
 import java.util.ArrayList;
 
+import com.formation.phva.exception.CruciDebordeException;
 import com.formation.phva.exception.CruciException;
+import com.formation.phva.exception.CruciHeightException;
+import com.formation.phva.exception.CruciNullException;
+import com.formation.phva.exception.CruciWidthException;
 import com.formation.phva.exo.Terme;
 
 public class ExoAlgo4 implements com.formation.phva.exo.InterAlgo4 {
@@ -24,20 +28,38 @@ public class ExoAlgo4 implements com.formation.phva.exo.InterAlgo4 {
 	@Override
 	public char[][] solution(int width, int height, ArrayList<Terme> lst) throws CruciException {
 		char[][] tabChar = null;
-
+		if (lst == null) {
+			throw new CruciNullException();
+		}
 		tabChar = new char[height][width];
 		for (int i = 0; i < lst.size(); i++) {
-			int posX = lst.get(i).getPos().x;
-			int posY = lst.get(i).getPos().y;
-			if (lst.get(i).isSens() == Terme.HORIZONTAL) {
-				for (int j = posX; j < posX + lst.get(i).getNom().length(); j++) {
-					tabChar[j][posY] = lst.get(i).getNom().charAt(j - posX);
-				}
-			} else if (lst.get(i).isSens() == Terme.VERTICAL) {
-				for (int j = posY; j < posY + lst.get(i).getNom().length(); j++) {
-					tabChar[posX][j] = lst.get(i).getNom().charAt(j - posY);
+			Terme terme = lst.get(i);
+			int posX = terme.getPos().x;
+			int posY = terme.getPos().y;
+			int lngMot = lst.get(i).getNom().length();
+			String nom = terme.getNom();
+			if (posX + lngMot > height || posY + lngMot > width) {
+				throw new CruciDebordeException();
+			} else {
+				if (lst.get(i).isSens() == Terme.HORIZONTAL) {
+					for (int j = 0; j < lngMot; j++) {
+						tabChar[posY][j + posX] = nom.charAt(j);
+
+					}
+				} else if (lst.get(i).isSens() == Terme.VERTICAL) {
+					for (int j = 0; j < lngMot; j++) {
+						tabChar[j + posY][posX] = nom.charAt(j);
+
+					}
 				}
 			}
+		}
+
+		if (height <= 0) {
+			throw new CruciHeightException();
+		}
+		if (width <= 0) {
+			throw new CruciWidthException();
 		}
 		return tabChar;
 	}
