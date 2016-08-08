@@ -150,19 +150,20 @@ public class ExoFlux1 extends ArrayList<Terme> {
 					line = line.replaceAll("\"posX\"", " ");
 					line = line.replaceAll("\"posY\"", " ");
 					line = line.replaceAll("\"sens\"", " ");
+					line = line.replaceAll("\\t+", " ");
 					line = line.replaceAll("\\p{Punct}", " ");
 					line = line.replaceAll("\\s+", " ");
 				}
 				String[] tab = line.split(" ");
 
-				String mot = tab[0];
-				int posX = Integer.valueOf(tab[1]);
-				int posY = Integer.valueOf(tab[2]);
+				String mot = tab[1];
+				int posX = Integer.valueOf(tab[2]);
+				int posY = Integer.valueOf(tab[3]);
 
 				boolean sens = false;
-				if (tab[3].contains("true")) {
+				if (tab[4].contains("true")) {
 					sens = true;
-				} else if (tab[3].contains("false")) {
+				} else if (tab[4].contains("false")) {
 					sens = false;
 
 					Terme terme = new Terme(mot, new Point(posX, posY), sens);
