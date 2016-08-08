@@ -8,6 +8,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import com.formation.phva.metier.Terme;
+
 public class MainXml {
 
 	public static void main(String[] args) {
