@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-import com.formation.thde.metier.Terme;
+import com.formation.etga.exo.Terme;
 
 public class MainXml extends ArrayList<Terme> {
 

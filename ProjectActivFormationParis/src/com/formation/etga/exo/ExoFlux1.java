@@ -1,5 +1,6 @@
 package com.formation.etga.exo;
 
+import java.awt.Point;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -9,6 +10,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+
+import com.formation.phva.exo.Terme;
 
 public class ExoFlux1 extends ArrayList<Terme> {
 
@@ -59,14 +62,60 @@ public class ExoFlux1 extends ArrayList<Terme> {
 		BufferedReader bInStr = null;
 		bInStr = new BufferedReader(new InputStreamReader(System.in));
 
-		String nom = null;
-		System.out.println("Entrer un mot");
-		try {
-			nom = bInStr.readLine();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		boolean continu = true;
+		String sMot = null, sSens = null, sContinu = null;
+		int sPosX = -1, sPosY = -1;
+		boolean sens = false;
 
+		ArrayList<Terme> listTerme = new ArrayList<Terme>();
+
+		while (continu == true) {
+			continu = false;
+			sMot = null;
+			sPosX = -1;
+			sPosY = -1;
+			sSens = null;
+			sens = false;
+			try {
+				while (sMot == null) {
+					System.out.println("Entrer un mot");
+					sMot = bInStr.readLine();
+				}
+				while (sPosX < 0) {
+					System.out.println("Entrer une position en X");
+					sPosX = Integer.valueOf(bInStr.readLine());
+				}
+				while (sPosY < 0) {
+					System.out.println("Entrer une position en Y");
+					sPosY = Integer.valueOf(bInStr.readLine());
+				}
+				while (sSens.matches("HORIZONTAL") || sSens.matches("VERTICAL")) {
+					System.out.println("Entrer un sens : HORIZONTAL ou VERTICAL");
+					sSens = bInStr.readLine();
+				}
+				if (sSens.matches("VERTICAL")) {
+					sens = true;
+				} else if (sSens.matches("HORIZONTAL")) {
+					sens = false;
+				}
+
+				Point point = new Point(sPosX, sPosY);
+				Terme terme = new Terme(sMot, point, sens);
+				listTerme.add(terme);
+
+				while (sContinu.matches("OUI") || sContinu.matches("NON")) {
+					System.out.println("Voulez vous entrer un autre terme? OUI ou NON");
+					sContinu = bInStr.readLine();
+				}
+				if (sContinu.matches("OUI")) {
+					continu = true;
+				} else if (sSens.matches("HORIZONTAL")) {
+					continu = false;
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
 	public void save() {
