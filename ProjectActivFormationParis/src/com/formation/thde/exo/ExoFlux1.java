@@ -141,10 +141,10 @@ public class ExoFlux1 extends ArrayList<Terme> {
 
 				line = line.replaceAll("[:,{}]", "");
 				tabLine = line.split("\"");
-				if (tabLine[11].matches("true")) {
+				if (tabLine[10].matches("true")) {
 					sens = true;
 				}
-				this.add(new Terme(tabLine[4].toLowerCase(), new Point(Integer.valueOf(tabLine[7]), Integer.valueOf(tabLine[9])), sens));
+				this.add(new Terme(tabLine[3].toLowerCase(), new Point(Integer.valueOf(tabLine[6]), Integer.valueOf(tabLine[8])), sens));
 				line = stdIn.readLine();
 			}
 
