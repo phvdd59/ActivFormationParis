@@ -18,7 +18,7 @@ public class MainGit {
 	public void init() {
 		ExoAlgo3 exoAlgo3 = new ExoAlgo3();
 		ArrayList<Mouvement> lst = new ArrayList<Mouvement>();
-		lst = exoAlgo3.solution(lst, 5, "A", "B","C");
+		lst = exoAlgo3.solution(lst, 3, "A", "B","C");
 		System.out.println(lst);
 	}
 	

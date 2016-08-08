@@ -35,8 +35,8 @@ public class ExoAlgo3 implements ImplAlgo3 {
 		if (nbElements % 2 != 0) {
 			ArrayList<Integer> q1 = null;
 			ArrayList<Integer> q2 = null;
-			String de="";
-			String vers="";
+			String de = "";
+			String vers = "";
 			while ((t3.size() < nbElements + 1)) {
 				if (pos1.equals(nomTours[0])) {
 					indice = t1.remove(t1.size() - 1);
@@ -45,30 +45,30 @@ public class ExoAlgo3 implements ImplAlgo3 {
 					pos1 = c;
 					if (t3.size() == nbElements + 1)
 						break;
-					q1=t1;
-					q2=t2;
-					de=a;
-					vers=b;
+					q1 = t1;
+					q2 = t2;
+					de = a;
+					vers = b;
 				} else if (pos1.equals(nomTours[1])) {
 					indice = t2.remove(t2.size() - 1);
 					t1.add(indice);
 					lst.add(new Mouvement(indice, b, a));
 					pos1 = a;
-					q1=t2;
-					q2=t3;
-					de=b;
-					vers=c;
+					q1 = t2;
+					q2 = t3;
+					de = b;
+					vers = c;
 				} else {
 					indice = t3.remove(t3.size() - 1);
 					t2.add(indice);
 					lst.add(new Mouvement(indice, c, b));
 					pos1 = b;
-					q1=t1;
-					q2=t3;
-					de=a;
-					vers=c;
+					q1 = t1;
+					q2 = t3;
+					de = a;
+					vers = c;
 				}
-				
+
 				if (comparaison(q1, q2)) {
 					indice = q1.remove(q1.size() - 1);
 					q2.add(indice);
@@ -78,8 +78,7 @@ public class ExoAlgo3 implements ImplAlgo3 {
 					q1.add(indice);
 					lst.add(new Mouvement(indice, vers, de));
 				}
-				
-				
+
 				if (comparaison(t1, t2)) {
 					indice = t1.remove(t1.size() - 1);
 					t2.add(indice);
@@ -174,4 +173,16 @@ public class ExoAlgo3 implements ImplAlgo3 {
 		return permutable;
 	}
 
+	public ArrayList<Mouvement> solution2(ArrayList<Mouvement> lst, int nbElements, String from, String temp,
+			String to) {
+		if (nbElements == 1) {
+			lst.add(new Mouvement(1, from, to));
+		} else if (nbElements > 1) {
+			lst = solution2(lst, nbElements - 1, from, to, temp);
+			lst.add(new Mouvement(nbElements, from, to));
+			lst = solution2(lst, nbElements - 1, temp, from, to);
+		}
+		return lst;
+
+	}
 }
