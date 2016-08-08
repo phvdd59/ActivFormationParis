@@ -53,6 +53,7 @@ public class ExoFlux1 extends ArrayList<Terme> {
 		 * {"mot":"pastille","posX":1,"posY":5,"sens":true}
 		 * {"mot":"propre","posX":1,"posY":5,"sens":false}
 		 * 
+		 * 
 		 */
 
 	}
