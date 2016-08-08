@@ -13,8 +13,7 @@ public class ExoException1 implements InterException1 {
 	public char[][] solution(int width, int height, ArrayList<com.formation.phva.exo.Terme> lst) throws CruciWidthException, CruciHeightException, CruciNullException {
 
 		char[][] cruci = new char[height][width];
-		
-		
+
 		for (int i = 0; i < cruci.length; i++) {
 			for (int j = 0; j < cruci[0].length; j++) {
 				cruci[i][j] = ' ';
@@ -22,20 +21,20 @@ public class ExoException1 implements InterException1 {
 		}
 
 		for (Terme terme : lst) {
-			if (terme == null) {
+			if (lst == null) {
 				throw new CruciNullException();
 			}
 			char[] tab = terme.getNom().toCharArray();
 			if (terme.isSens() == Terme.HORIZONTAL) {
 				for (int i = 0; i < tab.length; i++) {
-					if (width > tab.length+i) {
+					if (width > tab.length + i) {
 						throw new CruciWidthException();
 					}
 					cruci[terme.getPos().y][terme.getPos().x + i] = tab[i];
 				}
 			} else {
 				for (int i = 0; i < tab.length; i++) {
-					if (height > tab.length+i) {
+					if (height > tab.length + i) {
 						throw new CruciHeightException();
 					}
 

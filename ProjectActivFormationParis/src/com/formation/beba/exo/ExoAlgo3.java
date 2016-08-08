@@ -112,18 +112,65 @@ public class ExoAlgo3 implements ImplAlgo3 {
 		// break;
 		// }
 		if (nbElements <= 0) {
-		} else if (nbElements < 1) { // resolu en suite recursive c'est plus
-										// facile..
-
-			lst.add(new Mouvement(nbElements, a, c));
-
-		} else {
+		} else
+		// if (nbElements < 1) { // resolu en suite recursive c'est plus
+		// // facile..
+		//
+		// lst.add(new Mouvement(nbElements, a, c));
+		//
+		// } else
+		{
 			solution(lst, nbElements - 1, a, c, b);
 
-			lst.add(new Mouvement(nbElements, a, c));
-
+			// lst.add(new Mouvement(nbElements, a, c));
+			System.out.println(new Mouvement(nbElements, a, c));
 			solution(lst, nbElements - 1, b, a, c);
 		}
 		return lst;
 	}
+
+	public void solution2(ArrayList<Mouvement> lst, int nbElements, String a, String b, String c) {
+		int niveau = 4;
+		// depacer tout les element n-1 vers la tour temporaire
+		lst = saveNMoins1(lst, niveau - 1, "N", "B", "R");
+		// deplacer l'élement n sur la tour to
+		lst = deplaceN(lst, niveau - 1, "N", "R", "R");
+		// replacer les element n-1 de temp vers to
+		lst = recupNMoins1(lst, niveau - 1, "R", "B", "N");
+
+	}
+
+	public ArrayList<Mouvement> saveNMoins1(//
+			ArrayList<Mouvement> lst, //
+			int n, String from, //
+			String to, String temp) {
+
+		// deplacer tous les éléments n-1 de from vers temp
+		lst = saveNMoins1(lst, n - 1, from, temp, to);
+		// déplacer l'élement n de from vers to
+		lst = deplaceN(lst, n, from, to, temp);
+		// replacer n-1 de temp vers to
+		lst = recupNMoins1(lst, n - 1, temp, to, from);
+		return lst;
+	}
+
+	public ArrayList<Mouvement> deplaceN(//
+			ArrayList<Mouvement> lst, //
+			int n, String from, //
+			String to, String temp) {
+		if (n != 0) {
+			System.out.println("deplacer " + n + " de " + from + " vers " + to);
+
+		}
+		return lst;
+	}
+
+	public ArrayList<Mouvement> recupNMoins1(//
+			ArrayList<Mouvement> lst, //
+			int n, String from, //
+			String to, String temp) {
+
+		return lst;
+	}
+
 }
