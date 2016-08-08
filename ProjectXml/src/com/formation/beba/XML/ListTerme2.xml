@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 	<!DOCTYPE listTerme[
 		<!ELEMENT listTerme (Terme*)>
-			<!ELEMENT Terme nom>
+			<!ELEMENT Terme (nom)>
 				<!ATTLIST Terme posX CDATA #REQUIRED>
 				<!ATTLIST Terme posY CDATA #REQUIRED>
 				<!ATTLIST Terme sens (HORIZONTAL|VERTICAL) #REQUIRED>
 				<!ELEMENT nom (PCDATA)>
 ]>
+
 
 <ListTerme>
 	<Terme y='1' x='2' sens='VERTICAL'>
@@ -15,9 +16,6 @@
 	<Terme x='1' y='2' sens='HORIZONTAL'>
 		WAGON
 	</Terme>
-	<TOTO x='4' y='5' sens='BONJOUR'>
-		COCO
-	</TOTO>
 	<Terme y='1' x='2' sens='VERTICAL'>
 		WAGON1
 	</Terme>
