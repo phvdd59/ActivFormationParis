@@ -9,6 +9,16 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
+
 import com.formation.beba.metier.ListeTerme;
 import com.formation.beba.metier.Terme;
 
@@ -18,12 +28,79 @@ public class MainXml {
 		MainXml main = new MainXml();
 		// main.lectureXML();
 		main.init();
+		// main.init2();
 	}
 
 	public void init() {
+		ArrayList<Terme> lstTerme = null;
+		final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+		File file = new File("C:/DevFormation/GITActiveFormationParis/ActivFormationParis/ProjectXml/bin/com/formation/beba/XML/ListTerme2.XML");
+		try {
+			final DocumentBuilder builder = factory.newDocumentBuilder();
+			final Document document = builder.parse(file);
+			System.out.println(document.getXmlVersion());
+			System.out.println(document.getXmlEncoding());
+
+			final Element eListTerme = document.getDocumentElement();
+			final NodeList nListTerme = eListTerme.getChildNodes();
+			System.out.println(eListTerme.getNodeName());
+
+			if (eListTerme.getNodeName().equals("listTerme")) {
+				lstTerme = new ArrayList<Terme>();
+				for (int i = 0; i < nListTerme.getLength(); i++) {
+					final Node nTerme = nListTerme.item(i);
+					if (nTerme.getNodeType() == Node.ELEMENT_NODE) {
+						final Element eTerme = (Element) nTerme;
+						if (eTerme.getNodeName().equals("Terme")) {
+							System.out.println(eTerme.getNodeName());
+							String sX = eTerme.getAttribute("x");
+							String sY = eTerme.getAttribute("y");
+							String sSens = eTerme.getAttribute("sens");
+							String sNom = eTerme.getTextContent();
+							System.out.println(sX + sY + sSens + sNom);
+							try {
+								int x = Integer.valueOf(sX).intValue();
+								int y = Integer.valueOf(sY).intValue();
+								boolean sens;
+								if (sSens.equals(Sens.HORIZONTAL.name())) {
+									sens = Terme.HORIZONTAL;
+								} else if (sSens.equals(Sens.VERTICAL.name())) {
+									sens = Terme.VERTICAL;
+								} else {
+									throw new sensException();
+								}
+
+								if (x < 0 || y < 0) {
+									throw new NegatifException();
+								}
+								String sNomOk = Terme.epuration(sNom);
+								if (!sNom.equals(sNomOk)) {
+									throw new NomException();
+								}
+								Terme terme = new Terme(sNom, new Point(x, y), sens);
+								lstTerme.add(terme);
+							} catch (Exception e) {
+
+							}
+						}
+					}
+				}
+			}
+
+		} catch (ParserConfigurationException e) {
+			e.printStackTrace();
+		} catch (SAXException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	public void init2() {
 		File file = new File("./src/com/formation/beba/XML/ListeTerme.xml");
-		ListeTerme lstTerme=new ListeTerme();
-		
+		ListeTerme lstTerme = new ListeTerme();
+
 		lstTerme.lectureXML(file);
 	}
 
