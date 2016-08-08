@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!DOCTYPE listTerme[
+		<!ELEMENT listTerme (Terme*)>
+			<!ELEMENT Terme EMPTY>
+				<!ATTLIST Terme nom CDATA #REQUIRED>
+				<!ATTLIST Terme posX CDATA #REQUIRED>
+				<!ATTLIST Terme posY CDATA #REQUIRED>
+				<!ATTLIST Terme sens (HORIZONTAL|VERTICAL) #REQUIRED>
+]>
+

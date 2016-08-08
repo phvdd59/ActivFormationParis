@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-	<!DOCTYPE listTerme[
-		<!ELEMENT listTerme (Terme*)>
-		<!ATTLIST Terme nom CDATA #REQUIRED>
-		<!ATTLIST Terme posX CDATA #REQUIRED>
-		<!ATTLIST Terme posY CDATA #REQUIRED>
-		<!ATTLIST Terme sens CDATA #REQUIRED>
-]>
-
