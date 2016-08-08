@@ -39,9 +39,9 @@ public class MainXml {
 					chaineString = chaineString.replaceAll("\\s+", " ");
 					chaineString = chaineString.replace("= ", "=");
 					chaineString = chaineString.replace(" =", "=");
-					
+
 					chaineString = chaineString.replace("</Terme>", "");
-					String nom = chaineString.substring(chaineString.indexOf(">")+1);
+					String nom = chaineString.substring(chaineString.indexOf(">") + 1);
 					nom.replaceAll(" ", "");
 					String[] tabMot = chaineString.split(" ");
 					int a = 0;

@@ -67,7 +67,7 @@ public class MainXml {
 								} else if (sSens.equals(Sens.VERTICAL.name())) {
 									sens = Terme.VERTICAL;
 								} else {
-									throw new sensException();
+									throw new SensException();
 								}
 
 								if (x < 0 || y < 0) {
@@ -79,7 +79,7 @@ public class MainXml {
 								}
 								Terme terme = new Terme(sNom, new Point(x, y), sens);
 								lstTerme.add(terme);
-							} catch (Exception e) {
+							} catch (NumberFormatException | NegatifException | NomException | SensException e) {
 
 							}
 						}
