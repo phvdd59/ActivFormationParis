@@ -22,6 +22,6 @@ public class Mouvement {
 	}
 	@Override
 	public String toString() {
-		return "Bougez le disque " + indice + " de " + from + " à " + to;
+		return "Bougez le disque " + indice + " de " + from + " à " + to+"\n";
 	}
 }

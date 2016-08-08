@@ -121,8 +121,10 @@ public class ExoFlux1 extends ArrayList<Terme> {
 				}
 				if (sensDuMot == 1) {
 					sens = Terme.HORIZONTAL;
+					sensProv = true;
 				} else if (sensDuMot == 2) {
 					sens = Terme.VERTICAL;
+					sensProv = true;
 				} else {
 					System.out.println("ça va pas comme sens");
 				}
@@ -151,8 +153,7 @@ public class ExoFlux1 extends ArrayList<Terme> {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			ecriture.write("{\"mot\":\"" + this.get(i).getNom() + "\",\"posX\":" + this.get(i).getPos().x + ",\"posY\":"
-					+ this.get(i).getPos().y + ",\"sens\":" + this.get(i).isSens() + "}\n");
+			ecriture.write("{\"mot\":\"" + this.get(i).getNom() + "\",\"posX\":" + this.get(i).getPos().x + ",\"posY\":" + this.get(i).getPos().y + ",\"sens\":" + this.get(i).isSens() + "}\n");
 
 			System.out.println("sauvegarde effectuée");
 
@@ -197,8 +198,7 @@ public class ExoFlux1 extends ArrayList<Terme> {
 					leSens = true;
 				}
 
-				this.add(new Terme(termeCour[1],
-						new Point(Integer.valueOf(termeCour[2]), Integer.valueOf(termeCour[3])), leSens));
+				this.add(new Terme(termeCour[1], new Point(Integer.valueOf(termeCour[2]), Integer.valueOf(termeCour[3])), leSens));
 			}
 			lecture2.close();
 			lecture.close();
