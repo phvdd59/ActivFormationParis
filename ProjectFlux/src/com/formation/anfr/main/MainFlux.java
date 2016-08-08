@@ -30,8 +30,9 @@ public class MainFlux {
 		// mainFlux.initEcriture();
 		// mainFlux.initLecture();
 		// mainFlux.initImage();
-		 mainFlux.initObjet();
-		mainFlux.initLireObjet();
+	//	 mainFlux.initObjet();
+	//	mainFlux.initLireObjet();
+		mainFlux.init2();
 	}
 
 	private void initLireObjet() {
