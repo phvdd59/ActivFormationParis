@@ -18,10 +18,10 @@ public class MainFlux {
 
 	public static void main(String[] args) {
 		MainFlux m = new MainFlux();
-		//		m.init();
-		//		m.initEcriture();
-		//		m.initLecture();
-		//		m.initImage();
+		m.init();
+		m.initEcriture();
+		m.initLecture();
+		m.initImage();
 		m.initEcritureObject();
 		m.initLectureObject();
 	}
