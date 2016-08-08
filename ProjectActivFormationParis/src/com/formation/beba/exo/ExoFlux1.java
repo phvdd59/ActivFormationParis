@@ -82,7 +82,7 @@ public class ExoFlux1 extends ArrayList<Terme> {
 				try {
 					posX = Integer.valueOf(bInStr.readLine());
 				} catch (IOException e) {
-					e.printStackTrace();
+					// e.printStackTrace();
 				}
 				if (posX < 0) {
 					System.out.println("ça va pas pour une coordonée");
@@ -98,7 +98,7 @@ public class ExoFlux1 extends ArrayList<Terme> {
 				try {
 					posY = Integer.valueOf(bInStr.readLine());
 				} catch (IOException e) {
-					e.printStackTrace();
+//					e.printStackTrace();
 				}
 				if (posY < 0) {
 					System.out.println("ça va pas pour une coordonée");
