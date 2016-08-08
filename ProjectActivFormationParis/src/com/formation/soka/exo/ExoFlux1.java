@@ -61,7 +61,7 @@ public class ExoFlux1 extends ArrayList<Terme> {
 		int sPosX = 0;
 		int sPosY = 0;
 		boolean sSens = false;
-		Point point = new Point(sPosX, sPosY);
+		Point point = null;
 		Terme terme = null;
 		try {
 			System.out.println("Saisissez un mot et appuyer sur Entrée");
@@ -92,14 +92,15 @@ public class ExoFlux1 extends ArrayList<Terme> {
 				sSens = true;
 			}
 			//}
-
+			point = new Point(sPosX, sPosY);
 			terme = new Terme(sMot, point, sSens);
 			this.add(terme);
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
 
-		System.out.println("Souhaitez-vous ajouter un nouveau terme? Si oui, entrez OUI, sinon appuyez sur Entrée");
+		System.out.println("Souhaitez-vous ajouter un nouveau terme? ");
+		System.out.println("Si oui, entrez OUI, sinon appuyez sur Entrée");
 		try {
 			ligne = stdIn.readLine();
 			if (!ligne.equals("")) {
@@ -165,7 +166,7 @@ public class ExoFlux1 extends ArrayList<Terme> {
 					posY = Integer.parseInt(line.substring(line.indexOf("posY") + 6, line.indexOf("posY") + 7));
 				}
 				if (line.contains("mot\":")) {
-					s = line.substring(line.indexOf("mot\":" + 6), line.indexOf("posX") - 3);
+					s = line.substring(line.indexOf("mot\":" ), line.indexOf("posX"));
 				}
 
 				point = new Point(posY, posX);
