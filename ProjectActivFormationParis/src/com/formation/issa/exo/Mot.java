@@ -59,6 +59,6 @@ public class Mot implements InterExoMot1, Comparable<Mot> {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return super.toString();
+		return getMot()+"("+getNb()+")";
 	}
 }

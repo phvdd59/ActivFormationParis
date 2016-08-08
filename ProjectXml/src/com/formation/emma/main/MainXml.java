@@ -32,9 +32,15 @@ public class MainXml {
 			texte = new BufferedReader(new FileReader(file));
 			String line = texte.readLine();
 			while (line != null) {
-				if (line.contains("<Terme")) {
-					while (!line.contains("</Terme>")) {  // wagon m terme ouvert meme ligne que  terme ferme - rajouter condition + verif wagon g pourquoi pris 
+				ligneComplete = "";
+				x = -1;
+				y = -1;
+				mot = "";
+
+				if (line.contains("<Terme ")) {
+					while (!line.contains("</Terme>")) { // wagon m terme ouvert meme ligne que  terme ferme - rajouter condition + verif wagon g pourquoi pris 
 						line = line.replace("\\t+", " ");
+						line = line.replaceAll("Terme", " ");
 						line = line.replaceAll("\\p{Punct}", " ");
 						line = line.replaceAll("\\s+", " ");
 						line = line.replaceAll("y ", "y");
@@ -42,11 +48,17 @@ public class MainXml {
 						ligneComplete = ligneComplete + " " + line;
 						line = texte.readLine();
 					}
+					if (line.contains("</Terme>")) {
+						line = line.replace("\\t+", " ");
+						line = line.replaceAll("Terme", " ");
+						line = line.replaceAll("\\p{Punct}", " ");
+						line = line.replaceAll("\\s+", " ");
+						line = line.replaceAll("y ", "y");
+						line = line.replaceAll("x ", "x");
+						ligneComplete = ligneComplete + " " + line;
+					}
 					String[] tab = ligneComplete.split(" ");
-					ligneComplete = "";
-					x = -1;
-					y = -1;
-					mot = "";
+
 					for (int i = 0; i < tab.length; i++) {
 						if (tab[i].contains("x")) {
 							x = Integer.valueOf(tab[i].substring(1, 2));
@@ -58,7 +70,7 @@ public class MainXml {
 							sens = false;
 						} else if (tab[i].length() == 0) {
 
-						} else if (tab[i].length() != 0 && tab[i] != "TERME") {
+						} else if (tab[i].length() != 0 ) {
 							mot = tab[i];
 						}
 					}

@@ -8,9 +8,9 @@ import com.formation.joca.exo.Dico;
 import com.formation.joca.exo.ExoAlgo1;
 import com.formation.joca.exo.ExoAlgo2;
 import com.formation.joca.exo.ExoAlgo3;
-import com.formation.joca.exo.ExoAlgo4;
 import com.formation.joca.exo.ExoArrayList1;
 import com.formation.joca.exo.ExoException1;
+import com.formation.joca.exo.ExoFlux1;
 import com.formation.joca.exo.ExoSimple;
 import com.formation.joca.exo.ExoTableau1;
 import com.formation.joca.exo.ExoTableau2;
@@ -22,7 +22,20 @@ public class MainActiveFormationParisJoca {
 
 	public static void main(String[] arg) {
 		MainActiveFormationParisJoca test = new MainActiveFormationParisJoca();
-		test.init9();
+		test.init10();
+	}
+
+	private void init10() {
+		ExoFlux1 exo10 = new ExoFlux1();
+		exo10.saisie();
+		for (int i = 0; i < exo10.size(); i++) {
+			System.out.println(exo10.get(i).toString());
+		}
+
+		
+		 //exo10.recup(); for (int i = 0; i < exo10.size(); i++) {
+		 //System.out.println(exo10.get(i).toString()); }
+		 
 	}
 
 	private void init9() {

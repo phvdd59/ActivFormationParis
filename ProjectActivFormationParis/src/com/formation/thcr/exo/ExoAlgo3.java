@@ -19,8 +19,7 @@ import com.formation.phva.exo.Mouvement;
  */
 public class ExoAlgo3 implements ImplAlgo3 {
 
-	public ArrayList<Mouvement> solution(ArrayList<Mouvement> lst, int nbElements, String a,
-			String b, String c) {
+	public ArrayList<Mouvement> solution(ArrayList<Mouvement> lst, int nbElements, String a, String b, String c) {
 
 		ArrayList<Integer> A = new ArrayList<Integer>();
 		for (int i = 1; i <= nbElements; i++) {
@@ -36,6 +35,12 @@ public class ExoAlgo3 implements ImplAlgo3 {
 				}
 			}
 		}
+
+		// Déplacer tous les éléments n-1 de "from" sur "temp"
+		// 
+		// Déplacer  l'élément n sur la tour "to"
+		// Replacer tous les éléments n-1..0 de "temp" sur "to" 
+
 		return null;
 	}
 

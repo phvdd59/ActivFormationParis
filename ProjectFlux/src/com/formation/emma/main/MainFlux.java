@@ -23,8 +23,9 @@ public class MainFlux {
 
 	public static void main(String[] args) throws Exception { //throws exception arrete le programme alors que try catch sort l'exception avec try et la met dans catch, permet de continuer le programme
 		MainFlux mainflux = new MainFlux();
-		mainflux.initEcritureObject();
-		mainflux.initLectureObject();
+		//mainflux.initEcritureObject();
+		//mainflux.initLectureObject();
+		mainflux.init();
 	}
 
 	private void initLectureObject() {
