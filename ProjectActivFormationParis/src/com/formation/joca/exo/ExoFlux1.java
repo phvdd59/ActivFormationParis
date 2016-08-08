@@ -60,25 +60,21 @@ public class ExoFlux1 extends ArrayList<Terme> {
 
 		System.out.println("Ajout d'un terme");
 		Terme terme = new Terme();
-		BufferedReader sMot = null;
-		BufferedReader sPosX = null;
-		BufferedReader sPosY = null;
-		BufferedReader sSens = null;
-		BufferedReader sReponse = null;
+		BufferedReader read = null;
 
 		try {
 			System.out.println("Veuillez entrer le mot : ");
-			sMot = new BufferedReader(new InputStreamReader(System.in));
-			terme.setNom(terme.epuration(sMot.readLine()));
+			read = new BufferedReader(new InputStreamReader(System.in));
+			String sMot = terme.epuration(read.readLine());
+			terme.setNom(sMot);
 
 			System.out.println("Veuillez entrer la position x : ");
-			sPosX = new BufferedReader(new InputStreamReader(System.in));
 			int posX = -1;
 			boolean flag = false;
 			while (!flag) {
-				String sX = sPosX.readLine();
-				if (Pattern.matches("^[1-9]|[1-9][0-9]+$", sX)) {
-					posX = Integer.parseInt(sX);
+				String sPosX = read.readLine();
+				if (Pattern.matches("^[0-9]|[1-9][0-9]+$", sPosX)) {
+					posX = Integer.parseInt(sPosX);
 					flag = true;
 				} else {
 					System.out.println("attention il faut entrer un entier positif non nul");
@@ -86,13 +82,12 @@ public class ExoFlux1 extends ArrayList<Terme> {
 			}
 
 			System.out.println("Veuillez entrer la position y : ");
-			sPosY = new BufferedReader(new InputStreamReader(System.in));
 			int posY = -1;
 			flag = false;
 			while (!flag) {
-				String sY = sPosY.readLine();
-				if (Pattern.matches("^[1-9]|[1-9][0-9]+$", sY)) {
-					posY = Integer.parseInt(sY);
+				String sPosY = read.readLine();
+				if (Pattern.matches("^[0-9]|[1-9][0-9]+$", sPosY)) {
+					posY = Integer.parseInt(sPosY);
 					flag = true;
 				} else {
 					System.out.println("attention il faut entrer un entier positif non nul");
@@ -102,15 +97,14 @@ public class ExoFlux1 extends ArrayList<Terme> {
 			Point point = new Point(posX, posY);
 			terme.setPos(point);
 
-			System.out.println("Veuillez entrer le sens : ");
-			sSens = new BufferedReader(new InputStreamReader(System.in));
+			System.out.println("Veuillez entrer le sens : vertical ou horizontal");
 			flag = false;
 			while (!flag) {
-				String sens = terme.epuration(sSens.readLine());
-				if (sens.equals("HORIZONTAL")) {
+				String sSens = terme.epuration(read.readLine());
+				if (sSens.equals("HORIZONTAL")) {
 					terme.setSens(Terme.HORIZONTAL);
 					flag = true;
-				} else if (sens.equals("VERTICAL")) {
+				} else if (sSens.equals("VERTICAL")) {
 					terme.setSens(Terme.VERTICAL);
 					flag = true;
 
@@ -126,11 +120,10 @@ public class ExoFlux1 extends ArrayList<Terme> {
 		this.add(terme);
 
 		try {
-			sReponse = new BufferedReader(new InputStreamReader(System.in));
 			boolean flag = false;
 			while (!flag) {
 				System.out.println("Voulez vous ajouter un autre terme ? O/N");
-				String result = sReponse.readLine();
+				String result = read.readLine();
 
 				if (result.equals("O") || result.equals("o")) {
 					this.saisie();
@@ -148,11 +141,7 @@ public class ExoFlux1 extends ArrayList<Terme> {
 			e.printStackTrace();
 		} finally {
 			try {
-				sMot.close();
-				sPosX.close();
-				sPosY.close();
-				sSens.close();
-				sReponse.close();
+				read.close();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
