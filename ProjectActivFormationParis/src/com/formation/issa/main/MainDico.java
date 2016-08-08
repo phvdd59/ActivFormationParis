@@ -22,7 +22,7 @@ public class MainDico {
 		Dico dico = new Dico();
 		String texteEpurer = new String();
 		texteEpurer = "Une intelligence artificielle écrit le scénario d’un court-métrage";
-		// dico.ranger(texte);
+		 dico.ranger(texteEpurer);
 		dico.getListeMot("i", 4);
 		System.out.println(dico.epuration(texteEpurer));
 		ArrayList<Mot> listing = new ArrayList<Mot>();
