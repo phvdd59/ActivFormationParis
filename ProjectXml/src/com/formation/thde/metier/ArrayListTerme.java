@@ -8,6 +8,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import com.formation.beba.metier.Terme;
+
 public class ArrayListTerme extends ArrayList<Terme> {
 
 	private String path;
