@@ -56,52 +56,113 @@ public class ExoFlux1 extends ArrayList<Terme> {
 
 	public void saisie() {
 		BufferedReader stdIn = null;
+		String mot = "";
+		Point p = null;
+		boolean sens = false;
+		String sensS = "";
 		stdIn = new BufferedReader(new InputStreamReader(System.in));
+		boolean continuerSaisie = true;
 		try {
-			System.out.println("Saisir un mot :");
-			String ligne = stdIn.readLine();
-			String mot = ligne;
-			System.out.println("mot :" + mot);
-			System.out.println("Saisir une posX :");
-			ligne = stdIn.readLine();
-			int posX = Integer.valueOf(ligne);
-			System.out.println("posX :" + posX);
-			System.out.println("Saisir une posY :");
-			ligne = stdIn.readLine();
-			int posY = Integer.valueOf(ligne);
-			System.out.println("posY :" + posY);
-			Point p = new Point(posX, posY);
-			System.out.println("Saisir le sens (V-true/H-false) :");
-			ligne = stdIn.readLine();
-			String sensS = ligne;
-			System.out.println("sens :" + sensS);
-			boolean sens = false;
-			if (sensS.equals("true")) {
-				sens = true;
+			while (continuerSaisie) {
+
+				System.out.println("Saisir un mot :");
+				String ligne = stdIn.readLine();
+				mot = ligne;
+				System.out.println("mot :" + mot);
+				boolean checkPos = true;
+				while (checkPos) {
+					System.out.print("Saisir une posX :");
+					ligne = stdIn.readLine();
+					char[] tab = ligne.toCharArray();
+					for (char c : tab) {
+						if ((c >= '0') && (c <= '9')) {
+							checkPos = false;
+						} else {
+							System.out.println("Veuillez Saisir un entier positif!");
+							checkPos = true;
+							break;
+						}
+
+					}
+				}
+				int posX = Integer.valueOf(ligne);
+				System.out.println("posX :" + posX);
+				checkPos = true;
+				int posY = Integer.valueOf(ligne);
+				while (checkPos) {
+					System.out.print("Saisir une posY :");
+					ligne = stdIn.readLine();
+				
+					char[] tab = ligne.toCharArray();
+					for (char c : tab) {
+						if ((c >= '0') && (c <= '9')) {
+							checkPos = false;
+						} else {
+							System.out.println("Veuillez Saisir un entier positif!");
+							checkPos = true;
+							break;
+						}
+
+
+					}
+				}
+
+				
+				System.out.println("posY :" + posY);
+				p = new Point(posX, posY);
+				boolean sensOk = false;
+				while (!sensOk) {
+					System.out.print("Saisir le sens (vertical/horizontal) :");
+					ligne = stdIn.readLine();
+					sensS = ligne;
+					if (sensS.equals("vertical") || sensS.equals("horizontal")) {
+						sensOk = true;
+					} else {
+						System.out.println("Veuillez entrer vertical ou horizontal!");
+					}
+				}
+				System.out.println("sens :" + sensS);
+				if (sensS.equals("vertical")) {
+					sens = true;
+				} else {
+					sens = false;
+				}
+				this.add(new Terme(mot, p, sens));
+				continuerSaisie = false;
+				System.out.println("Saisir un autre terme (y/N) :");
+				ligne = stdIn.readLine();
+				if (ligne.equals("yes") || ligne.equals("y") || ligne.equals("Y") || ligne.equals("Yes")) {
+					continuerSaisie = true;
+				}
 			}
-			this.add(new Terme(mot, p, sens));
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
 			try {
 				stdIn.close();
+
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+			this.save();
 		}
-
+		
 	}
 
-	public void save() throws IOException {
+	public void save() {
 		File file = new File("./src/com/formation/anfr/data/saisie.json");
-		PrintWriter out = new PrintWriter(file);
-		for (Terme terme : this) {
-			if (!terme.equals(null)) {
-				out.println("{\"mot\":" + terme.getNom() + ",\"posX\":" + (int) terme.getPos().getX() + ",\"posY\":"
-						+ (int) terme.getPos().getY() + ",\"sens\":" + terme.isSens() + "}");
-				out.close();
+		try {
+			PrintWriter out = new PrintWriter(file);
+			for (Terme terme : this) {
+				if (!terme.equals(null)) {
+					out.println("{\"mot\":" + terme.getNom() + ",\"posX\":" + (int) terme.getPos().getX() + ",\"posY\":"
+							+ (int) terme.getPos().getY() + ",\"sens\":" + terme.isSens() + "}");
+				}
 			}
-		}
+				out.close();
+		} catch (IOException e) {
+			// TODO: handle exception
+		} 
 	}
 
 	public void recup() {

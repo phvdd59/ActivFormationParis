@@ -63,18 +63,15 @@ public class ExoFlux1 extends ArrayList<Terme> {
 		bInStr = new BufferedReader(new InputStreamReader(System.in));
 
 		boolean continu = true;
-		String sMot = null, sSens = null, sContinu = null;
+		String sMot = null, sSens = "", sContinu = "";
 		int sPosX = -1, sPosY = -1;
 		boolean sens = false;
-
-		ArrayList<Terme> listTerme = new ArrayList<Terme>();
 
 		while (continu == true) {
 			continu = false;
 			sMot = null;
 			sPosX = -1;
 			sPosY = -1;
-			sSens = null;
 			sens = false;
 			try {
 				while (sMot == null) {
@@ -89,27 +86,27 @@ public class ExoFlux1 extends ArrayList<Terme> {
 					System.out.println("Entrer une position en Y");
 					sPosY = Integer.valueOf(bInStr.readLine());
 				}
-				while (sSens.matches("HORIZONTAL") || sSens.matches("VERTICAL")) {
+				while (sSens.contains("HORIZONTAL") == false && sSens.contains("VERTICAL") == false) {
 					System.out.println("Entrer un sens : HORIZONTAL ou VERTICAL");
 					sSens = bInStr.readLine();
 				}
-				if (sSens.matches("VERTICAL")) {
+				if (sSens.contains("VERTICAL")) {
 					sens = true;
-				} else if (sSens.matches("HORIZONTAL")) {
+				} else if (sSens.contains("HORIZONTAL")) {
 					sens = false;
 				}
 
 				Point point = new Point(sPosX, sPosY);
 				Terme terme = new Terme(sMot, point, sens);
-				listTerme.add(terme);
+				this.add(terme); // la class est deja une ArrayList, on ajoute direct les termes dedans
 
-				while (sContinu.matches("OUI") || sContinu.matches("NON")) {
+				while (sContinu.contains("OUI") == false && sContinu.contains("NON") == false) {
 					System.out.println("Voulez vous entrer un autre terme? OUI ou NON");
 					sContinu = bInStr.readLine();
 				}
-				if (sContinu.matches("OUI")) {
+				if (sContinu.contains("OUI")) {
 					continu = true;
-				} else if (sSens.matches("HORIZONTAL")) {
+				} else if (sContinu.contains("NON")) {
 					continu = false;
 				}
 			} catch (IOException e) {
@@ -120,8 +117,18 @@ public class ExoFlux1 extends ArrayList<Terme> {
 
 	public void save() {
 		File file = new File("./src/com/formation/etga/data/saisie.json");
-		PrintWriter ecriture = null;
-
+		PrintWriter out = null;
+		try {
+			System.out.println(file.getCanonicalPath());
+			out = new PrintWriter(file);
+			for (int i = 0; i < this.size(); i++) {
+				//				out.println("{\mot\":\"" + this.get(i).getNom());{"mot":"pastille","posX":1,"posY":5,"sens":true}
+			}
+		} catch (IOException e) {
+			System.out.println("Recommencer le traitement");
+		} finally {
+			out.close();
+		}
 	}
 
 	public void recup() {

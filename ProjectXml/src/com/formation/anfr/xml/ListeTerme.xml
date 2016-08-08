@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
+	<!DOCTYPE ListeTerme [
+	<!ELEMENT ListeTerme (Terme)* >
+		<!ELEMENT Terme (#PCDATA) >
+		<!ATTLIST Terme x CDATA #REQUIRED>
+		<!ATTLIST Terme y CDATA #REQUIRED>
+		<!ATTLIST Terme sens (HORIZONTAL|VERTICAL) #REQUIRED>
+	]>
+	
 <ListeTerme>
 	<Terme x='2' y='1' sens='VERTICAL'>
 		WAGON2 DANSTON CUL^^ULU
@@ -9,7 +17,7 @@
 	<Terme y='12' x='2' sens='HORIZONTAL'>
 		MOM
 	</Terme>
-	<Term x='1' y='2' sens='HORIZONTAL'>
+	<Terme x='1' y='2' sens='HORIZONTAL'>
 		MAMAN
-	</Term>
+	</Terme>
 </ListeTerme>

@@ -1,4 +1,4 @@
-package com.formation.beba.metier;
+package com.formation.etga.exo;
 
 import java.awt.Point;
 
@@ -44,7 +44,7 @@ public class Terme {
 		this.sens = sens;
 	}
 
-	public static String epuration(String txt) {
+	public String epuration(String txt) {
 
 		//		String tex = txt.replaceAll("\\s+", " ");
 		//		
@@ -72,14 +72,9 @@ public class Terme {
 				} else if (v >= 'a' && v <= 'z') {
 					sRet += (char) v;
 				} else {
-					try {
-						if (i != 0 && !sRet.substring(sRet.length() - 1).equals(" ")) {
-							sRet += " ";
-						}
-					} catch (StringIndexOutOfBoundsException e) {
-						// TODO: handle exception
+					if (i != 0 && !sRet.substring(sRet.length() - 1).equals(" ")) {
+						sRet += " ";
 					}
-					
 				}
 			}
 		}

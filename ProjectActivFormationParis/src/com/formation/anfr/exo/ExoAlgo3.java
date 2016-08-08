@@ -19,7 +19,7 @@ import com.formation.phva.exo.Mouvement;
  */
 public class ExoAlgo3 implements ImplAlgo3 {
 
-	public ArrayList<Mouvement> solution(ArrayList<Mouvement> lst, int nbElements, String a, String b, String c) {
+	public ArrayList<Mouvement> solution2(ArrayList<Mouvement> lst, int nbElements, String a, String b, String c) {
 		String[] nomTours = { a, b, c };
 		ArrayList<Integer> t1 = new ArrayList<Integer>();
 		ArrayList<Integer> t2 = new ArrayList<Integer>();
@@ -173,7 +173,7 @@ public class ExoAlgo3 implements ImplAlgo3 {
 		return permutable;
 	}
 
-	public ArrayList<Mouvement> solution2(ArrayList<Mouvement> lst, int nbElements, String from, String temp,
+	public ArrayList<Mouvement> solution(ArrayList<Mouvement> lst, int nbElements, String from, String temp,
 			String to) {
 		if (nbElements == 1) {
 			lst.add(new Mouvement(1, from, to));
