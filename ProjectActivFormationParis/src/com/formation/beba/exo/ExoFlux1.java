@@ -81,7 +81,7 @@ public class ExoFlux1 extends ArrayList<Terme> {
 				System.out.println("Entrer la position en X sPosX");
 				try {
 					posX = Integer.valueOf(bInStr.readLine());
-				} catch (IOException e) {
+				} catch (Exception e) {
 					// e.printStackTrace();
 				}
 				if (posX < 0) {
@@ -97,8 +97,8 @@ public class ExoFlux1 extends ArrayList<Terme> {
 				System.out.println("Entrer la position en y sPosY");
 				try {
 					posY = Integer.valueOf(bInStr.readLine());
-				} catch (IOException e) {
-//					e.printStackTrace();
+				} catch (Exception e) {
+					// e.printStackTrace();
 				}
 				if (posY < 0) {
 					System.out.println("ça va pas pour une coordonée");
@@ -156,6 +156,7 @@ public class ExoFlux1 extends ArrayList<Terme> {
 			ecriture.write("{\"mot\":\"" + this.get(i).getNom() + "\",\"posX\":" + this.get(i).getPos().x + ",\"posY\":" + this.get(i).getPos().y + ",\"sens\":" + this.get(i).isSens() + "}\n");
 
 			System.out.println("sauvegarde effectuée");
+			this.clear();
 
 			ecriture.close();
 
@@ -165,7 +166,7 @@ public class ExoFlux1 extends ArrayList<Terme> {
 	public void recup() {
 		// de votre repertoire data
 		File file = new File("./src/com/formation/beba/data/lstDeTermeJson.json");
-
+		this.clear();
 		InputStream fichier = null;
 		try {
 			fichier = new FileInputStream(file);

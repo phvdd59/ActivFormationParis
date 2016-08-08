@@ -1,51 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-	<!DOCTYPE listTerme[
+<!DOCTYPE listTerme [
 		<!ELEMENT listTerme (Terme*)>
-			<!ELEMENT Terme (nom)>
-				<!ATTLIST Terme posX CDATA #REQUIRED>
-				<!ATTLIST Terme posY CDATA #REQUIRED>
+			<!ELEMENT Terme (#PCDATA)>
+				<!ATTLIST Terme x CDATA #REQUIRED>
+				<!ATTLIST Terme y CDATA #REQUIRED>
 				<!ATTLIST Terme sens (HORIZONTAL|VERTICAL) #REQUIRED>
-				<!ELEMENT nom (PCDATA)>
 ]>
 
 
-<ListTerme>
+<listTerme>
 	<Terme y='1' x='2' sens='VERTICAL'>
 		WAGON
 	</Terme>
-	<Terme x='1' y='2' sens='HORIZONTAL'>
-		WAGON
+	<Terme x="2" sens="HORIZONTAL" y="3">
+		TRUC
 	</Terme>
-	<Terme y='1' x='2' sens='VERTICAL'>
-		WAGON1
-	</Terme>
-	<Terme y='1' x="2" sens='VERTICAL'>
-		WAGgON
-	</Terme>
-	<TermeAutre y='1' x='2' sens='VERTICAL'>
-		WAGggON
-	</TermeAutre>
-	<Terme x='2' sens='VERTICAL'>
-		WAGgggON
-	</Terme>
-	<Terme y='1' sens='VERTICAL'>
-		WAGggggON
-	</Terme>
-	<Terme>
-		WAGgggggON
-	</Terme>
-	<Terme y='1' x='2' sens="VERTICAL">
-		WAGggggggON
-
-	</Terme>
-	<Terme y='1' x='2' sens="VERTICAL">
-		WAGgggggggON
-	</Terme>
-
-	<Terme y='1' x='2' sens="VERTICAL">WAGggggggggON
-	</Terme>
-	<Terme y='1' x='2' sens="VERTICAL">WAGgggggggggggON</Terme>
-
-	<Terme />
-	<Terme y='1' x='2' sens="VERTICAL">BONJOUR</Terme>
-</ListTerme>
+</listTerme>
