@@ -159,7 +159,7 @@ public class ExoAlgo3 implements ImplAlgo3 {
 			int n, String from, //
 			String to, String temp) {
 		if (n != 0) {
-			System.out.println("deplacer " + n + " de " + from + " vers " + to+");
+			System.out.println("deplacer " + n + " de " + from + " vers " + to);
 
 		}
 		return lst;
