@@ -56,7 +56,7 @@ public class ExoFlux1 extends ArrayList<Terme> {
 				Terme terme = new Terme();
 				while (!motBon) {
 					pattern = Pattern.compile("^[a-zA-Z]");
-					System.out.println("smot");
+					System.out.println("sMot");
 					String entreeStringNom = bReader.readLine();
 					matcher = pattern.matcher(entreeStringNom);
 					if (!matcher.find()) {
@@ -68,11 +68,11 @@ public class ExoFlux1 extends ArrayList<Terme> {
 
 				}
 
-				System.out.println("sposX ");
+				System.out.println("sPosX ");
 				String entreeStringX = bReader.readLine();
 				System.out.println("sPosY ");
 				String entreeStringY = bReader.readLine();
-				System.out.println("ssens ");
+				System.out.println("sSens ");
 				String entreeStringSens = bReader.readLine();
 
 				Point point = new Point(Integer.valueOf(entreeStringX), Integer.valueOf(entreeStringY));
@@ -104,7 +104,7 @@ public class ExoFlux1 extends ArrayList<Terme> {
 		try {
 			fluxDeSortieObject = new ObjectOutputStream(new FileOutputStream(file));
 			for (Terme terme : this) {
-				fluxDeSortieObject.writeObject( "{mot : " + "\""+terme.getNom()+ "\""+ " , posX : " + terme.getPos().getX() + " , posY : " + terme.getPos().getY() + " , sens : " + terme.isSens() + "}");
+				fluxDeSortieObject.writeObject("{mot : " + "\"" + terme.getNom() + "\"" + " , posX : " + terme.getPos().getX() + " , posY : " + terme.getPos().getY() + " , sens : " + terme.isSens() + "}");
 			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -130,10 +130,10 @@ public class ExoFlux1 extends ArrayList<Terme> {
 			while (true) {
 				Object objectTerme = FluxDentreeObject.readObject();
 				System.out.println(objectTerme);
-//				if (objectTerme instanceof Terme) {
-//					Terme terme = (Terme) objectTerme;
-//					System.out.println(terme);
-//				}
+				// if (objectTerme instanceof Terme) {
+				// Terme terme = (Terme) objectTerme;
+				// System.out.println(terme);
+				// }
 			}
 
 		} catch (FileNotFoundException e) {
