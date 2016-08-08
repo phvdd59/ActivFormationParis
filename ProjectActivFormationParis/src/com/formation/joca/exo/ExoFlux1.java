@@ -77,7 +77,7 @@ public class ExoFlux1 extends ArrayList<Terme> {
 					posX = Integer.parseInt(sPosX);
 					flag = true;
 				} else {
-					System.out.println("attention il faut entrer un entier positif non nul");
+					System.out.println("attention il faut entrer un entier positif");
 				}
 			}
 
@@ -90,7 +90,7 @@ public class ExoFlux1 extends ArrayList<Terme> {
 					posY = Integer.parseInt(sPosY);
 					flag = true;
 				} else {
-					System.out.println("attention il faut entrer un entier positif non nul");
+					System.out.println("attention il faut entrer un entier positif");
 				}
 			}
 
