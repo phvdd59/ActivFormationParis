@@ -66,35 +66,35 @@ public class ExoFlux1 extends ArrayList<Terme> {
 		try {
 			System.out.println("Saisissez un mot et appuyer sur Entrée");
 			ligne = stdIn.readLine();
-			while (!ligne.equals("")) {
-				sMot = stdIn.readLine();
-			}
+			//while (!ligne.equals("")) {
+			sMot = ligne;
+			//}
 			System.out.println("Lorsque vous aurez terminé toutes saisis, appuyez de nouveau sur Entrée");
 
 			System.out.println("Saisissez la position en x puis appuyez sur Entrée");
 			ligne = stdIn.readLine();
-			while (!ligne.equals("")) {
-				sPosX = Integer.valueOf(stdIn.readLine());
-			}
+			//while (!ligne.equals("")) {
+			sPosX = Integer.valueOf(ligne);
+			//}
 			System.out.println("Lorsque vous aurez terminé toutes saisis, appuyez de nouveau sur Entrée");
 
 			System.out.println("Saisissez la position en y puis appuyez sur Entrée");
 			ligne = stdIn.readLine();
-			while (!ligne.equals("")) {
-				sPosY = Integer.valueOf(stdIn.readLine());
-			}
+			//while (!ligne.equals("")) {
+			sPosY = Integer.valueOf(ligne);
+			//}
 			System.out.println("Lorsque vous aurez terminé toutes saisis, appuyez de nouveau sur Entrée");
 
 			System.out.println("Saisissez le sens du mot");
 			System.out.println("Entrez H pour Horizontal et V pour Vertical puis appuyez sur Entrée");
 			ligne = stdIn.readLine();
-			while (!ligne.equals("")) {
-				if (ligne.toUpperCase().equals("H")) {
-					sSens = false;
-				} else if (ligne.toUpperCase().equals("V")) {
-					sSens = true;
-				}
+			//while (!ligne.equals("")) {
+			if (ligne.toUpperCase().equals("H")) {
+				sSens = false;
+			} else if (ligne.toUpperCase().equals("V")) {
+				sSens = true;
 			}
+			//}
 			System.out.println("Lorsque vous aurez terminé toutes saisis, appuyez de nouveau sur Entrée");
 
 			terme = new Terme(sMot, point, sSens);
