@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE Terme [
-		<!ELEMENT Terme (PCDATA)>
+<!DOCTYPE ListTerme [
+<!ELEMENT ListTerme (Terme*)>
+		<!ELEMENT Terme (#PCDATA)>
 			<!ATTLIST Terme x CDATA #REQUIRED>
 			<!ATTLIST Terme y CDATA #REQUIRED>
 			<!ATTLIST Terme sens CDATA #REQUIRED>
 								
 	]>
+<ListTerme>
+	<Terme x='2' y='1' sens='VERTICAL'>
+		WAGON
+	</Terme>
+	<Terme x='1' y='2' sens='HORIZONTAL'>
+		WAGON
+	</Terme>
+</ListTerme>
