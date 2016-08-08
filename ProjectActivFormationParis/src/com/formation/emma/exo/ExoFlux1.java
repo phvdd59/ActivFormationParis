@@ -59,47 +59,53 @@ public class ExoFlux1 extends ArrayList<Terme> {
 	public void saisie() {
 		BufferedReader entréeParamètre = null;
 		entréeParamètre = new BufferedReader(new InputStreamReader(System.in));
+		String continu = "oui";
 
 		try {
-			System.out.println("Saisir sMot:");
-			String mot = entréeParamètre.readLine();
+			while (continu.contains("oui")) {
+				System.out.println("Saisir sMot:");
+				String mot = entréeParamètre.readLine();
 
-			System.out.println("Saisir sPosX:");
-			int sPosX = -1;
-			while (sPosX < 0) {
-				sPosX = Integer.valueOf(entréeParamètre.readLine());
-				if (sPosX < 0) {
-					System.out.println("sPosX négatif, rentrer à nouveau une valeur");
+				System.out.println("Saisir sPosX:");
+				int sPosX = -1;
+				while (sPosX < 0) {
+					sPosX = Integer.valueOf(entréeParamètre.readLine());
+					if (sPosX < 0) {
+						System.out.println("sPosX négatif, rentrer à nouveau une valeur");
+					}
 				}
-			}
-			int posX = sPosX;
+				int posX = sPosX;
 
-			System.out.println("Saisir sPosY:");
-			int sPosY = -1;
-			while (sPosY < 0) {
-				sPosY = Integer.valueOf(entréeParamètre.readLine());
-				if (sPosY < 0) {
-					System.out.println("sPosY négatif, rentrer à nouveau une valeur");
+				System.out.println("Saisir sPosY:");
+				int sPosY = -1;
+				while (sPosY < 0) {
+					sPosY = Integer.valueOf(entréeParamètre.readLine());
+					if (sPosY < 0) {
+						System.out.println("sPosY négatif, rentrer à nouveau une valeur");
+					}
 				}
-			}
-			int posY = sPosY;
+				int posY = sPosY;
 
-			System.out.println("Saisir le sens du mot: sSens = 1 pour horizontal ou 2 pour vertical");
-			int sSens = -1;
-			boolean sens = false;
-			while (sSens != 1 || sSens != 2) {
-				sSens = Integer.valueOf(entréeParamètre.readLine());
-				if (sSens == 1) {
-					sens = Terme.HORIZONTAL;
-				} else if (sSens == 2) {
-					sens = Terme.VERTICAL;
-				} else {
-					System.out.println("Saisie incorrecte");
-					System.out.println("Réécrire le sens du mot :  1 pour horizontal ou 2 pour vertical ");
+				System.out.println("Saisir le sens du mot: sSens = 1 pour horizontal ou 2 pour vertical");
+				int sSens = -1;
+				boolean sens = false;
+				while (sSens != 1 || sSens != 2) {
+					sSens = Integer.valueOf(entréeParamètre.readLine());
+					if (sSens == 1) {
+						sens = Terme.HORIZONTAL;
+						break;
+					} else if (sSens == 2) {
+						sens = Terme.VERTICAL;
+						break;
+					} else {
+						System.out.println("Saisie incorrecte");
+						System.out.println("Réécrire le sens du mot :  1 pour horizontal ou 2 pour vertical ");
+					}
 				}
+				add(new Terme(mot, new Point(posX, posY), sens));
+				System.out.println("Voulez vous continuer ? oui ou non");
+				continu = entréeParamètre.readLine();
 			}
-			add(new Terme(mot, new Point(posX, posY), sens));
-
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
