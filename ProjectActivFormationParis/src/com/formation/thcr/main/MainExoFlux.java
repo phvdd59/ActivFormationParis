@@ -11,7 +11,7 @@ public class MainExoFlux {
 
 	private void init() {
 		ExoFlux1 exo = new ExoFlux1();
-		exo.saisie();
+		exo.saisie2();
 	}
 
 }
