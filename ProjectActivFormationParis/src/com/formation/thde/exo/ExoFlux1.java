@@ -91,7 +91,7 @@ public class ExoFlux1 extends ArrayList<Terme> {
 				this.add(new Terme(sMot.toLowerCase(), new Point(sPosX, sPosY), sens));
 				System.out.println("Continuer ? (Y/N)");
 				sCont = stdIn.readLine();
-				if (sCont.matches("N")||sCont.matches("n")) {
+				if (sCont.matches("N") || sCont.matches("n")) {
 					cont = false;
 				}
 			}
