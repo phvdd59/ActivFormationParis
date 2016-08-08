@@ -23,12 +23,10 @@ public class MainexoAlgo4 {
 		lstTerme.add(terme);
 		lstTerme.add(terme2);
 		try {
-			exoAlgo4.solution(7, 8, lstTerme);
+			exoAlgo4.solution(8, 8, lstTerme);
 		} catch (CruciException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 	}
 
 }
