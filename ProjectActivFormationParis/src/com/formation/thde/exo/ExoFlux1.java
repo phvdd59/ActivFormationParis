@@ -1,8 +1,13 @@
 package com.formation.thde.exo;
 
+import java.awt.Point;
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import com.formation.phva.exo.Terme;
@@ -55,14 +60,40 @@ public class ExoFlux1 extends ArrayList<Terme> {
 
 		BufferedReader stdIn = null;
 		stdIn = new BufferedReader(new InputStreamReader(System.in));
+		String sMot;
+		int sPosX;
+		int sPosY;
+		String sSens;
+		boolean sens;
+		boolean cont = true;
+		String sCont;
+
 		try {
-			String ligne = stdIn.readLine();
-			while (!ligne.equals("")) {
+			while (cont == true) {
 
-				//UTILISE LIGNE
-				System.out.println(ligne);
+				System.out.println("entrer mot");
+				sMot = stdIn.readLine();
 
-				ligne = stdIn.readLine();
+				System.out.println("entrer x");
+				sPosX = Integer.valueOf(stdIn.readLine());
+
+				System.out.println("entrer y");
+				sPosY = Integer.valueOf(stdIn.readLine());
+
+				System.out.println("entrer sens (vertical/horizontal");
+				sSens = stdIn.readLine();
+				if (sSens.toLowerCase().matches("vertical")) {
+					sens = true;
+				} else {
+					sens = false;
+				}
+
+				this.add(new Terme(sMot.toLowerCase(), new Point(sPosX, sPosY), sens));
+				System.out.println("Continuer ? (Y/N)");
+				sCont = stdIn.readLine();
+				if (sCont.matches("N")||sCont.matches("n")) {
+					cont = false;
+				}
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -73,14 +104,60 @@ public class ExoFlux1 extends ArrayList<Terme> {
 				e.printStackTrace();
 			}
 		}
-
 	}
 
 	public void save() {
-		// vers votre repertoire data
+
+		if (this.isEmpty() == false) {
+
+			File file = new File("./src/com/formation/thde/data/saisie.json");
+			PrintWriter out = null;
+			try {
+				out = new PrintWriter(file);
+
+				for (int i = 0; i < this.size(); i++) {
+					out.println("{\"mot\":\"" + this.get(i).getNom().toLowerCase() + "\",\"posX\":" + (int) this.get(i).getPos().getX() + ",\"posY\":" + (int) this.get(i).getPos().getY() + ",\"sens\":" + this.get(i).isSens() + "}");
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			} finally {
+				out.close();
+			}
+
+		} else {
+			//VIDE
+		}
 	}
 
 	public void recup() {
-		// de votre repertoire data
+		File file = new File("./src/com/formation/thde/data/saisie.json");
+		BufferedReader stdIn = null;
+		String[] tabLine;
+		boolean sens = false;
+		try {
+			stdIn = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
+			String line = stdIn.readLine();
+			while (line != null) {
+
+				line = line.replaceAll("[:,{}]", "");
+				tabLine = line.split("\"");
+				if (tabLine[11].matches("true")) {
+					sens = true;
+				}
+				this.add(new Terme(tabLine[4].toLowerCase(), new Point(Integer.valueOf(tabLine[7]), Integer.valueOf(tabLine[9])), sens));
+				line = stdIn.readLine();
+			}
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				stdIn.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 }
