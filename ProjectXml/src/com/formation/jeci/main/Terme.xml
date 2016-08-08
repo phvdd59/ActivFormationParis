@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Terme [
-		<!ELEMENT Terme EMPTY>
-			<!ATTLIST Terme nom CDATA #REQUIRED>
-			<!ATTLIST Terme point CDATA #REQUIRED>
+		<!ELEMENT Terme (PCDATA)>
+			<!ATTLIST Terme x CDATA #REQUIRED>
+			<!ATTLIST Terme y CDATA #REQUIRED>
 			<!ATTLIST Terme sens CDATA #REQUIRED>
 								
 	]>
