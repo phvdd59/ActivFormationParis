@@ -1,51 +1,76 @@
 package com.formation.jeci.main;
 
+import java.awt.Point;
 import java.util.ArrayList;
-import java.util.TreeMap;
 
-import com.formation.jeci.exo.CleDico;
 import com.formation.jeci.exo.Dico;
+import com.formation.jeci.exo.ExoAlgo4;
+import com.formation.jeci.exo.ExoFlux1;
 import com.formation.jeci.exo.ExoTableau1;
-import com.formation.jeci.exo.Mot;
+import com.formation.phva.exception.CruciException;
+import com.formation.phva.exo.Terme;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws CruciException {
 		Main tab = new Main();
-//		tab.init();
-		tab.init2();
+		// tab.init();
+//		tab.init2();
+	//	tab.init3();
+		tab.init4();
+
+	}
+
+	private void init4() {
+		ExoFlux1 test= new ExoFlux1();
+		test.saisie();
+		test.save();
+		test.recup();
 		
+	}
+
+	private void init3() throws CruciException {
+		ExoAlgo4 test = new ExoAlgo4();
+		Terme mot1 = new Terme("AB", new Point(0, 0), true);
+		Terme mot2 = new Terme("CD", new Point(1, 0), true);
+		Terme mot3 = new Terme("AC", new Point(0, 0), false);
+		Terme mot4 = new Terme("BD", new Point(0, 1), false);
+		ArrayList<Terme> lst = new ArrayList<>();
+		lst.add(mot1);
+		lst.add(mot2);
+		lst.add(mot3);
+		lst.add(mot4);
+
+		test.solution(2, 2, lst);
 
 	}
 
 	private void init2() {
-		
-		Dico test=new Dico();
-	String test1="SAlut a les thunes yya yya olive lès t'as reçu les  les les thùnés?";
-	
-	test.ranger(test1);
-	ArrayList<String> tralala = test.getListeMot("l", 5);
-	System.out.println(tralala);
-	
-//	TreeMap<Integer,ArrayList<Integer>> map=new TreeMap<Integer,ArrayList<Integer>>();
-//		for (int j = 1; j <= 5; j++) {
-//		int key=j;
-//			ArrayList<Integer> dico = new ArrayList<Integer>();
-//
-//			for (int k = 0; k < 10; k++) {
-//				
-//					dico.add(k);
-//					
-//				}map.put(key, dico);
-//				
-//			}System.out.print(map);
-//			
-//	
-//
-	}
-		
-	
 
+		Dico test = new Dico();
+		String test1 = "SAlut a les thunes yya yya olive lès t'as reçu les  les les thùnés?";
+
+		test.ranger(test1);
+		ArrayList<String> tralala = test.getListeMot("l", 5);
+		System.out.println(tralala);
+
+		// TreeMap<Integer,ArrayList<Integer>> map=new
+		// TreeMap<Integer,ArrayList<Integer>>();
+		// for (int j = 1; j <= 5; j++) {
+		// int key=j;
+		// ArrayList<Integer> dico = new ArrayList<Integer>();
+		//
+		// for (int k = 0; k < 10; k++) {
+		//
+		// dico.add(k);
+		//
+		// }map.put(key, dico);
+		//
+		// }System.out.print(map);
+		//
+		//
+		//
+	}
 
 	private void init() {
 		// ExoSimple exo1 = new ExoSimple();
