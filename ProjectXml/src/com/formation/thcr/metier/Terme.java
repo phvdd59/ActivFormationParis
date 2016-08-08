@@ -49,7 +49,7 @@ public class Terme implements Serializable{
 		this.sens = sens;
 	}
 
-	public String epuration(String txt) {
+	public static String epuration(String txt) {
 
 		//		String tex = txt.replaceAll("\\s+", " ");
 		//		
