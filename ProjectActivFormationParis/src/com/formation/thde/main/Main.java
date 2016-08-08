@@ -1,26 +1,26 @@
-//package com.formation.thde.main;
-//
-//import java.util.ArrayList;
-//
-//import com.formation.phva.exo.Mouvement;
+package com.formation.thde.main;
+
+import java.util.ArrayList;
+
+import com.formation.phva.exo.Mouvement;
 //import com.formation.thde.exo.ExoAlgo1;
 //import com.formation.thde.exo.ExoAlgo2;
-//import com.formation.thde.exo.ExoAlgo3;
+import com.formation.thde.exo.ExoAlgo3;
 //import com.formation.thde.exo.ExoArrayList1;
 //import com.formation.thde.exo.ExoTableau1;
 //import com.formation.thde.exo.ExoTableau2;
 //
-//public class Main {
-//
-//	public static void main(String[] args) {
-//		Main main = new Main();
+public class Main {
+
+	public static void main(String[] args) {
+		Main main = new Main();
 //		//main.init();
 //		//main.init2();
 //		//main.init3();
 //		//main.init4();
 //		//main.init5();
-//		main.init6();
-//	}
+		main.init6();
+	}
 //
 //	private void init() {
 //		ExoTableau1 exo1 = new ExoTableau1();
@@ -186,10 +186,10 @@
 //		System.out.println(diviseurs);
 //	}
 //
-//	private void init6() {
-//		ExoAlgo3 exoAlgo = new ExoAlgo3();
-//		ArrayList<Mouvement> lst = new ArrayList<Mouvement>();
-//		lst = exoAlgo.solution(lst, 0, "A", "B", "C");
-//		System.out.println(lst);
-//	}
-//}
+	private void init6() {
+		ExoAlgo3 exoAlgo = new ExoAlgo3();
+		ArrayList<Mouvement> lst = new ArrayList<Mouvement>();
+		lst = exoAlgo.solution(lst, 5, "A", "B", "C");
+		System.out.println(lst);
+	}
+}

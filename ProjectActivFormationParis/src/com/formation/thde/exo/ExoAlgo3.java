@@ -21,18 +21,14 @@ import com.formation.phva.exo.Mouvement;
 public class ExoAlgo3 implements ImplAlgo3 {
 
 	public ArrayList<Mouvement> solution(ArrayList<Mouvement> lst, int nbElements, String a, String b, String c) {
-		if (nbElements <= 0) {
-		} else if (nbElements > 1) {
+
+		if (nbElements >= 1) {
 			//on passe la pile vers B
 			solution(lst, nbElements - 1, a, c, b);
 			//on bouge le plus gros vers C
 			lst.add(new Mouvement(nbElements, a, c));
 			//on remet tout sur C
 			solution(lst, nbElements - 1, b, a, c);
-
-		} else {
-			//on passe l'element 1 vers C
-			lst.add(new Mouvement(nbElements, a, c));
 		}
 		return lst;
 	}
