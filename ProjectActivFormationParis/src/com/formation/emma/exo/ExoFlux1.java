@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.regex.Pattern;
 
 import com.formation.phva.exception.CruciException;
 import com.formation.phva.exo.Terme;
@@ -64,27 +66,35 @@ public class ExoFlux1 extends ArrayList<Terme> {
 		try {
 			while (continu.contains("oui")) {
 				System.out.println("Saisir sMot:");
-				String mot = entréeParamètre.readLine();
+				String mot = "";
+				while (mot.matches("[a-zA-Z]+") == false) {
+					mot = entréeParamètre.readLine();
+					if (mot.matches("[a-zA-Z]+") == false) {
+						System.out.println("Saisie incorrect, entrer un nouveau mot");
+					}
+				}
 
 				System.out.println("Saisir sPosX:");
-				int sPosX = -1;
-				while (sPosX < 0) {
-					sPosX = Integer.valueOf(entréeParamètre.readLine());
-					if (sPosX < 0) {
-						System.out.println("sPosX négatif, rentrer à nouveau une valeur");
+				int posX = -1;
+				String sPosX = "";
+				while (sPosX.matches("[0-9]+") == false) {
+					sPosX = entréeParamètre.readLine();
+					if (sPosX.matches("[0-9]+") == false) {
+						System.out.println("Saisie incorrect, rentrer à nouveau une valeur pour x");
 					}
 				}
-				int posX = sPosX;
+				posX = Integer.valueOf(sPosX);
 
 				System.out.println("Saisir sPosY:");
-				int sPosY = -1;
-				while (sPosY < 0) {
-					sPosY = Integer.valueOf(entréeParamètre.readLine());
-					if (sPosY < 0) {
-						System.out.println("sPosY négatif, rentrer à nouveau une valeur");
+				int posY = -1;
+				String sPosY = "";
+				while (sPosY.matches("[0-9]+") == false) {
+					sPosY = entréeParamètre.readLine();
+					if (sPosY.matches("[0-9]+") == false) {
+						System.out.println("Saisie incorrect, rentrer à nouveau une valeur pour y");
 					}
 				}
-				int posY = sPosY;
+				posY = Integer.valueOf(sPosY);
 
 				System.out.println("Saisir le sens du mot: sSens = 1 pour horizontal ou 2 pour vertical");
 				int sSens = -1;
@@ -140,6 +150,7 @@ public class ExoFlux1 extends ArrayList<Terme> {
 		ArrayList<Terme> liste = null;
 
 		try {
+			liste = new ArrayList<Terme>();
 			texte = new BufferedReader(new FileReader(file));
 			String line = texte.readLine();
 			while (line != null) {
@@ -165,21 +176,25 @@ public class ExoFlux1 extends ArrayList<Terme> {
 					sens = true;
 				} else if (tab[4].contains("false")) {
 					sens = false;
-
-					Terme terme = new Terme(mot, new Point(posX, posY), sens);
-					liste.add(terme);
 				}
+				Terme terme = new Terme(mot, new Point(posX, posY), sens);
+				liste.add(terme);
+				line = texte.readLine();
 			}
+
 			ExoException1 motCroise = new ExoException1();
-			try {
-				motCroise.solution(9, 9, liste);
-			} catch (CruciException e) {
-				e.printStackTrace();
+			char[][] tableau = motCroise.solution(9, 9, liste);
+			for (int i = 0; i < tableau.length; i++) {
+				System.out.println(Arrays.toString(tableau[i]));
+
 			}
 
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (CruciException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			try {
