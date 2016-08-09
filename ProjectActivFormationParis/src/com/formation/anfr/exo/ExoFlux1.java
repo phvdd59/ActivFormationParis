@@ -64,11 +64,12 @@ public class ExoFlux1 extends ArrayList<Terme> {
 		boolean continuerSaisie = true;
 		try {
 			while (continuerSaisie) {
-				System.out.println("Saisir un mot :");
-				String ligne = stdIn.readLine();
+				
+				String ligne = null;
 				boolean checkMot = true;
 				while (checkMot) {
-
+					System.out.println("Saisir un mot :");
+					ligne = stdIn.readLine();
 					char[] tabMot = ligne.toUpperCase().trim().toCharArray();
 					for (char c : tabMot) {
 						if ((c >= 'A') && (c <= 'Z')) {
