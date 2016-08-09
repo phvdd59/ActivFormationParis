@@ -1,7 +1,7 @@
 package com.formation.thde.metier;
 
 public class Ascenseur extends Thread {
-	
+
 	public static int CPT = 0;
 	public static int TEMPS = 10;
 	public static int HAUTEUR_ETAGE = 30;
@@ -9,9 +9,15 @@ public class Ascenseur extends Thread {
 	private int progression;
 	private boolean fin;
 	private Personne personne;
-	
-	public Ascenseur(){
-		
+
+	public Ascenseur() {
+	}
+
+	public Ascenseur(int etage, int progression, boolean fin, Personne personne) {
+		this.etage = etage;
+		this.progression = progression;
+		this.fin = fin;
+		this.personne = personne;
 	}
 
 	public static int getCPT() {
@@ -74,5 +80,5 @@ public class Ascenseur extends Thread {
 	public String toString() {
 		return "Ascenseur [etage=" + etage + ", progression=" + progression + ", fin=" + fin + ", personne=" + personne + "]";
 	}
-	
+
 }

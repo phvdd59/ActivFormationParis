@@ -10,7 +10,13 @@ public class Personne {
 	private int arrive;
 
 	public Personne() {
+	}
 
+	public Personne(String nom, int etat, int depart, int arrive) {
+		this.nom = nom;
+		this.etat = etat;
+		this.depart = depart;
+		this.arrive = arrive;
 	}
 
 	public static int getCPT() {
