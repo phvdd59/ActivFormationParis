@@ -18,7 +18,7 @@ public class MainXml {
 	}
 
 	public void lectureXml() {
-		File file = new File("./src/com/formation/phva/xml/ListTerme.xml");
+		File file = new File("./src/com/formation/emma/xml/ListTermePhva.xml");
 		BufferedReader texte = null;
 		String ligneComplete = "";
 		int x = -1;
