@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE ListTerme [
+<!ELEMENT ListTerme (Terme)*>
 	<!ELEMENT Terme (#PCDATA)>
 		<!ATTLIST Terme x CDATA #REQUIRED>
 		<!ATTLIST Terme y CDATA #REQUIRED>
-		<!ATTLIST Terme sens CDATA #REQUIRED>
+		<!ATTLIST Terme sens (HORIZONTAL|VERTICAL) #REQUIRED>
 ]>
 
 
@@ -14,4 +15,7 @@
 	<Terme x='1' y='2' sens='HORIZONTAL'>
 		WAGON
 	</Terme>
+	
+	<Terme x="2" sens="VERTICAL" y="3">BONJOUR</Terme>
+	
 </ListTerme>
