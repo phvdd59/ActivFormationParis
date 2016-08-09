@@ -1,5 +1,7 @@
 package com.formation.thde.main;
 
+import com.formation.thde.metier.ThreadSommeil;
+
 public class MainSommeil {
 	public static void main(String[] args) {
 		MainSommeil m = new MainSommeil();
@@ -7,7 +9,7 @@ public class MainSommeil {
 	}
 
 	private void init() {
-	
-		
+		ThreadSommeil threadSommeil = new ThreadSommeil(20);
+		threadSommeil.start();
 	}
 }

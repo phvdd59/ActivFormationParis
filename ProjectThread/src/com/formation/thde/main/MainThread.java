@@ -13,6 +13,10 @@ public class MainThread {
 		thread1.start();
 		Thread thread2 = new Thread(monProcessus, "SecondThread");
 		thread2.start();
+//		Thread thread3 = new Thread(monProcessus, "TroisiemeThread");
+//		thread3.start();
+//		Thread thread4 = new Thread(monProcessus, "QuatriemeThread");
+//		thread4.start();
 		Date date1 = new Date();
 		for (int i = 0; i < 20; i++) {
 			Date date = new Date();
