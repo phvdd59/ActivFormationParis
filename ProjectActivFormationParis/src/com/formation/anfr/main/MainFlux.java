@@ -14,11 +14,6 @@ public class MainFlux {
 	public void init() {
 		ExoFlux1 exoFlux = new ExoFlux1();
 		exoFlux.saisie();
-		try {
 			exoFlux.save();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
 }
