@@ -59,6 +59,12 @@ public class MainAscenseur {
 	 * |-------------------------------------------------|
 	 * |         toString()                              |
 	 * |-------------------------------------------------|
+	 * 
+	 * faire un générateur de personnes aléatoires
+	 * 		- étage de départ
+	 * 		- étage d'arrivé
+	 * 		création personne à des temps aléatoires
+	 *  
 	 * @param args
 	 */
 	public static void main(String[] args) {
