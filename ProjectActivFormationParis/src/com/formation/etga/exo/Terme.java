@@ -45,11 +45,6 @@ public class Terme {
 	}
 
 	public String epuration(String txt) {
-
-		//		String tex = txt.replaceAll("\\s+", " ");
-		//		
-		//		String texte = Normalizer.normalize(txt, Normalizer.Form.NFD).replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
-		//		System.out.println(texte);
 		String sRet = "";
 		if (txt != null) {
 			char[] tab = txt.trim().toLowerCase().toCharArray();

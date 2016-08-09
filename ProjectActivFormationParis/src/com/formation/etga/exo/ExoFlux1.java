@@ -6,7 +6,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -72,10 +71,14 @@ public class ExoFlux1 extends ArrayList<Terme> {
 			sMot = null;
 			sPosX = -1;
 			sPosY = -1;
+			sSens = "";
+			sContinu = "";
 			sens = false;
+			System.out.println("Je vais vous guider pour rentrer des termes");
 			try {
 				while (sMot == null) {
 					System.out.println("Entrer un mot");
+					epuration(sMot);
 					sMot = bInStr.readLine();
 				}
 				while (sPosX < 0) {
@@ -86,13 +89,13 @@ public class ExoFlux1 extends ArrayList<Terme> {
 					System.out.println("Entrer une position en Y");
 					sPosY = Integer.valueOf(bInStr.readLine());
 				}
-				while (sSens.contains("HORIZONTAL") == false && sSens.contains("VERTICAL") == false) {
+				while (sSens.equals("HORIZONTAL") == false && sSens.equals("VERTICAL") == false) {
 					System.out.println("Entrer un sens : HORIZONTAL ou VERTICAL");
 					sSens = bInStr.readLine();
 				}
-				if (sSens.contains("VERTICAL")) {
+				if (sSens.equals("VERTICAL")) {
 					sens = true;
-				} else if (sSens.contains("HORIZONTAL")) {
+				} else if (sSens.equals("HORIZONTAL")) {
 					sens = false;
 				}
 
@@ -100,13 +103,13 @@ public class ExoFlux1 extends ArrayList<Terme> {
 				Terme terme = new Terme(sMot, point, sens);
 				this.add(terme); // la class est deja une ArrayList, on ajoute direct les termes dedans
 
-				while (sContinu.contains("OUI") == false && sContinu.contains("NON") == false) {
+				while (sContinu.equals("OUI") == false && sContinu.equals("NON") == false) {
 					System.out.println("Voulez vous entrer un autre terme? OUI ou NON");
 					sContinu = bInStr.readLine();
 				}
-				if (sContinu.contains("OUI")) {
+				if (sContinu.equals("OUI")) {
 					continu = true;
-				} else if (sContinu.contains("NON")) {
+				} else if (sContinu.equals("NON")) {
 					continu = false;
 				}
 			} catch (IOException e) {
@@ -119,13 +122,13 @@ public class ExoFlux1 extends ArrayList<Terme> {
 		File file = new File("./src/com/formation/etga/data/saisie.json");
 		PrintWriter out = null;
 		try {
-			System.out.println(file.getCanonicalPath());
+			System.out.println("Le fichier a été créé dans le repertoire : " + file.getCanonicalPath());
 			out = new PrintWriter(file);
 			for (int i = 0; i < this.size(); i++) {
-				//				out.println("{\mot\":\"" + this.get(i).getNom());{"mot":"pastille","posX":1,"posY":5,"sens":true}
+				out.println("{\"mot\" : " + this.get(i).getNom() + " , " + "\"posX\" : " + (int) this.get(i).getPos().getX() + " , " + "\"posY\" : " + (int) this.get(i).getPos().getY() + " , " + "\"sens\" : " + this.get(i).isSens() + "}");
 			}
 		} catch (IOException e) {
-			System.out.println("Recommencer le traitement");
+			System.out.println("La sauvegarde est un échec");
 		} finally {
 			out.close();
 		}
@@ -134,16 +137,80 @@ public class ExoFlux1 extends ArrayList<Terme> {
 	public void recup() {
 
 		File file = new File("./src/com/formation/etga/data/saisie.json");
-
-		InputStream fichier = null;
+		BufferedReader bIn = null;
+		InputStreamReader inputStreamReader = null;
 		try {
-			fichier = new FileInputStream(file);
+			inputStreamReader = new InputStreamReader(new FileInputStream(file), "UTF-8");
+			bIn = new BufferedReader(inputStreamReader);
+			String line = bIn.readLine();
+
+			while (line != null) {
+				line = line.replace("{\"mot\" : ", "");
+				line = line.replace(" , \"posX\" : ", " ");
+				line = line.replace(" , \"posY\" : ", " ");
+				line = line.replace(" , \"sens\" : ", " ");
+				line = line.replace("}", "");
+
+				String[] tabLine = line.split(" ");
+				boolean sens = false;
+				int x = Integer.valueOf(tabLine[1]);
+				int y = Integer.valueOf(tabLine[2]);
+				String nom = tabLine[0];
+
+				if (tabLine[3].equals("false")) {
+					sens = false;
+				} else {
+					sens = true;
+				}
+
+				Terme terme = new Terme(nom, new Point(x, y), sens);
+				add(terme);
+				System.out.println(terme);
+
+				line = bIn.readLine();
+			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				bIn.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
-		InputStreamReader lecture = new InputStreamReader(fichier);
-		BufferedReader lecture2 = new BufferedReader(lecture);
+	}
 
-		String ligne;
+	public String epuration(String txt) {
+		String sRet = "";
+		if (txt != null) {
+			char[] tab = txt.trim().toLowerCase().toCharArray();
+			for (int i = 0; i < tab.length; i++) {
+				int v = tab[i];
+				if (v >= 'à' && v <= 'å') {
+					sRet += "a";
+				} else if (v >= 'ç' && v <= 'ç') {
+					sRet += "c";
+				} else if (v >= 'è' && v <= 'ë') {
+					sRet += "e";
+				} else if (v >= 'ì' && v <= 'ï') {
+					sRet += "i";
+				} else if (v >= 'ò' && v <= 'ö') {
+					sRet += "o";
+				} else if (v >= 'ù' && v <= 'ü') {
+					sRet += "u";
+				} else if (v >= 'ý' && v <= 'ý') {
+					sRet += "y";
+				} else if (v >= 'a' && v <= 'z') {
+					sRet += (char) v;
+				} else {
+					if (i != 0 && !sRet.substring(sRet.length() - 1).equals(" ")) {
+						sRet += " ";
+					}
+				}
+			}
+		}
+		return sRet.trim().toUpperCase();
 	}
 }

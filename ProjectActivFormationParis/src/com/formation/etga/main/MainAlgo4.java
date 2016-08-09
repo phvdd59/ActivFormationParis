@@ -26,9 +26,9 @@ public class MainAlgo4 {
 		//		System.out.println(cruci);
 		//		
 		ExoFlux1 exoFlux1 = new ExoFlux1();
-		exoFlux1.saisie();
+//		exoFlux1.saisie();
+//		exoFlux1.save();
 		exoFlux1.recup();
-		exoFlux1.save();
 
 	}
 }
