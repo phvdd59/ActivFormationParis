@@ -64,9 +64,23 @@ public class ExoFlux1 extends ArrayList<Terme> {
 		boolean continuerSaisie = true;
 		try {
 			while (continuerSaisie) {
-
 				System.out.println("Saisir un mot :");
 				String ligne = stdIn.readLine();
+				boolean checkMot = true;
+				while (checkMot) {
+
+					char[] tabMot = ligne.toUpperCase().trim().toCharArray();
+					for (char c : tabMot) {
+						if ((c >= 'A') && (c <= 'Z')) {
+							checkMot = false;
+						} else {
+							System.out.println("Veuillez ne saisir que des lettres!");
+							checkMot = true;
+							break;
+						}
+					}
+				}
+
 				mot = ligne;
 				System.out.println("mot :" + mot);
 				boolean checkPos = true;
@@ -92,7 +106,7 @@ public class ExoFlux1 extends ArrayList<Terme> {
 				while (checkPos) {
 					System.out.print("Saisir une posY :");
 					ligne = stdIn.readLine();
-				
+
 					char[] tab = ligne.toCharArray();
 					for (char c : tab) {
 						if ((c >= '0') && (c <= '9')) {
@@ -103,11 +117,9 @@ public class ExoFlux1 extends ArrayList<Terme> {
 							break;
 						}
 
-
 					}
 				}
 
-				
 				System.out.println("posY :" + posY);
 				p = new Point(posX, posY);
 				boolean sensOk = false;
@@ -146,7 +158,7 @@ public class ExoFlux1 extends ArrayList<Terme> {
 			}
 			this.save();
 		}
-		
+
 	}
 
 	public void save() {
@@ -159,10 +171,10 @@ public class ExoFlux1 extends ArrayList<Terme> {
 							+ (int) terme.getPos().getY() + ",\"sens\":" + terme.isSens() + "}");
 				}
 			}
-				out.close();
+			out.close();
 		} catch (IOException e) {
 			// TODO: handle exception
-		} 
+		}
 	}
 
 	public void recup() {
