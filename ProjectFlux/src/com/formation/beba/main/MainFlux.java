@@ -29,7 +29,7 @@ public class MainFlux {
 																// de continuer
 																// le programme
 		MainFlux mainflux = new MainFlux();
-		mainflux.initEcritureObject();
+//		mainflux.initEcritureObject();
 		mainflux.initLectureObject();
 	}
 

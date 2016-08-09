@@ -61,8 +61,8 @@ public class ExoFlux1 extends ArrayList<Terme> {
 		Point coord;
 
 		System.out.println("Nous allons à présent créer des Termes!");
-		String sortie = "t";
-		while (sortie != "NON") {
+		int sortie = 12;
+		while (sortie != 1) {
 
 			String nom = null;
 			System.out.println("Entrer le nom du terme sMot");
@@ -117,13 +117,16 @@ public class ExoFlux1 extends ArrayList<Terme> {
 				try {
 					sensDuMot = Integer.valueOf(bInStr.readLine());
 				} catch (IOException e) {
-					e.printStackTrace();
+
+				} catch (NumberFormatException e) {
+
 				}
 				if (sensDuMot == 1) {
-					sens = Terme.HORIZONTAL;
+					sens = Terme.VERTICAL;
 					sensProv = true;
 				} else if (sensDuMot == 2) {
-					sens = Terme.VERTICAL;
+					sens = Terme.HORIZONTAL;
+
 					sensProv = true;
 				} else {
 					System.out.println("ça va pas comme sens");
@@ -133,11 +136,13 @@ public class ExoFlux1 extends ArrayList<Terme> {
 			System.out.println("Un nouveau Terme vient d'être produit et ajouté à la liste: " + get(this.size() - 1));
 
 			System.out.println();
-			System.out.println("Souhaitez-vous rentrer un autre terme? Si non taper NON");
+			System.out.println("Souhaitez-vous rentrer un autre terme? Si non taper1");
 			try {
-				sortie = bInStr.readLine();
+				sortie = Integer.valueOf(bInStr.readLine());
 			} catch (IOException e) {
-				e.printStackTrace();
+
+			} catch (NumberFormatException e) {
+
 			}
 		}
 	}
@@ -153,7 +158,8 @@ public class ExoFlux1 extends ArrayList<Terme> {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			ecriture.write("{\"mot\":\"" + this.get(i).getNom() + "\",\"posX\":" + this.get(i).getPos().x + ",\"posY\":" + this.get(i).getPos().y + ",\"sens\":" + this.get(i).isSens() + "}\n");
+			ecriture.write("{\"mot\":\"" + this.get(i).getNom() + "\",\"posX\":" + this.get(i).getPos().x + ",\"posY\":"
+					+ this.get(i).getPos().y + ",\"sens\":" + this.get(i).isSens() + "}\n");
 
 			System.out.println("sauvegarde effectuée");
 			this.clear();
@@ -181,17 +187,34 @@ public class ExoFlux1 extends ArrayList<Terme> {
 			while ((ligne = lecture2.readLine()) != null) {
 				System.out.println(ligne);
 				// {"mot":"pastille","posX":1,"posY":5,"sens":true}
-				ligne.replaceAll("[{},:/]", "\"");
-				ligne.replace("mot", "\"");
-				ligne.replace("posY", "\"");
-				ligne.replace("posX", "\"");
-				ligne.replace("sens", "\"");
-				ligne.replace("\"\"", "\"");
-				ligne.replace("\"\"", "\"");
-				ligne.replace("\"\"", "\"");
-				ligne.replace("\"\"", "\""); // des fois que ça marche mal ce
-												// truc...
-				String[] termeCour = ligne.split("\"");
+
+				String s = ligne.replace("{", "");
+				s = s.replace("}", "");
+				s = s.replace("\"", ",");
+				s = s.replace(":", ",");
+				s = s.replace(".", "");
+				s = s.replace(",,", ",");
+				s = s.replace(",,", ",");
+				s = s.replace("mot", "");
+				s = s.replace("posX", "");
+				s = s.replace("posY", "");
+				s = s.replace("sens", "");
+				s = s.replace(",,", ",");
+				s = s.replace(",,", ",");
+				s = s.replace(",,", ",");
+				s = s.replace(",,", ",");
+
+				// ligne.replaceAll("[{},:/]", "\"");
+				// ligne.replace("mot", "\"");
+				// ligne.replace("posY", "\"");
+				// ligne.replace("posX", "\"");
+				// ligne.replace("sens", "\"");
+				// ligne.replace("\"\"", "\"");
+				// ligne.replace("\"\"", "\"");
+				// ligne.replace("\"\"", "\"");
+				// ligne.replace("\"\"", "\""); // des fois que ça marche mal ce
+				// truc...
+				String[] termeCour = s.split(".");
 				Boolean leSens = false;
 				if (Boolean.valueOf(termeCour[4]) == Terme.HORIZONTAL) {
 					leSens = false;
@@ -199,7 +222,8 @@ public class ExoFlux1 extends ArrayList<Terme> {
 					leSens = true;
 				}
 
-				this.add(new Terme(termeCour[1], new Point(Integer.valueOf(termeCour[2]), Integer.valueOf(termeCour[3])), leSens));
+				this.add(new Terme(termeCour[1],
+						new Point(Integer.valueOf(termeCour[2]), Integer.valueOf(termeCour[3])), leSens));
 			}
 			lecture2.close();
 			lecture.close();
