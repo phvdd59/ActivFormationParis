@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Terme [
+<!ELEMENT ListTerme (Terme)*>
+	<!ELEMENT Terme (#PCDATA)>
+   	 	<!ATTLIST Terme x CDATA #REQUIRED>
+    	<!ATTLIST Terme y CDATA #REQUIRED>
+   	 	<!ATTLIST Terme sens (HORIZONTAL | VERTICAL) #REQUIRED>
+
+]>
+
+<ListTerme>
+	<Terme y='1' x='2' sens='VERTICAL'>
+		WAGONA
+	</Terme>
+	<Terme x='1' y='2' sens='HORIZONTAL'>
+		WAGONB
+	</Terme>
+	<Terme y='1' x='2' sens='VERTICAL'>
+		WAGONC
+	</Terme>
+	<Terme y='1' x="2" sens='VERTICAL'>
+		WAGOND
+	</Terme>
+	<Terme y='1' x='2' sens="VERTICAL">
+		WAGONI
+	</Terme>
+	<Terme y='1' x='2' sens="VERTICAL">
+		WAGONJ
+	</Terme>
+	<Terme y='1' x='2' sens="VERTICAL">WAGONK
+	</Terme>
+	<Terme y='1' x='2' sens="VERTICAL">WAGONL</Terme>
+	<Terme y='1' x='2' sens="VERTICAL">BONJOUR</Terme>
+</ListTerme>

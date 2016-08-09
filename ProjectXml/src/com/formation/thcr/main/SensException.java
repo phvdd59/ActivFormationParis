@@ -1,4 +1,4 @@
-package com.formation.beba.main;
+package com.formation.thcr.main;
 
 public class SensException extends Exception {
 
