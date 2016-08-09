@@ -4,13 +4,13 @@ import java.util.ArrayList;
 
 public class ListeAscenseur extends ArrayList<Ascenseur> {
 
-	public ListeAscenseur(){
-		
+	public ListeAscenseur() {
+
 	}
 
 	@Override
 	public String toString() {
 		return "ListeAscenseur []";
 	}
-	
+
 }

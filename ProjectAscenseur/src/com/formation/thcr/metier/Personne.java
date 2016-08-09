@@ -1,38 +1,23 @@
-package com.formation.thde.metier;
+package com.formation.thcr.metier;
 
 public class Personne {
 
-	public static int CPT = 0;
-	public static int NB_ETAGE = 20;
-	private String nom;
-	private int etat;
-	private int depart;
-	private int arrive;
+	public static int	CPT			= 0;
+	public static int	NB_ETAGE	= 20;
+
+	private String		nom;
+	private int			etat;
+	private int			depart;
+	private int			arrive;
 
 	public Personne() {
-	}
-
-	public Personne(String nom, int etat, int depart, int arrive) {
-		this.nom = nom;
-		this.etat = etat;
-		this.depart = depart;
-		this.arrive = arrive;
-	}
-
-	public static int getCPT() {
-		return CPT;
-	}
-
-	public static void setCPT(int cPT) {
-		CPT = cPT;
-	}
-
-	public static int getNB_ETAGE() {
-		return NB_ETAGE;
-	}
-
-	public static void setNB_ETAGE(int nB_ETAGE) {
-		NB_ETAGE = nB_ETAGE;
+		 /** faire un générateur de personnes aléatoires
+		 * 		- étage de départ
+		 * 		- étage d'arrivé
+		 * 		création personne à des temps aléatoires
+		 */
+		
+		
 	}
 
 	public String getNom() {

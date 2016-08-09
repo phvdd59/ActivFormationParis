@@ -1,4 +1,4 @@
-package com.formation.thde.main;
+package com.formation.jeci.main;
 
 public class MainAscenseur {
 	/**
@@ -59,12 +59,6 @@ public class MainAscenseur {
 	 * |-------------------------------------------------|
 	 * |         toString()                              |
 	 * |-------------------------------------------------|
-	 * 
-	 * faire un générateur de personnes aléatoires
-	 * 		- étage de départ
-	 * 		- étage d'arrivé
-	 * 		création personne à des temps aléatoires
-	 *  
 	 * @param args
 	 */
 	public static void main(String[] args) {

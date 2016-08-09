@@ -1,6 +1,7 @@
-package com.formation.thde.metier;
+package com.formation.jeci.metier;
 
 public class Ascenseur extends Thread {
+
 
 	public static int CPT = 0;
 	public static int TEMPS = 10;
@@ -8,40 +9,14 @@ public class Ascenseur extends Thread {
 	private int etage;
 	private int progression;
 	private boolean fin;
-	private Personne personne;
-
-	public Ascenseur() {
-	}
+	Personne personne = null;
 
 	public Ascenseur(int etage, int progression, boolean fin, Personne personne) {
+		super();
 		this.etage = etage;
 		this.progression = progression;
 		this.fin = fin;
 		this.personne = personne;
-	}
-
-	public static int getCPT() {
-		return CPT;
-	}
-
-	public static void setCPT(int cPT) {
-		CPT = cPT;
-	}
-
-	public static int getTEMPS() {
-		return TEMPS;
-	}
-
-	public static void setTEMPS(int tEMPS) {
-		TEMPS = tEMPS;
-	}
-
-	public static int getHAUTEUR_ETAGE() {
-		return HAUTEUR_ETAGE;
-	}
-
-	public static void setHAUTEUR_ETAGE(int hAUTEUR_ETAGE) {
-		HAUTEUR_ETAGE = hAUTEUR_ETAGE;
 	}
 
 	public int getEtage() {
@@ -78,7 +53,8 @@ public class Ascenseur extends Thread {
 
 	@Override
 	public String toString() {
-		return "Ascenseur [etage=" + etage + ", progression=" + progression + ", fin=" + fin + ", personne=" + personne + "]";
+		// TODO Auto-generated method stub
+		return super.toString();
 	}
 
 }
