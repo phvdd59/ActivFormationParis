@@ -14,6 +14,11 @@ import java.util.ArrayList;
 
 public class ExoFlux1 extends ArrayList<Terme> {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public class Saisie {
 		/**
 		 * But : Entrer des éléments au clavier pour le mot croisé et les mettre
@@ -158,8 +163,7 @@ public class ExoFlux1 extends ArrayList<Terme> {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			ecriture.write("{\"mot\":\"" + this.get(i).getNom() + "\",\"posX\":" + this.get(i).getPos().x + ",\"posY\":"
-					+ this.get(i).getPos().y + ",\"sens\":" + this.get(i).isSens() + "}\n");
+			ecriture.write("{\"mot\":\"" + this.get(i).getNom() + "\",\"posX\":" + this.get(i).getPos().x + ",\"posY\":" + this.get(i).getPos().y + ",\"sens\":" + this.get(i).isSens() + "}\n");
 
 			System.out.println("sauvegarde effectuée");
 			this.clear();
@@ -191,7 +195,7 @@ public class ExoFlux1 extends ArrayList<Terme> {
 				String s = ligne.replace("{", "");
 				s = s.replace("}", "");
 				s = s.replace("\"", ",");
-				s = s.replace(":", ",");
+				s = s.replace(":", "");
 				s = s.replace(".", "");
 				s = s.replace(",,", ",");
 				s = s.replace(",,", ",");
@@ -222,8 +226,7 @@ public class ExoFlux1 extends ArrayList<Terme> {
 					leSens = true;
 				}
 
-				this.add(new Terme(termeCour[1],
-						new Point(Integer.valueOf(termeCour[2]), Integer.valueOf(termeCour[3])), leSens));
+				this.add(new Terme(termeCour[1], new Point(Integer.valueOf(termeCour[2]), Integer.valueOf(termeCour[3])), leSens));
 			}
 			lecture2.close();
 			lecture.close();
