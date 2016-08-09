@@ -16,6 +16,7 @@ public class MainExoFlux1 {
 		ExoFlux1 exoFlux1 = new ExoFlux1();
 		exoFlux1.saisie();
 		exoFlux1.save();
+		exoFlux1.recup();
 
 	}
 
