@@ -22,12 +22,12 @@ public class MainFlux {
 	public static void main(String[] args) throws Exception {
 		MainFlux m = new MainFlux();
 		// m.init();
-		//m.initLecture();
-		//m.initEcriture();
+		// m.initLecture();
+		// m.initEcriture();
 		// m.initImage();
 		// m.initObject();
 		// m.initLectureObject();
-		 m.initLectureXml();
+		m.initLectureXml();
 	}
 
 	private void initLectureXml() {
@@ -57,15 +57,15 @@ public class MainFlux {
 							// System.out.println(ligneConcat);
 						}
 						ligneConcat = ligneConcat + maLigne;
-						 System.out.println(ligneConcat);
-						//lstStringBalise.add(ligneConcat);
+						System.out.println(ligneConcat);
+						// lstStringBalise.add(ligneConcat);
 
 					}
 				}
 			}
 			System.out.println(lstStringBalise);
 			for (String string : lstStringBalise) {
-				
+
 			}
 			Terme terme = new Terme();
 			int Indicex = maLigne.indexOf("x=");
