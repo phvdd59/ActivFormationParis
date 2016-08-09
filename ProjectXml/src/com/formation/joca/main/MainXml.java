@@ -9,13 +9,59 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
+
 import com.formation.joca.metier.Terme;
 
 public class MainXml {
 
 	public static void main(String[] args) {
 		MainXml main = new MainXml();
-		main.lectureXml();
+		main.init();
+	}
+
+	private void init() {
+		final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+		File file = new File("src/com/formation/joca/xml/ListeTerme.xml");
+		try {
+			final DocumentBuilder builder = factory.newDocumentBuilder();
+			final Document document = builder.parse(file);
+			System.out.println(document.getXmlEncoding());
+			System.out.println(document.getXmlVersion());
+			
+			final Element eListeTerme = document.getDocumentElement();
+			final NodeList nListeTerme = eListeTerme.getChildNodes();
+			System.out.println(eListeTerme.getNodeName());
+			
+			for (int i=0;i<nListeTerme.getLength();i++){
+				final Node nTerme = nListeTerme.item(i);
+				if (nTerme.getNodeType()==Node.ELEMENT_NODE){
+					final Element eTerme = (Element) nTerme;
+					System.out.println(eTerme.getNodeName());
+					String sX = eTerme.getAttribute("x");
+					String sY = eTerme.getAttribute("y");
+					String sSens = eTerme.getAttribute("sens");
+					String sNom = eTerme.getTextContent();
+					System.out.println("nom :"+sNom+" x="+sX+" y="+sY+" sens :"+sSens);
+				}
+			}
+			
+			
+		} catch (ParserConfigurationException e){
+			e.printStackTrace();
+		} catch (SAXException e){
+			e.printStackTrace();
+		} catch (IOException e){
+			e.printStackTrace();
+		}
 	}
 
 	public void lectureXml() {
