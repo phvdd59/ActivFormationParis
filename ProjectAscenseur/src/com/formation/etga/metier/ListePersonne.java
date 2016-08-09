@@ -8,7 +8,6 @@ public class ListePersonne extends ArrayList<Personne> implements Runnable {
 	private boolean sortie;
 	
 	public ListePersonne() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public boolean isSortie() {
