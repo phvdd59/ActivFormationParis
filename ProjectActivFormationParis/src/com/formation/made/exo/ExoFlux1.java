@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-//import com.formation.phva.exo.Terme; // je change l'import pour voir
+import com.formation.phva.exo.Terme; // je change l'import pour voir
 
 public class ExoFlux1 extends ArrayList<Terme> {
 
@@ -51,6 +51,10 @@ public class ExoFlux1 extends ArrayList<Terme> {
 		Pattern pattern = null;
 		Matcher matcher = null;
 		boolean motBon = false;
+		boolean posXBon = false;
+		boolean posYBon = false;
+		boolean sensBon = false;
+
 		try {
 			while (demandeDeTerme) {
 				Terme terme = new Terme();
@@ -65,24 +69,71 @@ public class ExoFlux1 extends ArrayList<Terme> {
 						terme.setNom(entreeStringNom);
 						motBon = true;
 					}
+				}
+				Point point = new Point();
+				while (!posXBon) {
+					System.out.println("sPosX ");
+					String entreeStringX = bReader.readLine();
+					try {
+						if (Integer.valueOf(entreeStringX) instanceof Integer) {
+							int x = Integer.valueOf(entreeStringX);
+							if (x >= 0) {
+								point.x = x;
+								posXBon = true;
+							} else {
+								throw new NegatifException();
+							}
+						}
+					} catch (NumberFormatException e) {
+						System.out.println("Veuillez rentrer un chiffre. ");
+					} catch (NegatifException e) {
+						e.getMessage();
+					}
+				}
+				while (!posYBon) {
+					System.out.println("sPosY ");
+					String entreeStringY = bReader.readLine();
+					try {
+						if (Integer.valueOf(entreeStringY) instanceof Integer) {
+							int y = Integer.valueOf(entreeStringY);
+							if (y >= 0) {
+								point.y = y;
+								posYBon = true;
+							}
+							throw new NegatifException();
+						}
 
+					} catch (NumberFormatException e) {
+						System.out.println("veuillez rentrer un chiffre ");
+					} catch (NegatifException e) {
+						e.getMessage();
+					}
+				}
+				while (!sensBon) {
+					System.out.println("sSens (H/V)");
+					String entreeStringSens = bReader.readLine();
+					try {
+						if (entreeStringSens.equals("H") | entreeStringSens.equals("V")) {
+							if (entreeStringSens.equals("H")) {
+								terme.setSens(Terme.HORIZONTAL);
+							} else {
+								terme.setSens(Terme.VERTICAL);
+							}
+							sensBon = true;
+						}
+					} catch (Exception e) {
+						e.getStackTrace();
+					}
 				}
 
-				System.out.println("sPosX ");
-				String entreeStringX = bReader.readLine();
-				System.out.println("sPosY ");
-				String entreeStringY = bReader.readLine();
-				System.out.println("sSens ");
-				String entreeStringSens = bReader.readLine();
-
-				Point point = new Point(Integer.valueOf(entreeStringX), Integer.valueOf(entreeStringY));
-
 				terme.setPos(point);
-				terme.setSens(Boolean.valueOf(entreeStringSens));
 				this.add(terme);
 				System.out.println("Nouveau terme a rajouter? true/false");
 				demandeDeTerme = Boolean.valueOf(bReader.readLine());
 				motBon = false; // pour revenir au mot sinon il garde motBon=true et ne me redemande pas le mot
+				posXBon = false;
+				posYBon = false;
+				sensBon = false;
 			}
 
 		} catch (IOException e) {
