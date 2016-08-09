@@ -9,77 +9,69 @@ public class Ascenseur extends Thread {
 	private int progression;
 	private boolean fin;
 	private Personne personne;
-	
-	
+
 	public Ascenseur() {
-		// TODO Auto-generated constructor stub
 	}
 
+	Ascenseur(Personne personne, int etage, int progression, boolean fin) {
+		this.personne = personne;
+		this.etage = etage;
+		this.progression = progression;
+		this.fin = fin;
+		this.personne = personne;
+	}
 
 	public static int getCPT() {
 		return CPT;
 	}
 
-
 	public static void setCPT(int cPT) {
 		CPT = cPT;
 	}
-
 
 	public static int getTEMPS() {
 		return TEMPS;
 	}
 
-
 	public static void setTEMPS(int tEMPS) {
 		TEMPS = tEMPS;
 	}
-
 
 	public static int getHAUTEUR_Etage() {
 		return HAUTEUR_Etage;
 	}
 
-
 	public static void setHAUTEUR_Etage(int hAUTEUR_Etage) {
 		HAUTEUR_Etage = hAUTEUR_Etage;
 	}
-
 
 	public int getEtage() {
 		return etage;
 	}
 
-
 	public void setEtage(int etage) {
 		this.etage = etage;
 	}
-
 
 	public int getProgression() {
 		return progression;
 	}
 
-
 	public void setProgression(int progression) {
 		this.progression = progression;
 	}
-
 
 	public boolean isFin() {
 		return fin;
 	}
 
-
 	public void setFin(boolean fin) {
 		this.fin = fin;
 	}
 
-
 	public Personne getPersonne() {
 		return personne;
 	}
-
 
 	public void setPersonne(Personne personne) {
 		this.personne = personne;

@@ -6,13 +6,13 @@ public class ListePersonne extends ArrayList<Personne> implements Runnable {
 	private boolean sortie;
 
 	public ListePersonne() {
-//		 * faire un générateur de personnes aléatoires
-//		 * 		- étage de départ
-//		 * 		- étage d'arrivé
-//		 * 		création personne à des temps aléatoires
-//		 *  
-//		 * @param args
-		
+		// * faire un générateur de personnes aléatoires
+		// * - étage de départ
+		// * - étage d'arrivé
+		// * création personne à des temps aléatoires
+		// *
+		// * @param args
+
 		for (int i = 0; i < 20; i++) {
 			String nom = "personne " + i;
 			int etat = 0;

@@ -15,10 +15,10 @@ public class Personne {
 	 */
 
 	public Personne() {
-		this.setNom(String.valueOf(CPT));
-		setEtat(0);
-		this.setArrive((int) (Math.random() * NB_ETAGE));
-		this.setDepart((int) (Math.random() * NB_ETAGE));
+		setNom(String.valueOf(CPT));
+		setEtat(ETAT.ETAT_ATTENTE.ordinal());
+		setArrive((int) (Math.random() * NB_ETAGE));
+		setDepart((int) (Math.random() * NB_ETAGE));
 		while (this.arrive == this.depart) {
 			this.setArrive((int) (Math.random() * NB_ETAGE));
 		}
@@ -73,4 +73,8 @@ public class Personne {
 		this.arrive = arrive;
 	}
 
+	@Override
+	public String toString() {
+		return "Personne [nom= " + nom + ", etat= " + etat + ", depart= " + depart + ", arrive= " + arrive + "]";
+	}
 }
