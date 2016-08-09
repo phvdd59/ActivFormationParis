@@ -15,7 +15,8 @@ public class Personne {
 	 */
 
 	public Personne() {
-		setNom(String.valueOf(CPT));
+		setNom(NOM_PERSONNE.getRandomNom().toString());
+		// setNom(String.valueOf(CPT));
 		setEtat(ETAT.ETAT_ATTENTE.ordinal());
 		setArrive((int) (Math.random() * NB_ETAGE));
 		setDepart((int) (Math.random() * NB_ETAGE));
