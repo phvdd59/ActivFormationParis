@@ -36,11 +36,15 @@ public class ExoException1 implements InterException1 {
 						throw new CruciDebordeException(terme);
 					}
 					for (int i = 0; i < tab.length; i++) {
+						try {
 							if (cruci[terme.getPos().y][terme.getPos().x + i] != ' ') {
 								throw new CruciCroisementException(terme, i);
 							} else {
 								cruci[terme.getPos().y][terme.getPos().x + i] = tab[i];
 							}
+						}catch (CruciCroisementException e){
+							
+						}
 					}
 				} else {
 					if (terme.getPos().y + tab.length > height) {
@@ -62,6 +66,5 @@ public class ExoException1 implements InterException1 {
 			}
 		}
 		return cruci;
-
 	}
 }
