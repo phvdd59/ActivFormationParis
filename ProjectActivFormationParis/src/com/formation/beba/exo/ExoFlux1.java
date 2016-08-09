@@ -192,33 +192,23 @@ public class ExoFlux1 extends ArrayList<Terme> {
 				System.out.println(ligne);
 				// {"mot":"pastille","posX":1,"posY":5,"sens":true}
 
-				String s = ligne.replace("{", "");
-				s = s.replace("}", "");
-				s = s.replace("\"", ",");
-				s = s.replace(":", "");
-				s = s.replace(".", "");
-				s = s.replace(",,", ",");
-				s = s.replace(",,", ",");
-				s = s.replace("mot", "");
-				s = s.replace("posX", "");
-				s = s.replace("posY", "");
-				s = s.replace("sens", "");
-				s = s.replace(",,", ",");
-				s = s.replace(",,", ",");
-				s = s.replace(",,", ",");
-				s = s.replace(",,", ",");
+				String epur = ligne.replace("{", "");
+				epur = epur.replace("}", "");
+				epur = epur.replace("\"", ",");
+				epur = epur.replace(":", "");
+				epur = epur.replace(".", "");
+				epur = epur.replace(",,", ",");
+				epur = epur.replace(",,", ",");
+				epur = epur.replace("mot", "");
+				epur = epur.replace("posX", "");
+				epur = epur.replace("posY", "");
+				epur = epur.replace("sens", "");
+				epur = epur.replace(",,", ",");
+				epur = epur.replace(",,", ",");
+				epur = epur.replace(",,", ",");
+				epur = epur.replace(",,", ",");
 
-				// ligne.replaceAll("[{},:/]", "\"");
-				// ligne.replace("mot", "\"");
-				// ligne.replace("posY", "\"");
-				// ligne.replace("posX", "\"");
-				// ligne.replace("sens", "\"");
-				// ligne.replace("\"\"", "\"");
-				// ligne.replace("\"\"", "\"");
-				// ligne.replace("\"\"", "\"");
-				// ligne.replace("\"\"", "\""); // des fois que ça marche mal ce
-				// truc...
-				String[] termeCour = s.split(".");
+				String[] termeCour = epur.split(".");
 				Boolean leSens = false;
 				if (Boolean.valueOf(termeCour[4]) == Terme.HORIZONTAL) {
 					leSens = false;
