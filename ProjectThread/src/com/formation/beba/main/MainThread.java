@@ -9,12 +9,21 @@ public class MainThread {
 		Thread thread2 = new Thread(monprocessus, "SecondThread");
 		thread1.start();
 		thread2.start();
-//		try {
-//			Thread.sleep(10000);
-//		} catch (InterruptedException e) {
-//		}
-//		System.out.println("délai de 10sec");
-		System.out.println("Au revoir Main");
+		for (int i = 0; i < 20; i++) {
+			System.out.println("main");
+			try {
+				Thread.sleep(20);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		// try {
+		// Thread.sleep(10000);
+		// } catch (InterruptedException e) {
+		// }
+		// System.out.println("délai de 10sec");
+		System.err.println("Au revoir Main");
 
 	}
 }

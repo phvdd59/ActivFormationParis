@@ -1,4 +1,8 @@
-package com.formation.phva.main;
+package com.formation.beba.main;
+
+import com.formation.beba.metier.ListAscenseur;
+import com.formation.beba.metier.ListePersonne;
+import com.formation.etga.metier.ListeAscenseur;
 
 public class MainAscenseur {
 	/**
@@ -59,15 +63,13 @@ public class MainAscenseur {
 	 * |-------------------------------------------------|
 	 * |         toString()                              |
 	 * |-------------------------------------------------|
-	 * 
-	 * faire un générateur de personnes aléatoires
-	 * 		- étage de départ
-	 * 		- étage d'arrivé
-	 * 		création personne à des temps aléatoires
-	 *  
 	 * @param args
 	 */
 	public static void main(String[] args) {
-
+		ListePersonne listePersonne= new ListePersonne();
+		Thread thread1 = new Thread(listePersonne);
+		ListAscenseur listA= new ListAscenseur(listePersonne);
+		thread1.start();
+//		ListAscenseur listA= new ListAscenseur(listePersonne);
 	}
 }

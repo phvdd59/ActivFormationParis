@@ -1,4 +1,7 @@
-package com.formation.phva.main;
+package com.formation.ambr.main;
+
+import com.formation.ambr.metier.ListePersonne;
+import com.formation.ambr.metier.Personne;
 
 public class MainAscenseur {
 	/**
@@ -59,15 +62,18 @@ public class MainAscenseur {
 	 * |-------------------------------------------------|
 	 * |         toString()                              |
 	 * |-------------------------------------------------|
-	 * 
-	 * faire un générateur de personnes aléatoires
-	 * 		- étage de départ
-	 * 		- étage d'arrivé
-	 * 		création personne à des temps aléatoires
-	 *  
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		MainAscenseur m = new MainAscenseur();
+		m.init();
+	}
 
+	private void init() {
+		//Personne personne = new Personne("Aristote", 0, 2, 5);
+		ListePersonne list = new ListePersonne();
+		//list.add(personne);
+		//System.out.println(list);
+		list.run();
 	}
 }
