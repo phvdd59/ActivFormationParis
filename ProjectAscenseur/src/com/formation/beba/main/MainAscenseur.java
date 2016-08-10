@@ -2,7 +2,6 @@ package com.formation.beba.main;
 
 import com.formation.beba.metier.ListAscenseur;
 import com.formation.beba.metier.ListePersonne;
-import com.formation.etga.metier.ListeAscenseur;
 
 public class MainAscenseur {
 	/**

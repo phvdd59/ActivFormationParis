@@ -4,15 +4,17 @@ public class Ascenseur extends Thread {
 	public static int CPT = 0;
 	public static int TEMPS = 10;
 	public static int HAUTEUR_Etage = 30;
+	public ListePersonne lst;
+	public static boolean lstPersFin;
 
 	private int etage;
 	private int progression;
 	private boolean fin;
 	private Personne personne;
-	public ListePersonne lst;
 
 	public Ascenseur(String nom, ListePersonne lst) {
 		super(nom);
+		lstPersFin = false;
 		this.lst = lst;
 		this.personne = null;
 		this.etage = 0;
@@ -81,79 +83,50 @@ public class Ascenseur extends Thread {
 		return "THE Ascenseur [etage au départ= " + etage + ", progression= " + progression + ", fin= " + fin + ", personne= " + personne + "]";
 	}
 
-	boolean passage;
-
 	@Override
 	public void run() {
-		int enCours = -1;
 		while (!fin) {
-
+			try {
+				Thread.sleep(TEMPS);
+			} catch (InterruptedException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			if (personne == null) {
 				synchronized (lst) {
-					if (lst.size() > 6) {
-						passage = false;
-						for (int i = 0; i < lst.size(); i++) {
-							if (lst.get(i).getEtat() == ETAT.ETAT_ATTENTE.ordinal()) {
-								enCours = i;
-								lst.get(i).setEtat(ETAT.ETAT_DEPART.ordinal());
-								this.setPersonne(lst.get(i));
-								lst.remove(i);
+					if (lst.isSortie() && lst.size() == 0) {
+						fin = true;
+					} else {
+						if (lst.size() > 0) {
 
-								break;
-							}
+							lst.get(0).setEtat(ETAT.ETAT_DEPART.ordinal());
+							this.setPersonne(lst.get(0));
+							lst.remove(0);
 						}
 					}
 				}
 			} else if (personne.getEtat() == ETAT.ETAT_DEPART.ordinal()) {
 
-				this.leMove(lst.get(enCours).getDepart());
-				passage = true;
+				this.leMove(personne.getDepart());
+
 				personne.setEtat(ETAT.ETAT_MOVE.ordinal());
-				this.leMove(lst.get(enCours).getArrive());
+				this.leMove(personne.getArrive());
 
 			} else if (personne.getEtat() == ETAT.ETAT_MOVE.ordinal()) {
 
 				personne.setEtat(ETAT.ETAT_ARRIVE.ordinal());
 				System.err.println(personne.getNom() + " est arrivé à l'étage " + etage + " de l'etage " + personne.getDepart());
 				personne = null;
+			} else if (lst.isSortie()) {
+				if (lst.size() == 0) {
+					fin = true;
+				}
 			}
-
-			// int enCours = -1;
-			// synchronized (lst) {
-			// if (lst.size() > 5) {
-			// passage = false;
-			// for (int i = 0; i < lst.size(); i++) {
-			// if (lst.get(i).getEtat() == ETAT.ETAT_ATTENTE.ordinal()) {
-			// enCours = i;
-			//
-			// lst.get(i).setEtat(ETAT.ETAT_DEPART.ordinal());
-			// this.setPersonne(lst.get(i));
-			// lst.remove(i);
-			//
-			// break;
-			// }
-			// }
-			// }
-			// }
-			// if (enCours != -1) {
-			//
-			// this.leMove(lst.get(enCours).getDepart());
-			// passage = true;
-			// personne.setEtat(ETAT.ETAT_MOVE.ordinal());
-			// this.leMove(lst.get(enCours).getArrive());
-			//
-			// personne.setEtat(ETAT.ETAT_ARRIVE.ordinal());
-			// System.err.println(personne.getNom() + " est arrivé à l'étage " +
-			// etage + " de l'etage " + personne.getDepart());
-			// personne = null;
-			// }
-
 		}
 	}
 
@@ -163,25 +136,22 @@ public class Ascenseur extends Thread {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		int etagePre = etage;
 		if (etage < etageFin) {
 			this.setEtage(++etage);
-
 			// System.out.println("l'ascenser " + this.getName() + " va de " + "
 			// de " + etagePre + " vers " + etage);
 			try {
-				this.sleep(10);
+				Thread.sleep(10);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		} else {
 			this.setEtage(--etage);
-
 			// System.out.println("l'ascenser " + this.getName() + " va de " + "
 			// de " + etagePre + " vers " + etage);
 			try {
-				this.sleep(10);
+				Thread.sleep(10);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -195,4 +165,13 @@ public class Ascenseur extends Thread {
 		}
 
 	}
+
+	public static boolean isLstPersFin() {
+		return lstPersFin;
+	}
+
+	public static void setLstPersFin(boolean lstPersFin) {
+		Ascenseur.lstPersFin = lstPersFin;
+	}
+
 }
