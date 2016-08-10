@@ -1,21 +1,30 @@
 package com.formation.beba.metier;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
-public class ListePersonne extends ArrayList<Personne> implements Runnable {
+public class ListePersonne extends ArrayList<Personne>implements Runnable {
 	private boolean sortie;
 
 	public void ListePeronne() {
-
-		for (int i = 0; i < 20; i++) {
-
-			this.add(new Personne());
-		}
+		sortie = false;
 	}
 
 	@Override
 	public void run() {
+		int ct = 0;
+		while (!sortie) {
+			long delais = (long) (Math.random() * 5000);
+			try {
+				Thread.sleep(delais);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			this.add(new Personne());
+			if (Personne.CPT >= 1) {
+				sortie = true;
+			}
+		}
+
 	}
 
 	public boolean isSortie() {

@@ -41,11 +41,7 @@ public class Personne {
 		this.arrive = arrive;
 	}
 
-	@Override
-	public String toString() {
-		// TODO Auto-generated method stub
-		return super.toString();
-	}
+	
 
 	public int getEtat() {
 		return etat;
@@ -53,6 +49,11 @@ public class Personne {
 
 	public void setEtat(int etat) {
 		this.etat = etat;
+	}
+	@Override
+	public String toString() {
+		
+		return "Personne:"+nom+", etat:"+etat+", depart:"+depart+", arrive:"+arrive;
 	}
 
 }

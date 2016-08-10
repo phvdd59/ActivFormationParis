@@ -8,9 +8,9 @@ public class ListePersonne extends ArrayList<Personne> implements Runnable {
 
 	private boolean sortie;
 
-	public ListePersonne(boolean sortie) {
-		super();
-		this.sortie = sortie;
+	public ListePersonne() {
+		
+		this.sortie = false;
 	}
 
 	public Personne genererUnePersonneAle() {
@@ -22,6 +22,7 @@ public class ListePersonne extends ArrayList<Personne> implements Runnable {
 			arrive = (int) (Math.random() * 20);
 
 		}
+		Personne.CPT++;
 
 		Personne per = new Personne(nom, etat, depart, arrive);
 		return per;

@@ -1,7 +1,7 @@
-package com.formation.beba.main;
+package com.formation.ambr.main;
 
-import com.formation.beba.metier.ListAscenseur;
-import com.formation.beba.metier.ListePersonne;
+import com.formation.ambr.metier.ListeAscenseur;
+import com.formation.ambr.metier.ListePersonne;
 
 public class MainAscenseur {
 	/**
@@ -65,10 +65,18 @@ public class MainAscenseur {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		ListePersonne listePersonne= new ListePersonne();
-		Thread thread1 = new Thread(listePersonne);
-		ListAscenseur listA= new ListAscenseur(listePersonne);
-		thread1.start();
-//		ListAscenseur listA= new ListAscenseur(listePersonne);
+		MainAscenseur m = new MainAscenseur();
+		m.init();
+	}
+
+	private void init() {
+		
+		ListePersonne listPers = new ListePersonne(); // ListPersonne implements un runnable, v.s. extends un thread. Donc obligé faire comme ci-dessous
+		Thread tLstPers = new Thread(listPers, "LISTE DE PERSONNES");
+		tLstPers.start();
+		
+		ListeAscenseur listAsc = new ListeAscenseur(listPers);
+		System.out.println(listAsc);
+		
 	}
 }
