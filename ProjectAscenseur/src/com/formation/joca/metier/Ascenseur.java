@@ -94,7 +94,7 @@ public class Ascenseur extends Thread {
 				this.etage--;
 				progression = 0;
 			} else {
-				progression++;
+				progression--;
 			}
 		}
 	}
