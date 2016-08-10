@@ -1,5 +1,6 @@
 package com.formation.phva.main;
 
+import com.formation.phva.inter.InterListeAscenseur;
 import com.formation.phva.metier.ListAscenseur;
 import com.formation.phva.metier.ListePersonne;
 
@@ -54,8 +55,8 @@ public class MainAscenseur {
 
 	public void init() {
 		ListePersonne listePersonne = new ListePersonne();
-		Thread tLstPersonne = new Thread(listePersonne,"LISTE DE PERSONNES");
+		Thread tLstPersonne = new Thread(listePersonne, "LISTE DE PERSONNES");
 		tLstPersonne.start();
-		ListAscenseur listAscenseur=new ListAscenseur(listePersonne);
+		ListAscenseur listAscenseur = new ListAscenseur(listePersonne);
 	}
 }
