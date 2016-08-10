@@ -1,6 +1,6 @@
 package com.formation.phva.inter;
 
-import com.formation.phva.metierz.ETAT;
+import com.formation.phva.metier.ETAT;
 
 public interface InterPersonne {
 
