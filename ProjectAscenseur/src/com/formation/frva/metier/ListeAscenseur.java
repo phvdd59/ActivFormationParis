@@ -13,11 +13,12 @@ public class ListeAscenseur extends ArrayList<InterAscenseur>implements InterLis
 	public ListeAscenseur(InterListPersonne listePersonne) {
 
 		InterAffichage affichage = new Affichage(this);
-		int nbAscenceurs = 5;
+		int nbAscenceurs = 1;
 		for (int i = 0; i < nbAscenceurs; i++) {
-			String nom = "Asc"+ new Integer(i).toString();
 			InterAscenseur asc = new Ascenseur(listePersonne,affichage);
+			add(asc);
 			asc.start();
+			
 		}
 		
 	}
