@@ -1,5 +1,6 @@
 package com.formation.frva.metier;
 
+import com.formation.phva.inter.InterETAT;
 import com.formation.phva.inter.InterPersonne;
 
 public class Personne implements InterPersonne {
@@ -7,7 +8,7 @@ public class Personne implements InterPersonne {
 	public static int NB_ETAGE=20;
 	
 	private String nom;
-	private ETAT etat;
+	private InterETAT etat;
 	private int depart;
 	private int arrivee;
 	
@@ -33,7 +34,7 @@ public class Personne implements InterPersonne {
 	
 	@Override
 	public String toString() {
-		return ("( "+ nom + " " + etat.name() + "  depart " + depart + " arrivée " + arrivee + " )" );
+		return ("( "+ nom + " " + getEtat().toString() + "  depart " + depart + " arrivée " + arrivee + " )" );
 	}
 
 	public String getNom() {
@@ -55,23 +56,18 @@ public class Personne implements InterPersonne {
 	public void setArrivee(int arrivee) {
 		this.arrivee = arrivee;
 	}
-	public ETAT getEtat() {
+
+	@Override
+	public InterETAT getEtat() {
 		return etat;
 	}
-	public void setEtat(ETAT etat) {
+
+	@Override
+	public void setEtat(InterETAT etat) {
 		this.etat = etat;
-	}
-
-	@Override
-	public com.formation.phva.metier.ETAT getEtat() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void setEtat(com.formation.phva.metier.ETAT depart) {
-		// TODO Auto-generated method stub
 		
-	} 
+	}
+	
+
 
 }

@@ -1,10 +1,8 @@
 package com.formation.frva.main;
 
-import com.formation.ambr.metier.ListeAscenseur;
-import com.formation.frva.metier.Ascenseur;
+
+import com.formation.frva.metier.ListeAscenseur;
 import com.formation.frva.metier.ListePersonne;
-import com.formation.frva.metier.Personne;
-import com.formation.phva.inter.InterListPersonne;
 
 public class MainAscenseur2 {
 
@@ -16,7 +14,7 @@ public class MainAscenseur2 {
 	private void init() {
 		ListePersonne.FREQUENCE = 100;
 		ListePersonne.NBMAXPERS = 2;
-		InterListPersonne listeP = new ListePersonne();
+		ListePersonne listeP = new ListePersonne();
 		Thread threadListPers = new Thread (listeP, "Liste de Personnes");
 		threadListPers.start();
 				

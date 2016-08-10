@@ -1,9 +1,11 @@
 package com.formation.frva.metier;
 
+import com.formation.phva.inter.InterAffichage;
+import com.formation.phva.inter.InterAscenseur;
 import com.formation.phva.inter.InterListPersonne;
 import com.formation.phva.inter.InterPersonne;
 
-public class Ascenseur extends Thread {
+public class Ascenseur extends Thread implements InterAscenseur {
 
 	public static int CPT = 0;
 	public static int TEMPS = 10;
@@ -13,15 +15,14 @@ public class Ascenseur extends Thread {
 	private int etage;
 	private int progression;
 	private boolean fin;
-	private Personne personne;
+	private InterPersonne personne;
 	public InterListPersonne lPers = null;
 
 	private int maProgression = 0;
+	private InterAffichage affichage;
 
-	public Ascenseur() {
-	}
 
-	public Ascenseur(InterListPersonne listePersonne) {
+	public Ascenseur(InterListPersonne listePersonne, InterAffichage affichage) {
 		super();
 		this.nom = Integer.toString(CPT);
 		CPT++;
@@ -29,6 +30,7 @@ public class Ascenseur extends Thread {
 		this.progression = 0;
 		this.fin = false;
 		this.lPers = listePersonne;
+		this.affichage = affichage;
 	}
 
 	@Override
@@ -64,6 +66,7 @@ public class Ascenseur extends Thread {
 					}
 				}
 			}
+			affichage.repaint();
 		}
 		System.out.println(nom +"    Voilà c'est fini"); 
 	}
@@ -131,11 +134,11 @@ public class Ascenseur extends Thread {
 		this.fin = fin;
 	}
 
-	public Personne getPersonne() {
+	public InterPersonne getPersonne() {
 		return personne;
 	}
 
-	public void setPersonne(Personne personne) {
+	public void setPersonne(InterPersonne personne) {
 		this.personne = personne;
 	}
 }

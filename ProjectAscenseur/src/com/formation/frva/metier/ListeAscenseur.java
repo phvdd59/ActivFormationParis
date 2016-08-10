@@ -6,7 +6,6 @@ import com.formation.phva.inter.InterAffichage;
 import com.formation.phva.inter.InterAscenseur;
 import com.formation.phva.inter.InterListPersonne;
 import com.formation.phva.inter.InterListeAscenseur;
-import com.formation.phva.inter.InterPersonne;
 import com.formation.phva.met.Affichage;
 
 public class ListeAscenseur extends ArrayList<InterAscenseur>implements InterListeAscenseur {
@@ -17,7 +16,7 @@ public class ListeAscenseur extends ArrayList<InterAscenseur>implements InterLis
 		int nbAscenceurs = 5;
 		for (int i = 0; i < nbAscenceurs; i++) {
 			String nom = "Asc"+ new Integer(i).toString();
-			InterAscenseur asc = new Ascenseur(listePersonne);
+			InterAscenseur asc = new Ascenseur(listePersonne,affichage);
 			asc.start();
 		}
 		
