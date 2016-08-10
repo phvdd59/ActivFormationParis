@@ -1,8 +1,5 @@
 package com.formation.phva.metier;
 
-import com.formation.phva.inter.InterAscenseur;
-import com.formation.phva.inter.InterPersonne;
-
 public class Ascenseur extends Thread {
 	public static int CPT = 0;
 	public static int TEMPS = 1000;

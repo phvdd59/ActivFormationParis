@@ -5,5 +5,4 @@ public enum ETAT implements InterETAT {
 	DEPART,
 	MOVE,
 	ARRIVE
-
 }
