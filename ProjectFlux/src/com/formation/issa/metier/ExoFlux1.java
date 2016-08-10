@@ -107,7 +107,7 @@ public class ExoFlux1 extends ArrayList<Terme> {
 
 					}
 					Point point = new Point(x, y);
-					while (existSens == true) {
+					while (existSens == false) {
 						System.out.println("Entrez un sens (H ou V)?: ");
 						String iSens = sMot.readLine();
 						if (iSens.equals("HORIZONTAL")) {
