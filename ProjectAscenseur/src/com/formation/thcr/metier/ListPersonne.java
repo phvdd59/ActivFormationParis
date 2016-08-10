@@ -30,9 +30,8 @@ public class ListPersonne extends ArrayList<Personne> implements Runnable {
 			synchronized (this) {
 				if (this.size() >= 0 && this.size() < 20) {
 					this.add(new Personne());
-					System.out.println(size());
 				}
-				if (Personne.CPT > 200) {
+				if (Personne.CPT > 40) {
 					this.setSortie(true);
 				}
 			}

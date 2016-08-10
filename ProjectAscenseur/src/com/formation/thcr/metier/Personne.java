@@ -12,7 +12,7 @@ public class Personne {
 
 	public Personne() {
 
-		this.etat = ETAT.ETAT_ATTENTE.ordinal();
+		this.etat = ETAT.ATTENTE.ordinal();
 		while (this.depart == this.arrive) {
 			this.depart = Integer.valueOf((int) (Math.random() * NB_ETAGE)).intValue();
 			this.arrive = Integer.valueOf((int) (Math.random() * NB_ETAGE)).intValue();
