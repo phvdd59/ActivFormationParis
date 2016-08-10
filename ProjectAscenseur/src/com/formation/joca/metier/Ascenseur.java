@@ -82,7 +82,7 @@ public class Ascenseur extends Thread {
 
 	public void deplacer(int destination) {
 		if (destination > this.getEtage()) {
-			if (progression % 30 == 0) {
+			if (progression % 30 == 0 && progression != 0) {
 				this.etage++;
 				progression = 0;
 			} else {
