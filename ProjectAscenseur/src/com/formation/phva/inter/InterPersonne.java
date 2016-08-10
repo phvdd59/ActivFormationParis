@@ -1,7 +1,5 @@
 package com.formation.phva.inter;
 
-import com.formation.phva.metier.ETAT;
-
 public interface InterPersonne {
 
 	public String getNom();
