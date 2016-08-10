@@ -23,7 +23,7 @@ public class Ascenseur extends Thread implements InterAscenseur {
 
 
 	public Ascenseur(InterListPersonne listePersonne, InterAffichage affichage) {
-		super();
+		super(Integer.toString(CPT));
 		this.nom = Integer.toString(CPT);
 		CPT++;
 		this.etage = 0;
