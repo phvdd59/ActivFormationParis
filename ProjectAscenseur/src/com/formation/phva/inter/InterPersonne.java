@@ -10,7 +10,7 @@ public interface InterPersonne {
 
 	public int getArrivee();
 
-	public ETAT getEtat();
+	public InterETAT getEtat();
 
 	public void setEtat(ETAT depart);
 }
