@@ -11,13 +11,19 @@ public class Personne {
 	private int			arrive;
 
 	public Personne() {
-		 /** faire un générateur de personnes aléatoires
-		 * 		- étage de départ
-		 * 		- étage d'arrivé
-		 * 		création personne à des temps aléatoires
+
+		this.etat = ETAT.ETAT_ATTENTE.ordinal();
+		while (this.depart == this.arrive) {
+			this.depart = Integer.valueOf((int) (Math.random() * NB_ETAGE)).intValue();
+			this.arrive = Integer.valueOf((int) (Math.random() * NB_ETAGE)).intValue();
+		}
+		this.nom = String.valueOf(CPT);
+		CPT++;
+		/**
+		 * faire un générateur de personnes aléatoires - étage de départ - étage
+		 * d'arrivé création personne à des temps aléatoires
 		 */
-		
-		
+
 	}
 
 	public String getNom() {
@@ -54,7 +60,7 @@ public class Personne {
 
 	@Override
 	public String toString() {
-		return "Personne [nom=" + nom + ", etat=" + etat + ", depart=" + depart + ", arrive=" + arrive + "]";
+		return "nom=" + nom + ", etat=" + etat + ", depart=" + depart + ", arrive=" + arrive + " ";
 	}
 
 }
