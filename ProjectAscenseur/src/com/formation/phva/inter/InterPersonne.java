@@ -12,5 +12,5 @@ public interface InterPersonne {
 
 	public InterETAT getEtat();
 
-	public void setEtat(InterETAT depart);
+	public void setEtat(InterETAT etat);
 }
