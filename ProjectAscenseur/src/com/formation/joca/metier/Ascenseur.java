@@ -112,11 +112,8 @@ public class Ascenseur extends Thread {
 					System.out.println("j'ai trouvé une personne " + this.personne.toString());
 				} else {
 					System.out.println("je suis " + this.getName());
-					System.out.println("il n'y a plus personne, je dors");
-					try {
-						Thread.sleep(1870000);
-					} catch (InterruptedException e) {
-					}
+					System.out.println("il n'y a plus personne, je m'arrete");
+					this.fin=true;
 				}
 			} else if (this.getPersonne().getEtat() == ETAT.ETAT_DEPART.ordinal()) {
 				if (this.getEtage() != this.getPersonne().getDepart()) {
