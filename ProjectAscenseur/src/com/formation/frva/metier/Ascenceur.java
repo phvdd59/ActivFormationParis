@@ -36,25 +36,25 @@ public class Ascenceur extends Thread {
 			}
 			if (personne == null) {
 				synchronized (lPers) {
-					if (lPers.size() == 0 && Personne.CPT >= Personne.NBMAXPERS) {
+					if (lPers.size() == 0 && Personne.CPT >= ListePersonne.NBMAXPERS) {
 						fin = true;
 					}
 					if (lPers.size() > 0) {
 						personne = lPers.remove(0);
-						personne.setEtat(Etat.DEPART);
+						personne.setEtat(ETAT.DEPART);
 						System.out.println(nom +"    J'ai pris l'appel de " + personne.toString());
 					}
 				}
 				maProgression = 0;
 			} else {
-				if (personne.getEtat() == Etat.DEPART) {
+				if (personne.getEtat() == ETAT.DEPART) {
 					deplaceAscenseurVersDepart();
 				} else {
-					if (personne.getEtat() == Etat.MOVE) {
+					if (personne.getEtat() == ETAT.MOVE) {
 						deplaceAscenseurVersArrrivee();
 						
 					} else {
-						if (personne.getEtat() == Etat.ARRIVE) {
+						if (personne.getEtat() == ETAT.ARRIVE) {
 							personne = null;
 						}
 					}
@@ -76,7 +76,7 @@ public class Ascenceur extends Thread {
 				if (etage > personne.getDepart()) {
 					etage--;
 				} else {
-					personne.setEtat(Etat.MOVE);
+					personne.setEtat(ETAT.MOVE);
 					System.out.println(nom +"    La personne monte dans mon ascenceur au "+etage);
 				}
 			}
@@ -95,7 +95,7 @@ public class Ascenceur extends Thread {
 				if (etage > personne.getArrivee()) {
 					etage--;
 				} else {
-					personne.setEtat(Etat.ARRIVE);
+					personne.setEtat(ETAT.ARRIVE);
 					System.out.println(nom +"    Je suis me déleste à l'étage "+etage + " de mon client " + personne.toString());
 					
 				}
