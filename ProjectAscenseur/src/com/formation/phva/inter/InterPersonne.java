@@ -11,4 +11,6 @@ public interface InterPersonne {
 	public int getArrivee();
 
 	public ETAT getEtat();
+
+	public void setEtat(ETAT depart);
 }

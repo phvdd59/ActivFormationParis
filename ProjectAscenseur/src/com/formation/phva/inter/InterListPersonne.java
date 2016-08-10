@@ -8,6 +8,6 @@ public interface InterListPersonne {
 
 	public int size();
 
-	public Personne remove(int i);
+	public InterPersonne remove(int i);
 
 }
