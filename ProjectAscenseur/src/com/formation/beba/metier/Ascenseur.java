@@ -85,43 +85,74 @@ public class Ascenseur extends Thread {
 
 	@Override
 	public void run() {
-
+		int enCours = -1;
 		while (!fin) {
+
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			if (personne == null) {
+				synchronized (lst) {
+					if (lst.size() > 6) {
+						passage = false;
+						for (int i = 0; i < lst.size(); i++) {
+							if (lst.get(i).getEtat() == ETAT.ETAT_ATTENTE.ordinal()) {
+								enCours = i;
+								lst.get(i).setEtat(ETAT.ETAT_DEPART.ordinal());
+								this.setPersonne(lst.get(i));
+								lst.remove(i);
 
-			int enCours = -1;
-			synchronized (lst) {
-				if (lst.size() > 5) {
-					passage = false;
-					for (int i = 0; i < lst.size(); i++) {
-						if (lst.get(i).getEtat() == ETAT.ETAT_ATTENTE.ordinal()) {
-							enCours = i;
-
-							lst.get(i).setEtat(ETAT.ETAT_DEPART.ordinal());
-							this.setPersonne(lst.get(i));
-							lst.remove(i);
-
-							break;
+								break;
+							}
 						}
 					}
 				}
-			}
-			if (enCours != -1) {
+			} else if (personne.getEtat() == ETAT.ETAT_DEPART.ordinal()) {
 
 				this.leMove(lst.get(enCours).getDepart());
 				passage = true;
 				personne.setEtat(ETAT.ETAT_MOVE.ordinal());
 				this.leMove(lst.get(enCours).getArrive());
 
+			} else if (personne.getEtat() == ETAT.ETAT_MOVE.ordinal()) {
+
 				personne.setEtat(ETAT.ETAT_ARRIVE.ordinal());
 				System.err.println(personne.getNom() + " est arrivé à l'étage " + etage + " de l'etage " + personne.getDepart());
 				personne = null;
 			}
+
+			// int enCours = -1;
+			// synchronized (lst) {
+			// if (lst.size() > 5) {
+			// passage = false;
+			// for (int i = 0; i < lst.size(); i++) {
+			// if (lst.get(i).getEtat() == ETAT.ETAT_ATTENTE.ordinal()) {
+			// enCours = i;
+			//
+			// lst.get(i).setEtat(ETAT.ETAT_DEPART.ordinal());
+			// this.setPersonne(lst.get(i));
+			// lst.remove(i);
+			//
+			// break;
+			// }
+			// }
+			// }
+			// }
+			// if (enCours != -1) {
+			//
+			// this.leMove(lst.get(enCours).getDepart());
+			// passage = true;
+			// personne.setEtat(ETAT.ETAT_MOVE.ordinal());
+			// this.leMove(lst.get(enCours).getArrive());
+			//
+			// personne.setEtat(ETAT.ETAT_ARRIVE.ordinal());
+			// System.err.println(personne.getNom() + " est arrivé à l'étage " +
+			// etage + " de l'etage " + personne.getDepart());
+			// personne = null;
+			// }
 
 		}
 	}
