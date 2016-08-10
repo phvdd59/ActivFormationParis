@@ -10,8 +10,17 @@ public class Personne {
 	private int depart;
 	private int arrivee;
 
-	public Personne() {
+	public Personne() { // correction de Philippe
 
+		nom = Integer.toString(CPT);
+		CPT++;
+		etat = ETAT.ATTENTE.ordinal();
+		depart = (int) (Math.random() * 20);
+		arrivee = (int) (Math.random() * 20);
+		while (arrivee == depart) {
+			arrivee = (int) (Math.random() * 20);
+
+		}
 	}
 
 	public Personne(String nom, int etat, int depart, int arrivee) {
