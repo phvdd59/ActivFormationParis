@@ -20,7 +20,7 @@ public class ListePersonne extends ArrayList<Personne>implements Runnable {
 				e.printStackTrace();
 			}
 			this.add(new Personne());
-			if (Personne.CPT >= 52) {
+			if (Personne.CPT >= 1) {
 				sortie = true;
 			}
 		}

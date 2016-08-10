@@ -99,7 +99,9 @@ public class Ascenseur extends Thread {
 						if (lst.size() > 0) {
 							this.setPersonne(lst.remove(lst.size() - 1));
 							personne.setEtat(ETAT.ETAT_DEPART.ordinal());
-							System.out.println("l'ascenseur " + this.getName() + " embarque " + personne.getNom());
+							// System.out.println("l'ascenseur " +
+							// this.getName() + " va vers " +
+							// personne.getNom());
 						}
 					}
 				}
@@ -107,20 +109,26 @@ public class Ascenseur extends Thread {
 			} else if (personne.getEtat() == ETAT.ETAT_DEPART.ordinal()) {
 
 				this.leMove(personne.getDepart());
+
 				if (etage == personne.getDepart()) {
+					// System.out.println("l'ascenseur " + this.getName() + "
+					// embarque " + personne.getNom());
 					personne.setEtat(ETAT.ETAT_MOVE.ordinal());
-					System.out.println("l'ascenseur " + this.getName() + " déplace " + personne.getNom());
+
 				}
 
 			} else if (personne.getEtat() == ETAT.ETAT_MOVE.ordinal()) {
 
 				this.leMove(personne.getArrive());
+
 				if (etage == personne.getArrive()) {
 					personne.setEtat(ETAT.ETAT_ARRIVE.ordinal());
-				}
 
-				System.err.println(personne.getNom() + " est arrivé à l'étage " + personne.getArrive() + " de l'etage " + personne.getDepart());
-				personne = null;
+					// System.err.println(personne.getNom() + " est arrivé à
+					// l'étage " + personne.getArrive() + " de l'etage " +
+					// personne.getDepart());
+					personne = null;
+				}
 			} else if (lst.isSortie()) {
 				if (lst.size() == 0) {
 					fin = true;
@@ -133,11 +141,9 @@ public class Ascenseur extends Thread {
 		if (etage < etageFin) {
 			progression++;
 			if (progression % 30 == 0) {
+				// System.out.println(progression + " " + etage);
 				this.setEtage(++etage);
 			}
-
-			// System.out.println("l'ascenser " + this.getName() + " va de " + "
-			// de " + " vers " + etage);
 			try {
 				Thread.sleep(10);
 			} catch (InterruptedException e) {
@@ -146,10 +152,9 @@ public class Ascenseur extends Thread {
 		} else {
 			progression--;
 			if (progression % 30 == 0) {
+				// System.out.println(progression + " " + etage);
 				this.setEtage(--etage);
 			}
-			// System.out.println("l'ascenser " + this.getName() + " va de " + "
-			// de " + " vers " + etage);
 			try {
 				Thread.sleep(10);
 			} catch (InterruptedException e) {
