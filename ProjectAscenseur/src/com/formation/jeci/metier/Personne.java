@@ -5,16 +5,17 @@ public class Personne {
 	public static int CPT = 0;
 	public static int NB_ETAGE = 20;
 	private String nom;
-	// private int etat;
+	private int etat;
 	private int depart;
 	private int arrive;
 
-	public Personne(String nom, int depart, int arrive) {
-		super();
+	public Personne(String nom, int etat, int depart, int arrive) {
+		this.etat = etat;
 		this.nom = nom;
 		this.depart = depart;
 		this.arrive = arrive;
 	}
+	
 
 	public String getNom() {
 		return nom;
@@ -44,6 +45,14 @@ public class Personne {
 	public String toString() {
 		// TODO Auto-generated method stub
 		return super.toString();
+	}
+
+	public int getEtat() {
+		return etat;
+	}
+
+	public void setEtat(int etat) {
+		this.etat = etat;
 	}
 
 }

@@ -1,5 +1,7 @@
 package com.formation.jeci.main;
 
+import com.formation.jeci.metier.Personne;
+
 public class MainAscenseur {
 	/**
 	 * 1° Creer un Enum ETAT
@@ -61,7 +63,12 @@ public class MainAscenseur {
 	 * |-------------------------------------------------|
 	 * @param args
 	 */
+	// faire un générateur de personne aléatoire;
+//	étage de départ
+//	état d'arrivée
+//	nom
+	
 	public static void main(String[] args) {
-
+		
 	}
 }
