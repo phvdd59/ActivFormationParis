@@ -1,0 +1,2 @@
+made testNormal (2/2):    | solution(10,10,lst)
+made testNormal (2/2):    | solution(10,10,lst)
