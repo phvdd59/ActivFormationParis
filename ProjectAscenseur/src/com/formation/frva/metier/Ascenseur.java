@@ -1,6 +1,9 @@
 package com.formation.frva.metier;
 
-public class Ascenceur extends Thread {
+import com.formation.phva.inter.InterListPersonne;
+import com.formation.phva.inter.InterPersonne;
+
+public class Ascenseur extends Thread {
 
 	public static int CPT = 0;
 	public static int TEMPS = 10;
@@ -11,20 +14,21 @@ public class Ascenceur extends Thread {
 	private int progression;
 	private boolean fin;
 	private Personne personne;
-	public ListePersonne lPers = null;
+	public InterListPersonne lPers = null;
 
 	private int maProgression = 0;
 
-	public Ascenceur() {
+	public Ascenseur() {
 	}
 
-	public Ascenceur(String nom, int etage, int progression, boolean fin, ListePersonne lPers) {
+	public Ascenseur(InterListPersonne listePersonne) {
 		super();
-		this.nom = nom;
-		this.etage = etage;
-		this.progression = progression;
-		this.fin = fin;
-		this.lPers = lPers;
+		this.nom = Integer.toString(CPT);
+		CPT++;
+		this.etage = 0;
+		this.progression = 0;
+		this.fin = false;
+		this.lPers = listePersonne;
 	}
 
 	@Override

@@ -2,7 +2,10 @@ package com.formation.frva.metier;
 
 import java.util.ArrayList;
 
-public class ListePersonne extends ArrayList<Personne> implements Runnable {
+import com.formation.phva.inter.InterListPersonne;
+import com.formation.phva.inter.InterPersonne;
+
+public class ListePersonne extends ArrayList<InterPersonne> implements Runnable, InterListPersonne {
 	public static int FREQUENCE;
 	public static int NBMAXPERS;
 	private boolean sortie;
@@ -26,8 +29,8 @@ public class ListePersonne extends ArrayList<Personne> implements Runnable {
 		}
 	}
 
-	public ListePersonne(boolean sortie) {
-		this.sortie = sortie;
+	public ListePersonne() {
+		this.sortie = false;
 	}
 
 	public boolean isSortie() {

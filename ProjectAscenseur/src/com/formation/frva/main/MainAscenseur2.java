@@ -1,8 +1,10 @@
 package com.formation.frva.main;
 
-import com.formation.frva.metier.Ascenceur;
+import com.formation.ambr.metier.ListeAscenseur;
+import com.formation.frva.metier.Ascenseur;
 import com.formation.frva.metier.ListePersonne;
 import com.formation.frva.metier.Personne;
+import com.formation.phva.inter.InterListPersonne;
 
 public class MainAscenseur2 {
 
@@ -12,17 +14,13 @@ public class MainAscenseur2 {
 	}
 	
 	private void init() {
-		ListePersonne listeP = new ListePersonne(false);
-		Thread threadListPers = new Thread (listeP, "Liste de Personnes");
-		threadListPers.start();
-		
 		ListePersonne.FREQUENCE = 100;
 		ListePersonne.NBMAXPERS = 2;
-		int nbAscenceurs = 5;
-		for (int i = 0; i < nbAscenceurs; i++) {
-			String nom = "Asc"+ new Integer(i).toString();
-			Ascenceur asc = new Ascenceur(nom,0, 100, false, listeP);
-			asc.start();
-		}
+		InterListPersonne listeP = new ListePersonne();
+		Thread threadListPers = new Thread (listeP, "Liste de Personnes");
+		threadListPers.start();
+				
+		ListeAscenseur listAscenseur = new ListeAscenseur(listeP);
+		
 	}
 }

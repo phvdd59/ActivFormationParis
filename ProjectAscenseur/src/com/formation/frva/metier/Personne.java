@@ -1,6 +1,8 @@
 package com.formation.frva.metier;
 
-public class Personne {
+import com.formation.phva.inter.InterPersonne;
+
+public class Personne implements InterPersonne {
 	public static int CPT =0;
 	public static int NB_ETAGE=20;
 	
@@ -58,6 +60,18 @@ public class Personne {
 	}
 	public void setEtat(ETAT etat) {
 		this.etat = etat;
+	}
+
+	@Override
+	public com.formation.phva.metier.ETAT getEtat() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setEtat(com.formation.phva.metier.ETAT depart) {
+		// TODO Auto-generated method stub
+		
 	} 
 
 }
