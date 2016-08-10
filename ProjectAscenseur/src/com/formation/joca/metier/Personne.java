@@ -1,8 +1,8 @@
 package com.formation.joca.metier;
 
 public class Personne {
-	public static  int CPT = 0;
-	public static  int NB_ETAGE = 20;
+	public static int CPT = 0;
+	public static int NB_ETAGE = 20;
 
 	private String nom;
 	private int etat;
@@ -15,6 +15,7 @@ public class Personne {
 		this.etat = etat;
 		this.depart = depart;
 		this.arrive = arrive;
+		this.CPT++;
 	}
 
 	public String getNom() {
@@ -51,7 +52,8 @@ public class Personne {
 
 	@Override
 	public String toString() {
-		return "Personne [nom=" + nom + ", etat=" + etat + ", depart=" + depart + ", arrive=" + arrive + "]";
+		return "Personne [nom=" + nom + ", etat=" + etat + ", depart=" + depart + ", arrive=" + arrive + ", CPT =" + CPT
+				+ "]";
 	}
-	
+
 }
