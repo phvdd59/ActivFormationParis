@@ -3,12 +3,14 @@ package com.formation.frva.metier;
 import java.util.ArrayList;
 
 public class ListePersonne extends ArrayList<Personne> implements Runnable {
+	public static int FREQUENCE;
+	public static int NBMAXPERS;
 	private boolean sortie;
 
 	@Override
 	public void run() {
 		while (!sortie){
-			long delai = (long) Math.random()*100;
+			long delai = (long) Math.random()*FREQUENCE;
 			try {
 				Thread.sleep(delai);
 			} catch (InterruptedException e) {
@@ -17,7 +19,7 @@ public class ListePersonne extends ArrayList<Personne> implements Runnable {
 				Personne p = new Personne();
 				add(p);
 				System.out.println(p.toString());
-				if (Personne.CPT == Personne.NBMAXPERS){
+				if (Personne.CPT == NBMAXPERS){
 					sortie = true;
 				}
 			}

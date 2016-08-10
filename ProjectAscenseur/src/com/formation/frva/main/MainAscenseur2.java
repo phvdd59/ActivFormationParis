@@ -16,6 +16,8 @@ public class MainAscenseur2 {
 		Thread threadListPers = new Thread (listeP, "Liste de Personnes");
 		threadListPers.start();
 		
+		ListePersonne.FREQUENCE = 100;
+		ListePersonne.NBMAXPERS = 2;
 		int nbAscenceurs = 5;
 		for (int i = 0; i < nbAscenceurs; i++) {
 			String nom = "Asc"+ new Integer(i).toString();

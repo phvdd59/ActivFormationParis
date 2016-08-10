@@ -1,6 +1,6 @@
 package com.formation.frva.metier;
 
-public enum Etat {
+public enum ETAT {
 	ATTENTE,
 	DEPART,
 	MOVE,
