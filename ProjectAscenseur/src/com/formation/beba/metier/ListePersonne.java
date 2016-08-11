@@ -2,7 +2,10 @@ package com.formation.beba.metier;
 
 import java.util.ArrayList;
 
-public class ListePersonne extends ArrayList<Personne>implements Runnable {
+import com.formation.phva.inter.InterListPersonne;
+import com.formation.phva.inter.InterPersonne;
+
+public class ListePersonne extends ArrayList<Personne>implements Runnable, InterListPersonne {
 	private boolean sortie;
 
 	public void ListePeronne() {
@@ -11,7 +14,6 @@ public class ListePersonne extends ArrayList<Personne>implements Runnable {
 
 	@Override
 	public void run() {
-		int ct = 0;
 		while (!sortie) {
 			long delais = (long) (Math.random() * 5000);
 			try {
@@ -20,7 +22,7 @@ public class ListePersonne extends ArrayList<Personne>implements Runnable {
 				e.printStackTrace();
 			}
 			this.add(new Personne());
-			if (Personne.CPT >= 1) {
+			if (Personne.CPT >= 770) {
 				sortie = true;
 			}
 		}
@@ -38,6 +40,12 @@ public class ListePersonne extends ArrayList<Personne>implements Runnable {
 	@Override
 	public String toString() {
 		return super.toString();
+	}
+
+	@Override
+	public void remove(InterPersonne p) {
+		super.remove(p);
+
 	}
 
 }

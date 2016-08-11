@@ -9,11 +9,11 @@ public class MainAscenseur {
 		ListePersonne lst = new ListePersonne();
 		Thread essai = new Thread(lst);
 		essai.start();
-		try {
+		/*try {
 			Thread.currentThread().sleep(30000);
 		} catch (InterruptedException e) {
-		}
-		lst.setSortie(true);
+		}*/
+		//lst.setSortie(true);
 		ListeAscenseur lstAsc = new ListeAscenseur(lst);
 
 	}

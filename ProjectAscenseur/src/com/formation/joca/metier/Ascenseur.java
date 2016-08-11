@@ -141,6 +141,7 @@ public class Ascenseur extends Thread implements InterAscenseur {
 				}
 				this.setPersonne(null);
 			}
+			affichage.repaint();
 		}
 	}
 

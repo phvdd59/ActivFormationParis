@@ -2,28 +2,31 @@ package com.formation.thcr.metier;
 
 import java.util.ArrayList;
 
-public class ListAscenseur extends ArrayList<Ascenseur> {
-	
-//	public ListAscenseur() {
-//		for (int i = 0; i < 6; i++) {
-//			this.add(new Ascenseur());
-//			this.get(this.size()-1).setName("ascenseur " + i);
-//			this.get(this.size()-1).start();
-//		}
-//	}
+import com.formation.phva.inter.InterAffichage;
+import com.formation.phva.inter.InterAscenseur;
+import com.formation.phva.inter.InterListPersonne;
+import com.formation.phva.inter.InterListeAscenseur;
+import com.formation.phva.met.Affichage;
 
+public class ListAscenseur extends ArrayList<InterAscenseur> implements InterListeAscenseur{
+	
+	private InterAffichage affichage;
+	private InterListPersonne listPersonne;
+	
 	public ListAscenseur(ListPersonne listPersonne) {
+		this.listPersonne = listPersonne;
+		InterAscenseur ascenseur = new Ascenseur(listPersonne, affichage);
+		affichage = new Affichage(this); 
 		for (int i = 0; i < 6; i++) {
-			this.add(new Ascenseur(listPersonne));
-			this.get(this.size()-1).setName("ascenseur " + i);
-			this.get(this.size()-1).start();
+			this.add(ascenseur);
+			ascenseur.start();
 		}
 	}
 	
 	@Override
 	public String toString() {
 		String s= "";
-		for (Ascenseur ascenseur : this) {
+		for (InterAscenseur ascenseur : this) {
 			s += ascenseur.toString();
 		}
 		return this.getClass().getSimpleName() + " " + s ;

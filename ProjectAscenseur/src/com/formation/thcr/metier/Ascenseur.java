@@ -1,32 +1,32 @@
 package com.formation.thcr.metier;
 
-public class Ascenseur extends Thread {
+import com.formation.phva.inter.InterAffichage;
+import com.formation.phva.inter.InterAscenseur;
+import com.formation.phva.inter.InterListPersonne;
+import com.formation.phva.inter.InterPersonne;
 
-	public static int		CPT				= 0;
-	public static int		TEMPS			= 20;	//Temps pour passer un pixel
-	public static int		HAUTEUR_ETAGE	= 30;	//hauteur d'un étage (en pixels)
+public class Ascenseur extends Thread implements InterAscenseur, InterAffichage {
 
-	private ListPersonne	listPersonne;
+	public static int			CPT				= 0;
+	public static int			TEMPS			= 20;	//Temps pour passer un pixel
+	public static int			HAUTEUR_ETAGE	= 30;	//hauteur d'un étage (en pixels)
 
-	private int				etage;
-	private int				progression;			//animation ascenseur
-	private boolean			fin;					//Fin du thread
-	private Personne		personne;
+	private InterListPersonne	listPersonne;
 
-	public Ascenseur() {
-		this.etage = 0;
-		this.fin = false;
-		this.personne = null;
-		this.progression = 0;
-		CPT++;
-	}
+	private int					etage;
+	private int					progression;			//animation ascenseur
+	private boolean				fin;					//Fin du thread
+	private InterPersonne		personne;
+	private InterAffichage		affichage;
 
-	public Ascenseur(ListPersonne listPersonne) {
+	public Ascenseur(ListPersonne listPersonne, InterAffichage affichage) {
+		super.setName(Integer.toString(CPT));
 		this.listPersonne = listPersonne;
 		this.etage = 0;
 		this.fin = false;
 		this.personne = null;
 		this.progression = 0;
+		this.affichage = affichage;
 		CPT++;
 	}
 
@@ -54,15 +54,15 @@ public class Ascenseur extends Thread {
 		this.fin = fin;
 	}
 
-	public Personne getPersonne() {
+	public InterPersonne getPersonne() {
 		return personne;
 	}
 
-	public void setPersonne(Personne personne) {
-		this.personne = personne;
+	public void setPersonne(InterPersonne interPersonne) {
+		this.personne = interPersonne;
 	}
 
-	public ListPersonne getListPersonne() {
+	public InterListPersonne getListPersonne() {
 		return listPersonne;
 	}
 
@@ -83,19 +83,20 @@ public class Ascenseur extends Thread {
 							this.setPersonne(rechercheDePersonneEnAttente());
 							if (this.personne == null) {
 							} else {
-								this.personne.setEtat(ETAT.DEPART.ordinal());
+								this.personne.setEtat(ETAT.DEPART);
 							}
 						}
 					}
 				} else {
-					if (personne.getEtat() == ETAT.DEPART.ordinal()) {
+					if (personne.getEtat() == ETAT.DEPART) {
 						deplaceAscenseur(this.getPersonne().getDepart());
-					} else if (personne.getEtat() == ETAT.MOVE.ordinal()) {
-						deplaceAscenseur(this.getPersonne().getArrive());
-					} else if (personne.getEtat() == ETAT.ARRIVE.ordinal()) {
+					} else if (personne.getEtat() == ETAT.MOVE) {
+						deplaceAscenseur(this.getPersonne().getArrivee());
+					} else if (personne.getEtat() == ETAT.ARRIVE) {
 						this.personne = null;
 					}
 				}
+				affichage.repaint();
 				// Methode Sequentielle
 				//				synchronized (listPersonne) { //recherche dans liste 
 				//					for (int i = 0; i < this.listPersonne.size(); i++) {
@@ -136,23 +137,19 @@ public class Ascenseur extends Thread {
 	private void deplaceAscenseur(int direction) {
 		if (this.getEtage() > direction) {
 			progression--;
-			//			System.out.println(this.progression);
 			if (progression % HAUTEUR_ETAGE == 0) {
 				this.etage--;
-				System.out.println(this);
 			}
 		} else if (this.getEtage() < direction) {
 			progression++;
-			//			System.out.println(this.progression);
 			if (progression % HAUTEUR_ETAGE == 0) {
 				this.etage++;
-				System.out.println(this);
 			}
 		} else {
-			if (this.personne.getEtat() == ETAT.DEPART.ordinal()) {
-				this.personne.setEtat(ETAT.MOVE.ordinal());
+			if (this.personne.getEtat() == ETAT.DEPART) {
+				this.personne.setEtat(ETAT.MOVE);
 			} else {
-				this.personne.setEtat(ETAT.ARRIVE.ordinal());
+				this.personne.setEtat(ETAT.ARRIVE);
 			}
 		}
 	}
@@ -176,8 +173,8 @@ public class Ascenseur extends Thread {
 	//		}
 	//	}
 
-	private Personne rechercheDePersonneEnAttente() {
-		Personne pers = new Personne();
+	private InterPersonne rechercheDePersonneEnAttente() {
+		InterPersonne pers = new Personne();
 		if (listPersonne.size() > 0) {
 			pers = listPersonne.remove(listPersonne.size() - 1);
 		}
@@ -193,6 +190,11 @@ public class Ascenseur extends Thread {
 	@Override
 	public String toString() {
 		return Thread.currentThread().getName() + ", etage=" + etage + ", personne=" + personne + " ";
+	}
+
+	@Override
+	public void repaint() {
+
 	}
 
 }
