@@ -1,18 +1,24 @@
 package com.formation.beba.metier;
 
-public class Ascenseur extends Thread {
+import com.formation.phva.inter.InterAffichage;
+import com.formation.phva.inter.InterAscenseur;
+import com.formation.phva.inter.InterListPersonne;
+import com.formation.phva.inter.InterPersonne;
+
+public class Ascenseur extends Thread implements InterAscenseur {
 	public static int CPT = 0;
 	public static int TEMPS = 10;
 	public static int HAUTEUR_Etage = 30;
-	public ListePersonne lst;
+	public InterListPersonne lst;
 	public static boolean lstPersFin;
+	private InterAffichage affichage;
 
 	private int etage;
 	private int progression = 0;
 	private boolean fin;
-	private Personne personne;
+	private InterPersonne personne;
 
-	public Ascenseur(String nom, ListePersonne lst) {
+	public Ascenseur(String nom, InterListPersonne lst, InterAffichage affichage) {
 		super(nom);
 		lstPersFin = false;
 		this.lst = lst;
@@ -70,11 +76,11 @@ public class Ascenseur extends Thread {
 		this.fin = fin;
 	}
 
-	public Personne getPersonne() {
+	public InterPersonne getPersonne() {
 		return personne;
 	}
 
-	public void setPersonne(Personne personne) {
+	public void setPersonne(InterPersonne personne) {
 		this.personne = personne;
 	}
 
@@ -98,7 +104,7 @@ public class Ascenseur extends Thread {
 					} else {
 						if (lst.size() > 0) {
 							this.setPersonne(lst.remove(lst.size() - 1));
-							personne.setEtat(ETAT.ETAT_DEPART.ordinal());
+							personne.setEtat(ETAT.ETAT_DEPART);
 							// System.out.println("l'ascenseur " +
 							// this.getName() + " va vers " +
 							// personne.getNom());
@@ -106,23 +112,23 @@ public class Ascenseur extends Thread {
 					}
 				}
 
-			} else if (personne.getEtat() == ETAT.ETAT_DEPART.ordinal()) {
+			} else if (personne.getEtat() == ETAT.ETAT_DEPART) {
 
 				this.leMove(personne.getDepart());
 
 				if (etage == personne.getDepart()) {
 					// System.out.println("l'ascenseur " + this.getName() + "
 					// embarque " + personne.getNom());
-					personne.setEtat(ETAT.ETAT_MOVE.ordinal());
+					personne.setEtat(ETAT.ETAT_MOVE);
 
 				}
 
-			} else if (personne.getEtat() == ETAT.ETAT_MOVE.ordinal()) {
+			} else if (personne.getEtat() == ETAT.ETAT_MOVE) {
 
-				this.leMove(personne.getArrive());
+				this.leMove(personne.getArrivee());
 
-				if (etage == personne.getArrive()) {
-					personne.setEtat(ETAT.ETAT_ARRIVE.ordinal());
+				if (etage == personne.getArrivee()) {
+					personne.setEtat(ETAT.ETAT_ARRIVE);
 
 					// System.err.println(personne.getNom() + " est arrivé à
 					// l'étage " + personne.getArrive() + " de l'etage " +
@@ -134,6 +140,7 @@ public class Ascenseur extends Thread {
 					fin = true;
 				}
 			}
+			affichage.repaint();
 		}
 	}
 

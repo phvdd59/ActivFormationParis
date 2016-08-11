@@ -1,13 +1,16 @@
 package com.formation.beba.metier;
 
-public class Personne {
+import com.formation.phva.inter.InterETAT;
+import com.formation.phva.inter.InterPersonne;
+
+public class Personne implements InterPersonne {
 	public static int CPT = 0;
-	public static int NB_ETAGE = 30;
+	public static int NB_ETAGE = 20;
 
 	private String nom;
-	private int etat;
+	private InterETAT etat;
 	private int depart;
-	private int arrive;
+	private int arrivee;
 	/*
 	 * faire un générateur de personnes aléatoires - étage de départ - étage
 	 * d'arrivé création personne à des temps aléatoires
@@ -17,11 +20,11 @@ public class Personne {
 	public Personne() {
 		setNom(NOM_PERSONNE.getRandomNom().toString());
 		// setNom(String.valueOf(CPT));
-		setEtat(ETAT.ETAT_ATTENTE.ordinal());
-		setArrive((int) (Math.random() * NB_ETAGE));
+		setEtat(ETAT.ETAT_ATTENTE);
+		setArrivee((int) (Math.random() * NB_ETAGE));
 		setDepart((int) (Math.random() * NB_ETAGE));
-		while (this.arrive == this.depart) {
-			this.setArrive((int) (Math.random() * NB_ETAGE));
+		while (this.arrivee == this.depart) {
+			this.setArrivee((int) (Math.random() * NB_ETAGE));
 		}
 		CPT++;
 	}
@@ -50,13 +53,13 @@ public class Personne {
 		this.nom = nom;
 	}
 
-	public int getEtat() {
-		return etat;
-	}
-
-	public void setEtat(int etat) {
-		this.etat = etat;
-	}
+	// public InterETAT getEtat() {
+	// return etat;
+	// }
+	//
+	// public void setEtat(interETAT etat) {
+	// this.etat = etat;
+	// }
 
 	public int getDepart() {
 		return depart;
@@ -66,16 +69,31 @@ public class Personne {
 		this.depart = depart;
 	}
 
-	public int getArrive() {
-		return arrive;
-	}
+	// public int getArrivee() {
+	// return arrivee;
+	// }
 
-	public void setArrive(int arrive) {
-		this.arrive = arrive;
+	public void setArrivee(int arrive) {
+		this.arrivee = arrive;
 	}
 
 	@Override
 	public String toString() {
-		return "Personne [nom= " + nom + ", etat= " + etat + ", depart= " + depart + ", arrive= " + arrive + "]";
+		return "Personne [nom= " + nom + ", etat= " + etat.toString() + ", depart= " + depart + ", arrive= " + arrivee + "]";
+	}
+
+	@Override
+	public int getArrivee() {
+		return arrivee;
+	}
+
+	@Override
+	public InterETAT getEtat() {
+		return etat;
+	}
+
+	@Override
+	public void setEtat(InterETAT etat) {
+		this.etat = etat;
 	}
 }
