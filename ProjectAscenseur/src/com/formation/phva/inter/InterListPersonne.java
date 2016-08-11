@@ -10,4 +10,6 @@ public interface InterListPersonne {
 
 	public InterPersonne get(int i);
 
+	public void remove(InterPersonne p);
+
 }
