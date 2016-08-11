@@ -50,9 +50,9 @@ public class Ascenseur extends Thread {
 						personne.setEtat(Etat.MOVE);
 					}
 				} else if (personne.getEtat() == Etat.MOVE) {
-					deplacement2 = personne.getDepart() - personne.getArrive();
+					deplacement2 = personne.getDepart() - personne.getArrivee();
 					deplacerAscenseur(deplacement2);
-					if (etage == personne.getArrive()) {
+					if (etage == personne.getArrivee()) {
 						personne.setEtat(Etat.ARRIVE);
 					}
 				} else if (personne.getEtat() == Etat.ARRIVE) {

@@ -11,14 +11,14 @@ public class Personne implements InterPersonne {
 	private String nom;
 	private InterETAT etat;
 	private int depart;
-	private int arrive;
+	private int arrivee;
 
 	public Personne() {
 		nom = Integer.toString(CPT);
 		CPT++;
 		etat = Etat.ATTENTE;
 		depart = (int) (Math.random() * 20);
-		arrive = (int) (Math.random() * 20);
+		arrivee = (int) (Math.random() * 20);
 
 	}
 
@@ -48,22 +48,19 @@ public class Personne implements InterPersonne {
 		this.depart = depart;
 	}
 
-	public int getArrive() {
-		return arrive;
-	}
-
-	public void setArrive(int arrive) {
-		this.arrive = arrive;
-	}
-
-	@Override
-	public String toString() {
-		return "Personne [nom=" + nom + ", etat=" + etat + ", depart=" + depart + ", arrive=" + arrive + "]";
+	public void setArrivee(int arrivee) {
+		this.arrivee = arrivee;
 	}
 
 	@Override
 	public int getArrivee() {
-		return arrive;
+		return arrivee;
 	}
+	
+	@Override
+	public String toString() {
+		return "Personne [nom=" + nom + ", etat=" + etat + ", depart=" + depart + ", arrive=" + arrivee + "]";
+	}
+
 
 }
