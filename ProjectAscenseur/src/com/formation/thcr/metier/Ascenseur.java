@@ -146,7 +146,7 @@ public class Ascenseur extends Thread implements InterAscenseur, InterAffichage 
 	//	}
 
 	private InterPersonne rechercheDePersonneEnAttente() {
-		InterPersonne pers = new Personne();
+		InterPersonne pers = null;
 		if (listPersonne.size() > 0) {
 			pers = listPersonne.remove(listPersonne.size() - 1);
 		}
