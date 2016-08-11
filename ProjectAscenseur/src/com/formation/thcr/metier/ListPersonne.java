@@ -2,7 +2,10 @@ package com.formation.thcr.metier;
 
 import java.util.ArrayList;
 
-public class ListPersonne extends ArrayList<Personne> implements Runnable {
+import com.formation.phva.inter.InterListPersonne;
+import com.formation.phva.inter.InterPersonne;
+
+public class ListPersonne extends ArrayList<Personne> implements Runnable, InterListPersonne {
 
 	private boolean sortie;
 
@@ -27,9 +30,10 @@ public class ListPersonne extends ArrayList<Personne> implements Runnable {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
+			Personne personne = new Personne();
 			synchronized (this) {
 				if (this.size() >= 0 && this.size() < 20) {
-					this.add(new Personne());
+					super.add(personne);
 				}
 				if (Personne.CPT > 40) {
 					this.setSortie(true);
@@ -42,10 +46,16 @@ public class ListPersonne extends ArrayList<Personne> implements Runnable {
 	@Override
 	public String toString() {
 		String s = "";
-		for (Personne personne : this) {
+		for (InterPersonne personne : this) {
 			s += personne.toString();
 		}
 		return s;
+	}
+
+	@Override
+	public void remove(InterPersonne p) {
+		super.remove(p);
+
 	}
 
 }
