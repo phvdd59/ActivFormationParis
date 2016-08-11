@@ -60,18 +60,18 @@ public class ExoFlux1 extends ArrayList<Terme> {
 		ArrayList<Terme> lst = new ArrayList<Terme>();
 		Terme terme = new Terme();
 		BufferedReader sMot = null;
-		int ligne = 15;
+		boolean ligne = false;
 		boolean sens = false;
-		boolean existSens = false;
-		boolean posX = false;
-		boolean posY = false;
+//		boolean existSens = false;
+//		boolean posX = false;
+//		boolean posY = false;
 		String mot = null;
 		int x = 0;
 		int y = 0;
 		sMot = new BufferedReader(new InputStreamReader(System.in));
 
 		try {
-			while (ligne != 1) {
+			while (!ligne) {
 				try {
 					System.out.println("Entrer un nom :");
 					mot = sMot.readLine();
@@ -79,55 +79,68 @@ public class ExoFlux1 extends ArrayList<Terme> {
 
 				}
 
-				while (posX = true) {
-					try {
-						x = Integer.valueOf(sMot.readLine());
-						System.out.println("Entrez une position x :");
-					} catch (Exception e) {
-						// e.printStackTrace();
-					}
-					if (x > 0) {
-						System.out.println("position de x :" + x);
-					} else {
-						System.out.println("position x incorrecte");
-					}
+				// while (!posX) {
+				try {
+					System.out.println("Entrez une position x :");
+					x = Integer.valueOf(sMot.readLine());
 
-					while (posY = true) {
-						try {
-							System.out.println("Entrez une position y :");
-							y = Integer.valueOf(sMot.readLine());
-						} catch (Exception e) {
+				} catch (Exception e) {
+					// e.printStackTrace();
+				}
+				if (x > 0) {
+					System.out.println("position de x :" + x);
+				} else {
+					System.out.println("position x incorrecte");
+				}
+				// }
 
-						}
-						if (y > 0) {
-							System.out.println("position de y :" + y);
-						} else {
-							System.out.println("position de y incorrecte");
-						}
-
-					}
-					Point point = new Point(x, y);
-					while (existSens == false) {
-						System.out.println("Entrez un sens (H ou V)?: ");
-						String iSens = sMot.readLine();
-						if (iSens.equals("HORIZONTAL")) {
-							sens = false;
-						} else if (iSens.equals("VERTICAL")) {
-							sens = true;
-						} else {
-							System.out.println("sens incorrecte");
-						}
-					}
-
-					terme = new Terme(mot, point, sens);
-					lst.add(terme);
-					System.out.println("Auriez-vous un autre terme à rajouter?");
-					ligne = Integer.valueOf(mot);
+				// while (!posY) {
+				try {
+					System.out.println("Entrez une position y :");
+					y = Integer.valueOf(sMot.readLine());
+				} catch (Exception e) {
 
 				}
+				if (y > 0) {
+					System.out.println("position de y :" + y);
+				} else {
+					System.out.println("position de y incorrecte");
+				}
+
+				// }
+				Point point = new Point(x, y);
+				// while (!existSens) {
+				System.out.println("Entrez un sens (HORIZONTAL ou VERTICAL)?: ");
+				String iSens = sMot.readLine();
+				if (iSens.equals("HORIZONTAL")) {
+					sens = false;
+				} else if (iSens.equals("VERTICAL")) {
+					sens = true;
+				} else {
+					System.out.println("sens incorrecte");
+				}
+				// }
+
+				terme = new Terme(mot, point, sens);
+				lst.add(terme);
+				System.out.println("Auriez-vous un autre terme à rajouter?");
+				String fin=sMot.readLine();
+				if(fin.equals("oui")){
+					System.out.println("Autre terme à rajouter");
+					ligne=false;
+				}else if(fin.equals("non")){
+					System.out.println("fin de la création de termes");
+					ligne=true;
+					break;
+				}
+
+				// ligne = Integer.valueOf(mot);
+
 			}
 
-		} catch (IOException e) {
+		} catch (
+
+		IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -191,7 +204,7 @@ public class ExoFlux1 extends ArrayList<Terme> {
 				if (listTerme[3] == "true") {
 					sSens = Terme.VERTICAL;
 				} else if (listTerme[3] == "false") {
-					sSens = Terme.VERTICAL;
+					sSens = Terme.HORIZONTAL;
 				}
 				String mot = listTerme[0];
 				int x = Integer.valueOf(listTerme[1]);
