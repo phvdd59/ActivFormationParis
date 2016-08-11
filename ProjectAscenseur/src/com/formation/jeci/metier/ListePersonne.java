@@ -2,7 +2,10 @@ package com.formation.jeci.metier;
 
 import java.util.ArrayList;
 
-public class ListePersonne extends ArrayList<Personne> implements Runnable {
+import com.formation.phva.inter.InterListPersonne;
+import com.formation.phva.inter.InterPersonne;
+
+public class ListePersonne extends ArrayList<Personne> implements Runnable, InterListPersonne {
 
 	private static final long serialVersionUID = 1L;
 
@@ -45,5 +48,10 @@ public class ListePersonne extends ArrayList<Personne> implements Runnable {
 	public String toString() {
 
 		return super.toString();
+	}
+
+	@Override
+	public void remove(InterPersonne p) {
+		super.remove(p);
 	}
 }

@@ -22,6 +22,7 @@ public class Personne implements InterPersonne {
 			arrive = (int) (Math.random() * 20);
 
 		}
+		CPT++;
 	}
 
 	public String getNom() {
@@ -40,9 +41,7 @@ public class Personne implements InterPersonne {
 		this.depart = depart;
 	}
 
-	public int getArrive() {
-		return arrive;
-	}
+
 
 	public void setArrive(int arrive) {
 		this.arrive = arrive;
