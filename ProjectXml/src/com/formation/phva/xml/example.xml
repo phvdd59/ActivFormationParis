@@ -55,6 +55,7 @@ public class Snippet {
 				<Alimentaire nom='A3' poids='4' prixUnitaire='4'/>
 				<Alimentaire nom='A4' poids='5' prixUnitaire='5'/>
 				<Consommable nom='C2' qte='6' prixUnitaire='6'/>
+				<![CDATA[<123sdféqdfzezrtr(-ty>-*/95> )]]>
 			</StockArrayList>
 		</Marchand>
 	</Commercant>
