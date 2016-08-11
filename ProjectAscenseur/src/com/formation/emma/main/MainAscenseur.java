@@ -76,14 +76,11 @@ public class MainAscenseur {
 		try {
 			Thread.sleep(5000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-//		System.out.println(lstP);
 	
 		ListeAscenseur listA = new ListeAscenseur(lstP);
 		//InterAscenseur ascenseur = new Ascenseur(lstP, null); // "extends thread" prend la classe pour faire le start
 	
-	//	System.out.println(ascenseur);
 	}
 }
