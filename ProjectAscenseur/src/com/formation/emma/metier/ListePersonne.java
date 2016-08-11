@@ -24,7 +24,7 @@ public class ListePersonne extends ArrayList<Personne> implements Runnable, Inte
 			}
 			Personne personne = new Personne();
 			add(personne);
-			if (personne.CPT >= 50) {
+			if (personne.CPT >= 200) {
 				setSortie(true);
 				
 			}

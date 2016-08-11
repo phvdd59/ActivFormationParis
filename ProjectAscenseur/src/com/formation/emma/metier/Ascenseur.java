@@ -57,12 +57,20 @@ public class Ascenseur extends Thread implements InterAscenseur {
 						deplacerAscenseur(deplacement1);
 						if (etage == personne.getDepart()) {
 							personne.setEtat(ETAT.MOVE);
+							try {
+								Thread.sleep(1500);
+							} catch (InterruptedException e) {
+							}
 						}
 					} else if (personne.getEtat() == ETAT.MOVE) {
 						deplacement2 = personne.getDepart() - personne.getArrivee();
 						deplacerAscenseur(deplacement2);
 						if (etage == personne.getArrivee()) {
 							personne.setEtat(ETAT.ARRIVE);
+							try {
+								Thread.sleep(1500);
+							} catch (InterruptedException e) {
+							}
 						}
 					} else if (personne.getEtat() == ETAT.ARRIVE) {
 						personne = null;
