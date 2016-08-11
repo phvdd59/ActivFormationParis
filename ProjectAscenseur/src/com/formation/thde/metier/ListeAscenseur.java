@@ -2,9 +2,12 @@ package com.formation.thde.metier;
 
 import java.util.ArrayList;
 
-public class ListeAscenseur extends ArrayList<Ascenseur> {
+import com.formation.phva.inter.InterListPersonne;
+import com.formation.phva.inter.InterListeAscenseur;
 
-	public ListePersonne listPersonne;
+public class ListeAscenseur extends ArrayList<Ascenseur> implements InterListeAscenseur {
+
+	public InterListPersonne listPersonne;
 
 	public ListeAscenseur(ListePersonne listPersonne) {
 
