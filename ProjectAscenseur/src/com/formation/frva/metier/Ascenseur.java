@@ -48,6 +48,7 @@ public class Ascenseur extends Thread implements InterAscenseur {
 					if (lPers.size() > 0) {
 						personne = lPers.remove(0);
 						personne.setEtat(ETAT.DEPART);
+						System.out.println(personne.getEtat());
 						System.out.println(nom +"    J'ai pris l'appel de " + personne.toString());
 					}
 				}

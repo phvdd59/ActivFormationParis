@@ -45,4 +45,9 @@ public class ListePersonne extends ArrayList<InterPersonne> implements Runnable,
 		}
 	}
 
+	@Override
+	public void remove(InterPersonne p) {
+		super.remove(p);
+	}
+
 }
