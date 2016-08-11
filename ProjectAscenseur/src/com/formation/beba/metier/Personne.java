@@ -20,7 +20,7 @@ public class Personne implements InterPersonne {
 	public Personne() {
 		// setNom(NOM_PERSONNE.getRandomNom().toString());
 		setNom(String.valueOf(CPT));
-		setEtat(ETAT.ETAT_ATTENTE);
+		setEtat(ETAT.ATTENTE);
 		setArrivee((int) (Math.random() * NB_ETAGE));
 		setDepart((int) (Math.random() * NB_ETAGE));
 		while (this.arrivee == this.depart) {
