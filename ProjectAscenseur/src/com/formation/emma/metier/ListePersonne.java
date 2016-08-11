@@ -1,9 +1,11 @@
 package com.formation.emma.metier;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
-public class ListePersonne extends ArrayList<Personne> implements Runnable {
+import com.formation.phva.inter.InterListPersonne;
+import com.formation.phva.inter.InterPersonne;
+
+public class ListePersonne extends ArrayList<Personne> implements Runnable, InterListPersonne {
 
 	private boolean sortie;
 
@@ -15,7 +17,7 @@ public class ListePersonne extends ArrayList<Personne> implements Runnable {
 
 		while (!sortie) {
 			try {
-				long tpsAttente = (long) (Math.random() * 5);
+				long tpsAttente = (long) (Math.random() * 1000);
 				Thread.sleep(tpsAttente);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
@@ -24,6 +26,7 @@ public class ListePersonne extends ArrayList<Personne> implements Runnable {
 			add(personne);
 			if (personne.CPT >= 200) {
 				setSortie(true);
+				
 			}
 		}
 	}
@@ -34,6 +37,12 @@ public class ListePersonne extends ArrayList<Personne> implements Runnable {
 
 	public void setSortie(boolean sortie) {
 		this.sortie = sortie;
+	}
+
+	@Override
+	public void remove(InterPersonne p) {
+		super.remove(p);
+		
 	}
 
 }

@@ -38,10 +38,6 @@ public class Ascenseur extends Thread implements InterAscenseur {
 
 				if (listPersonne.size() == 0 && listPersonne.isSortie() == true) {
 					this.fin = true;
-					try {
-						Thread.sleep(9);
-					} catch (InterruptedException e) {
-					}
 				}
 				synchronized (listPersonne) {
 					if (listPersonne.size() > 0) {
@@ -68,9 +64,9 @@ public class Ascenseur extends Thread implements InterAscenseur {
 						progression=0;
 					}
 				} else {
-					this.personne.setEtat(ETAT.MOV);
+					this.personne.setEtat(ETAT.MOVE);
 				}
-			} else if (this.personne.getEtat() == ETAT.MOV) {
+			} else if (this.personne.getEtat() == ETAT.MOVE) {
 
 				if (etage > personne.getArrivee()) {
 					progression--;

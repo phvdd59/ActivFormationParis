@@ -34,7 +34,7 @@ public class ListePersonne extends ArrayList<InterPersonne> implements Runnable,
 				if (size() >= 0 && size() < 10) {
 					add(personne);
 					System.out.println(personne);
-					if (Personne.CPT >= 20) {
+					if (Personne.CPT >= 500) {
 						sortie = true;
 						System.err.println("FIN DE CREATION DE PERSONNE");
 					}

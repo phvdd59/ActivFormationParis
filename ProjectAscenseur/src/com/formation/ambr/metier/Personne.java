@@ -1,20 +1,23 @@
 package com.formation.ambr.metier;
 
-public class Personne {
+import com.formation.phva.inter.InterETAT;
+import com.formation.phva.inter.InterPersonne;
+
+public class Personne implements InterPersonne {
 
 	public static int CPT = 0;
 	public static int NB_ETAGE = 20;
 
 	private String nom;
-	private int etat; // e.g. ETAT.ETAT_ATTENTE.ordinal() -> 0
+	private InterETAT etat; // e.g. ETAT.ETAT_ATTENTE.ordinal() -> 0
 	private int depart;
 	private int arrivee;
 
-	public Personne() { // correction de Philippe
+	public Personne() { // constructeur de Philippe
 
 		nom = Integer.toString(CPT);
 		CPT++;
-		etat = ETAT.ATTENTE.ordinal();
+		etat = ETAT.ATTENTE;
 		depart = (int) (Math.random() * 20);
 		arrivee = (int) (Math.random() * 20);
 		while (arrivee == depart) {
@@ -23,7 +26,7 @@ public class Personne {
 		}
 	}
 
-	public Personne(String nom, int etat, int depart, int arrivee) {
+	public Personne(String nom, InterETAT etat, int depart, int arrivee) {
 		this.nom = nom;
 		this.etat = etat;
 		this.depart = depart;
@@ -55,13 +58,13 @@ public class Personne {
 		this.nom = nom;
 	}
 
-	public int getEtat() {
-		return etat;
-	}
-
-	public void setEtat(int etat) {
-		this.etat = etat;
-	}
+//	public InterETAT getEtat() {
+//		return etat;
+//	}
+//
+//	public void setEtat(InterETAT etat) {
+//		this.etat = etat;
+//	}
 
 	public int getDepart() {
 		return depart;
@@ -82,6 +85,16 @@ public class Personne {
 	@Override
 	public String toString() {
 		return "Personne [nom=" + nom + ", etat=" + etat + ", depart=" + depart + ", arrivee=" + arrivee + "]";
+	}
+
+	@Override
+	public InterETAT getEtat() {
+		return etat;
+	}
+
+	@Override
+	public void setEtat(InterETAT etat) {
+		this.etat=etat;
 	}
 
 }

@@ -2,6 +2,8 @@ package com.formation.ambr.main;
 
 import com.formation.ambr.metier.ListeAscenseur;
 import com.formation.ambr.metier.ListePersonne;
+import com.formation.ambr.metier.Personne;
+import com.formation.phva.inter.InterPersonne;
 
 public class MainAscenseur {
 	/**
@@ -70,6 +72,9 @@ public class MainAscenseur {
 	}
 
 	private void init() {
+		
+		InterPersonne p = new Personne(); // on ne peut pas instancier une interface. I.e. on ne peut pas écrire InterPersonne p = new InterPersonne();
+		//p.set // notre instanciation de Personne (objet p) bénéficiera des méthodes de InterPersonne, mais pas de celles de Personne.
 		
 		ListePersonne listPers = new ListePersonne(); // ListPersonne implements un runnable, v.s. extends un thread. Donc obligé faire comme ci-dessous
 		Thread tLstPers = new Thread(listPers, "LISTE DE PERSONNES");

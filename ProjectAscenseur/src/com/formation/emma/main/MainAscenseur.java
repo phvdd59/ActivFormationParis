@@ -1,10 +1,11 @@
 package com.formation.emma.main;
 
 import com.formation.emma.metier.Ascenseur;
-import com.formation.emma.metier.Etat;
+import com.formation.emma.metier.ETAT;
 import com.formation.emma.metier.ListeAscenseur;
 import com.formation.emma.metier.ListePersonne;
 import com.formation.emma.metier.Personne;
+import com.formation.phva.inter.InterAscenseur;
 
 public class MainAscenseur {
 	/**
@@ -72,11 +73,14 @@ public class MainAscenseur {
 		ListePersonne lstP = new ListePersonne(); // "implements runnable" doit appeler thread pour le lancer
 		Thread thread = new Thread(lstP);
 		thread.start();
-//		System.out.println(lstP);
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	
 		ListeAscenseur listA = new ListeAscenseur(lstP);
-		Ascenseur ascenseur = new Ascenseur(lstP); // "extends thread" prend la classe pour faire le start
+		//InterAscenseur ascenseur = new Ascenseur(lstP, null); // "extends thread" prend la classe pour faire le start
 	
-		
 	}
 }

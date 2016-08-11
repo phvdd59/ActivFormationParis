@@ -1,6 +1,11 @@
 package com.formation.ambr.metier;
 
-public class Ascenseur extends Thread {
+import com.formation.phva.inter.InterAffichage;
+import com.formation.phva.inter.InterAscenseur;
+import com.formation.phva.inter.InterListPersonne;
+import com.formation.phva.inter.InterPersonne;
+
+public class Ascenseur extends Thread implements InterAscenseur {
 
 	public static int CPT = 0;
 	public static int TEMPS = 10; // temps que l'ascenseur va mettre pour se déplacer d'un pixel
@@ -9,17 +14,21 @@ public class Ascenseur extends Thread {
 	private int etage;
 	private int progression; // valeur maximale = nbre d'étages * 30
 	private boolean fin;
-	private Personne personne;
+	private InterPersonne personne;
 
-	private ListePersonne listPers; // on a ajouté ça car on a fait le constructeur Ascenceur (ListePersonne listPers)
+	private InterListPersonne listPers; // on a ajouté ça car on a fait le constructeur Ascenceur (ListePersonne listPers)
+	private InterAffichage affichage;
 
-	public Ascenseur(ListePersonne listPers) {
+	public Ascenseur(InterListPersonne listPers, InterAffichage affichage) {
 		etage = 0;
 		progression = 0;
 		fin = false;
 		personne = null;
 
 		this.listPers = listPers;
+		setName(Integer.toString(CPT));
+		CPT++;
+		this.affichage = affichage;
 
 	}
 
@@ -28,7 +37,9 @@ public class Ascenseur extends Thread {
 		// chaque ascenseur a une liste de personnes
 		// existe-il une eprsonne en attente?
 
-		while (!fin) { // dans le while on traite petite étape par petite étape
+		//progression = 0;
+
+		while (!fin) { // dans le while on traite étape par étape
 			try {
 				Thread.sleep(TEMPS);
 			} catch (InterruptedException e) {
@@ -39,56 +50,69 @@ public class Ascenseur extends Thread {
 						fin = true;
 					} else {
 						personne = rechercherPersonneEnAttente();
-						personne.setEtat(ETAT.DEPART.ordinal());
+						if (personne != null) {
+							personne.setEtat(ETAT.DEPART);
+						}
 					}
 				}
 			} else {
-				if (personne.getEtat() == ETAT.DEPART.ordinal()) {
+				if (personne.getEtat() == ETAT.DEPART) {
 					// déplacer l'ascenseur jusqu'à la personne
 					deplaceAscenseurVersDepart();
-				} else if (personne.getEtat() == ETAT.MOVE.ordinal()) {
+				} else if (personne.getEtat() == ETAT.MOVE) {
 					// déplacer l'ascenseur avec la personne dedans, jusqu'à l'étage de destination
 					deplaceAscenseurVersArrivee();
-				} else if (personne.getEtat() == ETAT.ARRIVEE.ordinal()) {
+				} else if (personne.getEtat() == ETAT.ARRIVEE) {
 					// retirer la personne de la liste
 					personne = null;
 				}
 			}
+			affichage.repaint();
 		}
+
 	}
 
 	private void deplaceAscenseurVersArrivee() { // déplacer l'ascenseur avec la personne dedans, jusqu'à l'étage de destination. Qd arrivé, l'état de la pers passe de MOV à ARRIVEE
 		if (etage > personne.getArrivee()) {
-			etage--;
+			progression--;
+			if (progression % HAUTEUR_ETAGE == 0) {
+				etage--;
+				progression = 0;
+			}
 		} else if (etage < personne.getArrivee()) {
-			etage++;
+			progression++;
+			if (progression % HAUTEUR_ETAGE == 0) {
+				etage++;
+				progression = 0;
+			}
 		} else {
-			personne.setEtat(ETAT.ARRIVEE.ordinal());
+			personne.setEtat(ETAT.ARRIVEE);
 		}
 	}
 
 	private void deplaceAscenseurVersDepart() { // déplacer l'ascenseur jusqu'à la personne. Qd arrivé, l'état de la pers passe de DEPART à MOVE
 		if (etage > personne.getDepart()) {
-			etage--;
-		} else if (etage < personne.getDepart()) {
-			progression = 0;
-			if (progression < HAUTEUR_ETAGE) {
-				progression++;
-				if (progression == HAUTEUR_ETAGE) {
-					etage++;
-				}
+			progression--;
+			if (progression % HAUTEUR_ETAGE == 0) {
+				etage--;
+				progression = 0;
 			}
-
+		} else if (etage < personne.getDepart()) {
+			progression++;
+			if (progression % HAUTEUR_ETAGE == 0) {
+				etage++;
+				progression = 0;
+			}
 		} else {
-			personne.setEtat(ETAT.MOVE.ordinal());
+			personne.setEtat(ETAT.MOVE);
 		}
 	}
 
-	private Personne rechercherPersonneEnAttente() {
-		Personne persDisponible = null;
+	private InterPersonne rechercherPersonneEnAttente() {
+		InterPersonne persDisponible = null;
 		if (listPers != null) {
 			for (int i = 0; i < listPers.size(); i++) {
-				if (listPers.get(i).getEtat() == ETAT.ATTENTE.ordinal()) {
+				if (listPers.get(i).getEtat() == ETAT.ATTENTE) {
 					persDisponible = listPers.remove(i); // ceci contient un get implicite
 					break;
 				}
@@ -145,11 +169,11 @@ public class Ascenseur extends Thread {
 		this.fin = fin;
 	}
 
-	public Personne getPersonne() {
+	public InterPersonne getPersonne() {
 		return personne;
 	}
 
-	public void setPersonne(Personne personne) {
+	public void setPersonne(InterPersonne personne) {
 		this.personne = personne;
 	}
 

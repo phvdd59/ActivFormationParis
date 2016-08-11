@@ -40,7 +40,6 @@ public class Personne implements InterPersonne {
 		return arrivee;
 	}
 
-	
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
