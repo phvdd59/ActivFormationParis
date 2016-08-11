@@ -71,15 +71,15 @@ public class Ascenseur extends Thread {
 							fin = true;
 						} else {
 							personne = rechercherPersonneEnAttente();
-							personne.setEtat(ETAT.ETAT_DEPART.ordinal());
+							personne.setEtat(ETAT.DEPART);
 						}
 
 					}
-				} else if (personne.getEtat() == ETAT.ETAT_DEPART.ordinal()) {
+				} else if (personne.getEtat() == ETAT.DEPART) {
 					deplacerAscenseurDepart();
-				} else if (personne.getEtat() == ETAT.ETAT_MOVE.ordinal()) {
+				} else if (personne.getEtat() == ETAT.MOVE) {
 					deplacerAscenseurArrive();
-				} else if (personne.getEtat() == ETAT.ETAT_ARRIVE.ordinal()) {
+				} else if (personne.getEtat() == ETAT.ARRIVE) {
 					personne = null;
 				}
 			}
@@ -89,7 +89,7 @@ public class Ascenseur extends Thread {
 	public Personne rechercherPersonneEnAttente() {
 		Personne persDisponible = null;
 		if (listePersonne != null) {
-			if (listePersonne.get(listePersonne.size()).getEtat() == ETAT.ETAT_ATTENTE.ordinal()) {
+			if (listePersonne.get(listePersonne.size()).getEtat() == ETAT.ATTENTE) {
 
 				persDisponible = listePersonne.remove(listePersonne.size() - 1);
 			}
@@ -116,7 +116,7 @@ public class Ascenseur extends Thread {
 			}
 
 		} else {
-			personne.setEtat(ETAT.ETAT_ARRIVE.ordinal());
+			personne.setEtat(ETAT.ARRIVE);
 
 		}
 
@@ -138,7 +138,7 @@ public class Ascenseur extends Thread {
 				progression++;
 			}
 		} else {
-			personne.setEtat(ETAT.ETAT_MOVE.ordinal());
+			personne.setEtat(ETAT.MOVE);
 		}
 
 	}
