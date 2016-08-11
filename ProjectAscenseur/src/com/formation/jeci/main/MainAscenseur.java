@@ -1,5 +1,7 @@
 package com.formation.jeci.main;
 
+import com.formation.jeci.metier.Ascenseur;
+import com.formation.jeci.metier.ListeAscenseur;
 import com.formation.jeci.metier.ListePersonne;
 
 public class MainAscenseur {
@@ -54,9 +56,11 @@ public class MainAscenseur {
 	}
 
 	private void init() {
-		ListePersonne a=new ListePersonne();
-		Thread t =new Thread(a);
+		ListePersonne lst = new ListePersonne();
+		Thread t = new Thread(lst);
 		t.start();
+		Ascenseur ascenseur = new Ascenseur(lst);
+		ListeAscenseur lsta=new ListeAscenseur(lst);
 		
 	}
 }

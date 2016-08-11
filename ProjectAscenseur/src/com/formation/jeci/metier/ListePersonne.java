@@ -32,13 +32,16 @@ public class ListePersonne extends ArrayList<Personne> implements Runnable {
 	@Override
 	public void run() {
 		try {
-			while (!sortie) {
-				long temps = (long) (Math.random() * 100000);
+			while (Personne.CPT<10) {
+				long temps = (long) (Math.random() * 2000);
 				Personne a = genererUnePersonneAle();
+			synchronized (this) {
 				this.add(a);
+			}
+				
 
 				Thread.sleep(temps);
-			}
+			}System.out.println(this);
 		} catch (Exception e) {
 
 			e.printStackTrace();

@@ -13,15 +13,16 @@ public class ListeAscenseur extends ArrayList<Ascenseur> {
 	// * |-------------------------------------------------|
 	// * | toString() |
 
-	public ListeAscenseur() {
-		int etage = 0;
-		int progression = 0;
-		boolean fin = false;
-		Personne personne = null;
-		Ascenseur a = new Ascenseur(etage, progression, fin, personne);
-		for (int i = 0; i < 6; i++) {
-			this.add(a);
+	public ListeAscenseur(ListePersonne lst) {
+
+		for (int i = 0; i < 2; i++) {
+			Ascenseur ascenseur = new Ascenseur(lst);
+			this.add(ascenseur);
+			System.out.println(this);
+			ascenseur.start();
+
 		}
+
 	}
 
 	@Override
