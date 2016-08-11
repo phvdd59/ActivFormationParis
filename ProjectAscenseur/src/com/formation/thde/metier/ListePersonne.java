@@ -6,7 +6,7 @@ import com.formation.phva.inter.InterETAT;
 import com.formation.phva.inter.InterListPersonne;
 import com.formation.phva.inter.InterPersonne;
 
-public class ListePersonne extends ArrayList<Personne> implements Runnable, InterListPersonne {
+public class ListePersonne extends ArrayList<InterPersonne> implements Runnable, InterListPersonne {
 	public boolean sortie;
 
 	public ListePersonne() {
@@ -16,7 +16,7 @@ public class ListePersonne extends ArrayList<Personne> implements Runnable, Inte
 		//		 * 		création personne à des temps aléatoires
 		//		 *  
 		//		 * @param args
-		this.sortie = sortie;
+		sortie=false;
 	}
 
 	//______________________________
@@ -62,5 +62,5 @@ public class ListePersonne extends ArrayList<Personne> implements Runnable, Inte
 	public void remove(InterPersonne p) {
 		super.remove(p);
 	}
-	
+
 }
