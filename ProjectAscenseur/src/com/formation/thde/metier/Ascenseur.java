@@ -1,8 +1,10 @@
 package com.formation.thde.metier;
 
-import java.util.ArrayList;
+import com.formation.phva.inter.InterAscenseur;
+import com.formation.phva.inter.InterListPersonne;
+import com.formation.phva.inter.InterPersonne;
 
-public class Ascenseur extends Thread {
+public class Ascenseur extends Thread implements InterAscenseur {
 
 	public static int CPT = 0;
 	public static int TEMPS = 10;
@@ -10,13 +12,13 @@ public class Ascenseur extends Thread {
 	private int etage;
 	private int progression = 0;
 	private boolean fin;
-	private Personne personne;
-	public ListePersonne listPersonne;
+	private InterPersonne personne;
+	public InterListPersonne listPersonne;
 
 	public Ascenseur() {
 	}
 
-	public Ascenseur(int etage, int progression, boolean fin, Personne personne, ListePersonne listPersonne) {
+	public Ascenseur(int etage, int progression, boolean fin, Personne personne, InterListPersonne listPersonne) {
 		this.etage = etage;
 		this.progression = progression;
 		this.fin = fin;
@@ -72,13 +74,13 @@ public class Ascenseur extends Thread {
 				}
 			} else if (this.personne.getEtat() == ETAT.MOV) {
 
-				if (etage > personne.getArrive()) {
+				if (etage > personne.getArrivee()) {
 					progression--;
 					if (progression % 30 != 0) {
 					} else {
 						this.etage--;
 					}
-				} else if (etage < personne.getArrive()) {
+				} else if (etage < personne.getArrivee()) {
 					progression++;
 					if (progression % 30 != 0) {
 					} else {
@@ -143,7 +145,7 @@ public class Ascenseur extends Thread {
 		this.fin = fin;
 	}
 
-	public Personne getPersonne() {
+	public InterPersonne getPersonne() {
 		return personne;
 	}
 
@@ -151,7 +153,7 @@ public class Ascenseur extends Thread {
 		this.personne = personne;
 	}
 
-	public ArrayList<Personne> getListPersonne() {
+	public InterListPersonne getListPersonne() {
 		return listPersonne;
 	}
 

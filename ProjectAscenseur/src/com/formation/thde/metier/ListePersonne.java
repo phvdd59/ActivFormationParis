@@ -3,8 +3,9 @@ package com.formation.thde.metier;
 import java.util.ArrayList;
 
 import com.formation.phva.inter.InterETAT;
+import com.formation.phva.inter.InterListPersonne;
 
-public class ListePersonne extends ArrayList<Personne> implements Runnable {
+public class ListePersonne extends ArrayList<Personne> implements Runnable, InterListPersonne {
 	public boolean sortie;
 
 	public ListePersonne() {
