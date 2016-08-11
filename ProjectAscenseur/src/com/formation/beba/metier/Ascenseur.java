@@ -7,7 +7,7 @@ import com.formation.phva.inter.InterPersonne;
 
 public class Ascenseur extends Thread implements InterAscenseur {
 	public static int CPT = 0;
-	public static int TEMPS = 10;
+	public static int TEMPS = 5;
 	public static int HAUTEUR_Etage = 30;
 	public InterListPersonne lst;
 	public static boolean lstPersFin;
@@ -105,7 +105,7 @@ public class Ascenseur extends Thread implements InterAscenseur {
 					} else {
 						if (lst.size() > 0) {
 							this.setPersonne(lst.remove(lst.size() - 1));
-							personne.setEtat(ETAT.ETAT_DEPART);
+							personne.setEtat(ETAT.DEPART);
 							// System.out.println("l'ascenseur " +
 							// this.getName() + " va vers " +
 							// personne.getNom());
@@ -113,23 +113,23 @@ public class Ascenseur extends Thread implements InterAscenseur {
 					}
 				}
 
-			} else if (personne.getEtat() == ETAT.ETAT_DEPART) {
+			} else if (personne.getEtat() == ETAT.DEPART) {
 
 				this.leMove(personne.getDepart());
 
 				if (etage == personne.getDepart()) {
 					// System.out.println("l'ascenseur " + this.getName() + "
 					// embarque " + personne.getNom());
-					personne.setEtat(ETAT.ETAT_MOVE);
+					personne.setEtat(ETAT.MOVE);
 
 				}
 
-			} else if (personne.getEtat() == ETAT.ETAT_MOVE) {
+			} else if (personne.getEtat() == ETAT.MOVE) {
 
 				this.leMove(personne.getArrivee());
 
 				if (etage == personne.getArrivee()) {
-					personne.setEtat(ETAT.ETAT_ARRIVE);
+					personne.setEtat(ETAT.ARRIVE);
 
 					// System.err.println(personne.getNom() + " est arrivé à
 					// l'étage " + personne.getArrive() + " de l'etage " +

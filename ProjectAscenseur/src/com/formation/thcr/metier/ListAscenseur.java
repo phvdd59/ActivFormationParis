@@ -15,9 +15,9 @@ public class ListAscenseur extends ArrayList<InterAscenseur> implements InterLis
 	
 	public ListAscenseur(ListPersonne listPersonne) {
 		this.listPersonne = listPersonne;
-		InterAscenseur ascenseur = new Ascenseur(listPersonne, affichage);
 		affichage = new Affichage(this); 
 		for (int i = 0; i < 6; i++) {
+			InterAscenseur ascenseur = new Ascenseur(listPersonne, affichage);
 			this.add(ascenseur);
 			ascenseur.start();
 		}

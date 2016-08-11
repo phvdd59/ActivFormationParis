@@ -33,7 +33,7 @@ public class ListPersonne extends ArrayList<Personne> implements Runnable, Inter
 			Personne personne = new Personne();
 			synchronized (this) {
 				if (this.size() >= 0 && this.size() < 20) {
-					super.add(personne);
+					this.add(personne);
 				}
 				if (Personne.CPT > 40) {
 					this.setSortie(true);
