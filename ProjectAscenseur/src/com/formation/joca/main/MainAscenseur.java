@@ -10,7 +10,7 @@ public class MainAscenseur {
 		Thread essai = new Thread(lst);
 		essai.start();
 		/*try {
-			Thread.currentThread().sleep(30000);
+			Thread.currentThread().sleep(15000);
 		} catch (InterruptedException e) {
 		}*/
 		//lst.setSortie(true);
