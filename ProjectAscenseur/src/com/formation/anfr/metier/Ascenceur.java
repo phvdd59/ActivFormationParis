@@ -5,7 +5,7 @@ import com.formation.phva.inter.InterAscenseur;
 import com.formation.phva.inter.InterListPersonne;
 import com.formation.phva.inter.InterPersonne;
 
-public class Ascenceur extends Thread implements InterAscenseur{
+public class Ascenceur extends Thread implements InterAscenseur {
 	public static int CPT = 0;
 	public static int TEMPS = 20;
 	public static int HAUTEUR_ETAGE = 30;
@@ -27,12 +27,12 @@ public class Ascenceur extends Thread implements InterAscenseur{
 		setFin(false);
 		CPT++;
 		this.affichage = affichage;
-//		try {
-//			Thread.sleep(500l + (long) Math.random() * 1000);
-//		} catch (InterruptedException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+		// try {
+		// Thread.sleep(500l + (long) Math.random() * 1000);
+		// } catch (InterruptedException e) {
+		// // TODO Auto-generated catch block
+		// e.printStackTrace();
+		// }
 	}
 
 	public int getEtage() {
@@ -88,7 +88,8 @@ public class Ascenceur extends Thread implements InterAscenseur{
 		if (etage < etageFin) {
 			progression++;
 			if (progression % HAUTEUR_ETAGE == 0) {
-				//System.out.println(Thread.currentThread().getName() + " : Je suis a l'étage " + etage);
+				// System.out.println(Thread.currentThread().getName() + " : Je
+				// suis a l'étage " + etage);
 				etage++;
 				progression = 0;
 			}
@@ -97,12 +98,16 @@ public class Ascenceur extends Thread implements InterAscenseur{
 		else if (etage > etageFin) {
 			progression--;
 			if (progression % HAUTEUR_ETAGE == 0) {
-				//System.out.println(Thread.currentThread().getName() + " : Je suis a l'étage " + etage);
+				// System.out.println(Thread.currentThread().getName() + " : Je
+				// suis a l'étage " + etage);
 				etage--;
 				progression = 0;
 			}
 		} else {
-			if (personne.getEtat() == ETAT.DEPART) {
+
+			if (personne == null) {
+
+			} else if (personne.getEtat() == ETAT.DEPART) {
 				personne.setEtat(ETAT.MOVE);
 				try {
 					Thread.sleep(1000);
@@ -110,9 +115,11 @@ public class Ascenceur extends Thread implements InterAscenseur{
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				//System.out.println(Thread.currentThread().getName() + " : Je charge  " + personne.toString());
+				// System.out.println(Thread.currentThread().getName() + " : Je
+				// charge " + personne.toString());
 			} else {
-				//System.out.println(Thread.currentThread().getName() + " : " + personne.toString() + " est arrivé!");
+				// System.out.println(Thread.currentThread().getName() + " : " +
+				// personne.toString() + " est arrivé!");
 				personne.setEtat(ETAT.ARRIVE);
 				try {
 					Thread.sleep(1000);
@@ -149,7 +156,12 @@ public class Ascenceur extends Thread implements InterAscenseur{
 			if (personne == null) {
 				synchronized (lst) {
 					if (lst.size() == 0 && lst.isSortie()) {
-						fin = true;
+						if (this.etage == 0) {
+							fin = true;
+						} else {
+							mouvement(0);
+						}
+
 					} else {
 						personne = recherchePersonneEnAttente();
 					}

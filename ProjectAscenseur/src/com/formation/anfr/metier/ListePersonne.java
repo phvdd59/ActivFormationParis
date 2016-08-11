@@ -27,7 +27,7 @@ public class ListePersonne extends ArrayList<Personne> implements Runnable, Inte
 				if (size() >= 0 && size() < 10) {
 					add(p);
 				}
-				if (Personne.CPT > 200)
+				if (Personne.CPT > 2000)
 					setSortie(true);
 			}
 		}
