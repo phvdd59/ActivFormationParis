@@ -2,20 +2,24 @@ package com.formation.etga.metier;
 
 import java.util.ArrayList;
 
+import com.formation.phva.inter.InterAffichage;
+import com.formation.phva.inter.InterAscenseur;
 import com.formation.phva.inter.InterListPersonne;
 import com.formation.phva.inter.InterListeAscenseur;
+import com.formation.phva.met.Affichage;
 
-public class ListeAscenseur extends ArrayList<Ascenseur> implements InterListeAscenseur {
+public class ListeAscenseur extends ArrayList<InterAscenseur> implements InterListeAscenseur {
 
 	private InterListPersonne lstPersonne;
+	private InterAffichage affichage;
 
 	public ListeAscenseur(ListePersonne lstPersonne) {
 
 		this.lstPersonne = lstPersonne;
-		int nbAscenseur = 6;
-		for (int i = 1; i <= nbAscenseur; i++) {
-			Ascenseur Ascenseur = new Ascenseur(lstPersonne);
-			Ascenseur.setName("Ascenseur" + i);
+		affichage = new Affichage(this);
+		int nbAscenseur = 5;
+		for (int i = 0; i <= nbAscenseur; i++) {
+			InterAscenseur Ascenseur = new Ascenseur(lstPersonne, affichage);
 			add(Ascenseur);
 			Ascenseur.start();
 		}

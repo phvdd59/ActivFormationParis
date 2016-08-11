@@ -5,7 +5,7 @@ import com.formation.phva.inter.InterPersonne;
 
 public class Personne implements InterPersonne {
 
-	public static int CPT = 1;
+	public static int CPT = 0;
 	public static int NB_ETAGE = 20;
 	private String nom;
 	private InterETAT etat;
