@@ -2,21 +2,25 @@ package com.formation.thde.metier;
 
 import java.util.ArrayList;
 
+import com.formation.phva.inter.InterAffichage;
+import com.formation.phva.inter.InterAscenseur;
 import com.formation.phva.inter.InterListPersonne;
 import com.formation.phva.inter.InterListeAscenseur;
+import com.formation.phva.met.Affichage;
 
-public class ListeAscenseur extends ArrayList<Ascenseur> implements InterListeAscenseur {
+public class ListeAscenseur extends ArrayList<InterAscenseur> implements InterListeAscenseur {
 
 	public InterListPersonne listPersonne;
+	private InterAffichage affichage;
 
 	public ListeAscenseur(ListePersonne listPersonne) {
 
 		this.listPersonne = listPersonne;
-		for (int i = 1; i <= 6; i++) {
-			//un ascenseur
+		affichage = new Affichage(this);
+		for (int i = 0; i < 6; i++) {
 
-			Ascenseur asc = new Ascenseur(0, 0, false, null, listPersonne);
-			asc.setName("Ascenseur " + i);
+			InterAscenseur asc = new Ascenseur(0, 0, false, null, listPersonne,affichage);
+			asc.setName(Integer.toString(i));
 			asc.start();
 			this.add(asc);
 

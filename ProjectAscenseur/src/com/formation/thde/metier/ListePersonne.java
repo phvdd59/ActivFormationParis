@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.formation.phva.inter.InterETAT;
 import com.formation.phva.inter.InterListPersonne;
+import com.formation.phva.inter.InterPersonne;
 
 public class ListePersonne extends ArrayList<Personne> implements Runnable, InterListPersonne {
 	public boolean sortie;
@@ -28,7 +29,7 @@ public class ListePersonne extends ArrayList<Personne> implements Runnable, Inte
 				Thread.sleep((long) (Math.random() * 2000));
 			} catch (InterruptedException e) {
 			}
-			String nom = "personne " + Personne.CPT;
+			String nom = Integer.toString(Personne.CPT);
 			InterETAT etat = ETAT.ATTENTE;
 			int depart = (int) (Math.random() * 20);
 			int arrive = (int) (Math.random() * 20);
@@ -36,10 +37,8 @@ public class ListePersonne extends ArrayList<Personne> implements Runnable, Inte
 				arrive = (int) (Math.random()) * 20;
 			}
 			this.add(new Personne(nom, etat, depart, arrive));
-			System.err.println(new Personne(nom, etat, depart, arrive));
 			if (Personne.CPT == 20) {
 				sortie = true;
-				System.err.println("FIN DE LA CREATION DE PERSONNE");
 			} else {
 				Personne.CPT++;
 			}
@@ -59,4 +58,9 @@ public class ListePersonne extends ArrayList<Personne> implements Runnable, Inte
 		return "ListePersonne [sortie=" + sortie + "]";
 	}
 
+	@Override
+	public void remove(InterPersonne p) {
+		super.remove(p);
+	}
+	
 }
