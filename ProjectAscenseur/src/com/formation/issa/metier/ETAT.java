@@ -1,9 +1,11 @@
 package com.formation.issa.metier;
 
-public enum ETAT {
-	ETAT_ATTENTE,
-	ETAT_DEPART,
-	ETAT_MOVE,
-	ETAT_ARRIVEE;
+import com.formation.phva.inter.InterETAT;
+
+public enum ETAT implements InterETAT{
+	ATTENTE,
+	DEPART,
+	MOVE,
+	ARRIVEE;
 
 }

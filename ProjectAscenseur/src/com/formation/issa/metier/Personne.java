@@ -1,23 +1,26 @@
 package com.formation.issa.metier;
 
-public class Personne {
+import com.formation.phva.inter.InterETAT;
+import com.formation.phva.inter.InterPersonne;
+
+public class Personne implements InterPersonne {
 	public static int CPT = 0;
 	public static int NB_ETAGE = 20;
 
 	private String nom;
-	private int etat;
+	private InterETAT etat;
 	private int depart;
 	private int arrivee;
 
 	public Personne() {
 
 		nom = String.valueOf(CPT);
-//		nom=Integer.toString(CPT);
+		// nom=Integer.toString(CPT);
 		while (depart == arrivee) {
 			this.depart = (int) (Math.random() * NB_ETAGE);
 			this.arrivee = (int) (Math.random() * NB_ETAGE);
 		}
-		etat = ETAT.ETAT_ATTENTE.ordinal();
+		etat = ETAT.ATTENTE;;
 		CPT++;
 
 	}
@@ -30,11 +33,11 @@ public class Personne {
 		this.nom = nom;
 	}
 
-	public int getEtat() {
+	public InterETAT getEtat() {
 		return etat;
 	}
 
-	public void setEtat (int etat) {
+	public void setEtat(InterETAT etat) {
 		this.etat = etat;
 	}
 
@@ -59,5 +62,6 @@ public class Personne {
 	public String toString() {
 		return "Personne [nom=" + nom + ", etat=" + etat + ", depart=" + depart + ", arrivee=" + arrivee + "]";
 	}
+
 
 }

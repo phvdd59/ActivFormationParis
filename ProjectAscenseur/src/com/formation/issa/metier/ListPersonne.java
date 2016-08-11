@@ -2,7 +2,10 @@ package com.formation.issa.metier;
 
 import java.util.ArrayList;
 
-public class ListPersonne extends ArrayList<Personne> implements Runnable {
+import com.formation.phva.inter.InterListPersonne;
+import com.formation.phva.inter.InterPersonne;
+
+public class ListPersonne extends ArrayList<InterPersonne> implements Runnable, InterListPersonne {
 	private boolean sortie;
 
 	public ListPersonne() {
@@ -40,14 +43,23 @@ public class ListPersonne extends ArrayList<Personne> implements Runnable {
 
 	}
 
-	boolean issortie() {
-
-		return sortie;
-	}
 
 	@Override
 	public String toString() {
 		return "ListPersonne [toString()=" + super.toString() + "]";
 	}
+
+	@Override
+	public boolean isSortie() {
+		// TODO Auto-generated method stub
+		return sortie;
+	}
+
+	@Override
+	public void remove(InterPersonne p) {
+		super.remove(p);
+		
+	}
+	
 
 }
