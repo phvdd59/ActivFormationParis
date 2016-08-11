@@ -1,31 +1,34 @@
 package com.formation.etga.metier;
 
-public class Personne {
+import com.formation.phva.inter.InterETAT;
+import com.formation.phva.inter.InterPersonne;
+
+public class Personne implements InterPersonne {
 
 	public static int CPT = 0;
 	public static int NB_ETAGE = 20;
-		
+
 	private String nom;
-	private int etat;
+	private InterETAT etat;
 	private int depart;
 	private int arrivee;
-	
-	public Personne() {	
-	}
 
-	public static int getCPT() {
-		return CPT;
-	}
-
-	public static int getNB_ETAGE() {
-		return NB_ETAGE;
+	public Personne() {
+		nom = Integer.toString(CPT);
+		CPT++;
+		etat = ETAT.ATTENTE;
+		depart = (int) (Math.random() * 20);
+		arrivee = (int) (Math.random() * 20);
+		while (arrivee == depart) {
+			arrivee = (int) (Math.random() * 20);
+		}
 	}
 
 	public String getNom() {
 		return nom;
 	}
 
-	public int getEtat() {
+	public InterETAT getEtat() {
 		return etat;
 	}
 
@@ -37,19 +40,12 @@ public class Personne {
 		return arrivee;
 	}
 
-	public static void setCPT(int cPT) {
-		CPT = cPT;
-	}
-
-	public static void setNB_ETAGE(int nB_ETAGE) {
-		NB_ETAGE = nB_ETAGE;
-	}
-
+	
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
 
-	public void setEtat(int etat) {
+	public void setEtat(InterETAT etat) {
 		this.etat = etat;
 	}
 
@@ -63,6 +59,6 @@ public class Personne {
 
 	@Override
 	public String toString() {
-		return ("la personne "+nom +" est " + etat + " et veux aller du " + depart + " au " + arrivee);
+		return "Personne [nom=" + nom + ", etat=" + etat + ", depart=" + depart + ", arrivee=" + arrivee + "]";
 	}
 }

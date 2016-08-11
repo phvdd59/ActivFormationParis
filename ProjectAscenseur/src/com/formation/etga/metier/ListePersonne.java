@@ -1,13 +1,16 @@
 package com.formation.etga.metier;
 
 import java.util.ArrayList;
-import java.util.Collection;
 
-public class ListePersonne extends ArrayList<Personne> implements Runnable {
+import com.formation.phva.inter.InterListPersonne;
+
+
+public class ListePersonne extends ArrayList<Personne> implements Runnable, InterListPersonne {
 
 	private boolean sortie;
-	
+
 	public ListePersonne() {
+		sortie = false;
 	}
 
 	public boolean isSortie() {
@@ -20,12 +23,21 @@ public class ListePersonne extends ArrayList<Personne> implements Runnable {
 
 	@Override
 	public void run() {
-		// TODO Auto-generated method stub
+		while (!sortie) {
+			long delais = (long) (Math.random() * 5000);
+			try {
+				Thread.sleep(delais);
+			} catch (InterruptedException e) {
+			}
+			Personne personne = new Personne();
+			synchronized (this) {
+				if (size() >= 0 && size() < 10) {
+					add(personne);
+					if (Personne.CPT >= 200) {
+						sortie = true;
+					}
+				}
+			}
+		}
 	}
-
-	@Override
-	public String toString() {
-		return super.toString();
-	}
-
 }
