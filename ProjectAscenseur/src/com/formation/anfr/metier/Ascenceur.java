@@ -7,7 +7,7 @@ import com.formation.phva.inter.InterPersonne;
 
 public class Ascenceur extends Thread implements InterAscenseur{
 	public static int CPT = 0;
-	public static int TEMPS = 10;
+	public static int TEMPS = 20;
 	public static int HAUTEUR_ETAGE = 30;
 	public InterListPersonne lst = null;
 	private int etage;
@@ -84,12 +84,7 @@ public class Ascenceur extends Thread implements InterAscenseur{
 	}
 
 	private void mouvement(int etageFin) {
-		try {
-			Thread.sleep(10);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+
 		if (etage < etageFin) {
 			progression++;
 			if (progression % HAUTEUR_ETAGE == 0) {
@@ -107,8 +102,8 @@ public class Ascenceur extends Thread implements InterAscenseur{
 				progression = 0;
 			}
 		} else {
-			if (personne.getEtat() == ETAT.ETAT_DEPART) {
-				personne.setEtat(ETAT.ETAT_MOVE);
+			if (personne.getEtat() == ETAT.DEPART) {
+				personne.setEtat(ETAT.MOVE);
 				try {
 					Thread.sleep(1000);
 				} catch (InterruptedException e) {
@@ -118,7 +113,7 @@ public class Ascenceur extends Thread implements InterAscenseur{
 				//System.out.println(Thread.currentThread().getName() + " : Je charge  " + personne.toString());
 			} else {
 				//System.out.println(Thread.currentThread().getName() + " : " + personne.toString() + " est arrivé!");
-				personne.setEtat(ETAT.ETAT_ARRIVE);
+				personne.setEtat(ETAT.ARRIVE);
 				try {
 					Thread.sleep(1000);
 				} catch (InterruptedException e) {
@@ -136,7 +131,7 @@ public class Ascenceur extends Thread implements InterAscenseur{
 		InterPersonne personneDispo = null;
 		if (lst.size() > 0) {
 			personneDispo = lst.remove(lst.size() - 1);
-			personneDispo.setEtat(ETAT.ETAT_DEPART);
+			personneDispo.setEtat(ETAT.DEPART);
 
 		}
 		return personneDispo;
@@ -145,6 +140,12 @@ public class Ascenceur extends Thread implements InterAscenseur{
 	@Override
 	public void run() {
 		while (!fin) {
+			try {
+				Thread.sleep(TEMPS);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			if (personne == null) {
 				synchronized (lst) {
 					if (lst.size() == 0 && lst.isSortie()) {
@@ -155,17 +156,17 @@ public class Ascenceur extends Thread implements InterAscenseur{
 
 				}
 			} else {
-				if (personne.getEtat() == ETAT.ETAT_DEPART) {
+				if (personne.getEtat() == ETAT.DEPART) {
 					// System.out.println(Thread.currentThread().getName() + " :
 					// Je me déplace de l'étage " + etage
 					// + " vers l'étage " + personne.getDepart());
 					mouvement(personne.getDepart());
-				} else if (personne.getEtat() == ETAT.ETAT_MOVE) {
+				} else if (personne.getEtat() == ETAT.MOVE) {
 					// System.out.println(Thread.currentThread().getName() + " :
 					// Je me déplace de l'étage " + etage
 					// + " vers l'étage " + personne.getArrive());
 					mouvement(personne.getArrivee());
-				} else if (personne.getEtat() == ETAT.ETAT_ARRIVE) {
+				} else if (personne.getEtat() == ETAT.ARRIVE) {
 					personne = null;
 				}
 			}

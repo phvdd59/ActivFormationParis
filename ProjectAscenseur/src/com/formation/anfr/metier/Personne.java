@@ -14,7 +14,7 @@ public class Personne implements InterPersonne{
 
 	public Personne() {
 		this.setNom(Integer.toString(CPT));
-		this.etat = ETAT.ETAT_ATTENTE;
+		this.etat = ETAT.ATTENTE;
 		this.setArrive((int) (Math.random()*NB_ETAGE)); 
 		this.setDepart((int) (Math.random()*NB_ETAGE));
 		while(this.getArrivee()==this.getDepart()){
