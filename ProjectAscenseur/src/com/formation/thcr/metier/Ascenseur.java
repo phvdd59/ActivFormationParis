@@ -75,6 +75,9 @@ public class Ascenseur extends Thread implements InterAscenseur, InterAffichage 
 		while (!this.fin) {
 			try {
 				Thread.sleep(TEMPS);
+			}catch (InterruptedException e){
+				e.printStackTrace();
+			}
 				if (personne == null) {
 					synchronized (listPersonne) {
 						if (listPersonne.size() == 0 && listPersonne.isSortie()) {
@@ -97,39 +100,6 @@ public class Ascenseur extends Thread implements InterAscenseur, InterAffichage 
 					}
 				}
 				affichage.repaint();
-				// Methode Sequentielle
-				//				synchronized (listPersonne) { //recherche dans liste 
-				//					for (int i = 0; i < this.listPersonne.size(); i++) {
-				//						if (listPersonne.get(i).getEtat() == ETAT.ETAT_ATTENTE.ordinal()) {
-				//							this.setPersonne(this.listPersonne.remove(i));
-				//							break;
-				//						}
-				//					}
-				//				}
-				//				System.out.println(Thread.currentThread().getName() + " " + this.getPersonne());
-				//				System.out.println(Thread.currentThread().getName() + " étage : " + this.getEtage());
-				//				this.getPersonne().setEtat(ETAT.ETAT_DEPART.ordinal());
-				//				while (this.getEtage() != this.getPersonne().getDepart()) {
-				//					Thread.sleep(200);
-				//					this.setEtage(this.getPersonne().getDepart());
-				//				}
-				//				System.out.println(Thread.currentThread().getName() + " étage : " + this.getEtage());
-				//				System.out.println(Thread.currentThread().getName() + " arrivé a départ : " + this.getEtage());
-				//				this.getPersonne().setEtat(ETAT.ETAT_MOVE.ordinal());
-				//				while (this.getEtage() != this.getPersonne().getArrive()) {
-				//					Thread.sleep(100);
-				//					this.setEtage(this.getPersonne().getArrive());
-				//				}
-				//				System.out.println(Thread.currentThread().getName() + " étage : " + this.getEtage());
-				//				this.getPersonne().setEtat(ETAT.ETAT_ARRIVE.ordinal());
-				//				this.setPersonne(null);
-				//				System.out.println(Thread.currentThread().getName() + " arrivé à arrivé : " + this.getEtage());
-				//				if (this.listPersonne.isEmpty()) {
-				//					this.setFin(true);
-				//				}
-			} catch (InterruptedException | NullPointerException e) {
-				e.printStackTrace();
-			}
 		}
 		System.out.println("FIN " + Thread.currentThread().getName());
 	}
@@ -139,11 +109,13 @@ public class Ascenseur extends Thread implements InterAscenseur, InterAffichage 
 			progression--;
 			if (progression % HAUTEUR_ETAGE == 0) {
 				this.etage--;
+				progression = 0;
 			}
 		} else if (this.getEtage() < direction) {
 			progression++;
 			if (progression % HAUTEUR_ETAGE == 0) {
 				this.etage++;
+				progression = 0;
 			}
 		} else {
 			if (this.personne.getEtat() == ETAT.DEPART) {
