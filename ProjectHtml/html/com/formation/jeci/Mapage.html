@@ -1,10 +1,72 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script>
+	function blink(ob) {
+		if (ob.style.visibility == "visible") {
+			ob.style.visibility = "hidden";
+		} else {
+			ob.style.visibility = "visible";
+		}
+	}
+	setInterval("blink(bl)", 100);
+</script>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body>
+<body background="C:\Users\Gwenael\Pictures\stock-photo-11485587-prison-bars.jpg">
 
+	<div id="bl" style="visibility: visible">
+		<p align="center">
+			<font color="red" size="90"> ERREUR ETGA</font>
+		</p>
+
+	</div>
+
+	<em>Salut</em>
+	<mark>
+		<blink>
+			yolo<br />
+		</blink>
+		<br />
+	</mark>
+	<strong>test</strong>
+
+
+	<table>
+		<tr>
+
+			<td>erreur1</td>
+			<td>erreur2</td>
+			<td>erreur3</td>
+		</tr>
+		<tr>
+			<td>erreur1</td>
+			<td>erreur2</td>
+			<td>erreur3</td>
+		</tr>
+		<tr>
+			<td>erreur1</td>
+			<td>erreur2</td>
+			<td>erreur3</td>
+		</tr>
+
+	</table>
+	<ol>
+		<li>ligne1</li>
+		<li>ligne2</li>
+		<li>ligne3</li>
+		<li>ligne4</li>
+
+
+	</ol>
+	<dl>
+		<dt>lng1</dt>
+		<dd>def1</dd>
+		<dd>lng2</dd>
+	</dl>
+	<th>lalala</th>
+	<img
+		src="C:\DevFormation\GITActivFormationParis\ProjectHtml\html\com\formation\jeci\mon dessin.png">
 </body>
 </html>
