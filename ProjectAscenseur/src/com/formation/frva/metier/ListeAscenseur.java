@@ -13,7 +13,7 @@ public class ListeAscenseur extends ArrayList<InterAscenseur>implements InterLis
 	public ListeAscenseur(InterListPersonne listePersonne) {
 
 		InterAffichage affichage = new Affichage(this);
-		int nbAscenceurs = 1;
+		int nbAscenceurs = 6;
 		for (int i = 0; i < nbAscenceurs; i++) {
 			InterAscenseur asc = new Ascenseur(listePersonne,affichage);
 			add(asc);

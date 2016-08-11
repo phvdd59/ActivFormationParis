@@ -1,6 +1,5 @@
 package com.formation.frva.main;
 
-
 import com.formation.frva.metier.ListeAscenseur;
 import com.formation.frva.metier.ListePersonne;
 
