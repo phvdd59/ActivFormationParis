@@ -2,8 +2,10 @@ package com.formation.thde.metier;
 
 import java.util.ArrayList;
 
+import com.formation.phva.inter.InterETAT;
+
 public class ListePersonne extends ArrayList<Personne> implements Runnable {
-	private boolean sortie;
+	public boolean sortie;
 
 	public ListePersonne() {
 		//		 * faire un générateur de personnes aléatoires
@@ -15,22 +17,30 @@ public class ListePersonne extends ArrayList<Personne> implements Runnable {
 		this.sortie = sortie;
 	}
 
+	//______________________________
+	//supprimer une personne ARRIVEE
+
 	@Override
 	public void run() {
-		for (int i = 1; i <= 20; i++) {
-			String nom = "personne " + i;
-			int etat = 0;
+		while (isSortie() == false) {
+			try {
+				Thread.sleep((long) (Math.random() * 2000));
+			} catch (InterruptedException e) {
+			}
+			String nom = "personne " + Personne.CPT;
+			InterETAT etat = ETAT.ATTENTE;
 			int depart = (int) (Math.random() * 20);
 			int arrive = (int) (Math.random() * 20);
 			while (arrive == depart) {
 				arrive = (int) (Math.random()) * 20;
 			}
-			//System.out.println(new Personne(nom, etat, depart, arrive));
 			this.add(new Personne(nom, etat, depart, arrive));
-			Personne.CPT++;
-			try {
-				Thread.sleep(500);
-			} catch (InterruptedException e) {
+			System.err.println(new Personne(nom, etat, depart, arrive));
+			if (Personne.CPT == 20) {
+				sortie = true;
+				System.err.println("FIN DE LA CREATION DE PERSONNE");
+			} else {
+				Personne.CPT++;
 			}
 		}
 	}

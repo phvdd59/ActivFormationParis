@@ -4,11 +4,18 @@ import java.util.ArrayList;
 
 public class ListeAscenseur extends ArrayList<Ascenseur> {
 
-	public ListeAscenseur() {
+	public ListePersonne listPersonne;
 
-		for (int i = 0; i < 6; i++) {
+	public ListeAscenseur(ListePersonne listPersonne) {
 
-			this.add(new Ascenseur(0, 0, false, null));
+		this.listPersonne = listPersonne;
+		for (int i = 1; i <= 6; i++) {
+			//un ascenseur
+
+			Ascenseur asc = new Ascenseur(0, 0, false, null, listPersonne);
+			asc.setName("Ascenseur " + i);
+			asc.start();
+			this.add(asc);
 
 		}
 

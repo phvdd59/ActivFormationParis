@@ -1,18 +1,21 @@
 package com.formation.thde.metier;
 
-public class Personne {
+import com.formation.phva.inter.InterETAT;
+import com.formation.phva.inter.InterPersonne;
 
-	public static int CPT = 0;
+public class Personne implements InterPersonne {
+
+	public static int CPT = 1;
 	public static int NB_ETAGE = 20;
 	private String nom;
-	private int etat;
+	private InterETAT etat;
 	private int depart;
 	private int arrive;
 
 	public Personne() {
 	}
 
-	public Personne(String nom, int etat, int depart, int arrive) {
+	public Personne(String nom, InterETAT etat, int depart, int arrive) {
 		this.nom = nom;
 		this.etat = etat;
 		this.depart = depart;
@@ -43,14 +46,6 @@ public class Personne {
 		this.nom = nom;
 	}
 
-	public int getEtat() {
-		return etat;
-	}
-
-	public void setEtat(int etat) {
-		this.etat = etat;
-	}
-
 	public int getDepart() {
 		return depart;
 	}
@@ -70,6 +65,21 @@ public class Personne {
 	@Override
 	public String toString() {
 		return "Personne [nom=" + nom + ", etat=" + etat + ", depart=" + depart + ", arrive=" + arrive + "]";
+	}
+
+	@Override
+	public int getArrivee() {
+		return this.arrive;
+	}
+
+	@Override
+	public InterETAT getEtat() {
+		return this.etat;
+	}
+
+	@Override
+	public void setEtat(InterETAT etat) {
+		this.etat = etat;
 	}
 
 }
