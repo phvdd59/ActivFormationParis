@@ -22,22 +22,15 @@ public class ListePersonne extends ArrayList<Personne> implements Runnable {
 	public void run() {
 		int nb = 0;
 		while (!sortie) {
-			int depart = (int) (Math.random() * 20);
-			int arrive = (int) (Math.random() * 20);
-			while (depart == arrive) {
-				arrive = (int) (Math.random() * 20);
-			}
 
-			Personne personne = new Personne(Integer.toString(Personne.CPT), ETAT.ETAT_ATTENTE.ordinal(), depart,
-					arrive);
-			System.out.println("j'ai créé la personne " + nb);
+			Personne personne = new Personne();
 
 			synchronized (this) {
 				this.add(personne);
 			}
 
 			try {
-				Thread.currentThread().sleep((int) (Math.random() * 5000));
+				Thread.currentThread().sleep((int) (Math.random() * 1000));
 			} catch (InterruptedException e) {
 			}
 

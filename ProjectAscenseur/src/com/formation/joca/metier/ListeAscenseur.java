@@ -16,10 +16,6 @@ public class ListeAscenseur extends ArrayList<Ascenseur> {
 		for (int i = 0; i < this.size(); i++) {
 			this.get(i).start();
 		}
-		/*
-		 * Ascenseur asc = new Ascenseur(lstPersonne); this.add(asc);
-		 * asc.start();
-		 */
 
 	}
 

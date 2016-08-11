@@ -68,9 +68,9 @@ public class Ascenseur extends Thread {
 		synchronized (listePersonne) {
 			if (listePersonne.size() != 0) {
 				while (!trouve && nb < listePersonne.size()) {
-					if (this.getListePersonne().get(nb).getEtat() == ETAT.ETAT_ATTENTE.ordinal()) {
+					if (this.getListePersonne().get(nb).getEtat() == ETAT.ATTENTE) {
 						personneTrouve = this.getListePersonne().get(nb);
-						personneTrouve.setEtat(ETAT.ETAT_DEPART.ordinal());
+						personneTrouve.setEtat(ETAT.DEPART);
 						trouve = true;
 					}
 					nb++;
@@ -112,23 +112,23 @@ public class Ascenseur extends Thread {
 				if (personne == null) {
 					this.fin = true;
 				}
-			} else if (this.getPersonne().getEtat() == ETAT.ETAT_DEPART.ordinal()) {
+			} else if (this.getPersonne().getEtat() == ETAT.DEPART) {
 				if (this.getEtage() != this.getPersonne().getDepart()) {
 					this.deplacer(this.getPersonne().getDepart());
 				} else {
 					synchronized (listePersonne) {
-						this.getPersonne().setEtat(ETAT.ETAT_MOVE.ordinal());
+						this.getPersonne().setEtat(ETAT.MOVE);
 					}
 				}
-			} else if (this.getPersonne().getEtat() == ETAT.ETAT_MOVE.ordinal()) {
-				if (this.getEtage() != this.getPersonne().getArrive()) {
-					this.deplacer(this.getPersonne().getArrive());
+			} else if (this.getPersonne().getEtat() == ETAT.MOVE) {
+				if (this.getEtage() != this.getPersonne().getArrivee()) {
+					this.deplacer(this.getPersonne().getArrivee());
 				} else {
 					synchronized (listePersonne) {
-						this.getPersonne().setEtat(ETAT.ETAT_ARRIVE.ordinal());
+						this.getPersonne().setEtat(ETAT.ARRIVE);
 					}
 				}
-			} else if (this.getPersonne().getEtat() == ETAT.ETAT_ARRIVE.ordinal()) {
+			} else if (this.getPersonne().getEtat() == ETAT.ARRIVE) {
 				synchronized (listePersonne) {
 					this.getListePersonne().remove(this.getPersonne());
 				}
