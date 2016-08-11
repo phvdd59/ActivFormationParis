@@ -10,7 +10,5 @@ public class MainAscenseur {
 		Thread threadLstP = new Thread(lstPersonne, "LISTE DE PERSONNE");
 		threadLstP.start();
 		ListeAscenseur lstAscenseur = new ListeAscenseur(lstPersonne);
-		System.out.println("fin du programme ascenseur");
-
 	}
 }

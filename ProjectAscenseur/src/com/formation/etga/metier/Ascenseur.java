@@ -1,5 +1,6 @@
 package com.formation.etga.metier;
 
+import com.formation.phva.inter.InterAffichage;
 import com.formation.phva.inter.InterAscenseur;
 import com.formation.phva.inter.InterListPersonne;
 import com.formation.phva.inter.InterPersonne;
@@ -14,13 +15,17 @@ public class Ascenseur extends Thread implements InterAscenseur {
 	private int etage;
 	private int progression;
 	private boolean fin;
+	private InterAffichage affichage;
 
-	public Ascenseur(InterListPersonne lstPersonne) {
+	public Ascenseur(InterListPersonne lstPersonne, InterAffichage affichage) {
+		super(Integer.toString(CPT));
+		CPT++;
 		this.lstPersonne = lstPersonne;
 		this.personne = null;
 		this.etage = 0;
 		this.progression = 0;
-		this.fin = true;
+		this.fin = false;
+		this.affichage = affichage;
 	}
 
 	@Override
@@ -34,9 +39,12 @@ public class Ascenseur extends Thread implements InterAscenseur {
 				synchronized (lstPersonne) {
 					if (lstPersonne.isSortie()) {
 						fin = true;
+						System.err.println("FIN DU THREAD");
 					} else {
 						personne = rechercherPersonneEnAttente();
+						if (personne!=null){
 						personne.setEtat(ETAT.DEPART);
+						}
 					}
 				}
 			} else {
@@ -45,27 +53,27 @@ public class Ascenseur extends Thread implements InterAscenseur {
 				} else if (personne.getEtat() == (ETAT.MOVE)) {
 					deplaceAscenseurVersArrive();
 				} else if (personne.getEtat() == (ETAT.ARRIVE)) {
+					System.out.println(personne +" est arrivee");
 					personne = null;
 				}
 			}
+			affichage.repaint();
 		}
 	}
 
 	private void deplaceAscenseurVersDepart() {
 		if (etage > personne.getDepart()) {
+			progression--;
 			if (progression % 30 == 0) {
 				etage--;
 				progression = 0;
-			} else {
-				progression++;
-			}
+			} 
 		} else if (etage < personne.getDepart()) {
+			progression++;
 			if (progression % 30 == 0) {
 				etage++;
 				progression = 0;
-			} else {
-				progression++;
-			}
+			} 
 		} else {
 			personne.setEtat(ETAT.MOVE);
 		}
@@ -73,19 +81,17 @@ public class Ascenseur extends Thread implements InterAscenseur {
 
 	private void deplaceAscenseurVersArrive() {
 		if (etage > personne.getArrivee()) {
+			progression--;
 			if (progression % 30 == 0) {
 				etage--;
 				progression = 0;
-			} else {
-				progression++;
-			}
+			} 
 		} else if (etage < personne.getArrivee()) {
+			progression++;
 			if (progression % 30 == 0) {
 				etage++;
 				progression = 0;
-			} else {
-				progression++;
-			}
+			} 
 		} else {
 			personne.setEtat(ETAT.ARRIVE);
 		}
@@ -97,6 +103,7 @@ public class Ascenseur extends Thread implements InterAscenseur {
 			for (int i = 0; i < lstPersonne.size(); i++) {
 				if (lstPersonne.get(i).getEtat() == ETAT.ATTENTE) {
 					personneDisponible = lstPersonne.remove(i);
+					System.out.println(this.getName() + " trouve " + personneDisponible);
 					break;
 				}
 			}
