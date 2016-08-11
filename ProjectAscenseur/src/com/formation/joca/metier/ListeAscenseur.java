@@ -2,19 +2,25 @@ package com.formation.joca.metier;
 
 import java.util.ArrayList;
 
+import com.formation.phva.inter.InterAffichage;
+import com.formation.phva.inter.InterAscenseur;
 import com.formation.phva.inter.InterListeAscenseur;
+import com.formation.phva.met.Affichage;
 
-public class ListeAscenseur extends ArrayList<Ascenseur> implements InterListeAscenseur {
+public class ListeAscenseur extends ArrayList<InterAscenseur> implements InterListeAscenseur {
 
 	private ListePersonne lstPersonne;
+	private InterAffichage affichage;
 
 	public ListeAscenseur(ListePersonne lstPersonne) {
+
+		this.lstPersonne = lstPersonne;
+		affichage = new Affichage(this);
+
 		for (int i = 0; i < 6; i++) {
-			Ascenseur asc = new Ascenseur(lstPersonne);
+			InterAscenseur asc = new Ascenseur(lstPersonne, affichage);
 			this.add(asc);
 		}
-		this.lstPersonne = lstPersonne;
-
 		for (int i = 0; i < this.size(); i++) {
 			this.get(i).start();
 		}
@@ -32,7 +38,7 @@ public class ListeAscenseur extends ArrayList<Ascenseur> implements InterListeAs
 	@Override
 	public String toString() {
 
-		for (Ascenseur asc : this) {
+		for (InterAscenseur asc : this) {
 			System.out.println(asc.toString());
 		}
 		return "";

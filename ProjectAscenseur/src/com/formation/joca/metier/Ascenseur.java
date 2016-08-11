@@ -1,5 +1,6 @@
 package com.formation.joca.metier;
 
+import com.formation.phva.inter.InterAffichage;
 import com.formation.phva.inter.InterAscenseur;
 import com.formation.phva.inter.InterListPersonne;
 import com.formation.phva.inter.InterPersonne;
@@ -15,14 +16,16 @@ public class Ascenseur extends Thread implements InterAscenseur {
 	private boolean fin;
 	private InterPersonne personne;
 	private InterListPersonne listePersonne;
+	private InterAffichage affichage;
 
-	public Ascenseur(InterListPersonne lstPers) {
+	public Ascenseur(InterListPersonne lstPers, InterAffichage affichage) {
 		this.etage = 0;
 		this.progression = 0;
 		this.fin = false;
 		this.personne = null;
 		this.listePersonne = lstPers;
 		this.CPT++;
+		this.affichage = affichage;
 	}
 
 	public InterListPersonne getListePersonne() {
@@ -136,7 +139,6 @@ public class Ascenseur extends Thread implements InterAscenseur {
 				synchronized (listePersonne) {
 					this.getListePersonne().remove(this.getPersonne());
 				}
-				System.out.println(this.getName() + " " + this.getPersonne().toString());
 				this.setPersonne(null);
 			}
 		}
