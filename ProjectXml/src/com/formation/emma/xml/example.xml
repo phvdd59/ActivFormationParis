@@ -3,7 +3,7 @@
 		<!ELEMENT Commercant     (Marchand*)>
 			<!ELEMENT Marchand  (StockArrayList+)>
 				<!ATTLIST Marchand nomMarchand CDATA #REQUIRED>
-				<!ELEMENT StockArrayList (Alimentaire*,Consommable*)>
+				<!ELEMENT StockArrayList (Alimentaire*,Consommable*)*>
 					<!ATTLIST StockArrayList nomStock CDATA #REQUIRED>
 					<!ELEMENT Alimentaire EMPTY>
 						<!ATTLIST Alimentaire nom CDATA #REQUIRED>
