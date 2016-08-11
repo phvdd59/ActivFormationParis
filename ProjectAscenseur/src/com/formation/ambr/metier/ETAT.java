@@ -1,6 +1,8 @@
 package com.formation.ambr.metier;
 
-public enum ETAT {
+import com.formation.phva.inter.InterETAT;
+
+public enum ETAT implements InterETAT {
 
 	ATTENTE, DEPART, MOVE, ARRIVEE;
 

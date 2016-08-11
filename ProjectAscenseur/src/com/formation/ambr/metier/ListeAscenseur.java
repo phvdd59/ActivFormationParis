@@ -2,26 +2,27 @@ package com.formation.ambr.metier;
 
 import java.util.ArrayList;
 
-public class ListeAscenseur extends ArrayList<Ascenseur> {
+import com.formation.phva.inter.InterAffichage;
+import com.formation.phva.inter.InterAscenseur;
+import com.formation.phva.inter.InterListPersonne;
+import com.formation.phva.inter.InterListeAscenseur;
+import com.formation.phva.met.Affichage;
+
+public class ListeAscenseur extends ArrayList<InterAscenseur> implements InterListeAscenseur {
+
+	private InterListPersonne listPers;
+	private InterAffichage affichage;
 
 	public ListeAscenseur() {
 	}
 
-	// new ascenseur. Quand je fais ça, je crée obligatoirement un thread
-	// faire un nouveau constructeur si besoin. Le nom de l'ascenceur sera super(nom)
-	// ascenseur.start
-	// et ensuite tout se fait dans le run
-
-	// ArrayList<Personne>.remove(personne)
-
-	private ListePersonne listPers;
-
-	public ListeAscenseur(ListePersonne listPers) {
+	public ListeAscenseur(InterListPersonne listPers) {
 		this.listPers = listPers;
+		affichage = new Affichage(this);
 
-		for (int i = 0; i < 1; i++) {
-			Ascenseur asc = new Ascenseur(listPers);
-			this.add(asc);
+		for (int i = 0; i < 6; i++) {
+			InterAscenseur asc = new Ascenseur(listPers, affichage);
+			add(asc);
 			asc.start();
 
 		}
