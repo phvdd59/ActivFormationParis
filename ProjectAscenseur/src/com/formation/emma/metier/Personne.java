@@ -16,7 +16,7 @@ public class Personne implements InterPersonne {
 	public Personne() {
 		nom = Integer.toString(CPT);
 		CPT++;
-		etat = Etat.ATTENTE;
+		etat = ETAT.ATTENTE;
 		depart = (int) (Math.random() * 20);
 		arrivee = (int) (Math.random() * 20);
 
@@ -37,7 +37,7 @@ public class Personne implements InterPersonne {
 
 	@Override
 	public void setEtat(InterETAT etat) {
-			
+			this.etat=etat;
 	}
 
 	public int getDepart() {
