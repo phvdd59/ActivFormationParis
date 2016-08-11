@@ -2,7 +2,9 @@ package com.formation.joca.metier;
 
 import java.util.ArrayList;
 
-public class ListeAscenseur extends ArrayList<Ascenseur> {
+import com.formation.phva.inter.InterListeAscenseur;
+
+public class ListeAscenseur extends ArrayList<Ascenseur> implements InterListeAscenseur {
 
 	private ListePersonne lstPersonne;
 

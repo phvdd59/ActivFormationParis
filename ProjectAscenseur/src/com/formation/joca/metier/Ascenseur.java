@@ -1,6 +1,8 @@
 package com.formation.joca.metier;
 
-public class Ascenseur extends Thread {
+import com.formation.phva.inter.InterAscenseur;
+
+public class Ascenseur extends Thread implements InterAscenseur {
 
 	public static int CPT = 0;
 	public static int TEMPS = 10;

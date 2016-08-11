@@ -2,7 +2,9 @@ package com.formation.joca.metier;
 
 import java.util.ArrayList;
 
-public class ListePersonne extends ArrayList<Personne> implements Runnable {
+import com.formation.phva.inter.InterListPersonne;
+
+public class ListePersonne extends ArrayList<Personne> implements Runnable, InterListPersonne {
 
 	private boolean sortie;
 
