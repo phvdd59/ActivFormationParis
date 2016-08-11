@@ -36,39 +36,32 @@ public class Ascenseur extends Thread implements InterAscenseur {
 
 	@Override
 	public void run() {
-		InterPersonne personne = null;
 		while (!fin) {
 			try {
 				Thread.sleep(TEMPS);
 				// recherche de personnes
 				if (personne == null) {
-
 					synchronized (listPersonne) {
 						if (listPersonne.size() == 0 && listPersonne.isSortie()) {
 							fin = true;
 						} else {
-							personne = rechercherPersonneEnAttente();
-							if (personne != null) {
-								personne.setEtat(ETAT.DEPART);
+							this.personne = rechercherPersonneEnAttente();
+							if (this.personne != null) {
+								this.personne.setEtat(ETAT.DEPART);
 							}
 						}
 
 					}
-
 				} else {
 					if (personne.getEtat() == ETAT.DEPART) {
-						deplaceAscenseurversDepart();
-
+						this.deplaceAscenseurversDepart();
 					} else if (personne.getEtat() == ETAT.MOVE) {
 						deplaceAscenseurversArrivee();
-
 					} else if (personne.getEtat() == ETAT.ARRIVEE) {
 						personne = null;
-
 					}
-
 				}
-			} catch (InterruptedException e) {
+			} catch (InterruptedException |NullPointerException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
@@ -79,34 +72,36 @@ public class Ascenseur extends Thread implements InterAscenseur {
 
 	private InterPersonne rechercherPersonneEnAttente() {
 		InterPersonne persDisponible = null;
-		if (listPersonne != null) {
-			int indice = 0;
-			while (indice < listPersonne.size() && listPersonne.get(indice).getEtat() != ETAT.ATTENTE) {
-				indice++;
-			}
-			if (indice != listPersonne.size()) {
-				persDisponible = listPersonne.remove(indice);
-			}
-
+		if (listPersonne.size() > 0) {
+			persDisponible = listPersonne.remove(listPersonne.size() - 1);
 		}
+//		if (listPersonne != null) {
+//			int indice = 0;
+//			while (indice < listPersonne.size() && listPersonne.get(indice).getEtat() != ETAT.ATTENTE) {
+//				indice++;
+//			}
+//			if (indice != listPersonne.size()) {
+//				persDisponible = listPersonne.remove(indice);
+//			}
+//
+//		}
 		return persDisponible;
-	}
+		}
 
 	private void deplaceAscenseurversDepart() {
-		if (this.etage > personne.getDepart()) {
+		if (this.etage > this.personne.getDepart()) {
+			progression--;
 			if (progression % 30 == 0) {
-				progression--;
-				for (int i = 30; i > 0; i--) {
-					etage--;
-				}
+				progression = 0;
+				etage--;
 
 			}
 		} else if (etage < personne.getDepart()) {
+			progression++;
 			if (progression % 30 == 0) {
-				progression++;
-				for (int i = 0; i < 30; i++) {
-					etage++;
-				}
+				progression = 0;
+				
+				etage++;
 
 			}
 
@@ -117,21 +112,21 @@ public class Ascenseur extends Thread implements InterAscenseur {
 
 	private void deplaceAscenseurversArrivee() {
 		if (etage > personne.getArrivee()) {
+			progression--;
 			if (progression % 30 == 0) {
-				progression--;
-				for (int i = 30; i > 0; i--) {
+				progression=0;
 					etage--;
-				}
+				
 
 			}
 
 		} else if (etage < personne.getArrivee()) {
+			progression++;
 			if (progression % 30 == 0) {
-				progression++;
-				for (int i = 0; i < 30; i++) {
+				progression=0;
+				
 					etage++;
-				}
-
+				
 			}
 
 		} else {

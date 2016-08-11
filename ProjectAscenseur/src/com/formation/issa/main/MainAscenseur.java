@@ -22,7 +22,7 @@ public class MainAscenseur {
 		//listPersonne est un runnable donc dans le main on crée un Thread et on effectue un start
 		listPersonneThread.start();
 		ListeAscenseur listAscenseur=new ListeAscenseur(listPersonne);
-		Ascenseur ascenseur=new Ascenseur();
+		//Ascenseur ascenseur=new Ascenseur();
 		
 		
 	}

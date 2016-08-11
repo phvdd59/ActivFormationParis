@@ -21,8 +21,10 @@ public class ListPersonne extends ArrayList<InterPersonne> implements Runnable, 
 			if (this.size() < 50) {
 
 				try {
-
-					this.add(new Personne());
+					synchronized (this) {
+						this.add(new Personne());
+						System.out.println(this);
+					}
 					long temps = (long) (Math.random() * 3000);
 					Thread.sleep(temps);
 					if (this.size() != 0 && this.size()!=1) {
