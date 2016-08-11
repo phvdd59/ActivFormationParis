@@ -12,4 +12,6 @@ public interface InterAscenseur extends Runnable {
 	public int getEtage();
 
 	public int getProgression();
+
+	public void setName(String name);
 }
