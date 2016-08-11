@@ -20,6 +20,7 @@ public class Ascenseur extends Thread implements InterAscenseur {
 
 	public Ascenseur(String nom, InterListPersonne lst, InterAffichage affichage) {
 		super(nom);
+		this.affichage = affichage;
 		lstPersFin = false;
 		this.lst = lst;
 		this.personne = null;
@@ -147,9 +148,10 @@ public class Ascenseur extends Thread implements InterAscenseur {
 	private void leMove(int etageFin) {
 		if (etage < etageFin) {
 			progression++;
-			if (progression % 30 == 0) {
+			if (progression == 30) {
 				// System.out.println(progression + " " + etage);
 				this.setEtage(++etage);
+				progression = 0;
 			}
 			try {
 				Thread.sleep(10);
@@ -158,9 +160,10 @@ public class Ascenseur extends Thread implements InterAscenseur {
 			}
 		} else {
 			progression--;
-			if (progression % 30 == 0) {
+			if (progression == -30) {
 				// System.out.println(progression + " " + etage);
 				this.setEtage(--etage);
+				progression = 0;
 			}
 			try {
 				Thread.sleep(10);
