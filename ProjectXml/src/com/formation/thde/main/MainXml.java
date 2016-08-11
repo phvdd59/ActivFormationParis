@@ -32,6 +32,11 @@ public class MainXml {
 		main.init();
 	}
 
+	
+	//retenir
+	//<! [CDATA[<123sddzd-*/]]>
+	
+	
 	public void init() {
 		ArrayList<Terme> lstTerme = null;
 
