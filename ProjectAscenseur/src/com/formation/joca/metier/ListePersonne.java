@@ -3,6 +3,7 @@ package com.formation.joca.metier;
 import java.util.ArrayList;
 
 import com.formation.phva.inter.InterListPersonne;
+import com.formation.phva.inter.InterPersonne;
 
 public class ListePersonne extends ArrayList<Personne> implements Runnable, InterListPersonne {
 
@@ -47,6 +48,11 @@ public class ListePersonne extends ArrayList<Personne> implements Runnable, Inte
 			System.out.println(per.toString());
 		}
 		return "";
+	}
+
+	@Override
+	public void remove(InterPersonne p) {
+		super.remove(p);
 	}
 
 }
