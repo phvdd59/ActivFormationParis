@@ -1,6 +1,10 @@
 package com.formation.joca.metier;
 
-public class Ascenseur extends Thread {
+import com.formation.phva.inter.InterAscenseur;
+import com.formation.phva.inter.InterListPersonne;
+import com.formation.phva.inter.InterPersonne;
+
+public class Ascenseur extends Thread implements InterAscenseur {
 
 	public static int CPT = 0;
 	public static int TEMPS = 10;
@@ -9,10 +13,10 @@ public class Ascenseur extends Thread {
 	private int etage;
 	private int progression;
 	private boolean fin;
-	private Personne personne;
-	private ListePersonne listePersonne;
+	private InterPersonne personne;
+	private InterListPersonne listePersonne;
 
-	public Ascenseur(ListePersonne lstPers) {
+	public Ascenseur(InterListPersonne lstPers) {
 		this.etage = 0;
 		this.progression = 0;
 		this.fin = false;
@@ -21,11 +25,11 @@ public class Ascenseur extends Thread {
 		this.CPT++;
 	}
 
-	public ListePersonne getListePersonne() {
+	public InterListPersonne getListePersonne() {
 		return listePersonne;
 	}
 
-	public void setListePersonne(ListePersonne listePersonne) {
+	public void setListePersonne(InterListPersonne listePersonne) {
 		this.listePersonne = listePersonne;
 	}
 
@@ -53,24 +57,24 @@ public class Ascenseur extends Thread {
 		this.fin = fin;
 	}
 
-	public Personne getPersonne() {
+	public InterPersonne getPersonne() {
 		return personne;
 	}
 
-	public void setPersonne(Personne personne) {
+	public void setPersonne(InterPersonne personne) {
 		this.personne = personne;
 	}
 
 	public void trouverPersonne() {
-		Personne personneTrouve = null;
+		InterPersonne personneTrouve = null;
 		boolean trouve = false;
 		int nb = 0;
 		synchronized (listePersonne) {
 			if (listePersonne.size() != 0) {
 				while (!trouve && nb < listePersonne.size()) {
-					if (this.getListePersonne().get(nb).getEtat() == ETAT.ETAT_ATTENTE.ordinal()) {
+					if (this.getListePersonne().get(nb).getEtat() == ETAT.ATTENTE) {
 						personneTrouve = this.getListePersonne().get(nb);
-						personneTrouve.setEtat(ETAT.ETAT_DEPART.ordinal());
+						personneTrouve.setEtat(ETAT.DEPART);
 						trouve = true;
 					}
 					nb++;
@@ -112,23 +116,23 @@ public class Ascenseur extends Thread {
 				if (personne == null) {
 					this.fin = true;
 				}
-			} else if (this.getPersonne().getEtat() == ETAT.ETAT_DEPART.ordinal()) {
+			} else if (this.getPersonne().getEtat() == ETAT.DEPART) {
 				if (this.getEtage() != this.getPersonne().getDepart()) {
 					this.deplacer(this.getPersonne().getDepart());
 				} else {
 					synchronized (listePersonne) {
-						this.getPersonne().setEtat(ETAT.ETAT_MOVE.ordinal());
+						this.getPersonne().setEtat(ETAT.MOVE);
 					}
 				}
-			} else if (this.getPersonne().getEtat() == ETAT.ETAT_MOVE.ordinal()) {
-				if (this.getEtage() != this.getPersonne().getArrive()) {
-					this.deplacer(this.getPersonne().getArrive());
+			} else if (this.getPersonne().getEtat() == ETAT.MOVE) {
+				if (this.getEtage() != this.getPersonne().getArrivee()) {
+					this.deplacer(this.getPersonne().getArrivee());
 				} else {
 					synchronized (listePersonne) {
-						this.getPersonne().setEtat(ETAT.ETAT_ARRIVE.ordinal());
+						this.getPersonne().setEtat(ETAT.ARRIVE);
 					}
 				}
-			} else if (this.getPersonne().getEtat() == ETAT.ETAT_ARRIVE.ordinal()) {
+			} else if (this.getPersonne().getEtat() == ETAT.ARRIVE) {
 				synchronized (listePersonne) {
 					this.getListePersonne().remove(this.getPersonne());
 				}

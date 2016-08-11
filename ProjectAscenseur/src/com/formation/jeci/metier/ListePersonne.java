@@ -9,36 +9,23 @@ public class ListePersonne extends ArrayList<Personne> implements Runnable {
 	private boolean sortie;
 
 	public ListePersonne() {
-		
+
 		this.sortie = false;
-	}
-
-	public Personne genererUnePersonneAle() {
-		String nom = Integer.toString(Personne.CPT);
-		int etat = 0;
-		int depart = (int) (Math.random() * 20);
-		int arrive = (int) (Math.random() * 20);
-		while (depart == arrive) {
-			arrive = (int) (Math.random() * 20);
-
-		}
-		Personne.CPT++;
-
-		Personne per = new Personne(nom, etat, depart, arrive);
-		return per;
-
 	}
 
 	@Override
 	public void run() {
 		try {
-			while (!sortie) {
-				long temps = (long) (Math.random() * 100000);
-				Personne a = genererUnePersonneAle();
-				this.add(a);
+			while (Personne.CPT < 10) {
+				long temps = (long) (Math.random() * 2000);
+				Personne a = new Personne();
+				synchronized (this) {
+					this.add(a);
+				}
 
 				Thread.sleep(temps);
 			}
+			System.out.println(this);
 		} catch (Exception e) {
 
 			e.printStackTrace();

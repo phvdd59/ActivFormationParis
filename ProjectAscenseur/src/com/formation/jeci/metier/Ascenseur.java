@@ -1,7 +1,8 @@
 package com.formation.jeci.metier;
 
-public class Ascenseur extends Thread {
+import com.formation.jeci.enume.ETAT;
 
+public class Ascenseur extends Thread {
 
 	public static int CPT = 0;
 	public static int TEMPS = 10;
@@ -9,14 +10,15 @@ public class Ascenseur extends Thread {
 	private int etage;
 	private int progression;
 	private boolean fin;
-	Personne personne = null;
+	private Personne personne;
+	private ListePersonne listePersonne;
 
-	public Ascenseur(int etage, int progression, boolean fin, Personne personne) {
-		super();
-		this.etage = etage;
-		this.progression = progression;
-		this.fin = fin;
-		this.personne = personne;
+	public Ascenseur(ListePersonne lst) {
+		this.listePersonne = lst;
+		this.etage = 0;
+		this.progression = 0;
+
+		this.personne = null;
 	}
 
 	public int getEtage() {
@@ -52,9 +54,98 @@ public class Ascenseur extends Thread {
 	}
 
 	@Override
+	public void run() {
+
+		while (!fin) {
+
+			try {
+				Thread.sleep(TEMPS);
+			} catch (InterruptedException e) {
+
+			}
+			if (this.getPersonne() == null) {
+				if (listePersonne.size() > 6) {
+
+					synchronized (listePersonne) {
+						if (listePersonne.size() == 0 && listePersonne.isSortie()) {
+							fin = true;
+						} else {
+							personne = rechercherPersonneEnAttente();
+							personne.setEtat(ETAT.DEPART);
+						}
+
+					}
+				} else if (personne.getEtat() == ETAT.DEPART) {
+					deplacerAscenseurDepart();
+				} else if (personne.getEtat() == ETAT.MOVE) {
+					deplacerAscenseurArrive();
+				} else if (personne.getEtat() == ETAT.ARRIVE) {
+					personne = null;
+				}
+			}
+		}
+	}
+
+	public Personne rechercherPersonneEnAttente() {
+		Personne persDisponible = null;
+		if (listePersonne != null) {
+			if (listePersonne.get(listePersonne.size()).getEtat() == ETAT.ATTENTE) {
+
+				persDisponible = listePersonne.remove(listePersonne.size() - 1);
+			}
+		}
+		return persDisponible;
+
+	}
+
+	public void deplacerAscenseurArrive() {
+		if (etage > personne.getArrive()) {
+			if (progression % 30 == 0 && progression != 0) {
+				etage--;
+
+			} else {
+				progression++;
+			}
+
+		} else if (etage < personne.getArrive()) {
+			if (progression % 30 == 0 && progression != 0) {
+				etage++;
+
+			} else {
+				progression++;
+			}
+
+		} else {
+			personne.setEtat(ETAT.ARRIVE);
+
+		}
+
+	}
+
+	public void deplacerAscenseurDepart() {
+		if (etage > personne.getDepart()) {
+			if (progression % 30 == 0 && progression != 0) {
+				etage--;
+
+			} else {
+				progression++;
+			}
+		} else if (etage < personne.getDepart()) {
+			if (progression % 30 == 0 && progression != 0) {
+				etage++;
+
+			} else {
+				progression++;
+			}
+		} else {
+			personne.setEtat(ETAT.MOVE);
+		}
+
+	}
+
+	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return super.toString();
+		return "Ascenseur " + this.getName() + "[etage=" + etage + ", personne=" + personne + "]";
 	}
 
 }

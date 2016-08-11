@@ -1,8 +1,10 @@
 package com.formation.thde.metier;
 
-public enum ETAT {
-	ETAT_ATTENTE, //
-	ETAT_DEPART, //
-	ETAT_MOV, //
-	ETAT_ARRIVE;//
+import com.formation.phva.inter.InterETAT;
+
+public enum ETAT implements InterETAT {
+	ATTENTE, //
+	DEPART, //
+	MOV, //
+	ARRIVE;//
 }

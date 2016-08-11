@@ -1,20 +1,26 @@
 package com.formation.joca.metier;
 
-public class Personne {
+import com.formation.phva.inter.InterETAT;
+import com.formation.phva.inter.InterPersonne;
+
+public class Personne implements InterPersonne {
 	public static int CPT = 0;
 	public static int NB_ETAGE = 20;
 
 	private String nom;
-	private int etat;
+	private InterETAT etat;
 	private int depart;
-	private int arrive;
+	private int arrivee;
 
-	public Personne(String nom, int etat, int depart, int arrive) {
-		super();
-		this.nom = nom;
-		this.etat = etat;
-		this.depart = depart;
-		this.arrive = arrive;
+	public Personne() {
+
+		this.nom = Integer.toString(CPT);
+		this.etat = ETAT.ATTENTE;
+		this.depart = (int) (Math.random() * 20);
+		this.arrivee = (int) (Math.random() * 20);
+		while (depart == arrivee) {
+			this.arrivee = (int) (Math.random() * 20);
+		}
 		this.CPT++;
 	}
 
@@ -26,14 +32,6 @@ public class Personne {
 		this.nom = nom;
 	}
 
-	public int getEtat() {
-		return etat;
-	}
-
-	public void setEtat(int etat) {
-		this.etat = etat;
-	}
-
 	public int getDepart() {
 		return depart;
 	}
@@ -42,18 +40,30 @@ public class Personne {
 		this.depart = depart;
 	}
 
-	public int getArrive() {
-		return arrive;
+	public int getArrivee() {
+		return arrivee;
 	}
 
-	public void setArrive(int arrive) {
-		this.arrive = arrive;
+	public void setArrivee(int arrive) {
+		this.arrivee = arrive;
 	}
 
 	@Override
 	public String toString() {
-		return "Personne [nom=" + nom + ", etat=" + etat + ", depart=" + depart + ", arrive=" + arrive + ", CPT =" + CPT
-				+ "]";
+		return "Personne [nom=" + nom + ", etat=" + etat + ", depart=" + depart + ", arrive=" + arrivee + ", CPT ="
+				+ CPT + "]";
+	}
+
+	@Override
+	public InterETAT getEtat() {
+
+		return etat;
+	}
+
+	@Override
+	public void setEtat(InterETAT etat) {
+		this.etat = etat;
+
 	}
 
 }

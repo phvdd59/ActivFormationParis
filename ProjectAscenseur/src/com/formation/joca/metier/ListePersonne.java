@@ -2,7 +2,10 @@ package com.formation.joca.metier;
 
 import java.util.ArrayList;
 
-public class ListePersonne extends ArrayList<Personne> implements Runnable {
+import com.formation.phva.inter.InterListPersonne;
+import com.formation.phva.inter.InterPersonne;
+
+public class ListePersonne extends ArrayList<Personne> implements Runnable, InterListPersonne {
 
 	private boolean sortie;
 
@@ -22,22 +25,15 @@ public class ListePersonne extends ArrayList<Personne> implements Runnable {
 	public void run() {
 		int nb = 0;
 		while (!sortie) {
-			int depart = (int) (Math.random() * 20);
-			int arrive = (int) (Math.random() * 20);
-			while (depart == arrive) {
-				arrive = (int) (Math.random() * 20);
-			}
 
-			Personne personne = new Personne(Integer.toString(Personne.CPT), ETAT.ETAT_ATTENTE.ordinal(), depart,
-					arrive);
-			System.out.println("j'ai créé la personne " + nb);
+			Personne personne = new Personne();
 
 			synchronized (this) {
 				this.add(personne);
 			}
 
 			try {
-				Thread.currentThread().sleep((int) (Math.random() * 5000));
+				Thread.currentThread().sleep((int) (Math.random() * 1000));
 			} catch (InterruptedException e) {
 			}
 
@@ -52,6 +48,11 @@ public class ListePersonne extends ArrayList<Personne> implements Runnable {
 			System.out.println(per.toString());
 		}
 		return "";
+	}
+
+	@Override
+	public void remove(InterPersonne p) {
+		super.remove(p);
 	}
 
 }

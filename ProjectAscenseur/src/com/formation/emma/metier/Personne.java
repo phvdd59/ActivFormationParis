@@ -1,4 +1,4 @@
-package com.formation.etga.metier;
+package com.formation.emma.metier;
 
 import com.formation.phva.inter.InterETAT;
 import com.formation.phva.inter.InterPersonne;
@@ -16,37 +16,32 @@ public class Personne implements InterPersonne {
 	public Personne() {
 		nom = Integer.toString(CPT);
 		CPT++;
-		etat = ETAT.ATTENTE;
+		etat = Etat.ATTENTE;
 		depart = (int) (Math.random() * 20);
 		arrivee = (int) (Math.random() * 20);
-		while (arrivee == depart) {
-			arrivee = (int) (Math.random() * 20);
-		}
+
 	}
 
 	public String getNom() {
 		return nom;
 	}
 
-	public InterETAT getEtat() {
-		return etat;
-	}
-
-	public int getDepart() {
-		return depart;
-	}
-
-	public int getArrivee() {
-		return arrivee;
-	}
-
-	
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
 
+	@Override
+	public InterETAT getEtat() {
+		return etat;
+	}
+
+	@Override
 	public void setEtat(InterETAT etat) {
-		this.etat = etat;
+			
+	}
+
+	public int getDepart() {
+		return depart;
 	}
 
 	public void setDepart(int depart) {
@@ -58,7 +53,14 @@ public class Personne implements InterPersonne {
 	}
 
 	@Override
-	public String toString() {
-		return "Personne [nom=" + nom + ", etat=" + etat + ", depart=" + depart + ", arrivee=" + arrivee + "]";
+	public int getArrivee() {
+		return arrivee;
 	}
+	
+	@Override
+	public String toString() {
+		return "Personne [nom=" + nom + ", etat=" + etat + ", depart=" + depart + ", arrive=" + arrivee + "]";
+	}
+
+
 }
