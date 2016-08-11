@@ -42,8 +42,8 @@ public class Ascenseur extends Thread implements InterAscenseur {
 						System.err.println("FIN DU THREAD");
 					} else {
 						personne = rechercherPersonneEnAttente();
-						if (personne!=null){
-						personne.setEtat(ETAT.DEPART);
+						if (personne != null) {
+							personne.setEtat(ETAT.DEPART);
 						}
 					}
 				}
@@ -53,7 +53,7 @@ public class Ascenseur extends Thread implements InterAscenseur {
 				} else if (personne.getEtat() == (ETAT.MOVE)) {
 					deplaceAscenseurVersArrive();
 				} else if (personne.getEtat() == (ETAT.ARRIVE)) {
-					System.out.println(personne +" est arrivee");
+					System.out.println(personne + " est arrivee");
 					personne = null;
 				}
 			}
@@ -67,13 +67,13 @@ public class Ascenseur extends Thread implements InterAscenseur {
 			if (progression % 30 == 0) {
 				etage--;
 				progression = 0;
-			} 
+			}
 		} else if (etage < personne.getDepart()) {
 			progression++;
 			if (progression % 30 == 0) {
 				etage++;
 				progression = 0;
-			} 
+			}
 		} else {
 			personne.setEtat(ETAT.MOVE);
 		}
@@ -85,13 +85,13 @@ public class Ascenseur extends Thread implements InterAscenseur {
 			if (progression % 30 == 0) {
 				etage--;
 				progression = 0;
-			} 
+			}
 		} else if (etage < personne.getArrivee()) {
 			progression++;
 			if (progression % 30 == 0) {
 				etage++;
 				progression = 0;
-			} 
+			}
 		} else {
 			personne.setEtat(ETAT.ARRIVE);
 		}
