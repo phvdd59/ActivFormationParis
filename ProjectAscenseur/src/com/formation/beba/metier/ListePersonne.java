@@ -6,24 +6,25 @@ public class ListePersonne extends ArrayList<Personne>implements Runnable {
 	private boolean sortie;
 
 	public void ListePeronne() {
+		sortie = false;
 	}
 
 	@Override
 	public void run() {
-		this.add(new Personne());
-		this.add(new Personne());
-		this.add(new Personne());
-		this.add(new Personne());
-		this.add(new Personne());
-		this.add(new Personne());
-		for (int i = 0; i < 20; i++) {
-			this.add(new Personne());
+		int ct = 0;
+		while (!sortie) {
+			long delais = (long) (Math.random() * 5000);
 			try {
-				Thread.sleep(5000);
+				Thread.sleep(delais);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
+			this.add(new Personne());
+			if (Personne.CPT >= 1) {
+				sortie = true;
+			}
 		}
+
 	}
 
 	public boolean isSortie() {

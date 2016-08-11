@@ -1,7 +1,7 @@
 package com.formation.ambr.main;
 
+import com.formation.ambr.metier.ListeAscenseur;
 import com.formation.ambr.metier.ListePersonne;
-import com.formation.ambr.metier.Personne;
 
 public class MainAscenseur {
 	/**
@@ -70,10 +70,13 @@ public class MainAscenseur {
 	}
 
 	private void init() {
-		//Personne personne = new Personne("Aristote", 0, 2, 5);
-		ListePersonne list = new ListePersonne();
-		//list.add(personne);
-		//System.out.println(list);
-		list.run();
+		
+		ListePersonne listPers = new ListePersonne(); // ListPersonne implements un runnable, v.s. extends un thread. Donc obligé faire comme ci-dessous
+		Thread tLstPers = new Thread(listPers, "LISTE DE PERSONNES");
+		tLstPers.start();
+		
+		ListeAscenseur listAsc = new ListeAscenseur(listPers);
+		System.out.println(listAsc);
+		
 	}
 }

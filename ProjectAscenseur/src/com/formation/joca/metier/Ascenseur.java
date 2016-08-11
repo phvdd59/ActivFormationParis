@@ -75,48 +75,42 @@ public class Ascenseur extends Thread {
 					}
 					nb++;
 				}
-			} 
+			}
 		}
 		this.setPersonne(personneTrouve);
 	}
 
 	public void deplacer(int destination) {
 		if (destination > this.getEtage()) {
-
-			this.etage++;
+			if (progression % 30 == 0 && progression != 0) {
+				this.etage++;
+				progression = 0;
+			} else {
+				progression++;
+			}
 		} else if (destination < this.getEtage()) {
 
-			this.etage--;
+			if (progression % 30 == 0) {
+				this.etage--;
+				progression = 0;
+			} else {
+				progression--;
+			}
 		}
 	}
 
 	@Override
 	public void run() {
-		// synchronized (listePersonne) {
-
 		while (!fin) {
-			/*synchronized (listePersonne) {
-				if (this.getListePersonne().size() == 0) {
-					try {
-						Thread.sleep(18700000);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
-				}
-			}*/
+			try {
+				Thread.sleep(TEMPS);
+			} catch (InterruptedException e) {
+			}
 
 			if (this.getPersonne() == null) {
 				this.trouverPersonne();
-				if (personne != null) {
-					System.out.println("je suis " + this.getName());
-					System.out.println("j'ai trouvé une personne " + this.personne.toString());
-				} else {
-					System.out.println("je suis " + this.getName());
-					System.out.println("il n'y a plus personne, je dors");
-					try {
-						Thread.sleep(1870000);
-					} catch (InterruptedException e) {
-					}
+				if (personne == null) {
+					this.fin = true;
 				}
 			} else if (this.getPersonne().getEtat() == ETAT.ETAT_DEPART.ordinal()) {
 				if (this.getEtage() != this.getPersonne().getDepart()) {
@@ -125,13 +119,7 @@ public class Ascenseur extends Thread {
 					synchronized (listePersonne) {
 						this.getPersonne().setEtat(ETAT.ETAT_MOVE.ordinal());
 					}
-					System.out.println("je suis " + this.getName());
-					System.out.println(
-							"j'ai chargé une personne " + this.personne.toString() + " à l'étage " + this.getEtage());
 				}
-				// bouger ascenseur vers depart tant que getEtage !=
-				// personne depart
-				// passer personne en MOVE quand getEtage=personne depart
 			} else if (this.getPersonne().getEtat() == ETAT.ETAT_MOVE.ordinal()) {
 				if (this.getEtage() != this.getPersonne().getArrive()) {
 					this.deplacer(this.getPersonne().getArrive());
@@ -139,29 +127,15 @@ public class Ascenseur extends Thread {
 					synchronized (listePersonne) {
 						this.getPersonne().setEtat(ETAT.ETAT_ARRIVE.ordinal());
 					}
-					System.out.println("je suis " + this.getName());
-					System.out.println("j'ai décharger une personne " + this.personne.toString() + " à l'étage "
-							+ this.getEtage());
 				}
-				// bouger ascenseur vers arrive tant que getEtage !=
-				// personne arrive
-				// passer personne en ARRIVE quand getEtage=personne arrive
-
 			} else if (this.getPersonne().getEtat() == ETAT.ETAT_ARRIVE.ordinal()) {
 				synchronized (listePersonne) {
 					this.getListePersonne().remove(this.getPersonne());
 				}
+				System.out.println(this.getName() + " " + this.getPersonne().toString());
 				this.setPersonne(null);
-				System.out.println("personne supprimée");
-				System.out.println(this.getListePersonne().toString());
-				// remove personne de listePersonne et personne = null
-			}
-			try {
-				Thread.sleep(1000);
-			} catch (InterruptedException e) {
 			}
 		}
-		// }
 	}
 
 	@Override

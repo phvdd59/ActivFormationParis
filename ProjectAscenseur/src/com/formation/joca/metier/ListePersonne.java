@@ -28,9 +28,13 @@ public class ListePersonne extends ArrayList<Personne> implements Runnable {
 				arrive = (int) (Math.random() * 20);
 			}
 
-			Personne personne = new Personne(Integer.toString(Personne.CPT), ETAT.ETAT_ATTENTE.ordinal(), depart, arrive);
+			Personne personne = new Personne(Integer.toString(Personne.CPT), ETAT.ETAT_ATTENTE.ordinal(), depart,
+					arrive);
 			System.out.println("j'ai créé la personne " + nb);
-			this.add(personne);
+
+			synchronized (this) {
+				this.add(personne);
+			}
 
 			try {
 				Thread.currentThread().sleep((int) (Math.random() * 5000));

@@ -4,15 +4,17 @@ public class Ascenseur extends Thread {
 	public static int CPT = 0;
 	public static int TEMPS = 10;
 	public static int HAUTEUR_Etage = 30;
+	public ListePersonne lst;
+	public static boolean lstPersFin;
 
 	private int etage;
-	private int progression;
+	private int progression = 0;
 	private boolean fin;
 	private Personne personne;
-	public ListePersonne lst;
 
 	public Ascenseur(String nom, ListePersonne lst) {
 		super(nom);
+		lstPersFin = false;
 		this.lst = lst;
 		this.personne = null;
 		this.etage = 0;
@@ -81,118 +83,93 @@ public class Ascenseur extends Thread {
 		return "THE Ascenseur [etage au départ= " + etage + ", progression= " + progression + ", fin= " + fin + ", personne= " + personne + "]";
 	}
 
-	boolean passage;
-
 	@Override
 	public void run() {
-		int enCours = -1;
 		while (!fin) {
-
 			try {
-				Thread.sleep(1000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				Thread.sleep(TEMPS);
+			} catch (InterruptedException e1) {
+				e1.printStackTrace();
 			}
 			if (personne == null) {
 				synchronized (lst) {
-					if (lst.size() > 6) {
-						passage = false;
-						for (int i = 0; i < lst.size(); i++) {
-							if (lst.get(i).getEtat() == ETAT.ETAT_ATTENTE.ordinal()) {
-								enCours = i;
-								lst.get(i).setEtat(ETAT.ETAT_DEPART.ordinal());
-								this.setPersonne(lst.get(i));
-								lst.remove(i);
-
-								break;
-							}
+					if (lst.isSortie() && lst.size() == 0) {
+						fin = true;
+					} else {
+						if (lst.size() > 0) {
+							this.setPersonne(lst.remove(lst.size() - 1));
+							personne.setEtat(ETAT.ETAT_DEPART.ordinal());
+							// System.out.println("l'ascenseur " +
+							// this.getName() + " va vers " +
+							// personne.getNom());
 						}
 					}
 				}
+
 			} else if (personne.getEtat() == ETAT.ETAT_DEPART.ordinal()) {
 
-				this.leMove(lst.get(enCours).getDepart());
-				passage = true;
-				personne.setEtat(ETAT.ETAT_MOVE.ordinal());
-				this.leMove(lst.get(enCours).getArrive());
+				this.leMove(personne.getDepart());
+
+				if (etage == personne.getDepart()) {
+					// System.out.println("l'ascenseur " + this.getName() + "
+					// embarque " + personne.getNom());
+					personne.setEtat(ETAT.ETAT_MOVE.ordinal());
+
+				}
 
 			} else if (personne.getEtat() == ETAT.ETAT_MOVE.ordinal()) {
 
-				personne.setEtat(ETAT.ETAT_ARRIVE.ordinal());
-				System.err.println(personne.getNom() + " est arrivé à l'étage " + etage + " de l'etage " + personne.getDepart());
-				personne = null;
-			}
+				this.leMove(personne.getArrive());
 
-			// int enCours = -1;
-			// synchronized (lst) {
-			// if (lst.size() > 5) {
-			// passage = false;
-			// for (int i = 0; i < lst.size(); i++) {
-			// if (lst.get(i).getEtat() == ETAT.ETAT_ATTENTE.ordinal()) {
-			// enCours = i;
-			//
-			// lst.get(i).setEtat(ETAT.ETAT_DEPART.ordinal());
-			// this.setPersonne(lst.get(i));
-			// lst.remove(i);
-			//
-			// break;
-			// }
-			// }
-			// }
-			// }
-			// if (enCours != -1) {
-			//
-			// this.leMove(lst.get(enCours).getDepart());
-			// passage = true;
-			// personne.setEtat(ETAT.ETAT_MOVE.ordinal());
-			// this.leMove(lst.get(enCours).getArrive());
-			//
-			// personne.setEtat(ETAT.ETAT_ARRIVE.ordinal());
-			// System.err.println(personne.getNom() + " est arrivé à l'étage " +
-			// etage + " de l'etage " + personne.getDepart());
-			// personne = null;
-			// }
+				if (etage == personne.getArrive()) {
+					personne.setEtat(ETAT.ETAT_ARRIVE.ordinal());
 
-		}
-	}
-
-	private void deplacement(int etageFin) {
-		try {
-			Thread.sleep(500);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		int etagePre = etage;
-		if (etage < etageFin) {
-			this.setEtage(++etage);
-
-			// System.out.println("l'ascenser " + this.getName() + " va de " + "
-			// de " + etagePre + " vers " + etage);
-			try {
-				this.sleep(10);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		} else {
-			this.setEtage(--etage);
-
-			// System.out.println("l'ascenser " + this.getName() + " va de " + "
-			// de " + etagePre + " vers " + etage);
-			try {
-				this.sleep(10);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+					// System.err.println(personne.getNom() + " est arrivé à
+					// l'étage " + personne.getArrive() + " de l'etage " +
+					// personne.getDepart());
+					personne = null;
+				}
+			} else if (lst.isSortie()) {
+				if (lst.size() == 0) {
+					fin = true;
+				}
 			}
 		}
 	}
 
 	private void leMove(int etageFin) {
-		while (etage != etageFin) {
-			this.deplacement(etageFin);
+		if (etage < etageFin) {
+			progression++;
+			if (progression % 30 == 0) {
+				// System.out.println(progression + " " + etage);
+				this.setEtage(++etage);
+			}
+			try {
+				Thread.sleep(10);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		} else {
+			progression--;
+			if (progression % 30 == 0) {
+				// System.out.println(progression + " " + etage);
+				this.setEtage(--etage);
+			}
+			try {
+				Thread.sleep(10);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 		}
-
+		// this.deplacement(etageFin);
 	}
+
+	public static boolean isLstPersFin() {
+		return lstPersFin;
+	}
+
+	public static void setLstPersFin(boolean lstPersFin) {
+		Ascenseur.lstPersFin = lstPersFin;
+	}
+
 }
