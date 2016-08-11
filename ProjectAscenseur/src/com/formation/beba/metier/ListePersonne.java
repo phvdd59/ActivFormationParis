@@ -22,7 +22,7 @@ public class ListePersonne extends ArrayList<Personne>implements Runnable, Inter
 				e.printStackTrace();
 			}
 			this.add(new Personne());
-			if (Personne.CPT >= 770) {
+			if (Personne.CPT >= 250) {
 				sortie = true;
 			}
 		}

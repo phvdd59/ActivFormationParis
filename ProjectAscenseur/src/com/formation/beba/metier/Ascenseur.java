@@ -24,7 +24,7 @@ public class Ascenseur extends Thread implements InterAscenseur {
 		lstPersFin = false;
 		this.lst = lst;
 		this.personne = null;
-		this.etage = 0;
+		this.etage = (int) (Math.random() * 20);
 		this.fin = false;
 
 	}
