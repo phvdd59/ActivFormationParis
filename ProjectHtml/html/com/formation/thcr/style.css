@@ -1,0 +1,51 @@
+@CHARSET "ISO-8859-1";
+.fable
+{
+    color: #ff8080;
+    text-align: center;
+}
+h1
+{
+	color: red;
+	text-decoration: blink;
+}
+table
+{
+	color : #008080;
+	text-align: center;
+	border-width: 5cm;
+	border: buttonface;
+}
+body
+{
+	background-color: #ffffff; 
+    color: black; 
+}
+ol
+{
+	color: #800080;
+}
+.toto
+{
+	width: 20px;
+	height: 20px;	
+}
+h1
+{
+	text-align: center;
+	font-family: monospace;
+}
+#tchou
+{
+	background-color: black;
+	border: hidden;
+	border-color: red;
+	border-style: hidden;
+	border-width: 10px;
+}
+div
+{
+	position:abslute;
+	left : 20px;
+	color : red;
+}

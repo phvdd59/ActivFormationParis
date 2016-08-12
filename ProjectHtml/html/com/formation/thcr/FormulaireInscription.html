@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Inscription</title>
+<link rel="stylesheet" href="FormulaireInscription.css">
+</head>
+<body>
+	<h5>Demande D'inscription</h5>
+	<form action="trait.java" method="post">
+	<div>	
+<!-- 		padding pour la tab -->
+	<h6>Coordonnées personelles</h6>
+		<div ID=nom>
+			Nom : 				<input type="texte" name="nom" /><br />
+			Prénom : 			<input type="texte" name="nom" /><br />
+			Mail : 				<input type="email" name="mail" /><br />
+		</div>
+		<div>
+		date de naissance : 	<input type="date" name="date"/><br />
+		lieu de naissance : 	<input type="texte" name="lieunaissance" /><br />
+		</div>
+		<div>
+		téléphone fixe : 	<input type="tel" name="telfixe"/><br />
+		téléphone mobile : 	<input type="tel" name="telmobile"/><br />
+		</div>
+		<div>
+			sexe : 	<input type="radio" name="sexe" value="Homme" checked>Femme</input>
+					<input type="radio" name="sexe" value="Femme" >Homme</input>
+					
+		</div>
+		
+	</div>
+	
+	</form>
+</body>
+</html>
