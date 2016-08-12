@@ -1,13 +1,28 @@
 @CHARSET "ISO-8859-1";
 
-center {
-	font-style: italic;
-	color: green;
-}
-
 div {
 	color: red;
-	text-decoration:blink; 
+	text-decoration: blink;
 	visibility: inherit;
-	
 }
+
+.toti {
+	font-size: xx-large;
+	text-align: center;
+}
+
+.§2
+{
+	font-style: italic;
+	font-stretch: extra-expanded;
+	font-weight: 600;
+	margin: 1cm;
+	color: maroon;
+}
+.§4{
+	font-style: italic;
+	font-stretch: extra-expanded;
+	font-weight: 600;
+	margin: 1cm;
+	color: navy;
+} 
