@@ -66,40 +66,55 @@ public class ExoFlux1 extends ArrayList<Terme> {
 		try {
 			System.out.println("Saisissez un mot et appuyer sur Entrée");
 			ligne = stdIn.readLine();
-			//while (!ligne.equals("")) {
-			sMot = ligne;
-			//}
+			if (!ligne.matches("[a-zA-Z]") || ligne.equals(" ")) {
+				sMot = ligne;
+			} else {
+				throw new EpurationException();
+			}
 
 			System.out.println("Saisissez la position en x puis appuyez sur Entrée");
 			ligne = stdIn.readLine();
-			//while (!ligne.equals("")) {
-			sPosX = Integer.valueOf(ligne);
-			//}
+			if (ligne.matches("[0-9]{1,}")) {
+				sPosX = Integer.valueOf(ligne);
+			} else {
+				System.out.println("Inserez un chiffre");
+				throw new NumberFormatException();
+			}
 
 			System.out.println("Saisissez la position en y puis appuyez sur Entrée");
 			ligne = stdIn.readLine();
-			//while (!ligne.equals("")) {
-			sPosY = Integer.valueOf(ligne);
-			//}
+			if (ligne.matches("[0-9]{1}")) {
+				sPosY = Integer.valueOf(ligne);
+			} else {
+				throw new NumberFormatException();
+			}
 
 			System.out.println("Saisissez le sens du mot");
 			System.out.println("Entrez H pour Horizontal et V pour Vertical puis appuyez sur Entrée");
 			ligne = stdIn.readLine();
-			//while (!ligne.equals("")) {
 			if (ligne.toUpperCase().equals("H")) {
 				sSens = false;
 			} else if (ligne.toUpperCase().equals("V")) {
 				sSens = true;
+			} else {
+				throw new SensException();
 			}
-			//}
+
 			point = new Point(sPosX, sPosY);
 			terme = new Terme(sMot, point, sSens);
 			this.add(terme);
+
 		} catch (IOException e1) {
 			e1.printStackTrace();
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+		} catch (SensException e) {
+			e.printStackTrace();
+		} catch (EpurationException e) {
+			e.printStackTrace();
 		}
 
-		System.out.println("Souhaitez-vous ajouter un nouveau terme? ");
+		System.out.println("Souhaitez-vous ajouter à nouveau un terme? ");
 		System.out.println("Si oui, entrez OUI, sinon appuyez sur Entrée");
 		try {
 			ligne = stdIn.readLine();
@@ -166,7 +181,7 @@ public class ExoFlux1 extends ArrayList<Terme> {
 					posY = Integer.parseInt(line.substring(line.indexOf("posY") + 6, line.indexOf("posY") + 7));
 				}
 				if (line.contains("mot\":")) {
-					s = line.substring(line.indexOf("mot\":" ), line.indexOf("posX"));
+					s = line.substring(line.indexOf("mot\":"), line.indexOf("posX"));
 				}
 
 				point = new Point(posY, posX);
