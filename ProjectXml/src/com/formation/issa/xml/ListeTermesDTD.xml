@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ListTerme[
+	        <!ELEMENT ListeTermes (Terme*)> 		
+ 			<!ELEMENT Terme (#PCDATA)>
+ 					<!ATTLIST Terme x CDATA #REQUIRED>
+					<!ATTLIST Terme y CDATA #REQUIRED>
+					<!ATTLIST Terme sens (HORIZONTAL|VERTICAL) #REQUIRED>
+				
+]>
+
+<ListeTermes>
+	<Terme x='2' y='1' sens='VERTICAL'>
+		WAGON
+	</Terme>
+	<Terme x='1' y='2' sens='HORIZONTAL'>
+		WAGON
+	</Terme>
+	<Terme x='3' y='4' sens='HORIZONTAL'>
+		WAGON
+	</Terme>
+	<Terme x="5" sens="HORIZONTAL" y="6"></Terme>
+	<Terme x="4" sens="HORIZONTAL" y="7">
+	</Terme>
+	
+
+</ListeTermes>
