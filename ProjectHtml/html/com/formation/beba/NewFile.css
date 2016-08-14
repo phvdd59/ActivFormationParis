@@ -1,0 +1,26 @@
+@CHARSET "ISO-8859-1";
+#form1, #form1 form {
+    padding: 12;
+    margin: 12;
+}
+
+#test {
+position: absolute;
+height: 250px;
+width: 694px;
+} 
+
+#form1 {
+/* on centre le menu dans la page */
+    text-align: center;
+}
+
+.formulaire {
+	font-family: symbol;
+	font-color: #800040;
+	margin: 12px;
+}
+
+#lapromodujour {
+	font-family: castellar
+}
