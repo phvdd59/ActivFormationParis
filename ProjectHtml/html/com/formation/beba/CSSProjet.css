@@ -10,11 +10,11 @@ H1 {
 }
 
 .container {
-	style ="text-align: center;
+	style =text-align: center;
 	width: 980px;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 100px;
+	margin-top: 1px;
 	position: relative;
 	
 }
@@ -22,5 +22,5 @@ H1 {
 .fondBlanc {
 	background-color: white;
 	width: 980px;
-	padding: 10;
+	padding:1;
 }
