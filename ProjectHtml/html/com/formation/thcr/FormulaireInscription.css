@@ -1,9 +1,46 @@
 @CHARSET "ISO-8859-1";
-#nom
+
+h3
 {
-	color:pink;	
+    text-align: center;
+    font-size: 30px;
 }
-h5
+table,th,td,tr
 {
-	position:center;
+    border: 2px solid black;
+    border-collapse: collapse;
+    position: relative;
+    border-color: crimson
+    
+}
+body
+{
+    position: absolute;
+    background-color: darkgreen;
+    color: aqua;
+}
+#etat
+{
+    position: relative;
+    text-align: center;
+}
+#situation
+{
+    position: relative;
+    text-align: center;
+}
+#fonction
+{
+    position: relative;
+    text-align: center;
+}
+#coordonnees
+{
+    position: relative;
+    text-align: center;
+}
+input
+{
+    background-color: black;
+    color: white;
 }

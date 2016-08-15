@@ -1,37 +1,121 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Inscription</title>
 <link rel="stylesheet" href="FormulaireInscription.css">
 </head>
 <body>
-	<h5>Demande D'inscription</h5>
+    
+	<h3>Demande D'inscription</h3>
 	<form action="trait.java" method="post">
-	<div>	
-<!-- 		padding pour la tab -->
-	<h6>Coordonn�es personelles</h6>
-		<div ID=nom>
-			Nom : 				<input type="texte" name="nom" /><br />
-			Pr�nom : 			<input type="texte" name="nom" /><br />
-			Mail : 				<input type="email" name="mail" /><br />
-		</div>
-		<div>
-		date de naissance : 	<input type="date" name="date"/><br />
-		lieu de naissance : 	<input type="texte" name="lieunaissance" /><br />
-		</div>
-		<div>
-		t�l�phone fixe : 	<input type="tel" name="telfixe"/><br />
-		t�l�phone mobile : 	<input type="tel" name="telmobile"/><br />
-		</div>
-		<div>
-			sexe : 	<input type="radio" name="sexe" value="Homme" checked>Femme</input>
-					<input type="radio" name="sexe" value="Femme" >Homme</input>
-					
-		</div>
-		
-	</div>
-	
+
+        <table>
+            <tr>
+                <td colspan="2" id="coordonnees"> Coordonnées personelles</td>
+            </tr>
+			<tr>
+				<td> Nom : <input type="texte" name="nom" /></td>
+                <td> Prénom : <input type="texte" name="prenom" /></td>
+            </tr>
+            <tr>
+                <td> Adresse : <input type="text"  name="adresse" /></td>
+                <td> Code postal : <input type="text"  name="codepostal" /></td>
+            </tr>
+            <tr>
+                <td> Ville : <input type="text"  name="ville" /></td>
+            </tr>
+            <tr>
+                <td> Téléphone fixe : <input type="tel" name="telfixe"/></td>
+                <td> Téléphone mobile : <input type="tel" name="telmobile"/></td>
+            </tr>
+			<tr>
+                <td> Mail : <input type="email" name="mail" /></td>	
+			</tr>
+            <tr>
+                <td colspan="2" id="etat">Etat civil</td>
+            </tr>
+            
+            <tr>
+                <td> Date de naissance : </td>
+                <td> Lieu de naissance : </td>
+            </tr>
+            <tr>
+                <td><input type="date" name="date" /></td>
+                <td><input type="texte" name="lieunaissance" /></td>       
+            </tr>            
+            <tr>
+                <td> sexe :
+                            <input type="radio" name="sexe" value="Homme" >Femme</input>
+					        <input type="radio" name="sexe" value="Femme" >Homme</input></td>
+            </tr>
+            <tr>
+                <td> Numéro de sécurité sociale : </td>
+            </tr>
+            <tr>
+                <td> <input type="text" name="secu" /> </td>
+            </tr>
+            <tr>
+                <td> Nationalité : <input type="text" name="nationalite" /></td>
+            </tr>
+            <tr>
+                <td colspan="2" id="situation">Situation actuelle </td>
+            </tr>
+            <tr>
+                <td> Salarié : <input type="radio" name="situation" value="salarie" /> </td>
+                <td> Auto entrepreneur : <input type="radio" name="situation" value="autoentrepreneur" /></td>
+            <tr>
+                 <td> Freelance : <input type="radio" name="situation" valur="freelance" /></td>
+                <td> Demandeur d'emploi : <input type="radio" name="situation" value="demandeurdemploi" /></td>
+                
+            </tr>
+            <tr>
+                <td> Retraite : <input type="radio" name="situation" value="retraite" /></td>
+                <td> Autre : <input type="radio" name="situation" value="autre" />
+                                <input type="text" name="situation" /></td>
+            </tr>
+            <tr>
+                <td colspan="2" id="fonction"> Fonction/Rénumération </td>
+            </tr>
+            <tr>
+                <td> Fonction occupée : <input type="text" name="fonctionoccupe" /></td>
+                <td> Cadre : <input type="radio" name="fonction" value="cadre" /> Non cadre : <input type="radio" name="fonction" value="noncadre" /></td>
+            </tr>
+            <tr>
+                <td> Posisiotn : <input type="text" name="position" /></td>
+                <td> Coefficiet : <input type="texte" name="coefficient" /></td>
+            </tr>
+            <tr> 
+                <td>Salaire souhaité : <input type="text" name="salairesouhaite" /></td>
+            </tr>
+            <tr>
+                <td> Mutuelle souhaitée : oui<input type="radio" name="mutuelle" value="oui" />non<input type="radio" name="mutuelle" value="non" /></td>
+                <td> Ticket resto : oui<input type="radio" name="mutuelle" value="oui" />non<input type="radio" name="mutuelle" value="non" /> </td>
+            </tr>
+            <tr>
+                <td> Date de votre derbière visite médicale : </td>
+            </tr>
+            <tr>
+                <td> <input type="date" name="visitemedicale" /> </td>
+            </tr>
+            <tr>
+                <td > Montant carte d'abonnement transport : </td>
+            </tr>
+            <tr>
+                <td> <input type="number" name="abonnementtransport" /></td>
+            </tr>
+            <tr>
+                <td> Véhicule personnel : oui<input type="radio" name="vehicule" value="oui" />non<input type="radio" name="vehicule" value="non"/> </td>
+            <tr>
+                <td> Kilomètre mensuel estimé : </td>
+                <td> Nombre de CV : </td>
+            </tr>
+            </tr>
+            <tr>
+                <td><input type="number" name="nbcv" /></td>
+                <td><input type="number" name="kilometre" /></td>
+            </tr>
+        </table>
 	</form>
 </body>
 </html>

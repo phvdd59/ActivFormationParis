@@ -1,10 +1,26 @@
 @CHARSET "ISO-8859-1";
 
-.truc {
-	font-family: symbol;
-	font-color: white;
+body {
+	background-image:
+		url("http://www.voyageavecnous.fr/wp-content/uploads/2015/01/plage-paradisiaque-bora-bora.jpg");
 }
 
-#lapromodujour {
-	font-family: castellar
+H1 {
+	text-align: center
+}
+
+.container {
+	style ="text-align: center;
+	width: 980px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 100px;
+	position: relative;
+	
+}
+
+.fondBlanc {
+	background-color: white;
+	width: 980px;
+	padding: 10;
 }
