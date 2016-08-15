@@ -156,7 +156,7 @@ public class MainGasp {
 
 		ExoAlgo3 exoAlgo3 = new ExoAlgo3();
 		ArrayList<Mouvement> lst = new ArrayList<Mouvement>();
-		lst = exoAlgo3.solution(lst, 4, "A", "B", "C");
+		lst = exoAlgo3.solution(lst, 5, "A", "B", "C");
 		for (int i = 0; i < lst.size(); i++) {
 			System.out.println("Déplacement " + (i + 1) + " : " + lst.get(i).toString());
 		}
