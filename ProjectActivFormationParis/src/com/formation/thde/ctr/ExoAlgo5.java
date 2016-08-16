@@ -56,7 +56,6 @@ public class ExoAlgo5 implements com.formation.phva.inter.InterAlgo5 {
 
 		if (n > 0 && tab != null && cat.length() == 6) {
 
-			tabRetour = new String[n];
 			ArrayList<Meuble> liste = new ArrayList<>();
 			for (int i = 0; i < tab.length; i++) {
 				if (tab[i].startsWith(cat) && tab[i].length() == 9) {
@@ -69,10 +68,13 @@ public class ExoAlgo5 implements com.formation.phva.inter.InterAlgo5 {
 				}
 			}
 			Collections.sort(liste);
+			if (n <= liste.size()) {
+				tabRetour = new String[n];
+			} else {
+				tabRetour = new String[liste.size()];
+			}
 			for (int i = 0; i < tabRetour.length; i++) {
-				if (i < liste.size()) {
-					tabRetour[i] = liste.get(i).getNumero();
-				}
+				tabRetour[i] = liste.get(i).getNumero();
 			}
 		}
 		return tabRetour;
