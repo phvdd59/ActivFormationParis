@@ -1,7 +1,9 @@
-package com.formation.jeci.ctr;
+package com.formation.emma.ctr;
 
 import java.util.ArrayList;
 import java.util.Collections;
+
+import com.formation.emma.ctr.RepetitionMot;
 
 public class ExoAlgo5 implements com.formation.phva.inter.InterAlgo5 {
 	/*
@@ -43,49 +45,45 @@ public class ExoAlgo5 implements com.formation.phva.inter.InterAlgo5 {
 	 */
 
 	public String[] solution(String[] tab, String cat, int n) {
-		ArrayList<String> lst = new ArrayList<String>();
-		ArrayList<Poids> lst2 = new ArrayList<Poids>();
-		ArrayList<Poids> lst3 = new ArrayList<Poids>();
-		String[] retour = new String[n];
-		if (cat != null && n > 0 && tab != null) {
-			for (int i = 0; i < tab.length; i++) {
-				if (cat.equals(tab[i].substring(0, 6))) {
-					lst.add(tab[i].substring(6));
+		String[] tabRetour = null;
+		ArrayList<String> liste = null;
+		ArrayList<RepetitionMot> tabInt = null;
+		int a = 0;
+		int d = 0;
 
+		if (tab == null || cat.length() != 6 || n > tab.length) {
+
+		} else {
+			tabInt = new ArrayList<RepetitionMot>();
+			liste = new ArrayList<String>();
+			for (int i = 0; i < tab.length; i++) {
+				if (cat.equals(tab[i].substring(0, 7))) {
+					liste.add(tab[i]);
 				}
 			}
 
-			for (int i = 0; i < lst.size(); i++) {
-				String mot = lst.get(i);
-				Poids p = new Poids(mot);
-				lst2.add(p);
-			}
+			if (tabInt.size() == 0) {
+				tabInt.get(0).setCategorie(liste.get(0));
+				tabInt.get(0).setRepetition(1);
+			} else {
+				for (int j = 0; j < liste.size(); j++) {
+					for (int k = 0; k < tabInt.size(); k++) {
 
-			for (int i = 0; i < lst2.size(); i++) {
-				for (int j = 0; j < lst2.size(); j++) {
-
-					if (lst2.get(i).getMot().equals((lst2.get(j).getMot())) && i != j) {
-						lst2.remove(j);
-						int nb=lst2.get(i).getNb();
-						lst2.get(i).setNb(nb+1);
-						j--;
+						if (liste.get(j) == tabInt.get(k).getCategorie()) {
+							d = tabInt.get(k).getRepetition() + 1;
+							tabInt.get(k).setRepetition(d);
+						} else {
+							tabInt.get(tabInt.size()).setCategorie(liste.get(j));
+							tabInt.get(tabInt.size()).setRepetition(1);
+						}
 					}
 				}
 			}
 
-			Collections.sort(lst2);
-			if (lst2.size() >= n) {
-				for (int i = 0; i < n; i++) {
-					retour[i] = cat + lst2.get(i).getMot();
-				}
-			} else {
-				retour = null;
-			}
-
-		} else {
-			retour = null;
+			tabRetour = new String[n];
 		}
 
-		return retour;
+		return tabRetour;
 	}
+
 }

@@ -1,7 +1,4 @@
-package com.formation.jeci.ctr;
-
-import java.util.ArrayList;
-import java.util.Collections;
+package com.formation.issa.ctr;
 
 public class ExoAlgo5 implements com.formation.phva.inter.InterAlgo5 {
 	/*
@@ -43,49 +40,42 @@ public class ExoAlgo5 implements com.formation.phva.inter.InterAlgo5 {
 	 */
 
 	public String[] solution(String[] tab, String cat, int n) {
-		ArrayList<String> lst = new ArrayList<String>();
-		ArrayList<Poids> lst2 = new ArrayList<Poids>();
-		ArrayList<Poids> lst3 = new ArrayList<Poids>();
-		String[] retour = new String[n];
-		if (cat != null && n > 0 && tab != null) {
-			for (int i = 0; i < tab.length; i++) {
-				if (cat.equals(tab[i].substring(0, 6))) {
-					lst.add(tab[i].substring(6));
 
-				}
-			}
-
-			for (int i = 0; i < lst.size(); i++) {
-				String mot = lst.get(i);
-				Poids p = new Poids(mot);
-				lst2.add(p);
-			}
-
-			for (int i = 0; i < lst2.size(); i++) {
-				for (int j = 0; j < lst2.size(); j++) {
-
-					if (lst2.get(i).getMot().equals((lst2.get(j).getMot())) && i != j) {
-						lst2.remove(j);
-						int nb=lst2.get(i).getNb();
-						lst2.get(i).setNb(nb+1);
-						j--;
+		String ini = "001451001,001451002,001451001,001451005,001451004,001451001,001451008,001451004";
+		
+		String tabini[] = ini.split(",");
+		int []l=new int[tabini.length];
+		for (int i = 0; i < tabini.length; i++) {
+			l[i]=Integer.parseInt(tabini[i]);
+		}
+		
+		
+		
+		// String []tabF=new String[tabini.length];
+		boolean trouve=false;
+		int nb = 1;
+		for (int i = 0; i < l.length; i++) {
+			cat = tabini[i].substring(0, 6);
+			// tabF[i]=cat;
+			trouve=false;
+			for (int j = i+1; j < l.length; j++) {
+				if (l[i]== l[j]) {
+			
+					//System.out.println(n);					
+					trouve=true;
+				}if(!trouve){
+					nb=1;
+					int[]tabL;
+					for (int j2 = i+1; j2 < tabini.length; j2++) {
+						if(l[i]==l[j2]){
+						nb++;
+						//System.out.println(nb);
+						}
 					}
 				}
 			}
-
-			Collections.sort(lst2);
-			if (lst2.size() >= n) {
-				for (int i = 0; i < n; i++) {
-					retour[i] = cat + lst2.get(i).getMot();
-				}
-			} else {
-				retour = null;
-			}
-
-		} else {
-			retour = null;
 		}
 
-		return retour;
+		return tab;
 	}
 }

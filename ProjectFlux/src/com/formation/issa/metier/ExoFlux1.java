@@ -87,7 +87,7 @@ public class ExoFlux1 extends ArrayList<Terme> {
 				} catch (Exception e) {
 					// e.printStackTrace();
 				}
-				if (x > 0) {
+				if (x >= 0) {
 					System.out.println("position de x :" + x);
 				} else {
 					System.out.println("position x incorrecte");
@@ -101,7 +101,7 @@ public class ExoFlux1 extends ArrayList<Terme> {
 				} catch (Exception e) {
 
 				}
-				if (y > 0) {
+				if (y >= 0) {
 					System.out.println("position de y :" + y);
 				} else {
 					System.out.println("position de y incorrecte");
