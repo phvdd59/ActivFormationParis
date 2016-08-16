@@ -14,4 +14,11 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>html/com/formation/etga/www</name>
+			<type>2</type>
+			<location>C:/wamp/www</location>
+		</link>
+	</linkedResources>
 </projectDescription>
