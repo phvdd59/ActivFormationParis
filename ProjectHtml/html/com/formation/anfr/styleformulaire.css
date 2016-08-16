@@ -1,0 +1,15 @@
+@CHARSET "ISO-8859-1";
+
+h1{width:100%; color : black; text-align: center; font-family : arial; font-weight : bold; background-color: silver}
+/* Commentaire */
+h2{width:95%; margin:auto; color : black; text-align: center; font-family : arial; font-weight : bold; background-color: orange}
+/* Commentaire */
+td{width :12.5%; text-align : left; padding:1%}
+input.TEXTE{type :text; width : 99%; padding:5px; margin:0px; align:center}
+body{background-color: beige}
+div {	width:90%;background-color: white;}
+div.PETIT{float:left; width:10%; margin : 2%; text-align: left }
+div.FORM{float:left; width:30%; margin : 2%; text-align: center}
+form {
+	background-color: white
+}

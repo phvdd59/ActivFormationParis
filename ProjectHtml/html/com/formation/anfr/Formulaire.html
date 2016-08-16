@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Demande d'inscription</title>
+<link rel="stylesheet" href="styleformulaire.css" />
+</head>
+<body>
+	<div style="width: 70%; margin: auto">
+		<form>
+			<h1>Demande d'inscription</h1>
+
+			<div>
+				<h2>Coordonnées Personnelles</h2>
+				<div style="height: 20px">
+					<div CLASS=PETIT>Nom :</div>
+					<div CLASS=FORM>
+						<input name="nom" CLASS=TEXTE type="text">
+					</div>
+					<div CLASS=PETIT>Prénom :</div>
+					<div CLASS=FORM>
+						<input name="prenom" CLASS=TEXTE type="text">
+					</div>
+				</div>
+				<div style="height: 20px">
+					<div CLASS=PETIT>Adresse :</div>
+					<div CLASS=FORM style="width: 78%">
+						<input name="adresse" CLASS=TEXTE type="text">
+					</div>
+				</div>
+				<div style="height: 20px">
+					<div CLASS=PETIT style="width: 12%">Code Postal :</div>
+					<div CLASS=FORM style="width: 28%">
+						<input name="codePost" CLASS=TEXTE type="text">
+					</div>
+					<div CLASS=PETIT>Ville :</div>
+					<div CLASS=FORM>
+						<input name="Ville" CLASS=TEXTE type="text">
+					</div>
+				</div>
+				<div style="height: 20px">
+					<div CLASS=PETIT style="width: 13%">Telephone Fixe :</div>
+					<div CLASS=PETIT style="width: 24%">
+						<input name="PhoneFixe" CLASS=TEXTE type="text">
+					</div>
+					<div CLASS=PETIT style="width: 18%">Telephone Portable:</div>
+					<div CLASS=PETIT style="width: 25%">
+						<input name="PhoneMob" CLASS=TEXTE type="text">
+					</div>
+				</div>
+				<div style="height: 20px">
+					<div CLASS=PETIT style="width: 8%">Fax :</div>
+					<div CLASS=FORM style="width: 25%">
+						<input name="Fax" CLASS=TEXTE type="text">
+					</div>
+					<div CLASS=PETIT style="width: 10%">Email :</div>
+					<div CLASS=FORM style="width: 37%">
+						<input name="email" CLASS=TEXTE type="text">
+					</div>
+				</div>
+
+				<h2>Etat Civil</h2>
+				<div CLASS=PETIT>Date de Naissance :</div>
+				<div CLASS=FORM>
+					<input name="birthdate" CLASS=TEXTE type="text" value=JJ-MM-AAAA>
+				</div>
+				<div CLASS=PETIT>Lieu :</div>
+				<div CLASS=FORM>
+					<input name="birthlocation" CLASS=TEXTE type="text">
+				</div>
+				<div CLASS=PETIT>Numéro de Sécurité Sociale (15 chiffres):</div>
+				<div CLASS=FORM>
+					<input name="nSS" CLASS=TEXTE type="text" size="15">
+				</div>
+				<div CLASS=PETIT>Nationalité(s) :</div>
+				<div CLASS=FORM>
+					<input name="nationalite" CLASS=TEXTE type="text">
+				</div>
+				<h2>Situation Actuelle</h2>
+				<div CLASS=PETIT>
+					<input type="radio" name="situation" value="salarie">
+					Salarié
+				</div>
+				<div CLASS=PETIT>
+					<input type="radio" name="situation" value="autoentre">
+					Auto Entrepreneur
+				</div>
+				<div CLASS=PETIT>
+					<input type="radio" name="situation" value="freelance">
+					Freelance
+				</div>
+				<div CLASS=PETIT></div>
+				<div CLASS=PETIT>
+					<input type="radio" name="situation" value="chomeur">
+					Demandeur d'Emploi
+				</div>
+				<div CLASS=PETIT>
+					<input type="radio" name="situation" value="retraite">
+					Retraité
+				</div>
+				<div CLASS=PETIT>
+					<input type="radio" name="situation" value="autre"
+						style="vertical-align: bottom; margin: px; horizontal-align: left;">
+					Autre :
+				</div>
+				<div CLASS=FORM>
+					<input name="autre" CLASS=TEXTE type="text">
+				</div>
+				<h2>Fonction /REMUNERATION</h2>
+				<div CLASS=PETIT>Fonction Occupee:</div>
+				<div CLASS=PETIT>
+					<input type="radio" name="fonction" value="cadre"> Cadre
+				</div>
+				<div CLASS=PETIT>
+					<input type="radio" name="fonction" value="noncadre">
+					Non-Cadre
+				</div>
+				<div CLASS=PETIT>Position :</div>
+				<div CLASS=FORM>
+					<input name="position" CLASS=TEXTE type="text">
+				</div>
+				<div CLASS=PETIT>Coefficient:</div>
+				<div CLASS=FORM>
+					<input name="coeff" CLASS=TEXTE type="text">
+				</div>
+				<div CLASS=PETIT>Salaire souhaité :</div>
+				<div CLASS=FORM>
+					<input name="salaire" CLASS=TEXTE type="text">
+				</div>
+				<div CLASS=PETIT>Mutuelle souhaite :</div>
+				<div CLASS=PETIT>
+					Oui : <input type="radio" name="mutuelle" value="yes">
+				</div>
+				<div CLASS=PETIT>
+					Non: <input type="radio" name="mutuelle" value="no">
+				</div>
+				<div CLASS=PETIT>Tickets Restaurants :</div>
+				<div CLASS=PETIT>
+					Oui : <input type="radio" name="tickets" value="yes">Non: <input
+						type="radio" name="tickets" value="no">
+				</div>
+				<div CLASS=PETIT>Date de votre dernière visite médicale:</div>
+				<div CLASS=FORM>
+					<input name="visitemedicale" CLASS=TEXTE type="text">
+				</div>
+				<div CLASS=PETIT>Montant Carte Abonement transport :</div>
+				<div CLASS=FORM>
+					<input name="visitemedicale" CLASS=TEXTE type="text">
+				</div>
+			</div>
+		</form>
+	</div>
+</body>
+</html>

@@ -1,0 +1,12 @@
+@CHARSET "ISO-8859-1";
+p { color : blue; }
+
+h1, h2 ,h3{ color : green; text-align: center; font-family : arial; font-weight : bold}
+/* Commentaire */
+
+.FABLE {color : black; text-align: center;}
+.PROVERBE {color : black; text-align : left; font-style : italic;}
+#lapromodujour {font-family : symbol;}
+
+h2.pos_gauche {position : relative; left: -20px;}
+h2.pos_droite {position : absolute; left : 20px}
