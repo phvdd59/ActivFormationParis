@@ -1,0 +1,11 @@
+table{
+	empty-cells: hide; font-size:80%; font-family:arial; white-space:nowrap;
+}
+
+td{
+	
+}
+
+col{
+	width=100
+}

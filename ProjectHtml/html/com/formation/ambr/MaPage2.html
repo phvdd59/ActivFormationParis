@@ -1,21 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+	<meta charset="ISO-8859-1"/>
+	<!-- <link rel = "stylesheet" href="style.css"/> -->
+	<title>Titre de la page dans le navigateur</title>
+	<style type="text/css">
+	.PROVERBE{
+		color:blue;
+	}
+	.ORIGINE{
+		font-style:italic;
+		text-align:center;
+	}
+	</style>
 </head>
 <body>
-	<p>
-Bonjour tout le monde.
-Ceci est un texte avec des accents.
+	
+	<p CLASS=PROVERBE>Bonjour tout le monde.</p>
 
-	<h3>LE CORBEAU ET LE RENARD </h3>
+	<h3 CLASS=ORIGINE>LE CORBEAU ET LE RENARD </h3>
 			 
 			 
 			 
 			<dt>Maître Corbeau, sur un arbre perché, </dt>
 			    <dd>Tenait en son bec un fromage. </dd>
-			Maître Renard, par l'odeur alléché, <br/>
+			<p>Maître Renard, par l'odeur alléché,</p>
 			    Lui tint à peu près ce langage : <br/>
 			Et bonjour, Monsieur du Corbeau, <br/>
 			Que vous êtes joli ! que vous me semblez beau ! <br/>
@@ -79,8 +88,32 @@ Ceci est un texte avec des accents.
 		<mark>Badaboum</mark>
 		<strong>Tut tut</strong>
 		
-		<img alt="ceci est un dessin" src="C:\DevFormation\GITActivFormationParis\ProjectHtml\html\com\formation\emma\mon dessin.png"></br>
+		<p style="color:darkblue; text-align:center">ligne en rouge</p>
 		
-	</p>
+		<div style="position: absolute; background-color: lightblue; left: 407px; top: 500px; width: 500px; height: 300px;">
+			je suis entre des balises div
+			<p CLASS=ORIGINE>je suis de classe origine</p>
+			<ol>
+				<li CLASS=ORIGINE>Premier</li>
+				<li CLASS=PROVERBE>Second</li>
+				<li>Troisième</li>
+				<li>Quatrième</li>
+			</ol>
+			<img alt="ceci est un autre dessin" src="C:\Users\activ_admin\Downloads/Engineerava.jpg">
+			<img alt="slt" src="https://upload.wikimedia.org/wikipedia/commons/b/b6/Pica_pica_-_Compans_Caffarelli_-_2012-03-16.jpg" style="width: 200px; height: 100px; ">
+			
+		</div>
+		
+		<div>div div div</div>
+		
+		<div style="background-image: url(http://www.unoosa.org/res/timeline/index_html/space-2.jpg); left: 407px; top: 500px; width: 500px; height: 300px;">
+			<p style="color:white; text-align:center; text-font:bold; font-size:50">NEBULEUSE</p>
+			<p style="color:white; text-align:center; font-family:comic">espace</p>
+		</div>
+		
+		<img alt="ceci est un dessin" src="C:\DevFormation\GITActivFormationParis\ProjectHtml\html\com\formation\emma\mon dessin.png" style="width: 150px; height: 50px;"></br>
+	
+	
+		<form></form>
 </body>
 </html>
