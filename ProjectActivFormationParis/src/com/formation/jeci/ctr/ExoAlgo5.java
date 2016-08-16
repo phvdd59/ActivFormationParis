@@ -49,7 +49,7 @@ public class ExoAlgo5 implements com.formation.phva.inter.InterAlgo5 {
 		String[] retour = new String[n];
 		if (cat != null && n > 0 && tab != null) {
 			for (int i = 0; i < tab.length; i++) {
-				if (cat.equals(tab[i].substring(0, 5))) {
+				if (cat.equals(tab[i].substring(0, 6))) {
 					lst.add(tab[i].substring(6));
 
 				}
@@ -62,15 +62,15 @@ public class ExoAlgo5 implements com.formation.phva.inter.InterAlgo5 {
 			}
 
 			for (int i = 0; i < lst2.size(); i++) {
-				for (int j = 1; j < lst2.size(); j++) {
-					if (lst2.get(i).getMot().equals(lst2.get(j).getMot())) {
-						int nb = lst2.get(i).getNb();
-						lst2.get(i).setNb(nb + 1);
+				for (int j = 0; j < lst2.size(); j++) {
+
+					if (lst2.get(i).getMot().equals((lst2.get(j).getMot())) && i != j) {
 						lst2.remove(j);
+						int nb=lst2.get(i).getNb();
+						lst2.get(i).setNb(nb+1);
 						j--;
 					}
 				}
-
 			}
 
 			Collections.sort(lst2);
