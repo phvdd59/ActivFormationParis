@@ -1,5 +1,8 @@
 package com.formation.issa.ctr;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 public class ExoAlgo5 implements com.formation.phva.inter.InterAlgo5 {
 	/*
 	 * Besoin : Le service marketing de IKAE souhaite connaître ses n meubles,
@@ -41,41 +44,63 @@ public class ExoAlgo5 implements com.formation.phva.inter.InterAlgo5 {
 
 	public String[] solution(String[] tab, String cat, int n) {
 
-		String ini = "001451001,001451002,001451001,001451005,001451004,001451001,001451008,001451004";
-		
+		String ini = "001451001,001451002,001451001,456789002,001451005,001451004,001451001,001451008,001451004";
+		cat = "001451";
+		ArrayList<Meuble1> lst = null;
+		//ArrayList<Integer>nbOccur=null;
+		lst=new ArrayList<Meuble1>();
+		//nbOccur=new ArrayList<Integer>();
+
 		String tabini[] = ini.split(",");
-		int []l=new int[tabini.length];
+		//int[] l = new int[tabini.length];
 		for (int i = 0; i < tabini.length; i++) {
-			l[i]=Integer.parseInt(tabini[i]);
-		}
-		
-		
-		
-		// String []tabF=new String[tabini.length];
-		boolean trouve=false;
-		int nb = 1;
-		for (int i = 0; i < l.length; i++) {
-			cat = tabini[i].substring(0, 6);
-			// tabF[i]=cat;
-			trouve=false;
-			for (int j = i+1; j < l.length; j++) {
-				if (l[i]== l[j]) {
-			
-					//System.out.println(n);					
-					trouve=true;
-				}if(!trouve){
-					nb=1;
-					int[]tabL;
-					for (int j2 = i+1; j2 < tabini.length; j2++) {
-						if(l[i]==l[j2]){
-						nb++;
-						//System.out.println(nb);
-						}
-					}
+			if (cat.equals(tabini[i].substring(0, 6))) {
+				Meuble1 str=new Meuble1(tabini[i]);
+				if(lst.indexOf(str)!=-1){
+					lst.get(lst.indexOf(str)).plusUn();
+				}else{
+					lst.add(str);
 				}
 			}
+
+		}
+		Collections.sort(lst);
+		if (n<=lst.size()){
+			tab=new String[n];
+		}else{
+			tab=new String[lst.size()];
+		}
+		for (int i = 0; i < tab.length; i++) {
+			tab[i]=lst.get(i).getRef();
 		}
 
+		
+//		boolean trouve = false;
+//		//int[] tabL = new int[l.length];
+//		int nb = 1;
+//		for (int i = 0; i < lst.size(); i++) {
+//			// tabF[i]=cat;
+//			
+//			trouve = false;
+//						
+//				if (!trouve) {
+//					nb = 1;
+//
+//					for (int j = i + 1; j < lst.size(); j++) {
+//						if (lst.get(i).equals(lst.get(j))) {
+//							nb++;
+//								
+//		
+//						} 
+//						//tabL[i] = nb;
+//					}
+//					
+//				}
+//				nbOccur.add(nb);
+//
+//			}
+
+		
 		return tab;
 	}
 }
