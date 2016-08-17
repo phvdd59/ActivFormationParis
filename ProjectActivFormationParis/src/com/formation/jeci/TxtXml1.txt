@@ -18,7 +18,7 @@ Besoin :
 	|				 - Materiaux  type , pc                                                                  |
 	|			- Notice contient des donnees caractéres de toutes natures.                                  |
 	|				 - (donnees caractéres)                                                                  |
-	|                                                                                                   |
+	|                                                                                                        |
 	----------------------------------------------------------------------------------------------------------
 	      nom(du Meuble) : optionel
 	      unite : optionnel : millimètre -> mm ,centimètre -> cm ,mètre -> m ,inch -> i , millimètre par defaut

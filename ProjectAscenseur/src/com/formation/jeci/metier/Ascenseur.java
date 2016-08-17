@@ -9,7 +9,7 @@ import com.formation.phva.inter.InterPersonne;
 public class Ascenseur extends Thread implements InterAscenseur {
 
 	public static int CPT = 0;
-	public static int TEMPS = 1000;
+	public static int TEMPS = 10;
 	public static int HAUTEUR_ETAGE = 30;
 	private int etage;
 	private int progression;
@@ -19,7 +19,7 @@ public class Ascenseur extends Thread implements InterAscenseur {
 	private InterAffichage affichage;
 
 	public Ascenseur(InterListPersonne lst, InterAffichage affichage) {
-		
+
 		super(Integer.toString(CPT));
 		this.listePersonne = lst;
 		this.etage = 0;
@@ -27,6 +27,7 @@ public class Ascenseur extends Thread implements InterAscenseur {
 
 		this.personne = null;
 		this.affichage = affichage;
+		CPT++;
 	}
 
 	public int getEtage() {
@@ -65,33 +66,37 @@ public class Ascenseur extends Thread implements InterAscenseur {
 	public void run() {
 
 		while (!fin) {
-			affichage.repaint();
+			// affichage.repaint();
 			try {
 				Thread.sleep(TEMPS);
 			} catch (InterruptedException e) {
 
 			}
-			if (personne == null) {
+			if (listePersonne.size() != 0) {
 
-				synchronized (listePersonne) {
-					if (listePersonne.size() == 0 && listePersonne.isSortie()) {
-						fin = true;
-					} else {
-						personne = rechercherPersonneEnAttente();
-						personne.setEtat(ETAT.DEPART);
+				if (personne == null) {
+
+					synchronized (listePersonne) {
+						if (listePersonne.size() == 0 && listePersonne.isSortie()) {
+							// fin = true;
+						} else {
+							personne = rechercherPersonneEnAttente();
+							personne.setEtat(ETAT.DEPART);
+						}
+
 					}
+				} else if (personne.getEtat() == ETAT.DEPART) {
+					deplacerAscenseurDepart();
 
+				} else if (personne.getEtat() == ETAT.MOVE) {
+					deplacerAscenseurArrive();
+				} else if (personne.getEtat() == ETAT.ARRIVE) {
+					personne = null;
 				}
-			} else if (personne.getEtat() == ETAT.DEPART) {
-				deplacerAscenseurDepart();
-			} else if (personne.getEtat() == ETAT.MOVE) {
-				deplacerAscenseurArrive();
-			} else if (personne.getEtat() == ETAT.ARRIVE) {
-				personne = null;
 			}
+			affichage.repaint();
 		}
-		}
-	
+	}
 
 	public InterPersonne rechercherPersonneEnAttente() {
 		InterPersonne persDisponible = null;
@@ -109,14 +114,16 @@ public class Ascenseur extends Thread implements InterAscenseur {
 		if (etage > personne.getArrivee()) {
 			if (progression % 30 == 0 && progression != 0) {
 				etage--;
+				progression = 0;
 
 			} else {
-				progression++;
+				progression--;
 			}
 
 		} else if (etage < personne.getArrivee()) {
 			if (progression % 30 == 0 && progression != 0) {
 				etage++;
+				progression = 0;
 
 			} else {
 				progression++;
@@ -133,19 +140,27 @@ public class Ascenseur extends Thread implements InterAscenseur {
 		if (etage > personne.getDepart()) {
 			if (progression % 30 == 0 && progression != 0) {
 				etage--;
+				progression = 0;
 
 			} else {
-				progression++;
+				progression--;
 			}
 		} else if (etage < personne.getDepart()) {
 			if (progression % 30 == 0 && progression != 0) {
 				etage++;
+				progression = 0;
 
 			} else {
 				progression++;
 			}
 		} else {
 			personne.setEtat(ETAT.MOVE);
+			try {
+				Thread.sleep(1500);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 
 	}

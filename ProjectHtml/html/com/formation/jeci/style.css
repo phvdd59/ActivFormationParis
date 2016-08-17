@@ -1,0 +1,10 @@
+@CHARSET "ISO-8859-1";
+p{
+	color:red;
+}
+.PROVERBE{
+	font-weight: bold;
+}
+.ORIGINE{
+	font-style:italic;
+}
