@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ListeMeuble [
+<!ELEMENT ListeMeuble (Meuble+)>
+	<!ELEMENT Meuble (Elmt+, Notice?)>
+		<!ATTLIST Meuble nomMeuble CDATA #IMPLIED>
+		<!ATTLIST Meuble ref CDATA #REQUIRED>
+		<!ATTLIST Meuble unite CDATA #REQUIRED>
+		<!ATTLIST Meuble lng CDATA #REQUIRED>
+		<!ATTLIST Meuble lar CDATA #REQUIRED>
+		<!ATTLIST Meuble hau CDATA #REQUIRED>
+			<!ELEMENT Elmt (Materiaux)+>
+				<!ATTLIST Elmt nom CDATA #REQUIRED>
+				<!ATTLIST Elmt num CDATA #REQUIRED>
+				<!ATTLIST Elmt unite CDATA #REQUIRED>
+				<!ATTLIST Elmt lng CDATA #REQUIRED>
+				<!ATTLIST Elmt lar CDATA #REQUIRED>
+				<!ATTLIST Elmt hau CDATA #REQUIRED>
+					<!ELEMENT Materiaux EMPTY>
+						<!ATTLIST Materiaux pc CDATA #REQUIRED>
+						<!ATTLIST Materiaux type (BOIS|COMPENSE|STRATIFIE|FER|BRONZE|VERRE|TISSU|CARTON|VIDE|PLASTIQUE|CAOUTCHOU|BAMBOU) "BOIS" >	
+			<!ELEMENT Notice (#PCDATA)>
+		
+								
+	]>
+<ListeMeuble>
+	<Meuble nomMeuble="jhzeaze" ref="10" unite="045" lng="152"  lar="1255"  hau="1525">
+		<Elmt nom="azr" num="3168" unite="1225" lng="16668" hau="6164" lar="1265">
+			<Materiaux pc="20%" type="BOIS"></Materiaux>
+			</Elmt>
+				<Notice>
+					zaropjazpirjizaer aziopruazprjopa aporaziporapozkzapijn
+					azziprjazprjp
+				</Notice>
+			
+		
+	</Meuble>
+</ListeMeuble>

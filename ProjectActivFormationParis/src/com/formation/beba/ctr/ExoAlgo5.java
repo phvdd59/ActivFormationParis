@@ -1,7 +1,6 @@
-package com.formation.issa.ctr;
+package com.formation.beba.ctr;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class ExoAlgo5 implements com.formation.phva.inter.InterAlgo5 {
 	/*
@@ -43,64 +42,51 @@ public class ExoAlgo5 implements com.formation.phva.inter.InterAlgo5 {
 	 */
 
 	public String[] solution(String[] tab, String cat, int n) {
+		ArrayList<String> lst = new ArrayList<String>();
+		ArrayList<String> lst2 = new ArrayList<String>();
+		String[] tabRet = new String[n];
 
-		String ini = "001451001,001451002,001451001,456789002,001451005,001451004,001451001,001451008,001451004";
-		cat = "001451";
-		ArrayList<Meuble1> lst = null;
-		//ArrayList<Integer>nbOccur=null;
-		lst=new ArrayList<Meuble1>();
-		//nbOccur=new ArrayList<Integer>();
-
-		String tabini[] = ini.split(",");
-		//int[] l = new int[tabini.length];
-		for (int i = 0; i < tabini.length; i++) {
-			if (cat.equals(tabini[i].substring(0, 6))) {
-				Meuble1 str=new Meuble1(tabini[i]);
-				if(lst.indexOf(str)!=-1){
-					lst.get(lst.indexOf(str)).plusUn();
-				}else{
-					lst.add(str);
+		for (int i = 0; i < tab.length; i++) {
+			String temp = tab[i].substring(0, 6);
+			if (temp.compareTo(cat) == 0) {
+				lst.add(tab[i].concat("000"));
+			}
+		}
+		for (int i = 0; i < lst.size(); i++) {
+			if (i == 1) {
+				lst2.add(tab[i]);
+			} else {
+				for (int j = i + 1; j < lst.size() + 1; j++) {
+					if (j == lst.size()) {
+						lst2.add(lst.get(i));
+					} else if (lst.get(i).equals(lst.get(j))) {
+						break;
+					}
 				}
 			}
-
 		}
-		Collections.sort(lst);
-		if (n<=lst.size()){
-			tab=new String[n];
-		}else{
-			tab=new String[lst.size()];
+		for (int i = 0; i < lst2.size(); i++) {
+			long temp = Long.valueOf(lst2.get(i));
+			for (int j = 0; j < lst.size(); j++) {
+				if (lst2.get(i).equals(lst.get(j))) {
+					temp++;
+				}
+			}
+			lst2.add(i, Long.toString(temp));
+			lst2.remove(i + 1);
 		}
-		for (int i = 0; i < tab.length; i++) {
-			tab[i]=lst.get(i).getRef();
+		for (int i = 0; i <= (lst2.size() - 2); i++)
+			for (int j = i + 1; j < lst2.size() - 1; j++) {
+				String test = lst2.get(j - 1).substring(9, 12);
+				String test2 = lst2.get(j).substring(9, 12);
+				if (Integer.valueOf(test) < Integer.valueOf(test2)) {
+					lst2.add(j - 1, lst2.remove(j));
+				}
+			}
+		for (int i = 0; i < n; i++) {
+			tab[i] = Integer.toString(Integer.valueOf(lst.get(i)) / 1000);
 		}
 
-		
-//		boolean trouve = false;
-//		//int[] tabL = new int[l.length];
-//		int nb = 1;
-//		for (int i = 0; i < lst.size(); i++) {
-//			// tabF[i]=cat;
-//			
-//			trouve = false;
-//						
-//				if (!trouve) {
-//					nb = 1;
-//
-//					for (int j = i + 1; j < lst.size(); j++) {
-//						if (lst.get(i).equals(lst.get(j))) {
-//							nb++;
-//								
-//		
-//						} 
-//						//tabL[i] = nb;
-//					}
-//					
-//				}
-//				nbOccur.add(nb);
-//
-//			}
-
-		
 		return tab;
 	}
 }

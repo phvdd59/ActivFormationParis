@@ -4,6 +4,22 @@
 <meta charset="ISO-8859-1">
 <title>FORMULAIRE IDENTIFICATION</title>
 <link rel="stylesheet" href=StyleFormulaire.css />
+<script type="text/javascript">
+function maFonction() {
+	alert("JECI est un tocard !")
+	var var1 = 1;
+	var var2 = 2;
+	var var2 = "toto";
+	
+	if (var1==var2) {
+		alert("c'est pareil'")
+	} else {
+	alert("c'est différent")
+	}
+	var votreNom = prompt("saisie ton nom!");
+}
+
+</script>
 </head>
 <div style= "background-color: darkblue; color : white; font: bold " align="center" > FORMULAIRE D'IDENTIFICATION </div>
 <div style="background-color:silver; ;"> 
@@ -92,7 +108,7 @@
 				<td>Km mensuel estimé : <input type="texte" name="km mensuel estimé" style="width: 226px; "/></td>
 			</tr>	
 			<tr>
-				<td colspan="2"; align="center">	<h3><input type = "submit" value = "Enregistrer" style="width: 558px; "/></h3></td>
+				<td colspan="2"; align="center">	<h3><input id = "b0" type = "button" value = "Enregister" onclick = "maFonction()" style="width: 439px; "/></h3></td>
 			</tr>	
 		</table>
 		</form>

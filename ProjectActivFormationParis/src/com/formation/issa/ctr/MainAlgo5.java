@@ -17,6 +17,8 @@ public class MainAlgo5 {
 	String cat=null;
 	int n=2;
 	ex5.solution(tab, cat, n);
+	
+	
 		
 	}
 

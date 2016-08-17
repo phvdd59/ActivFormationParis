@@ -2,7 +2,9 @@ package com.formation.jeci.main;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -13,16 +15,59 @@ public class MainFlux {
 	public static void main(String[] args) throws Exception {
 		MainFlux m = new MainFlux();
 		// m.init();
-		 m.initEcriture();
-		m.initLecture();
+		m.initEcriture();
+m.initLecture();
+		m.initImage();
+
+	}
+
+	private void initImage() {
+		File file = new File("./src/com/formation/phva/data/image.bmp");
+		File file2 = new File("./src/com/formation/jeci/data/image.bmp");
+		FileInputStream iS = null;
+		FileOutputStream oS = null;
+
+		try {
+			iS = new FileInputStream(file);
+			oS = new FileOutputStream(file2);
+			int lectur1byte = iS.read();
+int nb=0;
+			while (lectur1byte != -1) {
+				if (nb>=1024) {
+					if (nb%4==3) {
+						lectur1byte=0xff;
+					}
+//					lectur1byte=(-1^lectur1byte)&0xff;
+				}
+				
+				nb++;
+				oS.write(lectur1byte);
+				lectur1byte = iS.read();
+
+			}
+
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		} finally {
+			try {
+				iS.close();
+				oS.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		}
 
 	}
 
 	private void initLecture() {
-		File file = new File("./src/com/formation/joca/data/texte.txt");
-
+		File file = new File("./src/com/formation/jeci/data/texte.txt");
+		InputStreamReader inputStreamREader = null;
 		BufferedReader bIn = null;
 		try {
+			inputStreamREader = new InputStreamReader(new FileInputStream(file), "UTF-8");
 			bIn = new BufferedReader(new FileReader(file));
 			String ligne = bIn.readLine();
 			while (ligne != null) {
