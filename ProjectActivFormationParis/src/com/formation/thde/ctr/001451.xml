@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ListeMeuble SYSTEM "meuble.dtd">
+
+<ListeMeuble>
+	<Meuble nom='Armoire' ref='001451' unite='cm' lng='12' lar='12'
+		hau='15'>
+		<Elmt nom='glurmf' num='001' unite='cm' lng='1' lar='2' hau='5'>
+			<Materiaux pc='50'>
+			</Materiaux>
+		</Elmt>
+		<Elmt nom='paglanpf' num='002' unite='cm' lng='1' lar='2' hau='5'>
+			<Materiaux pc='50'>
+			</Materiaux>
+		</Elmt>
+	</Meuble>
+</ListeMeuble>
