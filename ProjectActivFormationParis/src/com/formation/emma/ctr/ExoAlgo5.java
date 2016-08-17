@@ -46,7 +46,7 @@ public class ExoAlgo5 implements com.formation.phva.inter.InterAlgo5 {
 
 	public String[] solution(String[] tab, String cat, int n) {
 		String[] tabRetour = null;
-		ArrayList<String> liste = null;
+		//ArrayList<RepetitionMot> liste = null;
 		ArrayList<RepetitionMot> tabInt = null;
 		int a = 0;
 		int d = 0;
@@ -55,33 +55,29 @@ public class ExoAlgo5 implements com.formation.phva.inter.InterAlgo5 {
 
 		} else {
 			tabInt = new ArrayList<RepetitionMot>();
-			liste = new ArrayList<String>();
+		//	liste = new ArrayList<RepetitionMot>();
 			for (int i = 0; i < tab.length; i++) {
-				if (cat.equals(tab[i].substring(0, 7))) {
-					liste.add(tab[i]);
-				}
-			}
-
-			if (tabInt.size() == 0) {
-				tabInt.get(0).setCategorie(liste.get(0));
-				tabInt.get(0).setRepetition(1);
-			} else {
-				for (int j = 0; j < liste.size(); j++) {
-					for (int k = 0; k < tabInt.size(); k++) {
-
-						if (liste.get(j) == tabInt.get(k).getCategorie()) {
-							d = tabInt.get(k).getRepetition() + 1;
-							tabInt.get(k).setRepetition(d);
-						} else {
-							tabInt.get(tabInt.size()).setCategorie(liste.get(j));
-							tabInt.get(tabInt.size()).setRepetition(1);
-						}
+				if (cat.equals(tab[i].substring(0, 6))) {
+					RepetitionMot meuble = new RepetitionMot(tab[i], 1);
+					//					liste.add(meuble);
+					if (tabInt.contains(meuble)) {
+						a = tabInt.indexOf(meuble);
+						d = tabInt.get(a).getRepetition() + 1;
+						tabInt.remove(a);
+						tabInt.add(new RepetitionMot(tabInt.get(a).getCategorie(), d));
+						break;
+					} else {
+						tabInt.add(meuble);
 					}
 				}
 			}
-
-			tabRetour = new String[n];
 		}
+		//
+		//			for (int k = 0; k < liste.size(); k++) {
+
+		tabRetour = new String[n];
+
+		//}
 
 		return tabRetour;
 	}

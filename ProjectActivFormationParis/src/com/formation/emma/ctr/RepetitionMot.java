@@ -2,6 +2,12 @@ package com.formation.emma.ctr;
 
 public class RepetitionMot {
 
+	@Override
+	public String toString() {
+		return "[" + categorie + ", " + repetition + "]";
+	}
+
+
 	private String categorie;
 	private int repetition;
 	
