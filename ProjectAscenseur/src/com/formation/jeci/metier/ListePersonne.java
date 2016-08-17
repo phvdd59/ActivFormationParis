@@ -19,8 +19,8 @@ public class ListePersonne extends ArrayList<Personne> implements Runnable, Inte
 	@Override
 	public void run() {
 		try {
-			while (Personne.CPT < 10) {
-				long temps = (long) (Math.random() * 2000);
+			while (!sortie) {
+				long temps = (long) (Math.random() * 500);
 				Personne a = new Personne();
 				synchronized (this) {
 					this.add(a);

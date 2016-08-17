@@ -58,7 +58,12 @@ public class MainAscenseur {
 		ListePersonne lst = new ListePersonne();
 		Thread t = new Thread(lst);
 		t.start();
-
+try {
+	Thread.sleep(5000);
+} catch (InterruptedException e) {
+	// TODO Auto-generated catch block
+	e.printStackTrace();
+}
 		ListeAscenseur lsta = new ListeAscenseur(lst);
 
 	}

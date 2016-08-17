@@ -49,6 +49,8 @@ public class ExoJocaTest {
 
 	}
 
+	/*****************************************************************************************************************/
+
 	@Test
 	public void testadresseMail1() {
 		exoJoca.setAdresseMail("jerome.gmail@gmail.com");
@@ -80,7 +82,7 @@ public class ExoJocaTest {
 	@Test
 	public void testadresseMail5() {
 		exoJoca.setAdresseMail("jerome.gmail@gmail.be");
-		Assert.assertEquals("adresse correcte", "adresse mail non valide", exoJoca.getAdresseMail());
+		Assert.assertEquals("adresse correcte", "jerome.gmail@gmail.be", exoJoca.getAdresseMail());
 
 	}
 
@@ -91,48 +93,50 @@ public class ExoJocaTest {
 
 	}
 
+	/*****************************************************************************************************************/
+
 	@Test
 	public void testcoordonnee1() {
 		exoJoca.setCoordonnee("jerome.@mail@gmail.com", "+33ab5040302");
-		Assert.assertEquals("coordonnee incorrecte", "adresse mail non valide" + "numero de telephone non valide", exoJoca.getAdresseMail());
+		Assert.assertEquals("coordonnee incorrecte", "adresse mail non valide" + "numero de telephone non valide", exoJoca.getAdresseMail() + exoJoca.getTel());
 
 	}
 
 	@Test
 	public void testcoordonnee2() {
 		exoJoca.setCoordonnee("jerome.mail@gmail.com", "+33525040302");
-		Assert.assertEquals("coordonnee correcte", "jerome.mail@gmail.com" + "+33525040302", exoJoca.getAdresseMail());
+		Assert.assertEquals("coordonnee correcte", "jerome.mail@gmail.com" + "+33525040302", exoJoca.getAdresseMail() + exoJoca.getTel());
 	}
 
 	@Test
 	public void testcoordonnee3() {
 		exoJoca.setCoordonnee("jerome.m ail@gmail.com", "+33655040302");
-		Assert.assertEquals("coordonnee incorrecte", "adresse mail non valide" + "+33655040302", exoJoca.getAdresseMail());
+		Assert.assertEquals("coordonnee incorrecte", "adresse mail non valide" + "+33655040302", exoJoca.getAdresseMail() + exoJoca.getTel());
 	}
 
 	@Test
 	public void testcoordonnee4() {
 		exoJoca.setCoordonnee("jerome@gmail.com", "0");
-		Assert.assertEquals("coordonnee incorrecte", "jerome@gmail.com" + "numero de telephone non valide", exoJoca.getAdresseMail());
+		Assert.assertEquals("coordonnee incorrecte", "jerome@gmail.com" + "numero de telephone non valide", exoJoca.getAdresseMail() + exoJoca.getTel());
 	}
 
 	@Test
 	public void testcoordonnee5() {
 		exoJoca.setCoordonnee("jerome@gmail.com", "+3362^1¨15040302");
-		Assert.assertEquals("coordonnee incorrecte", "jerome@gmail.com" + "numero de telephone non valide", exoJoca.getAdresseMail());
+		Assert.assertEquals("coordonnee incorrecte", "jerome@gmail.com" + "numero de telephone non valide", exoJoca.getAdresseMail() + exoJoca.getTel());
 	}
 
 	/*****************************************************************************************************************/
 	@Test
 	public void testmdpcache() {
 		exoJoca.setMdpCache("alLelou1");
-		Assert.assertEquals("mdp correct", "laeLolu", exoJoca.getMdp());
+		Assert.assertEquals("mdp correct", "laeLol1u", exoJoca.getMdp());
 	}
 
 	@Test
 	public void testmdpcache1() {
 		exoJoca.setMdpCache("alLelou1a");
-		Assert.assertEquals("mdp correct", "laeLolua", exoJoca.getMdp());
+		Assert.assertEquals("mdp correct", "laeLol1ua", exoJoca.getMdp());
 	}
 
 	@Test
