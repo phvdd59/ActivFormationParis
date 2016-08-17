@@ -2,46 +2,167 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Formulaire</title>
-<script type="text/javascript"> function mafonction(){
-var1 ="5";
-var2 = 5;
-var votreNom= prompt("saisissez votre nom");
-if (var1 === var2){ //=== permet de voir le type, == ne fait pas attention au ""
-alert("pas enregistrer"); 
-} else {
-alert("enregistrer"); 
-}
+<title>FORMULAIRE IDENTIFICATION</title>
+<link rel="stylesheet" href=StyleFormulaire.css />
+<script type="text/javascript">
+	function maFonction() {
+	}
 
-}
+	function ecriture() {
+		var champ = document.getElementById('coef'); //'km','montant','coef');
+		//	var value=champ.value;
+		try {
+			var chiffre = parseInt(champ);
+			champ.innerHTML = "saisie incorrecte";
+		} catch (err) {
+		}
+
+		//var lettre=document.getElementById('fn','pos');
+
+		// 	if (chiffre.matches("[0-9]+")==false){
+		// 	chiffre.innerHTML = "champs incorrect";
+		// 	}
+
+	}
 </script>
 </head>
-<body>
-<form action="">
-	<fieldset>
-		<div>
-		<h2 style="text-align:center">Demande d'inscription</h2>
-		<div style="text-align:center" ><legend> COORDONNEES PERSONNELLES</legend></div>
-		<div>	Nom: <input type="text" name="nom"/>   Pr�nom: <input type="text" name="pr�nom"/><br/></div>
-		<div>	Adresse: <input type="text" name="adresse"/><br></div>
-		<div>	Code postal: <input type="text" name="code postal"/>   Ville: <input type="text" name="ville"/><br/></div>
-		<div>	T�l�phone fixe : <input type="text" name="t�l�phone fixe"/> T�l�phone portable: <input type="text" name="T�l�phone portable"/><br/></div>
-		<div>	Fax: <input type="text" name="fax"/>   Email: <input type="text" name="email"/><br/></div>
-		
-<!-- 				Sexe: <input type="radio" name="reponse" value="homme">Homme<br> -->
-<!-- 		<input type="radio" name="reponse" value="femme">Femme -->
-		
-		<div style="text-align:center" ><legend>ETAT CIVIL</legend></div>
-		<div>	Date de naissance: <input type="text" name="date de naissance"/>  Lieu: <input type="text" name="lieu"/><br/></div>
-		
-		<div style="text-align:center" ><legend>SITUATION ACTUELLE</legend></div>
-		
-		<div style="text-align:center" ><legend>FONCTION / REMUNERATION</legend></div>
-		
-		
-		</div>
-		<input id="b0" type="button" value="bouton" onclick="mafonction()">
-	</fieldset>
-</form>
-</body>
+<div style="background-color: darkblue; color: white; font: bold"
+	align="center">FORMULAIRE D'IDENTIFICATION</div>
+<div style="background-color: silver;">
+	<body>
+		<form action=" " name='formulaire'>
+			<table align="center">
+				<caption>
+					<h1>DEMANDE D'INSCRIPTION</h1>
+				</caption>
+				<tr>
+					<th colspan="2" align="center"><h4>COORDONNEES
+							PERSONNELLES</h4></th>
+				</tr>
+				<tr>
+					<td>Nom : <input type="texte" name="nom" style="width: 358px;" /></td>
+					<td>Prénom : <input type="texte" name="prénom"
+						style="width: 317px;" /></td>
+				</tr>
+				<tr>
+					<td colspan="2"">Adresse : <input type="texte" name="adresse"
+						; style="width: 751px; height: 60px" /></td>
+				</tr>
+				<tr>
+					<td>Code postal : <input type="texte" name="code postal"
+						style="width: 296px;" /></td>
+					<td>Ville : <input type="texte" name="ville"
+						style="width: 344px;" /></td>
+				</tr>
+				<tr>
+					<td>Téléphone fixe : <input type="tel" name="telephone fixe"
+						style="width: 280px;" /></td>
+					<td>Téléphone portable : <input type="tel"
+						name="telephone portable" style="width: 221px;" /></td>
+				</tr>
+				<tr>
+					<td>Fax : <input type="tel" name="fax" style="width: 368px;" /></td>
+					<td>Email : <input type="email" name="email"
+						style="width: 334px;" /></td>
+				</tr>
+				<tr>
+					<th colspan="2" align="center"><h4>ETAT CIVIL</h4></th>
+				</tr>
+				<tr>
+					<td>Date de naissance : <input type="date"
+						name="date de naissance" style="width: 248px;" /></td>
+					<td>Lieu : <input type="texte" name="lieu"
+						style="width: 348px;" /></td>
+				</tr>
+				<tr>
+					<td colspan="2">Numéro de sécurité sociale (15 chiffres) : <input
+						type="texte" name="numero de sécurité sociale"
+						style="width: 505px;" /></td>
+				</tr>
+				<tr>
+					<td colspan="2">Nationalité : <input type="texte"
+						name="nationalité" style="width: 720px;" /></td>
+				</tr>
+				<tr>
+					<th colspan="2" align="center"><h4>SITUATION ACTUELLE</h4></th>
+				</tr>
+				<tr>
+					<td colspan="2" align="center"><input type="radio"
+						name="situation actuelle" value="salarié">Salarié <input
+						type="radio" name="situation actuelle" value="auto entrepreneur">
+						Auto entrepreneur <input type="radio" name="situation actuelle"
+						value="freelance"> Freelance</td>
+				</tr>
+				<tr>
+					<td colspan="2"><input type="radio" name="situation actuelle"
+						value="demandeur d'emploi"> Demandeur d'emploi <input
+						type="radio" name="situation actuelle" value="retraité">
+						Retraité <input type="radio" name="situation actuelle"
+						value="autre" checked> Autre <input type="texte"
+						name="Autre" style="width: 450px;" /></td>
+				</tr>
+				<tr>
+					<th colspan="2" align="center"><h4>FONCTION /
+							REMUNERATION</h4></th>
+				</tr>
+				<tr>
+					<td>Fonction occupée : <input type="texte"
+						name="fonction occupée" style="width: 252px;" /></td>
+					<td align="center"><input type="radio" name="fonction occupée"
+						value="cadre" checked> Cadre <input type="radio"
+						name="fonction occupée" value="non cadre"> Non cadre</td>
+				</tr>
+				<tr>
+					<td>Position : <input type="texte" name="position"
+						style="width: 332px;" /></td>
+					<td>Coefficient : <span id="coef" style="color: red"></span><input
+						id="coef" onblur="ecriture()" type="texte"
+						placeholder="en chiffre" name="coefficient" style="width: 285px;" /></td>
+
+				</tr>
+				<tr>
+					<td colspan="2">Salaire souhaité (annuel): <input type="texte"
+						name="salaire souhaité" style="width: 185px;" /> K€
+					</td>
+				</tr>
+				<tr>
+					<td align="center">Mutuelle souhaitée : <input type="radio"
+						name="mutuelle souhaitée" value="oui" checked> oui <input
+						type="radio" name="mutuelle souhaitée" value="non"> non
+					</td>
+					<td align="center">Ticket resto : <input type="radio"
+						name="ticket resto" value="oui" checked> oui <input
+						type="radio" name="ticket resto" value="non"> non
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">Date de votre dernière visite médicale : <input
+						type="date" name="date de votre dernière visite médicale"
+						style="width: 211px;" /></td>
+				</tr>
+				<tr>
+					<td colspan="2">Montant carte d'abonnement transport : <input
+						type="texte" name="montant carte d'abonnement transport"
+						style="width: 202px;" /> €
+					</td>
+				</tr>
+				<tr>
+					<td>Vehicule personnel : <input type="texte"
+						name="vehicule personnel" style="width: 246px;" /></td>
+					<td>Km mensuel estimé : <input type="texte"
+						name="km mensuel estimé" style="width: 189px;" /> Km
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" ; align="center">
+						<h3>
+							<input id="b0" type="button" value="Enregister"
+								onclick="maFonction()" style="width: 439px;" />
+						</h3>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</body>
+</div>
 </html>
