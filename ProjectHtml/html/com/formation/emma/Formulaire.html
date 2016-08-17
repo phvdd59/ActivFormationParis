@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Formulaire</title>
+<script type="text/javascript"> function mafonction(){
+var1 ="5";
+var2 = 5;
+var votreNom= prompt("saisissez votre nom");
+if (var1 === var2){ //=== permet de voir le type, == ne fait pas attention au ""
+alert("pas enregistrer"); 
+} else {
+alert("enregistrer"); 
+}
+
+}
+</script>
+</head>
+<body>
+<form action="">
+	<fieldset>
+		<div>
+		<h2 style="text-align:center">Demande d'inscription</h2>
+		<div style="text-align:center" ><legend> COORDONNEES PERSONNELLES</legend></div>
+		<div>	Nom: <input type="text" name="nom"/>   Prénom: <input type="text" name="prénom"/><br/></div>
+		<div>	Adresse: <input type="text" name="adresse"/><br></div>
+		<div>	Code postal: <input type="text" name="code postal"/>   Ville: <input type="text" name="ville"/><br/></div>
+		<div>	Téléphone fixe : <input type="text" name="téléphone fixe"/> Téléphone portable: <input type="text" name="Téléphone portable"/><br/></div>
+		<div>	Fax: <input type="text" name="fax"/>   Email: <input type="text" name="email"/><br/></div>
+		
+<!-- 				Sexe: <input type="radio" name="reponse" value="homme">Homme<br> -->
+<!-- 		<input type="radio" name="reponse" value="femme">Femme -->
+		
+		<div style="text-align:center" ><legend>ETAT CIVIL</legend></div>
+		<div>	Date de naissance: <input type="text" name="date de naissance"/>  Lieu: <input type="text" name="lieu"/><br/></div>
+		
+		<div style="text-align:center" ><legend>SITUATION ACTUELLE</legend></div>
+		
+		<div style="text-align:center" ><legend>FONCTION / REMUNERATION</legend></div>
+		
+		
+		</div>
+		<input id="b0" type="button" value="bouton" onclick="mafonction()">
+	</fieldset>
+</form>
+</body>
+</html>
