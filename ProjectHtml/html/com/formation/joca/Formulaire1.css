@@ -1,0 +1,24 @@
+@CHARSET "ISO-8859-1";
+
+#formulaireprincipal {
+	background-color: pink;
+	width: 580px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+th.cellulelarge {
+	width: 145px;
+	height: 30px;
+	border-width: 2px;
+	border-color: black;
+	border: thin;
+}
+
+th.celluleshort {
+	width: 72px;
+	height: 30px;
+	border: thin;
+	border-width: 2px;
+	border-color: black;
+}

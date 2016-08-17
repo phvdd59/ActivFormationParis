@@ -1,0 +1,31 @@
+@CHARSET "ISO-8859-1";
+
+h3 {
+	color: red;
+}
+
+body {
+	color: black;
+	background-repeat: no-repeat;
+}
+
+.PROSE {
+	font-style: italic;
+	font-weight: bold;
+	text-align: center;
+}
+
+div {
+	/*background-image: url("Df9sV7x.jpg");*/
+	
+}
+
+div.pos_gauche {
+	position: relative;
+	left: -400px
+}
+
+div.pos_droite {
+	position: relative;
+	left: 400px
+}
