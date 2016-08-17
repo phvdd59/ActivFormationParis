@@ -9,12 +9,17 @@
 	}
 
 	function ecriture() {
-		var champ = document.getElementById('coef'); //'km','montant','coef');
-		//	var value=champ.value;
+		var champ = document.getElementById("coef"); //'km','montant','coef');
+		var value=champ.value;
+		//alert(value);
 		try {
-			var chiffre = parseInt(champ);
-			champ.innerHTML = "saisie incorrecte";
+			var chiffre = parseInt(value);
+			if (isNaN(chiffre)) {
+				alert("COU");
+			}
+			champ.innerHTML = "";
 		} catch (err) {
+			champ.innerHTML = "saisie incorrecte";
 		}
 
 		//var lettre=document.getElementById('fn','pos');
@@ -115,7 +120,7 @@
 				<tr>
 					<td>Position : <input type="texte" name="position"
 						style="width: 332px;" /></td>
-					<td>Coefficient : <span id="coef" style="color: red"></span><input
+					<td>Coefficient : <span id="coefSpan" style="color: red"></span><input
 						id="coef" onblur="ecriture()" type="texte"
 						placeholder="en chiffre" name="coefficient" style="width: 285px;" /></td>
 
