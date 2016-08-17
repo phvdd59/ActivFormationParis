@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<ListeMeuble>
+		<Meuble ref="001451123333" lng="100cm" lar="80cm" hau="150cm" >
+			<Elmt num="12" lng="10" lar="5" hau="5">
+				<Materiaux  type="BOIS" pc="100%"/>
+			</Elmt>
+			<Elmt num="15" lng="10" lar="10" hau="5">
+				<Materiaux  type="BOIS" pc="100%"/>
+			</Elmt>
+			<Elmt num="20" lng="5" lar="15" hau="15">
+				<Materiaux  type="COMPENSE" pc="100%"/>
+			</Elmt>
+			<Notice>"Monte ton meuble comme tu le sens, ne t'inquiete pas s'il reste des pièces"</Notice>
+		</Meuble>
+	</ListeMeuble>
