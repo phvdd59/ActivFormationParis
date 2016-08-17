@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function ctrIdent() {
+		var ident = document.getElementById("ident");
+		var erreur = document.getElementById("erreur");
+		ident.innerHTML = "Erreur";
+		erreur.style.color = "red";
+		erreur.innerHTML ="ERREUR";
+	}
+	
+</script>
+</head>
+<body>
+	<form action="http://www.ambr.fr/ambr/formulaire3.html">
+		<table>
+			<tr>
+				<td>Identifiant :<input id="ident" onblur="ctrIdent()" type="text" name="nom"/>
+				<p id="erreur">bonjour</p>
+				</td>
+			</tr>
+			<tr>
+				<td>Mot de passe :<input type="password" name="nom"/></td>
+			</tr>
+			<tr>
+				<td><input type="submit" value="Valider"/></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
