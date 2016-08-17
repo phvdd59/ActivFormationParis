@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Commercant [
+		<!ELEMENT ListeMeuble     (Meuble*,Notice?)>
+			<!ELEMENT Meuble(Elmt)+>
+			
+			<!ATTLIST Meuble nom CDATA #IMPLIED>
+			<!ATTLIST Meuble ref CDATA #REQUIRED>
+			<!ATTLIST Meuble unite (m|cm|mm|i) "mm">
+			<!ATTLIST Meuble lng CDATA #REQUIRED>
+			<!ATTLIST Meuble lar CDATA #REQUIRED>
+			<!ATTLIST Meuble hau CDATA #REQUIRED>
+			
+				<!ELEMENT Elmt (Materiaux)+>
+				<!ATTLIST Elmt nom CDATA #IMPLIED>
+					<!ATTLIST Elmt num CDATA #REQUIRED>
+					<!ATTLIST Elmt unite (m|cm|mm|i) "mm" >
+					<!ATTLIST Elmt lng CDATA #REQUIRED>
+					<!ATTLIST Elmt lar CDATA #REQUIRED>
+					<!ATTLIST Elmt hau CDATA #REQUIRED>
+			<!ELEMENT Materiaux EMPTY >
+					<!ATTLIST Materiaux  pc CDATA #REQUIRED>
+					<!ATTLIST Materiaux type (BOIS|COMPENSE|BRONZE|STRATIFIE|FER|VERRE|TISSU|CARTON|VIDE|PLASTIQUE|CAOUTCHOU|BAMBOU) "BOIS">
+		<!ELEMENT  Notice ANY>
+			]>		
+				
+				
