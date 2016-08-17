@@ -4,6 +4,14 @@
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" href="CSSProjet.css">
 <title>Page d'identification</title>
+<script type="text/javascript">
+	function ctrTestID() {
+		var IDT = document.getElementByID("testID");
+		var erreur = document.getElementByID("erreur")
+		erreur.innerHTML = "Erreur";
+		erreur.style.color = "blue";
+	}
+</script>
 </head>
 <body>
 	<h1>Société X ou Y</h1>
@@ -13,8 +21,9 @@
 				<caption>Identification</caption>
 				<tbody>
 					<tr>
-						<td style="width: 262px;">Identifiant: <input name="nom" type="text"></td>
+						<td id=testID style="width: 262px;">Identifiant: <input name="nom" type="text" onblur="ctrTestID()"></td>
 						<td style="width: 262px;">Mot de passe: <input name="Mot de passe" type="password"></td>
+						<p ID=erreur>bondour</p>
 					</tr>
 					<tr>
 						<td colspan="2"><label>Candidat <input type="radio" name="Candidat" value="Candidat">
@@ -26,6 +35,7 @@
 					</tr>
 				</tbody>
 			</table>
+			<input id="b0" type="button" value="bouton" onclick="maFonction()">
 		</form>
 	</div>
 </body>

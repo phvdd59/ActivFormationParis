@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE Commercant [
+		<!ELEMENT ListeMeuble     (Meuble*,Notice?)>
+			<!ELEMENT Meuble (Elmt)+>
+			
+			<!ATTLIST Meuble nom CDATA #IMPLIED>
+			<!ATTLIST Meuble ref CDATA #REQUIRED>
+			<!ATTLIST Meuble unite (m|cm|mm|i) "mm">
+			<!ATTLIST Meuble lng CDATA #REQUIRED>
+			<!ATTLIST Meuble lar CDATA #REQUIRED>
+			<!ATTLIST Meuble hau CDATA #REQUIRED>
+			
+				<!ELEMENT Elmt (Materiaux)+>
+				<!ATTLIST Elmt nom CDATA #IMPLIED>
+					<!ATTLIST Elmt num CDATA #REQUIRED>
+					<!ATTLIST Elmt unite (m|cm|mm|i) "mm" >
+					<!ATTLIST Elmt lng CDATA #REQUIRED>
+					<!ATTLIST Elmt lar CDATA #REQUIRED>
+					<!ATTLIST Elmt hau CDATA #REQUIRED>
+			<!ELEMENT Materiaux EMPTY >
+					<!ATTLIST Materiaux  pc CDATA #REQUIRED>
+					<!ATTLIST Materiaux type (BOIS|COMPENSE|BRONZE|STRATIFIE|FER|VERRE|TISSU|CARTON|VIDE|PLASTIQUE|CAOUTCHOU|BAMBOU) "BOIS">
+		<!ELEMENT  Notice ANY>
+			]>
+
+<ListeMeuble>
+	<Meuble nom='gruntublu' ref='001451' unite='mm' lng='700' lar='350' hau='800'>
+		<Elmt nom='plateau' num='1' unite='m' lng='1' lar='2' hau='0.4'>
+			<Materiaux pc='100' type='VERRE' />
+		</Elmt>
+		<Elmt nom='Support' num='3' unite='cm' lng='5' lar='7' hau='78'>
+			<Materiaux pc='82' type='BRONZE' />
+		</Elmt>
+		<Notice>
+			Attention, ne pas monter ça pince
+		</Notice>
+	</Meuble>
+
+	<Meuble ref='001451' unite='m' lng='1' lar='1' hau='1'>
+		<Elmt nom='cube' num='1' lng='1000' lar='1000' hau='1000'>
+			<Materiaux pc='10' type='VERRE' />
+		</Elmt>
+		<Notice>
+			il faut bien utiliser du papier
+		</Notice>
+	</Meuble>
+</ListeMeuble>
+		
+		
