@@ -3,6 +3,11 @@
 <!ELEMENT ListeMeuble (Meuble+)>
 	<!ELEMENT Meuble (Elmt+, Notice?)>
 		<!ATTLIST Meuble nomMeuble CDATA #IMPLIED>
+		<!ATTLIST Meuble ref CDATA #REQUIRED>
+		<!ATTLIST Meuble unite CDATA #REQUIRED>
+		<!ATTLIST Meuble lng CDATA #REQUIRED>
+		<!ATTLIST Meuble lar CDATA #REQUIRED>
+		<!ATTLIST Meuble hau CDATA #REQUIRED>
 			<!ELEMENT Elmt (Materiaux+)>
 				<!ATTLIST Elmt nom CDATA #REQUIRED>
 				<!ATTLIST Elmt num CDATA #REQUIRED>
