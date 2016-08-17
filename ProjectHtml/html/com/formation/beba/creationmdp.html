@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="CSSProjet.css">
+<title>Page d'identification</title>
+<script language="JavaScript">
+	function validation(f) {
+		if (f.mdp1.value == '' || f.mdp2.value == '') {
+			alert('Tous les champs ne sont pas remplis');
+			f.mdp1.focus();
+			return false;
+		} else if (f.mdp1.value != f.mdp2.value) {
+			alert('Ce ne sont pas les mêmes mots de passe!');
+			f.mdp1.focus();
+			return false;
+		} else if (f.mdp1.value == f.mdp2.value) {
+			return true;
+		} else {
+			f.mdp1.focus();
+			return false;
+		}
+	}
+</script>
+</head>
+<body>
+	<h1>Société X ou Y</h1>
+	<div class="container fondBlanc">
+		<form method="post" onSubmit="return validation(this)">
+			Entrez votre mot de passe: <input name="mdp1" type="password" value=""><br /> Entrez ce mot de passe à nouveau: <input name="mdp2" type="password" value=""> <input type="submit">
+		</form>
+	</div>
+</body>
+</html>
