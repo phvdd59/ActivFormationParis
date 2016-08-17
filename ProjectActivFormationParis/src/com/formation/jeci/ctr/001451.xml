@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListeMeuble>
+	<Meuble nomMeuble="jhzeaze">
+		<Elmt nom="azr" num="3168" unite="1225" lng="16668" hau="6164">
+			<Materiaux pc="20%" type="BOIS">
+				<Notice>
+					zaropjazpirjizaer aziopruazprjopa aporaziporapozkzapijn
+					azziprjazprjp
+				</Notice>
+			</Materiaux>
+		</Elmt>
+	</Meuble>
+</ListeMeuble>
