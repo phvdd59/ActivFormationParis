@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html> 
+<head >  
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Datepicker - Default functionality</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#datepicker" ).datepicker();
+  } );
+  </script>
+<meta charset="ISO-8859-1">
+
+<title>FORMULAIRE IDENTIFICATION</title>
+<link rel="stylesheet" href=StyleFormulaire.css />
+<script type="text/javascript">
+function maFonction() {
+	alert("JECI est un tocard !")
+	var var1 = 1;
+	var var2 = 2;
+	var var2 = "toto";
+	
+	if (var1==var2) {
+		alert("c'est pareil'")
+	} else {
+	alert("c'est différent")
+	}
+	var votreNom = prompt("saisie ton nom!");
+}
+function fct2(){
+	var autre=document.getElementById("Autre");
+	
+	var valSelected=document.getElementById("mySelect").selectedIndex;
+	
+	if (valSelected=="4"){
+		autre.style.visibility = "visible";
+	}else{
+		autre.style.visibility = "hidden";
+	}
+}
+function fct3(){
+	
+	var autre=document.getElementById("Nom").value;
+	var autre1=document.getElementById("Tnom")
+
+	if (autre.search("[^a-zA-Z]") != -1){
+		alert("Bonjour");
+		autre1.style.color = "red";
+	}else{
+		alert("Bonjour");
+		autre1.style.color = "blue";
+	}
+}
+
+</script>
+</head>
+<div style= "background-color: darkblue; color : white; font: bold " align="center" > FORMULAIRE D'IDENTIFICATION </div>
+<div style="background-color:silver; ;"> 
+	<body>
+	<form action = " ">
+		<table align = "center">
+			<caption><h1>DEMANDE D'INSCRIPTION</h1></caption>
+			<tr>
+				<th colspan="2" align="center"><h4>COORDONNEES PERSONNELLES</h4></th>
+			</tr>
+			<tr>
+				<td><label id="Tnom">Nom : </label><input id="Nom" type="text" value="Enter code" name="nom" onblur="fct3()"style="width: 358px;  "/></td>
+				<td>Prénom : <input type="text" name="prénom" style="width: 317px; "/></td>
+			</tr>
+			<tr>
+				<td colspan="2"">Adresse : <input type="texte" name="adresse"
+					; style="width: 751px; height: 60px" /></td>
+			</tr>
+			<tr>
+				<td>Code postal : <input type="texte" name="code postal" style="width: 296px; "/></td>
+				<td>Ville : <input type="texte" name="ville" style="width: 344px; "/></td>
+			</tr>
+			<tr>
+				<td>Téléphone fixe : <input type="tel" name="telephone fixe" style="width: 280px; "/></td>
+				<td>Téléphone portable : <input type="tel" name="telephone portable" style="width: 221px; "/></td>
+			</tr>
+			<tr>
+				<td>Fax : <input type="tel" name="fax" style="width: 368px; "/></td>
+				<td>Email : <input type="email" name="email" style="width: 334px; "/></td>
+			</tr>
+			<tr>
+				<th colspan="2" align="center"><h4>ETAT CIVIL</h4></th>
+			</tr>
+			<tr>
+				<td>Date de naissance : <span style="background-color: white"><input type="text" id="datepicker"></span></td>
+				<td>Lieu : <input type="texte" name="lieu" style="width: 348px; "/></td>
+			</tr>
+			<tr>
+				<td colspan="2">Numéro de sécurité sociale (15 chiffres) : <input type="texte" name="numero de sécurité sociale" style="width: 505px; "/></td>
+			</tr>
+			<tr>
+				<td colspan="2">Nationalité : <input type="texte" name="nationalité" style="width: 720px; "/></td>
+			</tr>
+			<tr>
+				<th colspan="2" align="center"><h4>SITUATION ACTUELLE</h4></th>
+			</tr>
+			<tr>
+				<td colspan="2" align = "center"> <span style="margin-right: 10px;">Situation
+						professionnelle : </span> <SELECT id="mySelect" name="choix" size="1" onchange="fct2()">
+						<option value="choix1">Salarié
+						<option value="choix2">Auto-entrepreneur
+						<option value="choix3">Freelance
+						<option value="choix4">Retraité
+						<option value="choix5">Autre
+				</SELECT> 
+				<span  id="Autre" style="margin-right: 10px; margin-left: 10px; visibility:hidden;">Autre :
+					<input type="text" name="nom" style="border: stick;" /></span>
+			</tr>
+			<tr>
+				<th colspan="2" align="center"><h4>FONCTION / REMUNERATION</h4></th>
+			</tr>
+			<tr>
+				<td>Fonction occupée : <input type="texte" name="fonction occupée" style="width: 252px; "/></td>
+				<td align = "center"><input type="radio" name="fonction occupée" value = "cadre" checked> Cadre
+					<input type="radio" name="fonction occupée" value = "non cadre"> Non cadre</td>
+			</tr>
+			<tr>
+				<td>Position : <input type="texte" name="position" style="width: 332px; "/></td>
+				<td>Coefficient : <input type="texte" name="coefficient" style="width: 285px; "/></td>
+			</tr>
+			<tr>
+				<td colspan="2">Salaire souhaité : <input type="texte" name="salaire souhaité" style="width: 685px; "/></td>
+			</tr>
+			<tr>
+				<td align = "center">Mutuelle souhaitée : <input type="radio" name="mutuelle souhaitée" value = "oui" checked> oui
+					<input type="radio" name="mutuelle souhaitée" value = "non"> non</td>
+					<td align = "center">Ticket resto : <input type="radio" name="ticket resto" value = "oui" checked> oui
+					<input type="radio" name="ticket resto" value = "non"> non</td>
+			</tr>
+			<tr>
+				<td colspan="2">Date de votre dernière visite médicale : <input type="texte" name="date de votre dernière visite médicale" style="width: 503px; "/></td>
+			</tr>
+			<tr>
+				<td colspan="2">Montant carte d'abonnement transport : <input type="texte" name="montant carte d'abonnement transport" style="width: 486px; "/></td>
+			</tr>
+			<tr>
+				<td>Vehicule personnel : <input type="texte" name="vehicule personnel" style="width: 246px; "/></td>
+				<td>Km mensuel estimé : <input type="texte" name="km mensuel estimé" style="width: 226px; "/></td>
+			</tr>	
+			<tr>
+				<td colspan="2"; align="center">	<h3><input id = "b0" type = "button" value = "Enregister" onclick = "maFonction()" style="width: 439px; "/></h3></td>
+			</tr>	
+		</table>
+		</form>
+	</body>
+</div>
+</html>
