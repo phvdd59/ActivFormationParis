@@ -1,0 +1,9 @@
+@CHARSET "ISO-8859-1";
+
+input {
+	width: 300px;
+}
+
+.innerdiv{
+	text-align:center;
+	position: relative;
