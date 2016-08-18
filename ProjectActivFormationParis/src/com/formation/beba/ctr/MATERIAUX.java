@@ -19,7 +19,10 @@ public enum MATERIAUX {
 	}
 
 	public void setPourcent(int pourcent) {
-		this.pourcent = pourcent;
+		if (pourcent >= 0 && pourcent <= 100) {
+			this.pourcent = pourcent;
+		}
+
 	}
 
 }
