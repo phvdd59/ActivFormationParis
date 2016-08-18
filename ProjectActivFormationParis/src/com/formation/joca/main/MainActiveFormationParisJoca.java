@@ -3,6 +3,7 @@ package com.formation.joca.main;
 import java.awt.Point;
 import java.util.ArrayList;
 
+import com.formation.joca.ctr.ExoAlgo5;
 import com.formation.joca.exo.CleDico;
 import com.formation.joca.exo.Dico;
 import com.formation.joca.exo.ExoAlgo1;
@@ -22,7 +23,18 @@ public class MainActiveFormationParisJoca {
 
 	public static void main(String[] arg) {
 		MainActiveFormationParisJoca test = new MainActiveFormationParisJoca();
-		test.init10();
+		test.init12();
+	}
+
+	private void init12() {
+		ExoAlgo5 exo = new ExoAlgo5();
+		String[] tab = { "123456001", "123456002", "123456001", "456789001", "123456003", "123456001", "123456003",
+				"123456003", "456789002", "654987001", "654987003", "123456005", "456789002", "456789002", "456789510",
+				"456789510", "789456245", "123456001" };
+		String[] tab2 = exo.solution(tab, "456789", 2);
+		for (int i = 0; i < tab2.length; i++) {
+			System.out.println(tab2[i]);
+		}
 	}
 
 	private void init10() {
@@ -32,10 +44,9 @@ public class MainActiveFormationParisJoca {
 			System.out.println(exo10.get(i).toString());
 		}
 
-		
-		 //exo10.recup(); for (int i = 0; i < exo10.size(); i++) {
-		 //System.out.println(exo10.get(i).toString()); }
-		 
+		// exo10.recup(); for (int i = 0; i < exo10.size(); i++) {
+		// System.out.println(exo10.get(i).toString()); }
+
 	}
 
 	private void init9() {
