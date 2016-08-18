@@ -1,4 +1,13 @@
-emma testNormal (2/2):    | solution(10,10,lst)
-emma testNormal (2/2):    | solution(10,10,lst)
-emma NOTE : (5 / 2) = 50,00 / 20
+emma testTrop (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
+emma testNull (1/1):    | exo.solution(null, cat, n)
+emma testTrop (1/1):    | exo.solution(tab, cat, n)
+emma testTrop (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
+emma testTrop (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
+emma testTrop (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
+emma testCatGrand (0/1): KO | exo.solution(null, cat, n) résultat incorrect
+emma testCatPetit (0/1): KO | exo.solution(null, cat, n) résultat incorrect
+emma testTrop (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
+emma testTrop (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
+emma testTrop (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
+emma NOTE : (2 / 14) = 2,86 / 20
 

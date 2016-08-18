@@ -1,4 +1,13 @@
-soka testNormal (2/2):    | solution(10,10,lst)
-soka testNormal (2/2):    | solution(10,10,lst)
-soka NOTE : (5 / 2) = 50,00 / 20
+soka testTrop (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
+soka testTrop (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
+soka testTrop (0/1): KO | exo.solution(tab, cat, n) résultat incorrect
+soka testTrop (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
+soka testCatAnnormal (1/1):    | exo.solution(null, cat, n)
+soka testCatNull (1/1):    | exo.solution(null, cat, n)
+soka testCatGrand (1/1):    | exo.solution(null, cat, n)
+soka testCatPetit (1/1):    | exo.solution(null, cat, n)
+soka testTrop (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
+soka testNormal1 (0/2): KO | exo.solution(tab, cat, n) résultat incorrect
+soka testNormal2 (0/2): KO | exo.solution(tab, cat, n) résultat incorrect
+soka NOTE : (4 / 14) = 5,71 / 20
 

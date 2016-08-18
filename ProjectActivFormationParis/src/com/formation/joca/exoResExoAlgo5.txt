@@ -1,4 +1,24 @@
-joca testNormal (2/2):    | solution(10,10,lst)
-joca testNormal (2/2):    | solution(10,10,lst)
-joca NOTE : (5 / 2) = 50,00 / 20
+joca testMoins (0/1): KO | exo.solution(tab, cat, n)
+null
+joca testNull (0/1): KO | exo.solution(null, cat, n)
+null
+joca testTrop (0/1): KO | exo.solution(tab, cat, n)
+null
+joca testAnnormal (0/1): KO | exo.solution(tab, cat, n)
+null
+joca testCatAnnormal (0/1): KO | exo.solution(null, cat, n)
+null
+joca testCatNull (0/1): KO | exo.solution(null, cat, n)
+null
+joca testCatGrand (0/1): KO | exo.solution(null, cat, n)
+null
+joca testCatPetit (0/1): KO | exo.solution(null, cat, n)
+null
+joca testNormal0 (0/2): KO | exo.solution(tab, cat, n)
+null
+joca testNormal1 (0/2): KO | exo.solution(tab, cat, n)
+null
+joca testNormal2 (0/2): KO | exo.solution(tab, cat, n)
+null
+joca NOTE : (0 / 14) = ,00 / 20
 

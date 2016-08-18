@@ -1,4 +1,13 @@
-thde testNormal (2/2):    | solution(10,10,lst)
-thde testNormal (2/2):    | solution(10,10,lst)
-thde NOTE : (5 / 2) = 50,00 / 20
+thde testMoins (1/1):    | exo.solution(tab, cat, n)
+thde testNull (1/1):    | exo.solution(null, cat, n)
+thde testTrop (0/1): KO | exo.solution(tab, cat, n) résultat incorrect
+thde testAnnormal (1/1):    | exo.solution(tab, cat, n)
+thde testCatAnnormal (1/1):    | exo.solution(null, cat, n)
+thde testTrop (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
+thde testCatGrand (0/1): KO | exo.solution(null, cat, n) résultat incorrect
+thde testCatPetit (0/1): KO | exo.solution(null, cat, n) résultat incorrect
+thde testNormal0 (2/2):    | exo.solution(tab, cat, n)
+thde testNormal1 (2/2):    | exo.solution(tab, cat, n)
+thde testNormal2 (2/2):    | exo.solution(tab, cat, n)
+thde NOTE : (10 / 14) = 14,29 / 20
 

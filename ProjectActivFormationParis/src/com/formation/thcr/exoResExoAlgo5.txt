@@ -1,4 +1,13 @@
-thcr testNormal (2/2):    | solution(10,10,lst)
-thcr testNormal (2/2):    | solution(10,10,lst)
-thcr NOTE : (5 / 2) = 50,00 / 20
+thcr testMoins (1/1):    | exo.solution(tab, cat, n)
+thcr testTrop (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
+thcr testTrop (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
+thcr testAnnormal (1/1):    | exo.solution(tab, cat, n)
+thcr testCatAnnormal (1/1):    | exo.solution(null, cat, n)
+thcr testCatNull (0/1): KO | exo.solution(null, cat, n) résultat incorrect
+thcr testCatGrand (0/1): KO | exo.solution(null, cat, n) résultat incorrect
+thcr testCatPetit (0/1): KO | exo.solution(null, cat, n) résultat incorrect
+thcr testTrop (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
+thcr testNormal1 (0/2): KO | exo.solution(tab, cat, n) résultat incorrect
+thcr testTrop (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
+thcr NOTE : (3 / 14) = 4,29 / 20
 

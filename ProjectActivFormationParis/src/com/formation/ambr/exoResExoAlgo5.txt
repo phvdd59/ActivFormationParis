@@ -1,4 +1,13 @@
-ambr testNormal (2/2):    | solution(10,10,lst)
-ambr testNormal (2/2):    | solution(10,10,lst)
-ambr NOTE : (5 / 2) = 50,00 / 20
+ambr testTrop (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
+ambr testTrop (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
+ambr testTrop (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
+ambr testTrop (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
+ambr testCatAnnormal (1/1):    | exo.solution(null, cat, n)
+ambr testTrop (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
+ambr testCatGrand (1/1):    | exo.solution(null, cat, n)
+ambr testTrop (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
+ambr testNormal0 (2/2):    | exo.solution(tab, cat, n)
+ambr testTrop (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
+ambr testTrop (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
+ambr NOTE : (4 / 14) = 5,71 / 20
 
