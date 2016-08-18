@@ -31,17 +31,17 @@
 	function ctrCP() {
 		var cp = document.getElementById("cp").value;
 		var Tcp = document.getElementById("Tcp");
-/* 	var cpNum = parseInt(cp);
+		var cpNum = parseInt(cp);
 		if (isNaN(cpNum) || (cpNum.lenght != 5)) {
 			Tcp.style.color = "red";
 		} else {
 			Tcp.style.color = "black";
-		} */
+		}
 	}
 	function ctrVille() {
 		var ville = document.getElementById("ville").value;
 		var Tville = document.getElementById("Tville");
-		if (ville.search("[^a-zA-Z]") != -1) {
+		if (ville.search("[^a-zA-Z]") != -1 ||ville.search("[^s]") != -1 ) {
 			Tville.style.color = "red";
 		} else {
 			Tville.style.color = "black";
@@ -50,17 +50,38 @@
 	function ctrFixe() {
 		var fixe = document.getElementById("fixe").value;
 		var Tfixe = document.getElementById("Tfixe");
-		Tfixe.style.color = "red";
+		if (fixe.startsWith(01)==true) {
+			var fixeNum = parseInt(fixe);
+			if (isNaN(fixeNum) || (fixeNum.lenght != 10)) {
+				Tfixe.style.color = "red";
+			} else {
+				Tfixe.style.color = "black";
+			} 
+		}
 	}
 	function ctrPortable() {
 		var portable = document.getElementById("portable").value;
 		var Tportable = document.getElementById("Tportable");
-		Tportable.style.color = "red";
+		if (portable.startsWith(06)==true) {
+			var portableNum = parseInt(portable);
+			if (isNaN(portableNum) || (portableNum.lenght != 10)) {
+				Tportable.style.color = "red";
+			} else {
+				Tportable.style.color = "black";
+			} 
+		}
 	}
 	function ctrFax() {
 		var fax = document.getElementById("fax").value;
 		var Tfax = document.getElementById("Tfax");
-		Tfax.style.color = "red";
+		if (fax.startsWith(01)==true) {
+			var faxNum = parseInt(fax);
+			if (isNaN(faxNum) || (faxNum.lenght != 10)) {
+				Tfax.style.color = "red";
+			} else {
+				Tfax.style.color = "black";
+			} 
+		}
 	}
 	function ctrMail() {
 		var mail = document.getElementById("mail").value;
