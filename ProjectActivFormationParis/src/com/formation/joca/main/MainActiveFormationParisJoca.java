@@ -3,7 +3,7 @@ package com.formation.joca.main;
 import java.awt.Point;
 import java.util.ArrayList;
 
-import com.formation.joca.ctr.ExoAlgo5;
+import com.formation.joca.ExoAlgo5;
 import com.formation.joca.exo.CleDico;
 import com.formation.joca.exo.Dico;
 import com.formation.joca.exo.ExoAlgo1;
