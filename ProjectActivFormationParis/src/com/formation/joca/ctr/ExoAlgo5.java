@@ -10,7 +10,7 @@ public class ExoAlgo5 implements com.formation.phva.inter.InterAlgo5 {
 		String[] sortie = null;
 
 		ArrayList<MeubleRecup> listemeuble = new ArrayList<MeubleRecup>();
-		if (tab != null && Pattern.matches("\\d{6}", cat)) {
+		if (tab != null && Pattern.matches("\\d{6}", cat) && estBon(tab)) {
 			for (int i = 0; i < tab.length; i++) {
 				String serie = tab[i].substring(0, 6);
 
@@ -27,6 +27,17 @@ public class ExoAlgo5 implements com.formation.phva.inter.InterAlgo5 {
 				}
 			}
 
+		}
+
+		return sortie;
+	}
+
+	public boolean estBon(String[] tab) {
+		boolean sortie = true;
+		for (int i = 0; i < tab.length; i++) {
+			if (!Pattern.matches("\\d{9}", tab[i])) {
+				sortie = false;
+			}
 		}
 
 		return sortie;
