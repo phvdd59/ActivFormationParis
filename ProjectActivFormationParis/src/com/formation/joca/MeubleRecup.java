@@ -1,4 +1,4 @@
-package com.formation.joca.exo;
+package com.formation.joca;
 
 import java.util.ArrayList;
 
