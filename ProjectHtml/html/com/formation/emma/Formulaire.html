@@ -15,11 +15,13 @@
 		try {
 			var chiffre = parseInt(value);
 			if (isNaN(chiffre)) {
-				alert("COU");
+// 			coef.style.color="red";
+// 			coef.placeholder="saisie incorrecte";
+			coefSpan.innerHTML = "saisie incorrecte";	
 			}
-			champ.innerHTML = "";
+			
 		} catch (err) {
-			champ.innerHTML = "saisie incorrecte";
+			//coefSpan.innerHTML = "saisie incorrecte";
 		}
 
 		//var lettre=document.getElementById('fn','pos');

@@ -57,10 +57,10 @@ public class ExoAlgo5 implements com.formation.phva.inter.InterAlgo5 {
 			tabInt = new ArrayList<RepetitionMot>();
 		//	liste = new ArrayList<RepetitionMot>();
 			for (int i = 0; i < tab.length; i++) {
-				if (cat.equals(tab[i].substring(0, 6))) {
+				if (cat.equals(tab[i].substring(0, 6))) { 
 					RepetitionMot meuble = new RepetitionMot(tab[i], 1);
 					//					liste.add(meuble);
-					if (tabInt.equals(meuble)) {
+					if (tabInt.equals(meuble)) { 						// pas bon
 						a = tabInt.indexOf(meuble);
 						d = tabInt.get(a).getRepetition() + 1;
 						tabInt.remove(a);
