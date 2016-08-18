@@ -31,6 +31,7 @@ public class MainActiveFormationParisJoca {
 		String[] tab = { "123456001", "123456002", "123456001", "456789001", "123456003", "123456001", "123456003",
 				"123456003", "456789002", "654987001", "654987003", "123456005", "456789002", "456789002", "456789510",
 				"456789510", "789456245", "123456001" };
+		String[] tabnull = null;
 		String[] tab2 = exo.solution(tab, "456789", 2);
 		for (int i = 0; i < tab2.length; i++) {
 			System.out.println(tab2[i]);
