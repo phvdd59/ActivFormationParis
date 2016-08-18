@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Servlet1
  */
-@WebServlet("/Servlet1")
+@WebServlet("/ServletJOCA")
 public class Servlet1 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -29,9 +29,12 @@ public class Servlet1 extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		// response.getWriter().append("Served at:
-		// ").append(request.getContextPath());
+		// recuperer les parametres
+		String pseudo=request.getParameter("nom");
+		
+		// controler les parametres
+		
+		// generer la page html
 		response.getWriter().println("HOI !");
 		;
 	}
