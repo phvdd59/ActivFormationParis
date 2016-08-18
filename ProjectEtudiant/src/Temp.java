@@ -1,4 +1,4 @@
 
 public class Temp {
-yolo
+	int yolo;
 }
