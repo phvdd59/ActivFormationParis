@@ -15,14 +15,14 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Servlet1
  */
-@WebServlet("/ServletEtga")
-public class Servlet1 extends HttpServlet {
+@WebServlet(value="/ServletEtga", name="ServletEG")
+public class ServletEtga extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public Servlet1() {
+	public ServletEtga() {
 		super();
 	}
 
@@ -32,13 +32,13 @@ public class Servlet1 extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		File file = new File("/ProjectEtudiant/WebContent/WEB-INF/com/formation/etga/page/Formulaire.html");
+		File file = new File("../GITActivFomationParis/ProjectEtudiant/WebContent/WEB-INF/com/formation/etga/page/Formulaire.html");
 		BufferedReader bufRead = null;
 		try {
 			bufRead = new BufferedReader(new FileReader(file));
 			String line = bufRead.readLine();
 			while (line != null) {
-				response.getWriter().println(line);
+				response.getWriter().println("<HTML>line</HTML>");
 				System.out.println(line);
 				line = bufRead.readLine();
 			}
@@ -53,9 +53,5 @@ public class Servlet1 extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		//		response.getWriter().println("<HTML><body><h1>Salut Tomcat cest l'ordi d'etga</h1>");
-		//		response.getWriter().append("<h2>Salut Tomcat, c'est l'ordi d'etga :)</h2></body></HTML>");
-
 	}
-
 }
