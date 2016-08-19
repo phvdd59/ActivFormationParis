@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Servlet1
  */
-@WebServlet("/serv/ServletPhva")
+@WebServlet("/ServletPhva")
 public class Servlet1 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static int VALEUR = 0;
@@ -31,6 +31,8 @@ public class Servlet1 extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// récupérer les paramètres.
 		String pseudo = request.getParameter("nom");
+		String mdp = request.getParameter("mdp");
+		System.out.println(mdp);
 		// Contrôler les params
 		if (pseudo.contains("Philippe")) {
 			pseudo = pseudo + "PLUS";
