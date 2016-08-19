@@ -4,6 +4,7 @@ import java.awt.Point;
 import java.util.ArrayList;
 
 import com.formation.joca.ExoAlgo5;
+import com.formation.joca.ctr.ExoAlgo6;
 import com.formation.joca.exo.CleDico;
 import com.formation.joca.exo.Dico;
 import com.formation.joca.exo.ExoAlgo1;
@@ -23,7 +24,15 @@ public class MainActiveFormationParisJoca {
 
 	public static void main(String[] arg) {
 		MainActiveFormationParisJoca test = new MainActiveFormationParisJoca();
-		test.init12();
+		test.init13();
+	}
+
+	private void init13() {
+		ExoAlgo6 exo6 = new ExoAlgo6();
+		int[] tab = { 1, 4, 7, 8, 4, 3, 7, 2, 8, 9, 2, 6, 3, 4, 1, 7, 9, 1, 1, 2 };
+		int result = exo6.solution(tab, 1, 50);
+		System.out.println(result);
+
 	}
 
 	private void init12() {
