@@ -2,7 +2,7 @@ package com.formation.beba.ctr;
 
 import java.util.Arrays;
 
-import com.formation.phva.exo.InterAlgo6;
+import com.formation.phva.inter.InterAlgo6;
 
 public class ExoAlgo6 implements InterAlgo6 {
 	/**
