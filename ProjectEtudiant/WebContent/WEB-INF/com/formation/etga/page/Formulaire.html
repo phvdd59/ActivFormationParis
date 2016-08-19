@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>FORMULAIRE IDENTIFICATION</title>
+<link rel="stylesheet" href=css/StyleFormulaire.css />
+<script type="text/javascript">
+	function ctrNom() {
+		var nom = document.getElementById("nom").value;
+		var Tnom = document.getElementById("Tnom");
+		if (nom.search("[^a-zA-Z]") != -1) {
+			Tnom.style.color = "red";
+		} else {
+			Tnom.style.color = "black";
+		}
+	}
+	function ctrPrenom() {
+		var prenom = document.getElementById("prenom").value;
+		var Tprenom = document.getElementById("Tprenom");
+		if (prenom.search("[^a-zA-Z]") != -1) {
+			Tprenom.style.color = "red";
+		} else {
+			Tprenom.style.color = "black";
+		}
+	}
+	function ctrAdresse() {
+		var adresse = document.getElementById("adresse").value;
+		var Tadresse = document.getElementById("Tadresse");
+		Tadresse.style.color = "red";
+	}
+	function ctrCP() {
+		var cp = document.getElementById("cp").value;
+		var Tcp = document.getElementById("Tcp");
+		var cpNum = parseInt(cp);
+		if (isNaN(cpNum) || (cpNum.lenght != 5)) {
+			Tcp.style.color = "red";
+		} else {
+			Tcp.style.color = "black";
+		}
+	}
+	function ctrVille() {
+		var ville = document.getElementById("ville").value;
+		var Tville = document.getElementById("Tville");
+		if (ville.search("[^a-zA-Z]") != -1 ||ville.search("[^s]") != -1 ) {
+			Tville.style.color = "red";
+		} else {
+			Tville.style.color = "black";
+		}
+	}
+	function ctrFixe() {
+		var fixe = document.getElementById("fixe").value;
+		var Tfixe = document.getElementById("Tfixe");
+		if (fixe.startsWith(01)==true) {
+			var fixeNum = parseInt(fixe);
+			if (isNaN(fixeNum) || (fixeNum.lenght != 10)) {
+				Tfixe.style.color = "red";
+			} else {
+				Tfixe.style.color = "black";
+			} 
+		}
+	}
+	function ctrPortable() {
+		var portable = document.getElementById("portable").value;
+		var Tportable = document.getElementById("Tportable");
+		if (portable.startsWith(06)==true) {
+			var portableNum = parseInt(portable);
+			if (isNaN(portableNum) || (portableNum.lenght != 10)) {
+				Tportable.style.color = "red";
+			} else {
+				Tportable.style.color = "black";
+			} 
+		}
+	}
+	function ctrFax() {
+		var fax = document.getElementById("fax").value;
+		var Tfax = document.getElementById("Tfax");
+		if (fax.startsWith(01)==true) {
+			var faxNum = parseInt(fax);
+			if (isNaN(faxNum) || (faxNum.lenght != 10)) {
+				Tfax.style.color = "red";
+			} else {
+				Tfax.style.color = "black";
+			} 
+		}
+	}
+	function ctrMail() {
+		var mail = document.getElementById("mail").value;
+		var Tmail = document.getElementById("Tmail");
+		Tmail.style.color = "red";
+	}
+</script>
+</head>
+<div style="background-color: darkblue; color: white; font: bold"
+	align="center">FORMULAIRE D'IDENTIFICATION</div>
+<div style="background-color: silver;">
+	<body>
+		<form action="http://192.168.33.150:8080/ProjectEtudiant/servlet/com.formation.etga.servlet.ServletEtga ">
+			<table align="center">
+				<caption>
+					<h1>DEMANDE D'INSCRIPTION</h1>
+				</caption>
+				<tr>
+					<th colspan="2" align="center"><h4>COORDONNEES
+							PERSONNELLES</h4></th>
+				</tr>
+				<tr>
+					<td id="Tnom">Nom :<input value="" id="nom" type="texte"
+						name="nom" style="width: 358px;" onblur="ctrNom()"
+						placeholder="ex : Nom" />
+					<td id="Tprenom">Prénom : <input value="" type="texte"
+						name="prenom" style="width: 317px;" onblur="ctrPrenom()"
+						placeholder="ex : Prénom" /></td>
+				</tr>
+				<tr>
+					<td colspan="2" id="Tadresse">Adresse : <input value=""
+						type="texte" name="adresse" ; style="width: 751px; height: 60px"
+						onblur="ctrAdresse()" placeholder="ex : 9 Avenue de la Libération" /></td>
+				</tr>
+				<tr>
+					<td id="Tcp">Code postal : <input value="" type="texte"
+						name="cp" style="width: 296px;" onblur="ctrCP()"
+						placeholder="ex : 94100" /></td>
+					<td id="Tville">Ville : <input value="" type="texte"
+						name="ville" style="width: 344px;" onblur="ctrVille()"
+						placeholder="ex : Saint-Maur-des-Fossés" /></td>
+				</tr>
+				<tr>
+					<td id="Tfixe">Téléphone fixe : <input value="" type="tel"
+						name="fixe" style="width: 280px;" onblur="ctrFixe()"
+						placeholder="ex : 0122334455" /></td>
+					<td id="Tportable">Téléphone portable : <input value=""
+						type="tel" name="portable" style="width: 221px;"
+						onblur="ctrPortable()" placeholder="ex : 0622334455" /></td>
+				</tr>
+				<tr>
+					<td id="Tfax">Fax : <input value="" type="tel" name="fax"
+						style="width: 368px;" onblur="ctrFax()"
+						placeholder="ex : 0122334455" /></td>
+					<td id="Tmail">Email : <input value="" type="email"
+						name="mail" style="width: 334px;" onblur="ctrMail()"
+						placeholder="ex : identifiant@domaine.(fr/com)" /></td>
+				</tr>
+				<tr>
+					<th colspan="2" align="center"><h4>ETAT CIVIL</h4></th>
+				</tr>
+				<tr>
+					<td>Date de naissance : <input type="date"
+						name="date de naissance" style="width: 248px;" /></td>
+					<td>Lieu : <input type="texte" name="lieu"
+						style="width: 348px;" /></td>
+				</tr>
+				<tr>
+					<td colspan="2">Numéro de sécurité sociale (15 chiffres) : <input
+						type="texte" name="numero de sécurité sociale"
+						style="width: 505px;" /></td>
+				</tr>
+				<tr>
+					<td colspan="2">Nationalité : <input type="texte"
+						name="nationalité" style="width: 720px;" /></td>
+				</tr>
+				<tr>
+					<th colspan="2" align="center"><h4>SITUATION ACTUELLE</h4></th>
+				</tr>
+				<tr>
+					<td colspan="2" align="center"><input type="radio"
+						name="situation actuelle" value="salarié">Salarié <input
+						type="radio" name="situation actuelle" value="auto entrepreneur">
+						Auto entrepreneur <input type="radio" name="situation actuelle"
+						value="freelance"> Freelance</td>
+				</tr>
+				<tr>
+					<td colspan="2"><input type="radio" name="situation actuelle"
+						value="demandeur d'emploi"> Demandeur d'emploi <input
+						type="radio" name="situation actuelle" value="retraité">
+						Retraité <input type="radio" name="situation actuelle"
+						value="autre" checked> Autre <input type="texte"
+						name="Autre" style="width: 450px;" /></td>
+				</tr>
+				<tr>
+					<th colspan="2" align="center"><h4>FONCTION /
+							REMUNERATION</h4></th>
+				</tr>
+				<tr>
+					<td>Fonction occupée : <input type="texte"
+						name="fonction occupée" style="width: 252px;" /></td>
+					<td align="center"><input type="radio" name="fonction occupée"
+						value="cadre" checked> Cadre <input type="radio"
+						name="fonction occupée" value="non cadre"> Non cadre</td>
+				</tr>
+				<tr>
+					<td>Position : <input type="texte" name="position"
+						style="width: 332px;" /></td>
+					<td>Coefficient : <input type="texte" name="coefficient"
+						style="width: 285px;" /></td>
+				</tr>
+				<tr>
+					<td colspan="2">Salaire souhaité : <input type="texte"
+						name="salaire souhaité" style="width: 685px;" /></td>
+				</tr>
+				<tr>
+					<td align="center">Mutuelle souhaitée : <input type="radio"
+						name="mutuelle souhaitée" value="oui" checked> oui <input
+						type="radio" name="mutuelle souhaitée" value="non"> non
+					</td>
+					<td align="center">Ticket resto : <input type="radio"
+						name="ticket resto" value="oui" checked> oui <input
+						type="radio" name="ticket resto" value="non"> non
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">Date de votre dernière visite médicale : <input
+						type="texte" name="date de votre dernière visite médicale"
+						style="width: 503px;" /></td>
+				</tr>
+				<tr>
+					<td colspan="2">Montant carte d'abonnement transport : <input
+						type="texte" name="montant carte d'abonnement transport"
+						style="width: 486px;" /></td>
+				</tr>
+				<tr>
+					<td>Vehicule personnel : <input type="texte"
+						name="vehicule personnel" style="width: 247px;" /></td>
+					<td>Km mensuel estimé : <input type="texte"
+						name="km mensuel estimé" style="width: 226px;" /></td>
+				</tr>
+				<tr>
+					<td colspan="2" ; align="center">
+						<h3>
+							<input id="b0" type="button" value="Enregister"
+								onclick="maFonction()" style="width: 439px;" />
+						</h3>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</body>
+</div>
+</html>
