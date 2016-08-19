@@ -2,6 +2,5 @@ package com.formation.phva.inter;
 
 public interface InterAlgo6 {
 
-	public String[] solution(String[] tab, String cat, int n);
-
+	public int solution(int[] tab, int n, int f);
 }
