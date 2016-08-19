@@ -1,24 +1,13 @@
-joca testMoins (0/1): KO | exo.solution(tab, cat, n)
-null
-joca testNull (0/1): KO | exo.solution(null, cat, n)
-null
-joca testTrop (0/1): KO | exo.solution(tab, cat, n)
-null
-joca testAnnormal (0/1): KO | exo.solution(tab, cat, n)
-null
-joca testCatAnnormal (0/1): KO | exo.solution(null, cat, n)
-null
-joca testCatNull (0/1): KO | exo.solution(null, cat, n)
-null
-joca testCatGrand (0/1): KO | exo.solution(null, cat, n)
-null
-joca testCatPetit (0/1): KO | exo.solution(null, cat, n)
-null
-joca testNormal0 (0/2): KO | exo.solution(tab, cat, n)
-null
-joca testNormal1 (0/2): KO | exo.solution(tab, cat, n)
-null
-joca testNormal2 (0/2): KO | exo.solution(tab, cat, n)
-null
-joca NOTE : (0 / 14) = ,00 / 20
+joca testMoins (1/1):    | exo.solution(tab, cat, n)
+joca testNull (1/1):    | exo.solution(null, cat, n)
+joca testTrop (1/1):    | exo.solution(tab, cat, n)
+joca testAnnormal (1/1):    | exo.solution(tab, cat, n)
+joca testCatAnnormal (0/1): KO | exo.solution(null, cat, n) résultat incorrect
+joca testCatNull (0/1): KO | exo.solution(null, cat, n) résultat incorrect
+joca testCatGrand (0/1): KO | exo.solution(null, cat, n) résultat incorrect
+joca testCatPetit (0/1): KO | exo.solution(null, cat, n) résultat incorrect
+joca testNormal0 (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
+joca testNormal1 (2/2):    | exo.solution(tab, cat, n)
+joca testNormal2 (2/2):    | exo.solution(tab, cat, n)
+joca NOTE : (8 / 14) = 11,43 / 20
 
