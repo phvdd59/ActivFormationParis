@@ -36,14 +36,14 @@ public class ExoAlgo6 implements InterAlgo6 {
 		int ValeurMaximale = 0;
 	
 			for (int i = n; i < tab.length - n; i++) {
-				for (int j = -n; j < n; j++) {
+				for (int j = -n; j <= n; j++) {
 					tab2[i - n] += tab[i+j];
 				}
 
 			}
 			for (int i = 0; i < tab2.length - f; i++) {
 				for (int j = 0; j < f; j++) {
-					tab3[i] += tab2[i];
+					tab3[i] += tab2[i+j];
 				}
 
 			}
@@ -52,7 +52,7 @@ public class ExoAlgo6 implements InterAlgo6 {
 				if (tab3[i] > ValeurMaximale) {
 					ValeurMaximale = tab3[i];
 					
-					retour = i+n-1;
+					retour = i+n;
 				}
 			}
 
