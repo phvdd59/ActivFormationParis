@@ -1,8 +1,6 @@
 package com.formation.emma.ctr;
 
-import java.util.ArrayList;
-
-import com.formation.phva.exo.InterAlgo6;
+import com.formation.phva.inter.InterAlgo6;
 
 public class ExoAlgo6 implements InterAlgo6 {
 	/**
