@@ -26,7 +26,7 @@ public class ServA extends HttpServlet {
 	 */
 	public ServA() {
 		super();
-		// TODO Auto-generated constructor stub
+
 	}
 
 	/**
