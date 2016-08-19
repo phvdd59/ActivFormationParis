@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Servlet1
  */
-@WebServlet("/ServletJOCA")
+@WebServlet(value = "/ServletJOCA", name = "ServletJOCA")
 public class Servlet1 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -30,7 +30,7 @@ public class Servlet1 extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// recuperer les parametres
-		String pseudo = request.getParameter("nom");
+		// String pseudo = request.getParameter("nom");
 
 		// controler les parametres
 
