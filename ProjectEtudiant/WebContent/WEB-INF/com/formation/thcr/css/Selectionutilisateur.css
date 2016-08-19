@@ -1,0 +1,46 @@
+@CHARSET "ISO-8859-1";
+
+body
+{
+    position: relative;
+    
+}
+table
+{
+    border-collapse: collapse;
+    border-style: double;
+    align-content: center;
+    margin:0 auto;
+}
+th,td
+{
+    border-width: thin;
+    border-style: double;
+    text-align:left; 
+}
+#afficher
+{
+    cursor: pointer;
+    font-weight: bold;   
+}
+#list,#gestiondocument
+{
+    padding:1px 0;
+}
+#main
+{
+    margin-top: 50px;
+    max-width:960px;
+
+}
+#gestiondocument
+{
+    float: left;
+    align-content: center;
+    margin-top: 25px;
+}
+#liste
+{
+    float:left;
+}
+
