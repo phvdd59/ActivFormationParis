@@ -35,8 +35,7 @@ public class Servlet2 extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		BufferedReader lecture = null;
-		File page = new File(
-				"../GITActivFormationParis/ProjectEtudiant/WebContent/WEB-INF/com/formation/joca/page/Login.html");
+		File page = new File("../GITActivFormationParis/ProjectEtudiant/WebContent/com/formation/joca/page/Login.html");
 		try {
 			InputStreamReader input = new InputStreamReader(new FileInputStream(page));
 			lecture = new BufferedReader(input);
