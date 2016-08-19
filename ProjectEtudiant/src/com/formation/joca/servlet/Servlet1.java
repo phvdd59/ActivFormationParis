@@ -30,13 +30,13 @@ public class Servlet1 extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// recuperer les parametres
-		String pseudo=request.getParameter("nom");
-		
+		String pseudo = request.getParameter("nom");
+
 		// controler les parametres
-		
+
 		// generer la page html
 		response.getWriter().println("HOI !");
-		;
+
 	}
 
 }
