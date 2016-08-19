@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class ServletThcr
  */
-@WebServlet("/ServletThcr")
+@WebServlet(value="/ServletThcr",name="ServletTH")
 public class ServletThcr extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -33,15 +33,11 @@ public class ServletThcr extends HttpServlet {
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
 		File file = new File("C:/DevFormation/GITActivFormationParis/ProjectEtudiant/WebContent/com/formation/phva/page/Login.html");
 		BufferedReader br = new BufferedReader( new FileReader(file));
-		File r = new File("./");
-		System.out.println(r.getCanonicalPath());
-		while(br.readLine()!=null){
-			response.getWriter().println(br.readLine());
+		String line = br.readLine();
+		while(line!=null){
+			response.getWriter().println(line);
+			line = br.readLine();
 		}
+		br.close();
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-
 }
