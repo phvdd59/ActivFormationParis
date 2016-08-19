@@ -1,17 +1,23 @@
 package com.formation.phva.servlet;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.sun.scenario.effect.impl.state.LinearConvolveRenderState.PassType;
+
 /**
  * Servlet implementation class Servlet1
  */
-@WebServlet("/ServletPhva")
+@WebServlet(name = "ServletPhva", value = "/ServletPhva", initParams = { @WebInitParam(name = "nom", value = "qsdf") })
 public class Servlet1 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static int VALEUR = 0;
@@ -30,26 +36,59 @@ public class Servlet1 extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// récupérer les paramètres.
-		String pseudo = request.getParameter("nom");
-		String mdp = request.getParameter("mdp");
-		System.out.println(mdp);
 		// Contrôler les params
-		if (pseudo.contains("Philippe")) {
-			pseudo = pseudo + "PLUS";
+		//Constituer la nouvelle page
+		File f = new File("C:/DevFormation/GITActivFormationParis/"
+				+ "ProjectEtudiant/WebContent/WEB-INF/com/"
+				+ "formation/phva/page/Login.html");
+		BufferedReader bIn = new BufferedReader(new FileReader(f));
+		String l = bIn.readLine();
+		while (l != null) {
+			response.getWriter().println(l);
+			l = bIn.readLine();
 		}
-		//Constituer la nouvelle page 
+		bIn.close();
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		response.getWriter().println("<html><body><h1>ACTIV-CONSULTING</h1>");
-		response.getWriter().println("<form>" + "<input type='text' value='" + VALEUR + "'>");
-		response.getWriter().println("<input name='question' type='text' " + "value='" + pseudo + "'>");
-		response.getWriter().println("<input name='submit' type='submit' " + "value='OK'>");
-		if (pseudo.contains("Philippe")) {
-			response.getWriter().println("<p style='color:red'>" + pseudo + "</p>");
+	}
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// récupérer les paramètres.
+		String pseudo = req.getParameter("identifiant");
+		// Contrôler les params
+		//Constituer la nouvelle page
+		if (pseudo != null) {
+			if (pseudo.equals("Philippe")) {
+				File f = new File("C:/DevFormation/"
+						+ "GITActivFormationParis/ProjectEtudiant/"
+						+ "WebContent/WEB-INF/com/formation/phva/"
+						+ "page/Gestiondocuments.html");
+				BufferedReader bIn = new BufferedReader(new FileReader(f));
+				String l = bIn.readLine();
+				while (l != null) {
+					resp.getWriter().println(l);
+					l = bIn.readLine();
+				}
+				bIn.close();
+			} else {
+				File f = new File("C:/DevFormation/GITActivFormationParis/"
+						+ "ProjectEtudiant/WebContent/WEB-INF/com/"
+						+ "formation/phva/page/Login.html");
+				BufferedReader bIn = new BufferedReader(new FileReader(f));
+				String l = bIn.readLine();
+				while (l != null) {
+					if (l.contains("identifiant")) {
+						l=l.replace("value=''", "value='"+pseudo+" ETGA'");
+					}
+					resp.getWriter().println(l);
+					l = bIn.readLine();
+				}
+				bIn.close();
+			}
 		} else {
-			response.getWriter().println("<p style='color:blue'>" + pseudo + "</p>");
+
 		}
-		VALEUR++;
-		response.getWriter().println("</form></body></html>");
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 }
