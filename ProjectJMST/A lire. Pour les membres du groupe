@@ -1,0 +1,11 @@
+Bonjour à vous tous,
+j'ai déposé les deux pages du menu (user et admin ) dans src comme je ne vois pas toujours pas le web-INF.
+>>Yoca est-ce que tu pourrais t'en occuper ?
+dans chaque page, les formulaires boutons pointent vers mes servlets (ProjectEtudiant) et utilisent la méthode POST (je n'ai pas rempli la get)
+que je dois rediriger vers les pages respectives. Donc ils me faudrait leurs noms pour que je puisse les ajouter.
+et comme il me semble que j'ai fini, je suis dispo pour faire autre chose .
+n'hesitez pas pour les critiques/commentaires.
+
+Bon week end 
+
+Marc
