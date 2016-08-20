@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+//Servlet utilisé pour générer la page login par la methode doPost
 /**
  * Servlet implementation class Servlet1
  */
