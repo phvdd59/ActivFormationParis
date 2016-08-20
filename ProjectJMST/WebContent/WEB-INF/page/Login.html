@@ -2,10 +2,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Gestion de mes fichiers</title>
+<title>Login</title>
 <link href="http://www.activconsult-ing.com/Home.css" rel="stylesheet"
 	type="text/css">
-<link href="Gestiondocuments.css" rel="stylesheet" type="text/css">
+<link href="Login.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 	<div id="background">
@@ -79,17 +79,20 @@
 		<div id="info2">
 			<!-- zone disponible -->
 			<div id="menu1">
-				<FORM>
-					<INPUT type="button" name="upload" value="uploader un fichier"
-						onclick="alert('fichier uploadé !')"> <INPUT type="button"
-						name="download" value="télécharger un fichier"
-						onclick="alert('affichage des fichiers !')"> <INPUT
-						type="button" name="retour" value="retourner au menu"
-						onclick="alert('retour sur compte.html !')">
-				</FORM>
+				<form action="trait.java" methode="post">
+					Identifiant :<br /> <input id="ident" type="text"
+						name="identifiant" onblur="ctrIdent()" /><br /> <br /> Mot de
+					passe :<br /> <input type="text" name="motdepasse"> <input
+						type="submit" value="valider" /><br /> <INPUT type="button"
+						name="inscription" value="inscription"
+						onclick="alert('inscription !')"> <INPUT type="button"
+						name="recupMDP" value="récupérer mot de passe"
+						onclick="alert('recup mot de passe !')">
+				</form>
 
 			</div>
 		</div>
+
 		<div id="fpage2">
 			<img
 				src="http://www.activconsult-ing.com/img/Article_fond_blanc_double_copie.png" />
@@ -107,3 +110,4 @@
 		</div>
 </body>
 </html>
+
