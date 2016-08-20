@@ -9,4 +9,17 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description>Servlet de test</description>
+    <servlet-name>HelloServlet</servlet-name>
+    <servlet-class>com.formation.phva.servlet.HelloServlet</servlet-class>
+    <init-param>
+		<param-name>debug</param-name>
+		<param-value>true</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HelloServlet</servlet-name>
+    <url-pattern>/hello</url-pattern>
+  </servlet-mapping>
 </web-app>

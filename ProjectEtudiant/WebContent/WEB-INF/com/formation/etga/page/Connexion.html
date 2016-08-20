@@ -8,25 +8,21 @@
 <div style= "background-color: darkblue; color : white; font: bold " align="center" > FORMULAIRE DE CONNEXION </div>
 <div style="background-color:silver ;"> 
 	<body>
-	<form>
+	<form action="http://localhost:8080/ProjectEtudiant/ServletEtga" method="POST">
 		<table align = "center">
 			<caption><h1>CONNEXION A MON ESPACE PERSONNEL</h1></caption>
 			<tr>
 				<th align="center"><h4>CONNEXION ESPACE</h4></th>
 			</tr>
 			<tr>
-				<td>Identifiant : <input type="texte" name="Identifiant" style="width: 378px; "/></td>
+				<td>Identifiant : <input type="text" name="Identifiant" style="width: 378px; " value=' '/></td>
 			</tr>
 			<tr>
-				<td>Mot de passe : <input type="password" name="mot de passe" style="width: 358px; "/></td>
+				<td>Mot de passe : <input type="password" name="mdp" style="width: 358px;" value=' '/></td>
 			</tr>
 			<tr>
-				<td align="center"><form action = "http://www.etga.fr/etga/Formulaire.html"><input type = "submit" value = "Login"/></form></td>
+				<td align="center"><input type = "submit" value = "Valider"/></td>
 			</tr>
-			
-			<tr>
-				<td align="center"><form action = "http://www.etga.fr/etga/Document.html"><input type = "submit" value = "Entrer"/></form></td>
-			</tr>	
 		</table>
 		</form>
 	</body>

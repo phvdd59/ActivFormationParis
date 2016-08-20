@@ -1,6 +1,6 @@
 package com.formation.joca.ctr;
 
-import com.formation.phva.exo.InterAlgo6;
+import com.formation.phva.inter.InterAlgo6;
 
 public class ExoAlgo6 implements InterAlgo6 {
 	/**
@@ -70,6 +70,7 @@ public class ExoAlgo6 implements InterAlgo6 {
 		for (int i = j; i <= j + f - 1; i++) {
 			result += tab[i];
 		}
+		System.out.println(result);
 		return result;
 	}
 
