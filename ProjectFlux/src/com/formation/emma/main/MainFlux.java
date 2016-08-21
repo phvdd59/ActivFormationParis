@@ -118,7 +118,7 @@ public class MainFlux {
 	}
 
 	public void initLecture() {
-		File file = new File("./Connexion.html");
+		File file = new File("./src/com/formation/phva/data/texte.txt");
 		BufferedReader bIn = null;
 		InputStreamReader inputStreamReader = null;
 		try {
