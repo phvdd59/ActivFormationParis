@@ -30,6 +30,16 @@ public class MainVerification {
 		verif3.fonctionAdresse(adresse);
 		String email="isma.safwat@gmail.com";
 		verif3.fonctionEmail(email);
+		VerificationsInscriptionPages4et5 verif4et5=new VerificationsInscriptionPages4et5();
+		String autre="En invalidité";
+		verif4et5.fonctionSituationActuelle(autre);
+		String position="2.1";
+		verif4et5.fonctionPosition(position);
+		String fonctionOccupee="Consultant en informatique";
+		verif4et5.fonctionFonctionOccupee(fonctionOccupee);
+		String coefficient="230";
+		String salaireSouhaite="36000";
+		verif4et5.foncionSalaireSouhaite(salaireSouhaite);
 	}
 
 }
