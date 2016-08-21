@@ -10,7 +10,6 @@ function surligne(champ, erreur) {
 
 function verifVide(champ) {
 	if (champ.value == '') {
-		alert("Le champ est vide");
 		return false;
 	} else {
 		return true;
@@ -21,8 +20,8 @@ function verifTaille(champ, min, max) {
 	if (champ.value.length <= max && champ.value.length >= min) {
 		return true;
 	} else {
-		alert("Le champ doit comporter entre " + min + " et " + max
-				+ " caracteres");
+//		alert("Le champ doit comporter entre " + min + " et " + max
+//				+ " caracteres");
 		return false;
 	}
 }
@@ -30,7 +29,6 @@ function verifTaille(champ, min, max) {
 function verifExisteDeja(champ) {
 	// pour l'instant, même chose que Vide. A changer.
 	if (champ.value == '') {
-		alert("Non disponible, déjà utilisé");
 		return false;
 	} else {
 		return true;
@@ -41,7 +39,6 @@ function verifLettres(champ) {
 	if ((champ.value.match("[\\w]+")) && (!champ.value.match(".*\\d+.*"))) {
 		return true;
 	} else {
-		alert("Le champ ne doit pas contenir de nombres");
 		return false;
 	}
 }
@@ -76,7 +73,6 @@ function verifMdp2(champ) {
 	} else {
 		surligne(mdp1, true);
 		surligne(mdp2, true);
-		alert("Les mots de passe sont differents");
 		return false;
 	}
 }
@@ -123,12 +119,21 @@ function verifEmail(champ) {
 }
 
 // ____ Dernière verif au submit ____
-function verifFinale(f) {
-	var idMdp = verifMdp(f.mdp2);
-	if (idMdp) {
-		return true;
-	} else {
-		alert("Problème sur la page");
+function verifInscription1(f) {
+	var alerttotal ="";
+	if (verifIdentifiant(f.Identifiant)==false) {
+		alerttotal = alerttotal+"Probleme identidiant \n";
+	}
+	if (verifMdp1(f.mdp1)==false) {
+		alerttotal = alerttotal+"Probleme mdp \n";
+	}
+//	if (verifMdp2(f.mdp2)==false) {
+//		alert("3");
+//	}
+	if (verifIdentifiant(f.Identifiant)==false||verifMdp1(f.mdp1)==false){
+		alert(alerttotal);
 		return false;
+	}else{
+		return true;
 	}
 }
