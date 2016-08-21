@@ -82,7 +82,7 @@
 
 			<div>
 				<form action="http://localhost:8080/ProjectEtudiant/Servlet1"
-					onsubmit="return verifForm(this)">
+					method="post">
 					<H2>Identification</H2>
 					<div ID="formu1">
 						<label>Identifiant :</label> <input type="text" id="identifiant"
@@ -95,19 +95,11 @@
 							style="width: 250px; margin-left: 41px" />
 					</div>
 					<div ID="formu3">
-						<input type="submit" name="subm" value="Login"
-							style="width: 100px" /> <a
-							href="http://www.thde.fr/thde/mdpoublie.html"
-							style="margin-left: 50px">mot de passe oublié ?</a>
+						<input type="submit">
 					</div>
+					
 				</form>
 				<div ID="formu4">
-					<form action="localhost:8080/thcr/Formulaire.html"
-						style="margin-top: 4px">
-						<input type="submit" name="inscription"
-							value="Nouvelle Inscription" style="width: 300px;" />
-
-					</form>
 				</div>
 				<br>
 			</div>

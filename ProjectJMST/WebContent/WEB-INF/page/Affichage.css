@@ -1,0 +1,41 @@
+@CHARSET "ISO-8859-1";
+
+body
+{
+    position: relative;
+}
+#table1
+{
+    margin: 0 auto;    
+}
+td,th,td
+{
+    border-collapse: collapse;
+    border-style: solid;
+}
+.button
+{
+    background-color: dodgerblue;
+    border: solid;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin-left: 220px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+#boutton1
+{
+    position: absolute;
+}
+#table1
+{
+    align-content: center;
+    overflow-y: auto;
+    overflow-x: auto;
+    width: auto;
+    height: auto;
+}

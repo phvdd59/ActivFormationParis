@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="Affichage.js">
+ 
+        
+    </script>
+<meta charset="UTF-8">
+<title>Affichage</title>
+<link rel="stylesheet" href="./Affichage.css">
+</head>
+    <body>
+        <div id="table1">
+        <table border="3">
+                <tr>
+					<th colspan="4" style="width: 700px;">Coordonnées Personnelles</th>
+				</tr>
+				<tr>
+					<td style="width: 245px; height: 25px;">Nom</td>
+					<td id="nom" style="width: 120px; height: 25px; color:;"></td>
+					<td style="width: 128px;">Prenom</td>
+					<td id="prenom" ></td>
+				</tr>
+				<tr>
+					<td>Adresse</td>
+					<td id="adresse" colspan="3"></td>
+				</tr>
+				<tr>
+					<td>Code Postale</td>
+					<td id="codepost"></td>
+					<td style="width: 80px;">Ville</td>
+					<td id="ville"></td>
+				</tr>
+				<tr>
+					<td>Telephone Fixe</td>
+					<td id="telfix"></td>
+					<td >Telephone Portable</td>
+					<td id="telport"></td>
+				</tr>
+				<tr>
+					<td>Fax</td>
+					<td id="fax"></td>
+					<td >Mail</td>
+					<td id="mail"></td>
+				</tr>
+				<tr>
+					<th colspan="4">Etat Civil</th>
+
+				</tr>
+				<tr>
+					<td>Date de naissance</td>
+					<td id="datenaissance"></td>
+					<td >Lieu de naissance</td>
+					<td id="lieunaissance"></td>
+				</tr>
+				<tr>
+					<td>N° sécurité Social</td>
+					<td id="secusocial"></td>
+                    <td>Nationalité</td>
+					<td id="nationalite"></td>
+				</tr>
+				<tr>
+					<th colspan="4">Situation Actuelle</th>
+				</tr>
+				<tr>
+                    <td>Situation</td>
+					<td id="situation"></td>
+                </tr>
+				<tr>
+					<th colspan="4">Fonction/Remuneration</th>
+				</tr>
+				<tr>
+					<td>Fonction occupée</td>
+					<td id="fonctionoccupe"></td>
+                    <td>Salaire souhaité</td>
+					<td id="salaire"></td>
+				</tr>
+				<tr>
+					<td>Position</td>
+					<td id="position"></td>
+					<td >Coefficient</td>
+					<td id="coefficient"></td>
+				</tr>
+				<tr>
+					<td>Mutuelle souhaitée:</td>
+					<td id="mutuelle"></td>
+                    <td>Ticket resto:</td>
+					<td id="ticketresto"></td>
+				</tr>
+				<tr>
+					<td>Date de la dernière visite médicale</td>
+					<td id="visitemedicale" ></td>
+				</tr>
+				<tr>
+					<td>Montant carte d'abonnement Transports</td>
+					<td id="abotransport"></td>
+                    <td>Véhicule personnel:</td>
+					<td id="vehicule"></td>
+				</tr>
+				<tr>
+					<td>Nombre de CV</td>
+					<td id="nbcv"></td>
+					<td >Km mensuel estimé</td>
+					<td id="kmestime"></td>
+				</tr>
+        </table>
+        </div>
+        <div id="boutton1">
+            <form action="http://localhost:8080/ProjectJMST/ServletThcr2" method="get">
+                <input class="button" type="submit" value="retour">
+            </form>
+        </div>
+    </body>
+</html>
