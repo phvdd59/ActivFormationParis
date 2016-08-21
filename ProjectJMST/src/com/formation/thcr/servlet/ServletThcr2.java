@@ -30,22 +30,21 @@ public class ServletThcr2 extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
-		File affichage = new File("C:/DevFormation/GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/Selectionutilisateur.html");
-		BufferedReader br = new BufferedReader(new FileReader(affichage));
+		File selectionUtilisateur = new File("C:/DevFormation/GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/Selectionutilisateur.html");
+		BufferedReader br = new BufferedReader(new FileReader(selectionUtilisateur));
 		String l = br.readLine();
 		while (l != null) {
 			response.getWriter().print(l);
 			l = br.readLine();
 		}
 		br.close();
-		
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
 		doGet(request, response);
 	}
 

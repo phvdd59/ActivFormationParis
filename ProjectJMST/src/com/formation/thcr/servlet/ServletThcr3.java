@@ -30,8 +30,8 @@ public class ServletThcr3 extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		File affichage = new File("C:/DevFormation/GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/pagecompteadministrateur.html");
-		BufferedReader br = new BufferedReader(new FileReader(affichage));
+		File compteAdmin = new File("C:/DevFormation/GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/pagecompteadministrateur.html");
+		BufferedReader br = new BufferedReader(new FileReader(compteAdmin));
 		String l = br.readLine();
 		while (l != null) {
 			response.getWriter().print(l);
