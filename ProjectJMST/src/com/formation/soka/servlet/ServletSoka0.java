@@ -1,4 +1,4 @@
-package com.formation.thcr.servlet;
+package com.formation.soka.servlet;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -11,16 +11,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class ServletThcr2
+ * Servlet implementation class ServletSoka0
  */
-@WebServlet("/ServletThcr2")
-public class ServletThcr2 extends HttpServlet {
+@WebServlet("/ServletSoka0")
+public class ServletSoka0 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ServletThcr2() {
+    public ServletSoka0() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,22 +29,25 @@ public class ServletThcr2 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		response.getWriter().append("Served at: ").append(request.getContextPath());
-		File selectionUtilisateur = new File("C:/DevFormation/GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/Listeutilisateur.html");
-		BufferedReader br = new BufferedReader(new FileReader(selectionUtilisateur));
-		String l = br.readLine();
-		while (l != null) {
-			response.getWriter().print(l);
-			l = br.readLine();
+		File file = new File("C:/DevFormation/" + //
+				"GITActivFormationParis/ProjectJMST/" + //
+				"WebContent/WEB-INF/" + //
+				"page/pageActiveFormulaire_part1_ident_mdp.html");
+		BufferedReader bIn = null;
+		bIn = new BufferedReader(new FileReader(file));
+		String line = bIn.readLine();
+		while (line != null) {
+			response.getWriter().println(line);
+			line = bIn.readLine();
 		}
-		br.close();
+		bIn.close();
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
 		doGet(request, response);
 	}
 
