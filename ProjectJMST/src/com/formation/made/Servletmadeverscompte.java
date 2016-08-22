@@ -11,9 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Servletmadeverscompte
+ * Servlet implementation class Servletmadeversinfo
  */
-@WebServlet("/Servletmadeadminverscompte")
+@WebServlet("/Servletmadeversinfo")
 public class Servletmadeverscompte extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -37,12 +37,13 @@ public class Servletmadeverscompte extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		File file = new File("../GITActivFormationParis/ProjectEtudiant/WebContent/WEB-INF/com/formation/made/page/login.html");
+		File file = new File("../GITActivFormationParis/ProjectEtudiant/WebContent/WEB-INF/com/formation/made/page/Infoutilisateur.html");
 		BufferedReader bIn = null;
 		bIn=new BufferedReader(new FileReader(file) ); 
 		String maLigne=bIn.readLine();
 		while (maLigne!=null) {
 			response.getWriter().append(maLigne);
+			maLigne=bIn.readLine();
 		}
 		bIn.close();
 	}
