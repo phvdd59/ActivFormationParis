@@ -37,12 +37,13 @@ public class Servletmadeverslisteusers extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		File file = new File("../GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/Selectionutilisateur.html");
+		File file = new File("../GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/Listeutilisateur.html");
 		BufferedReader bIn = null;
 		bIn=new BufferedReader(new FileReader(file) ); 
 		String maLigne=bIn.readLine();
 		while (maLigne!=null) {
 			response.getWriter().append(maLigne);
+			maLigne=bIn.readLine();
 		}
 		bIn.close();
 	}

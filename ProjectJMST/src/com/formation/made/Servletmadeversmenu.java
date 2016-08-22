@@ -31,6 +31,15 @@ public class Servletmadeversmenu extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		File file = new File("../GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/pagecompteadministrateur");
+		BufferedReader bIn = null;
+		bIn=new BufferedReader(new FileReader(file) ); 
+		String maLigne=bIn.readLine();
+		while (maLigne!=null) {
+			response.getWriter().append(maLigne);
+			maLigne=bIn.readLine();
+		}
+		bIn.close();
 	}
 
 	/**
