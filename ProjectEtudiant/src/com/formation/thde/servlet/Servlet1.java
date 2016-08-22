@@ -42,6 +42,10 @@ public class Servlet1 extends HttpServlet {
 			bIn = new BufferedReader(new FileReader(file));
 			String line = bIn.readLine();
 			while (line != null) {
+				
+//				if (line.contains("1234")){
+//					l=l.replace()
+//				}
 				response.getWriter().println(line);
 				line = bIn.readLine();
 			}
