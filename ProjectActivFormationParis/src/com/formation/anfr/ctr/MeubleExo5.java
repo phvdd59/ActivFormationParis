@@ -1,11 +1,11 @@
 package com.formation.anfr.ctr;
 
-public class Meuble implements Comparable<Meuble> {
+public class MeubleExo5 implements Comparable<MeubleExo5> {
 
 	private String reference;
 	private int nbVendu;
 
-	public Meuble(String lettre, int nbVendu) {
+	public MeubleExo5(String lettre, int nbVendu) {
 		super();
 		this.reference = lettre;
 		this.nbVendu = nbVendu;
@@ -32,7 +32,7 @@ public class Meuble implements Comparable<Meuble> {
 	}
 
 	@Override
-	public int compareTo(Meuble o) {
+	public int compareTo(MeubleExo5 o) {
 		int compare = 0;
 		if (this.getNbVendu() > o.getNbVendu()) {
 			compare = -1;
@@ -45,8 +45,8 @@ public class Meuble implements Comparable<Meuble> {
 	@Override
 	public boolean equals(Object obj) {
 		boolean egal = false;
-		if ((obj instanceof Meuble)) {
-			if (this.getRef().equals(((Meuble) obj).getRef())) {
+		if ((obj instanceof MeubleExo5)) {
+			if (this.getRef().equals(((MeubleExo5) obj).getRef())) {
 				egal = true;
 			}
 		}

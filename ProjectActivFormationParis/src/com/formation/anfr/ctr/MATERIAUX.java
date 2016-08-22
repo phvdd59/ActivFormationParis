@@ -1,37 +1,31 @@
 package com.formation.anfr.ctr;
 
+@SuppressWarnings("unused")
 public enum MATERIAUX {
-	BOIS((float) 0.6, SOLIDITE.NORMAL), COMPENSE((float) 0.9, SOLIDITE.NORMAL), STRATIFIE((float) 0.8, SOLIDITE.NORMAL), FER((float) 7.4,
-			SOLIDITE.SOLIDE), BRONZE((float) 9.2, SOLIDITE.SOLIDE), VERRE((float) 2.5, SOLIDITE.FRAGILE), TISSU((float) 1.1,
-					SOLIDITE.SOLIDE), CARTON( (float)0.5, SOLIDITE.FRAGILE), VIDE(0, SOLIDITE.FRAGILE), PLASTIQUE((float) 0.5,
-							SOLIDITE.NORMAL), CAOUTCHOUC((float) 1.1, SOLIDITE.NORMAL), BAMBOU((float) 0.6, SOLIDITE.FRAGILE);
-	
+	BOIS(0.6f, SOLIDITE.NORMAL, 0), //
+	COMPENSE(0.9f, SOLIDITE.NORMAL, 0), //
+	STRATIFIE(0.8f, SOLIDITE.NORMAL, 0), //
+	FER(7.4f, SOLIDITE.SOLIDE, 0), //
+	BRONZE(9.2f, SOLIDITE.SOLIDE, 0), //
+	VERRE(2.5f, SOLIDITE.FRAGILE, 0), //
+	TISSU(1.1f, SOLIDITE.SOLIDE, 0), //
+	CARTON(0.5f, SOLIDITE.FRAGILE, 0), //
+	VIDE(0, SOLIDITE.FRAGILE, 0), //
+	PLASTIQUE(0.5f, SOLIDITE.NORMAL, 0), //
+	CAOUTCHOU(1.1f, SOLIDITE.NORMAL, 0), //
+	BAMBOU(0.6f, SOLIDITE.FRAGILE, 0);
+
 	private final float densite;
 	private final SOLIDITE solidite;
 	private int pourcent;
-	
-	private MATERIAUX(float f, SOLIDITE sol){
-		this.densite = f;
-		this.solidite = sol;
-	}
 
-
-	public int getPourcent() {
-		return pourcent;
+	private MATERIAUX(float densite, SOLIDITE solidite, int pourcent) {
+		this.densite = densite;
+		this.solidite = solidite;
+		this.pourcent = pourcent;
 	}
 
 	public void setPourcent(int pourcent) {
 		this.pourcent = pourcent;
 	}
-
-
-	public float getDensite() {
-		return densite;
-	}
-
-
-	public SOLIDITE getSolid() {
-		return solidite;
-	}
-
 }

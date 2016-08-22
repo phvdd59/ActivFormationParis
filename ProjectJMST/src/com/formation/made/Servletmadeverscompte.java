@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Servletmadeadminverscompte
+ * Servlet implementation class Servletmadeverscompte
  */
 @WebServlet("/Servletmadeadminverscompte")
 public class Servletmadeverscompte extends HttpServlet {

@@ -1,6 +1,8 @@
 package com.formation.jeci.servlet;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -12,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Servlet1
  */
-@WebServlet("/ServletJeci")
+@WebServlet(value="/Servletjeci", name="Servletjeci")
 public class Servletjeci extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -45,42 +47,46 @@ public class Servletjeci extends HttpServlet {
 	 *      response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-//		try {
-//			// Read from request
-//			StringBuilder buffer = new StringBuilder();
-//			BufferedReader reader = request.getReader();
-//			String line;
-//			while ((line = reader.readLine()) != null) {
-//				buffer.append(line);
-//				
-//			}
-//			
-//		} catch (Exception e) {
-//			
-//		}
+		BufferedReader reader = null;
+		try {
+			// Read from request
+			File file=new File("C:/DevFormation/GITActivFormationParis/ProjectEtudiant/WebContent/WEB-INF/com/formation/jeci/page/identification.html");
+			System.out.println(file.getCanonicalPath()+" "+file.exists());
+			StringBuilder buffer = new StringBuilder();
+			 reader = new BufferedReader(new FileReader(file));
+			String line=reader.readLine();
+			while (line != null) {
+				response.getWriter().println(line);	
+				line=reader.readLine();
+			}
+			
+		} catch (Exception e) {
+			response.getWriter().println("toto");
+		}finally{
+			reader.close();
+		}
 	
 		// récupérer les paramètres.
 
-		String pseudo = request.getParameter("nom");
-		// Contrôler les params
-		if (pseudo.contains("Philippe")) {
-			pseudo = pseudo + "PLUS";
-		}
+//		String pseudo = request.getParameter("nom");
+//		// Contrôler les params
+//		if (pseudo.contains("Philippe")) {
+//			pseudo = pseudo + "PLUS";
+//		}
 		// Constituer la nouvelle page
 		// response.getWriter().append("Served at:
 		// ").append(request.getContextPath());
-		response.getWriter().println("<html><body><h1>ACTIV-CONSULTING</h1>");
-		response.getWriter().println("<form>" + "<input type='text' value='" + "'>");
-		response.getWriter().println("<input name='question' type='text' " + "value='" + pseudo + "'>");
-		response.getWriter().println("<input name='submit' type='submit' " + "value='OK'>");
-		if (pseudo.contains("Philippe")) {
-			response.getWriter().println("<p style='color:red'>" + pseudo + "</p>");
-		} else {
-			response.getWriter().println("<p style='color:blue'>" + pseudo + "</p>");
-		}
-
-		response.getWriter().println("</form></body></html>");
+		
+//		response.getWriter().println("<form>" + "<input type='text' value='" + "'>");
+//		response.getWriter().println("<input name='question' type='text' " + "value='" + pseudo + "'>");
+//		response.getWriter().println("<input name='submit' type='submit' " + "value='OK'>");
+//		if (pseudo.contains("Philippe")) {
+//			response.getWriter().println("<p style='color:red'>" + pseudo + "</p>");
+//		} else {
+//			response.getWriter().println("<p style='color:blue'>" + pseudo + "</p>");
+//		}
+//
+//		response.getWriter().println("</form></body></html>");
 	}
 
 }

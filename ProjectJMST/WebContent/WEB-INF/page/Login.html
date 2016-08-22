@@ -79,15 +79,18 @@
 		<div id="info2">
 			<!-- zone disponible -->
 			<div id="menu1">
-				<form action="trait.java" methode="post">
+				<form action="http://localhost:8080/ProjectJMST/Test" method="post">
 					Identifiant :<br /> <input id="ident" type="text"
-						name="identifiant" onblur="ctrIdent()" /><br /> <br /> Mot de
-					passe :<br /> <input type="text" name="motdepasse"> <input
-						type="submit" value="valider" /><br /> <INPUT type="button"
-						name="inscription" value="inscription"
-						onclick="alert('inscription !')"> <INPUT type="button"
-						name="recupMDP" value="récupérer mot de passe"
+						name="identifiant" /><br /> <br /> Mot de passe :<br /> <input
+						type="text" name="motdepasse"> <input type="submit"
+						value="valider" /><br /> <INPUT type="button" name="recupMDP"
+						value="récupérer mot de passe"
 						onclick="alert('recup mot de passe !')">
+				</form>
+				<form action="http://localhost:8080/ProjectJMST/ServletSoka1"
+					method="get">
+					<INPUT type="submit" name="inscription" value="inscription"
+						onclick="alert('inscription !')">
 				</form>
 
 			</div>
