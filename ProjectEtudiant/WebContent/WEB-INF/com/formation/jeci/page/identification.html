@@ -14,16 +14,16 @@ function ctrIdent(){
 </head>
 <body style="background-image:url('file://c:/arriereplan.png');">
 
-
+<input type="hidden" value='%%numserie%%'>
 
 
 
 <div style="background-image: url('file://c:/arriereplan2.png');width:262px; height:184px; position:absolute; border:thick #1C1C1C outset; left:500px; top:100px; ">
 <div style="margin:20px 20px 20px 60px">
 	<form action="http://www.jeci.fr/jeci/saisie.html" style="color: white">
-		Nom:<br /><input type="text" name="nom" /><br />
-		Mot de passe:<br /><input id="ident" type="password" onblur="ctrIdent()" name="Mot de Passe" />
-		<p id="erreur">bonjour<input type="submit"  value="Connexion" /></p>
+		Nom:<br /><input type="text" name='%%pseudo%%' /><br />
+		Mot de passe:<br /><input id="ident" type="password" onblur="ctrIdent()" name='%%Mot de Passe%%' />
+		<p id="erreur">bonjour<input type="submit" name='' value="Connexion" /></p>
 	</form>
 	</div>
 	</div>
