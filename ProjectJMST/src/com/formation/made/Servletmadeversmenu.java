@@ -11,16 +11,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Servletmadeverscompte
+ * Servlet implementation class Servletmadeversmenu
  */
-@WebServlet("/Servletmadeadminverscompte")
-public class Servletmadeverscompte extends HttpServlet {
+@WebServlet("/Servletmadeversmenu")
+public class Servletmadeversmenu extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Servletmadeverscompte() {
+    public Servletmadeversmenu() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,7 +37,7 @@ public class Servletmadeverscompte extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		File file = new File("../GITActivFormationParis/ProjectEtudiant/WebContent/WEB-INF/com/formation/made/page/login.html");
+		File file = new File("../GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/pagecompteadministrateur");
 		BufferedReader bIn = null;
 		bIn=new BufferedReader(new FileReader(file) ); 
 		String maLigne=bIn.readLine();
