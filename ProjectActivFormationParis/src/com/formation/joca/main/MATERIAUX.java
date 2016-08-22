@@ -1,4 +1,4 @@
-package com.formation.issa.ctr;
+package com.formation.joca.main;
 
 @SuppressWarnings("unused")
 public enum MATERIAUX {
@@ -19,13 +19,26 @@ public enum MATERIAUX {
 	private final SOLIDITE solidite;
 	private int pourcent;
 
-	private MATERIAUX(float densite, SOLIDITE solidite, int pourcent) {
+	private MATERIAUX(float densite, SOLIDITE solidite, int qte) {
 		this.densite = densite;
 		this.solidite = solidite;
+		this.pourcent = qte;
+	}
+
+	public int getQte() {
+		return pourcent;
+	}
+
+	public void setQte(int pourcent) {
 		this.pourcent = pourcent;
 	}
 
-	public void setPourcent(int pourcent) {
-		this.pourcent = pourcent;
+	public float getDensite() {
+		return densite;
 	}
+
+	public SOLIDITE getSolidite() {
+		return solidite;
+	}
+
 }
