@@ -14,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class Servlet1
@@ -21,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(value = "/ServletEmma", name = "ServletEmma", initParams = { @WebInitParam(name = "nom", value = "qsdf") })
 public class Servlet1 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static int VALEUR = 0;
+	//private static int VALEUR = 0;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -38,9 +39,17 @@ public class Servlet1 extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		File file = new File("../GITActivFormationParis/ProjectEtudiant/WebContent/com/formation/emma/page/Identification.html");
 		//	System.out.println(file.getCanonicalPath());
+		int noserie = (int) Math.random() * Integer.MAX_VALUE;
+		HttpSession session = request.getSession(true); //true pour garder le meme numero de session qui vient detre créé
+		String id = session.getId(); //donne le numero de session
+		session.setAttribute("noserie", noserie);
+		
 		BufferedReader bIn = new BufferedReader(new FileReader(file));
 		String line = bIn.readLine();
 		while (line != null) {
+			if (line.contains("%%noserie%%")) {
+				line = line.replace("%%noserie%%", Integer.toString(noserie));
+			}
 			response.getWriter().println(line);
 			line = bIn.readLine();
 		}
@@ -52,7 +61,9 @@ public class Servlet1 extends HttpServlet {
 		//recuperer les parametres
 		String pseudo = req.getParameter("Identifiant");
 		String mdp = req.getParameter("mot de passe");
-	
+		
+		HttpSession session = req.getSession();
+		
 
 		// controler les parametres	
 		if (pseudo != null) {
