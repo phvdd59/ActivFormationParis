@@ -5,7 +5,7 @@
 <title>Login</title>
 <link href="http://www.activconsult-ing.com/Home.css" rel="stylesheet"
 	type="text/css">
-<link href="Login.css" rel="stylesheet" type="text/css">
+<link href="../css/Login.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 	<div id="background">
@@ -79,15 +79,18 @@
 		<div id="info2">
 			<!-- zone disponible -->
 			<div id="menu1">
-				<form action="trait.java" methode="post">
+				<form action="http://localhost:8080/ProjectJMST/Test" method="post">
 					Identifiant :<br /> <input id="ident" type="text"
-						name="identifiant" onblur="ctrIdent()" /><br /> <br /> Mot de
-					passe :<br /> <input type="text" name="motdepasse"> <input
-						type="submit" value="valider" /><br /> <INPUT type="button"
-						name="inscription" value="inscription"
-						onclick="alert('inscription !')"> <INPUT type="button"
-						name="recupMDP" value="récupérer mot de passe"
+						name="identifiant" /><br /> <br /> Mot de passe :<br /> <input
+						type="text" name="motdepasse"> <input type="submit"
+						value="valider" /><br /> <INPUT type="button" name="recupMDP"
+						value="récupérer mot de passe"
 						onclick="alert('recup mot de passe !')">
+				</form>
+				<form action="http://localhost:8080/ProjectJMST/ServletSoka1"
+					method="get">
+					<INPUT type="submit" name="inscription" value="inscription"
+						onclick="alert('inscription !')">
 				</form>
 
 			</div>
@@ -108,6 +111,7 @@
 			<div id="droit2">©1997-2012 - Tous droits de reproduction et de
 				représentation réservés | Mentions légales</div>
 		</div>
+	</div>
 </body>
 </html>
 
