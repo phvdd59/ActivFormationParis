@@ -44,8 +44,10 @@ public class ServletSoka4 extends HttpServlet {
 		BufferedReader bIn = null;
 		bIn = new BufferedReader(new FileReader(file));
 		String line = bIn.readLine();
+		while (line != null) {
 			response.getWriter().println(line);
 			line = bIn.readLine();
+		}
 		bIn.close();
 	}
 

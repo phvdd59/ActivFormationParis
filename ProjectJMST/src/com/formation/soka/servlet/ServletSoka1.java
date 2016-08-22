@@ -57,7 +57,6 @@ public class ServletSoka1 extends HttpServlet {
 		File file = new File("C:/DevFormation/GITActivFormationParis/" + //
 				"ProjectJMST/WebContent/WEB-INF/" + //
 				"page/pageActiveFormulaire_part2_coordonnees_personnelles.html");
-		System.out.println(file.exists());
 		BufferedReader bIn = null;
 		bIn = new BufferedReader(new FileReader(file));
 		String line = bIn.readLine();
