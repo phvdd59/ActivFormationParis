@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="Formulaire.css">
+<title></title>
+</head>
+<body>
+	<form id=formulaire methode=post action="">
+		<p><div
+			style="position: absolute left: 25px; height: 25px; margin: auto;">
+			<h1 style="text-align: center">Demande d'inscription</h1>
+		</div></p>
+
+
+		<table style="width: 150%">
+			<div class="encadre"><fieldset>
+
+				<legend
+					style="text-align: center; font-size: 160%; font-weight: bold">Coordonnées personnelles</legend>
+			<tr>
+				<td><p>
+						<label for="nom" style="margin-right: 10px; color: #A58; ">Nom :</label><input type="text" id="nom" />
+					</p></td>
+				<td>Prenom :<input type="text" id="prenom"style="margin-left: 10px" /></td>
+			</tr>
+
+			<tr>
+				<td><p>
+						<label for="adresse" style="margin-right: 10px">Adresse :</label><input type="text" id="adresse" />
+					</p></td>
+			</tr>
+
+			<tr>
+				<td><p>
+						<label for="code postal" style="margin-right: 10px">Code Postal :</label><input type="text" id="code postal" />
+					</p></td>
+				<td>Ville :<input type="text" id="ville" style="margin-left: 10px" /></td>
+			</tr>
+
+			<tr>
+				<td><p>
+						<label for="telephone fixe" style="margin-right: 10px">Téléphone fixe :</label><input type="tel" id="telephone fixe" />
+					</p></td>
+				<td>Téléphone portable :<input type="tel"id="telephone portable" style="margin-left: 10px" /></td>
+			</tr>
+
+			<tr>
+				<td><p>
+						<label for="fax" style="margin-right: 10px">Fax :</label><input type="text" id="fax" />
+					</p></td>
+				<td>Email :<input type="email" id="e-mail"style="margin-left: 10px" /></td>
+			</tr>
+
+			</fieldset></div>
+		</table>
+
+		<table>
+			<fieldset>
+
+				<legend
+					style="text-align: center; font-size: 160%; font-weight: bold">Etat Civil</legend>
+				<tr>
+					<td><p>
+							<label for="date" style="margin-right: 10px">Date de Naissance :</label><input type="date" id="date"; placeholder="DD/MM/YYYY">
+						</p></td>
+					<td>Lieu :<input type="text" id="lieu"style="margin-left: 10px" /></td>
+				</tr>
+
+				<tr>
+					<td><p>
+							<label for="text" style="margin-right: 10px">N° de sécurité sociale :</label><input type="text" id="text" maxlength="15" />
+						</p></td>
+				</tr>
+
+				<tr>
+					<td><p>
+							<label for="text" style="margin-right: 10px">Nationalité :</label><input type="text" id="text" />
+						</p></td>
+				</tr>
+
+			</fieldset>
+		</table>
+
+		<table>
+			<fieldset>
+
+				<legend
+					style="text-align: center; font-size: 160%; font-weight: bold">Situation actuelle</legend>
+				<tr>
+					<td><p>
+							<label for="salarie">Salarié :</label><input type="checkbox"
+								name="salarie" value="1" id="salarie">
+						</p></td>
+					<td>Auto-entrepreneur :<input type="checkbox"name="auto-entrepreneur" value="1" id="auto-entrepreneur"></td>
+					<td>Freelance :<input type="checkbox" name="freelance" value="1" id="freelance"></td>
+				</tr>
+
+				<tr>
+					<td><p>
+							<label for="demandeur d'emploi">Demandeur d'emploi :</label><input type="checkbox" name="demandeur d'emploi" value="1" id="demandeur d'emploi">
+						</p></td>
+					<td>Retraité :<input type="checkbox" name="retraite" value="1" id="retraite"></td>
+					<td>Autre :<input type="text" id="text" style="margin-right: 10px"></td>
+				</tr>
+
+			</fieldset>
+		</table>
+
+		<table>
+			<fieldset>
+
+				<legend
+					style="text-align: center; font-size: 160%; font-weight: bold">Fonction / Rémunération</legend>
+				<tr>
+					<td><p>
+							<label for="fonction occupée" style="margin-right: 10px">Fonction occupée :</label><input type="text" id="fonction occupée">
+						</p></td>
+					<td>Cadre :<input type="checkbox" name="cadre" value="1" id="cadre"></td>
+					<td>Non cadre :<input type="checkbox" name="non cadre" value="1" id="non cadre"></td>
+				</tr>
+
+				<tr>
+					<td><p>
+							<label for="position" style="margin-right: 10px">Position :</label><input type="text" id="position">
+						</p></td>
+					<td><label for="coefficient" syle="margin-left: 10px">Coefficient :</label><input type="text" id="coefficient"></td>
+				</tr>
+
+				<tr>
+					<td><p>
+							<label for="salaire souhaité" style="margin-right: 10px">Salaire souhaité :</label><input type="text" id="salaire souhaité">
+						</p></td>
+				</tr>
+
+				<tr>
+					<td><p>
+							<label for="mutuelle" style="margin-right: 10px">Mutuelle souhaitée :</label> 
+							<label for="mutuelle-oui">Oui</label> <input type="checkbox" value="oui" id="mutuelle-oui"> <label for="mutuelle-non">Non</label> <input type="checkbox" value="non" id="mutuelle-non">
+						</p></td>
+					<td>Ticket resto :<label for="ticket resto-oui" style="margin-left: 10px">Oui</label> <input type="checkbox" value="oui" id="ticket resto-oui"> 
+					<label for="ticket resto-non">Non</label> <input type="checkbox" value="non" id="ticket resto-non"></td>
+				</tr>
+
+				<tr>
+					<td><p>
+							<label for="date de la derniere VM" style="margin-right: 10px">Date de la dernière visite médicale :</label><input type="text" id="date de la derniere VM">
+						</p></td>
+				</tr>
+
+				<tr>
+					<td><p>
+							<label for="montant" style="margin-right: 10px">Montant Carte d'abonnement transport :</label><input type="text" id="montant">
+						</p></td>
+				</tr>
+
+				<tr>
+					<td><p>
+							<label for="vehicule personnel" style="margin-right: 10px">Véhicule personnel :</label><input type="text" id="vehicule personnel">
+						</p></td>
+					<td>Nombre de CV :<input type="number" id="nb CV" style="margin-left: 10px"></td>
+					<td>km mensuel estimé :<input type="number" id="km" style="margin-left: 10px"></td>
+				</tr>
+
+			</fieldset>
+		</table>
+	</form>
+</body>
+</html>

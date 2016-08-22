@@ -62,9 +62,9 @@ public class ExoFlux1 extends ArrayList<Terme> {
 		BufferedReader sMot = null;
 		boolean ligne = false;
 		boolean sens = false;
-//		boolean existSens = false;
-//		boolean posX = false;
-//		boolean posY = false;
+		boolean existSens = false;
+		boolean posX = false;
+		boolean posY = false;
 		String mot = null;
 		int x = 0;
 		int y = 0;
@@ -79,62 +79,71 @@ public class ExoFlux1 extends ArrayList<Terme> {
 
 				}
 
-				// while (!posX) {
-				try {
-					System.out.println("Entrez une position x :");
-					x = Integer.valueOf(sMot.readLine());
+				while (!posX) {
+					try {
+						System.out.println("Entrez une position x :");
+						x = Integer.valueOf(sMot.readLine());
 
-				} catch (Exception e) {
-					// e.printStackTrace();
-				}
-				if (x >= 0) {
-					System.out.println("position de x :" + x);
-				} else {
-					System.out.println("position x incorrecte");
-				}
-				// }
-
-				// while (!posY) {
-				try {
-					System.out.println("Entrez une position y :");
-					y = Integer.valueOf(sMot.readLine());
-				} catch (Exception e) {
-
-				}
-				if (y >= 0) {
-					System.out.println("position de y :" + y);
-				} else {
-					System.out.println("position de y incorrecte");
+					} catch (Exception e) {
+						// e.printStackTrace();
+					}
+					if (x >= 0) {
+						System.out.println("position de x : " + x);
+						posX = true;
+						break;
+					} else {
+						System.out.println("position x incorrecte");
+						posX = false;
+					}
 				}
 
-				// }
+				while (!posY) {
+					try {
+						System.out.println("Entrez une position y :");
+						y = Integer.valueOf(sMot.readLine());
+					} catch (Exception e) {
+
+					}
+					if (y >= 0) {
+						System.out.println("position de y : " + y);
+						posY = true;
+						break;
+					} else {
+						System.out.println("position de y incorrecte");
+						posY = false;
+					}
+
+				}
 				Point point = new Point(x, y);
-				// while (!existSens) {
-				System.out.println("Entrez un sens (HORIZONTAL ou VERTICAL)?: ");
-				String iSens = sMot.readLine();
-				if (iSens.equals("HORIZONTAL")) {
-					sens = false;
-				} else if (iSens.equals("VERTICAL")) {
-					sens = true;
-				} else {
-					System.out.println("sens incorrecte");
+				while (!existSens) {
+					System.out.println("Entrez un sens (HORIZONTAL ou VERTICAL)?: ");
+					String iSens = sMot.readLine();
+					if (iSens.equals("HORIZONTAL")) {
+						sens = false;
+						existSens = true;
+						break;
+					} else if (iSens.equals("VERTICAL")) {
+						sens = true;
+						existSens = true;
+						break;
+					} else {
+						System.out.println("sens incorrecte");
+						existSens = false;
+					}
 				}
-				// }
 
 				terme = new Terme(mot, point, sens);
 				lst.add(terme);
 				System.out.println("Auriez-vous un autre terme à rajouter?");
-				String fin=sMot.readLine();
-				if(fin.equals("oui")){
+				String fin = sMot.readLine();
+				if (fin.equals("oui")) {
 					System.out.println("Autre terme à rajouter");
-					ligne=false;
-				}else if(fin.equals("non")){
+					ligne = false;
+				} else if (fin.equals("non")) {
 					System.out.println("fin de la création de termes");
-					ligne=true;
+					ligne = true;
 					break;
 				}
-
-				// ligne = Integer.valueOf(mot);
 
 			}
 

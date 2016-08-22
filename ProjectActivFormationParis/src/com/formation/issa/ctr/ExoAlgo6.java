@@ -1,6 +1,6 @@
 package com.formation.issa.ctr;
 
-import com.formation.phva.exo.InterAlgo6;
+import com.formation.phva.inter.InterAlgo6;
 
 public class ExoAlgo6 implements InterAlgo6 {
 	/**
@@ -29,65 +29,47 @@ public class ExoAlgo6 implements InterAlgo6 {
 
 	public int solution(int[] tab, int n, int f) {
 
-		n = 2;
 		f = 3;
+		n = 2;
+		int indice = 0;
+		int somme1 = 0;
+		int somme2 = 0;
+		int maxValue = 0;
+		int[] tab1 = new int[tab.length];
+		int[] tab2 = new int[tab.length];
+		if (n > tab.length || f > tab.length || n<0 || f<0 || tab.length == 0) {
+			return -1;
+		} else {
+			for (int i = n; i < tab.length - n; i++) {
+				indice = i;
+				for (int j = i - 2; j <= i + 2; j++) {
+					somme1 = somme1 + tab[j];
 
-		int[] tab1 = new int[f];
-		int[] tab2 = new int[f];
-		int[] tab3 = new int[f];
-		int j1=0;
-		int j2 = 0;
-		int indice = tab2[0];
-
-		for (int i = 0; i < tab.length; i++) {
-			if(tab.length==0){
-				return-1;
+				}
+				tab1[indice] = somme1;
+				somme1 = 0;
 			}
-			else if (tab.length % 3 != 0) {
-				for (int j = 0; j < tab.length; j++) {
-					
-				
-				for (j = 0; j < 2*n+1; j++) {
-					j1=j1+tab[j];
-				}
-				n+=i;
-				}
-				for (int k = 0; k < tab3.length; k++) {
-					
-				}
-		
 
-				for (int j = 0; j <= 4; j++) {
-					tab1[0] = tab1[0] + tab[j];
+			for (int j2 = f; j2 < tab1.length - f; j2++) {
+				indice = j2;
+				for (int k = j2; k <= j2 + n; k++) {
+					somme2 = somme2 + tab1[k];
 				}
-				for (int j = 7; j <= 11; j++) {
-					tab1[1] = tab1[1] + tab[j];
+				tab2[indice] = somme2;
+				somme2 = 0;
 
-				}
-				for (int j = 15; j <= 19; j++) {
-					tab1[2] = tab1[2] + tab[j];
-				}
-
-				for (j1 = 5; j1 <= 9 + j2; j1++) {
-
-					tab2[j2] = tab2[j2] + tab[j1];
-
-				}
-				tab[indice]=tab[5]+j2;
-				j2++;
-
-				for (int j = 0; j < tab2.length; j++) {
-					indice = indice + tab2[j];
-				}
-
-				//for (int j = 13; j < tab.length; j++) {
-					//tab3[j3] = tab3[j3] + tab[j];
-
-				//}
-				//j3++;
 			}
+
+			for (int i = 0; i < tab2.length; i++) {
+
+				if (maxValue < tab2[i]) {
+					maxValue = tab2[i];
+					indice = i;
+					tab2[indice] = maxValue;
+				}
+			}
+
+			return indice;
 		}
-
-		return indice;
 	}
 }
