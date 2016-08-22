@@ -31,7 +31,7 @@ public class ServletEtga extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		File file = new File("C:/DevFormation/GITActivFormationParis/ProjectEtudiant/WebContent/WEB-INF/com/formation/etga/page/Connexion.html");
+		File file = new File("C:/DevFormation/GITActivFormationParis/ProjectEtudiant/WebContent/WEB-INF/com/formation/etga/page/Documents.html");
 		BufferedReader bufRead = null;
 		bufRead = new BufferedReader(new FileReader(file));
 		String line = bufRead.readLine();
@@ -44,36 +44,37 @@ public class ServletEtga extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String pseudo1 = req.getParameter("identifiant");
-		String pseudo2 = req.getParameter("mdp");
-		if ((pseudo1 != null) && (pseudo2 != null)) {
-			if ((pseudo1.equals("etga")) && (pseudo2.equals("etga"))) {
-				File file = new File("C:/DevFormation/GITActivFormationParis/ProjectEtudiant/WebContent/WEB-INF/com/formation/etga/page/Document.html");
-				BufferedReader bufRead = null;
-				bufRead = new BufferedReader(new FileReader(file));
-				String line = bufRead.readLine();
-				while (line != null) {
-					resp.getWriter().println(line);
-					line = bufRead.readLine();
-				}
-				bufRead.close();
-			} else {
-				File file = new File("C:/DevFormation/GITActivFormationParis/ProjectEtudiant/WebContent/WEB-INF/com/formation/etga/page/Connexion.html");
-				BufferedReader bufRead = null;
-				bufRead = new BufferedReader(new FileReader(file));
-				String line = bufRead.readLine();
-				while (line != null) {
-					if (line.contains("identifiant")) {
-						line = line.replace(pseudo2, "erreur");
-					}
-					if (line.contains("mdp")) {
-						line = line.replace(pseudo2, "erreur");
-					}
-					resp.getWriter().println(line);
-					line = bufRead.readLine();
-				}
-				bufRead.close();
-			}
-		}
+
+		//		String pseudo1 = req.getParameter("identifiant");
+		//		String pseudo2 = req.getParameter("mdp");
+		//		if ((pseudo1 != null) && (pseudo2 != null)) {
+		//			if ((pseudo1.equals("etga")) && (pseudo2.equals("etga"))) {
+		//				File file = new File("C:/DevFormation/GITActivFormationParis/ProjectEtudiant/WebContent/WEB-INF/com/formation/etga/page/Documents.html");
+		//				BufferedReader bufRead = null;
+		//				bufRead = new BufferedReader(new FileReader(file));
+		//				String line = bufRead.readLine();
+		//				while (line != null) {
+		//					resp.getWriter().println(line);
+		//					line = bufRead.readLine();
+		//				}
+		//				bufRead.close();
+		//			} else {
+		//				File file = new File("C:/DevFormation/GITActivFormationParis/ProjectEtudiant/WebContent/WEB-INF/com/formation/etga/page/Connexion.html");
+		//				BufferedReader bufRead = null;
+		//				bufRead = new BufferedReader(new FileReader(file));
+		//				String line = bufRead.readLine();
+		//				while (line != null) {
+		//					if (line.contains("identifiant")) {
+		//						line = line.replace(pseudo2, "erreur");
+		//					}
+		//					if (line.contains("mdp")) {
+		//						line = line.replace(pseudo2, "erreur");
+		//					}
+		//					resp.getWriter().println(line);
+		//					line = bufRead.readLine();
+		//				}
+		//				bufRead.close();
+		//			}
+		//		}
 	}
 }
