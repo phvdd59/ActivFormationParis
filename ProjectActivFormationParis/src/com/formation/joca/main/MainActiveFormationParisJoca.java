@@ -3,7 +3,7 @@ package com.formation.joca.main;
 import java.awt.Point;
 import java.util.ArrayList;
 
-import com.formation.joca.ExoAlgo5;
+import com.formation.ambr.ctr.ExoAlgo5;
 import com.formation.joca.ctr.ExoAlgo6;
 import com.formation.joca.exo.CleDico;
 import com.formation.joca.exo.Dico;
@@ -29,7 +29,7 @@ public class MainActiveFormationParisJoca {
 
 	private void init13() {
 		ExoAlgo6 exo6 = new ExoAlgo6();
-		int[] tab = { 1 ,4 ,7 ,8 ,4 ,3 ,7 ,2 ,8 ,9 ,2 ,6 ,3 ,4 ,1 ,7 ,9 ,1 ,1 ,2 };
+		int[] tab = { 1, 4, 7, 8, 4, 3, 7, 2, 8, 9, 2, 6, 3, 4, 1, 7, 9, 1, 1, 2 };
 		int result = exo6.solution(tab, 2, 3);
 		System.out.println(result);
 

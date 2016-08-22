@@ -1,8 +1,8 @@
-package com.formation.joca;
+package com.formation.joca.main;
 
 import java.util.ArrayList;
 
-public class Meuble {
+public class Meuble implements Comparable<Object> {
 
 	private TRI tri;
 	private String nomCommercial;
@@ -112,12 +112,6 @@ public class Meuble {
 		Notice = notice;
 	}
 
-	@Override
-	public String toString() {
-		// TODO Auto-generated method stub
-		return super.toString();
-	}
-
 	public double poids() {
 		return 0;
 	}
@@ -128,5 +122,38 @@ public class Meuble {
 
 	public void prix(float taux, float promoPourcent, int iSolidite, ArrayList<Float> lstPrix) {
 
+	}
+
+	@Override
+	public String toString() {
+		return "Meuble [tri=" + tri + ", nomCommercial=" + nomCommercial + ", refAbrege=" + refAbrege + ", longueur="
+				+ longueur + ", largeur=" + largeur + ", hauteur=" + hauteur + ", lstElmt=" + lstElmt + ", Notice="
+				+ Notice + "]";
+	}
+
+	@Override
+	public int compareTo(Object o) {
+		int result = 0;
+		Meuble obj = (Meuble) o;
+		if (this.tri.equals(TRI.ALPHA)) {
+
+			result = this.nomCommercial.compareTo(obj.getNomCommercial());
+
+		} else if (this.tri.equals(TRI.REF)) {
+
+			result = this.refAbrege.compareTo(obj.getRefAbrege());
+
+		} else if (this.tri.equals(TRI.VOLUME)) {
+
+			if (this.volume() < obj.volume()) {
+				result = -1;
+			} else if (this.volume() > obj.volume()) {
+				result = 1;
+			} else if (this.volume() == obj.volume()) {
+				result = 0;
+			}
+
+		}
+		return result;
 	}
 }

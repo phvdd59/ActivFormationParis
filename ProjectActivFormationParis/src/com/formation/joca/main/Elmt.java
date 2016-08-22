@@ -1,8 +1,8 @@
-package com.formation.joca;
+package com.formation.joca.main;
 
 import java.util.ArrayList;
 
-public class Elmt {
+public class Elmt implements Comparable<Object> {
 
 	private TRI tri;
 	private int numero;
@@ -31,10 +31,23 @@ public class Elmt {
 		this.nom = nom;
 		this.nb = nb;
 
-		String uniteElmt = unite;
 		this.longueur = longueur;
 		this.largeur = largeur;
 		this.hauteur = hauteur;
+
+		if (unite.equals("cm")) {
+			this.longueur = longueur / 10;
+			this.largeur = largeur / 10;
+			this.hauteur = hauteur / 10;
+		} else if (unite.equals("m")) {
+			this.longueur = longueur / 1000;
+			this.largeur = largeur / 1000;
+			this.hauteur = hauteur / 1000;
+		} else if (unite.equals("i")) {
+			this.longueur = longueur / (float) 25.4;
+			this.largeur = largeur / (float) 25.4;
+			this.hauteur = hauteur / (float) 25.4;
+		}
 	}
 
 	public TRI getTri() {
@@ -101,10 +114,46 @@ public class Elmt {
 		this.materiaux = materiaux;
 	}
 
+	public double volume() {
+		return largeur * longueur * hauteur;
+	}
+
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return super.toString();
+		return "Elmt [tri=" + tri + ", numero=" + numero + ", nom=" + nom + ", nb=" + nb + ", longueur=" + longueur
+				+ ", largeur=" + largeur + ", hauteur=" + hauteur + ", materiaux=" + materiaux + "]";
+	}
+
+	@Override
+	public int compareTo(Object o) {
+		int result = 0;
+		Elmt obj = (Elmt) o;
+		if (this.tri.equals(TRI.ALPHA)) {
+
+			result = this.nom.compareTo(obj.getNom());
+
+		} else if (this.tri.equals(TRI.REF)) {
+
+			if (this.numero < obj.getNumero()) {
+				result = -1;
+			} else if (this.numero > obj.getNumero()) {
+				result = 1;
+			} else if (this.numero == obj.getNumero()) {
+				result = 0;
+			}
+
+		} else if (this.tri.equals(TRI.VOLUME)) {
+
+			if (this.volume() < obj.volume()) {
+				result = -1;
+			} else if (this.volume() > obj.volume()) {
+				result = 1;
+			} else if (this.volume() == obj.volume()) {
+				result = 0;
+			}
+
+		}
+		return result;
 	}
 
 }

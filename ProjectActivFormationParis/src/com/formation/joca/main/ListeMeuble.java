@@ -1,9 +1,9 @@
-package com.formation.joca;
+package com.formation.joca.main;
 
 import java.io.File;
 import java.util.ArrayList;
 
-public class ListeMeuble extends ArrayList<Meuble> {
+public class ListeMeuble extends ArrayList<Meuble> implements Comparable {
 
 	private TRI tri;
 
@@ -16,8 +16,12 @@ public class ListeMeuble extends ArrayList<Meuble> {
 
 	}
 
+	@Override
 	public int compareTo(Object o) {
+		// TODO Auto-generated method stub
 		return 0;
 	}
+
+
 
 }

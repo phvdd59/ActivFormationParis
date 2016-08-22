@@ -1,4 +1,4 @@
-package com.formation.joca;
+package com.formation.joca.main;
 
 public enum TRI {
 
