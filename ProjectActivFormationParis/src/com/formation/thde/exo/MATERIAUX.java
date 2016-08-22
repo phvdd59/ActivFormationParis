@@ -1,4 +1,4 @@
-package com.formation.thde.ctr;
+package com.formation.thde.exo;
 
 @SuppressWarnings("unused")
 public enum MATERIAUX {
@@ -25,7 +25,21 @@ public enum MATERIAUX {
 		this.pourcent = pourcent;
 	}
 
+	public int getPourcent() {
+		return pourcent;
+	}
+
 	public void setPourcent(int pourcent) {
 		this.pourcent = pourcent;
 	}
+
+	public float getDensite() {
+		return densite;
+	}
+
+	public SOLIDITE getSolidite() {
+		return solidite;
+	}
+
+
 }

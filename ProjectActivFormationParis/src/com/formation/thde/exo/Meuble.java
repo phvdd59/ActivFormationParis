@@ -1,4 +1,4 @@
-package com.formation.thde.ctr;
+package com.formation.thde.exo;
 
 import java.util.ArrayList;
 
@@ -6,7 +6,7 @@ public class Meuble implements Comparable<Meuble> {
 	Tri tri;
 	String nomCommercial;
 	String refAbrege;
-	String unite;
+	String unite; //options ?
 	float longueur;
 	float largeur;
 	float hauteur;
@@ -35,8 +35,8 @@ public class Meuble implements Comparable<Meuble> {
 		return 0;
 	}
 
-	public float volume() {
-		return this.longueur * this.largeur * this.hauteur;
+	public int volume() {
+		return 0;
 	}
 
 	public int prix(float taux, float promoPourcent, int iSolidite, ArrayList<Float> lstPrix) {
@@ -109,23 +109,11 @@ public class Meuble implements Comparable<Meuble> {
 		int result = 0;
 
 		if (this.tri == Tri.ALPHA) {
-			result = (int) this.getNomCommercial().compareTo(o.getNomCommercial());
+				result = (int) this.getNomCommercial().compareTo(o.getNomCommercial());
 		} else if (this.tri == Tri.REF) {
-			if (Integer.valueOf(this.getRefAbrege()) < Integer.valueOf(o.getRefAbrege())) {
-				result = -1;
-			} else if (Integer.valueOf(this.getRefAbrege()) > Integer.valueOf(o.getRefAbrege())) {
-				result = 1;
-			} else {
-				result = 0;
-			}
+
 		} else if (this.tri == Tri.VOLUME) {
-			if (this.volume() < o.volume()) {
-				result = -1;
-			} else if (this.volume() > o.volume()) {
-				result = 1;
-			} else {
-				result = 0;
-			}
+
 		}
 		return result;
 	}
