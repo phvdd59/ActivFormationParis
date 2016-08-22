@@ -1,6 +1,5 @@
 package com.formation.joca.ctr;
 
-public enum Solidite {
+public enum SOLIDITE {
 	NORMAL, SOLIDE, FRAGILE;
-
 }
