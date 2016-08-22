@@ -2,7 +2,7 @@ package com.formation.emma.metier;
 
 import java.util.ArrayList;
 
-public class Elmt {
+public class Elmt implements Comparable<Elmt> {
 
 	private TRI tri;
 	private int numero;
@@ -104,6 +104,38 @@ public class Elmt {
 	@Override
 	public String toString() {
 		return "Elmt [numero=" + numero + ", nom=" + nom + ", nb=" + nb + ", longueur=" + longueur + ", largeur=" + largeur + ", hauteur=" + hauteur + "]";
+	}
+
+	public float volume() {
+
+		float a = this.longueur * this.largeur * this.hauteur;
+		return a;
+	}
+
+	@Override
+	public int compareTo(Elmt o) {
+		int compare = 2;
+		if (tri == TRI.ALPHA) {
+			if (getNom().compareTo(o.getNom()) < 0) {
+				compare = -1;
+			} else if (getNom().compareTo(o.getNom()) > 0) {
+				compare = 1;
+			}
+		} else if (tri == TRI.REF) {
+			if (getNumero() < o.getNumero()) {
+				compare = -1;
+			} else if (getNumero() > o.getNumero()) {
+				compare = 1;
+			}
+		} else if (tri == TRI.VOLUME) {
+			if (this.volume() < o.volume()) {
+				compare = -1;
+			} else if (this.volume() > o.volume()) {
+				compare = 1;
+			}
+		}
+
+		return compare;
 	}
 
 }

@@ -2,7 +2,7 @@ package com.formation.emma.metier;
 
 import java.util.ArrayList;
 
-public class Meuble {
+public class Meuble implements Comparable<Meuble> {
 
 	private TRI tri;
 	private String nomCommercial;
@@ -39,14 +39,39 @@ public class Meuble {
 
 	}
 
-	public void volume() {
-		
-		super.getLongueur()*super.getLargeur()*super.getHauteur();
-		this.longueur*this.largeur*this.hauteur;
+	public float volume() {
+
+		float a = this.longueur * this.largeur * this.hauteur;
+		return a;
 	}
 
 	public void prix(float taux, float promoPourcent, int iSolidite, ArrayList<Float> lstPrix) {
 
+	}
+
+	public int compareTo(Meuble o) {
+		int compare = 2;
+		if (tri == TRI.ALPHA) {
+			if (getNomCommercial().compareTo(o.getNomCommercial()) < 0) {
+				compare = -1;
+			} else if (getNomCommercial().compareTo(o.getNomCommercial()) > 0) {
+				compare = 1;
+			}
+		} else if (tri == TRI.REF) {
+			if (getRefAbrege().compareTo(o.getRefAbrege()) < 0) {
+				compare = -1;
+			} else if (getRefAbrege().compareTo(o.getRefAbrege()) > 0) {
+				compare = 1;
+			}
+		} else if (tri == TRI.VOLUME) {
+			if (this.volume() < o.volume()) {
+				compare = -1;
+			} else if (this.volume() > o.volume()) {
+				compare = 1;
+			}
+		}
+
+		return compare;
 	}
 
 	public TRI getTri() {
