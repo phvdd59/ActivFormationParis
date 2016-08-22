@@ -43,6 +43,7 @@ public class Servletmadeversmenu extends HttpServlet {
 		String maLigne=bIn.readLine();
 		while (maLigne!=null) {
 			response.getWriter().append(maLigne);
+			maLigne=bIn.readLine();
 		}
 		bIn.close();
 	}
