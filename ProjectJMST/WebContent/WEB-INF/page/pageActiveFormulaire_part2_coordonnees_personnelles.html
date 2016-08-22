@@ -89,7 +89,7 @@
 		<div id="info2">
 			<!-- zone disponible -->
 			<!-- 			<form= action:"http://www.souadkad.fr/soka/identification.html"></form> -->
-
+		<form action="http://localhost:8080/ProjectJMST/ServletSoka2" method='POST'>
 			<table border="1">
 				<tr>
 					<th colspan="4" style="width: 627px;">Coordonnées Personnelles</th>
@@ -132,11 +132,12 @@
 						type="text" name= "mail" value='' ></td>
 				</tr>
 			</table>
+				<input type="submit" value="Suivant"></input>
+                <input type="hidden" value="%%noSerie%%">
+			</form>
 			<form action="http://localhost:8080/ProjectJMST/ServletSoka1" method='get'>
 				<input type="submit" value="Precedent"></input>
-			</form>
-			<form action="http://localhost:8080/ProjectJMST/ServletSoka2" method='POST'>
-				<input type="submit" value="Suivant"></input>
+                <input type="hidden" value="%%noSerie%%">
 			</form>
 		</div>
 		<div id="fpage2">
