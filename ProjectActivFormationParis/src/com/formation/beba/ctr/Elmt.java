@@ -33,6 +33,10 @@ public class Elmt implements Comparable<Elmt> {
 			this.longueur = longueur * 2.54f;
 			this.largeur = largeur * 2.54f;
 			this.hauteur = hauteur * 2.54f;
+		} else {
+			this.longueur = longueur;
+			this.largeur = largeur;
+			this.hauteur = hauteur;
 		}
 	}
 

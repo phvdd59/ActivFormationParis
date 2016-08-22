@@ -32,6 +32,10 @@ public class Meuble implements Comparable<Meuble> {
 			this.longueur = longueur * 2.54f;
 			this.largeur = largeur * 2.54f;
 			this.hauteur = hauteur * 2.54f;
+		} else {
+			this.longueur = longueur;
+			this.largeur = largeur;
+			this.hauteur = hauteur;
 		}
 		float volume = this.volume();
 	}
