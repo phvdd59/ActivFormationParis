@@ -1,7 +1,7 @@
 package com.formation.emma.ctr;
 
 import java.util.ArrayList;
-import java.util.Collections;
+
 
 public class ListeElmt extends ArrayList<Elmt> {
 

@@ -2,7 +2,7 @@ package com.formation.emma.ctr;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Collections;
+
 
 public class ListeMeuble extends ArrayList<Meuble> {
 
