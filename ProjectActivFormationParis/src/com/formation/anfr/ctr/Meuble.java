@@ -2,7 +2,7 @@ package com.formation.anfr.ctr;
 
 import java.util.ArrayList;
 
-public class Meuble2 implements Comparable<Meuble2> {
+public class Meuble implements Comparable<Meuble> {
 	private TRI tri;
 	private String nomCommercial;
 	private String refAbrege;
@@ -12,7 +12,7 @@ public class Meuble2 implements Comparable<Meuble2> {
 	private ListeElmt lstElmnt;
 	private String notice;
 
-	public Meuble2(TRI tRI, String nomCommercial, String refAbrege, String unite, float longeur, float largeur,
+	public Meuble(TRI tRI, String nomCommercial, String refAbrege, String unite, float longeur, float largeur,
 			float hauteur) {
 		tri = tRI;
 		this.nomCommercial = nomCommercial;
@@ -36,7 +36,7 @@ public class Meuble2 implements Comparable<Meuble2> {
 		}
 	}
 
-	public Meuble2(TRI tRI, String nomCommercial, String refAbrege, float longeur, float largeur, float hauteur) {
+	public Meuble(TRI tRI, String nomCommercial, String refAbrege, float longeur, float largeur, float hauteur) {
 		super();
 		tri = tRI;
 		this.nomCommercial = nomCommercial;
@@ -107,11 +107,11 @@ public class Meuble2 implements Comparable<Meuble2> {
 		this.hauteur = hauteur;
 	}
 
-	public ListeElements getLstElmnt() {
+	public ListeElmt getLstElmnt() {
 		return lstElmnt;
 	}
 
-	public void setLstElmnt(ListeElements lstElmnt) {
+	public void setLstElmnt(ListeElmt lstElmnt) {
 		this.lstElmnt = lstElmnt;
 	}
 
@@ -124,7 +124,7 @@ public class Meuble2 implements Comparable<Meuble2> {
 	}
 
 	@Override
-	public int compareTo(Meuble2 arg0) {
+	public int compareTo(Meuble arg0) {
 		int compare = 0;
 		if(tri.equals(TRI.ALPHA)){
 			compare = this.getNomCommercial().compareTo(arg0.getNomCommercial());

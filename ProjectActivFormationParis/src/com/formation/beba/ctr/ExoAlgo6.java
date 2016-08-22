@@ -56,6 +56,7 @@ public class ExoAlgo6 implements InterAlgo6 {
 							for (int i = 0; i < tabFin.length; i++) {
 								if (tabFin[i] == valeur) {
 									indice = i;
+									break;
 								}
 							}
 						}
