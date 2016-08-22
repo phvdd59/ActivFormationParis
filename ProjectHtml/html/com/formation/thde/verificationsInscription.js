@@ -20,8 +20,8 @@ function verifTaille(champ, min, max) {
 	if (champ.value.length <= max && champ.value.length >= min) {
 		return true;
 	} else {
-//		alert("Le champ doit comporter entre " + min + " et " + max
-//				+ " caracteres");
+		// alert("Le champ doit comporter entre " + min + " et " + max
+		// + " caracteres");
 		return false;
 	}
 }
@@ -87,8 +87,68 @@ function verifNom(champ) {
 	}
 }
 
+function verifDateDeNaissance(champ) {
+	if ((verifTaille(champ, 1, 20)) && (verifLettres(champ))) {
+		surligne(champ, false);
+		return true;
+	} else {
+		surligne(champ, true);
+		return false;
+	}
+}
+
+function verifLieuDeNaissance(champ) {
+	if ((verifTaille(champ, 1, 20)) && (verifLettres(champ))) {
+		surligne(champ, false);
+		return true;
+	} else {
+		surligne(champ, true);
+		return false;
+	}
+}
+
+function verifNationalite(champ) {
+	if ((verifTaille(champ, 1, 20)) && (verifLettres(champ))) {
+		surligne(champ, false);
+		return true;
+	} else {
+		surligne(champ, true);
+		return false;
+	}
+}
+
+function verifSecu(champ) {
+	if ((verifTaille(champ, 15, 15)) && (!verifLettres(champ))) {
+		surligne(champ, false);
+		return true;
+	} else {
+		surligne(champ, true);
+		return false;
+	}
+}
+
 function verifAdresse(champ) {
 	if (verifVide(champ)) {
+		surligne(champ, false);
+		return true;
+	} else {
+		surligne(champ, true);
+		return false;
+	}
+}
+
+function verifCodePostal(champ) {
+	if ((verifTaille(champ, 5, 5)) && (!verifLettres(champ))) {
+		surligne(champ, false);
+		return true;
+	} else {
+		surligne(champ, true);
+		return false;
+	}
+}
+
+function verifVille(champ) {
+	if ((verifTaille(champ, 1, 20)) && (verifLettres(champ))) {
 		surligne(champ, false);
 		return true;
 	} else {
@@ -108,8 +168,8 @@ function verifTel(champ) {
 }
 
 function verifEmail(champ) {
-	if ((verifTaille(champ, 4, 30)) && (champ.value.contains("@"))) {
-		// aaaaaapproximatif, ah !
+	var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+	if (re.test(champ.value)) {
 		surligne(champ, false);
 		return true;
 	} else {
@@ -119,18 +179,19 @@ function verifEmail(champ) {
 }
 
 // ____ Dernière verif au submit ____
+
 function verifInscription1(f) {
 	var alerttotal ="";
-	if (verifIdentifiant(f.Identifiant)==false) {
+	if (verifIdentifiant(f.identifiant)==false) {
 		alerttotal = alerttotal+"Probleme identidiant \n";
 	}
 	if (verifMdp1(f.mdp1)==false) {
-		alerttotal = alerttotal+"Probleme mdp \n";
+		alerttotal = alerttotal+"Probleme mdp1 \n";
 	}
-//	if (verifMdp2(f.mdp2)==false) {
-//		alert("3");
-//	}
-	if (verifIdentifiant(f.Identifiant)==false||verifMdp1(f.mdp1)==false){
+	if (verifMdp2(f.mdp2)==false) {
+		alerttotal = alerttotal+"Probleme mdp2 \n";
+	}
+	if (verifIdentifiant(f.identifiant)==false||verifMdp1(f.mdp1)==false){
 		alert(alerttotal);
 		return false;
 	}else{
