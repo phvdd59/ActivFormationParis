@@ -10,9 +10,10 @@
   <div id="background">
 	<!-- zone disponible -->
     <form action="http://127.0.0.1:8080/ProjectEtudiant/ServletPhva" method="POST">
-		Identifiant :<input id="ident" type="text" name="identifiant" value=''>
-		<p>Mot de passe :</p><input type="text" name="motdepasse">
+		Identifiant :<input id="ident" type="text" name="identifiant" value='%%pseudo%%'>
+		<p>Mot de passe :</p><input type="text" name="motdepasse" value='%%mdp%%'>
 		<input type="submit" value="valider" />
+		<input type="hidden" value="%%noserie%%" name="noSerie">
 	</form>
   </div>
 </body>
