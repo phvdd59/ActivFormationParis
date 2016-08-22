@@ -52,9 +52,7 @@ public class Servlet1 extends HttpServlet {
 		//recuperer les parametres
 		String pseudo = req.getParameter("Identifiant");
 		String mdp = req.getParameter("mot de passe");
-		String userN = req.getParameter("nom prénom");
-		String userI = req.getParameter("identifiant");
-		String userM = req.getParameter("mdp");
+	
 
 		// controler les parametres	
 		if (pseudo != null) {

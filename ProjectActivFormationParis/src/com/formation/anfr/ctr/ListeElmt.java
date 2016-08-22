@@ -3,17 +3,17 @@ package com.formation.anfr.ctr;
 import java.util.ArrayList;
 
 public class ListeElmt extends ArrayList<Elmt> {
-	private int TRI;
+	private TRI tri;
 
-	public int getTRI() {
-		return TRI;
+	public TRI getTRI() {
+		return tri;
 	}
 
-	public void setTRI(int tri) {
-		TRI = tri;
+	public void setTRI(TRI tri) {
+		this.tri = tri;
 	}
 
-	public ListeElmt(int tri) {
+	public ListeElmt(TRI tri) {
 		super();
 		setTRI(tri);
 	}

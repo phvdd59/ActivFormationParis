@@ -4,19 +4,19 @@ import java.io.File;
 import java.util.ArrayList;
 
 public class ListeMeuble extends ArrayList<Meuble> {
-	private int TRI;
+	private TRI tri;
 
-	public ListeMeuble(int tri) {
+	public ListeMeuble(TRI tri) {
 		super();
 		setTRI(tri);
 	}
 
-	public int getTRI() {
-		return TRI;
+	public TRI getTRI() {
+		return tri;
 	}
 
-	public void setTRI(int tri) {
-		TRI = tri;
+	public void setTRI(TRI tri) {
+		this.tri = tri;
 	}
 	public void chargeListeMeuble(File fRep)   {
 		

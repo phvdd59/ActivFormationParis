@@ -8,8 +8,6 @@
 		<link href="StyleFormulaire.css" rel="stylesheet" type="text/css">	
 		
 		<script language="JavaScript">
-
-
 	function Ajouter(form) {
 		var o=new Option(form.identifiant.value,form.mdp.value);
 		form.liste.options[form.liste.options.length]=o;
@@ -21,9 +19,7 @@
 		} else {
 			alert("Suppression impossible : aucune ligne sélectionnée");
 		}
-	}
-
-	
+	}	
 </script>	
 		
 		
@@ -50,7 +46,7 @@
 	
 	
 	
-		<table align = "center" style="width: 462px; "> 
+		<table align = "center" style="width: 535px; "> 
 			
 			<tr><td colspan="2" ><h2 align = "center">Ajouter un nouvel utilisateur</h2></td></tr>
 						
@@ -58,10 +54,10 @@
 <!-- 				<td>Nom / Prénom : </td><td><input type="text" name="nomprénom" style="width: 378px; "/></td> -->
 <!-- 			</tr>	 -->
 			<tr>
-				<td>Identifiant :  </td><td style="width: 310px; "><input type="text" name="identifiant" style="width: 293px; "/></td>
+				<td>Utilisateur (Nom Prénom) :  </td><td style="width: 310px; "><input type="text" name="identifiant" style="width: 237px; "/></td>
 			</tr>
 			<tr>
-				<td>Mot de passe : </td><td> <input type="text" name="mdp" style="width: 295px; "/></td>
+				<td>Identifiant / Mot de passe : </td><td> <input type="text" name="mdp" style="width: 238px; "/></td>
 			</tr>
 			
 			<tr>
@@ -77,7 +73,7 @@
 			<caption align="center"><h2  style="width: 373px; ">Liste des utilisateurs</h2></caption>
 						
 			<tr>
-		<td>		<select name="liste" size="10" onchange="alert('Identifiant : '+this.options[this.selectedIndex].value+'\nMot de passe : '+this.options[this.selectedIndex].value)" align="top" style="width: 436px; ">
+		<td>		<select name="liste" size="10" onchange="alert('Utilisateur : '+this.options[this.selectedIndex].text +'\n Identifiant / Mot de passe : '+this.options[this.selectedIndex].value)" align="top" style="width: 436px; ">
 		</select>
 		</td>
 				<td><input align="center" type="button" value = "Supprimer" onclick="Supprimer(this.form)" style="width: 128px; "/></td>
