@@ -107,7 +107,7 @@ public class Test extends HttpServlet {
 			InputStreamReader input = new InputStreamReader(new FileInputStream(page));
 			lecture = new BufferedReader(input);
 			String noSerie = Integer.toString(((int) (Math.random() * Integer.MAX_VALUE)));
-			noSerie = "1_" + noSerie;
+			noSerie = "1a_" + noSerie;
 			session.setAttribute("noSerie", noSerie);
 			String line = lecture.readLine();
 			while (line != null) {
@@ -124,7 +124,7 @@ public class Test extends HttpServlet {
 			InputStreamReader input = new InputStreamReader(new FileInputStream(page));
 			lecture = new BufferedReader(input);
 			String noSerie = Integer.toString(((int) (Math.random() * Integer.MAX_VALUE)));
-			noSerie = "1_" + noSerie;
+			noSerie = "1u_" + noSerie;
 			session.setAttribute("noSerie", noSerie);
 			String line = lecture.readLine();
 			while (line != null) {
