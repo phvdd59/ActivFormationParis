@@ -63,16 +63,4 @@ public class Servlet1 extends HttpServlet {
 			}
 		}
 	}
-
-	//		//faire la nouvelle page
-	//		response.getWriter().println("<html><body><form>");
-	//		response.getWriter().println("<input type='text' value=" + pseudo + ">");
-	//		if (pseudo.contains("Admin")) {
-	//			response.getWriter().println("<p style='color:red';>" + pseudo + "</p>");
-	//		} else {
-	//			response.getWriter().println("<p style='color:blue'>" + pseudo + "</p>");
-	//		}
-	//		response.getWriter().println("</form></body></html>");
-	//	}
-
 }
