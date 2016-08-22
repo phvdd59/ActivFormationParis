@@ -34,18 +34,19 @@ public class Servlet1 extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		File file = new File("C:/DevFormation/GITActivFormationParis/ProjectEtudiant/WebContent/com/formation/thde/page/Login.html");
+		File file = new File("C:/DevFormation/GITActivFormationParis/ProjectEtudiant/WebContent/WEB_INF/com/formation/thde/page/Login.html");
 		BufferedReader bIn = null;
 		InputStreamReader inputStreamReader = null;
 		try {
 			inputStreamReader = new InputStreamReader(new FileInputStream(file), "UTF-8");
 			bIn = new BufferedReader(new FileReader(file));
+			int noSerie = (int) Math.random()* Integer.MAX_VALUE;
 			String line = bIn.readLine();
 			while (line != null) {
 				
-//				if (line.contains("1234")){
-//					l=l.replace()
-//				}
+				if (line.contains("%%noserie%%")){
+					line=line.replace("%%noserie%%", Integer.toString(noSerie));
+				}
 				response.getWriter().println(line);
 				line = bIn.readLine();
 			}
