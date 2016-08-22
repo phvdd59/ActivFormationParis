@@ -38,16 +38,25 @@ public class Servletmadeversmenu extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session=request.getSession();
+//		HttpSession session=request.getSession();
+//		Object objNoSerieSession=(session.getAttribute("noSerie"));
+//		String noSeriePageAdmin=request.getParameter("noSerie");//ajouter le name noSerie dans l'html
 		File file = new File("../GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/pagecompteadministrateur");
 		BufferedReader bIn = null;
 		bIn=new BufferedReader(new FileReader(file) ); 
 		String maLigne=bIn.readLine();
-		while (maLigne!=null) {
-			response.getWriter().append(maLigne);
-			maLigne=bIn.readLine();
-		}
-		bIn.close();
+//		if (objNoSerieSession instanceof String) {
+//			String strNoSerieSession=(String) objNoSerieSession;
+//			if(strNoSerieSession.equals(noSeriePageAdmin)){
+				while (maLigne!=null) {
+					response.getWriter().append(maLigne);
+					maLigne=bIn.readLine();
+					
+				}
+				bIn.close();
+//			}
+//		}
+		
 	}
 
 }
