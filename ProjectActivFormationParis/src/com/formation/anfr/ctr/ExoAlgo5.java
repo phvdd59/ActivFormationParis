@@ -58,7 +58,7 @@ public class ExoAlgo5 implements com.formation.phva.inter.InterAlgo5 {
 
 	public String[] solution(String[] tab, String cat, int n) {
 		String[] tableauRetour = null;
-		ArrayList<Meuble> liste = new ArrayList<Meuble>();
+		ArrayList<MeubleExo5> liste = new ArrayList<MeubleExo5>();
 		if ((n>0)&&(cat.length()==6)){
 			tableauRetour = new String[n];
 		try {
@@ -66,7 +66,7 @@ public class ExoAlgo5 implements com.formation.phva.inter.InterAlgo5 {
 			for (String string : tab) {
 				String test = string.substring(0,6);
 				if (test.equals(cat)){
-					Meuble meubleTest = new Meuble(string, 1);
+					MeubleExo5 meubleTest = new MeubleExo5(string, 1);
 					if (liste.contains(meubleTest)){
 						liste.get(liste.indexOf(meubleTest)).plusUn();
 					} else{
