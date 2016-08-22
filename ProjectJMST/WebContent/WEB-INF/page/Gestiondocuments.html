@@ -80,13 +80,15 @@
 		<div id="info2">
 			<!-- zone disponible -->
 			<div id="menu1">
-				<FORM>
+				<FORM action="http://localhost:8080/ProjectJMST/Test" method="post">
 					<INPUT type="button" name="upload" value="uploader un fichier"
 						onclick="alert('fichier uploadé !')"> <INPUT type="button"
 						name="download" value="télécharger un fichier"
 						onclick="alert('affichage des fichiers !')"> <INPUT
 						type="button" name="retour" value="retourner au menu"
 						onclick="alert('retour sur compte.html !')">
+                        <input type="submit">
+                        <input type="hidden" value="%%noSerie%%">
 				</FORM>
 
 			</div>

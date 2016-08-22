@@ -80,22 +80,16 @@
 			<!-- zone disponible -->
 			<div id="menu1">
 				<form action="http://localhost:8080/ProjectJMST/Test" method="post">
-					Identifiant :<br /> <input id="ident" type="text"
-						name="identifiant" /><br /> <br /> Mot de passe :<br /> <input
-						type="text" name="motdepasse"> <input type="submit"
-						value="valider" /><br /> <INPUT type="button" name="recupMDP"
-						value="récupérer mot de passe"
-						onclick="alert('recup mot de passe !')">
+					Identifiant :<br /> <input id="ident" type="text" name="identifiant" /><br /> <br /> Mot de passe :<br /> <input type="text" name="motdepasse">
+				    <input type="submit" value="valider" /><br /> 
+				    <INPUT type="button" name="recupMDP" value="récupérer mot de passe">
+                    <input type="hidden" value="%%noSerie%%">
 				</form>
-				<form action="http://localhost:8080/ProjectJMST/ServletSoka1"
-					method="get">
-					<INPUT type="submit" name="inscription" value="inscription"
-						onclick="alert('inscription !')">
+				<form action="http://localhost:8080/ProjectJMST/ServletSoka0" method="post">
+					<INPUT type="submit" name="inscription" value="inscription">
 				</form>
-
 			</div>
 		</div>
-
 		<div id="fpage2">
 			<img
 				src="http://www.activconsult-ing.com/img/Article_fond_blanc_double_copie.png" />
