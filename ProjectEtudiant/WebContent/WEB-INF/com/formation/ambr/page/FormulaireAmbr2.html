@@ -6,7 +6,8 @@
 <link rel="stylesheet" href="/css/StyleFormulaire.css"/>
 <script type="text/javascript">
 
-function maDateNaiss() {
+function ecritureTexte() {
+	var texte = document.getElementById("Nom");
 	
 	var dateNaiss = document.getElementById("dateNaiss");
 	var dateNaiss2 = new Date();
@@ -20,14 +21,11 @@ function maDateNaiss() {
 	} else {
 		dateNaiss.style.color="black";
 	}
-	
-// 	if (!(dateNaiss2 instanceof Date)) { // le instanceof fonctionne, vérifié en écrivant "(new Date() instanceof Date)" (booléen true -> il entre das le if)
-// 		alert("alerte");
-// 		dateNaiss.style.color="red";
-// 		dateNaiss.placeholder="dd/mm/yyyy";
-// 	}
+}
+
+
 		
-	}
+	
 
 function monLieu() {
 	var lieu = document.getElementById("lieu");
