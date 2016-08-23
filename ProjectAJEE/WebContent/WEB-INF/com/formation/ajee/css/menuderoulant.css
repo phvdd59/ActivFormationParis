@@ -20,6 +20,13 @@
     border-left:1px solid black;
    
 }
+#menu-deroulant input {
+/* on place les liens du menu horizontalement */
+    display: inline-block;
+    border-left:1px solid black;
+   background:url('../img/static.png')-150px 0px;
+   color : #fff;
+}
 #menu-deroulant ul li {
 /* on enlève ce comportement pour les liens du sous menu */
     display: inherit;
