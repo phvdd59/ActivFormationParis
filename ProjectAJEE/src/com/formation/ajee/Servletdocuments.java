@@ -14,12 +14,12 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class ServletDocuments
  */
-@WebServlet(value = "/MesDocuments", name = "Servlet8")
-public class Servlet8 extends HttpServlet {
+@WebServlet(value = "/MesDocuments", name = "Servletdocument")
+public class Servletdocuments extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	/** @see HttpServlet#HttpServlet()*/
-	public Servlet8() {
+	public Servletdocuments() {
         super();
 	}
 
