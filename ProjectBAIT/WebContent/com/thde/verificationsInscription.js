@@ -75,16 +75,6 @@ function verifMdp1(champ) {
 // }
 // }
 
-function verifNom(champ) {
-	if ((verifTaille(champ, 1, 20)) && (verifLettres(champ))) {
-		surligne(champ, false);
-		return true;
-	} else {
-		surligne(champ, true);
-		return false;
-	}
-}
-
 function verifAdresse(champ) {
 	if (verifVide(champ)) {
 		surligne(champ, false);
@@ -97,16 +87,6 @@ function verifAdresse(champ) {
 
 function verifCodePostal(champ) {
 	if ((verifTaille(champ, 5, 5)) && (!verifLettres(champ))) {
-		surligne(champ, false);
-		return true;
-	} else {
-		surligne(champ, true);
-		return false;
-	}
-}
-
-function verifVille(champ) {
-	if (verifVide(champ)) {
 		surligne(champ, false);
 		return true;
 	} else {
@@ -128,6 +108,56 @@ function verifTel(champ) {
 function verifEmail(champ) {
 	var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 	if (re.test(champ.value)) {
+		surligne(champ, false);
+		return true;
+	} else {
+		surligne(champ, true);
+		return false;
+	}
+}
+
+function verifNom(champ) {
+	if (verifVide(champ) && (verifLettres(champ))) {
+		surligne(champ, false);
+		return true;
+	} else {
+		surligne(champ, true);
+		return false;
+	}
+}
+
+function verifDateNaissance(champ) {
+	if (verifTaille(champ, 10, 10)) {
+		surligne(champ, false);
+		return true;
+	} else {
+		surligne(champ, true);
+		return false;
+	}
+}
+
+function verifSecu(champ) {
+	if ((verifTaille(champ, 15, 15)) && (!verifLettres(champ))) {
+		surligne(champ, false);
+		return true;
+	} else {
+		surligne(champ, true);
+		return false;
+	}
+}
+
+function verifSalaire(champ) {
+	if ((verifVide(champ)) && (!verifLettres(champ))) {
+		surligne(champ, false);
+		return true;
+	} else {
+		surligne(champ, true);
+		return false;
+	}
+}
+
+function verifCoefficient(champ) {
+	if (verifVide(champ)) {
 		surligne(champ, false);
 		return true;
 	} else {
@@ -164,7 +194,7 @@ function verifCoordonnees(f) {
 	if (verifCodePostal(f.cp) == false) {
 		alerttotal = alerttotal + "Probleme code postal \n";
 	}
-	if (verifVille(f.ville) == false) {
+	if (verifNom(f.ville) == false) {
 		alerttotal = alerttotal + "Probleme ville \n";
 	}
 	if (verifTel(f.tel) == false) {
@@ -174,8 +204,66 @@ function verifCoordonnees(f) {
 		alerttotal = alerttotal + "Probleme email \n";
 	}
 	if (verifAdresse(f.adresse) == false || verifCodePostal(f.cp) == false
-			|| verifVille(f.ville) == false || verifTel(f.tel) == false
+			|| verifNom(f.ville) == false || verifTel(f.tel) == false
 			|| verifEmail(f.email) == false) {
+		alert(alerttotal);
+		return false;
+	} else {
+		return true;
+	}
+}
+
+function verifEtatCivil(f) {
+	var alerttotal = "";
+	if (verifNom(f.nom) == false) {
+		alerttotal = alerttotal + "Probleme nom \n";
+	}
+	if (verifNom(f.prenom) == false) {
+		alerttotal = alerttotal + "Probleme prenom \n";
+	}
+	if (verifDateNaissance(f.date) == false) {
+		alerttotal = alerttotal + "Probleme date naissance \n";
+	}
+	if (verifNom(f.lieu) == false) {
+		alerttotal = alerttotal + "Probleme lieu naissance \n";
+	}
+	if (verifNom(f.nati) == false) {
+		alerttotal = alerttotal + "Probleme nationalite \n";
+	}
+	if (verifSecu(f.secu) == false) {
+		alerttotal = alerttotal + "Probleme secu \n";
+	}
+	if (verifNom(f.nom) == false || verifNom(f.prenom) == false
+			|| verifDateNaissance(f.date) == false || verifNom(f.lieu) == false
+			|| verifNom(f.nati) == false || verifSecu(f.secu) == false) {
+		alert(alerttotal);
+		return false;
+	} else {
+		return true;
+	}
+}
+
+function verifRemuneration(f) {
+	var alerttotal = "";
+	if (verifNom(f.Fonction) == false) {
+		alert("1");
+		alerttotal = alerttotal + "Probleme fonction \n";
+	}
+	if (verifNom(f.Position) == false) {
+		alert("2");
+		alerttotal = alerttotal + "Probleme position \n";
+	}
+	if (verifSalaire(f.SalaireS) == false) {
+		alert("3");
+		alerttotal = alerttotal + "Probleme salaire \n";
+	}
+	if (verifCoefficient(f.Coefficient) == false) {
+		alert("4");
+		alerttotal = alerttotal + "Probleme coef \n";
+	}
+	if (verifNom(f.Fonction) == false || verifNom(f.Position) == false
+			|| verifSalaire(f.SalaireS) == false
+			|| verifCoefficient(f.Coefficient) == false) {
 		alert(alerttotal);
 		return false;
 	} else {

@@ -36,29 +36,6 @@ public class ServletJOCA2 extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		/*
-		 * BufferedReader lecture = null; File page = new File(
-		 * "../GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/Gestiondocuments.html"
-		 * ); try { InputStreamReader input = new InputStreamReader(new
-		 * FileInputStream(page)); lecture = new BufferedReader(input); String
-		 * line = lecture.readLine(); while (line != null) {
-		 * response.getWriter().println(line); line = lecture.readLine(); } }
-		 * catch (Exception e) {
-		 * 
-		 * } finally { try { lecture.close(); } catch (IOException e) {
-		 * 
-		 * } }
-		 */
-
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
 		HttpSession session = request.getSession();
 
 		String noSerieHtml = request.getParameter("noSerie");
@@ -75,6 +52,17 @@ public class ServletJOCA2 extends HttpServlet {
 				lecture.close();
 			}
 		}
+
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		doGet(request, response);
 
 	}
 
