@@ -6,7 +6,7 @@
 		<link href="http://www.activconsult-ing.com/Home.css" rel="stylesheet"
 	type="text/css">
 		<link href="../css/StyleFormulaire.css" rel="stylesheet" type="text/css">
-		<link rel="stylesheet" type="text/css" href="../css/menuderoulant.css">
+		<link href="../css/menuderoulant.css" rel="stylesheet" type="text/css" >
 	</head>
 	<body>
 	<div id="background">
@@ -27,28 +27,27 @@
 
 	<ul id="menu-deroulant">
 
-	<li><form action="">Nom d'identification</form>
+	<li><form>Nom d'identification</form>
 	
 	</li>
-		<li><form action="">Mon Compte</form>
+		<li><form >Mon Compte</form>
 		<ul>
-			<li ><form action="">Fiche d'identification</form></li>
-			<li><form action="">Changement de mot de passe</form></li>
-		<li><form action="">Accueil-chargement profil</form></li>
+			<li ><form action="http://localhost:8080/ProjectAJEE/Servletfichedidentification">Fiche d'identification</form></li>
+			<li><form action="http://localhost:8080/ProjectAJEE/Servletchangementdemotdepasse">Changement de mot de passe</form></li>
+		<li><form action="http://localhost:8080/ProjectAJEE/Servletaccueilchargementprofil">Accueil-chargement profil</form></li>
 		</ul>
 	</li>
-	<li><form action="">Mes documents</form>
+	<li><form action="http://localhost:8080/ProjectAJEE/Servletmesdocument">Mes documents</form>
 		
 	</li>
 	<li><input id="invitereader" type="text" value="" readonly  />
 		
 	</li>
 	<!-- -->
-	<li><form action="">Déconnexion</form>
+	<li><form action="http://localhost:8080/ProjectAJEE/Servletdeconnexion">Déconnexion</form>
 		
 	</li>
 </ul>
-
 				<table align="center"; style="margin-top: 120px">
 					<tr>
 						<td><h2 align="center">LISTE DE DOCUMENTS</h2></td>
@@ -63,11 +62,11 @@
 							<td><a href=""><input type="checkbox" name="document" value=" "/></a></td>
 						</tr>
 					</tbody>
-					<form action="http://localhost:8080/ProjectEtudiant/MesDocuments" method='POST'>
+					<form action="http://localhost:8080/ProjectAJEE/MesDocuments" method='POST'>
 					<tr>
 						<td><input type="submit" name="telecharger" value="Telecharger" /> 
 					</form>
-					<form action="http://localhost:8080/ProjectEtudiant/MesDocuments" method='POST'>
+					<form action="http://localhost:8080/ProjectAJEE/MesDocuments" method='POST'>
 						<input type="file" name="file" value="" style="width: 539px;" /></td>
 					</tr>
 					</form>
