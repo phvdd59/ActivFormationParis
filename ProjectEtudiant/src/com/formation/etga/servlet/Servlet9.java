@@ -10,14 +10,14 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class ServletNotFound
  */
-@WebServlet(value = "/NotFound", name = "NotFound")
-public class ServletNotFound extends HttpServlet {
+@WebServlet(value = "/NotFound", name = "Servlet9")
+public class Servlet9 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ServletNotFound() {
+    public Servlet9() {
         super();
         // TODO Auto-generated constructor stub
     }
