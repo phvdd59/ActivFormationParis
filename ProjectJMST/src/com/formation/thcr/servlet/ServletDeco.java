@@ -44,7 +44,6 @@ public class ServletDeco extends HttpServlet {
 				line = lecture.readLine();
 		}
 			lecture.close();
-		
 	}
 
 	/**
