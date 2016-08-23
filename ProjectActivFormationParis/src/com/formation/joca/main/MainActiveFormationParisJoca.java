@@ -1,9 +1,11 @@
 package com.formation.joca.main;
 
 import java.awt.Point;
+import java.io.File;
 import java.util.ArrayList;
 
 import com.formation.ambr.ctr.ExoAlgo5;
+import com.formation.joca.ctr.ListeMeuble;
 import com.formation.joca.exo.CleDico;
 import com.formation.joca.exo.Dico;
 import com.formation.joca.exo.ExoAlgo1;
@@ -23,7 +25,15 @@ public class MainActiveFormationParisJoca {
 
 	public static void main(String[] arg) {
 		MainActiveFormationParisJoca test = new MainActiveFormationParisJoca();
-		test.init13();
+		test.init14();
+	}
+
+	private void init14() {
+		File file = new File("./src/com/formation/joca/data/example.xml");
+		ListeMeuble liste = new ListeMeuble();
+
+		liste.chargeXml(file);
+
 	}
 
 	private void init13() {
