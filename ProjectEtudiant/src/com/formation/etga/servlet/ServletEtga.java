@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Servlet1
  */
-@WebServlet(value = "/ServletEtga", name = "ServletEG")
+@WebServlet(value = "/EG", name = "ServletEtga")
 public class ServletEtga extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

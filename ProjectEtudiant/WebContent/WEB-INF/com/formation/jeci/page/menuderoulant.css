@@ -9,29 +9,31 @@
       font-weight : bold; /* on met le texte en gras */
         font-family : Arial; /* on utilise Arial, c'est plus beau ^^ */
         font-size : 12px; /* hauteur du texte : 12 pixels */
+      
 }
 #menu-deroulant li {
 /* on place les liens du menu horizontalement */
     display: inline-block;
     border-left:1px solid black;
-    
+   
 }
 #menu-deroulant ul li {
 /* on enlève ce comportement pour les liens du sous menu */
     display: inherit;
 }
-#menu-deroulant a {
+#menu-deroulant form {
     text-decoration: none;
+    
     display: block;
 	background:url('static.png')-150px 0px; /* couleur de fond */        
 
-        color : #000; /* couleur du texte */
+        color : #fff; /* couleur du texte */
 
         text-decoration : none; /* on supprime le style par défaut des liens (la plupart du temps = souligné) */
 
         width : 144px; /* largeur */
 }
-#menu-deroulant a:hover /* Lorsque la souris passe sur un des liens */    
+#menu-deroulant form:hover /* Lorsque la souris passe sur un des liens */    
 
 {
 

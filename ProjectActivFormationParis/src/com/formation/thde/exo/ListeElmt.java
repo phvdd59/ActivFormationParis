@@ -8,4 +8,10 @@ public class ListeElmt extends ArrayList<Elmt> {
 	public ListeElmt(Tri TRI) {
 		this.TRI = TRI;
 	}
+
+	@Override
+	public boolean add(Elmt e) {
+		e.setTri(this.TRI);
+		return super.add(e);
+	}
 }

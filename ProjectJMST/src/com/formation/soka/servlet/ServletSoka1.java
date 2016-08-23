@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class ServletIdentMdp
@@ -32,14 +33,21 @@ public class ServletSoka1 extends HttpServlet {
 	 *      response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession(); 
 		File file = new File("C:/DevFormation/" + //
 				"GITActivFormationParis/ProjectJMST/" + //
 				"WebContent/WEB-INF/" + //
 				"page/pageActiveFormulaire_part1_ident_mdp.html");
 		BufferedReader bIn = null;
 		bIn = new BufferedReader(new FileReader(file));
+		String noSerie = Integer.toString(((int) (Math.random() * Integer.MAX_VALUE)));
+		noSerie = "21_" + noSerie;
+		session.setAttribute("noSerie", noSerie);
 		String line = bIn.readLine();
 		while (line != null) {
+			if (line.contains("%%noSerie%%")) {
+				line.replace("%%noSerie%%", noSerie);
+			}
 			response.getWriter().println(line);
 			line = bIn.readLine();
 		}
