@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class ServletJOCA2
  */
-@WebServlet("/ServletJOCA2")
+@WebServlet("/ServletJOCA20")
 public class ServletJOCA2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
