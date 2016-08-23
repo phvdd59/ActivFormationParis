@@ -1,0 +1,29 @@
+
+
+			<div>
+				<form action="http://localhost:8080/ProjectEtudiant/ServletLogin" onsubmit="return verifForm(this)">
+					<H2>Identification</H2>
+					<div ID="formu21">
+						<label >Identifiant :</label> <input type="text" id="identifiant" value='' name="nom" onblur="verifIdentifiant(this)" style="position: relative; right: -57px; width: 250px;" />
+					</div>
+					<div ID="formu22">
+						<label >Mot de Passe :</label> <input id="mdp" type="password" name="mdp" onblur="verifMdp(this)" style="width: 250px; margin-left: 41px" />
+					</div>
+					<div ID="formu23">
+						<input type="submit" name="subm" value="Login" style="width: 100px" /> <a href="http://www.thde.fr/thde/mdpoublie.html" style="margin-left: 50px">mot de passe oublié ?</a>
+					</div>
+				</form>
+				<div ID="formu24">
+					<form action="http://localhost:8080/ProjectEtudiant/ServletInscription" style="margin-top: 4px">
+						<input type="submit" name="inscription" value="Nouvelle Inscription" style="width: 300px;" />
+
+					</form>
+				</div>
+				<br>
+			</div>
+
+
+
+
+
+
