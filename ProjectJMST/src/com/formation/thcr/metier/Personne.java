@@ -3,15 +3,25 @@ package com.formation.thcr.metier;
 public class Personne {
 
 	private String	nom;
+	private String	prenom;
 	private String	login;
 	private String	motDePasse;
-	private boolean admin; 
+	private String	mail;
+	private boolean	admin;
 
-	public Personne(String nom, String login, String motDePasse, boolean admin) {
+	public Personne(String nom, String login, String motDePasse, boolean admin, String mail) {
 		this.nom = nom;
 		this.login = login;
 		this.motDePasse = motDePasse;
-		this.admin=admin;
+		this.admin = admin;
+		this.mail = mail;
+		this.prenom = "";
+	}
+
+	public Personne(String prenom, String login, String mail) {
+		this.login = login;
+		this.prenom = prenom;
+		this.mail = mail;
 	}
 
 	public boolean isAdmin() {
@@ -44,6 +54,22 @@ public class Personne {
 
 	public void setMotDePasse(String motDePasse) {
 		this.motDePasse = motDePasse;
+	}
+
+	public String getMail() {
+		return mail;
+	}
+
+	public void setMail(String mail) {
+		this.mail = mail;
+	}
+
+	public String getPrenom() {
+		return prenom;
+	}
+
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
 	}
 
 }

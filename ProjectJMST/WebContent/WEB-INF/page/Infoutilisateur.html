@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script type="text/javascript" src="Affichage.js">
+    <script type="text/javascript" src="http://127.0.0.1/js/Infoutilisateur.js">
  
         
     </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Affichage</title>
-<link rel="stylesheet" href="./Affichage.css">
+<link rel="stylesheet" href="http://127.0.0.1/css/Infoutilisateur.css">
 </head>
     <body>
         <div id="table1">
@@ -18,7 +18,7 @@
 				<tr>
 					<td style="width: 270px; height: 25px;">Nom</td>
 					<td id="nom" style="width: 120px; height: 25px; color:;"></td>
-					<td style="width: 130px;">Prenom</td>
+					<td style="width: 140px;">Prenom</td>
 					<td id="prenom" ></td>
 				</tr>
 				<tr>
@@ -111,5 +111,11 @@
                 <input type="hidden" value="%%noSerie%%">
             </form>
         </div>
+        <div id="deco">
+                <form action=http://localhost:8080/ProjectJMST/ServletDeco method="post">
+                    <input type="submit" value="deconnexion">
+                    <input type="hidden" value="%%noSerie%%">
+                </form>
+                </div>
     </body>
 </html>

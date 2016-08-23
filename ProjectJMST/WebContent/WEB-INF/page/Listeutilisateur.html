@@ -1,43 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="Selectionutilisateur.css">
-    <script type="text/javascript" src="Selectionutilisateur.js">
-    
-    </script>
+    <link rel="stylesheet" href="http://127.0.0.1/css/Listeutilisateur.css">
+    <script type="text/javascript" src="http://127.0.0.1/js/Listeutilisateur.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">        
 </head>
-    
     <body>
         <div id="main">
             <div id="liste">
             <table>
-                <th>Nom</th>
+                <th>Login</th>
                 <th>Prenom</th>
-                <th>Identifiant</th>
+                <th>Mail</th>
                 <th>Link</th>
                 <tr>
-                    <td>YOUHOU</td>
-                    <td>VOILA</td>
-                    <td>JHHHHH</td>
+                    <td id="login">login1</td>
+                    <td id="prenom">prenom1</td>
+                    <td id="mail">mail1</td>
                     <form action="http://localhost:8080/ProjectJMST/ServletThcr1" method="post">
                     <td id="afficher" type="text"><input type="submit" value="afficher"></td>
                     <input type="hidden" value="%%noSerie%%">
                     </form>
                 </tr>
-                <tr>
-                    <td> <form action=http://localhost:8080/ProjectJMST/Test method="post">
-                    <input type="submit" value="retour">
-                    <input type="hidden" value="%%noSerie%%">
-                    </form></td>
+                <tr id="consctructTable">
                 </tr>
             </table>
-            </div>
-            <div id="gestiondocument">
-                <form action="http://localhost:8080/ProjectJMST/ServletJOCA2" method="post">
-                    <input type="submit" name="documents" value="gestion de documents">
+                <div id="retour">
+                <form action=http://localhost:8080/ProjectJMST/Test method="post">
+                    <input type="submit" value="retour">
                     <input type="hidden" value="%%noSerie%%">
                 </form>
+                </div>
+                <div id="deco">
+                <form action=http://localhost:8080/ProjectJMST/ServletDeco method="post">
+                    <input type="submit" value="deconnexion">
+                    <input type="hidden" value="%%noSerie%%">
+                </form>
+                </div>
             </div>
         </div>
     </body>

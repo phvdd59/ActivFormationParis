@@ -74,12 +74,13 @@ public class Test extends HttpServlet {
 						String login = ePersonne.getAttribute("login");
 						String password = ePersonne.getAttribute("password");
 						String adminString = ePersonne.getAttribute("admin");
+						String mail = ePersonne.getAttribute("mail");
 						boolean admin = false;
 						if(adminString.equals("true")){
 							admin = true;
 						}
 						synchronized (listPersonne) {
-							listPersonne.add(new Personne(name, login, password, admin));
+							listPersonne.add(new Personne(name, login, password, admin, mail));
 						}
 					}
 				}

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ListPersonne>
-	<Personne login="thcr" password="password" admin="true">
+	<Personne login="thcr" password="password" admin="true" mail="thomas.cresson@mail.fr">
 		Thomas
 	</Personne>
-	<Personne login="soka" password="password" admin="true">
+	<Personne login="soka" password="password" admin="true" mail="souad.kadri@mail.fr">
 		Souad
 	</Personne>
-	<Personne login="made" password="password" admin="true">
+	<Personne login="made" password="password" admin="true" mail="marc.denis@mail.fr">
 		Marc
 	</Personne>
-	<Personne login="joca" password="password" admin="true">
+	<Personne login="joca" password="password" admin="true" mail="johann.cassagne@mail.fr">
 		Johann
 	</Personne>
 </ListPersonne>

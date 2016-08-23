@@ -2,16 +2,25 @@ package com.formation.thcr.servlet;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
+import java.nio.charset.Charset;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 
 /**
  * Servlet implementation class ServletThcr1
@@ -34,39 +43,80 @@ public class ServletThcr1 extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		//		response.getWriter().append("Served at: ").append(request.getContextPath());
+		File fileXML = new File("C:/DevFormation/GITActivFormationParis/ProjectJMST/WebContent/Data.xml");
+		
 		String nom = "Nom";
 		String prenom = "Prenom";
+		String mail = "mail@mail.mail";
 		String adresse = "Adresse";
 		String codePostal = "Code postal";
 		String ville = "Ville";
-		String telFixe = "téléphone fixe";
-		String telPort = "téléphone portable";
+		String telFixe = "telephone fixe";
+		String telPort = "telephone portable";
 		String fax = "Fax";
-		String mail = "mail@mail.mail";
 		String dateNaissance = "01/01/1970";
 		String lieuNaissance = "Lieu de naissance";
 		String numSecu = "19095846";
-		String nationalite = "Nationalit�";
-		String situation = "salari�";
+		String nationalite = "Nationalite";
+		String situation = "salarie";
 		String fonction = "fonction";
 		String position = "posistion";
 		String coefficient = "Coefficient";
-		String salaire = "30k€";
+		String salaire = "30k";
 		String mutuelle = "oui";
 		String ticketresto = "oui";
 		String visiteMedicale = "20/05/2016";
-		String aboTransport = "73€/mois";
+		String aboTransport = "73/mois";
 		String vehicule = "non";
 		String nbCv = "nombre de cv";
-		String kmestime = "nombre de kilom�tre estimé";
+		String kmestime = "nombre de kilometre estime";
+
+		final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+
+		try {
+			final DocumentBuilder builder = factory.newDocumentBuilder();
+			final Document document = builder.parse(fileXML);
+
+			final Element listElement = document.getDocumentElement();
+			final NodeList nodeListElement = listElement.getChildNodes();
+
+			for (int i = 0; i < nodeListElement.getLength(); i++) {
+				final Node nodeElement = nodeListElement.item(i);
+				if (nodeElement.getNodeType() == Node.ELEMENT_NODE) {
+					final Element element = (Element) nodeElement;
+					if (element.getNodeName().equals("Personne")) {
+						if (element.getAttribute("login").equals("thcr")) {
+							prenom = element.getTextContent();
+							nom = element.getAttribute("nom");
+							mail = element.getAttribute("mail");
+							break;
+						} else {
+							nom = "nom";
+							prenom = "prenom";
+							mail = "mail@mail.mail";
+						}
+					}
+				}
+			}
+		} catch (ParserConfigurationException e) {
+			e.printStackTrace();
+		} catch (SAXException e) {
+			e.printStackTrace();
+		}
+
+		
 
 		File affichage = new File("C:/DevFormation/GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/Infoutilisateur.html");
-		BufferedReader br2 = new BufferedReader(new InputStreamReader(new FileInputStream(affichage), "UTF-8"));
+		//		BufferedReader br2 = new BufferedReader(new InputStreamReader(new FileInputStream(affichage), "UTF-8"));
 		BufferedReader br = new BufferedReader(new FileReader(affichage));
-		
+		System.out.println(Charset.defaultCharset());
+
+		HttpSession session = request.getSession();
+		//		Cookie cookie = new Cookie("nomCookie", "info");
+		//		System.out.println(session.getMaxInactiveInterval());
+
 		//TODO UTF _ inputStream
-		String l = br2.readLine();
+		String l = br.readLine();
 		String model = "></td>";
 		while (l != null) {
 			if (l.contains("id=\"nom")) {
@@ -145,10 +195,9 @@ public class ServletThcr1 extends HttpServlet {
 				l = l.replace(model, ">" + kmestime + "</td>");
 			}
 			response.getWriter().println(l);
-			l = br2.readLine();
+			l = br.readLine();
 		}
 		br.close();
-		br2.close();
 	}
 
 	/**
