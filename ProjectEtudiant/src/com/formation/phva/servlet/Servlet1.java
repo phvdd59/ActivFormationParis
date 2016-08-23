@@ -8,6 +8,7 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -49,8 +50,10 @@ public class Servlet1 extends HttpServlet {
 		for (int i = 0; i < sNoSerie.length(); i++) {
 			sum += Integer.valueOf(sNoSerie.substring(i, i + 1));
 		}
-		sNoSerie = "1"+Integer.toString(sum) + "_" + sNoSerie;
+		sNoSerie = "1" + Integer.toString(sum) + "_" + sNoSerie;
 		session.setAttribute("noSerie", sNoSerie);
+		Cookie MonCookie = new Cookie("nom", "Philippe");
+		response.addCookie(MonCookie);
 		String l = bIn.readLine();
 		while (l != null) {
 			if (l.contains("%%pseudo%%")) {
@@ -74,13 +77,18 @@ public class Servlet1 extends HttpServlet {
 		String noSerie = req.getParameter("noSerie");
 		HttpSession session = req.getSession();
 		System.out.println(session.getId());
-		Object oRecupNoSerie=session.getAttribute("noSerie");
-		String recupNoSerie=(String) oRecupNoSerie;
+		Cookie[] cookies = req.getCookies();
+		for (int i = 0; i < cookies.length; i++) {
+			Cookie cookie = cookies[i];
+			String v=cookie.getValue();
+		}
+		Object oRecupNoSerie = session.getAttribute("noSerie");
+		String recupNoSerie = (String) oRecupNoSerie;
 		if (noSerie.equals(recupNoSerie)) {
-//			int sum = 0;
-//			for (int i = noSerie.indexOf("_") + 1; i < noSerie.length(); i++) {
-//				sum += Integer.valueOf(noSerie.substring(i, i + 1));
-//			}
+			//			int sum = 0;
+			//			for (int i = noSerie.indexOf("_") + 1; i < noSerie.length(); i++) {
+			//				sum += Integer.valueOf(noSerie.substring(i, i + 1));
+			//			}
 			// Contrôler les params
 			//Constituer la nouvelle page
 			if (pseudo != null && noSerie != null && !noSerie.equals("%%noserie%%")) {
