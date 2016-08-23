@@ -2,8 +2,10 @@ package com.formation.thcr.servlet;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -38,30 +40,33 @@ public class ServletThcr1 extends HttpServlet {
 		String adresse = "Adresse";
 		String codePostal = "Code postal";
 		String ville = "Ville";
-		String telFixe = "téléphone fixe";
-		String telPort = "téléphone portable";
+		String telFixe = "tÃ©lÃ©phone fixe";
+		String telPort = "tÃ©lÃ©phone portable";
 		String fax = "Fax";
 		String mail = "mail@mail.mail";
 		String dateNaissance = "01/01/1970";
 		String lieuNaissance = "Lieu de naissance";
 		String numSecu = "19095846";
-		String nationalite = "Nationalité";
-		String situation = "salarié";
+		String nationalite = "Nationalitï¿½";
+		String situation = "salariï¿½";
 		String fonction = "fonction";
 		String position = "posistion";
 		String coefficient = "Coefficient";
-		String salaire = "30k€";
+		String salaire = "30kâ‚¬";
 		String mutuelle = "oui";
 		String ticketresto = "oui";
 		String visiteMedicale = "20/05/2016";
-		String aboTransport = "73€/mois";
+		String aboTransport = "73â‚¬/mois";
 		String vehicule = "non";
 		String nbCv = "nombre de cv";
-		String kmestime = "nombre de kilomètre estimé";
+		String kmestime = "nombre de kilomï¿½tre estimÃ©";
 
 		File affichage = new File("C:/DevFormation/GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/Infoutilisateur.html");
+		BufferedReader br2 = new BufferedReader(new InputStreamReader(new FileInputStream(affichage), "UTF-8"));
 		BufferedReader br = new BufferedReader(new FileReader(affichage));
-		String l = br.readLine();
+		
+		//TODO UTF _ inputStream
+		String l = br2.readLine();
 		String model = "></td>";
 		while (l != null) {
 			if (l.contains("id=\"nom")) {
@@ -140,9 +145,10 @@ public class ServletThcr1 extends HttpServlet {
 				l = l.replace(model, ">" + kmestime + "</td>");
 			}
 			response.getWriter().println(l);
-			l = br.readLine();
+			l = br2.readLine();
 		}
 		br.close();
+		br2.close();
 	}
 
 	/**

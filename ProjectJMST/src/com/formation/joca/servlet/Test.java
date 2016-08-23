@@ -70,7 +70,7 @@ public class Test extends HttpServlet {
 					if (nodePersonne.getNodeType() == Node.ELEMENT_NODE) {
 						final Element ePersonne = (Element) nodePersonne;
 						String name = ePersonne.getTextContent();
-						name = name.replaceAll("\\s", "");
+						name = name.trim();
 						String login = ePersonne.getAttribute("login");
 						String password = ePersonne.getAttribute("password");
 						String adminString = ePersonne.getAttribute("admin");
