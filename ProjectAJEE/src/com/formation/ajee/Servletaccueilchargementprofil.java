@@ -41,6 +41,23 @@ public class Servletaccueilchargementprofil extends HttpServlet {
 		// if (pseudo != null && noSerie != null &&
 		// !noSerie.equals("%%noserie%%")) {
 		// if (pseudo.equals("Philippe")) {
+		
+		File f2 = new File("C:/DevFormation/" + "GITActivFormationParis/ProjectAJEE/" + "WebContent/WEB-INF/com/formation/ajee/" + "page/Background.html");
+		BufferedReader bIn2 = new BufferedReader(new FileReader(f2));
+		String l2 = bIn2.readLine();
+		while (l2 != null) {
+			response.getWriter().println(l2);
+			l2 = bIn2.readLine();
+		}
+		bIn2.close();
+		File f1 = new File("C:/DevFormation/" + "GITActivFormationParis/ProjectAJEE/" + "WebContent/WEB-INF/com/formation/ajee/" + "page/bandeauAdmin.html");
+		BufferedReader bIn1 = new BufferedReader(new FileReader(f1));
+		String l1 = bIn1.readLine();
+		while (l1 != null) {
+			response.getWriter().println(l1);
+			l1 = bIn1.readLine();
+		}
+		bIn1.close();
 		File f = new File("C:/DevFormation/" + "GITActivFormationParis/ProjectAJEE/" + "WebContent/WEB-INF/com/formation/ajee/" + "page/AccueilAdmin.html");
 		BufferedReader bIn = new BufferedReader(new FileReader(f));
 		String l = bIn.readLine();
@@ -49,13 +66,6 @@ public class Servletaccueilchargementprofil extends HttpServlet {
 			l = bIn.readLine();
 		}
 		bIn.close();
-		File f1 = new File("C:/DevFormation/" + "GITActivFormationParis/ProjectAJEE/" + "WebContent/WEB-INF/com/formation/ajee/" + "page/bandeauAdmin.html");
-		BufferedReader bIn1 = new BufferedReader(new FileReader(f1));
-		String l1 = bIn.readLine();
-		while (l1 != null) {
-			response.getWriter().println(l);
-			l1 = bIn1.readLine();
-		}
-		bIn1.close();
+
 	}
 }
