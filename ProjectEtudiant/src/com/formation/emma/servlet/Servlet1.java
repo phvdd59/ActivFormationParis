@@ -37,7 +37,7 @@ public class Servlet1 extends HttpServlet {
 	 *      response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		File file = new File("../GITActivFormationParis/ProjectEtudiant/WebContent/com/formation/emma/page/Identification.html");
+		File file = new File("../GITActivFormationParis/ProjectEtudiant/WebContent/WEB-INF/com/formation/emma/page/Identification.html");
 		//	System.out.println(file.getCanonicalPath());
 		int noserie = (int) Math.random() * Integer.MAX_VALUE;
 		HttpSession session = request.getSession(true); //true pour garder le meme numero de session qui vient detre créé
@@ -69,7 +69,7 @@ public class Servlet1 extends HttpServlet {
 		if (pseudo != null) {
 			if (pseudo.equals("Emma") && mdp.equals("123")) {
 				// constituer la nouvelle page
-				File file = new File("../GITActivFormationParis/ProjectEtudiant/WebContent/com/formation/emma/page/PageAccueil.html");
+				File file = new File("C:/GITActivFormationParis/ProjectEtudiant/WebContent/WEB-INF/com/formation/emma/page/PageAccueil.html");
 				BufferedReader bIn = new BufferedReader(new FileReader(file));
 				String line = bIn.readLine();
 				while (line != null) {
@@ -79,14 +79,12 @@ public class Servlet1 extends HttpServlet {
 				bIn.close();
 
 			} else {
-				File f = new File("C:/DevFormation/GITActivFormationParis/ProjectEtudiant/WebContent/com/formation/emma/page/Identification.html");
+				File f = new File("C:/DevFormation/GITActivFormationParis/ProjectEtudiant/WebContent/WEB-INF/com/formation/emma/page/Identification.html");
 				BufferedReader bIn = new BufferedReader(new FileReader(f));
 				String l = bIn.readLine();
 				while (l != null) {
 						resp.getWriter().println(l);
 					l = bIn.readLine();
-				
-
 				}
 				bIn.close();
 			}

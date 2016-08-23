@@ -18,56 +18,62 @@ import javax.servlet.http.HttpServletResponse;
 
 public class Servlet2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public Servlet2() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+	public Servlet2() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doPost(request, response);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String nom = request.getParameter("nom");
 		String prenom = request.getParameter("prenom");
-		String identifiant= "";
+		String identifiant = "";
 		String mdp = "";
-		
-		identifiant = nom.split("") + prenom.substring(0, 1); 
-		while (mdp.length()!=8){
-			int a = (int) (Math.random()*126);
-			char lettre =  (char) a;
-			if ( a>47 && a<58){
-			 mdp = mdp + lettre;
-			}else if (a>96 && a< 123) {
+
+		identifiant = nom.split("") + prenom.substring(0, 1);
+		while (mdp.length() != 8) {
+			int a = (int) (Math.random() * 126);
+			char lettre = (char) a;
+			if (a > 47 && a < 58) {
 				mdp = mdp + lettre;
-			}else if (a>64 && a< 91) {
+			} else if (a > 96 && a < 123) {
+				mdp = mdp + lettre;
+			} else if (a > 64 && a < 91) {
 				mdp = mdp + lettre;
 			}
 		}
-	 
-				
-		File file = new File("../GITActivFormationParis/ProjectEtudiant/WebContent/WEB-INF/com/formation/emma/page/ListeUtilisateurs2.html");
-		BufferedReader bIn = new BufferedReader(new FileReader(file));
-		String line = bIn.readLine();
-		while (line != null) {
-			if (line.contains("%%alerte%%")) {
-			line = line.replace("%%alerte%%", "Identifiant: "+ identifiant +" Mot de passe : "+ mdp);
+
+		if (nom != null && prenom != null) {
+			File file = new File("../GITActivFormationParis/ProjectEtudiant/WebContent/WEB-INF/com/formation/emma/page/ListeUtilisateurs2.html");
+			BufferedReader bIn = new BufferedReader(new FileReader(file));
+			String line = bIn.readLine();
+
+			while (line != null) {
+				if (line.contains("%%alerte%%")) {
+					line = line.replace("%%alerte%%", "Identifiant: " + identifiant + " Mot de passe : " + mdp);
+				}
+				response.getWriter().println(line);
+				line = bIn.readLine();
 			}
-			response.getWriter().println(line);
-			line = bIn.readLine();
+			bIn.close();
+		} else {
+
 		}
-		bIn.close();
 	}
 
 }
