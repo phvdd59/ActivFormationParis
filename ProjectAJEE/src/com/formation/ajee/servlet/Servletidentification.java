@@ -1,4 +1,4 @@
-package com.formation.ajee;
+package com.formation.ajee.servlet;
 
 import java.io.BufferedReader;
 import java.io.File;
