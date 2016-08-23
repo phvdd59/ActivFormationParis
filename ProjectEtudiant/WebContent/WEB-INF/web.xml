@@ -22,4 +22,18 @@
     <servlet-name>HelloServlet</servlet-name>
     <url-pattern>/hello</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+    <description>Servlet de PHVA</description>
+    <servlet-name>MaServletPHVA</servlet-name>
+    <servlet-class>com.formation.phva.servlet.Servlet1</servlet-class>
+    <init-param>
+      <param-name>debug</param-name>
+      <param-value>true</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MaServletPHVA</servlet-name>
+    <url-pattern>/ServletPhva1</url-pattern>
+  </servlet-mapping>
 </web-app>
