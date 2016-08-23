@@ -13,4 +13,10 @@ public class ListeMeuble extends ArrayList<Meuble> {
 	public ListeMeuble chargeListeMeuble(File fRep) {
 		return null;
 	}
+
+	@Override
+	public boolean add(Meuble e) {
+		e.setTri(this.TRI);
+		return super.add(e);
+	}
 }

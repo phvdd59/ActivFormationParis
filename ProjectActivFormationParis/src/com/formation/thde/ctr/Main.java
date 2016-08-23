@@ -40,8 +40,5 @@ public class Main {
 		Collections.sort(lst);
 		System.out.println(lst);
 		
-		ListeElmt lst2 = new ListeElmt(Tri.REF);
-		lst2.add(new Elmt(Tri.ALPHA, 1, "c", 1, 1f, 2f, 3f, MATERIAUX.BAMBOU));
-		lst2.add(new Elmt(Tri.REF, 2, "b", 1, 2, 3, 4, Materiaux.BOIS));
 	}
 }

@@ -2,7 +2,7 @@ package com.formation.thde.exo;
 
 import java.util.ArrayList;
 
-public class Elmt {
+public class Elmt implements Comparable<Elmt> {
 	Tri tri;
 	int numero;
 	String nom;
@@ -35,6 +35,10 @@ public class Elmt {
 		this.largeur = largeur;
 		this.hauteur = hauteur;
 		this.materiaux = materiaux;
+	}
+
+	public float volume() {
+		return this.longueur * this.largeur * this.hauteur;
 	}
 
 	public Tri getTri() {
@@ -113,6 +117,31 @@ public class Elmt {
 	public String toString() {
 		return "Elmt [tri=" + tri + ", numero=" + numero + ", nom=" + nom + ", nb=" + nb + ", unite=" + unite + ", longueur=" + longueur + ", largeur=" + largeur + ", hauteur=" + hauteur + ", materiaux=" + materiaux + "]";
 	}
-	
-	
+
+	@Override
+	public int compareTo(Elmt o) {
+		int result = 0;
+
+		if (this.tri == Tri.ALPHA) {
+			result = (int) this.getNom().compareTo(o.getNom());
+		} else if (this.tri == Tri.REF) {
+			if (Integer.valueOf(this.getNumero()) < Integer.valueOf(o.getNumero())) {
+				result = -1;
+			} else if (Integer.valueOf(this.getNumero()) > Integer.valueOf(o.getNumero())) {
+				result = 1;
+			} else {
+				result = 0;
+			}
+		} else if (this.tri == Tri.VOLUME) {
+			if (this.volume() < o.volume()) {
+				result = -1;
+			} else if (this.volume() > o.volume()) {
+				result = 1;
+			} else {
+				result = 0;
+			}
+		}
+		return result;
+	}
+
 }

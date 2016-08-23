@@ -1,4 +1,4 @@
-package com.formation.thde.ctr;
+package com.formation.thde.exo;
 
 import com.formation.phva.inter.InterAlgo6;
 
