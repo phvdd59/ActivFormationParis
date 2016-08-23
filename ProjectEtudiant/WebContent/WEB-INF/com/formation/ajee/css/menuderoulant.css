@@ -25,7 +25,7 @@
     text-decoration: none;
     
     display: block;
-	background:url('static.png')-150px 0px; /* couleur de fond */        
+	background:url('../img/static.png')-150px 0px; /* couleur de fond */        
 
         color : #fff; /* couleur du texte */
 
