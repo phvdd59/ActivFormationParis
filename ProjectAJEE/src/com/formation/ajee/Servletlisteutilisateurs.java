@@ -1,4 +1,4 @@
-package com.formation.emma.servlet;
+package com.formation.ajee;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -14,15 +14,15 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Servlet2
  */
-@WebServlet(value = "/ServletEmma2", name = "ServletEmma2")
+@WebServlet(value = "/Servletlisteutilisateurs", name = "Servletlisteutilisateurs")
 
-public class Servlet2 extends HttpServlet {
+public class Servletlisteutilisateurs extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public Servlet2() {
+	public Servletlisteutilisateurs() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -45,7 +45,9 @@ public class Servlet2 extends HttpServlet {
 		String identifiant = "";
 		String mdp = "";
 
-		identifiant = nom.split("") + prenom.substring(0, 1);
+		if (nom != null && prenom != null) {
+		nom = nom.replace(" ", "");
+		identifiant = prenom.substring(0, 1) + "." + nom;
 		while (mdp.length() != 8) {
 			int a = (int) (Math.random() * 126);
 			char lettre = (char) a;
@@ -57,8 +59,6 @@ public class Servlet2 extends HttpServlet {
 				mdp = mdp + lettre;
 			}
 		}
-
-		if (nom != null && prenom != null) {
 			File file = new File("../GITActivFormationParis/ProjectEtudiant/WebContent/WEB-INF/com/formation/emma/page/ListeUtilisateurs2.html");
 			BufferedReader bIn = new BufferedReader(new FileReader(file));
 			String line = bIn.readLine();
@@ -71,7 +71,17 @@ public class Servlet2 extends HttpServlet {
 				line = bIn.readLine();
 			}
 			bIn.close();
+			
 		} else {
+			File file = new File("../GITActivFormationParis/ProjectEtudiant/WebContent/WEB-INF/com/formation/emma/page/ListeUtilisateurs2.html");
+			BufferedReader bIn = new BufferedReader(new FileReader(file));
+			String line = bIn.readLine();
+
+			while (line != null) {
+				response.getWriter().println(line);
+				line = bIn.readLine();
+			}
+			bIn.close();
 
 		}
 	}

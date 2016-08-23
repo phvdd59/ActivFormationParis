@@ -2,11 +2,10 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>Liste des utilisateurs</title>
+		<title>Identification Administrateur</title>
 		<link href="http://www.activconsult-ing.com/Home.css" rel="stylesheet"
 	type="text/css">
-		<link href="StyleFormulaire.css" rel="stylesheet" type="text/css">	
-		
+		<link href="StyleFormulaire.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
 	<div id="background">
@@ -25,43 +24,23 @@
 		<div id="titre1">ENTREPRISE DE SERVICES DU NUMERIQUE</div>
 		<div id="info2">
 		
-				<form action="http://localhost:8080/ProjectEtudiant/ServletEmma2" method="POST">
-	
-	
-	
-		<table align = "center" > 
-			
-			<tr><td colspan="2" ><h2 align = "center">Ajouter un nouvel utilisateur</h2></td></tr>
-						
-
-			<tr >
-				<td style="width: 93px; ">Nom :  </td><td style="width: 268px; "><input type="text" name="nom" style="width: 237px; "/></td>
-			</tr>
-			<tr>
-				<td>Prénom : </td><td> <input type="text" name="prenom" style="width: 238px; "/></td>
-			</tr>
-			
-			<tr>
-				<td colspan="2" align="center" style="width: 337px; "><input type = "submit" value = "Ajouter"  style="width: 227px; "/></td>
-			</tr>
+		<form action="http://localhost:8080/ProjectEtudiant/ServletEmma" method="POST">
+		<input type="hidden" value="%%noserie%%" name="noserie">
 		
+		<table align = "center" style="width: 470px; "> 
 		<tr><td height="50"></td></tr>
-		
-		</table>
-		
-		<table align = "center" > 
-		
-			<caption><h2>Liste des utilisateurs</h2></caption>
-						
+			<tr align="center"><td colspan="2"><h2>CONNEXION A MON ESPACE PERSONNEL</h2></td></tr>
 			<tr>
-			<td> <div> <input value="" align="top" style="width: 449px; height: 235px"></div>
-	
-		</td>
-		
-				<td ><input type="submit" value = "Supprimer" /></td>
-		
-			</tr>
 				
+			<tr>
+				<td style="width: 119px; "> Identifiant : </td> <td style="width: 331px; "><input type="text" name="Identifiant"  style="width: 316px; "/></td>
+			</tr>
+			<tr>
+				<td> Mot de passe : </td> <td style="width: 329px; "><input type="password" name="mot de passe" style="width: 315px; "/></td>
+			</tr>
+			<tr>
+				<td align="center" colspan="2"><input type = "submit" value = "Entrer"/></td>
+			</tr>	
 		</table>
 
 		</form>

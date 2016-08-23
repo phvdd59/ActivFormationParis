@@ -1,4 +1,4 @@
-package com.formation.emma.servlet;
+package com.formation.ajee;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -19,15 +19,15 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class Servlet1
  */
-@WebServlet(value = "/ServletEmma", name = "ServletEmma")
-public class Servlet1 extends HttpServlet {
+@WebServlet(value = "/Servletidentification", name = "Servletidentification")
+public class Servletidentification extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	//private static int VALEUR = 0;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public Servlet1() {
+	public Servletidentification() {
 		super();
 
 	}
