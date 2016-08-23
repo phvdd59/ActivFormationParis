@@ -51,9 +51,8 @@ public class ServletSoka1 extends HttpServlet {
 	 *      response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String pseudo = request.getParameter("identifiant");
-		String mdp = request.getParameter("mdp");
-		//if (pseudo != null) {
+//		String pseudo = request.getParameter("identifiant");
+//		String mdp = request.getParameter("mdp");
 		File file = new File("C:/DevFormation/GITActivFormationParis/" + //
 				"ProjectJMST/WebContent/WEB-INF/" + //
 				"page/pageActiveFormulaire_part2_coordonnees_personnelles.html");
@@ -61,17 +60,9 @@ public class ServletSoka1 extends HttpServlet {
 		bIn = new BufferedReader(new FileReader(file));
 		String line = bIn.readLine();
 		while (line != null) {
-		
-			//				if (line.contains("identifiant")) {
-			//					line = line.replace("value=''", "value=''" + pseudo);
-			//				}
-			//				if (line.contains("mdp")) {
-			//					line = line.replace("value=''", "value=''" + mdp);
-			//				}
 			response.getWriter().println(line);
 			line = bIn.readLine();
 		}
 		bIn.close();
-		//}
 	}
 }

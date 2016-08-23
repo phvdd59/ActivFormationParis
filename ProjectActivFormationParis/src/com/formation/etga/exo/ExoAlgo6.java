@@ -1,4 +1,4 @@
-package com.formation.etga.ctr;
+package com.formation.etga.exo;
 
 import com.formation.phva.inter.InterAlgo6;
 

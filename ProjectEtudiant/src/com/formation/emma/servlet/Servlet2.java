@@ -1,26 +1,25 @@
-package com.formation.made;
+package com.formation.emma.servlet;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Servletmadeverscompte
+ * Servlet implementation class Servlet2
  */
-@WebServlet("/Servletmadeadminverscompte")
-public class Servletmadeverscompte extends HttpServlet {
+@WebServlet(value = "/ServletEmma2", name = "ServletEmma2", initParams = { @WebInitParam(name = "nom", value = "qsdklff") })
+
+public class Servlet2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Servletmadeverscompte() {
+    public Servlet2() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,22 +28,14 @@ public class Servletmadeverscompte extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
+	
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		File file = new File("../GITActivFormationParis/ProjectEtudiant/WebContent/WEB-INF/com/formation/made/page/login.html");
-		BufferedReader bIn = null;
-		bIn=new BufferedReader(new FileReader(file) ); 
-		String maLigne=bIn.readLine();
-		while (maLigne!=null) {
-			response.getWriter().append(maLigne);
-		}
-		bIn.close();
+		
 	}
 
 }

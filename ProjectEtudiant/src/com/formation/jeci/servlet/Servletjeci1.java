@@ -1,8 +1,5 @@
-package com.formation.made;
+package com.formation.jeci.servlet;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Servletmadeverslisteusers
+ * Servlet implementation class Servletjeci1
  */
-@WebServlet("/Servletmadeverslisteusers")
-public class Servletmadeverslisteusers extends HttpServlet {
+@WebServlet("/Servletjeci1")
+public class Servletjeci1 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Servletmadeverslisteusers() {
+    public Servletjeci1() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,22 +27,15 @@ public class Servletmadeverslisteusers extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		File file = new File("../GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/Listeutilisateur.html");
-		BufferedReader bIn = null;
-		bIn=new BufferedReader(new FileReader(file) ); 
-		String maLigne=bIn.readLine();
-		while (maLigne!=null) {
-			response.getWriter().append(maLigne);
-			maLigne=bIn.readLine();
-		}
-		bIn.close();
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }

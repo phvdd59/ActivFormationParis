@@ -85,7 +85,7 @@
 		<div id="info2">
 			<!-- zone disponible -->
 
-			
+			<form action="http://localhost:8080/ProjectJMST/ServletSoka1" method='post'>
 				<table border="1">
 					<caption>
 						<h1>Demande d'inscription</h1>
@@ -93,22 +93,23 @@
 
 					<tr>
 						<th colspan="4" style="width: 627px;">Identifiant</th>
-						<th style="width: 273px; height: 25px; color:;"><input
-							type="text" name="identifiant" value='' style="width: 270px;"></th>
+						<th style="width: 273px; height: 25px; color:;">
+						<input type="text" name="identifiant" value='' style="width: 270px;"></th>
 					</tr>
 					<tr>
 						<th colspan="4" style="width: 627px;">Mot de passe</th>
-						<th style="width: 273px; height: 25px; color:;"><input
-							type="password" name="mdp" value='' style="width: 270px;"></th>
+						<th style="width: 273px; height: 25px; color:;">
+						<input type="password" name="mdp" value='' style="width: 270px;"></th>
 					</tr>
 					<tr>
 						<th colspan="4" style="width: 627px;">Mot de passe</th>
-						<th style="width: 273px; height: 25px; color:;"><input
-							type="password" name="mdp" value='' style="width: 270px;"></th>
+						<th style="width: 273px; height: 25px; color:;">
+						<input type="password" name="mdp" value='' style="width: 270px;"></th>
 					</tr>
 				</table>
-				<form action="http:localhost:8080/ProjectJMST/ServletSoka1" method='post'>
+				
 				<input type="submit" name="Suivant" value="Suivant"></input>
+                <input type="hidden" value="%%noSerie%%">
 			</form>
 		</div>
 		<div id="fpage2">

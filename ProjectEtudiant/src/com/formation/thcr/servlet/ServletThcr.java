@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class ServletThcr
@@ -33,10 +34,18 @@ public class ServletThcr extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //		 TODO Auto-generated metho stub
 //				response.getWriter().append("Served at: ").append(request.getContextPath());
+		HttpSession session = request.getSession();
+		String id = session.getId();
+		
 		File file = new File("C:/DevFormation/GITActivFormationParis/ProjectEtudiant/WebContent/com/formation/thcr/Login.html");
 		BufferedReader br = new BufferedReader(new FileReader(file));
+		int numeroDeSerieCree = (int) Math.random()*Integer.MAX_VALUE;
+		session.setAttribute("noSerie", numeroDeSerieCree);
 		String line = br.readLine();
 		while (line != null) {
+			if(line.contains("%%numerodeserie%%")){
+				line.replace("%%numerodeserie%%", Integer.toString(numeroDeSerieCree).toString());
+			}
 			response.getWriter().println(line);
 			line = br.readLine();
 		}
@@ -48,6 +57,8 @@ public class ServletThcr extends HttpServlet {
 		// TODO Auto-generated method stub
 		//getparameters
 		String pseudo = req.getParameter("identifiant");
+		String noserie = req.getParameter("numerodeserie");
+		String recupNoSerie = (String) req.getSession().getAttribute("noSerie");
 		//Controle parametre
 		//Créer la nouvelle page
 		if (pseudo != null) {

@@ -17,23 +17,17 @@
 			<h1>Menu Principal (administrateur)</h1>
 		</div>
 		<div id="idbouton">
-			<form
-				action="http://localhost:8080/ProjectJMST/Servletmadeverscompte"
-				method="POST">
-				<input type="button" value="Mon compte"
-					title="Modification de compte">
+			<form action="http://localhost:8080/ProjectJMST/ServletSoka0" method="POST">
+				<input type="submit" value="Mon compte" title="Modification de compte">
+                <input type="hidden" value="%%noSerie%%">
 			</form>
-			<form
-				action="http://localhost:8080/ProjectJMST/Servletmadeversgestiondocuments"
-				method="post">
-				<input type="button" value="Gestion de documents"
-					title="Envoi et récupération de fichiers">
+			<form action="http://localhost:8080/ProjectJMST/ServletJOCA2" method="post">
+				<input type="submit" value="Gestion de documents" title="Envoi et récupération de fichiers">
+                <input type="hidden" value="%%noSerie%%">
 			</form>
-			<form
-				action="http://localhost:8080/ProjectJMST/Servletmadeverslisteusers"
-				method="post">
-				<input type="button" value="Liste des utilisateurs"
-					title="Selection d'un utilisateur">
+			<form action="http://localhost:8080/ProjectJMST/ServletThcr2" method="post">
+				<input type="submit" value="Liste des utilisateurs"	title="Selection d'un utilisateur">
+               <input type="hidden" value="%%noSerie%%">
 			</form>
 		</div>
 	</div>

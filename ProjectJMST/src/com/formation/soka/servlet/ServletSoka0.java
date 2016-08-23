@@ -1,4 +1,4 @@
-package com.formation.made;
+package com.formation.soka.servlet;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -11,16 +11,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Servletmadeverslisteusers
+ * Servlet implementation class ServletSoka0
  */
-@WebServlet("/Servletmadeverslisteusers")
-public class Servletmadeverslisteusers extends HttpServlet {
+@WebServlet("/ServletSoka0")
+public class ServletSoka0 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Servletmadeverslisteusers() {
+    public ServletSoka0() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,23 +29,26 @@ public class Servletmadeverslisteusers extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		File file = new File("C:/DevFormation/" + //
+				"GITActivFormationParis/ProjectJMST/" + //
+				"WebContent/WEB-INF/" + //
+				"page/pageActiveFormulaire_part1_ident_mdp.html");
+		BufferedReader bIn = null;
+		bIn = new BufferedReader(new FileReader(file));
+		String line = bIn.readLine();
+		while (line != null) {
+			response.getWriter().println(line);
+			line = bIn.readLine();
+		}
+		bIn.close();
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		File file = new File("../GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/Listeutilisateur.html");
-		BufferedReader bIn = null;
-		bIn=new BufferedReader(new FileReader(file) ); 
-		String maLigne=bIn.readLine();
-		while (maLigne!=null) {
-			response.getWriter().append(maLigne);
-			maLigne=bIn.readLine();
-		}
-		bIn.close();
+		
+		doGet(request, response);
 	}
 
 }
