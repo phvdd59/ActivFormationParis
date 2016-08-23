@@ -54,7 +54,7 @@ public class ServletJOCA1 extends HttpServlet {
 
 			}
 		}
-
+		lecture.close();
 	}
 
 	/**
@@ -63,25 +63,7 @@ public class ServletJOCA1 extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		BufferedReader lecture = null;
-		File page = new File("../GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/Login.html");
-		try {
-			InputStreamReader input = new InputStreamReader(new FileInputStream(page));
-			lecture = new BufferedReader(input);
-			String line = lecture.readLine();
-			while (line != null) {
-				response.getWriter().println(line);
-				line = lecture.readLine();
-			}
-		} catch (Exception e) {
-
-		} finally {
-			try {
-				lecture.close();
-			} catch (IOException e) {
-
-			}
-		}
+		doGet(request, response);
 	}
 
 }
