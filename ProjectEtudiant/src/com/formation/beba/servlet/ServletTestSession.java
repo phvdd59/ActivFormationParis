@@ -1,4 +1,4 @@
-package com.formation.jeci.servlet;
+package com.formation.beba.servlet;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -16,8 +16,8 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class Servlet1
  */
-@WebServlet(name = "Servletjeci", value = "/Servletjeci", initParams = { @WebInitParam(name = "nom", value = "qsdf") })
-public class Servletjeci extends HttpServlet {
+@WebServlet(name = "ServletPh", value = "/ServletPh", initParams = { @WebInitParam(name = "nom", value = "qsdf") })
+public class ServletTestSession extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static int VALEUR = 0;
 	public static String saveNoSerie;
@@ -25,7 +25,7 @@ public class Servletjeci extends HttpServlet {
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public Servletjeci() {
+	public ServletTestSession() {
 		super();
 		// TODO Auto-generated constructor stub
 	}

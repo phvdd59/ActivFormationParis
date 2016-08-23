@@ -1,6 +1,4 @@
-package com.formation.beba.ctr;
-
-import java.util.Arrays;
+package com.formation.joca.sauvegarde;
 
 import com.formation.phva.inter.InterAlgo6;
 
@@ -30,41 +28,59 @@ public class ExoAlgo6 implements InterAlgo6 {
 	 */
 
 	public int solution(int[] tab, int n, int f) {
-		int indice = -1;
+		int result = -1;
+		try {
+			int[] tab2 = new int[tab.length - (2 * n)];
+			int[] tab3 = new int[tab2.length - f + 1];
 
-		if (tab != null) {
-			if (n >= 0) {
-				if (f > 0) {
-					if ((tab.length % 2 == 0 && n < tab.length / 2) || (tab.length % 2 != 0 && n <= tab.length / 2)) {
-						if (2 * n + f <= tab.length) {
+			// on remplie tab2
 
-							int[] tabTrav = new int[tab.length - 2 * n];
-							for (int i = n; i < tab.length - n; i++) {
-								for (int j = 0; j < 2 * n + 1; j++) {
-									tabTrav[i - n] += tab[i - n + j];
-								}
-							}
-							int[] tabFin = new int[tabTrav.length - f + 1];
-							for (int i = 0; i < tabFin.length; i++) {
-								for (int j = 0; j < f; j++) {
-									tabFin[i] += tabTrav[i + j];
-								}
-							}
-							int[] tabClasse = tabFin.clone();
-							Arrays.sort(tabClasse);
-							int valeur = tabClasse[tabClasse.length - 1];
-							for (int i = 0; i < tabFin.length; i++) {
-								if (tabFin[i] == valeur) {
-									indice = i;
-									break;
-								}
-							}
-						}
-					}
-				}
+			for (int i = 0; i < tab2.length; i++) {
+				tab2[i] = CalculerValeurTab2(tab, i + n, n);
 			}
+
+			// on remplie tab3
+
+			for (int i = 0; i < tab3.length; i++) {
+				tab3[i] = CalculerValeurTab3(tab2, i, f);
+			}
+
+			// on recupere l'indice de la plus haute valeur dans tab3
+
+			int indicetab3 = IndicePlusGrand(tab3);
+			// on recupere l'indice correspondant dans tab
+			result = indicetab3 + n;
+		} catch (Exception e) {
+
 		}
 
-		return indice;
+		return result;
+	}
+
+	public int CalculerValeurTab2(int[] tab, int j, int n) {
+		int result = 0;
+		for (int i = j - n; i <= j + n; i++) {
+			result += tab[i];
+		}
+		return result;
+	}
+
+	public int CalculerValeurTab3(int[] tab, int j, int f) {
+		int result = 0;
+		for (int i = j; i <= j + f - 1; i++) {
+			result += tab[i];
+		}
+		System.out.println(result);
+		return result;
+	}
+
+	public int IndicePlusGrand(int[] tab) {
+		int result = 0;
+		for (int i = 1; i < tab.length; i++) {
+			if (tab[i] > tab[result]) {
+				result = i;
+			}
+		}
+		return result;
 	}
 }

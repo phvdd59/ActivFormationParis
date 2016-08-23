@@ -1,4 +1,4 @@
-package com.formation.joca.main;
+package com.formation.beba.save;
 
 @SuppressWarnings("unused")
 public enum MATERIAUX {
@@ -19,26 +19,13 @@ public enum MATERIAUX {
 	private final SOLIDITE solidite;
 	private int pourcent;
 
-	private MATERIAUX(float densite, SOLIDITE solidite, int qte) {
+	private MATERIAUX(float densite, SOLIDITE solidite, int pourcent) {
 		this.densite = densite;
 		this.solidite = solidite;
-		this.pourcent = qte;
-	}
-
-	public int getQte() {
-		return pourcent;
-	}
-
-	public void setQte(int pourcent) {
 		this.pourcent = pourcent;
 	}
 
-	public float getDensite() {
-		return densite;
+	public void setPourcent(int pourcent) {
+		this.pourcent = pourcent;
 	}
-
-	public SOLIDITE getSolidite() {
-		return solidite;
-	}
-
 }

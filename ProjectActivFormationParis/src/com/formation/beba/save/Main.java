@@ -1,4 +1,4 @@
-package com.formation.beba.ctr;
+package com.formation.beba.save;
 
 public class Main {
 	public static void main(String[] args) {

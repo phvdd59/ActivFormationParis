@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Servlet2
  */
-@WebServlet(value = "/ServletJOCA2", name = "ServletJOCA2")
+@WebServlet(value = "/ServletJOCA2PHVA", name = "ServletJOCA2")
 public class Servlet2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
