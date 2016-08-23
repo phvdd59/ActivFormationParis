@@ -9,6 +9,9 @@
       font-weight : bold; /* on met le texte en gras */
         font-family : Arial; /* on utilise Arial, c'est plus beau ^^ */
         font-size : 12px; /* hauteur du texte : 12 pixels */
+        margin-left: -48px;
+		width: 800px;
+		margin-top: -135px;
       
 }
 #menu-deroulant li {
