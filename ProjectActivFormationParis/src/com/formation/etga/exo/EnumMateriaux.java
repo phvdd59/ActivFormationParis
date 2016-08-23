@@ -1,4 +1,4 @@
-package com.formation.etga.ctr;
+package com.formation.etga.exo;
 
 public enum EnumMateriaux {
 	BOIS(0.6f, EnumSolidite.NORMAL, 0), //
