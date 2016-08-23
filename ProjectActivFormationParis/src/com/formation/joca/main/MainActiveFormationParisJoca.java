@@ -29,10 +29,20 @@ public class MainActiveFormationParisJoca {
 	}
 
 	private void init14() {
-		File file = new File("./src/com/formation/joca/data/example.xml");
+		File file = new File("./src/com/formation/joca/data/example2.xml");
 		ListeMeuble liste = new ListeMeuble();
 
 		liste.chargeXml(file);
+
+		for (int i=0;i<liste.size();i++){
+			System.out.println(liste.get(i).toString());
+			for (int j=0;j<liste.get(i).getLstElmt().size();j++){
+				System.out.println(liste.get(i).getLstElmt().get(j).getNom());
+				for (int z=0;z<liste.get(i).getLstElmt().get(j).getMateriaux().size();z++){
+					System.out.println(liste.get(i).getLstElmt().get(j).getMateriaux().get(z).name());
+				}
+			}
+		}
 
 	}
 
