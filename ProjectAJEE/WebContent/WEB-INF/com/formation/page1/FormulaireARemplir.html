@@ -1,0 +1,91 @@
+<div style= "background-color: darkblue; color : white; font: bold " align="center" > FORMULAIRE D'IDENTIFICATION </div>
+<div style="background-color:silver; ;"> 
+	<form action = "http://google.com"> <!-- En action, mettre l'URL de la page Acceuil -->
+		<table align = "center">
+			<caption><h1>DEMANDE D'INSCRIPTION</h1></caption>
+			<tr>
+				<th colspan="2" align="center"><h4>COORDONNEES PERSONNELLES</h4></th>
+			</tr>
+			<tr>
+				<td>Nom : <input id="nom" onblur="ecritureTexteNom()" placeholder="ex : Nom" type="texte" name="nom" style="width: 358px; "/></td>
+				<td>Prénom : <input id="prenom" onblur="ecritureTextePrenom()" placeholder="ex : Prenom" type="texte" name="prénom" style="width: 317px; "/></td>
+			</tr>
+			<tr>
+				<td colspan="2"">Adresse : <input id="adresse" onblur="ecritureTexteAdresse()" placeholder="ex : 9 Avenue de la Libération" type="texte" name="adresse"
+					; style="width: 751px; height: 60px" /></td>
+			</tr>
+			<tr>
+				<td>Code postal : <input id="cp" onblur="ecritureNombreCp()" placeholder="ex : 75001" type="texte" name="code postal" style="width: 296px; "/></td>
+				<td>Ville : <input id="ville" onblur="ecritureTexteVille()" placeholder="ex : Paris" type="texte" name="ville" style="width: 344px; "/></td>
+			</tr>
+			<tr>
+				<td>Téléphone fixe : <input id="telFixe" onblur="ecritureNumTelFixe()" placeholder="ex : 0241424344" type="tel" name="telFixe" style="width: 280px; "/></td>
+				<td>Téléphone portable : <input id="telPort" onblur="ecritureNumTelPort()" placeholder="ex : 0611121314" type="tel" name="telPortable" style="width: 221px; "/></td>
+			</tr>
+			<tr>
+				<td>Fax : <input id="fax" onblur="ecritureFax()" placeholder="ex : 0122334455" type="tel" name="fax" style="width: 368px; "/></td>
+				<td>Email : <input id="email" onblur="ecritureEmail()" placeholder="ex : identifiant@domaine.(fr/com)" type="email" name="email" style="width: 334px; "/></td>
+			</tr>
+			<tr>
+				<th colspan="2" align="center"><h4>ETAT CIVIL</h4></th>
+			</tr>
+			<tr>
+				<td>Date de naissance : <input id="dateNaiss" onblur="ecritureDateNaiss()" type="date" name="date de naissance" style="width: 248px; "/></td>
+				<td>Lieu : <input id="lieu" onblur="ecritureTexteLieu()" type="texte" name="lieu" style="width: 348px; "/></td>
+			</tr>
+			<tr>
+				<td colspan="2">Numéro de sécurité sociale (15 chiffres) : <input id="numSecu" onblur="ecritureNumSecu()" type="texte" name="numero de sécurité sociale" style="width: 505px; "/></td>
+			</tr>
+			<tr>
+				<td colspan="2">Nationalité : <input id="nat" onblur="ecritureNationalite()" type="texte" name="nationalité" style="width: 720px; "/></td>
+			</tr>
+			<tr>
+				<th colspan="2" align="center"><h4>SITUATION ACTUELLE</h4></th>
+			</tr>
+			<tr>
+				<td colspan="2" align = "center"><input type="radio" name="situation actuelle" value = "salarié">Salarié
+					<input type="radio" name="situation actuelle" value = "auto entrepreneur"> Auto entrepreneur
+					<input type="radio" name="situation actuelle" value = "freelance"> Freelance</td>
+			</tr>
+			<tr>
+					<td colspan="2"><input type="radio" name="situation actuelle" value = "demandeur d'emploi"> Demandeur d'emploi
+					<input type="radio" name="situation actuelle" value = "retraité"> Retraité
+					<input type="radio" name="situation actuelle" value = "autre" checked> Autre <input id="autre" onblur="ecritureAutre()" type="texte" name="Autre" style="width: 450px; "/></td>
+			</tr>
+			<tr>
+				<th colspan="2" align="center"><h4>FONCTION / REMUNERATION</h4></th>
+			</tr>
+			<tr>
+				<td>Fonction occupée : <input id="fctnOccupee" onblur="ecritureFctionOccupee()" type="texte" name="fonction occupée" style="width: 252px; "/></td>
+				<td align = "center"><input type="radio" name="fonction occupée" value = "cadre" checked> Cadre
+					<input type="radio" name="fonction occupée" value = "non cadre"> Non cadre</td>
+			</tr>
+			<tr>
+				<td>Position : <input id="pos" onblur="ecriturePosition()" type="texte" name="position" style="width: 332px; "/></td>
+				<td>Coefficient : <input id="coeff" onblur="ecritureCoeff()" type="texte" name="coefficient" style="width: 285px; "/></td>
+			</tr>
+			<tr>
+				<td colspan="2">Salaire souhaité : <input id="salaireSouhaite" onblur="ecritureSalSouhaite()" type="texte" name="salaire souhaité" style="width: 685px; "/></td>
+			</tr>
+			<tr>
+				<td align = "center">Mutuelle souhaitée : <input type="radio" name="mutuelle souhaitée" value = "oui" checked> oui
+					<input type="radio" name="mutuelle souhaitée" value = "non"> non</td>
+					<td align = "center">Ticket resto : <input type="radio" name="ticket resto" value = "oui" checked> oui
+					<input type="radio" name="ticket resto" value = "non"> non</td>
+			</tr>
+			<tr>
+				<td colspan="2">Date de votre dernière visite médicale : <input id="dateDerVisMed" onblur="ecritureDateDerVisMed()" type="texte" name="date de votre dernière visite médicale" style="width: 503px; "/></td>
+			</tr>
+			<tr>
+				<td colspan="2">Montant carte d'abonnement transport : <input id="montCarteAbonTransp" onblur="ecritureMontCarteAbonTransp()" type="texte" name="montant carte d'abonnement transport" style="width: 486px; "/></td>
+			</tr>
+			<tr>
+				<td>Vehicule personnel : <input id="vehicPerso" onblur="ecritureVehicPerso()" type="texte" name="vehicule personnel" style="width: 246px; "/></td>
+				<td>Km mensuel estimé : <input id="kmMensEstim" onblur="ecritureKmMensEstim()" type="texte" name="km mensuel estimé" style="width: 226px; "/></td>
+			</tr>	
+			<tr>
+				<td colspan="2"; align="center">	<h3><input id = "b0" type = "button" value = "Enregister" onclick = "boutonEnregistrer()" style="width: 439px; "/></h3></td>
+			</tr>	
+		</table>
+	</form>	
+</div>
