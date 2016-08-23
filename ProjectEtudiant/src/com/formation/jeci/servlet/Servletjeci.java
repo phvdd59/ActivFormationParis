@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class Servlet1
  */
-@WebServlet(name = "ServletPhva", value = "/ServletPhva", initParams = { @WebInitParam(name = "nom", value = "qsdf") })
+@WebServlet(name = "Servletjeci", value = "/Servletjeci", initParams = { @WebInitParam(name = "nom", value = "qsdf") })
 public class Servletjeci extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static int VALEUR = 0;
