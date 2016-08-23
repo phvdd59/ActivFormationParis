@@ -34,26 +34,21 @@ public class ServletJOCA2 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*BufferedReader lecture = null;
-		File page = new File("../GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/Gestiondocuments.html");
-		try {
-			InputStreamReader input = new InputStreamReader(new FileInputStream(page));
-			lecture = new BufferedReader(input);
-			String line = lecture.readLine();
-			while (line != null) {
-				response.getWriter().println(line);
-				line = lecture.readLine();
-			}
-		} catch (Exception e) {
-		
-		} finally {
-			try {
-				lecture.close();
-			} catch (IOException e) {
-		
-			}
-		}*/
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		/*
+		 * BufferedReader lecture = null; File page = new File(
+		 * "../GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/Gestiondocuments.html"
+		 * ); try { InputStreamReader input = new InputStreamReader(new
+		 * FileInputStream(page)); lecture = new BufferedReader(input); String
+		 * line = lecture.readLine(); while (line != null) {
+		 * response.getWriter().println(line); line = lecture.readLine(); } }
+		 * catch (Exception e) {
+		 * 
+		 * } finally { try { lecture.close(); } catch (IOException e) {
+		 * 
+		 * } }
+		 */
 
 	}
 
@@ -61,10 +56,11 @@ public class ServletJOCA2 extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
 		HttpSession session = request.getSession();
-		
+
 		String noSerieHtml = request.getParameter("noSerie");
 		String noSerie = (String) session.getAttribute("noSerie");
 		if (noSerieHtml.equals(noSerie)) {
