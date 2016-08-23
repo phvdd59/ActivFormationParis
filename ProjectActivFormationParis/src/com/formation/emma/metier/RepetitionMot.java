@@ -1,4 +1,4 @@
-package com.formation.emma.ctr;
+package com.formation.emma.metier;
 
 public class RepetitionMot {
 

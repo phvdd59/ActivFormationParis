@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Liste des utilisateurs</title>
+		<link href="http://www.activconsult-ing.com/Home.css" rel="stylesheet"
+	type="text/css">
+		<link href="StyleFormulaire.css" rel="stylesheet" type="text/css">	
+		
+				
+	</head>
+	<body>
+	<div id="background">
+		<div id="back2"><img src="http://www.activconsult-ing.com/img/Article_fond_bleu.png"/></div>
+		<div id="back3"><img src="http://www.activconsult-ing.com/img/shutterstock_106416164.png"/></div>
+		<div id="logo"><a href="http://www.activconsult-ing.com/index.html"><img src="http://www.activconsult-ing.com/img/ACI_Logo_quadri_blanc.png" width="184" height="185"/></a></div>
+		<div id="white"><img src="http://www.activconsult-ing.com/img/Article_fond_blanc.png" width="782" height="595"/></div>
+		<div id="logo1"><a href="http://www.activconsult-ing.com/qui_sommes_nous.html"><img src="http://www.activconsult-ing.com/img/Menu_ancre.png" alt= "Qui sommes nous ?"/></a></div>
+		<div id="logo2"><a href="http://www.activconsult-ing.com/le_groupe.html"><img src="http://www.activconsult-ing.com/img/Menu_poulpe.png" width="70" height="93" alt="Le groupe"/></a></div>
+		<div id="logo3"><a href="http://www.activconsult-ing.com/centre_formation.html"><img src="http://www.activconsult-ing.com/img/Menu_pagaies.png" width="71" height="103" alt="Centre de formation"/></a></div>
+		<div id="logo4"><a href="http://www.activconsult-ing.com/nos_offres1.html"><img src="http://www.activconsult-ing.com/img/Menu_rose_des_vents.png" width="71" height="93" alt="Nos offres"/></a></div>
+		<div id="logo5"><a href="http://www.activconsult-ing.com/domaines_activites.html"><img src="http://www.activconsult-ing.com/img/Menu_noeuds.png" width="72" height="103" alt="Domaines d'activités"/></a></div>
+		<div id="logo6"><a href="http://www.activconsult-ing.com/recrutement_rh.html"><img src="http://www.activconsult-ing.com/img/Menu_capitaine.png" width="71" height="103" alt="Recrutement RH"/></a></div>
+		<div id="logo8"><a href="http://www.activconsult-ing.com/ressources_externes.html"><img src="http://www.activconsult-ing.com/img/Menu_bouée.png" width="71" height="103" alt="Ressouces externes"/></a></div>
+		<div id="logo7"><a href="http://www.activconsult-ing.com/contact.html"><img src="http://www.activconsult-ing.com/img/Menu_gouvernail.png" width="71" height="93" alt="Contact"/></a></div>
+		<div id="titre1">ENTREPRISE DE SERVICES DU NUMERIQUE</div>
+		<div id="info2">
+		
+				<form > 
+<!-- 				action="http://localhost:8080/ProjectEtudiant/ServletEmma" method="POST"> -->
+	
+	
+	
+		<table align = "center" style="width: 535px; "> 
+			
+			<tr><td colspan="2" ><h2 align = "center">Ajouter un nouvel utilisateur</h2></td></tr>
+						
+<!-- 			<tr> -->
+<!-- 				<td>Nom / Prénom : </td><td><input type="text" name="nomprénom" style="width: 378px; "/></td> -->
+<!-- 			</tr>	 -->
+			<tr>
+				<td>Utilisateur (Nom Prénom) :  </td><td style="width: 310px; "><input type="text" name="identifiant" style="width: 237px; "/></td>
+			</tr>
+			<tr>
+				<td>Identifiant / Mot de passe : </td><td> <input type="text" name="mdp" style="width: 238px; "/></td>
+			</tr>
+			
+			<tr>
+				<td colspan="2" align="center" style="width: 337px; "><input type = "button" value = "Ajouter" onclick="Ajouter(this.form)" style="width: 227px; "/></td>
+			</tr>
+		
+		<tr><td height="50"></td></tr>
+		
+		</table>
+		
+		<table align = "center" > 
+		
+			<caption align="center"><h2  style="width: 373px; ">Liste des utilisateurs</h2></caption>
+						
+			<tr>
+		<td>		<select name="liste" size="10" onchange="alert('Utilisateur : '+this.options[this.selectedIndex].text +'\n Identifiant / Mot de passe : '+this.options[this.selectedIndex].value)" align="top" style="width: 436px; ">
+		</select>
+		</td>
+				<td><input align="center" type="button" value = "Supprimer" onclick="Supprimer(this.form)" style="width: 128px; "/></td>
+		
+			</tr>
+				
+		</table>
+
+		</form>
+		
+		</div>
+		<div id="fpage2"><img src="http://www.activconsult-ing.com/img/Article_fond_blanc_double_copie.png"/>
+			<div id="Facebook2"><img src="http://www.activconsult-ing.com/img/Facebook.png"/></div>
+			<div id="linkedin2"><img src="http://www.activconsult-ing.com/img/Linkedin.png"/></div>
+			<div id="viadeo2"><img src="http://www.activconsult-ing.com/img/Viadeo.png"/></div>
+			<div id="droit2">©1997-2012 - Tous droits de reproduction et de représentation réservés | Mentions légales</div>
+		</div>
+	</body>
+</html>
