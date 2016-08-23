@@ -10,12 +10,8 @@ function getNomInvite() {
 	
 	var valinvitereader=document.getElementById("invitereader");
 	valinvitereader.setAttribute('value','yolo'); */
-	var valSelected=document.getElementById("invite");
-	/* if (condition) {
-		
-	} */
-	alert(valSelected.Content)
-	document.getElementById('invitereader').value="yolo";
+	var valSelected=document.getElementById("choix_invite");
+	document.getElementById('invitereader').value=valSelected.value;
 }
 </script>
 </head>
@@ -45,7 +41,7 @@ function getNomInvite() {
 </ul>
 
 <label for="choix_invite">Choisissez le profil :</label>
-<input list="invite"  type="text" id="choix_invite" onchange="getNomInvite(this)" value="" >
+<input id="choix_invite" list="invite"  type="text" style="border: none" onchange="getNomInvite(this)" value="this" >
 <datalist id="invite"  >
   <option value="Meteor">
   <option value="Pils">
