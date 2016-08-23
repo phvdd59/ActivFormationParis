@@ -3,75 +3,63 @@ package com.formation.jeci.ctr;
 import java.util.ArrayList;
 
 public class Meuble implements Comparable<Meuble> {
-	private TRI tri;
+	public TRI tri;
+
 	private String nomCommercial;
 	private String refAbrege;
 
 	private float longueur;
 	private float largeur;
 	private float hauteur;
-	private ListElmt lstElmt;
-	private String notice;
 
-	public Meuble(TRI tri, String nomCommercial, String unite, String refAbrege, float longueur, float largeur, float hauteur) {
+	private ListeElmt lstElmt;
+	private String Notice;
+
+	public Meuble(TRI tri, String nomCommercial, String refAbrege, String unite, float longueur, float largeur, float hauteur) {
 		super();
-		this.tri = tri;
-		this.nomCommercial = nomCommercial;
+		if (nomCommercial != null) {
+			this.nomCommercial = nomCommercial;
+		} else {
+			this.nomCommercial = "";
+		}
 		this.refAbrege = refAbrege;
 		switch (unite) {
+		case "mm":
+			this.longueur = longueur;
+			this.largeur = largeur;
+			this.hauteur = hauteur;
+			break;
 		case "cm":
 			this.longueur = longueur / 10;
 			this.largeur = largeur / 10;
 			this.hauteur = hauteur / 10;
 			break;
 		case "m":
-			this.longueur = longueur / 1000;
-			this.largeur = largeur / 1000;
-			this.hauteur = hauteur / 1000;
+			this.longueur = longueur * 1000;
+			this.largeur = largeur * 1000;
+			this.hauteur = hauteur * 1000;
 			break;
 		case "i":
-			this.longueur = longueur * 25.4f;
-			this.largeur = largeur * 25.4f;
-			this.hauteur = hauteur * 25.4f;
-			break;
-		default:
-			this.longueur = longueur;
-			this.largeur = largeur;
-			this.hauteur = hauteur;
+			this.longueur = longueur / 25.4f;
+			this.largeur = largeur / 25.4f;
+			this.hauteur = hauteur / 25.4f;
 			break;
 		}
-
+		lstElmt = new ListeElmt();
 	}
 
 	public Meuble(TRI tri, String nomCommercial, String refAbrege, float longueur, float largeur, float hauteur) {
 		super();
-		this.tri = tri;
-		this.nomCommercial = nomCommercial;
+		if (nomCommercial != null) {
+			this.nomCommercial = nomCommercial;
+		} else {
+			this.nomCommercial = "";
+		}
 		this.refAbrege = refAbrege;
 		this.longueur = longueur;
 		this.largeur = largeur;
 		this.hauteur = hauteur;
-	}
-
-	public void poids() {
-
-	}
-
-	public float volume() {
-		float volume = longueur * largeur * hauteur;
-		return volume;
-	}
-
-	public void prix(float taux, float promoPourcent, int iSolidite, ArrayList<Float> lstPrix) {
-
-	}
-
-	public TRI getTri() {
-		return tri;
-	}
-
-	public void setTri(TRI tri) {
-		this.tri = tri;
+		lstElmt = new ListeElmt();
 	}
 
 	public String getNomCommercial() {
@@ -90,11 +78,11 @@ public class Meuble implements Comparable<Meuble> {
 		this.refAbrege = refAbrege;
 	}
 
-	public float getLongueur() {
+	public float getLongeur() {
 		return longueur;
 	}
 
-	public void setLongueur(float longueur) {
+	public void setLongeur(float longueur) {
 		this.longueur = longueur;
 	}
 
@@ -114,67 +102,68 @@ public class Meuble implements Comparable<Meuble> {
 		this.hauteur = hauteur;
 	}
 
-	public ListElmt getLstElmt() {
+	public ListeElmt getLstElmt() {
 		return lstElmt;
 	}
 
-	public void setLstElmt(ListElmt lstElmt) {
+	public void setLstElement(ListeElmt lstElmt) {
 		this.lstElmt = lstElmt;
 	}
 
 	public String getNotice() {
-		return notice;
+		return Notice;
 	}
 
-	public void setNotice(String notice) {
-		this.notice = notice;
+	public void setNotice(String Notice) {
+		this.Notice = Notice;
+	}
+
+	public float getLongueur() {
+		return longueur;
+	}
+
+	public void setLongueur(float longueur) {
+		this.longueur = longueur;
+	}
+
+	public void setLstElmt(ListeElmt lstElmt) {
+		this.lstElmt = lstElmt;
+	}
+
+	public float poids() {
+		return 0;
+	}
+
+	public float volume() {
+		return hauteur * largeur * longueur;
+	}
+
+	public float prixVente(float taux, float promoPourcent, int iSolidite, ArrayList<Float> lstPrix) {
+		return 0;
 	}
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return super.toString();
+		return "[nom=" + nomCommercial + ", ref=" + refAbrege + "]";
 	}
 
 	@Override
 	public int compareTo(Meuble o) {
-		int retour = -1;
-		switch (o.getTri()) {
-		case ALPHA:
-			if (this.getNomCommercial().toString().compareTo(o.getNomCommercial().toString()) < 0) {
-				retour = -1;
-			} else if (this.getNomCommercial().toString().compareTo(o.getNomCommercial().toString()) > 0) {
-				retour = 1;
-			} else {
-				retour = 0;
-			}
-			break;
+		int ret = 0;
+		switch (tri) {
 		case REF:
-			if (this.getRefAbrege().toString().compareTo(o.getRefAbrege().toString()) < 0) {
-				retour = -1;
-			} else if (this.getRefAbrege().toString().compareTo(o.getRefAbrege().toString()) > 0) {
-				retour = 1;
-			} else {
-				retour = 0;
-			}
+			ret = refAbrege.compareTo(o.refAbrege);
 			break;
-
 		case VOLUME:
-
-			if (this.volume() < (o.volume())) {
-				retour = -1;
-			} else if (this.volume() > (o.volume())) {
-				retour = 1;
-			} else {
-				retour = 0;
+			ret = Float.valueOf(volume()).compareTo(Float.valueOf(o.volume()));
+			if (ret == 0) {
+				ret = refAbrege.compareTo(o.refAbrege);
 			}
 			break;
-
-		default:
+		case ALPHA:
+			ret = nomCommercial.compareTo(o.getNomCommercial());
 			break;
 		}
-
-		return retour;
+		return 0;
 	}
-
 }
