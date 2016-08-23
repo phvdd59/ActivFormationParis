@@ -35,7 +35,7 @@ public class ServletDeco extends HttpServlet {
 		
 		HttpSession session = request.getSession(false);
 		BufferedReader lecture = null;
-		File page = new File("../GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/Login.html");
+		File page = new File("C:/DevFormation/GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/Login.html");
 			InputStreamReader input = new InputStreamReader(new FileInputStream(page));
 			lecture = new BufferedReader(input);
 			String line = lecture.readLine();
