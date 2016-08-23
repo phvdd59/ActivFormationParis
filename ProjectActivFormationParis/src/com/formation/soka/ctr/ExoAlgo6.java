@@ -1,6 +1,6 @@
 package com.formation.soka.ctr;
 
-import com.formation.phva.exo.InterAlgo6;
+import com.formation.phva.inter.InterAlgo6;
 
 public class ExoAlgo6 implements InterAlgo6 {
 	/**
@@ -33,7 +33,7 @@ public class ExoAlgo6 implements InterAlgo6 {
 		int[] tab2 = null;
 		int[] tab3 = null;
 		if (tab == null) {
-
+			
 		} else {
 			tab2 = new int[tab.length - (2 * n)];
 			//int indice = 0;
