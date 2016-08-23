@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListPersonne>
+	<Personne login="thcr" password="password" admin="true">
+		Thomas
+	</Personne>
+	<Personne login="soka" password="password" admin="true">
+		Souad
+	</Personne>
+	<Personne login="made" password="password" admin="true">
+		Marc
+	</Personne>
+	<Personne login="joca" password="password" admin="true">
+		Johann
+	</Personne>
+</ListPersonne>

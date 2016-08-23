@@ -59,7 +59,7 @@ public class ServletThcr1 extends HttpServlet {
 		String nbCv = "nombre de cv";
 		String kmestime = "nombre de kilomètre estimé";
 
-		File affichage = new File("C:/DevFormation/GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/Affichage.html");
+		File affichage = new File("C:/DevFormation/GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/Infoutilisateur.html");
 		BufferedReader br = new BufferedReader(new FileReader(affichage));
 		String l = br.readLine();
 		String model = "></td>";

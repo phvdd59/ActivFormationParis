@@ -5,7 +5,7 @@
 		<title>Identification Administrateur</title>
 		<link href="http://www.activconsult-ing.com/Home.css" rel="stylesheet"
 	type="text/css">
-		<link href="StyleFormulaire.css" rel="stylesheet" type="text/css">
+		<link href="../css/StyleFormulaire.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
 	<div id="background">
@@ -24,51 +24,26 @@
 		<div id="titre1">ENTREPRISE DE SERVICES DU NUMERIQUE</div>
 		<div id="info2">
 		
-		
-			<form action="http://localhost:8080/ProjectEtudiant/ServletEG"
-				method='POST' enctype="multipart/form-data">
 				<table align="center">
 					<tr>
 						<td><h2 align="center">LISTE DE DOCUMENTS</h2></td>
 					</tr>
-					<tr />
+					<tr/>
+					<tbody>
+						<tr>
+							<td><input type="checkbox" name="document" />
+							<a href="Formulaire.html">Formulaire.html</a></td>
+						</tr>
+						<tr>
+							<td><a href=""><input type="checkbox" name="document" value=" "/></a></td>
+						</tr>
+					</tbody>
+					<form action="http://localhost:8080/ProjectEtudiant/MesDocuments" method='POST'>
 					<tr>
-					<tr>
-						<td><input type="checkbox" name="document" /><a
-							href="Formulaire.html">Formulaire.html</a></td>
-					</tr>
-					<tr>
-						<td><a href=""><input type="checkbox" name="document" /></a></td>
-					</tr>
-					<tr>
-						<td><a href=""><input type="checkbox" name="document" /></a></td>
-					</tr>
-					<tr>
-						<td><a href=""><input type="checkbox" name="document" /></a></td>
-					</tr>
-					<tr>
-						<td><a href=""><input type="checkbox" name="document" /></a></td>
-					</tr>
-					<tr>
-						<td><a href=""><input type="checkbox" name="document" /></a></td>
-					</tr>
-					<tr>
-						<td><a href=""><input type="checkbox" name="document" /></a></td>
-					</tr>
-					<tr>
-						<td><a href=""><input type="checkbox" name="document" /></a></td>
-					</tr>
-					<tr>
-						<td><a href=""><input type="checkbox" name="document" /></a></td>
-					</tr>
-					<tr>
-						<td><a href=""><input type="checkbox" name="document" /></a></td>
-					</tr>
-					</tr>
-					<tr>
-						<td><input type="submit" name="telecharger"
-							value="Telecharger" /> <input type="file" name="file" value=""
-							style="width: 539px;" /></td>
+						<td><input type="submit" name="telecharger" value="Telecharger" /> 
+					</form>
+					<form action="http://localhost:8080/ProjectEtudiant/MesDocuments" method='POST'>
+						<input type="file" name="file" value="" style="width: 539px;" /></td>
 					</tr>
 					</form>
 				</table>

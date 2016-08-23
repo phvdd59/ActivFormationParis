@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class ServletThcr2
@@ -29,8 +30,17 @@ public class ServletThcr2 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		response.getWriter().append("Served at: ").append(request.getContextPath());
-		File selectionUtilisateur = new File("C:/DevFormation/GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/Selectionutilisateur.html");
+		
+		HttpSession session = request.getSession();
+		Object noSerie = session.getAttribute("noSerie");
+		String noSerieHtml = request.getParameter("noSeire");
+		if(noSerie instanceof String){
+			noSerie = (String) noSerie;
+		}
+		
+		
+		
+		File selectionUtilisateur = new File("C:/DevFormation/GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/Listeutilisateur.html");
 		BufferedReader br = new BufferedReader(new FileReader(selectionUtilisateur));
 		String l = br.readLine();
 		while (l != null) {

@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 //Servlet utilisé pour generer la page gestion fichier par la methode doPost
 
@@ -33,8 +34,7 @@ public class ServletJOCA2 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		/*BufferedReader lecture = null;
 		File page = new File("../GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/Gestiondocuments.html");
 		try {
@@ -46,12 +46,12 @@ public class ServletJOCA2 extends HttpServlet {
 				line = lecture.readLine();
 			}
 		} catch (Exception e) {
-
+		
 		} finally {
 			try {
 				lecture.close();
 			} catch (IOException e) {
-
+		
 			}
 		}*/
 
@@ -61,26 +61,22 @@ public class ServletJOCA2 extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		BufferedReader lecture = null;
-		File page = new File("../GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/Gestiondocuments.html");
-		try {
+		HttpSession session = request.getSession();
+		
+		String noSerieHtml = request.getParameter("noSerie");
+		String noSerie = (String) session.getAttribute("noSerie");
+		if (noSerieHtml.equals(noSerie)) {
+			BufferedReader lecture = null;
+			File page = new File("../GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/Gestiondocuments.html");
 			InputStreamReader input = new InputStreamReader(new FileInputStream(page));
 			lecture = new BufferedReader(input);
 			String line = lecture.readLine();
 			while (line != null) {
 				response.getWriter().println(line);
 				line = lecture.readLine();
-			}
-		} catch (Exception e) {
-
-		} finally {
-			try {
 				lecture.close();
-			} catch (IOException e) {
-
 			}
 		}
 	}
