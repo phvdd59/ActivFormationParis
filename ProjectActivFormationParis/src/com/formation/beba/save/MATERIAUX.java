@@ -1,4 +1,4 @@
-package com.formation.beba.ctr;
+package com.formation.beba.save;
 
 @SuppressWarnings("unused")
 public enum MATERIAUX {
