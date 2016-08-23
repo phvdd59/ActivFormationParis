@@ -26,23 +26,20 @@
 		<div id="titre1">ENTREPRISE DE SERVICES DU NUMERIQUE</div>
 		<div id="info2">
 		
-				<form > 
-<!-- 				action="http://localhost:8080/ProjectEtudiant/ServletEmma" method="POST"> -->
+				<form action="http://localhost:8080/ProjectEtudiant/ServletEmma2" method="POST">
 	
 	
 	
-		<table align = "center" style="width: 535px; "> 
+		<table align = "center" > 
 			
 			<tr><td colspan="2" ><h2 align = "center">Ajouter un nouvel utilisateur</h2></td></tr>
 						
-<!-- 			<tr> -->
-<!-- 				<td>Nom / Prénom : </td><td><input type="text" name="nomprénom" style="width: 378px; "/></td> -->
-<!-- 			</tr>	 -->
-			<tr>
-				<td>Utilisateur (Nom Prénom) :  </td><td style="width: 310px; "><input type="text" name="identifiant" style="width: 237px; "/></td>
+
+			<tr >
+				<td style="width: 93px; ">Nom :  </td><td style="width: 268px; "><input type="text" name="nom" style="width: 237px; "/></td>
 			</tr>
 			<tr>
-				<td>Identifiant / Mot de passe : </td><td> <input type="text" name="mdp" style="width: 238px; "/></td>
+				<td>Prénom : </td><td> <input type="text" name="prenom" style="width: 238px; "/></td>
 			</tr>
 			
 			<tr>
@@ -55,13 +52,13 @@
 		
 		<table align = "center" > 
 		
-			<caption align="center"><h2  style="width: 373px; ">Liste des utilisateurs</h2></caption>
+			<caption><h2>Liste des utilisateurs</h2></caption>
 						
 			<tr>
-		<td>		<select name="liste" size="10" onchange="alert('Utilisateur : '+this.options[this.selectedIndex].text +'\n Identifiant / Mot de passe : '+this.options[this.selectedIndex].value)" align="top" style="width: 436px; ">
+		<td>		<select name="liste" size="10" onchange="alert('%%alerte%%')" align="top" style="width: 436px; ">
 		</select>
 		</td>
-				<td><input align="center" type="button" value = "Supprimer" onclick="Supprimer(this.form)" style="width: 128px; "/></td>
+				<td ><input type="button" value = "Supprimer" onclick="Supprimer(this.form)"/></td>
 		
 			</tr>
 				

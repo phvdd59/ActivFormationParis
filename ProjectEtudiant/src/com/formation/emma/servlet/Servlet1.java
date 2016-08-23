@@ -19,7 +19,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class Servlet1
  */
-@WebServlet(value = "/ServletEmma", name = "ServletEmma", initParams = { @WebInitParam(name = "nom", value = "qsdf") })
+@WebServlet(value = "/ServletEmma", name = "ServletEmma")
 public class Servlet1 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	//private static int VALEUR = 0;
@@ -83,11 +83,9 @@ public class Servlet1 extends HttpServlet {
 				BufferedReader bIn = new BufferedReader(new FileReader(f));
 				String l = bIn.readLine();
 				while (l != null) {
-					//					if (l.contains("identifiant")) {
-					//						resp.getWriter().println("<div><alert('identifiant ou mot de passe incorrect')></div>");
-					resp.getWriter().println(l);
+						resp.getWriter().println(l);
 					l = bIn.readLine();
-					//}
+				
 
 				}
 				bIn.close();
@@ -98,7 +96,4 @@ public class Servlet1 extends HttpServlet {
 	}
 }
 
-//response.getWriter().append("Served at: ").append(request.getContextPath());
-//		response.getWriter().append("Coucou! ");
-//		response.getWriter().println("<form><input type='text' value='" + VALEUR + "'></form>");
-//		VALEUR++;
+

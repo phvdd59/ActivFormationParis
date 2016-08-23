@@ -1,5 +1,8 @@
 package com.formation.emma.servlet;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebInitParam;
@@ -11,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Servlet2
  */
-@WebServlet(value = "/ServletEmma2", name = "ServletEmma2", initParams = { @WebInitParam(name = "nom", value = "qsdklff") })
+@WebServlet(value = "/ServletEmma2", name = "ServletEmma2")
 
 public class Servlet2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -35,7 +38,36 @@ public class Servlet2 extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String nom = request.getParameter("nom");
+		String prenom = request.getParameter("prenom");
+		String identifiant= "";
+		String mdp = "";
 		
+		identifiant = nom.split("") + prenom.substring(0, 1); 
+		while (mdp.length()!=8){
+			int a = (int) (Math.random()*126);
+			char lettre =  (char) a;
+			if ( a>47 && a<58){
+			 mdp = mdp + lettre;
+			}else if (a>96 && a< 123) {
+				mdp = mdp + lettre;
+			}else if (a>64 && a< 91) {
+				mdp = mdp + lettre;
+			}
+		}
+	 
+				
+		File file = new File("../GITActivFormationParis/ProjectEtudiant/WebContent/WEB-INF/com/formation/emma/page/ListeUtilisateurs2.html");
+		BufferedReader bIn = new BufferedReader(new FileReader(file));
+		String line = bIn.readLine();
+		while (line != null) {
+			if (line.contains("%%alerte%%")) {
+			line = line.replace("%%alerte%%", "Identifiant: "+ identifiant +" Mot de passe : "+ mdp);
+			}
+			response.getWriter().println(line);
+			line = bIn.readLine();
+		}
+		bIn.close();
 	}
 
 }
