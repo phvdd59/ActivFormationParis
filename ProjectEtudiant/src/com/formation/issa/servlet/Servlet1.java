@@ -11,7 +11,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.xml.ws.Response;
 
 /**
  * Servlet implementation class Servlet1
@@ -56,10 +55,18 @@ public class Servlet1 extends HttpServlet {
 		System.out.println(file.getCanonicalPath());
 		BufferedReader bStn = null;
 		bStn = new BufferedReader(new FileReader(file));
+		int noSerie = (int) (Math.random() * Integer.MAX_VALUE);
 		String line = bStn.readLine();
 		try {
 			while (line != null) {
 
+				if (line.contains("%%pseudo%%")) {
+					line = line.replace("%%pseudo%%", "invite");
+				} else if (line.contains("%%mdp%%")) {
+					line = line.replace("%%mdp%%", "");
+				}else if(line.contains("%%noserie%%")){
+					line=line.replace("%%noserie%%", Integer.toString(noSerie));
+				}
 				response.getWriter().println(line);
 				line = bStn.readLine();
 
@@ -74,44 +81,38 @@ public class Servlet1 extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		//récupérer les paramètres.
-		String pseudo=req.getParameter("identifiant");
-		//Contrôler les paramètres.
-		//Constituer la nouvelle page.
-		if(pseudo!=null){
-			if(pseudo.equals("Isma")){
-				File file=new File("C:/DevFormation/"
-						+ "GITActivFormationParis/ProjectEtudiant/"
-						+ "WebContent/WEB-INF/com/formation/issa/"
-						+ "page/PageInfosCandidat.html");
-				BufferedReader bStn=new BufferedReader(new FileReader(file));
-				String line=bStn.readLine();
-				while(line!=null){
+		// récupérer les paramètres.
+		String pseudo = req.getParameter("identifiant");
+		String noSerie = req.getParameter("noSerie");
+		// Contrôler les paramètres.
+		// Constituer la nouvelle page.
+		if (pseudo != null && noSerie!=null && !noSerie.equals("%%noserie%%")) {
+			if (pseudo.equals("Isma")) {
+				File file = new File("C:/DevFormation/" + "GITActivFormationParis/ProjectEtudiant/" + "WebContent/WEB-INF/com/formation/issa/" + "page/PageInfosCandidat.html");
+				BufferedReader bStn = new BufferedReader(new FileReader(file));
+				String line = bStn.readLine();
+				while (line != null) {
 					resp.getWriter().println(line);
-					line=bStn.readLine();
+					line = bStn.readLine();
 
 				}
 				bStn.close();
-				
-			}else{
-				File file=new File("C:/DevFormation/"
-						+ "GITActivFormationParis/ProjectEtudiant/"
-						+ "WebContent/WEB-INF/com/formation/issa/"
-						+ "page/Login.html");
-				BufferedReader bStn=new BufferedReader(new FileReader(file));
-				String line=bStn.readLine();
-				while(line!=null){
-					if(line.contains("identifiant")){
-						line=line.replace("value=''", "value='"+pseudo+" Erreur'");
-						
+
+			} else {
+				File file = new File("C:/DevFormation/" + "GITActivFormationParis/ProjectEtudiant/" + "WebContent/WEB-INF/com/formation/issa/" + "page/Login.html");
+				BufferedReader bStn = new BufferedReader(new FileReader(file));
+				String line = bStn.readLine();
+				while (line != null) {
+					if (line.contains("identifiant")) {
+						line = line.replace("value=''", "value='" + pseudo + " Erreur'");
+
 					}
 					resp.getWriter().println(line);
-					line=bStn.readLine();
+					line = bStn.readLine();
 				}
 				bStn.close();
 			}
 		}
 	}
-	
-	
+
 }
