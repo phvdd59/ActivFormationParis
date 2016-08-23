@@ -3,18 +3,46 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>LOGIN PHVA</title>
-<link href="http://www.activconsult-ing.com/Home.css" rel="stylesheet" type="text/css">
+<link href="http://www.activconsult-ing.com/Home.css" rel="stylesheet"
+	type="text/css">
 <link href="Login.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+	var asyncRequest;
+	function start() {
+		try {
+			asyncRequest = new XMLHttpRequest();
+			asyncRequest.addEventListener("readystatechange", stateChange, false);
+			asyncRequest.open('POST', '/ServletPhva', true); //   /Test is url to Servlet!
+			asyncRequest.send(null);
+		} catch (exception) {
+			alert("Request failed");
+		}
+	}
+
+	function stateChange() {
+		if (asyncRequest.readyState == 4 && asyncRequest.status == 200) {
+			var text = document.getElementById("text"); //  text is an id of a 
+			text.innerHTML = asyncRequest.responseText; //  div in HTML document
+		}
+	}
+
+	window.addEventListener("load", start(), false);
+</script>
 </head>
 <body>
-  <div id="background">
-	<!-- zone disponible -->
-    <form action="http://127.0.0.1:8080/ProjectEtudiant/ServletPhva1" method="POST">
-		Identifiant :<input id="ident" type="text" name="identifiant" value='%%pseudo%%'>
-		<p>Mot de passe :</p><input type="text" name="motdepasse" value='%%mdp%%'>
-		<input type="submit" value="valider" />
-		<input type="hidden" value="%%noserie%%" name="noSerie">
-	</form>
-  </div>
+	<div id="background">
+		<!-- zone disponible -->
+		<form action="http://127.0.0.1:8080/ProjectEtudiant/ServletPhva1"
+			method="POST">
+			Identifiant :<input id="ident" type="text" name="identifiant"
+				value='%%pseudo%%'>
+			<p>Mot de passe :</p>
+			<input type="text" name="motdepasse" value='%%mdp%%'> <input
+				type="submit" value="valider" /> <input type="hidden"
+				value="%%noserie%%" name="noSerie">
+		</form>
+		
+			<input type="button" onclick="start()" value="Test" name="B1"/> 
+	</div>
 </body>
 </html>

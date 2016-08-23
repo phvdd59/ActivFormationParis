@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function appel() {
+		document.location.href = "http://127.0.0.1:8080/ProjectEtudiant/hello";
+	}
+	function appelPost() {
+		//document.getElementById("form1").action = "http://127.0.0.1:8080/ProjectEtudiant/ServletPhva1";
+		document.form1.action = "http://127.0.0.1:8080/ProjectEtudiant/ServletPhva1";
+		document.form1.submit();
+	}
+</script>
+</head>
+<body>
+	<img id="img1" alt="img1" onclick="appelPost()" src="http://127.0.0.1:8080/ProjectEtudiant/com/formation/phva/img/img1.png">
+	<input type="button" value="OK" onclick="appel();"> 
+	<p><span onclick="appelPost()">ENVOI</span></p>
+	<div>
+		<form id="form1" name="form1" action="/" method="POST">
+		</form>
+	</div>
+	<input type="button" value="appelPost" onclick="appelPost();"> 
+	<div>
+		<form action="http://127.0.0.1:8080/ProjectEtudiant/ServletPhva1">
+			<label>Login:</label> <input type="text" name="login" id="login">
+			<label>Password:</label> 
+			<input type="text" name="password" id="password">
+			<div id="loginLower">
+				<input type="checkbox">
+					<label memory="memory">Remember	me</label>
+				<input type="submit" value="Login">
+			</div>
+		</form>
+		<div>
+		<script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js"></script>
+		<script>
+			function post() {
+				var passhash = CryptoJS.MD5(document.getElementById("password").value);
+				alert(passhash);
+			}
+		</script>
+		</div>
+	</div>
+</body>
+</html>
