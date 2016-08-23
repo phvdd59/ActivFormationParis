@@ -19,7 +19,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class Servlet1
  */
-@WebServlet(value = "/ServletEmma", name = "ServletEmma", initParams = { @WebInitParam(name = "nom", value = "qsdf") })
+@WebServlet(value = "/ServletEmma", name = "ServletEmma")
 public class Servlet1 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	//private static int VALEUR = 0;
@@ -37,7 +37,7 @@ public class Servlet1 extends HttpServlet {
 	 *      response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		File file = new File("../GITActivFormationParis/ProjectEtudiant/WebContent/com/formation/emma/page/Identification.html");
+		File file = new File("../GITActivFormationParis/ProjectEtudiant/WebContent/WEB-INF/com/formation/emma/page/Identification.html");
 		//	System.out.println(file.getCanonicalPath());
 		int noserie = (int) Math.random() * Integer.MAX_VALUE;
 		HttpSession session = request.getSession(true); //true pour garder le meme numero de session qui vient detre créé
@@ -69,7 +69,7 @@ public class Servlet1 extends HttpServlet {
 		if (pseudo != null) {
 			if (pseudo.equals("Emma") && mdp.equals("123")) {
 				// constituer la nouvelle page
-				File file = new File("../GITActivFormationParis/ProjectEtudiant/WebContent/com/formation/emma/page/PageAccueil.html");
+				File file = new File("C:/GITActivFormationParis/ProjectEtudiant/WebContent/WEB-INF/com/formation/emma/page/PageAccueil.html");
 				BufferedReader bIn = new BufferedReader(new FileReader(file));
 				String line = bIn.readLine();
 				while (line != null) {
@@ -79,16 +79,12 @@ public class Servlet1 extends HttpServlet {
 				bIn.close();
 
 			} else {
-				File f = new File("C:/DevFormation/GITActivFormationParis/ProjectEtudiant/WebContent/com/formation/emma/page/Identification.html");
+				File f = new File("C:/DevFormation/GITActivFormationParis/ProjectEtudiant/WebContent/WEB-INF/com/formation/emma/page/Identification.html");
 				BufferedReader bIn = new BufferedReader(new FileReader(f));
 				String l = bIn.readLine();
 				while (l != null) {
-					//					if (l.contains("identifiant")) {
-					//						resp.getWriter().println("<div><alert('identifiant ou mot de passe incorrect')></div>");
-					resp.getWriter().println(l);
+						resp.getWriter().println(l);
 					l = bIn.readLine();
-					//}
-
 				}
 				bIn.close();
 			}
@@ -98,7 +94,4 @@ public class Servlet1 extends HttpServlet {
 	}
 }
 
-//response.getWriter().append("Served at: ").append(request.getContextPath());
-//		response.getWriter().append("Coucou! ");
-//		response.getWriter().println("<form><input type='text' value='" + VALEUR + "'></form>");
-//		VALEUR++;
+

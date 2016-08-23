@@ -6,34 +6,111 @@
 <link rel="stylesheet" href="/css/StyleFormulaire.css"/>
 <script type="text/javascript">
 
-function ecritureTexte() {
-	var texte = document.getElementById("Nom");
+function ecritureTexteNom() {
+	var nom = document.getElementById("nom");
+	var nom2 = document.getElementById("nom").value;
+	reg3=/^[a-zA-Z]+$/
+	if(!nom2.match(reg3) || nom2 == ""){
+		nom.style.color="red";
+		nom.placeholder="Merci de saisir votre nom";
+	} else {
+		nom.style.color="black";
+	}
+}
+
+function ecritureTextePrenom() {
+	var prenom = document.getElementById("prenom");
+	var prenom2 = document.getElementById("prenom").value;
+	reg3=/^[a-zA-Z]+$/
+	if(!prenom2.match(reg3)){
+		prenom.style.color="red";
+		prenom.placeholder="Merci de saisir votre prenom";
+	} else {
+		prenom.style.color="black";
+	}
+}
+
+function ecritureTexteAdresse() {
+	var adresse = document.getElementById("adresse");
+	var adresse2 = document.getElementById("adresse").value;
 	
+	if(adresse2 == null || adresse2 == ""){
+		adresse.style.color="red";
+		adresse.placeholder="Merci de saisir une adresse valide";
+	} else {
+		adresse.style.color="black";
+	}
+}
+
+function ecritureNombreCp(){
+	var cp = document.getElementById("cp");
+	var cp2 = document.getElementById("cp").value;
+	reg2=/^[0-9]+$/
+	if(!cp2.match(reg2)){
+		cp.style.color="red";
+		cp.placeholder="Merci de saisir un code postal";
+	} else {
+		cp.style.color="black";
+	}
+}
+
+function ecritureTexteVille() {
+	var ville = document.getElementById("ville");
+	var ville2 = document.getElementById("ville").value;
+	reg3=/^[a-zA-Z]+$/
+	if(!ville2.match(reg3)){
+		ville.style.color="red";
+		ville.placeholder="Merci de saisir un nom de ville";
+	} else {
+		ville.style.color="black";
+	}
+}
+
+function ecritureNumTelFixe(){
+	var telFixe = document.getElementById("telFixe");
+	var telFixe2 = document.getElementById("telFixe").value;
+	reg2=/^[0-9]+$/
+	if(!telFixe2.match(reg2)){
+		telFixe.style.color="red";
+		telFixe.placeholder="Merci de saisir un numéro de téléphone";
+	} else {
+		telFixe.style.color="black";
+	}
+}
+
+function ecritureNumTelPort(){
+	var telPort = document.getElementById("telPort");
+	var telPort2 = document.getElementById("telPort").value;
+	reg2=/^[0-9]+$/
+	if(!telPort2.match(reg2)){
+		telPort.style.color="red";
+		telPort.placeholder="Merci de saisir un numéro de téléphone";
+	} else {
+		telPort.style.color="black";
+	}
+}
+
+function ecritureFax(){
+	var fax = document.getElementById("fax");
+	var fax2 = document.getElementById("fax").value;
+	reg2=/^[0-9]+$/
+	if(!fax2.match(reg2)){
+		fax.style.color="red";
+		fax.placeholder="Merci de saisir un numéro de téléphone";
+	} else {
+		fax.style.color="black";
+	}
+}
+
+function email(){
 	
 }
 
-function ecritureNombre(){
-	
-}
-
-function ecritureTel(){
-	
-}
-
-function ecritureEmail(){
-	
-}
-
-function ecritureRadio(){
-	
-}
-
-function ecritureDate(){
+function ecritureDateNaiss(){
 	var dateNaiss = document.getElementById("dateNaiss");
 	var dateNaiss2 = new Date();
 	dateNaiss2 = document.getElementById("dateNaiss").value;
 	//alert(dateNaiss.value + dateNaiss2);
-	
 	reg = /^[0-3]?[0-9]\/[01]?[0-9]\/[12][90][0-9][0-9]$/
 	if(!dateNaiss2.match(reg)){
 		dateNaiss.style.color="red";
@@ -43,22 +120,157 @@ function ecritureDate(){
 	}
 }
 
-function ecritureButton(){
-	
-}
-		
-	
-
-function monLieu() {
+function ecritureTexteLieu(){
 	var lieu = document.getElementById("lieu");
 	var lieu2 = document.getElementById("lieu").value;
-	reg=/^[a-z]$/
-	
-	if(!lieu2.match(reg)){
-		alert("alerte");
+	reg2=/^[a-zA-Z]+$/
+	if(!lieu2.match(reg2)){
 		lieu.style.color="red";
 		lieu.placeholder="Merci de saisir un nom de lieu";
+	} else {
+		lieu.style.color="black";
 	}
+}
+
+function ecritureNumSecu(){
+	var numSecu = document.getElementById("numSecu");
+	var numSecu2 = document.getElementById("numSecu").value;
+	reg2=/^[0-9]+$/
+	if(!numSecu2.match(reg2)){
+		numSecu.style.color="red";
+		numSecu.placeholder="Merci de saisir un code postal";
+	} else {
+		numSecu.style.color="black";
+	}
+}
+
+function ecritureNationalite(){
+	var nat = document.getElementById("nat");
+	var nat2 = document.getElementById("nat").value;
+	reg2=/^[a-zA-Z]+$/
+	if(!nat2.match(reg2)){
+		nat.style.color="red";
+		nat.placeholder="Merci de saisir un nom de lieu";
+	} else {
+		nat.style.color="black";
+	}
+}
+
+function sitActuelle(){
+	
+}
+
+function ecritureFctionOccupee(){
+	var fctnOccupee = document.getElementById("fctnOccupee");
+	var fctnOccupee2 = document.getElementById("fctnOccupee").value;
+	reg2=/^[a-zA-Z]+$/
+	if(!fctnOccupee2.match(reg2)){
+		fctnOccupee.style.color="red";
+		fctnOccupee.placeholder="Merci de saisir un nom de lieu";
+	} else {
+		fctnOccupee.style.color="black";
+	}
+}
+
+function cadre(){
+	
+}
+
+function ecriturePosition(){
+	var pos = document.getElementById("pos");
+	var pos2 = document.getElementById("pos").value;
+	reg2=/^[a-zA-Z]+$/
+	if(!pos2.match(reg2)){
+		pos.style.color="red";
+		pos.placeholder="Merci de saisir un nom de lieu";
+	} else {
+		pos.style.color="black";
+	}
+}
+
+function ecritureCoeff(){
+	var coeff = document.getElementById("coeff");
+	var coeff2 = document.getElementById("coeff").value;
+	reg2=/^[0-9]+$/
+	if(!coeff2.match(reg2)){
+		coeff.style.color="red";
+		coeff.placeholder="Merci de saisir un code postal";
+	} else {
+		coeff.style.color="black";
+	}
+}
+
+function ecritureSalSouhaite(){
+	var salaireSouhaite = document.getElementById("salaireSouhaite");
+	var salaireSouhaite2 = document.getElementById("salaireSouhaite").value;
+	reg2=/^[0-9]+$/
+	if(!salaireSouhaite2.match(reg2)){
+		salaireSouhaite.style.color="red";
+		salaireSouhaite.placeholder="Merci de saisir un code postal";
+	} else {
+		salaireSouhaite.style.color="black";
+	}
+}
+
+function mutSouhait(){
+	
+}
+
+function tickResto(){
+	
+}
+
+function ecritureDateDerVisMed(){
+	var dateDerVisMed = document.getElementById("dateDerVisMed");
+	var dateDerVisMed2 = new Date();
+	dateDerVisMed2 = document.getElementById("dateDerVisMed").value;
+	//alert(dateNaiss.value + dateNaiss2);
+	reg = /^[0-3]?[0-9]\/[01]?[0-9]\/[12][90][0-9][0-9]$/
+	if(!dateDerVisMed2.match(reg)){
+		dateDerVisMed.style.color="red";
+		dateDerVisMed.placeholder="dd/mm/yyyy";
+	} else {
+		dateDerVisMed.style.color="black";
+	}
+}
+
+function ecritureMontCarteAbonTransp(){
+	var montCarteAbonTransp = document.getElementById("montCarteAbonTransp");
+	var montCarteAbonTransp2 = document.getElementById("montCarteAbonTransp").value;
+	reg2=/^[0-9]+$/
+	if(!montCarteAbonTransp2.match(reg2)){
+		montCarteAbonTransp.style.color="red";
+		montCarteAbonTransp.placeholder="Merci de saisir un code postal";
+	} else {
+		montCarteAbonTransp.style.color="black";
+	}
+}
+
+function ecritureVehicPerso(){
+	var vehicPerso = document.getElementById("vehicPerso");
+	var vehicPerso2 = document.getElementById("vehicPerso").value;
+	reg2=/^[a-zA-Z]+$/
+	if(!vehicPerso2.match(reg2)){
+		vehicPerso.style.color="red";
+		vehicPerso.placeholder="Merci de saisir un nom de lieu";
+	} else {
+		vehicPerso.style.color="black";
+	}
+}
+
+function ecritureKmMensEstim(){
+	var kmMensEstim = document.getElementById("kmMensEstim");
+	var kmMensEstim2 = document.getElementById("kmMensEstim").value;
+	reg2=/^[0-9]+$/
+	if(!kmMensEstim2.match(reg2)){
+		kmMensEstim.style.color="red";
+		kmMensEstim.placeholder="Merci de saisir un code postal";
+	} else {
+		kmMensEstim.style.color="black";
+	}
+}
+
+function ecritureButton(){
 	
 }
 
@@ -76,37 +288,37 @@ function monLieu() {
 				<th colspan="2" align="center"><h4>COORDONNEES PERSONNELLES</h4></th>
 			</tr>
 			<tr>
-				<td>Nom : <input type="texte" name="nom" style="width: 358px; "/></td>
-				<td>Prénom : <input type="texte" name="prénom" style="width: 317px; "/></td>
+				<td>Nom : <input id="nom" onblur="ecritureTexteNom()" type="texte" name="nom" style="width: 358px; "/></td>
+				<td>Prénom : <input id="prenom" onblur="ecritureTextePrenom()" type="texte" name="prénom" style="width: 317px; "/></td>
 			</tr>
 			<tr>
-				<td colspan="2"">Adresse : <input type="texte" name="adresse"
+				<td colspan="2"">Adresse : <input id="adresse" onblur="ecritureTexteAdresse()" type="texte" name="adresse"
 					; style="width: 751px; height: 60px" /></td>
 			</tr>
 			<tr>
-				<td>Code postal : <input type="texte" name="code postal" style="width: 296px; "/></td>
-				<td>Ville : <input type="texte" name="ville" style="width: 344px; "/></td>
+				<td>Code postal : <input id="cp" onblur="ecritureNombreCp()" type="texte" name="code postal" style="width: 296px; "/></td>
+				<td>Ville : <input id="ville" onblur="ecritureTexteVille()" type="texte" name="ville" style="width: 344px; "/></td>
 			</tr>
 			<tr>
-				<td>Téléphone fixe : <input type="tel" name="telephone fixe" style="width: 280px; "/></td>
-				<td>Téléphone portable : <input type="tel" name="telephone portable" style="width: 221px; "/></td>
+				<td>Téléphone fixe : <input id="telFixe" onblur="ecritureNumTelFixe()" type="tel" name="telFixe" style="width: 280px; "/></td>
+				<td>Téléphone portable : <input id="telPort" onblur="ecritureNumTelPort()" type="tel" name="telPortable" style="width: 221px; "/></td>
 			</tr>
 			<tr>
-				<td>Fax : <input type="tel" name="fax" style="width: 368px; "/></td>
-				<td>Email : <input type="email" name="email" style="width: 334px; "/></td>
+				<td>Fax : <input id="fax" onblur="ecritureFax()" type="tel" name="fax" style="width: 368px; "/></td>
+				<td>Email : <input id="email" onblur="ecritureEmail()" type="email" name="email" style="width: 334px; "/></td>
 			</tr>
 			<tr>
 				<th colspan="2" align="center"><h4>ETAT CIVIL</h4></th>
 			</tr>
 			<tr>
-				<td>Date de naissance : <input id="dateNaiss" onblur="maDateNaiss()" type="date" name="date de naissance" style="width: 248px; "/></td>
-				<td>Lieu : <input id="lieu" onblur="monLieu()" type="texte" name="lieu" style="width: 348px; "/></td>
+				<td>Date de naissance : <input id="dateNaiss" onblur="ecritureDateNaiss()" type="date" name="date de naissance" style="width: 248px; "/></td>
+				<td>Lieu : <input id="lieu" onblur="ecritureTexteLieu()" type="texte" name="lieu" style="width: 348px; "/></td>
 			</tr>
 			<tr>
-				<td colspan="2">Numéro de sécurité sociale (15 chiffres) : <input type="texte" name="numero de sécurité sociale" style="width: 505px; "/></td>
+				<td colspan="2">Numéro de sécurité sociale (15 chiffres) : <input id="numSecu" onblur="ecritureNumSecu()" type="texte" name="numero de sécurité sociale" style="width: 505px; "/></td>
 			</tr>
 			<tr>
-				<td colspan="2">Nationalité : <input type="texte" name="nationalité" style="width: 720px; "/></td>
+				<td colspan="2">Nationalité : <input id="nat" onblur="ecritureNationalite()" type="texte" name="nationalité" style="width: 720px; "/></td>
 			</tr>
 			<tr>
 				<th colspan="2" align="center"><h4>SITUATION ACTUELLE</h4></th>
@@ -125,16 +337,16 @@ function monLieu() {
 				<th colspan="2" align="center"><h4>FONCTION / REMUNERATION</h4></th>
 			</tr>
 			<tr>
-				<td>Fonction occupée : <input type="texte" name="fonction occupée" style="width: 252px; "/></td>
+				<td>Fonction occupée : <input id="fctnOccupee" onblur="ecritureFctionOccupee()" type="texte" name="fonction occupée" style="width: 252px; "/></td>
 				<td align = "center"><input type="radio" name="fonction occupée" value = "cadre" checked> Cadre
 					<input type="radio" name="fonction occupée" value = "non cadre"> Non cadre</td>
 			</tr>
 			<tr>
-				<td>Position : <input type="texte" name="position" style="width: 332px; "/></td>
-				<td>Coefficient : <input type="texte" name="coefficient" style="width: 285px; "/></td>
+				<td>Position : <input id="pos" onblur="ecriturePosition()" type="texte" name="position" style="width: 332px; "/></td>
+				<td>Coefficient : <input id="coeff" onblur="ecritureCoeff()" type="texte" name="coefficient" style="width: 285px; "/></td>
 			</tr>
 			<tr>
-				<td colspan="2">Salaire souhaité : <input type="texte" name="salaire souhaité" style="width: 685px; "/></td>
+				<td colspan="2">Salaire souhaité : <input id="salaireSouhaite" onblur="ecritureSalSouhaite()" type="texte" name="salaire souhaité" style="width: 685px; "/></td>
 			</tr>
 			<tr>
 				<td align = "center">Mutuelle souhaitée : <input type="radio" name="mutuelle souhaitée" value = "oui" checked> oui
@@ -143,14 +355,14 @@ function monLieu() {
 					<input type="radio" name="ticket resto" value = "non"> non</td>
 			</tr>
 			<tr>
-				<td colspan="2">Date de votre dernière visite médicale : <input type="texte" name="date de votre dernière visite médicale" style="width: 503px; "/></td>
+				<td colspan="2">Date de votre dernière visite médicale : <input id="dateDerVisMed" onblur="ecritureDateDerVisMed()" type="texte" name="date de votre dernière visite médicale" style="width: 503px; "/></td>
 			</tr>
 			<tr>
-				<td colspan="2">Montant carte d'abonnement transport : <input type="texte" name="montant carte d'abonnement transport" style="width: 486px; "/></td>
+				<td colspan="2">Montant carte d'abonnement transport : <input id="montCarteAbonTransp" onblur="ecritureMontCarteAbonTransp()" type="texte" name="montant carte d'abonnement transport" style="width: 486px; "/></td>
 			</tr>
 			<tr>
-				<td>Vehicule personnel : <input type="texte" name="vehicule personnel" style="width: 246px; "/></td>
-				<td>Km mensuel estimé : <input type="texte" name="km mensuel estimé" style="width: 226px; "/></td>
+				<td>Vehicule personnel : <input id="vehicPerso" onblur="ecritureVehicPerso()" type="texte" name="vehicule personnel" style="width: 246px; "/></td>
+				<td>Km mensuel estimé : <input id="kmMensEstim" onblur="ecritureKmMensEstim()" type="texte" name="km mensuel estimé" style="width: 226px; "/></td>
 			</tr>	
 			<tr>
 				<td colspan="2"; align="center">	<h3><input id = "b0" type = "button" value = "Enregister" onclick = "maFonction()" style="width: 439px; "/></h3></td>

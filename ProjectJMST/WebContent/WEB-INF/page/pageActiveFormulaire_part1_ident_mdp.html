@@ -6,11 +6,11 @@
 <link href="http://www.activconsult-ing.com/Home.css" rel="stylesheet"
 	type="text/css">
 <script type="text/javascript">
-// 	function maFonction() {
-// 		//var prenom = confirm("Félicitation! Vous venez de créer/modifier votre compte!");
-// 		location.href = "http://www.souadkad.fr/soka/pageActiveFormulaire_part2_coordonnees_personnelles.html";
-		
-// 	}
+	// 	function maFonction() {
+	// 		//var prenom = confirm("Félicitation! Vous venez de créer/modifier votre compte!");
+	// 		location.href = "http://www.souadkad.fr/soka/pageActiveFormulaire_part2_coordonnees_personnelles.html";
+
+	// 	}
 </script>
 </head>
 <body>
@@ -85,7 +85,8 @@
 		<div id="info2">
 			<!-- zone disponible -->
 
-			<form action="http://localhost:8080/ProjectJMST/ServletSoka1" method='post'>
+			<form action="http://localhost:8080/ProjectJMST/ServletSoka1"
+				method='post'>
 				<table border="1">
 					<caption>
 						<h1>Demande d'inscription</h1>
@@ -93,24 +94,28 @@
 
 					<tr>
 						<th colspan="4" style="width: 627px;">Identifiant</th>
-						<th style="width: 273px; height: 25px; color:;">
-						<input type="text" name="identifiant" value='' style="width: 270px;"></th>
+						<th style="width: 273px; height: 25px; color:;"><input
+							type="text" name="identifiant" value='' style="width: 270px;"></th>
 					</tr>
 					<tr>
 						<th colspan="4" style="width: 627px;">Mot de passe</th>
-						<th style="width: 273px; height: 25px; color:;">
-						<input type="password" name="mdp" value='' style="width: 270px;"></th>
+						<th style="width: 273px; height: 25px; color:;"><input
+							type="password" name="mdp" value='' style="width: 270px;"></th>
 					</tr>
 					<tr>
 						<th colspan="4" style="width: 627px;">Mot de passe</th>
-						<th style="width: 273px; height: 25px; color:;">
-						<input type="password" name="mdp" value='' style="width: 270px;"></th>
+						<th style="width: 273px; height: 25px; color:;"><input
+							type="password" name="mdp" value='' style="width: 270px;"></th>
 					</tr>
 				</table>
-				
-				<input type="submit" name="Suivant" value="Suivant"></input>
-                <input type="hidden" value="%%noSerie%%">
+
+				<input type="submit" name="Suivant" value="Suivant"></input> 
+				<input type="hidden" value="%%noSerie%%">
 			</form>
+			<form action="http://localhost:8080/ProjectJMST/ServletDeco" method='post'>
+				<input type="submit" value="Deconnexion" ></input>
+                <input type="hidden" value="%%noSerie%%">
+				</form>
 		</div>
 		<div id="fpage2">
 			<img

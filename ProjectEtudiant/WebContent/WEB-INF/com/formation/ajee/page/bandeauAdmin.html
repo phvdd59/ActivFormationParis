@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html lang="fr-FR"><head>
+<meta charset="UTF-8">
+<title>Menu déroulant</title>
+<head>
+ <link rel="stylesheet" type="text/css" href="../css/menuderoulant.css">
+ </head>
+<body style=" background: white">
+<ul id="menu-deroulant">
+
+	<li><form>Nom d'identification</form>
+	
+	</li>
+		<li><form >Mon Compte</form>
+		<ul>
+			<li ><form action="http://localhost:8080/ProjectEtudiant/Servletfichedidentification">Fiche d'identification</form></li>
+			<li><form action="http://localhost:8080/ProjectEtudiant/Servletchangementdemotdepasse">Changement de mot de passe</form></li>
+		<li><form action="http://localhost:8080/ProjectEtudiant/Servletaccueilchargementprofil">Accueil-chargement profil</form></li>
+		</ul>
+	</li>
+	<li><form action="http://localhost:8080/ProjectEtudiant/Servletmesdocument">Mes documents</form>
+		
+	</li>
+	<li><input id="invitereader" type="text" value="" readonly  />
+		
+	</li>
+	<!-- -->
+	<li><form action="http://localhost:8080/ProjectEtudiant/Servletdeconnexion">Déconnexion</form>
+		
+	</li>
+</ul>
+
+</body></html>
