@@ -3,7 +3,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" href="CSSProjet.css">
-<link rel="stylesheet" href="CSSProjetLogin.css">
+<!-- <link rel="stylesheet" href="http://localhost:8080/ProjectEtudiant/com/formation/bait/css/CSSProjet.css"> -->
 <title>Inscription</title>
 </head>
 <body>
@@ -55,30 +55,34 @@
 		<div id="info2">
 
 
+			<form action="">
 
 
-			<div>
-				<form action="http://192.168.33.143:8080/ProjectEtudiant/serv/ServletPhva1" onsubmit="return verifForm(this)">
-					<H2>Identification</H2>
-					<div ID="formu1">
-						<label >Identifiant :</label> <input type="text" id="identifiant" name="nom" onblur="verifIdentifiant(this)" style="position: relative; right: -57px; width: 250px;" />
-					</div>
-					<div ID="formu2">
-						<label >Mot de Passe :</label> <input id="mdp" type="password" name="mdp" onblur="verifMdp(this)" style="width: 250px; margin-left: 41px" />
-					</div>
-					<div ID="formu3">
-						<input type="submit" name="subm" value="Login" style="width: 100px" /> <a href="http://www.thde.fr/thde/mdpoublie.html" style="margin-left: 50px">mot de passe oublié ?</a>
-					</div>
-				</form>
-				<div ID="formu4">
-					<form action="http://www.thde.fr/thde/Inscription.html" style="margin-top: 4px">
-						<input type="submit" name="inscription" value="Nouvelle Inscription" style="width: 300px;" />
+				<h2>Informations personnelles du candidat</h2>
 
-					</form>
+				<div ID=formu37>
+
+					<label>Connecté en tant que :</label>
+					<!-- 					Ajouter un script d'affichage de variable -->
 				</div>
-				<br>
-			</div>
 
+				<div ID=formu38>
+
+					<label>Candidat :</label>
+					<!-- 					Ajouter un script d'affichage de variable -->
+				</div>
+
+
+				<div ID=formu39>
+					<input type="submit" name="modify" value="Modifier les informations"> <input type="submit" name="document" value="Documents">
+				</div>
+
+
+				<div ID=formu40>
+					<input type="submit" name="disconnect" value="Deconnexion">
+				</div>
+
+		
 
 
 

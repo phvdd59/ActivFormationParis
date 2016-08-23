@@ -75,6 +75,7 @@ public class ServletJOCA2 extends HttpServlet {
 				lecture.close();
 			}
 		}
+
 	}
 
 }

@@ -17,7 +17,6 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class Servlet1
  */
-@WebServlet(name = "ServletPhva", value = "/ServletPhva", initParams = { @WebInitParam(name = "nom", value = "qsdf") })
 public class Servlet1 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static int VALEUR = 0;
@@ -52,8 +51,8 @@ public class Servlet1 extends HttpServlet {
 		}
 		sNoSerie = "1" + Integer.toString(sum) + "_" + sNoSerie;
 		session.setAttribute("noSerie", sNoSerie);
-		Cookie MonCookie = new Cookie("nom", "Philippe");
-		response.addCookie(MonCookie);
+		Cookie monCookie = new Cookie("nom", "Philippe");
+		response.addCookie(monCookie);
 		String l = bIn.readLine();
 		while (l != null) {
 			if (l.contains("%%pseudo%%")) {
