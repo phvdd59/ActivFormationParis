@@ -5,7 +5,8 @@
 <title>Gestion de mes fichiers</title>
 <link href="http://www.activconsult-ing.com/Home.css" rel="stylesheet"
 	type="text/css">
-<link href="127.0.0.1/css/Gestiondocuments.css" rel="stylesheet" type="text/css">
+<link href="127.0.0.1/css/Gestiondocuments.css" rel="stylesheet"
+	type="text/css">
 </head>
 <body>
 	<div id="background">
@@ -79,16 +80,21 @@
 		<div id="info2">
 			<!-- zone disponible -->
 			<div id="menu1">
-				<FORM action="http://localhost:8080/ProjectJMST/Test" method="post">
-					<INPUT type="button" name="upload" value="uploader un fichier"
-						onclick="alert('fichier uploadé !')"> <INPUT type="button"
-						name="download" value="télécharger un fichier"
-						onclick="alert('affichage des fichiers !')"> <INPUT
-						type="button" name="retour" value="retourner au menu"
-						onclick="alert('retour sur compte.html !')">
-                        <input type="submit">
-                        <input type="hidden" value="%%noSerie%%">
+				<form>
+					<INPUT type="submit" name="upload" value="uploader un fichier"
+						onclick="alert('fichier uploadé !')">
 				</FORM>
+				<form>
+					<INPUT type="submit" name="download" value="télécharger un fichier"
+						onclick="alert('affichage des fichiers !')">
+				</form>
+				<form action="http://localhost:8080/ProjectJMST/Test" method="post">
+					<INPUT type="submit" name="retour" value="retourner au menu"
+						onclick="alert('retour sur compte.html !')">
+				</form>
+				<form>
+					<input type="hidden" value="%%noSerie%%">
+				</form>
 
 			</div>
 		</div>
