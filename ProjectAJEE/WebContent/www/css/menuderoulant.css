@@ -1,0 +1,86 @@
+#menu-deroulant, #menu-deroulant ul {
+    padding: 0;
+   
+    list-style: none;
+}
+#menu-deroulant {
+/* on centre le menu dans la page */
+    text-align: center;
+      font-weight : bold; /* on met le texte en gras */
+        font-family : Arial; /* on utilise Arial, c'est plus beau ^^ */
+        font-size : 12px; /* hauteur du texte : 12 pixels */
+/*         margin-left: -48px;
+		width: 800px;
+		margin-top: -135px; */
+      
+}
+#menu-deroulant li {
+/* on place les liens du menu horizontalement */
+    display: inline-block;
+    border-left:1px solid black;
+   
+}
+#menu-deroulant input {
+/* on place les liens du menu horizontalement */
+    display: inline-block;
+    border-left:1px solid black;
+   background:url('../img/static.png')-150px 0px;
+   color : #fff;
+}
+#menu-deroulant ul li {
+/* on enlève ce comportement pour les liens du sous menu */
+    display: inherit;
+}
+#menu-deroulant form {
+    text-decoration: none;
+    
+    display: block;
+	background:url('../img/static.png')-150px 0px; /* couleur de fond */        
+
+        color : #fff; /* couleur du texte */
+
+        text-decoration : none; /* on supprime le style par défaut des liens (la plupart du temps = souligné) */
+
+        width : 144px; /* largeur */
+}
+#menu-deroulant form:hover /* Lorsque la souris passe sur un des liens */    
+
+{
+
+        color: red; /* On passe le texte en noir... */
+
+        background: #fff; /* ... et au contraire, le fond en blanc */
+
+}
+#menu-deroulant a {
+    text-decoration: none;
+    
+    display: block;
+	background:url('../img/static.png')-150px 0px; /* couleur de fond */        
+
+        color : #fff; /* couleur du texte */
+
+        text-decoration : none; /* on supprime le style par défaut des liens (la plupart du temps = souligné) */
+
+        width : 144px; /* largeur */
+}
+#menu-deroulant a:hover /* Lorsque la souris passe sur un des liens */    
+
+{
+
+        color: red; /* On passe le texte en noir... */
+
+        background: #fff; /* ... et au contraire, le fond en blanc */
+
+}
+#menu-deroulant ul {
+    position: absolute;
+/* on cache les sous menus complètement sur la gauche */
+    left: -999em;
+    text-align: left;
+    z-index: 1000;
+}
+#menu-deroulant li:hover ul {
+/* Au survol des li du menu on replace les sous menus */
+    left: auto;
+}

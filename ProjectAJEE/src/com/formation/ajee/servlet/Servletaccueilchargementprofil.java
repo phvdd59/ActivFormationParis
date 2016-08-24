@@ -91,13 +91,13 @@ public class Servletaccueilchargementprofil extends HttpServlet {
 		
 		File fileDoc1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/WEB-INF/com/formation/ajee/page1/AccueilAdmin.html");
 		BufferedReader bufReadDoc1 = null;
-		bufReadDoc = new BufferedReader(new FileReader(fileDoc1));
+		bufReadDoc1 = new BufferedReader(new FileReader(fileDoc1));
 		String lineDoc1 = bufReadDoc1.readLine();
 		while (lineDoc1 != null) {
 			response.getWriter().println(lineDoc1);
 			lineDoc1 = bufReadDoc1.readLine();
 		}
-		bufReadDoc.close();
+		bufReadDoc1.close();
 
 		/** Lecture bas de page */
 		File fileBas = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/WEB-INF/com/formation/ajee/page1/BasPage.html");
