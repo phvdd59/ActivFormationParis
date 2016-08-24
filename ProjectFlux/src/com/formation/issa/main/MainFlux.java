@@ -12,7 +12,9 @@ public class MainFlux {
 
 	public static void main(String[] args) throws IOException {
 		MainFlux m = new MainFlux();
+		m.initLecture();
 		m.initEcriture();
+		m.init();
 
 	}
 
@@ -25,6 +27,7 @@ public class MainFlux {
 			while (line != null) {
 				System.out.println(line);
 				line = bIn.readLine();
+
 			}
 
 		} catch (
@@ -55,6 +58,7 @@ public class MainFlux {
 						// correspondant
 			out.print("Suite de la phrase");
 			out.print(" Et un de plus.");
+
 		} catch (IOException e) {
 			System.out.println("recommencer le traitement");
 

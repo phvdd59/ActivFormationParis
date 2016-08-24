@@ -1,4 +1,4 @@
-package com.formation.issa.ctr;
+package com.formation.issa.save;
 
 public class MainAlgo6 {
 
