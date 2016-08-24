@@ -16,15 +16,15 @@ import com.formation.etga.metier.Personne;
 /**
  * Servlet implementation class ServletPersonne
  */
-@WebServlet(name = "ServletPersonne", value = "/ServletPersonne")
-public class ServletPersonne extends HttpServlet {
+@WebServlet(name = "ServletPersonneEtga", value = "/ServletPersonneEtga")
+public class ServletPersonneEtga extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ListePersonne lstPersonne;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public ServletPersonne() {
+	public ServletPersonneEtga() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
