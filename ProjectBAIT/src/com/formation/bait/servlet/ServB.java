@@ -1,4 +1,4 @@
-package com.formation.bait;
+package com.formation.bait.servlet;
 
 import java.io.BufferedReader;
 import java.io.File;
