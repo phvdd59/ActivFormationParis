@@ -1,2 +1,0 @@
-soka testNormal (2/2):    | solution(10,10,lst)
-soka testNormal (2/2):    | solution(10,10,lst)

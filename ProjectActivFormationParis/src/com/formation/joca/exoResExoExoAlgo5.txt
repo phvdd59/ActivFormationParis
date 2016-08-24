@@ -1,2 +1,0 @@
-joca testNormal (2/2):    | solution(10,10,lst)
-joca testNormal (2/2):    | solution(10,10,lst)

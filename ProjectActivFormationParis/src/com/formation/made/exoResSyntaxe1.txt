@@ -20,4 +20,4 @@ made qcm[ 16] : BON (1/1)
 made qcm[ 17] : BON (1/1)
 made qcm[ 18] : BON (1/1)
 made qcm[ 19] : BON (1/1)
-made NOTE : (20/20) = 20,00/20
+made NOTE : (20 / 20) = 20 / 20

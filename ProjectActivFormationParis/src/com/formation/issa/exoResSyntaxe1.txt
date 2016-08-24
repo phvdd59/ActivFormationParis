@@ -19,5 +19,5 @@ issa qcm[ 15] : BON (1/1)
 issa qcm[ 16] : BON (1/1)
 issa qcm[ 17] : BON (1/1)
 issa qcm[ 18] : BON (1/1)
-issa qcm[ 19] : BON (1/1)
-issa NOTE : (20/20) = 20,00/20
+issa qcm[ 19] : FAUX (1/1)
+issa NOTE : (19 / 20) = 19 / 20

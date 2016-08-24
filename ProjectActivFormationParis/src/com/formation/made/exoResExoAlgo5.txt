@@ -1,11 +1,13 @@
+made:Algo
+
 made testMoins (0/1): KO | exo.solution(tab, cat, n) résultat incorrect
 made testNull (1/1):    | exo.solution(null, cat, n)
 made testTrop (0/1): KO | exo.solution(tab, cat, n) résultat incorrect
 made testAnnormal (0/1): KO | exo.solution(tab, cat, n) résultat incorrect
-made testTrop (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
+made testCatAnnormal (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
 made testTrop (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
 made testCatGrand (0/1): KO | exo.solution(null, cat, n) résultat incorrect
-made testTrop (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
+made testCatPetit (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
 made testNormal0 (0/2): KO | exo.solution(tab, cat, n) résultat incorrect
 made testNormal1 (0/2): KO | exo.solution(tab, cat, n) résultat incorrect
 made testNormal2 (0/2): KO | exo.solution(tab, cat, n) résultat incorrect

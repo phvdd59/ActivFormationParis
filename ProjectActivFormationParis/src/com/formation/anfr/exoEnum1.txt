@@ -1,3 +1,5 @@
+anfr:Enum
+
 anfr test2ClasseEnum (1/1)
 anfr testMajMATERIAUX (0/1)
 anfr testMajBOIS (1/1)
@@ -8,4 +10,5 @@ anfr testNbParamConstructeur (0/1)
 anfr testSetPourcent (1/1)
 anfr testMajSOLIDITE (0/1)
 anfr testMajNORMAL (1/1)
+
 anfr NOTE : (6/10) = 12/20)

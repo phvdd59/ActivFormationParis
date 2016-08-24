@@ -1,2 +1,0 @@
-thde testNormal (2/2):    | solution(10,10,lst)
-thde testNormal (2/2):    | solution(10,10,lst)

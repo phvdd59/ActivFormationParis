@@ -20,4 +20,4 @@ etga qcm[ 16] : BON (1/1)
 etga qcm[ 17] : BON (1/1)
 etga qcm[ 18] : BON (1/1)
 etga qcm[ 19] : FAUX (0/1)
-etga NOTE : (19/20) = 19,00/20
+etga NOTE : (19 / 20) = 19 / 20

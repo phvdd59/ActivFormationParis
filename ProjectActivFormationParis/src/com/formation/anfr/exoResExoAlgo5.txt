@@ -1,12 +1,14 @@
+anfr:Algo
+
 anfr testMoins (1/1):    | exo.solution(tab, cat, n)
 anfr testNull (1/1):    | exo.solution(null, cat, n)
 anfr testTrop (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
 anfr testAnnormal (1/1):    | exo.solution(tab, cat, n)
-anfr testTrop (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
+anfr testCatAnnormal (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
 anfr testTrop (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
 anfr testCatGrand (0/1): KO | exo.solution(null, cat, n) résultat incorrect
 anfr testCatPetit (0/1): KO | exo.solution(null, cat, n) résultat incorrect
-anfr testTrop (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
+anfr testNormal0 (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
 anfr testNormal1 (2/2):    | exo.solution(tab, cat, n)
 anfr testNormal2 (2/2):    | exo.solution(tab, cat, n)
 anfr NOTE : (7 / 14) = 10,00 / 20

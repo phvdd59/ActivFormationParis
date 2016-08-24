@@ -20,4 +20,4 @@ thde qcm[ 16] : BON (1/1)
 thde qcm[ 17] : BON (1/1)
 thde qcm[ 18] : BON (1/1)
 thde qcm[ 19] : BON (1/1)
-thde NOTE : (20/20) = 20,00/20
+thde NOTE : (20 / 20) = 20 / 20

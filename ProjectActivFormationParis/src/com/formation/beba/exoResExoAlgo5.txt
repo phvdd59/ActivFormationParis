@@ -1,13 +1,15 @@
+beba:Algo
+
+beba testMoins (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
+beba testNull (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
 beba testTrop (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
+beba testAnnormal (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
+beba testCatAnnormal (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
 beba testTrop (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
-beba testTrop (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
-beba testTrop (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
-beba testTrop (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
-beba testTrop (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
-beba testTrop (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
-beba testTrop (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
-beba testTrop (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
-beba testTrop (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
-beba testTrop (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
+beba testCatGrand (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
+beba testCatPetit (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
+beba testNormal0 (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
+beba testNormal1 (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
+beba testNormal2 (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
 beba NOTE : (0 / 14) = ,00 / 20
 

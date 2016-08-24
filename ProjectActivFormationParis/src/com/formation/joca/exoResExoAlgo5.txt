@@ -1,3 +1,5 @@
+joca:Algo
+
 joca testMoins (1/1):    | exo.solution(tab, cat, n)
 joca testNull (1/1):    | exo.solution(null, cat, n)
 joca testTrop (1/1):    | exo.solution(tab, cat, n)

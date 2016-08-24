@@ -1,0 +1,15 @@
+issa:Algo
+
+issa testMoins (0/1): KO | exo.solution(tab, cat, n) résultat incorrect
+issa testNull (1/1):    | exo.solution(null, cat, n)
+issa testTrop (0/1): KO | exo.solution(tab, cat, n) résultat incorrect
+issa testAnnormal (0/1): KO | exo.solution(tab, cat, n) résultat incorrect
+issa testCatAnnormal (0/1): KO | exo.solution(null, cat, n) résultat incorrect
+issa testCatNull (0/1): KO | exo.solution(null, cat, n) résultat incorrect
+issa testCatGrand (0/1): KO | exo.solution(null, cat, n) résultat incorrect
+issa testCatPetit (0/1): KO | exo.solution(null, cat, n) résultat incorrect
+issa testNormal0 (0/2): KO | exo.solution(tab, cat, n) résultat incorrect
+issa testNormal1 (0/2): KO | exo.solution(tab, cat, n) résultat incorrect
+issa testNormal2 (0/2): KO | exo.solution(tab, cat, n) résultat incorrect
+issa NOTE : (1 / 14) = 1,43 / 20
+

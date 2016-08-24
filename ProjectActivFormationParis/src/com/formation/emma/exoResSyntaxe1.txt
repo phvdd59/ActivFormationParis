@@ -20,4 +20,4 @@ emma qcm[ 16] : BON (1/1)
 emma qcm[ 17] : FAUX (0/1)
 emma qcm[ 18] : BON (1/1)
 emma qcm[ 19] : BON (1/1)
-emma NOTE : (19/20) = 19,00/20
+emma NOTE : (19 / 20) = 19 / 20

@@ -20,4 +20,4 @@ jeci qcm[ 16] : BON (1/1)
 jeci qcm[ 17] : BON (1/1)
 jeci qcm[ 18] : BON (1/1)
 jeci qcm[ 19] : FAUX (0/1)
-jeci NOTE : (19/20) = 19,00/20
+jeci NOTE : (19 / 20) = 19 / 20

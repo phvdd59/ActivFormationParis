@@ -1,12 +1,14 @@
-jeci testTrop (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
+jeci:Algo
+
+jeci testMoins (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
 jeci testNull (1/1):    | exo.solution(null, cat, n)
 jeci testTrop (1/1):    | exo.solution(tab, cat, n)
-jeci testTrop (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
+jeci testAnnormal (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
 jeci testCatAnnormal (0/1): KO | exo.solution(null, cat, n) résultat incorrect
 jeci testCatNull (0/1): KO | exo.solution(null, cat, n) résultat incorrect
 jeci testCatGrand (0/1): KO | exo.solution(null, cat, n) résultat incorrect
 jeci testCatPetit (0/1): KO | exo.solution(null, cat, n) résultat incorrect
-jeci testTrop (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
+jeci testNormal0 (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
 jeci testNormal1 (0/2): KO | exo.solution(tab, cat, n) résultat incorrect
 jeci testNormal2 (0/2): KO | exo.solution(tab, cat, n) résultat incorrect
 jeci NOTE : (2 / 14) = 2,86 / 20

@@ -20,4 +20,4 @@ soka qcm[ 16] : BON (1/1)
 soka qcm[ 17] : BON (1/1)
 soka qcm[ 18] : BON (1/1)
 soka qcm[ 19] : BON (1/1)
-soka NOTE : (20/20) = 20,00/20
+soka NOTE : (20 / 20) = 20 / 20

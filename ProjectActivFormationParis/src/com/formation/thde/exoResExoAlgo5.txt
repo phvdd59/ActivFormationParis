@@ -1,3 +1,5 @@
+thde:Algo
+
 thde testMoins (1/1):    | exo.solution(tab, cat, n)
 thde testNull (1/1):    | exo.solution(null, cat, n)
 thde testTrop (0/1): KO | exo.solution(tab, cat, n) résultat incorrect

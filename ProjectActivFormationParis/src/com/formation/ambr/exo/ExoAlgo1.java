@@ -1,5 +1,6 @@
 package com.formation.ambr.exo;
 
+import com.formation.etga.exo.main;
 import com.formation.phva.exo.ImpAlgo1;
 
 public class ExoAlgo1 implements ImpAlgo1 {

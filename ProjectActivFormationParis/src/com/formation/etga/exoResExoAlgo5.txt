@@ -1,13 +1,15 @@
-etga testTrop (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
+etga:Algo
+
+etga testMoins (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
 etga testNull (1/1):    | exo.solution(null, cat, n)
 etga testTrop (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
-etga testTrop (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
+etga testAnnormal (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
 etga testCatAnnormal (0/1): KO | exo.solution(null, cat, n) résultat incorrect
 etga testTrop (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
 etga testCatGrand (0/1): KO | exo.solution(null, cat, n) résultat incorrect
 etga testCatPetit (0/1): KO | exo.solution(null, cat, n) résultat incorrect
 etga testNormal0 (0/2): KO | exo.solution(tab, cat, n) résultat incorrect
-etga testTrop (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
-etga testTrop (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
+etga testNormal1 (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
+etga testNormal2 (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
 etga NOTE : (1 / 14) = 1,43 / 20
 

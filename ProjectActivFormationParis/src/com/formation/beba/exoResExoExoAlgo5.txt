@@ -1,2 +1,0 @@
-beba testNormal (2/2):    | solution(10,10,lst)
-beba testNormal (2/2):    | solution(10,10,lst)

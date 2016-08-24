@@ -20,4 +20,4 @@ anfr qcm[17] : BON (1/1)
 anfr qcm[18] : BON (1/1)
 anfr qcm[19] : BON (1/1)
 anfr qcm[20] : BON (1/1)
-anfr NOTE : (20 / 20) = 20,00 / 20
+anfr NOTE : (20 / 20) = 20 / 20

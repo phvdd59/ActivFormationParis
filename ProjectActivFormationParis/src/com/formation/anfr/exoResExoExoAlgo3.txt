@@ -1,7 +1,0 @@
-anfr:Algo
-
-anfr test23 (2/2):    | exo.solution(res, 23, "A", "B", "C")
-anfr test0 (1/1):    | exo.solution(res, 0, "A", "B", "C")
-anfr test1 (1/1):    | exo.solution(res, 1, "A", "B", "C")
-anfr test2 (2/2):    | exo.solution(res, 5, "A", "B", "C")
-anfr NOTE : (6 / 6) = 20 / 20

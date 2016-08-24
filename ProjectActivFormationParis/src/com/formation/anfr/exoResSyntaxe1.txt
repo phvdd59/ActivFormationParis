@@ -1,1 +1,23 @@
-anfr NOTE : (0/0) = ?/20
+anfr:Syntaxe
+
+anfr qcm[1] : BON (1/1)
+anfr qcm[2] : BON (1/1)
+anfr qcm[3] : BON (1/1)
+anfr qcm[4] : BON (1/1)
+anfr qcm[5] : BON (1/1)
+anfr qcm[6] : BON (1/1)
+anfr qcm[7] : BON (1/1)
+anfr qcm[8] : BON (1/1)
+anfr qcm[9] : BON (1/1)
+anfr qcm[10] : BON (1/1)
+anfr qcm[11] : BON (1/1)
+anfr qcm[12] : BON (1/1)
+anfr qcm[13] : BON (1/1)
+anfr qcm[14] : BON (1/1)
+anfr qcm[15] : BON (1/1)
+anfr qcm[16] : BON (1/1)
+anfr qcm[17] : BON (1/1)
+anfr qcm[18] : BON (1/1)
+anfr qcm[19] : BON (1/1)
+anfr qcm[20] : BON (1/1)
+anfr NOTE : (20 / 20) = 20 / 20
