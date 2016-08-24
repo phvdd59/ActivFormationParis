@@ -11,7 +11,9 @@
 		<h1>Test JSP</h1>
 		<%
 			for(int i = 0; i < 10; i++){
-				out.println("<h3>"+ i + "bonjour</h3>");
+			%>
+				<h3><%=i %> Salut </h3>
+			<%
 			}
 		%>
 	</div>
