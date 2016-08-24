@@ -113,7 +113,7 @@ public class Test extends HttpServlet {
 			String line = lecture.readLine();
 			while (line != null) {
 				if (line.contains("%%noSerie%%")) {
-					line = line.replace("%%noSerie%%", noSerie);
+					line=line.replace("%%noSerie%%", noSerie);
 				}
 				response.getWriter().println(line);
 				line = lecture.readLine();
@@ -130,7 +130,7 @@ public class Test extends HttpServlet {
 			String line = lecture.readLine();
 			while (line != null) {
 				if (line.contains("%%noSerie%%")) {
-					line.replace("%%noSerie%%", noSerie);
+					line=line.replace("%%noSerie%%", noSerie);
 				}
 				response.getWriter().println(line);
 				line = lecture.readLine();

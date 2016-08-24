@@ -22,7 +22,6 @@
     <servlet-name>HelloServlet</servlet-name>
     <url-pattern>/hello</url-pattern>
   </servlet-mapping>
-
   <servlet>
     <description>Servlet de PHVA</description>
     <servlet-name>MaServletPHVA</servlet-name>

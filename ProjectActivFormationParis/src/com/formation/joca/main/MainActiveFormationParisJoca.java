@@ -5,6 +5,7 @@ import java.io.File;
 import java.util.ArrayList;
 
 import com.formation.ambr.ctr.ExoAlgo5;
+import com.formation.joca.ctr.ListeMeuble;
 import com.formation.joca.exo.CleDico;
 import com.formation.joca.exo.Dico;
 import com.formation.joca.exo.ExoAlgo1;
@@ -16,7 +17,6 @@ import com.formation.joca.exo.ExoFlux1;
 import com.formation.joca.exo.ExoSimple;
 import com.formation.joca.exo.ExoTableau1;
 import com.formation.joca.exo.ExoTableau2;
-import com.formation.joca.sauvegarde.ListeMeuble;
 import com.formation.phva.exception.CruciException;
 import com.formation.phva.exo.Mouvement;
 import com.formation.phva.exo.Terme;
@@ -25,7 +25,25 @@ public class MainActiveFormationParisJoca {
 
 	public static void main(String[] arg) {
 		MainActiveFormationParisJoca test = new MainActiveFormationParisJoca();
-		test.init14();
+		test.init15();
+		ListeMeuble liste = new ListeMeuble();
+		File file = new File("C:/DevFormation/GITActivFormationParis/ProjectActivFormationParis/ikae");
+		liste.action(file);
+		
+		for (int i = 0; i < liste.size(); i++) {
+			System.out.println(liste.get(i).toString());
+			for (int j = 0; j < liste.get(i).getLstElmt().size(); j++) {
+				System.out.println(liste.get(i).getLstElmt().get(j).getNom());
+				for (int z = 0; z < liste.get(i).getLstElmt().get(j).getMateriaux().size(); z++) {
+					System.out.println(liste.get(i).getLstElmt().get(j).getMateriaux().get(z).name());
+				}
+			}
+		}
+	}
+
+	private void init15() {
+		// TODO Auto-generated method stub
+
 	}
 
 	private void init14() {

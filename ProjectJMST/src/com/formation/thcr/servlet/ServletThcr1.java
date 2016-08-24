@@ -45,6 +45,8 @@ public class ServletThcr1 extends HttpServlet {
 
 		File fileXML = new File("C:/DevFormation/GITActivFormationParis/ProjectJMST/WebContent/Data.xml");
 		
+		String login = request.getParameter("login");
+		
 		String nom = "Nom";
 		String prenom = "Prenom";
 		String mail = "mail@mail.mail";
@@ -85,10 +87,11 @@ public class ServletThcr1 extends HttpServlet {
 				if (nodeElement.getNodeType() == Node.ELEMENT_NODE) {
 					final Element element = (Element) nodeElement;
 					if (element.getNodeName().equals("Personne")) {
-						if (element.getAttribute("login").equals("thcr")) {
+						if (element.getAttribute("login").equals(login)) {
 							prenom = element.getTextContent();
 							nom = element.getAttribute("nom");
 							mail = element.getAttribute("mail");
+							//Mettre toutes les infos
 							break;
 						} else {
 							nom = "nom";
@@ -104,12 +107,9 @@ public class ServletThcr1 extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		
-
 		File affichage = new File("C:/DevFormation/GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/Infoutilisateur.html");
 		//		BufferedReader br2 = new BufferedReader(new InputStreamReader(new FileInputStream(affichage), "UTF-8"));
 		BufferedReader br = new BufferedReader(new FileReader(affichage));
-		System.out.println(Charset.defaultCharset());
 
 		HttpSession session = request.getSession();
 		//		Cookie cookie = new Cookie("nomCookie", "info");

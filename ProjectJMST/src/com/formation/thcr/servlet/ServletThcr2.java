@@ -84,17 +84,15 @@ public class ServletThcr2 extends HttpServlet {
 		String tableConstruct = "";
 
 		for (Personne personne : listPersonne) {
-			tableConstruct += "<tr>\n<td>" + personne.getLogin() + "</td>\n";
-			tableConstruct += "<td>" + personne.getPrenom().trim() + "</td>\n";
-			tableConstruct += "<td>" + personne.getMail() + "</td>\n";
-			tableConstruct += "<form action=\"http://localhost:8080/ProjectJMST/ServletThcr1\" method=\"post\">\n";
-			tableConstruct += "<td id=\"afficher\" type=\"text\"><input type=\"submit\" value=\"afficher\"></td>\n";
-			tableConstruct += "<input type=\"hidden\" value=\"%%noSerie%%\">\n";
-            tableConstruct += "</form>\n</tr>\n";
+			tableConstruct += "\t\t\t\t<form action=\"http://localhost:8080/ProjectJMST/ServletThcr1\" method=\"post\">\n";
+			tableConstruct += "\t\t\t\t<tr>\n\t\t\t\t\t<td><input type=\"hidden\" name=\"login\" value=\"" + personne.getLogin() +"\">" + personne.getLogin() + "</td>\n";
+			tableConstruct += "\t\t\t\t\t<td>" + "<input type=\"hidden\" name=\"prenom\" value=\"" + personne.getPrenom().trim() + "\">" +  personne.getPrenom().trim() + "</td>\n";
+			tableConstruct += "\t\t\t\t\t<td>" + "<input type=\"hidden\" name=\"mail\" value=\"" + personne.getMail() +"\">" + personne.getMail() +"</td>\n";
+			tableConstruct += "\t\t\t\t\t<input type=\"hidden\" name=\"%%noSerie%%\" value=\"%%noSerie%%\">\n";
+			tableConstruct += "\t\t\t\t\t<td id=\"afficher\" type=\"text\"><input type=\"submit\" value=\"afficher\"></td>\n";
+            tableConstruct += "\t\t\t\t</tr>\n\t\t\t\t</form>\n";
 		}
 		
-		System.out.println(tableConstruct);
-
 		//		if(noSerie instanceof String){
 		//			noSerie = (String) noSerie;
 		//		}
@@ -104,6 +102,7 @@ public class ServletThcr2 extends HttpServlet {
 		String l = br.readLine();
 		while (l != null) {
 			if (l.contains("id=\"consctructTable")) {
+				l=l.trim();
 				l=l.replace("<tr id=\"consctructTable\">", tableConstruct);
 			} 
 			response.getWriter().println(l);

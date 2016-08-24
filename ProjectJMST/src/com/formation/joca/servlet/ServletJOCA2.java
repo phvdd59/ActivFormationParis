@@ -3,6 +3,7 @@ package com.formation.joca.servlet;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
@@ -36,21 +37,21 @@ public class ServletJOCA2 extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		HttpSession session = request.getSession();
-
 		String noSerieHtml = request.getParameter("noSerie");
 		String noSerie = (String) session.getAttribute("noSerie");
 		if (noSerieHtml.equals(noSerie)) {
 			BufferedReader lecture = null;
-			File page = new File("../GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/Gestiondocuments.html");
-			InputStreamReader input = new InputStreamReader(new FileInputStream(page));
-			lecture = new BufferedReader(input);
+			File page = new File("C:/DevFormation/GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/Gestiondocuments.html");
+			lecture = new BufferedReader(new FileReader(page));
 			String line = lecture.readLine();
 			while (line != null) {
 				response.getWriter().println(line);
 				line = lecture.readLine();
-				lecture.close();
+				
 			}
+			lecture.close();
 		}
 
 	}

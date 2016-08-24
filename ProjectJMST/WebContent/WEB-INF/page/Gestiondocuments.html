@@ -82,18 +82,24 @@
 			<div id="menu1">
 				<form>
 					<INPUT type="submit" name="upload" value="uploader un fichier"
-						onclick="alert('fichier uploadé !')">
+						onclick="alert('fichier uploadé !')"> <input type="hidden"
+						value="%%noSerie%%">
 				</FORM>
 				<form>
 					<INPUT type="submit" name="download" value="télécharger un fichier"
-						onclick="alert('affichage des fichiers !')">
+						onclick="alert('affichage des fichiers !')"> <input
+						type="hidden" value="%%noSerie%%">
 				</form>
 				<form action="http://localhost:8080/ProjectJMST/Test" method="post">
 					<INPUT type="submit" name="retour" value="retourner au menu"
-						onclick="alert('retour sur compte.html !')">
+						onclick="alert('retour sur compte.html !')"> <input
+						type="hidden" value="%%noSerie%%">
 				</form>
-				<form>
-					<input type="hidden" value="%%noSerie%%">
+				<form action="http://localhost:8080/ProjectJMST/ServletDeco"
+					method="post">
+					<INPUT type="submit" name="deconnexion" value="deconnexion"
+						onclick="alert('deconnexion.html !')"> <input
+						type="hidden" value="%%noSerie%%">
 				</form>
 
 			</div>
