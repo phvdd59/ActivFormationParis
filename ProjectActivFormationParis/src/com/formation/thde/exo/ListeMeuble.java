@@ -14,8 +14,6 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import com.formation.thde.ctr.TRI;
-
 public class ListeMeuble extends ArrayList<Meuble> {
 	/**
 	 * 
@@ -50,9 +48,8 @@ public class ListeMeuble extends ArrayList<Meuble> {
 							float longueur = Float.valueOf(longueurS).intValue();
 							float largeur = Float.parseFloat(largeurS);
 							float hauteur = Float.parseFloat(hauteurS);
-//							Meuble meuble = new Meuble(this.tri, hauteurS, hauteurS, hauteur, hauteur, hauteur);
-//							Meuble meuble = new Meuble(this.tri, nomMeuble, refMeuble, "test", longueur, largeur, hauteur);
-//							this.add(meuble);
+							Meuble meuble = new Meuble(TRI.ALPHA, nomMeuble, refMeuble, unite, longueur, largeur, hauteur);
+							this.add(meuble);
 						} catch (Exception e) {
 						}
 					}

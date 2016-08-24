@@ -3,50 +3,54 @@ package com.formation.thde.exo;
 import java.util.ArrayList;
 
 public class Elmt implements Comparable<Elmt> {
-	Tri tri;
-	int numero;
-	String nom;
-	int nb;
-	String unite;
-	float longueur;
-	float largeur;
-	float hauteur;
-	ArrayList<MATERIAUX> materiaux;
+	public static TRI tri;
 
-	public Elmt(Tri tri, int numero, String nom, int nb, String unite, float longueur, float largeur, float hauteur, ArrayList<MATERIAUX> materiaux) {
-		this.tri = tri;
-		this.numero = numero;
+	private int numero;
+	private String nom;
+	private int nb;
+	private float longueur;
+	private float largeur;
+	private float hauteur;
+
+	private ArrayList<MATERIAUX> materiaux;
+
+	public Elmt(int numero, String nom, int nb, String unite, float longueur, float largeur, float hauteur) {
+		this(numero, nom, nb, longueur, largeur, hauteur);
+		if (unite != null) {
+			switch (unite) {
+			case "mm":
+				this.longueur = longueur;
+				this.largeur = largeur;
+				this.hauteur = hauteur;
+				break;
+			case "cm":
+				this.longueur = longueur / 10;
+				this.largeur = largeur / 10;
+				this.hauteur = hauteur / 10;
+				break;
+			case "m":
+				this.longueur = longueur * 1000;
+				this.largeur = largeur * 1000;
+				this.hauteur = hauteur * 1000;
+				break;
+			case "i":
+				this.longueur = longueur / 25.4f;
+				this.largeur = largeur / 25.4f;
+				this.hauteur = hauteur / 25.4f;
+				break;
+			}
+		}
+	}
+
+	public Elmt(int numero, String nom, int nb, float longueur, float largeur, float hauteur) {
+		super();
 		this.nom = nom;
 		this.nb = nb;
-		this.unite = unite;
+		this.numero = numero;
 		this.longueur = longueur;
 		this.largeur = largeur;
 		this.hauteur = hauteur;
-		this.materiaux = materiaux;
-	}
-
-	public Elmt(Tri tri, int numero, String nom, int nb, float longueur, float largeur, float hauteur, ArrayList<MATERIAUX> materiaux) {
-		this.tri = tri;
-		this.numero = numero;
-		this.nom = nom;
-		this.nb = nb;
-		this.unite = "mm";
-		this.longueur = longueur;
-		this.largeur = largeur;
-		this.hauteur = hauteur;
-		this.materiaux = materiaux;
-	}
-
-	public float volume() {
-		return this.longueur * this.largeur * this.hauteur;
-	}
-
-	public Tri getTri() {
-		return tri;
-	}
-
-	public void setTri(Tri tri) {
-		this.tri = tri;
+		this.materiaux = new ArrayList<MATERIAUX>();
 	}
 
 	public int getNumero() {
@@ -57,35 +61,11 @@ public class Elmt implements Comparable<Elmt> {
 		this.numero = numero;
 	}
 
-	public String getNom() {
-		return nom;
-	}
-
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
-
-	public int getNb() {
-		return nb;
-	}
-
-	public void setNb(int nb) {
-		this.nb = nb;
-	}
-
-	public String getUnite() {
-		return unite;
-	}
-
-	public void setUnite(String unite) {
-		this.unite = unite;
-	}
-
-	public float getLongueur() {
+	public float getLongeur() {
 		return longueur;
 	}
 
-	public void setLongueur(float longueur) {
+	public void setLongeur(float longueur) {
 		this.longueur = longueur;
 	}
 
@@ -113,35 +93,51 @@ public class Elmt implements Comparable<Elmt> {
 		this.materiaux = materiaux;
 	}
 
-	@Override
-	public String toString() {
-		return "Elmt [tri=" + tri + ", numero=" + numero + ", nom=" + nom + ", nb=" + nb + ", unite=" + unite + ", longueur=" + longueur + ", largeur=" + largeur + ", hauteur=" + hauteur + ", materiaux=" + materiaux + "]";
+	public int getNb() {
+		return nb;
+	}
+
+	public void setNb(int nb) {
+		this.nb = nb;
+	}
+
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public float getLongueur() {
+		return longueur;
+	}
+
+	public void setLongueur(float longueur) {
+		this.longueur = longueur;
+	}
+
+	public float volume() {
+		return longueur * largeur * hauteur;
 	}
 
 	@Override
 	public int compareTo(Elmt o) {
-		int result = 0;
-
-		if (this.tri == Tri.ALPHA) {
-			result = (int) this.getNom().compareTo(o.getNom());
-		} else if (this.tri == Tri.REF) {
-			if (Integer.valueOf(this.getNumero()) < Integer.valueOf(o.getNumero())) {
-				result = -1;
-			} else if (Integer.valueOf(this.getNumero()) > Integer.valueOf(o.getNumero())) {
-				result = 1;
-			} else {
-				result = 0;
+		int ret = 0;
+		switch (tri) {
+		case REF:
+			ret = Integer.valueOf(numero).compareTo(Integer.valueOf(o.numero));
+			break;
+		case VOLUME:
+			ret = Float.valueOf(volume()).compareTo(Float.valueOf(o.volume()));
+			if (ret == 0) {
+				ret = Integer.valueOf(numero).compareTo(Integer.valueOf(o.numero));
 			}
-		} else if (this.tri == Tri.VOLUME) {
-			if (this.volume() < o.volume()) {
-				result = -1;
-			} else if (this.volume() > o.volume()) {
-				result = 1;
-			} else {
-				result = 0;
-			}
+			break;
+		case ALPHA:
+			ret = nom.compareTo(o.getNom());
+			break;
 		}
-		return result;
+		return 0;
 	}
-
 }
