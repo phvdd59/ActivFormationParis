@@ -4,12 +4,12 @@ public class X implements I1,I2 {
 
 	@Override
 	public void methodeA() {
-		System.out.println("methodeA");
+		System.out.println("methodeA de x");
 	}
 
 	@Override
 	public String methodeB() {
-		System.out.println("methodeB");
+		System.out.println("methodeB de x");
 		return null;
 	}
 
