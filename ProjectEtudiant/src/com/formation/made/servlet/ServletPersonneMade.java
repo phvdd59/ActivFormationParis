@@ -12,9 +12,9 @@ import com.formation.made.metier.ListePersonne;
 import com.formation.made.metier.Personne;
 
 /**
- * Servlet implementation class ServletPersonne
+ * Servlet implementation class ServletPersonneMade
  */
-@WebServlet(name="ServletPersonneMade", description = "Servlet Exemple", urlPatterns = { "/ServletPersonneMade" },value = "/ServletPersonneMade")
+@WebServlet(name="ServletPersonneMade",value = "/ServletPersonneMade")
 public class ServletPersonneMade extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
