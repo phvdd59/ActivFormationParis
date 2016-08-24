@@ -16,7 +16,7 @@ import com.formation.jeci.metier.Personne;
 /**
  * Servlet implementation class ServletPersonne
  */
-@WebServlet("/ServletPersonne")
+@WebServlet("/ServletPersonnejeci")
 public class ServletPersonne extends HttpServlet {
 	private ListePersonne lstPersonne;
 	private static final long serialVersionUID = 1L;
