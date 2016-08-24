@@ -63,6 +63,7 @@ public class Servletlisteutilisateurs extends HttpServlet {
 				for (int i = 0; i < lstUser.size(); i++) {
 					if (lstUser.get(i).equals(user)) {
 						// alert "personne deja existante"
+						response.getWriter().println("<alert('personne deja existante')>");
 					} else {
 						lstUser.add(user);
 					}
@@ -76,6 +77,10 @@ public class Servletlisteutilisateurs extends HttpServlet {
 			while (line != null) {
 				if (line.contains("%%alerte%%")) {
 					line = line.replace("%%alerte%%", "Identifiant: " + user.getIdentifiant() + " Mot de passe : " + user.getMdp());
+				}else if(line.contains("%%value%%")){
+					line=line.replace("%%value%%", nom + prenom );
+					line=line.replace("></", ">" + nom + prenom + "</");
+					response.getWriter().println("<option value='%%value%%'></option>");
 				}
 				response.getWriter().println(line);
 				line = bIn.readLine();
