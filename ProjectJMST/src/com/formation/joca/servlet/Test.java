@@ -44,11 +44,12 @@ public class Test extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
 		HttpSession session = null;
 		ListPersonne listPersonne = new ListPersonne();
-		
+
 		String identifiant = request.getParameter("identifiant");
 		String motdepasse = request.getParameter("motdepasse");
 
@@ -76,7 +77,7 @@ public class Test extends HttpServlet {
 						String adminString = ePersonne.getAttribute("admin");
 						String mail = ePersonne.getAttribute("mail");
 						boolean admin = false;
-						if(adminString.equals("true")){
+						if (adminString.equals("true")) {
 							admin = true;
 						}
 						synchronized (listPersonne) {
@@ -90,21 +91,24 @@ public class Test extends HttpServlet {
 		} catch (SAXException e) {
 			e.printStackTrace();
 		}
-		
+
 		Personne utilisateur = null;
-		
+
 		for (Personne personne : listPersonne) {
-			if(personne.getLogin().equals(identifiant) && personne.getMotDePasse().equals(motdepasse)){
+			if (personne.getLogin().equals(identifiant) && personne.getMotDePasse().equals(motdepasse)) {
 				session = request.getSession(true);
 				utilisateur = personne;
 			} else {
 				session = request.getSession(true);
 			}
 		}
-		
-		if(utilisateur != null && utilisateur.isAdmin()){
+
+		session.setAttribute("listPersonne", listPersonne);
+
+		if (utilisateur != null && utilisateur.isAdmin()) {
 			BufferedReader lecture = null;
-			File page = new File("../GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/pagecompteadministrateur.html");
+			File page = new File(
+					"../GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/pagecompteadministrateur.html");
 			InputStreamReader input = new InputStreamReader(new FileInputStream(page));
 			lecture = new BufferedReader(input);
 			String noSerie = Integer.toString(((int) (Math.random() * Integer.MAX_VALUE)));
@@ -113,15 +117,16 @@ public class Test extends HttpServlet {
 			String line = lecture.readLine();
 			while (line != null) {
 				if (line.contains("%%noSerie%%")) {
-					line=line.replace("%%noSerie%%", noSerie);
+					line = line.replace("%%noSerie%%", noSerie);
 				}
 				response.getWriter().println(line);
 				line = lecture.readLine();
 			}
 			lecture.close();
-		}else{
+		} else {
 			BufferedReader lecture = null;
-			File page = new File("../GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/pagecompteutilisateur.html");
+			File page = new File(
+					"../GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/pagecompteutilisateur.html");
 			InputStreamReader input = new InputStreamReader(new FileInputStream(page));
 			lecture = new BufferedReader(input);
 			String noSerie = Integer.toString(((int) (Math.random() * Integer.MAX_VALUE)));
@@ -130,54 +135,61 @@ public class Test extends HttpServlet {
 			String line = lecture.readLine();
 			while (line != null) {
 				if (line.contains("%%noSerie%%")) {
-					line=line.replace("%%noSerie%%", noSerie);
+					line = line.replace("%%noSerie%%", noSerie);
 				}
 				response.getWriter().println(line);
 				line = lecture.readLine();
 			}
 			lecture.close();
 		}
-		
-//		BufferedReader lecture = null;
-//		File page = new File("../GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/pagecompteadministrateur.html");
-//		InputStreamReader input = new InputStreamReader(new FileInputStream(page));
-//		lecture = new BufferedReader(input);
-//		String noSerie = Integer.toString(((int) (Math.random() * Integer.MAX_VALUE)));
-//		noSerie = "1_" + noSerie;
-//		session.setAttribute("noSerie", noSerie);
-//		String line = lecture.readLine();
-//		while (line != null) {
-//			if (line.contains("%%noSerie%%")) {
-//				line.replace("%%noSerie%%", noSerie);
-//			}
-//			response.getWriter().println(line);
-//			line = lecture.readLine();
-//		}
-//		lecture.close();
+
+		// BufferedReader lecture = null;
+		// File page = new
+		// File("../GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/pagecompteadministrateur.html");
+		// InputStreamReader input = new InputStreamReader(new
+		// FileInputStream(page));
+		// lecture = new BufferedReader(input);
+		// String noSerie = Integer.toString(((int) (Math.random() *
+		// Integer.MAX_VALUE)));
+		// noSerie = "1_" + noSerie;
+		// session.setAttribute("noSerie", noSerie);
+		// String line = lecture.readLine();
+		// while (line != null) {
+		// if (line.contains("%%noSerie%%")) {
+		// line.replace("%%noSerie%%", noSerie);
+		// }
+		// response.getWriter().println(line);
+		// line = lecture.readLine();
+		// }
+		// lecture.close();
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doGet(request, response);
-		//		HttpSession session = request.getSession(true);
+		// HttpSession session = request.getSession(true);
 		//
-		//		BufferedReader lecture = null;
-		//		File page = new File("../GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/pagecompteadministrateur.html");
-		//		InputStreamReader input = new InputStreamReader(new FileInputStream(page));
-		//		lecture = new BufferedReader(input);
-		//		String noSerie = Integer.toString(((int) (Math.random() * Integer.MAX_VALUE)));
-		//		session.setAttribute("noSerie", noSerie);
-		//		String line = lecture.readLine();
-		//		while (line != null) {
-		//			if (line.contains("%%noSerie%%")) {
-		//				line.replace("%%noSerie%%", noSerie);
-		//			}
-		//			response.getWriter().println(line);
-		//			line = lecture.readLine();
-		//		}
-		//		lecture.close();
+		// BufferedReader lecture = null;
+		// File page = new
+		// File("../GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/pagecompteadministrateur.html");
+		// InputStreamReader input = new InputStreamReader(new
+		// FileInputStream(page));
+		// lecture = new BufferedReader(input);
+		// String noSerie = Integer.toString(((int) (Math.random() *
+		// Integer.MAX_VALUE)));
+		// session.setAttribute("noSerie", noSerie);
+		// String line = lecture.readLine();
+		// while (line != null) {
+		// if (line.contains("%%noSerie%%")) {
+		// line.replace("%%noSerie%%", noSerie);
+		// }
+		// response.getWriter().println(line);
+		// line = lecture.readLine();
+		// }
+		// lecture.close();
 	}
 }
