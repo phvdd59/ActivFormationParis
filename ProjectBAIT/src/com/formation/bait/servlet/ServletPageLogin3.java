@@ -19,7 +19,8 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(value = "/ServletLogin3", name = "ServletLogin3")
 public class ServletPageLogin3 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static int VALEUR = 0;
+	
+	
 
 	/**
 	 * @see HttpServlet#HttpServlet()
