@@ -41,7 +41,7 @@ public class ServletJOCA2 extends HttpServlet {
 		HttpSession session = request.getSession();
 		String noSerieHtml = request.getParameter("noSerie");
 		String noSerie = (String) session.getAttribute("noSerie");
-		//if (noSerieHtml.equals(noSerie)) {
+		if (noSerieHtml.equals(noSerie)) {
 			BufferedReader lecture = null;
 			File page = new File("C:/DevFormation/GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/Gestiondocuments.html");
 			lecture = new BufferedReader(new FileReader(page));
@@ -52,7 +52,7 @@ public class ServletJOCA2 extends HttpServlet {
 				
 			}
 			lecture.close();
-		//}
+		}
 
 	}
 
