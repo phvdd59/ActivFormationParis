@@ -5,10 +5,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.ObjectInputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
@@ -54,6 +52,7 @@ public class ExoFlux1 extends ArrayList<Terme> {
 		 */
 
 	}
+	
 
 	public void saisie() {
 
@@ -73,7 +72,7 @@ public class ExoFlux1 extends ArrayList<Terme> {
 		try {
 			while (!ligne) {
 				try {
-					System.out.println("Entrer un nom :");
+					System.out.println("Entrez un nom :");
 					mot = sMot.readLine();
 				} catch (IOException e) {
 
@@ -147,11 +146,16 @@ public class ExoFlux1 extends ArrayList<Terme> {
 
 			}
 
-		} catch (
-
-		IOException e) {
+		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			try {
+				sMot.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 
 	}
@@ -160,26 +164,23 @@ public class ExoFlux1 extends ArrayList<Terme> {
 		// vers votre repertoire data
 		// Ecriture
 		File file = new File("./src/com/formation/issa/data/saisie.json");
-		ArrayList<Terme> lst = null;
+
 		PrintWriter saveTerme = null;
 
 		try {
 
-			for (int i = 0; i < lst.size(); i++) {
-				System.out.println(file.getCanonicalPath());
-				saveTerme = new PrintWriter(file);
+			saveTerme = new PrintWriter(file);
+			for (int i = 0; i < this.size(); i++) {
+
 				saveTerme.write("{" + "mot :" + this.get(i).getNom() + "," + "posX :" + this.get(i).getPos().x + "posY :" + this.get(i).getPos().y + "sens :" + this.get(i).isSens() + "}");
 
+				System.out.println("Fin de la sauvegarde");
 			}
 
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
-
 			saveTerme.close();
-
 		}
 
 	}
@@ -188,14 +189,16 @@ public class ExoFlux1 extends ArrayList<Terme> {
 		// de votre repertoire data
 		// Lecture
 		File file = new File("./src/com/formation/issa/data/saisie.json");
-		ObjectInputStream iStream = null;
+		// ObjectInputStream iStream = null;
 		BufferedReader iStream2 = null;
+		InputStreamReader input = null;
 		Terme terme = new Terme();
 
 		try {
-			iStream = new ObjectInputStream(new FileInputStream(file));
-			iStream2 = new BufferedReader(new FileReader(file));
-			String termeComplet = null;
+			// iStream = new ObjectInputStream(new FileInputStream(file));
+			input = new InputStreamReader(new FileInputStream(file), "UTF-8");
+			iStream2 = new BufferedReader(input);
+			String termeComplet = iStream2.readLine();
 			while ((termeComplet = iStream2.readLine()) != null) {
 				String termeEpurer = termeComplet;
 				termeEpurer = termeEpurer.replace("{", "");
@@ -220,6 +223,7 @@ public class ExoFlux1 extends ArrayList<Terme> {
 				int y = Integer.valueOf(listTerme[2]);
 				boolean sens = sSens;
 				this.add(new Terme(mot, new Point(x, y), sens));
+				termeEpurer = iStream2.readLine();
 
 			}
 
@@ -231,7 +235,7 @@ public class ExoFlux1 extends ArrayList<Terme> {
 			e.printStackTrace();
 		} finally {
 			try {
-				iStream.close();
+				// iStream.close();
 				iStream2.close();
 			} catch (IOException e) {
 				e.printStackTrace();

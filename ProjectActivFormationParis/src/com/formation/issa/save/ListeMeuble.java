@@ -1,8 +1,8 @@
-package com.formation.issa.ctr;
+package com.formation.issa.save;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Path;
 import java.util.ArrayList;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -25,44 +25,39 @@ public class ListeMeuble extends ArrayList<Meuble> {
 
 	/**
 	 * 
-	 * @param fRep
-	 *            répertoire racine contenant des fichiers dans des sous
-	 *            répertoires du type 123456.xml
+	 * @param fRep répertoire racine contenant des fichiers dans des sous répertoires
+	 * du type 123456.xml
 	 * 
 	 */
 	public void chargeListeMeuble(File fRep) {
-	
-		// sTn = new BufferedReader(new InputStreamReader());
-
-		// ArrayList listeFichiers=new ArrayList();
-		// String myFile="C:/DevFormation/ProjectActivFormationParis/ikae";
-		// File repertoire=new File(myFile);
-
-		if (fRep.isDirectory()) {
-			File[] list = fRep.listFiles();
-
-			for (int i = 0; i < list.length; i++) {
-
-				chargeListeMeuble(list[i]);
-			}
-		}
-				
-				
-				else if (fRep.isFile()) {
-				
-					String nomDuFile = fRep.getName();
-					if (nomDuFile.length() == 10 && nomDuFile.endsWith(".xml")) {
-		//				if (nomDuFile.substring(0, 6).matches(".*\\d+.*")) {
-							chargeXml(fRep);
-		//				}
-
-					}
-				}
-			}
-
 		
+//		ArrayList<String>files=new ArrayList<String>();
+//		listeRepertoire(new File("ProjectActivFormationParis/com/formation/ikae"), files);
+		
+	}
 
-	
+//	public void listeRepertoire(File path, ArrayList<String> files) {
+//		Meuble meuble=new Meuble(tri, "nom", "ref", "unite", 25.5f, 50.5f, 30.2f);
+//		String RefAbrege="ref";
+//		if(path.isDirectory()){
+//			File[]list=path.listFiles();
+//			if(list!=null){
+//				for (int i = 0; i < list.length; i++) {
+//					listeRepertoire(list[i], files);
+//					String nomCommercial="Armoire";
+//					if(files.contains("ref.xml") && meuble.getRefAbrege().equals("ref") ){
+//						//System.out.println(files);
+//					
+//					nomCommercial="Table";
+//				}else if(files.contains("ref.xml") && meuble.getRefAbrege().equals("ref")){
+//						
+//					}
+//				}
+//			}
+//			
+//		}
+//		
+//	}
 
 	public void chargeXml(File file) {
 		String refGen = file.getName().replace(".xml", "");
@@ -92,9 +87,9 @@ public class ListeMeuble extends ArrayList<Meuble> {
 							float hau = Float.valueOf(sHau).floatValue();
 							Meuble meuble = null;
 							if (sUnite == null) {
-								meuble = new Meuble(tri, sNom, refGen + ref, lng, lar, hau);
+								meuble = new Meuble(tri,sNom, refGen + ref, lng, lar, hau);
 							} else {
-								meuble = new Meuble(tri, sNom, refGen + ref, sUnite, lng, lar, hau);
+								meuble = new Meuble(tri,sNom, refGen + ref, sUnite, lng, lar, hau);
 							}
 							final NodeList nListElement = eMeuble.getChildNodes();
 							int nbElement = nListElement.getLength();
