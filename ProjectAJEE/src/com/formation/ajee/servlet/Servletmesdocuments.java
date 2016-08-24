@@ -58,6 +58,15 @@ public class Servletmesdocuments extends HttpServlet {
 //					lineJS = bufReadJS.readLine();
 //				}
 //				bufReadJS.close();
+				File fileJS1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/WEB-INF/com/formation/ajee/js/JSBandeauAdmin.html");
+				 BufferedReader bufReadJS1 = null;
+				 bufReadJS1 = new BufferedReader(new FileReader(fileJS1));
+				 String lineJS1 = bufReadJS1.readLine();
+				 while (lineJS1 != null) {
+				 response.getWriter().println(lineJS1);
+				 lineJS1 = bufReadJS1.readLine();
+				 }
+				 bufReadJS1.close();
 				
 				/**Lecture page ActivConsulting */
 				File fileActiv = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/WEB-INF/com/formation/ajee/page1/MenuActiv.html");
@@ -71,7 +80,7 @@ public class Servletmesdocuments extends HttpServlet {
 				bufReadActiv.close();
 				
 				/**Seule Partie qui va vraiment changer selon les pages (penser aux controles si necessaire) */
-				File fileDoc = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/WEB-INF/com/formation/ajee/page1/Documents.html");
+				File fileDoc = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/WEB-INF/com/formation/ajee/page1/BandeauAdmin.html");
 				BufferedReader bufReadDoc = null;
 				bufReadDoc = new BufferedReader(new FileReader(fileDoc));
 				String lineDoc = bufReadDoc.readLine();
@@ -80,6 +89,16 @@ public class Servletmesdocuments extends HttpServlet {
 					lineDoc = bufReadDoc.readLine();
 				}
 				bufReadDoc.close();
+				
+				File fileDoc1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/WEB-INF/com/formation/ajee/page1/Documents.html");
+				BufferedReader bufReadDoc1 = null;
+				bufReadDoc1 = new BufferedReader(new FileReader(fileDoc1));
+				String lineDoc1 = bufReadDoc1.readLine();
+				while (lineDoc1 != null) {
+					response.getWriter().println(lineDoc1);
+					lineDoc1 = bufReadDoc1.readLine();
+				}
+				bufReadDoc1.close();
 				
 				/**Lecture bas de page */
 				File fileBas = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/WEB-INF/com/formation/ajee/page1/BasPage.html");
