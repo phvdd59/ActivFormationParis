@@ -9,12 +9,24 @@
 function boutonEnregistrer(){
 	// vérification protections: if pas tout ok (pas tous booleens == true) -> alerte
 	
-	// si  ok -> enregistrement d'une version remplie et non-modifiable du formulaire
-	// si admin accède au formulaire rempli -> il n'est pas modifiable
-	// si membre accède au formulaire rempli -> en bas du formulaire : un bouton "modifier" -> renvoie vers FormulaireARemplir
-	
 	//  redirection vers accueil
 	location.href='http://google.com';
+	//location.href='C://DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/WEB-INF/com/formation/ajee/page/AccueilAdmin.html'
+	
+	// si  ok -> enregistrement d'une version remplie et non-modifiable du formulaire
+	// si admin accède au formulaire rempli -> il n'est pas modifiable
+	// si membre accède au formulaire rempli -> en bas du formulaire : un bouton "modifier" -> renvoie vers FormulaireARemplir mais avc les champs déjà remlpis, et modifiables. Bas de page: enregistrer
+	var nodeList = document.getElementsByName(); //?
+	
+	var x = document.getElementById("myForm");
+	//var txt = "";
+	var i;
+	for (i = 0; i < x.length; i++) {
+	    //txt = txt + x.elements[i].value + "<br>";
+		x.elements[i].value;
+	}
+	document.getElementById("demo").innerHTML = txt;
+	
 }
 
 function ecritureTexteNom() {
@@ -360,7 +372,7 @@ function ecritureButton(){
 <div style= "background-color: darkblue; color : white; font: bold " align="center" > FORMULAIRE D'IDENTIFICATION </div>
 <div style="background-color:silver; ;"> 
 	<body>
-	<form action = "http://google.com"> <!-- En action, mettre l'URL de la page Acceuil••• -->
+	<form action = "" method="post" name="myForm"> <!-- En action, mettre l'URL de la page Acceuil••• //!\ EDIT: mis dans le JavaScript -->
 		<table align = "center">
 			<caption><h1>DEMANDE D'INSCRIPTION</h1></caption>
 			<tr>
@@ -368,7 +380,7 @@ function ecritureButton(){
 			</tr>
 			<tr>
 				<td>Nom : <input id="nom" onblur="ecritureTexteNom()" placeholder="ex : Nom" type="texte" name="nom" style="width: 358px; "/></td>
-				<td>Prénom : <input id="prenom" onblur="ecritureTextePrenom()" placeholder="ex : Prenom" type="texte" name="prénom" style="width: 317px; "/></td>
+				<td>Prénom : <input id="prenom" onblur="ecritureTextePrenom()" placeholder="ex : Prenom" type="texte" name="prenom" style="width: 317px; "/></td>
 			</tr>
 			<tr>
 				<td colspan="2"">Adresse : <input id="adresse" onblur="ecritureTexteAdresse()" placeholder="ex : 9 Avenue de la Libération" type="texte" name="adresse"
