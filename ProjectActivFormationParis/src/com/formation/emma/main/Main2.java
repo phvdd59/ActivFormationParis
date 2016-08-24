@@ -1,5 +1,6 @@
 package com.formation.emma.main;
 
+import java.io.File;
 import java.util.Collections;
 
 import com.formation.emma.ctr.ExoAlgo5;
@@ -14,7 +15,16 @@ public class Main2 {
 		Main2 main = new Main2();
 		//	main.init();
 		//main.init2();
-		main.init3();
+		//main.init3();
+		main.init4();
+		
+	}
+
+	private void init4() {
+		ListeMeuble lst = new ListeMeuble();
+		File fRep = new File ("C:/DevFormation/GITActivFormationParis/ProjectActivFormationParis/ikae");
+		lst.chargeListeMeuble(fRep);
+		
 	}
 
 	private void init3() {

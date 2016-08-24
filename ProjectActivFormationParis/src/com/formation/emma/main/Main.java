@@ -1,8 +1,10 @@
 package com.formation.emma.main;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import com.formation.emma.ctr.ListeMeuble;
 import com.formation.emma.exo.ExoAlgo1;
 import com.formation.emma.exo.ExoAlgo2;
 import com.formation.emma.exo.ExoArrayList1;
@@ -15,8 +17,16 @@ public class Main {
 	public static void main(String[] args) {
 
 		Main main = new Main();
-		main.init();
+	//	main.init();
+		main.init4();
 
+	}
+	
+	private void init4() {
+		ListeMeuble lst = new ListeMeuble();
+		File fRep = new File ("C:/DevFormation/GITActivFormationParis/ProjectActivFormationParis/ikae");
+		lst.chargeListeMeuble(fRep);
+		
 	}
 
 	private void init() {

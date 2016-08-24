@@ -5,11 +5,15 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.formation.ajee.metier.ListeUtilisateurs;
+import com.formation.ajee.metier.Utilisateurs;
 
 /**
  * Servlet implementation class Servlet2
@@ -18,13 +22,19 @@ import javax.servlet.http.HttpServletResponse;
 
 public class Servletlisteutilisateurs extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private ListeUtilisateurs lstUser;
+	private Utilisateurs user;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
 	public Servletlisteutilisateurs() {
 		super();
-		// TODO Auto-generated constructor stub
+	}
+
+	public void init(ServletConfig config) throws ServletException {
+		lstUser = new ListeUtilisateurs();
+
 	}
 
 	/**
@@ -46,34 +56,34 @@ public class Servletlisteutilisateurs extends HttpServlet {
 		String mdp = "";
 
 		if (nom != null && prenom != null) {
-		nom = nom.replace(" ", "");
-		identifiant = prenom.substring(0, 1) + "." + nom;
-		while (mdp.length() != 8) {
-			int a = (int) (Math.random() * 126);
-			char lettre = (char) a;
-			if (a > 47 && a < 58) {
-				mdp = mdp + lettre;
-			} else if (a > 96 && a < 123) {
-				mdp = mdp + lettre;
-			} else if (a > 64 && a < 91) {
-				mdp = mdp + lettre;
+			user = new Utilisateurs(nom, prenom);
+			if (lstUser.size() == 0) {
+				lstUser.add(user);
+			} else {
+				for (int i = 0; i < lstUser.size(); i++) {
+					if (lstUser.get(i).equals(user)) {
+						// alert "personne deja existante"
+					} else {
+						lstUser.add(user);
+					}
+				}
 			}
-		}
-			File file = new File("../GITActivFormationParis/ProjectEtudiant/WebContent/WEB-INF/com/formation/emma/page/ListeUtilisateurs2.html");
+
+			File file = new File("../GITActivFormationParis/ProjectAJEE/WebContent/WEB-INF/com/formation/ajee/page/ListeUtilisateurs2.html");
 			BufferedReader bIn = new BufferedReader(new FileReader(file));
 			String line = bIn.readLine();
 
 			while (line != null) {
 				if (line.contains("%%alerte%%")) {
-					line = line.replace("%%alerte%%", "Identifiant: " + identifiant + " Mot de passe : " + mdp);
+					line = line.replace("%%alerte%%", "Identifiant: " + user.getIdentifiant() + " Mot de passe : " + user.getMdp());
 				}
 				response.getWriter().println(line);
 				line = bIn.readLine();
 			}
 			bIn.close();
-			
+
 		} else {
-			File file = new File("../GITActivFormationParis/ProjectEtudiant/WebContent/WEB-INF/com/formation/emma/page/ListeUtilisateurs2.html");
+			File file = new File("../GITActivFormationParis/ProjectAJEE/WebContent/WEB-INF/com/formation/ajee/page/ListeUtilisateurs2.html");
 			BufferedReader bIn = new BufferedReader(new FileReader(file));
 			String line = bIn.readLine();
 
