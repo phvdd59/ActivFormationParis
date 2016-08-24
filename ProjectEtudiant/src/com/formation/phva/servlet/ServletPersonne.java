@@ -50,31 +50,36 @@ public class ServletPersonne extends HttpServlet {
 		String pPrenom = request.getParameter("Prenom");
 		String pSexe = request.getParameter("Sexe");
 		// Controle des données.
-		String rPrenom="";
+		String rPrenom = "erreur";
 		if (pSexe != null && (pSexe.equals("Mme") || pSexe.equals("Mr"))) {
 			System.out.println(pNom + " " + pPrenom + " " + pSexe);
-			for (int i = 0; i < lstPersonne.size(); i++) {
-				Personne p=lstPersonne.get(i);
-				if (p.getNom().equals(pNom)) {
-					if (pSexe.equals("Mme")) {
-						if (p.isSexe()) {
-							// OK
-							rPrenom=p.getPrenom();
+			synchronized (lstPersonne) {
+				for (int i = 0; i < lstPersonne.size(); i++) {
+					Personne p = lstPersonne.get(i);
+					if (p.getNom().equals(pNom)) {
+						if (pSexe.equals("Mme")) {
+							if (p.isSexe()) {
+								// OK
+								rPrenom = p.getPrenom();
+							} else {
+								// NOK
+								rPrenom = "Erreur";
+							}
 						} else {
-							// NOK
-							rPrenom="Erreur";
-						}
-					} else {
-						if (!p.isSexe()) {
-							// OK
-							rPrenom=p.getPrenom();
-						} else {
-							// NOK
-							rPrenom="Erreur";
+							if (!p.isSexe()) {
+								// OK
+								rPrenom = p.getPrenom();
+							} else {
+								// NOK
+								rPrenom = "Erreur";
+							}
 						}
 					}
 				}
 			}
+			response.getWriter().println(rPrenom);
+		} else {
+			response.getWriter().println("Erreur");
 		}
 	}
 
