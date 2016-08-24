@@ -5,6 +5,11 @@
 <title>Menu déroulant</title>
 
 <link rel="stylesheet" type="text/css" href='../css/menuderoulant.css'>
+<script type="text/javascript">
+function appel() {
+	document.location.href = "http://127.0.0.1:8080/ProjectAJEE/Servletaccueilchargementprofil";
+}
+</script>
 </head>
 <body style="background: white">
 <ul id="menu-deroulant">
@@ -16,7 +21,7 @@
 		<ul>
 			<li ><form action="http://localhost:8080/ProjectAJEE/Servletfichedidentification">Fiche d'identification</form></li>
 			<li><form action="http://localhost:8080/ProjectAJEE/Servletchangementdemotdepasse">Changement de mot de passe</form></li>
-		<li><form action="http://localhost:8080/ProjectAJEE/Servletaccueilchargementprofil">Accueil-chargement profil</form></li>
+		<li><a href="javascript:appel()">Accueil-chargement profil</a></li>
 		</ul>
 	</li>
 	<li><form action="http://localhost:8080/ProjectAJEE/Servletmesdocument">Mes documents</form>

@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Servletjeci1
  */
-@WebServlet("/Servletjeci1")
+@WebServlet("/Servletaccueilchargementprofil")
 public class Servletaccueilchargementprofil extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -41,31 +41,75 @@ public class Servletaccueilchargementprofil extends HttpServlet {
 		// if (pseudo != null && noSerie != null &&
 		// !noSerie.equals("%%noserie%%")) {
 		// if (pseudo.equals("Philippe")) {
-		
-		File f2 = new File("C:/DevFormation/" + "GITActivFormationParis/ProjectAJEE/" + "WebContent/WEB-INF/com/formation/ajee/" + "page/Background.html");
-		BufferedReader bIn2 = new BufferedReader(new FileReader(f2));
-		String l2 = bIn2.readLine();
-		while (l2 != null) {
-			response.getWriter().println(l2);
-			l2 = bIn2.readLine();
-		}
-		bIn2.close();
-		File f1 = new File("C:/DevFormation/" + "GITActivFormationParis/ProjectAJEE/" + "WebContent/WEB-INF/com/formation/ajee/" + "page/bandeauAdmin.html");
-		BufferedReader bIn1 = new BufferedReader(new FileReader(f1));
-		String l1 = bIn1.readLine();
-		while (l1 != null) {
-			response.getWriter().println(l1);
-			l1 = bIn1.readLine();
-		}
-		bIn1.close();
-		File f = new File("C:/DevFormation/" + "GITActivFormationParis/ProjectAJEE/" + "WebContent/WEB-INF/com/formation/ajee/" + "page/AccueilAdmin.html");
-		BufferedReader bIn = new BufferedReader(new FileReader(f));
-		String l = bIn.readLine();
-		while (l != null) {
-			response.getWriter().println(l);
-			l = bIn.readLine();
-		}
-		bIn.close();
 
+		/** Lecture Haut de page HTML */
+		File fileHaut = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/WEB-INF/com/formation/ajee/page1/HautPage.html");
+		BufferedReader bufReadHaut = null;
+		bufReadHaut = new BufferedReader(new FileReader(fileHaut));
+		String lineHaut = bufReadHaut.readLine();
+		while (lineHaut != null) {
+			response.getWriter().println(lineHaut);
+			lineHaut = bufReadHaut.readLine();
+		}
+		bufReadHaut.close();
+
+		 /**A modifier seulement si notre page contient du JavaScript */
+		 File fileJS = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/WEB-INF/com/formation/ajee/js/JSAccueilAdmin.html");
+		 BufferedReader bufReadJS = null;
+		 bufReadJS = new BufferedReader(new FileReader(fileJS));
+		 String lineJS = bufReadJS.readLine();
+		 while (lineJS != null) {
+		 response.getWriter().println(lineJS);
+		 lineJS = bufReadJS.readLine();
+		 }
+		 bufReadJS.close();
+
+		/** Lecture page ActivConsulting */
+		File fileActiv = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/WEB-INF/com/formation/ajee/page1/MenuActiv.html");
+		BufferedReader bufReadActiv = null;
+		bufReadActiv = new BufferedReader(new FileReader(fileActiv));
+		String lineActiv = bufReadActiv.readLine();
+		while (lineActiv != null) {
+			response.getWriter().println(lineActiv);
+			lineActiv = bufReadActiv.readLine();
+		}
+		bufReadActiv.close();
+
+		/**
+		 * Seule Partie qui va vraiment changer selon les pages (penser aux
+		 * controles si necessaire)
+		 */
+		File fileDoc = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/WEB-INF/com/formation/ajee/page1/BandeauAdmin.html");
+		BufferedReader bufReadDoc = null;
+		bufReadDoc = new BufferedReader(new FileReader(fileDoc));
+		String lineDoc = bufReadDoc.readLine();
+		while (lineDoc != null) {
+			response.getWriter().println(lineDoc);
+			lineDoc = bufReadDoc.readLine();
+		}
+		bufReadDoc.close();
+		
+		File fileDoc1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/WEB-INF/com/formation/ajee/page1/AccueilAdmin.html");
+		BufferedReader bufReadDoc1 = null;
+		bufReadDoc = new BufferedReader(new FileReader(fileDoc1));
+		String lineDoc1 = bufReadDoc1.readLine();
+		while (lineDoc1 != null) {
+			response.getWriter().println(lineDoc1);
+			lineDoc1 = bufReadDoc1.readLine();
+		}
+		bufReadDoc.close();
+
+		/** Lecture bas de page */
+		File fileBas = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/WEB-INF/com/formation/ajee/page1/BasPage.html");
+		BufferedReader bufReadBas = null;
+		bufReadBas = new BufferedReader(new FileReader(fileBas));
+		String lineBas = bufReadBas.readLine();
+		while (lineBas != null) {
+			response.getWriter().println(lineBas);
+			lineBas = bufReadBas.readLine();
+		}
+		bufReadBas.close();
+		// }
+		// }
 	}
 }
