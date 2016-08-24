@@ -1,4 +1,4 @@
-package com.formation.bait.servlet;
+package com.formation.bait.tempo;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -16,16 +16,17 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class test
  */
-@WebServlet(value="/creationdecompte", name="identifiantMdp")
-public class ServB extends HttpServlet {
+@WebServlet(value="/servA", name="ServA")
+//@WebServlet(value="/creationdecompte", name="identifiantMdp")
+public class ServA extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public ServB() {
+	public ServA() {
 		super();
-		// TODO Auto-generated constructor stub
+
 	}
 
 	/**
@@ -44,7 +45,7 @@ public class ServB extends HttpServlet {
 			String line = bIn.readLine();
 			while (line != null) {
 				// System.out.println(line);
-				response.getWriter().append(line);
+				response.getWriter().append(line+"\n");
 				line = bIn.readLine();
 			}
 		} catch (FileNotFoundException e) {
@@ -68,7 +69,7 @@ public class ServB extends HttpServlet {
 			String line2 = bIn2.readLine();
 			while (line2 != null) {
 				// System.out.println(line);
-				response.getWriter().append(line2);
+				response.getWriter().append(line2+"\n");
 				line2 = bIn2.readLine();
 			}
 		} catch (FileNotFoundException e) {
@@ -94,7 +95,7 @@ public class ServB extends HttpServlet {
 			String line3 = bIn3.readLine();
 			while (line3 != null) {
 				// System.out.println(line);
-				response.getWriter().append(line3);
+				response.getWriter().append(line3+"\n");
 				line3 = bIn3.readLine();
 			}
 		} catch (

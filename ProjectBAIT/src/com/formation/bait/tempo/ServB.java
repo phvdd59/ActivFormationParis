@@ -1,4 +1,4 @@
-package com.formation.bait.servlet;
+package com.formation.bait.tempo;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -16,14 +16,14 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class test
  */
-@WebServlet("/test")
-public class test extends HttpServlet {
+@WebServlet(value="/creationdecompte", name="identifiantMdp")
+public class ServB extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public test() {
+	public ServB() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
