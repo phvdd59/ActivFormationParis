@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html> 
+<head >
+<meta charset="ISO-8859-1">
+<title>GESTION DE DOCUMENTS</title>
+<link rel="stylesheet" href=../css/StyleFormulaire.css />
+</head>
+<div style= "background-color: darkblue; color : white; font: bold " align="center" >GESTION DE DOCUMENTS</div>
+<div style="background-color:silver; ;"> 
+	<body>
+	<form action = "http://localhost:8080/ProjectEtudiant/ServletEtga" method="GET">
+		<table align = "center">
+			<caption><h1>GESTION DE DOCUMENTS</h1></caption>
+			<tr>
+				<th colspan="2" align="center"><h4>IDENTIFICATION</h4></th>
+			</tr>
+			<tr>
+				<td>Nom : <input type="texte" name="nom" style="width: 378px; "/></td>
+			</tr>
+			<tr>
+				<td>Prénom : <input type="texte" name="prénom" style="width: 358px; "/></td>
+			</tr>
+			<tr>
+				<td align="center"><input type = "submit" value = "Valider"/></td>
+			</tr>	
+			<tr>
+				<td><p align="center">Liste de documents : </p><input type="texte" name="liste de documents" style="width: 552px; height: 205px"></td>
+			</tr>
+			<tr>
+			<td align="center"><input type = "file" value="Upload"/>
+				<input type = "button" name="download" value = "Download"/></td>
+			</tr>
+		</table>
+		</form>
+	</body>
+</div>
+</html>
