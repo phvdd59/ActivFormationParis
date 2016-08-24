@@ -1,0 +1,23 @@
+made:Syntaxe
+
+made qcm[ 0] : BON (1/1)
+made qcm[ 1] : BON (1/1)
+made qcm[ 2] : BON (1/1)
+made qcm[ 3] : BON (1/1)
+made qcm[ 4] : BON (1/1)
+made qcm[ 5] : BON (1/1)
+made qcm[ 6] : BON (1/1)
+made qcm[ 7] : BON (1/1)
+made qcm[ 8] : BON (1/1)
+made qcm[ 9] : BON (1/1)
+made qcm[ 10] : BON (1/1)
+made qcm[ 11] : BON (1/1)
+made qcm[ 12] : BON (1/1)
+made qcm[ 13] : BON (1/1)
+made qcm[ 14] : BON (1/1)
+made qcm[ 15] : BON (1/1)
+made qcm[ 16] : BON (1/1)
+made qcm[ 17] : BON (1/1)
+made qcm[ 18] : BON (1/1)
+made qcm[ 19] : BON (1/1)
+made NOTE : (20/20) = 20,00/20

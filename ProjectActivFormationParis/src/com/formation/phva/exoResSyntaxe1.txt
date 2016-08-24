@@ -1,0 +1,23 @@
+phva:Syntaxe
+
+phva qcm[ 0] : BON (1/1)
+phva qcm[ 1] : BON (1/1)
+phva qcm[ 2] : BON (1/1)
+phva qcm[ 3] : BON (1/1)
+phva qcm[ 4] : BON (1/1)
+phva qcm[ 5] : BON (1/1)
+phva qcm[ 6] : BON (1/1)
+phva qcm[ 7] : BON (1/1)
+phva qcm[ 8] : BON (1/1)
+phva qcm[ 9] : BON (1/1)
+phva qcm[ 10] : BON (1/1)
+phva qcm[ 11] : BON (1/1)
+phva qcm[ 12] : BON (1/1)
+phva qcm[ 13] : BON (1/1)
+phva qcm[ 14] : BON (1/1)
+phva qcm[ 15] : BON (1/1)
+phva qcm[ 16] : BON (1/1)
+phva qcm[ 17] : BON (1/1)
+phva qcm[ 18] : BON (1/1)
+phva qcm[ 19] : BON (1/1)
+phva NOTE : (20/20) = 20,00/20

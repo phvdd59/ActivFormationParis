@@ -1,0 +1,23 @@
+joca:Syntaxe
+
+joca qcm[ 0] : BON (1/1)
+joca qcm[ 1] : BON (1/1)
+joca qcm[ 2] : BON (1/1)
+joca qcm[ 3] : BON (1/1)
+joca qcm[ 4] : BON (1/1)
+joca qcm[ 5] : BON (1/1)
+joca qcm[ 6] : BON (1/1)
+joca qcm[ 7] : BON (1/1)
+joca qcm[ 8] : BON (1/1)
+joca qcm[ 9] : BON (1/1)
+joca qcm[ 10] : BON (1/1)
+joca qcm[ 11] : BON (1/1)
+joca qcm[ 12] : BON (1/1)
+joca qcm[ 13] : BON (1/1)
+joca qcm[ 14] : BON (1/1)
+joca qcm[ 15] : BON (1/1)
+joca qcm[ 16] : BON (1/1)
+joca qcm[ 17] : BON (1/1)
+joca qcm[ 18] : BON (1/1)
+joca qcm[ 19] : BON (1/1)
+joca NOTE : (20/20) = 20,00/20

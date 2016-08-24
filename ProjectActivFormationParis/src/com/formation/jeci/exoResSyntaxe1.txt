@@ -1,0 +1,23 @@
+jeci:Syntaxe
+
+jeci qcm[ 0] : BON (1/1)
+jeci qcm[ 1] : BON (1/1)
+jeci qcm[ 2] : BON (1/1)
+jeci qcm[ 3] : BON (1/1)
+jeci qcm[ 4] : BON (1/1)
+jeci qcm[ 5] : BON (1/1)
+jeci qcm[ 6] : BON (1/1)
+jeci qcm[ 7] : BON (1/1)
+jeci qcm[ 8] : BON (1/1)
+jeci qcm[ 9] : BON (1/1)
+jeci qcm[ 10] : BON (1/1)
+jeci qcm[ 11] : BON (1/1)
+jeci qcm[ 12] : BON (1/1)
+jeci qcm[ 13] : BON (1/1)
+jeci qcm[ 14] : BON (1/1)
+jeci qcm[ 15] : BON (1/1)
+jeci qcm[ 16] : BON (1/1)
+jeci qcm[ 17] : BON (1/1)
+jeci qcm[ 18] : BON (1/1)
+jeci qcm[ 19] : FAUX (0/1)
+jeci NOTE : (19/20) = 19,00/20

@@ -1,0 +1,23 @@
+frva:Syntaxe
+
+frva qcm[ 0] : BON (1/1)
+frva qcm[ 1] : BON (1/1)
+frva qcm[ 2] : BON (1/1)
+frva qcm[ 3] : BON (1/1)
+frva qcm[ 4] : BON (1/1)
+frva qcm[ 5] : BON (1/1)
+frva qcm[ 6] : BON (1/1)
+frva qcm[ 7] : BON (1/1)
+frva qcm[ 8] : BON (1/1)
+frva qcm[ 9] : BON (1/1)
+frva qcm[ 10] : BON (1/1)
+frva qcm[ 11] : BON (1/1)
+frva qcm[ 12] : BON (1/1)
+frva qcm[ 13] : BON (1/1)
+frva qcm[ 14] : BON (1/1)
+frva qcm[ 15] : BON (1/1)
+frva qcm[ 16] : BON (1/1)
+frva qcm[ 17] : BON (1/1)
+frva qcm[ 18] : BON (1/1)
+frva qcm[ 19] : BON (1/1)
+frva NOTE : (20/20) = 20,00/20
