@@ -16,7 +16,7 @@ import com.formation.issa.metier.Personne;
 /**
  * Servlet implementation class ServletPersonne
  */
-@WebServlet(name = "Servlet Personne", value = "/ServletPersonne")
+@WebServlet(name = "Servlet Personne", value = "/ServletPersonneIssa")
 public class ServletPersonneIssa extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
