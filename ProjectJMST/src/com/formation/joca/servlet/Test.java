@@ -102,10 +102,19 @@ public class Test extends HttpServlet {
 				session = request.getSession(true);
 			}
 		}
-
+		
 		session.setAttribute("listPersonne", listPersonne);
-
+		
 		if (utilisateur != null && utilisateur.isAdmin()) {
+			
+			session.setAttribute("Personne", utilisateur);
+			System.out.println(utilisateur.getNom());
+			Object personne = session.getAttribute("Personne");
+			Personne perso = null;
+			if (personne instanceof Personne) {
+				perso = (Personne) personne;
+			}
+			System.out.println(perso.getNom());
 			BufferedReader lecture = null;
 			File page = new File(
 					"../GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/pagecompteadministrateur.html");
@@ -123,7 +132,8 @@ public class Test extends HttpServlet {
 				line = lecture.readLine();
 			}
 			lecture.close();
-		} else {
+		} else if (utilisateur != null && !utilisateur.isAdmin()) {
+			session.setAttribute("Personne", utilisateur);
 			BufferedReader lecture = null;
 			File page = new File(
 					"../GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/pagecompteutilisateur.html");

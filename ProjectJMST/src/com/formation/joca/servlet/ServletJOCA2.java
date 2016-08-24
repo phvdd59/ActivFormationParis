@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.formation.thcr.metier.Personne;
+
 //Servlet utilisé pour generer la page gestion fichier par la methode doPost
 
 /**
@@ -39,6 +41,14 @@ public class ServletJOCA2 extends HttpServlet {
 		HttpSession session = request.getSession();
 		String noSerieHtml = request.getParameter("noSerie");
 		String noSerie = (String) session.getAttribute("noSerie");
+		
+		Object personne = session.getAttribute("Personne");
+		Personne perso = null;
+		if (personne instanceof Personne) {
+			perso = (Personne) personne;
+		}
+		System.out.println(perso.getNom());
+		
 		if (noSerieHtml.equals(noSerie)) {
 			BufferedReader lecture = null;
 			File page = new File(
@@ -46,6 +56,9 @@ public class ServletJOCA2 extends HttpServlet {
 			lecture = new BufferedReader(new FileReader(page));
 			String line = lecture.readLine();
 			while (line != null) {
+				if (line.contains("%%noSerie%%")) {
+					line = line.replace("%%noSerie%%", noSerie);
+				}
 				response.getWriter().println(line);
 				line = lecture.readLine();
 
