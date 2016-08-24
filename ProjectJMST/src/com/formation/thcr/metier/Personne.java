@@ -7,22 +7,9 @@ public class Personne {
 	private String	login;
 	private String	motDePasse;
 	private String	mail;
+	private String  nationalite;
+	private String	adresse;
 	private boolean	admin;
-
-	public Personne(String nom, String login, String motDePasse, boolean admin, String mail) {
-		this.nom = nom;
-		this.login = login;
-		this.motDePasse = motDePasse;
-		this.admin = admin;
-		this.mail = mail;
-		this.prenom = "";
-	}
-
-	public Personne(String prenom, String login, String mail) {
-		this.login = login;
-		this.prenom = prenom;
-		this.mail = mail;
-	}
 
 	public boolean isAdmin() {
 		return admin;
@@ -70,6 +57,28 @@ public class Personne {
 
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
+	}
+
+	public String getNationalite() {
+		return nationalite;
+	}
+
+	public void setNationalite(String nationalite) {
+		this.nationalite = nationalite;
+	}
+
+	public String getAdresse() {
+		return adresse;
+	}
+
+	public void setAdresse(String adresse) {
+		this.adresse = adresse;
+	}
+
+	@Override
+	public String toString() {
+		return "Personne [nom=" + nom + ", prenom=" + prenom + ", login=" + login + ", motDePasse=" + motDePasse + ", mail=" + mail + ", nationalite="
+				+ nationalite + ", adresse=" + adresse + ", admin=" + admin + "]";
 	}
 
 }

@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ListPersonne>
-	<Personne login="thcr" password="password" admin="true" mail="thomas.cresson@mail.fr">
-		Thomas
+	<Personne prenom="Thomas" login="thcr" password="password" admin="true" mail="thomas.cresson@mail.fr" nationalite="francaise" adresse="adresse de Thomas">
+		Cresson
 	</Personne>
-	<Personne login="soka" password="password" admin="true" mail="souad.kadri@mail.fr">
-		Souad
+	<Personne prenom="Souad" login="soka" password="password" admin="true" mail="souad.kadri@mail.fr" nationalite="algerienne" adresse="adresse de Souad">
+		Kadri
 	</Personne>
-	<Personne login="made" password="password" admin="true" mail="marc.denis@mail.fr">
-		Marc
+	<Personne prenom="Marc" login="made" password="password" admin="true" mail="marc.denis@mail.fr" nationalite="francaise" adresse="adresse de Marc">
+		Denis
 	</Personne>
-	<Personne login="joca" password="password" admin="true" mail="johann.cassagne@mail.fr">
-		Johann
+	<Personne prenom="Johann" login="joca" password="password" admin="true" mail="johann.cassagne@mail.fr" nationalite="francaise" adresse="adresse de Johann">
+		Cassagne
+	</Personne>
+	<Personne prenom="prenomTest" login="test" password="password" admin="false" mail="test@test.test" nationalite="natioTest" adresse="adresse de Test">
+		nomTest
 	</Personne>
 </ListPersonne>

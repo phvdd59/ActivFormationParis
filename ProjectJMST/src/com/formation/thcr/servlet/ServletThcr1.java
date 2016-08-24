@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.nio.charset.Charset;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,6 +20,9 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
+
+import com.formation.thcr.metier.ListPersonne;
+import com.formation.thcr.metier.Personne;
 
 /**
  * Servlet implementation class ServletThcr1
@@ -43,10 +45,15 @@ public class ServletThcr1 extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		File fileXML = new File("C:/DevFormation/GITActivFormationParis/ProjectJMST/WebContent/Data.xml");
-		
 		String login = request.getParameter("login");
-		
+		HttpSession session = request.getSession();
+		Object o = session.getAttribute("listPersonne");
+		ListPersonne listPersonne = null;
+
+		if (o instanceof ListPersonne) {
+			listPersonne = (ListPersonne) o;
+		}
+
 		String nom = "Nom";
 		String prenom = "Prenom";
 		String mail = "mail@mail.mail";
@@ -73,49 +80,56 @@ public class ServletThcr1 extends HttpServlet {
 		String nbCv = "nombre de cv";
 		String kmestime = "nombre de kilometre estime";
 
-		final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-
-		try {
-			final DocumentBuilder builder = factory.newDocumentBuilder();
-			final Document document = builder.parse(fileXML);
-
-			final Element listElement = document.getDocumentElement();
-			final NodeList nodeListElement = listElement.getChildNodes();
-
-			for (int i = 0; i < nodeListElement.getLength(); i++) {
-				final Node nodeElement = nodeListElement.item(i);
-				if (nodeElement.getNodeType() == Node.ELEMENT_NODE) {
-					final Element element = (Element) nodeElement;
-					if (element.getNodeName().equals("Personne")) {
-						if (element.getAttribute("login").equals(login)) {
-							prenom = element.getTextContent();
-							nom = element.getAttribute("nom");
-							mail = element.getAttribute("mail");
-							//Mettre toutes les infos
-							break;
-						} else {
-							nom = "nom";
-							prenom = "prenom";
-							mail = "mail@mail.mail";
-						}
-					}
-				}
+		for (Personne personne : listPersonne) {
+			if (personne.getLogin().equals(login)) {
+				nom = personne.getNom();
+				adresse = personne.getAdresse();
+				mail = personne.getMail();
+				nationalite = personne.getNationalite();
+				prenom = personne.getPrenom();
 			}
-		} catch (ParserConfigurationException e) {
-			e.printStackTrace();
-		} catch (SAXException e) {
-			e.printStackTrace();
 		}
 
+//		final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+//
+//		try {
+//			final DocumentBuilder builder = factory.newDocumentBuilder();
+//			final Document document = builder.parse(fileXML);
+//
+//			final Element listElement = document.getDocumentElement();
+//			final NodeList nodeListElement = listElement.getChildNodes();
+//
+//			for (int i = 0; i < nodeListElement.getLength(); i++) {
+//				final Node nodeElement = nodeListElement.item(i);
+//				if (nodeElement.getNodeType() == Node.ELEMENT_NODE) {
+//					final Element element = (Element) nodeElement;
+//					if (element.getNodeName().equals("Personne")) {
+//						if (element.getAttribute("login").equals(login)) {
+//							prenom = element.getTextContent();
+//							nom = element.getAttribute("nom");
+//							mail = element.getAttribute("mail");
+//							//Mettre toutes les infos
+//							break;
+//						} else {
+//							nom = "nom";
+//							prenom = "prenom";
+//							mail = "mail@mail.mail";
+//						}
+//					}
+//				}
+//			}
+//		} catch (ParserConfigurationException e) {
+//			e.printStackTrace();
+//		} catch (SAXException e) {
+//			e.printStackTrace();
+//		}
+
 		File affichage = new File("C:/DevFormation/GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/Infoutilisateur.html");
-		//		BufferedReader br2 = new BufferedReader(new InputStreamReader(new FileInputStream(affichage), "UTF-8"));
 		BufferedReader br = new BufferedReader(new FileReader(affichage));
 
-		HttpSession session = request.getSession();
 		//		Cookie cookie = new Cookie("nomCookie", "info");
 		//		System.out.println(session.getMaxInactiveInterval());
 
-		//TODO UTF _ inputStream
 		String l = br.readLine();
 		String model = "></td>";
 		while (l != null) {

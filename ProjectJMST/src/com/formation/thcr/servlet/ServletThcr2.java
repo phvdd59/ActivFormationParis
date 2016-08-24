@@ -49,36 +49,11 @@ public class ServletThcr2 extends HttpServlet {
 		Object noSerie = session.getAttribute("noSerie");
 		String noSerieHtml = request.getParameter("noSerie");
 		
-		File fileXML = new File("C:/DevFormation/GITActivFormationParis/ProjectJMST/WebContent/Data.xml");
-
-		final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-
-		ListPersonne listPersonne = new ListPersonne();
-
-		try {
-			final DocumentBuilder builder = factory.newDocumentBuilder();
-			final Document document = builder.parse(fileXML);
-
-			final Element listElement = document.getDocumentElement();
-			final NodeList nodeListElement = listElement.getChildNodes();
-
-			for (int i = 0; i < nodeListElement.getLength(); i++) {
-				final Node nodeElement = nodeListElement.item(i);
-				if (nodeElement.getNodeType() == Node.ELEMENT_NODE) {
-					final Element element = (Element) nodeElement;
-					if (element.getNodeName().equals("Personne")) {
-						String login = element.getAttribute("login");
-						String prenom = element.getTextContent();
-						String nom = element.getAttribute("nom");
-						String mail = element.getAttribute("mail");
-						listPersonne.add(new Personne(prenom, login, mail));
-					}
-				}
-			}
-		} catch (ParserConfigurationException e) {
-			e.printStackTrace();
-		} catch (SAXException e) {
-			e.printStackTrace();
+		ListPersonne listPersonne = null;
+		Object o = session.getAttribute("listPersonne");
+		
+		if(o instanceof ListPersonne){
+			listPersonne = (ListPersonne) o;
 		}
 
 		String tableConstruct = "";
@@ -87,6 +62,7 @@ public class ServletThcr2 extends HttpServlet {
 			tableConstruct += "\t\t\t\t<form action=\"http://localhost:8080/ProjectJMST/ServletThcr1\" method=\"post\">\n";
 			tableConstruct += "\t\t\t\t<tr>\n\t\t\t\t\t<td><input type=\"hidden\" name=\"login\" value=\"" + personne.getLogin() +"\">" + personne.getLogin() + "</td>\n";
 			tableConstruct += "\t\t\t\t\t<td>" + "<input type=\"hidden\" name=\"prenom\" value=\"" + personne.getPrenom().trim() + "\">" +  personne.getPrenom().trim() + "</td>\n";
+			tableConstruct += "\t\t\t\t\t<td>" + "<input type=\"hidden\" name=\"prenom\" value=\"" + personne.getNom() + "\">" +  personne.getNom() + "</td>\n";
 			tableConstruct += "\t\t\t\t\t<td>" + "<input type=\"hidden\" name=\"mail\" value=\"" + personne.getMail() +"\">" + personne.getMail() +"</td>\n";
 			tableConstruct += "\t\t\t\t\t<input type=\"hidden\" name=\"%%noSerie%%\" value=\"%%noSerie%%\">\n";
 			tableConstruct += "\t\t\t\t\t<td id=\"afficher\" type=\"text\"><input type=\"submit\" value=\"afficher\"></td>\n";

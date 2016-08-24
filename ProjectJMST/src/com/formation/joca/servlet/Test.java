@@ -70,18 +70,30 @@ public class Test extends HttpServlet {
 					final Node nodePersonne = nListPersonne.item(i);
 					if (nodePersonne.getNodeType() == Node.ELEMENT_NODE) {
 						final Element ePersonne = (Element) nodePersonne;
-						String name = ePersonne.getTextContent();
-						name = name.trim();
+						String nom = ePersonne.getTextContent();
+						nom = nom.trim();
 						String login = ePersonne.getAttribute("login");
 						String password = ePersonne.getAttribute("password");
 						String adminString = ePersonne.getAttribute("admin");
 						String mail = ePersonne.getAttribute("mail");
+						String prenom = ePersonne.getAttribute("prenom");
+						String nationalite = ePersonne.getAttribute("nationalite");
+						String adresse = ePersonne.getAttribute("adresse");
 						boolean admin = false;
 						if (adminString.equals("true")) {
 							admin = true;
 						}
+						Personne personne = new Personne();
+						personne.setLogin(login);
+						personne.setMotDePasse(password);
+						personne.setAdmin(admin);
+						personne.setMail(mail);
+						personne.setNom(nom);
+						personne.setPrenom(prenom);
+						personne.setNationalite(nationalite);
+						personne.setAdresse(adresse);
 						synchronized (listPersonne) {
-							listPersonne.add(new Personne(name, login, password, admin, mail));
+							listPersonne.add(personne);
 						}
 					}
 				}
@@ -98,23 +110,18 @@ public class Test extends HttpServlet {
 			if (personne.getLogin().equals(identifiant) && personne.getMotDePasse().equals(motdepasse)) {
 				session = request.getSession(true);
 				utilisateur = personne;
-			} else {
-				session = request.getSession(true);
+				break;
 			}
 		}
 		
-		session.setAttribute("listPersonne", listPersonne);
-		
 		if (utilisateur != null && utilisateur.isAdmin()) {
-			
+			session.setAttribute("listPersonne", listPersonne);
 			session.setAttribute("Personne", utilisateur);
-			System.out.println(utilisateur.getNom());
 			Object personne = session.getAttribute("Personne");
 			Personne perso = null;
 			if (personne instanceof Personne) {
 				perso = (Personne) personne;
 			}
-			System.out.println(perso.getNom());
 			BufferedReader lecture = null;
 			File page = new File(
 					"../GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/pagecompteadministrateur.html");
@@ -146,6 +153,21 @@ public class Test extends HttpServlet {
 			while (line != null) {
 				if (line.contains("%%noSerie%%")) {
 					line = line.replace("%%noSerie%%", noSerie);
+				}
+				response.getWriter().println(line);
+				line = lecture.readLine();
+			}
+			lecture.close();
+		} else {
+			BufferedReader lecture = null;
+			File page = new File(
+					"../GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/Login.html");
+			InputStreamReader input = new InputStreamReader(new FileInputStream(page));
+			lecture = new BufferedReader(input);
+			String line = lecture.readLine();
+			while (line != null) {
+				if(line.equals("value=\"%%noSerie%%\">")){
+					line = line.replace("value=\"%%noSerie%%\">", "value=\"%%noSerie%%\">"+"erreur login");
 				}
 				response.getWriter().println(line);
 				line = lecture.readLine();
