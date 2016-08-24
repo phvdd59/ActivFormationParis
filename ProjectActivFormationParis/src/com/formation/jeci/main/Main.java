@@ -22,10 +22,15 @@ public class Main {
 	}
 
 	private void init4() {
-		ExoFlux1 test= new ExoFlux1();
-		test.saisie();
-		test.save();
-		test.recup();
+		String l="12585";
+		boolean t;
+		t=l.matches("[0-9]{6}");
+		System.out.println(t);
+		
+//		ExoFlux1 test= new ExoFlux1();
+//		test.saisie();
+//		test.save();
+//		test.recup();
 		
 	}
 
