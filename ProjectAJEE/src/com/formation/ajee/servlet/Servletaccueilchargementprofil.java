@@ -63,6 +63,16 @@ public class Servletaccueilchargementprofil extends HttpServlet {
 		 lineJS = bufReadJS.readLine();
 		 }
 		 bufReadJS.close();
+		 
+		 File fileJS1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/WEB-INF/com/formation/ajee/js/JSBandeauAdmin.html");
+		 BufferedReader bufReadJS1 = null;
+		 bufReadJS1 = new BufferedReader(new FileReader(fileJS1));
+		 String lineJS1 = bufReadJS1.readLine();
+		 while (lineJS1 != null) {
+		 response.getWriter().println(lineJS1);
+		 lineJS1 = bufReadJS1.readLine();
+		 }
+		 bufReadJS1.close();
 
 		/** Lecture page ActivConsulting */
 		File fileActiv = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/WEB-INF/com/formation/ajee/page1/MenuActiv.html");

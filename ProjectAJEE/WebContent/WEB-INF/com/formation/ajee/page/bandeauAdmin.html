@@ -5,33 +5,45 @@
 <title>Menu déroulant</title>
 
 <link rel="stylesheet" type="text/css" href='file:///C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/WEB-INF/com/formation/ajee/css/menuderoulant.css'>
-<script type="text/javascript">
-function appel() {
+<script>
+function appelFiche() {
+	document.location.href = "http://localhost:8080/ProjectAJEE/Servletfichedidentification";
+}
+function appelMdp() {
+	document.location.href = "http://localhost:8080/ProjectAJEE/Servletchangementdemotdepasse";
+}
+function appelAccueil() {
 	document.location.href = "http://127.0.0.1:8080/ProjectAJEE/Servletaccueilchargementprofil";
+}
+function appelDoc() {
+	document.location.href = "http://localhost:8080/ProjectAJEE/Servletmesdocument";
+}
+function appelDeco() {
+	document.location.href = "http://localhost:8080/ProjectAJEE/Servletdeconnexion";
 }
 </script>
 </head>
 <body style="background: white">
 <ul id="menu-deroulant">
 
-	<li><form>Nom d'identification</form>
+	<li><a>Nom d'identification</a>
 	
 	</li>
-		<li><form >Mon Compte</form>
+		<li><a>Mon Compte</a>
 		<ul>
-			<li ><form action="http://localhost:8080/ProjectAJEE/Servletfichedidentification">Fiche d'identification</form></li>
-			<li><form action="http://localhost:8080/ProjectAJEE/Servletchangementdemotdepasse">Changement de mot de passe</form></li>
-		<li><a href="javascript:appel()">Accueil-chargement profil</a></li>
+			<li ><a href="javascript:appelFiche()">Fiche d'identification</a></li>
+			<li><a href="javascript:appelMdp()">Changement de mot de passe</a></li>
+		<li><li><a href="javascript:appelAccueil()">Accueil-chargement profil</a></li>
 		</ul>
 	</li>
-	<li><form action="http://localhost:8080/ProjectAJEE/Servletmesdocument">Mes documents</form>
+	<li><a href="javascript:appelDoc()">Mes documents</a>
 		
 	</li>
 	<li><input id="invitereader" type="text" value="" readonly  />
 		
 	</li>
 	<!-- -->
-	<li><form action="http://localhost:8080/ProjectAJEE/Servletdeconnexion">Déconnexion</form>
+	<li><a href="javascript:appelDeco()">Déconnexion</a>
 		
 	</li>
 </ul>
