@@ -27,7 +27,7 @@ public class Servletmesdocuments extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request,
 	 *      HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		/**A activer quand on aura fait le "DoGet" avec notre "HttpSession" et le "noSerie"*/		
 //		String noSerie = request.getParameter("noSerie");
@@ -48,16 +48,16 @@ public class Servletmesdocuments extends HttpServlet {
 				}
 				bufReadHaut.close();
 				
-				/**A modifier seulement si notre page contient du JavaScript */
-				File fileJS = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/WEB-INF/com/formation/ajee/js/JSOptional.html");
-				BufferedReader bufReadJS = null;
-				bufReadJS = new BufferedReader(new FileReader(fileJS));
-				String lineJS = bufReadJS.readLine();
-				while (lineJS != null) {
-					response.getWriter().println(lineJS);
-					lineJS = bufReadJS.readLine();
-				}
-				bufReadJS.close();
+//				/**A modifier seulement si notre page contient du JavaScript */
+//				File fileJS = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/WEB-INF/com/formation/ajee/js/JSOptional.html");
+//				BufferedReader bufReadJS = null;
+//				bufReadJS = new BufferedReader(new FileReader(fileJS));
+//				String lineJS = bufReadJS.readLine();
+//				while (lineJS != null) {
+//					response.getWriter().println(lineJS);
+//					lineJS = bufReadJS.readLine();
+//				}
+//				bufReadJS.close();
 				
 				/**Lecture page ActivConsulting */
 				File fileActiv = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/WEB-INF/com/formation/ajee/page1/MenuActiv.html");
