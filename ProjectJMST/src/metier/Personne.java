@@ -9,21 +9,6 @@ public class Personne {
 	private String	mail;
 	private boolean	admin;
 
-	public Personne(String nom, String login, String motDePasse, boolean admin, String mail) {
-		this.nom = nom;
-		this.login = login;
-		this.motDePasse = motDePasse;
-		this.admin = admin;
-		this.mail = mail;
-		this.prenom = "";
-	}
-
-	public Personne(String prenom, String login, String mail) {
-		this.login = login;
-		this.prenom = prenom;
-		this.mail = mail;
-	}
-
 	public boolean isAdmin() {
 		return admin;
 	}
