@@ -35,5 +35,10 @@ public class Personne {
 	public void setSexe(boolean sexe) {
 		this.sexe = sexe;
 	}
-
+	public void setSexe(String sexe) {
+	
+	}
+	public void getSexe() {
+		return null;
+	}
 }
