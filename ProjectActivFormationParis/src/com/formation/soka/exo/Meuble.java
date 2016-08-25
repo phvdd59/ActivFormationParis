@@ -2,7 +2,7 @@ package com.formation.soka.exo;
 
 import java.util.ArrayList;
 
-import com.formation.anfr.ctr.TRI;
+import com.formation.soka.ctr.TRI;
 
 public class Meuble implements Comparable<Meuble> {
 

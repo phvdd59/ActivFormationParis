@@ -21,6 +21,7 @@
 	<% String nom = "Dupont";
 	Date dt = new Date();
 	
+	
 	for (int i =0; i < 5; i++){
 		out.println("<h3>"+i+" salut</h3>");
 	
