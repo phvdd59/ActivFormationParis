@@ -7,6 +7,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -122,41 +124,45 @@ public class ServletPageLogin3 extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		File file3 = new File("C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/redirection.html");
-		BufferedReader bIn3 = null;
-		InputStreamReader inputStreamReader3 = null;
-		try
-
-		{
-			inputStreamReader3 = new InputStreamReader(new FileInputStream(file3), "UTF-8");
-			bIn3 = new BufferedReader(inputStreamReader3);
-			String line3 = bIn3.readLine();
-			while (line3 != null) {
-				// System.out.println(line);
-				response.getWriter().append(line3);
-				line3 = bIn3.readLine();
-			}
-		} catch (
-
-		FileNotFoundException e)
-
-		{
-			e.printStackTrace();
-		} catch (
-
-		IOException e)
-
-		{
-			e.printStackTrace();
-		} finally
-
-		{
-			try {
-				bIn3.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
+		ServletContext context = this.getServletContext();
+		RequestDispatcher dispatcher = context.getRequestDispatcher("/ServletPageCompte2");
+		dispatcher.forward(request, response);
 	}
+//		File file3 = new File("C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/redirection.html");
+//		BufferedReader bIn3 = null;
+//		InputStreamReader inputStreamReader3 = null;
+//		try
+//
+//		{
+//			inputStreamReader3 = new InputStreamReader(new FileInputStream(file3), "UTF-8");
+//			bIn3 = new BufferedReader(inputStreamReader3);
+//			String line3 = bIn3.readLine();
+//			while (line3 != null) {
+//				// System.out.println(line);
+//				response.getWriter().append(line3);
+//				line3 = bIn3.readLine();
+//			}
+//		} catch (
+//
+//		FileNotFoundException e)
+//
+//		{
+//			e.printStackTrace();
+//		} catch (
+//
+//		IOException e)
+//
+//		{
+//			e.printStackTrace();
+//		} finally
+//
+//		{
+//			try {
+//				bIn3.close();
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//			}
+//		}
+//	}
 
 }
