@@ -6,8 +6,10 @@
 
 <link rel="stylesheet" type="text/css" href='file:///C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/WEB-INF/com/formation/ajee/css/menuderoulant.css'>
 <script>
-function appelFiche() {
-	document.location.href = "http://127.0.0.1:8080/ProjectAJEE/ServletFicheRempli";
+function appelPostFiche() {
+	//document.getElementById("form1").action = "http://127.0.0.1:8080/ProjectEtudiant/ServletPhva1";
+	document.formFiche.action = "http://127.0.0.1:8080/ProjectAJEE/ServletFicheRempli";
+	document.formFiche.submit();
 }
 function appelMdp() {
 	document.location.href = "http://127.0.0.1:8080/ProjectAJEE/ServletMdpAdmin";
@@ -31,7 +33,10 @@ function appelDeco() {
 	</li>
 		<li><a>Mon Compte</a>
 		<ul>
-			<li ><a href="javascript:appelFiche()">Fiche d'identification</a></li>
+			<li ><span onclick="appelPostFiche()">Fiche d'identification</span>	<div>
+		<form id="formFiche" name="formFiche" action="/" method="POST">
+		</form>
+	</div></li>
 			<li><a href="javascript:appelMdp()">Changement de mot de passe</a></li>
 		<li><li><a href="javascript:appelAccueil()">Accueil-chargement profil</a></li>
 		</ul>
