@@ -18,7 +18,7 @@ import javax.servlet.http.HttpSession;
 @WebServlet(value = "/Servletidentification", name = "Servletidentification")
 public class Servletidentification extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	//private static int VALEUR = 0;
+	// private static int VALEUR = 0;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -29,15 +29,19 @@ public class Servletidentification extends HttpServlet {
 	}
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request,
-	 *      HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		File file = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page/Identification.html");
-		//	System.out.println(file.getCanonicalPath());
+		// System.out.println(file.getCanonicalPath());
 		int noserie = (int) Math.random() * Integer.MAX_VALUE;
-		HttpSession session = request.getSession(true); //true pour garder le meme numero de session qui vient detre créé
-		String id = session.getId(); //donne le numero de session
+		HttpSession session = request.getSession(true); // true pour garder le
+														// meme numero de
+														// session qui vient
+														// detre créé
+		System.out.println(session.getId());
+		String id = session.getId(); // donne le numero de session
 		session.setAttribute("noserie", noserie);
 
 		BufferedReader bIn = new BufferedReader(new FileReader(file));
@@ -54,14 +58,16 @@ public class Servletidentification extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		//recuperer les parametres
+		// recuperer les parametres
 		String pseudo = req.getParameter("Identifiant");
+		System.out.println(pseudo);
 		String mdp = req.getParameter("mot de passe");
 
 		HttpSession session = req.getSession();
-
-		// controler les parametres	
-		if ((pseudo != null) &&(mdp != null)){
+		System.out.println(session.getId());
+		session.setAttribute("pseudo", pseudo);
+		// controler les parametres
+		if ((pseudo != null) && (mdp != null)) {
 			if (pseudo.equals("Admin") && mdp.equals("123")) {
 				// constituer la nouvelle page
 				/** Lecture Haut de page HTML */
@@ -70,14 +76,16 @@ public class Servletidentification extends HttpServlet {
 				bufReadHaut = new BufferedReader(new FileReader(fileHaut));
 				String lineHaut = bufReadHaut.readLine();
 				while (lineHaut != null) {
+					if (lineHaut.contains("<title>Espace Personnel ActivConsulting</title>")) {
+						lineHaut=lineHaut.replace("<title>Espace Personnel ActivConsulting</title>", "<title>Accueil</title>");
+					}
 					resp.getWriter().println(lineHaut);
 					lineHaut = bufReadHaut.readLine();
 				}
 				bufReadHaut.close();
 
 				/**
-				 * A modifier seulement si notre page contient
-				 * du JavaScript
+				 * A modifier seulement si notre page contient du JavaScript
 				 */
 				File fileJS = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/js/JSAccueilAdmin.html");
 				BufferedReader bufReadJS = null;
@@ -111,9 +119,8 @@ public class Servletidentification extends HttpServlet {
 				bufReadActiv.close();
 
 				/**
-				 * Seule Partie qui va vraiment changer selon
-				 * les pages (penser aux controles si
-				 * necessaire)
+				 * Seule Partie qui va vraiment changer selon les pages (penser
+				 * aux controles si necessaire)
 				 */
 				File fileDoc = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/BandeauAdmin.html");
 				BufferedReader bufReadDoc = null;
@@ -158,8 +165,7 @@ public class Servletidentification extends HttpServlet {
 				bufReadHaut.close();
 
 				/**
-				 * A modifier seulement si notre page contient
-				 * du JavaScript
+				 * A modifier seulement si notre page contient du JavaScript
 				 */
 
 				File fileJS1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/js/JSBandeau.html");
@@ -184,9 +190,8 @@ public class Servletidentification extends HttpServlet {
 				bufReadActiv.close();
 
 				/**
-				 * Seule Partie qui va vraiment changer selon
-				 * les pages (penser aux controles si
-				 * necessaire)
+				 * Seule Partie qui va vraiment changer selon les pages (penser
+				 * aux controles si necessaire)
 				 */
 				File fileDoc = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/Bandeau.html");
 				BufferedReader bufReadDoc = null;
@@ -222,10 +227,13 @@ public class Servletidentification extends HttpServlet {
 			}
 		} else {
 			File file = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page/Identification.html");
-			//	System.out.println(file.getCanonicalPath());
+			// System.out.println(file.getCanonicalPath());
 			int noserie = (int) Math.random() * Integer.MAX_VALUE;
-			HttpSession session1 = req.getSession(true); //true pour garder le meme numero de session qui vient detre créé
-			String id1 = session1.getId(); //donne le numero de session
+			HttpSession session1 = req.getSession(true); // true pour garder le
+															// meme numero de
+															// session qui vient
+															// detre créé
+			String id1 = session1.getId(); // donne le numero de session
 			session1.setAttribute("noserie", noserie);
 
 			BufferedReader bIn = new BufferedReader(new FileReader(file));
