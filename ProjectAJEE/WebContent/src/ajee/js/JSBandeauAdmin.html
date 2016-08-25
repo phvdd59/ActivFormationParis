@@ -1,18 +1,33 @@
 <script type="text/javascript">
 
-function appelFiche() {
-	document.location.href = "http://127.0.0.1:8080/ProjectAJEE/ServletFicheRempli";
+
+function appelPostFiche() {
+	//document.getElementById("form1").action = "http://127.0.0.1:8080/ProjectEtudiant/ServletPhva1";
+	document.form1.action = "http://127.0.0.1:8080/ProjectAJEE/ServletFicheRempli";
+	document.form1.submit();
 }
-function appelMdp() {
-	document.location.href = "http://127.0.0.1:8080/ProjectAJEE/ServletMdpAdmin";
+
+function appelPostMdp() {
+	//document.getElementById("form1").action = "http://127.0.0.1:8080/ProjectEtudiant/ServletPhva1";
+	document.form1.action = "http://127.0.0.1:8080/ProjectAJEE/ServletMdpAdmin";
+	document.form1.submit();
 }
-function appelAccueil() {
-	document.location.href = "http://127.0.0.1:8080/ProjectAJEE/Servletaccueilchargementprofil";
+
+function appelPostAccueil() {
+	//document.getElementById("form1").action = "http://127.0.0.1:8080/ProjectEtudiant/ServletPhva1";
+	document.form1.action = "http://127.0.0.1:8080/ProjectAJEE/Servletaccueilchargementprofil";
+	document.form1.submit();
 }
-function appelDoc() {
-	document.location.href = "http://127.0.0.1:8080/ProjectAJEE/MesDocuments";
+
+function appelPostDoc() {
+	//document.getElementById("form1").action = "http://127.0.0.1:8080/ProjectEtudiant/ServletPhva1";
+	document.form1.action = "http://127.0.0.1:8080/ProjectAJEE/MesDocuments";
+	document.form1.submit();
 }
-function appelDeco() {
-	document.location.href = "http://127.0.0.1:8080/ProjectAJEE/ServletDecoAdmin";
+
+function appelPostDeco() {
+	//document.getElementById("form1").action = "http://127.0.0.1:8080/ProjectEtudiant/ServletPhva1";
+	document.form1.action = "http://127.0.0.1:8080/ProjectAJEE/ServletDecoAdmin";
+	document.form1.submit();
 }
 </script>
