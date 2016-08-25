@@ -64,7 +64,7 @@ function verifMdp1(champ) {
 }
 
 function verifMdp2(champ) {
-	if (mdp1.value == champ.value) {
+	if (document.getElementById("MDP1").value == document.getElementById("MDP2").value) {
 		surligne(champ, false);
 		return true;
 	} else {
