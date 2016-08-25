@@ -21,6 +21,17 @@
                 <% 
 		ListPersonne listPersonne = null;
 		Object o = session.getAttribute("listPersonne");
+		String noSerieHtml = request.getParameter("noSerie");
+		String noSerie = (String) session.getAttribute("noSerie");
+		Object p = session.getAttribute("Personne");
+		Personne perso=null;
+		
+		if (p instanceof Personne){
+			perso = (Personne)p;
+		}
+		
+		if (noSerie.equals(noSerieHtml) && perso.isAdmin()){
+			
 		
 		if(o instanceof ListPersonne){
 			listPersonne = (ListPersonne) o;
@@ -35,23 +46,26 @@
 			<td><%=personne.getNom() %></td>
 			<td><%=personne.getMail() %></td>
 			<td><input type="submit" name="afficher" value="afficher"></td>
+			<input type="hidden" name="noSerie" value="<%=noSerie%>">
 			</form>
 		</tr>
 		
 	<% 
-		}	
+		}
+		
+		}
 	%>
             </table>
                 <div id="retour">
                 <form action=http://localhost:8080/ProjectJMST/RetourMenu method="post">
                     <input type="submit" value="retour">
-                    <input type="hidden" name="noSerie" value="%%noSerie%%">
+                    <input type="hidden" name="noSerie" value="<%=noSerie%>">
                 </form>
                 </div>
                 <div id="deco">
                 <form action=http://localhost:8080/ProjectJMST/ServletDeco method="post">
                     <input type="submit" value="deconnexion">
-                    <input type="hidden" name="noSerie" value="%%noSerie%%">
+                    <input type="hidden" name="noSerie" value="<%=noSerie%>">
                 </form>
                 </div>
             </div>

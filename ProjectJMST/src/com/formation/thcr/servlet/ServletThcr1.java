@@ -49,7 +49,12 @@ public class ServletThcr1 extends HttpServlet {
 		HttpSession session = request.getSession();
 		Object o = session.getAttribute("listPersonne");
 		ListPersonne listPersonne = null;
+		
+		String noSerieHtml = request.getParameter("noSerie");
+		String noSerie = (String) session.getAttribute("noSerie");
 
+		if (noSerieHtml.equals(noSerie)) {
+		
 		if (o instanceof ListPersonne) {
 			listPersonne = (ListPersonne) o;
 		}
@@ -208,10 +213,14 @@ public class ServletThcr1 extends HttpServlet {
 			if (l.contains("id=\"kmestime")) {
 				l = l.replace(model, ">" + kmestime + "</td>");
 			}
+			if (l.contains("%%noSerie%%")) {
+				l = l.replace("%%noSerie%%", noSerie);
+			}
 			response.getWriter().println(l);
 			l = br.readLine();
 		}
 		br.close();
+		}
 	}
 
 	/**

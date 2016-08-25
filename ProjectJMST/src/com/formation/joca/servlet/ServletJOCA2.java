@@ -47,7 +47,6 @@ public class ServletJOCA2 extends HttpServlet {
 		if (personne instanceof Personne) {
 			perso = (Personne) personne;
 		}
-		System.out.println(perso.getNom());
 		
 		if (noSerieHtml.equals(noSerie)) {
 			BufferedReader lecture = null;

@@ -46,11 +46,13 @@ public class ServletThcr2 extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		HttpSession session = request.getSession();
-		Object noSerie = session.getAttribute("noSerie");
+		String noSerie = (String)session.getAttribute("noSerie");
 		String noSerieHtml = request.getParameter("noSerie");
 		
 		ListPersonne listPersonne = null;
 		Object o = session.getAttribute("listPersonne");
+		
+		if (noSerieHtml.equals(noSerie)) {
 		
 		if(o instanceof ListPersonne){
 			listPersonne = (ListPersonne) o;
@@ -67,6 +69,7 @@ public class ServletThcr2 extends HttpServlet {
 			tableConstruct += "\t\t\t\t\t<td>" + "<input type=\"hidden\" name=\"mail\" value=\"" + personne.getMail() +"\">" + personne.getMail() +"</td>\n";
 			tableConstruct += "\t\t\t\t\t<input type=\"hidden\" name=\"%%noSerie%%\" value=\"%%noSerie%%\">\n";
 			tableConstruct += "\t\t\t\t\t<td id=\"afficher\" type=\"text\"><input type=\"submit\" value=\"afficher\"></td>\n";
+			tableConstruct += "\t\t\t\t\t<input type=\"hidden\" name=\"noSerie\" value=\"%%noSerie%%\">";
             tableConstruct += "\t\t\t\t</tr>\n\t\t\t\t</form>\n";
 		}
 		
@@ -82,10 +85,14 @@ public class ServletThcr2 extends HttpServlet {
 				l=l.trim();
 				l=l.replace("<tr id=\"consctructTable\">", tableConstruct);
 			} 
+			if (l.contains("%%noSerie%%")) {
+				l = l.replace("%%noSerie%%", noSerie);
+			}
 			response.getWriter().println(l);
 			l = br.readLine();
 		}
 		br.close();
+		}
 	}
 
 	/**
