@@ -27,7 +27,7 @@ public class Servletmesdocuments extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request,
 	 *      HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		/**A activer quand on aura fait le "DoGet" avec notre "HttpSession" et le "noSerie"*/		
 //		String noSerie = request.getParameter("noSerie");
@@ -38,7 +38,7 @@ public class Servletmesdocuments extends HttpServlet {
 //			if (noSerie != null && !noSerie.equals("%%noSerie%%")) {
 		
 				/**Lecture Haut de page HTML*/
-				File fileHaut = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/WEB-INF/com/formation/ajee/page1/HautPage.html");
+				File fileHaut = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/src/ajee/page1/HautPage.html");
 				BufferedReader bufReadHaut = null;
 				bufReadHaut = new BufferedReader(new FileReader(fileHaut));
 				String lineHaut = bufReadHaut.readLine();
@@ -58,7 +58,7 @@ public class Servletmesdocuments extends HttpServlet {
 //					lineJS = bufReadJS.readLine();
 //				}
 //				bufReadJS.close();
-				File fileJS1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/WEB-INF/com/formation/ajee/js/JSBandeauAdmin.html");
+				File fileJS1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/src/ajee/js/JSBandeauAdmin.html");
 				 BufferedReader bufReadJS1 = null;
 				 bufReadJS1 = new BufferedReader(new FileReader(fileJS1));
 				 String lineJS1 = bufReadJS1.readLine();
@@ -69,7 +69,7 @@ public class Servletmesdocuments extends HttpServlet {
 				 bufReadJS1.close();
 				
 				/**Lecture page ActivConsulting */
-				File fileActiv = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/WEB-INF/com/formation/ajee/page1/MenuActiv.html");
+				File fileActiv = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/src/ajee/page1/MenuActiv.html");
 				BufferedReader bufReadActiv = null;
 				bufReadActiv = new BufferedReader(new FileReader(fileActiv));
 				String lineActiv = bufReadActiv.readLine();
@@ -80,7 +80,7 @@ public class Servletmesdocuments extends HttpServlet {
 				bufReadActiv.close();
 				
 				/**Seule Partie qui va vraiment changer selon les pages (penser aux controles si necessaire) */
-				File fileDoc = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/WEB-INF/com/formation/ajee/page1/BandeauAdmin.html");
+				File fileDoc = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/src/ajee/page1/BandeauAdmin.html");
 				BufferedReader bufReadDoc = null;
 				bufReadDoc = new BufferedReader(new FileReader(fileDoc));
 				String lineDoc = bufReadDoc.readLine();
@@ -90,7 +90,7 @@ public class Servletmesdocuments extends HttpServlet {
 				}
 				bufReadDoc.close();
 				
-				File fileDoc1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/WEB-INF/com/formation/ajee/page1/Documents.html");
+				File fileDoc1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/src/ajee/page1/Documents.html");
 				BufferedReader bufReadDoc1 = null;
 				bufReadDoc1 = new BufferedReader(new FileReader(fileDoc1));
 				String lineDoc1 = bufReadDoc1.readLine();
@@ -101,7 +101,7 @@ public class Servletmesdocuments extends HttpServlet {
 				bufReadDoc1.close();
 				
 				/**Lecture bas de page */
-				File fileBas = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/WEB-INF/com/formation/ajee/page1/BasPage.html");
+				File fileBas = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/src/ajee/page1/BasPage.html");
 				BufferedReader bufReadBas = null;
 				bufReadBas = new BufferedReader(new FileReader(fileBas));
 				String lineBas = bufReadBas.readLine();
