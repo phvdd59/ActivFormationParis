@@ -1,4 +1,4 @@
-package com.formation.soka.ctr;
+package com.formation.soka.a;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -6,6 +6,7 @@ import java.util.TreeMap;
 
 public class ExoAlgo5 implements com.formation.phva.inter.InterAlgo5 {
 	/*	
+	 * 
 	 * Besoin : Le service marketing de IKAE souhaite connaître ses n meubles,
 	 * 			d'un certain type, les plus vendues
 	 * 			il a à sa disposition issue de la bbd un tableau contenant tous les articles 

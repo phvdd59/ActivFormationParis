@@ -2,13 +2,29 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Formulaire</title>
+<title>Identification Administrateur</title>
 <link href="http://www.activconsult-ing.com/Home.css" rel="stylesheet"
 	type="text/css">
 <script type="text/javascript">
-	function maFonction() {
-		//var prenom = confirm("Félicitation! Vous venez de créer/modifier votre compte!");
-		location.href = "http://www.souadkad.fr/soka/pageActiveFormulaire_part2_coordonnees_personnelles.html";
+	function ctrIdent() {
+		// 		var nom = "Bonjour";
+		// 		alert(nom.toUpperCase());
+		var prenom = prompt("Félicitation! Vous venez de créer/modifier votre compte!");
+		// 		confirm("Votre prenom est : " + prenom);
+		// 		//Apres avoir confirmé le prenom 
+		// 		var v = document.getElementById("totoo");
+		// 		v.style.color = "red";
+		location.href = "http://www.souadkad.fr/soka/pageActiveFormulaire.html";
+	}
+	function ctrIdent2() {
+		// 		var nom = "Bonjour";
+		// 		alert(nom.toUpperCase());
+		var prenom = prompt("Félicitation! Vous venez de créer/modifier votre compte!");
+		// 		confirm("Votre prenom est : " + prenom);
+		// 		//Apres avoir confirmé le prenom 
+		// 		var v = document.getElementById("totoo");
+		// 		v.style.color = "red";
+		location.href = "http://www.souadkad.fr/soka/pageActiveGestionDesDocs.html";
 	}
 </script>
 </head>
@@ -83,33 +99,20 @@
 		<div id="tlogo">CENTRE DE FORMATION</div>
 		<div id="info2">
 			<!-- zone disponible -->
-			<!-- 			<form= action:"http://www.souadkad.fr/soka/identification.html"></form> -->
-			<form  action="http:localhost:8080/ProjectEtudiant/ServletSoka" method="POST">
-			<input type="hidden" value="%%noSerie%%" name="noSerie" />
-				<table border="1">
-					<caption>
-						<h1>Demande d'inscription</h1>
-					</caption>
-					<tr>
-						<th colspan="4" style="width: 627px;">Identifiant</th>
-						<th style="width: 273px; height: 25px; color:;"><input
-							type="text" name="identifiant" value='%%pseudo%%' style="width: 270px;"></th>
-					</tr>
-					<tr>
-						<th colspan="4" style="width: 627px;">Mot de passe</th>
-						<th style="width: 273px; height: 25px; color:;"><input
-							type="password" name="identifiant" value='%%mdp%%' style="width: 270px;"></th>
-					</tr>
-					<tr>
-						<th colspan="4" style="width: 627px;">Mot de passe</th>
-						<th style="width: 273px; height: 25px; color:;"><input
-							type="password" name="identifiant" value='' style="width: 270px;"></th>
-					</tr>
-				</table>
-				
-				<input type="submit" value="valider" />
-			</form>
-			<!-- 			<input type="button" value="Suivant" onclick="maFonction()"></input>; -->
+			<table border="2">
+				<caption>
+					<h1>Menu Utilisateur</h1>
+				</caption>
+				<tr>
+					<td colspan="2"><input type="submit" value="Mon Compte"
+						onclick="ctrIdent()" style="width: 445px;" /></td>
+				</tr>
+				<tr>
+					<td colspan="2"><input type="submit"
+						value="Gestion des documents" onclick="ctrIdent2()"
+						style="width: 445px;" /></td>
+				</tr>
+			</table>
 		</div>
 		<div id="fpage2">
 			<img

@@ -1,6 +1,6 @@
 package com.formation.soka.main;
 
-import com.formation.soka.ctr.ExoAlgo5;
+import com.formation.soka.a.ExoAlgo5;
 
 public class MainExoAlgo5 {
 

@@ -5,7 +5,9 @@ div {
 	text-decoration: blink;
 	visibility: inherit;
 }
-
+legend{
+	font-size: xx-small;
+}
 .toti {
 	font-size: xx-large;
 	text-align: center;

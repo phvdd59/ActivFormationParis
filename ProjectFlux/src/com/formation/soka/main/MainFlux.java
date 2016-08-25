@@ -12,9 +12,9 @@ public class MainFlux {
 
 	public static void main(String[] args) {
 		MainFlux m = new MainFlux();
-		//m.init();
+		m.init();
 		//m.initEcriture();
-		m.initLecture();
+		//m.initLecture();
 	}
 
 	private void initLecture() {
