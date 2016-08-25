@@ -20,7 +20,7 @@
 Eleve <%= nom %> <br/>
 Nombre de bonnes réponses <%= nbr %><br/>
 	voulez vous un Autre exercice pour ?<br/>
-<a href="http://localhost:8080/ProjectJSP/jsp/sessionQ.jsp">"<%= nom %>"</a><br/>
+<a href="http://localhost:8080/ProjectEtudiant/com/formation/thde/jsp/sessionQThde.jsp">"<%= nom %>"</a><br/>
 <a href="../html/sessionI.html"> un Autre Eleve</a>
 
 

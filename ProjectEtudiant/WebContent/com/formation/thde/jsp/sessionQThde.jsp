@@ -42,7 +42,7 @@ Nombre de Bonne réponse : <%= session.getAttribute("nbBonneReponse") %><br/>
 		session.setAttribute("nb1",new Integer(n1));
 		session.setAttribute("nb2",new Integer(n2));
 		%>
-		<form method="get" action="sessionQ.jsp">
+		<form method="get" action="sessionQThde.jsp">
 			question <%= nq %> : &nbsp<%= n1 %> * <%= n2 %><br/>
 			<input type="text" name="essai" />
 			<br/>
@@ -53,7 +53,7 @@ Nombre de Bonne réponse : <%= session.getAttribute("nbBonneReponse") %><br/>
 		session.setAttribute("nb1",new Integer(0));
 		session.setAttribute("nb2",new Integer(1));
 		%>
-		<jsp:forward page="sessionR.jsp"/>
+		<jsp:forward page="sessionRThde.jsp"/>
 		<%
 	}
 %>
