@@ -20,8 +20,6 @@ function verifTaille(champ, min, max) {
 	if (champ.value.length <= max && champ.value.length >= min) {
 		return true;
 	} else {
-		// alert("Le champ doit comporter entre " + min + " et " + max
-		// + " caracteres");
 		return false;
 	}
 }
@@ -65,15 +63,15 @@ function verifMdp1(champ) {
 	}
 }
 
-// function verifMdp2(champ) {
-// if (mdp1.value == champ.value) {
-// surligne(champ, false);
-// return true;
-// } else {
-// surligne(champ, true);
-// return false;
-// }
-// }
+function verifMdp2(champ) {
+	if (mdp1.value == champ.value) {
+		surligne(champ, false);
+		return true;
+	} else {
+		surligne(champ, true);
+		return false;
+	}
+}
 
 function verifAdresse(champ) {
 	if (verifVide(champ)) {
@@ -175,9 +173,9 @@ function verifInscription1(f) {
 	if (verifMdp1(f.mdp1) == false) {
 		alerttotal = alerttotal + "Probleme mdp \n";
 	}
-	// if (verifMdp2(f.mdp2)==false) {
-	// alerttotal = alerttotal+"Probleme mdp2 \n";
-	// }
+	 if (verifMdp2(f.mdp2)==false) {
+	 alerttotal = alerttotal+"Probleme mdp2 \n";
+	 }
 	if (verifIdentifiant(f.identifiant) == false || verifMdp1(f.mdp1) == false) {
 		alert(alerttotal);
 		return false;
@@ -246,19 +244,15 @@ function verifEtatCivil(f) {
 function verifRemuneration(f) {
 	var alerttotal = "";
 	if (verifNom(f.Fonction) == false) {
-		alert("1");
 		alerttotal = alerttotal + "Probleme fonction \n";
 	}
 	if (verifNom(f.Position) == false) {
-		alert("2");
 		alerttotal = alerttotal + "Probleme position \n";
 	}
 	if (verifSalaire(f.SalaireS) == false) {
-		alert("3");
 		alerttotal = alerttotal + "Probleme salaire \n";
 	}
 	if (verifCoefficient(f.Coefficient) == false) {
-		alert("4");
 		alerttotal = alerttotal + "Probleme coef \n";
 	}
 	if (verifNom(f.Fonction) == false || verifNom(f.Position) == false
