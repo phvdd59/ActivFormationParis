@@ -221,12 +221,21 @@ public class Servletidentification extends HttpServlet {
 
 			}
 		} else {
-			File f = new File("C:/DevFormation/GITActivFormationParis/ProjectEtudiant/WebContent/ajee/page/Identification.html");
-			BufferedReader bIn = new BufferedReader(new FileReader(f));
-			String l = bIn.readLine();
-			while (l != null) {
-				resp.getWriter().println(l);
-				l = bIn.readLine();
+			File file = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page/Identification.html");
+			//	System.out.println(file.getCanonicalPath());
+			int noserie = (int) Math.random() * Integer.MAX_VALUE;
+			HttpSession session1 = req.getSession(true); //true pour garder le meme numero de session qui vient detre créé
+			String id1 = session1.getId(); //donne le numero de session
+			session1.setAttribute("noserie", noserie);
+
+			BufferedReader bIn = new BufferedReader(new FileReader(file));
+			String line = bIn.readLine();
+			while (line != null) {
+				if (line.contains("%%noserie%%")) {
+					line = line.replace("%%noserie%%", Integer.toString(noserie));
+				}
+				resp.getWriter().println(line);
+				line = bIn.readLine();
 			}
 			bIn.close();
 		}
