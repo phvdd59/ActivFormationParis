@@ -221,7 +221,7 @@ public class Servletidentification extends HttpServlet {
 
 			}
 		} else {
-			File f = new File("C:/DevFormation/GITActivFormationParis/ProjectEtudiant/WebContent/ajee/page/Identification.html");
+			File f = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page/Identification.html");
 			BufferedReader bIn = new BufferedReader(new FileReader(f));
 			String l = bIn.readLine();
 			while (l != null) {
