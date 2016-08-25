@@ -5,6 +5,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
@@ -72,6 +74,12 @@ public class Servlet1 extends HttpServlet {
 		// récupérer les paramètres.
 		String pseudo = req.getParameter("identifiant");
 		String noSerie = req.getParameter("noSerie");
+
+		ServletContext context = this.getServletContext();
+		RequestDispatcher dispatcher = context.getRequestDispatcher("/ServletPersonne");
+		dispatcher.forward(req, resp);
+
+		/*
 		HttpSession session = req.getSession();
 		if (session != null) {
 			System.out.println(session.getId());
@@ -125,8 +133,10 @@ public class Servlet1 extends HttpServlet {
 				resp.getWriter().append("Served at: ").append(req.getContextPath());
 			}
 		} else {
-			resp.getWriter().append("Served at: ").append(req.getContextPath());
-		}
+			context = this.getServletContext();
+			dispatcher = context.getRequestDispatcher("/ServletPersonne");
+			dispatcher.forward(req, resp);
+		}*/
 	}
 
 }
