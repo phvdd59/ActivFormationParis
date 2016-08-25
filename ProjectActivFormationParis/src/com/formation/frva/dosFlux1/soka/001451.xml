@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Meuble [
+		<!ELEMENT Meubles (ListMeuble*)>
+			<!ELEMENT ListeMeuble (Meuble+)>
+			<!ELEMENT Meuble (Elmt+, Notice?)>
+				<!ATTLIST Meuble nom CDATA #IMPLIED>
+				<!ATTLIST Meuble ref CDATA #REQUIRED>
+				<!ATTLIST Meuble unite (mm| cm| m| i) "mm">
+				<!ATTLIST Meuble lng CDATA #REQUIRED>
+				<!ATTLIST Meuble lar CDATA #REQUIRED>
+				<!ATTLIST Meuble hau CDATA #REQUIRED>
+				<!ELEMENT Elmt (Materiaux+)>
+				
+					<!ATTLIST Elmt nom CDATA #REQUIRED>
+					<!ATTLIST Elmt num CDATA #REQUIRED>
+					<!ATTLIST Elmt unite (mm| cm| m| i) "mm" >
+					<!ATTLIST Elmt lng CDATA #REQUIRED>
+					<!ATTLIST Elmt lar CDATA #REQUIRED>
+					<!ATTLIST Elmt hau CDATA #REQUIRED>
+				<!ELEMENT Materiaux EMPTY>
+					<!ATTLIST Materiaux type (BOIS|COMPENSE|STRATIFIE|FER|BRONZE|VERRE|TISSU|CARTON|VIDE|PLASTIQUE|CAOUTCHOU|BAMBOU|BOIS) "BOIS">
+					<!ATTLIST Materiaux pc CDATA #REQUIRED>
+				<!ELEMENT Notice (#PCDATA)>
+					
+					
+	]>
+<Meuble>
+	<ListeMeuble>
+		<Meuble nom='toto' ref='01256' unite='cm' lng='2' lar='5' hau='8'>
+			<Elmt nom='toto' num='01256' unite='cm' lng='2' lar='5' hau='8'>
+				<Materiaux type='COMPENSE' pc='23' />
+			</Elmt>
+			<Elmt nom='titi' num='8962' unite='i' lng='2' lar='5' hau='8'>
+				<Materiaux type='FER' pc='23' />
+			</Elmt>
+			<Notice>
+				Notice à lire attentivement
+			</Notice>
+		</Meuble>
+		<Meuble nom='toto2' ref='01256' unite='cm' lng='2' lar='5' hau='8'>
+			<Elmt nom='toto2' num='01256' unite='cm' lng='2' lar='5' hau='8'>
+				<Materiaux type='COMPENSE' pc='23' />
+			</Elmt>
+			<Elmt nom='titi2' num='8962' unite='i' lng='2' lar='5' hau='8'>
+				<Materiaux type='FER' pc='23' />
+			</Elmt>
+			<Notice>
+				Notice à lire attentivement
+			</Notice>
+		</Meuble>
+	</ListeMeuble>
+</Meuble>

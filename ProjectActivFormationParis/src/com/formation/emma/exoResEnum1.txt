@@ -1,0 +1,13 @@
+emma:Enum
+ 
+emma test2ClasseEnum (1/1)
+emma testMajMATERIAUX (1/1)
+emma testMajBOIS (1/1)
+emma testCastFloat (1/1)
+emma testPrivateFinal (0/1)
+emma testPrivatePourcent (1/1)
+emma testNbParamConstructeur (1/1)
+emma testSetPourcent (1/1)
+emma testMajSOLIDITE (1/1)
+emma testMajNORMAL (1/1)
+emma NOTE : (9/10) = 18 / 20

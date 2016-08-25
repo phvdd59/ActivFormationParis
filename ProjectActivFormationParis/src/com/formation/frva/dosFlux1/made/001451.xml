@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListeMeuble>
+			<Meuble nom='porsku'  ref='001451' unite='cm'  lng='50'  lar='40'  hau='80'>
+				<Elmt nom='porte'  num='2'  unite='cm'  lng='5'  lar='20'  hau='80'>
+					<Materiaux type='BOIS' pc='20'/>
+				</Elmt>
+				<Elmt nom='tiroir'  num='2'  unite='cm'  lng='10'  lar='20'  hau='20'>
+					<Materiaux type='BAMBOU' pc='20'/>
+				</Elmt>
+				<Notice >'("-èé")Attention lors de la manipulation</Notice>
+			</Meuble>
+			
+			<Meuble nom='gvtyj' ref='001451' unite='m'  lng='2'  lar='.2'  hau='1'>
+				<Elmt nom='elmt1'  num='3'  unite='m'  lng='2'  lar='.5'  hau='.5'>
+					<Materiaux type='BAMBOU' pc='15'/>
+				</Elmt>
+				<Elmt nom='elmt2'  num='10'  unite='mm'  lng='100'  lar='200'  hau='90'>
+					<Materiaux type='' pc='10'/>
+				</Elmt>
+				<Notice >Notice2'((''-))</Notice>
+			</Meuble>
+			
+			<Meuble   ref='001451' unite='cm'  lng='200'  lar='220'  hau='20'>
+				<Elmt nom='elmt1'  num='3'    lng='20'  lar='50'  hau='50'>
+					<Materiaux  pc='15'/>
+				</Elmt>
+				<Elmt nom='tiroir'  num='3'  unite=''  lng='20'  lar='35'  hau='40'>
+					<Materiaux type='COMPENSE' pc='10'/>
+				</Elmt>
+			</Meuble>
+
+
+
+
+
+
+
+
+</ListeMeuble>
