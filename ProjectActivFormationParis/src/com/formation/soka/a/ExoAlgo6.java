@@ -1,4 +1,4 @@
-package com.formation.soka.ctr;
+package com.formation.soka.a;
 
 import com.formation.phva.inter.InterAlgo6;
 

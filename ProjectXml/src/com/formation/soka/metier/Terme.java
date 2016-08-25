@@ -44,7 +44,7 @@ public class Terme {
 		this.sens = sens;
 	}
 
-	public String epuration(String txt) {
+	public static String epuration(String txt) {
 
 		//		String tex = txt.replaceAll("\\s+", " ");
 		//		
@@ -80,7 +80,6 @@ public class Terme {
 		}
 		return sRet.trim().toUpperCase();
 	}
-	
 
 	@Override
 	public String toString() {

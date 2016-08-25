@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Terme [
+<!ELEMENT ArrayList (ArrayListTerme*)>
+<!ELEMENT ArrayListTerme (Terme*)>
+<!ELEMENT Terme (#PCDATA)>
+	<!ATTLIST Terme x CDATA #REQUIRED>
+	<!ATTLIST Terme y CDATA #REQUIRED>
+	<!ATTLIST Terme sens (HORIZONTAL | VERTICAL) #REQUIRED>
+
+]>
+<ArrayList>
+	<ArrayListTerme>
+		<Terme x='5' y='9' sens='VERTICAL'>
+			WAGONSimple
+		</Terme>
+		<Terme x='1' y='2' sens='HORIZONTAL'>
+			WAGONDouble
+		</Terme>
+	</ArrayListTerme>
+	<ArrayListTerme>
+		<Terme x='5' y='9' sens='VERTICAL'>
+			WAGONSimple
+		</Terme>
+		<Terme x='1' y='2' sens='HORIZONTAL'>
+			WAGONDouble
+		</Terme>
+	</ArrayListTerme>
+</ArrayList>

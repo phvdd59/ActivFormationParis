@@ -8,7 +8,7 @@ ol {
 	color: blue;
 }
 </style>
-<title>Les Fables de Lafontaine</title>
+<title>Ma Page</title>
 </head>
 <body>
 	<div>
@@ -55,16 +55,39 @@ ol {
 			src="file://C:\DevFormation\GITActivFormationParis\ProjectHtml\html\com\formation\soka\mondessin.png"
 			style="width: 200px; height: 193px;"></img>
 	</div>
+		<div style="">
+		<img alt="Je suis une image"
+			src="file://C:\DevFormation\GITActivFormationParis\ProjectHtml\html\Formulaire.PNG"
+			style="width: 200px; height: 193px;"></img>
+	</div>
 	<div
 		style="width: 320px; height: 170px; background-image: url('file://C:\DevFormation\GITActivFormationParis\ProjectHtml\html\com\formation\soka\index.png'); position: absolute; left: 230px; top: 60px;">
 	</div>
-	<form action="trait.java">
+	<form action="trait.java"> 
 		<fieldset>
-			<legend>Informations</legend>
-			Nom: <input type="text" name="nom" /><br /> 
-			Lieu: <input type="text"
-				name="lieu" /><br /> <input type="submit" value="Valider" />
+			<legend><h1>Informations</h1></legend>
+			<div class=§2>Pseudo: <input type="text" name="Pseudo" /><br /> 
+			Mdp: <input type="text" name="Mdp" /><br />
+			Nom: <input type="text" name="Nom" /><br />
+			Prenom: <input type="text" name="Prenom" /><br />
+			mail: <input type="text" name="mail" /><br />
+			Telephone: <input type="tel" name="Telephone" /><br />
+			Adresse: <input type="text" name="Adresse" /><br />
+			Coordonnées bancaire: <input type="number" name="Coordonnées bancaire" />
+			<input type="submit" value="Valider" /><br />
+			Date de naissance: <input type="date" name="Date de naissance" /><br />
+			Lieu de naissance: <input type="text" name="Lieu de naissance" /><br /> 
+			Sexe <input type="radio" name="reponse" value="oui" checked> F
+			<input type="radio" name="reponse" value="non"> M <br /> 
+			<input type="submit" value="Valider" /></div>
 		</fieldset>
+	</form>
+
+	<form>
+		<input type="radio" name="reponse" value="oui" checked> OUI <br />
+		<input type="radio" name="reponse" value="non"> NON <br /> 
+		<input type="radio" name="reponse" value="non"> A VOIR <br />
+		<input type="submit" value="Valider" />
 	</form>
 </body>
 </html>
