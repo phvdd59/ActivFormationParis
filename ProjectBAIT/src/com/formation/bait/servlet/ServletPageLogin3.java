@@ -151,30 +151,34 @@ public class ServletPageLogin3 extends HttpServlet {
 		// Contrôler les params
 		if (pseudo != null) {
 
-			File file2 = new File("C:/DevFormation/GITActivFormationParis/ProjectEtudiant/WebContent/WEB-INF/com/formation/bait/pages/Login.html");
-			BufferedReader bIn2 = null;
+			File file2 = new File("C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/Login.html");
+			File file3 = new File("C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/PageCompte2.html");
+					BufferedReader bIn2 = null;
 			InputStreamReader inputStreamReader2 = null;
+			
+			
 			if (pseudo.contains("Candidat")) {
-				try {
-					inputStreamReader2 = new InputStreamReader(new FileInputStream(file2), "UTF-8");
-					bIn2 = new BufferedReader(inputStreamReader2);
-					String line2 = bIn2.readLine();
-					while (line2 != null) {
-						// System.out.println(line);
-						response.getWriter().append(line2 + "\n");
-						line2 = bIn2.readLine();
-					}
-				} catch (FileNotFoundException e) {
-					e.printStackTrace();
-				} catch (IOException e) {
-					e.printStackTrace();
-				} finally {
-					try {
-						bIn2.close();
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
-				}
+				 response.getRequestDispatcher("C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/PageCompte2.html").forward(request, response);
+//				try {
+//					inputStreamReader2 = new InputStreamReader(new FileInputStream(file3), "UTF-8");
+//					bIn2 = new BufferedReader(inputStreamReader2);
+//					String line2 = bIn2.readLine();
+//					while (line2 != null) {
+//						// System.out.println(line);
+//						response.getWriter().append(line2 + "\n");
+//						line2 = bIn2.readLine();
+//					}
+//				} catch (FileNotFoundException e) {
+//					e.printStackTrace();
+//				} catch (IOException e) {
+//					e.printStackTrace();
+//				} finally {
+//					try {
+//						bIn2.close();
+//					} catch (IOException e) {
+//						e.printStackTrace();
+//					}
+//				}
 			} else {
 
 				try {

@@ -33,9 +33,11 @@ public class ServletPageSituation2 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-		File file = new File("C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/hautDePageActiv.html");
+		File file = new File(
+				"C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/hautDePageActiv.html");
 		BufferedReader bIn = null;
 		InputStreamReader inputStreamReader = null;
 		try {
@@ -60,7 +62,8 @@ public class ServletPageSituation2 extends HttpServlet {
 			}
 		}
 
-		File file2 = new File("C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/Situation.html");
+		File file2 = new File(
+				"C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/Situation.html");
 		BufferedReader bIn2 = null;
 		InputStreamReader inputStreamReader2 = null;
 		try {
@@ -83,7 +86,8 @@ public class ServletPageSituation2 extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		File file3 = new File("C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/basDePageActiv.html");
+		File file3 = new File(
+				"C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/basDePageActiv.html");
 		BufferedReader bIn3 = null;
 		InputStreamReader inputStreamReader3 = null;
 		try
@@ -120,8 +124,16 @@ public class ServletPageSituation2 extends HttpServlet {
 		}
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		File file = new File("C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/hautDePageActiv.html");
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		File file = new File(
+				"C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/hautDePageActiv.html");
 		BufferedReader bIn = null;
 		InputStreamReader inputStreamReader = null;
 		try {
@@ -150,7 +162,8 @@ public class ServletPageSituation2 extends HttpServlet {
 		// Contrôler les params
 		if (pseudo != null) {
 
-			File file2 = new File("C:/DevFormation/GITActivFormationParis/ProjectEtudiant/WebContent/WEB-INF/com/formation/bait/pages/Login.html");
+			File file2 = new File(
+					"C:/DevFormation/GITActivFormationParis/ProjectEtudiant/WebContent/WEB-INF/com/formation/bait/pages/Login.html");
 			BufferedReader bIn2 = null;
 			InputStreamReader inputStreamReader2 = null;
 			if (pseudo.contains("Candidat")) {
@@ -201,7 +214,8 @@ public class ServletPageSituation2 extends HttpServlet {
 			}
 		}
 
-		File file3 = new File("C:/DevFormation/GITActivFormationParis/ProjectEtudiant/WebContent/WEB-INF/com/formation/anfr/pages/basDePageActiv.html");
+		File file3 = new File(
+				"C:/DevFormation/GITActivFormationParis/ProjectEtudiant/WebContent/WEB-INF/com/formation/anfr/pages/basDePageActiv.html");
 		BufferedReader bIn3 = null;
 		InputStreamReader inputStreamReader3 = null;
 		try
@@ -236,7 +250,5 @@ public class ServletPageSituation2 extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-
 	}
-
 }
