@@ -1,20 +1,37 @@
 <ul id="menu-deroulant">
 
-	<li><form action="http://localhost:8080/ProjectEtudiant/Servlet">Nom d'identification</form>
+	<li><a>Nom d'identification</a>
 	
 	</li>
-		<li><form>Mon Compte</form>
+		<li><a>Mon Compte</a>
 		<ul>
-			<li ><form action="http://localhost:8080/ProjectEtudiant/Servletfichedidentification">Fiche d'identification</form></li>
-			<li><form action="http://localhost:8080/ProjectEtudiant/Servletchangementdemotdepasse">Changement de mot de passe</form></li>
+			<li ><span onclick="appelPostFiche()">Fiche d'identification</span>	<div>
+		<form id="formFiche" name="formFiche" action="/" method="POST">
+		</form>
+	</div></li>
 		
+			<li><span onclick="appelPostMdp()">Changement de mot de passe</span>	<div>
+		<form id="formMdp" name="formMdp" action="/" method="POST">
+		</form>
+	</div>
+	<li><span onclick="appelPostAccueil()">Accueil-chargement profil</span>	<div>
+		<form id="formAccueil" name="formAccueil" action="/" method="POST">
+		</form>
+	</div></li>
 		</ul>
 	</li>
-	<li><form action="http://localhost:8080/ProjectEtudiant/Servletmesdocuments">Mes documents</form>
-		
+	<li><span onclick="appelPostDoc()">Mes documents</span>
+		<div>
+		<form id="formDoc" name="formDoc" action="/" method="POST">
+		</form>
+	</div>	
 	</li>
+	
 	<!-- -->
-	<li><form action="http://localhost:8080/ProjectEtudiant/Servletdeconnexion">Déconnexion</form>
-		
+	<li><span onclick="appelPostDeco()">Déconnexion</span>
+		<div>
+		<form id="formDeco" name="formDeco" action="/" method="POST">
+		</form>
+	</div>	
 	</li>
 </ul>
