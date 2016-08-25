@@ -14,8 +14,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
-
 @WebServlet(value = "/ServletLoginTest", name = "ServletLoginTest")
 public class ServletLoginTest extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -76,8 +74,7 @@ public class ServletLoginTest extends HttpServlet {
 					"C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/Login.html");
 			BufferedReader bIn2 = null;
 			InputStreamReader inputStreamReader2 = null;
-			System.out.println(pseudo);
-		//	System.out.println(session.getId());
+		System.out.println(session.getId());
 			if (pseudo.contains("Candidat")) {
 				try {
 					inputStreamReader2 = new InputStreamReader(new FileInputStream(file2), "UTF-8");

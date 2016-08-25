@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -8,8 +8,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<!-- sessionQ.jsp -->
-<%
+	<!-- sessionQ.jsp -->
+	<%
 int nq=0;
 if (request.getParameter("nom") != null){
 	session.setAttribute("nomEleve",request.getParameter("nom"));
@@ -31,9 +31,11 @@ if (request.getParameter("nom") != null){
 	}
 }
 %>
-Eleve : <%= session.getAttribute("nomEleve") %> <br/>
-Nombre de Bonne réponse : <%= session.getAttribute("nbBonneReponse") %><br/>
-<% 
+	Eleve :
+	<%= session.getAttribute("nomEleve") %>
+	<br /> Nombre de Bonne réponse :
+	<%= session.getAttribute("nbBonneReponse") %><br />
+	<% 
 	session.setAttribute("nomEleve",session.getAttribute("nomEleve"));
 	nq=((Integer) session.getAttribute("numQuestion")).intValue();
 	if (nq <= 3) {
@@ -42,19 +44,21 @@ Nombre de Bonne réponse : <%= session.getAttribute("nbBonneReponse") %><br/>
 		session.setAttribute("nb1",new Integer(n1));
 		session.setAttribute("nb2",new Integer(n2));
 		%>
-		<form method="get" action="sessionQbeba.jsp">
-			question <%= nq %> : &nbsp<%= n1 %> * <%= n2 %><br/>
-			<input type="text" name="essai" />
-			<br/>
-			<input type="submit" value="OK" />
-		</form>
-		<% 
+	<form method="get" action="sessionQbeba.jsp">
+		question
+		<%= nq %>
+		: &nbsp<%= n1 %>
+		*
+		<%= n2 %><br /> <input type="text" name="essai" /> <br /> <input
+			type="submit" value="OK" />
+	</form>
+	<% 
 	} else {
 		session.setAttribute("nb1",new Integer(0));
 		session.setAttribute("nb2",new Integer(1));
 		%>
-		<jsp:forward page="sessionRbeba.jsp"/>
-		<%
+	<jsp:forward page="sessionRbeba.jsp" />
+	<%
 	}
 %>
 </body>
