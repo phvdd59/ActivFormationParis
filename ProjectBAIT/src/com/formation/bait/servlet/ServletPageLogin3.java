@@ -7,6 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.annotation.WebServlet;
@@ -158,8 +159,9 @@ public class ServletPageLogin3 extends HttpServlet {
 			InputStreamReader inputStreamReader2 = null;
 			
 			
-			if (pseudo.contains("Candidat")) {
-				 ((ServletRequest) response).getRequestDispatcher("C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/PageCompte2.html").forward(request, response);
+			if (pseudo.contains("Admin")) {
+				RequestDispatcher dispatcher = request.getRequestDispatcher("C:/DevFormation/GITActivFormationParis/ProjectBAIT/src/com/formation/bait/servlet/ServletPageCompte2.java");
+				dispatcher.forward(request, response);
 //				try {
 //					inputStreamReader2 = new InputStreamReader(new FileInputStream(file3), "UTF-8");
 //					bIn2 = new BufferedReader(inputStreamReader2);
