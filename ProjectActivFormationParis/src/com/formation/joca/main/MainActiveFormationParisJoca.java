@@ -4,7 +4,6 @@ import java.awt.Point;
 import java.io.File;
 import java.util.ArrayList;
 
-import com.formation.ambr.ctr.ExoAlgo5;
 import com.formation.joca.exo.CleDico;
 import com.formation.joca.exo.Dico;
 import com.formation.joca.exo.ExoAlgo1;
@@ -72,15 +71,15 @@ public class MainActiveFormationParisJoca {
 	}
 
 	private void init12() {
-		ExoAlgo5 exo = new ExoAlgo5();
-		String[] tab = { "123456001", "123456002", "123456001", "456789001", "123456003", "123456001", "123456003",
-				"123456003", "456789002", "654987001", "654987003", "123456005", "456789002", "456789002", "456789510",
-				"456789510", "789456245", "123456001" };
-		String[] tabnull = null;
-		String[] tab2 = exo.solution(tab, "456789", 2);
-		for (int i = 0; i < tab2.length; i++) {
-			System.out.println(tab2[i]);
-		}
+		/*
+		 * ExoAlgo5 exo = new ExoAlgo5(); String[] tab = { "123456001",
+		 * "123456002", "123456001", "456789001", "123456003", "123456001",
+		 * "123456003", "123456003", "456789002", "654987001", "654987003",
+		 * "123456005", "456789002", "456789002", "456789510", "456789510",
+		 * "789456245", "123456001" }; String[] tabnull = null; String[] tab2 =
+		 * exo.solution(tab, "456789", 2); for (int i = 0; i < tab2.length; i++)
+		 * { System.out.println(tab2[i]); }
+		 */
 	}
 
 	private void init10() {
