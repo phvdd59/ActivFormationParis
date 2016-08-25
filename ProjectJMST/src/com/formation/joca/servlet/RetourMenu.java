@@ -38,7 +38,7 @@ public class RetourMenu extends HttpServlet {
 			throws ServletException, IOException {
 
 		HttpSession session = request.getSession();
-		
+
 		Object personne = session.getAttribute("Personne");
 		Personne perso = null;
 		if (personne instanceof Personne) {
