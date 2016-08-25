@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -158,7 +159,7 @@ public class ServletPageLogin3 extends HttpServlet {
 			
 			
 			if (pseudo.contains("Candidat")) {
-				 response.getRequestDispatcher("C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/PageCompte2.html").forward(request, response);
+				 ((ServletRequest) response).getRequestDispatcher("C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/PageCompte2.html").forward(request, response);
 //				try {
 //					inputStreamReader2 = new InputStreamReader(new FileInputStream(file3), "UTF-8");
 //					bIn2 = new BufferedReader(inputStreamReader2);
