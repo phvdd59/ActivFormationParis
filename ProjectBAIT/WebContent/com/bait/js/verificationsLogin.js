@@ -5,18 +5,6 @@ function surligne(champ, erreur) {
 		champ.style.backgroundColor = "";
 }
 
-
-//private void validationEmail( String email ) throws Exception {
-//
-//    if ( email != null && !email.matches( "([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)" ) ) {
-//
-//        throw new Exception( "Merci de saisir une adresse mail valide." );
-//
-//    }
-//
-//}
-
-
 function verifIdentifiant(champ) {
 	if (champ.value != "Admin") {
 		surligne(champ, true);
