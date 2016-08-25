@@ -122,5 +122,5 @@ public class ServletPageCompte2 extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-
+	}
 }

@@ -65,18 +65,18 @@ public class ServletPageRemuneration2 extends HttpServlet {
 		}
 
 		String pseudo = request.getParameter("identifiant");
-		File file = new File("C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/hautDePageActiv.html");
-		BufferedReader bIn = null;
-		InputStreamReader inputStreamReader = null;
+		File fileA = new File("C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/hautDePageActiv.html");
+		BufferedReader bInA = null;
+		InputStreamReader inputStreamReaderA = null;
 		try {
-			inputStreamReader = new InputStreamReader(new FileInputStream(file), "UTF-8"); // pour
+			inputStreamReader = new InputStreamReader(new FileInputStream(fileA), "UTF-8"); // pour
 			// texte
-			bIn = new BufferedReader(inputStreamReader);
-			String line = bIn.readLine();
+			bIn = new BufferedReader(inputStreamReaderA);
+			String line = bInA.readLine();
 			while (line != null) {
 				// System.out.println(line);
 				response.getWriter().append(line + "\n");
-				line = bIn.readLine();
+				line = bInA.readLine();
 			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -148,5 +148,5 @@ public class ServletPageRemuneration2 extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-
+	}
 }

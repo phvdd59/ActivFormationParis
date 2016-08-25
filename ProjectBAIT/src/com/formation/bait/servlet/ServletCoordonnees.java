@@ -122,5 +122,5 @@ public class ServletCoordonnees extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-
+	}
 }

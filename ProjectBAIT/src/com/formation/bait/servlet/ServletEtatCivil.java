@@ -122,5 +122,5 @@ public class ServletEtatCivil extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-
+	}
 }
