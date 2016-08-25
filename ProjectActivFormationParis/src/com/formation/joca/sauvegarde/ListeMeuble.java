@@ -3,6 +3,7 @@ package com.formation.joca.sauvegarde;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -22,95 +23,138 @@ public class ListeMeuble extends ArrayList<Meuble> {
 
 	public static TRI tri;
 
-	public ListeMeuble() {
-
+	/**
+	 * 
+	 * @param fRep
+	 *            répertoire racine contenant des fichiers dans des sous
+	 *            répertoires du type 123456.xml
+	 * 
+	 */
+	public void chargeListeMeuble(File fRep) {
+		action(fRep);
 	}
 
-	public void chargeListeMeuble(File fRep) {
+	public void action(File file) {
+		if (file.exists()) {
+			if (file.isDirectory()) {
+				for (int i = 0; i < file.listFiles().length; i++) {
+					File sousFichier = file.listFiles()[i];
+					action(sousFichier);
+				}
+			} else if (verifierNom(file)) {
+				chargeXml(file);
+			} else if (!verifierNom(file)) {
+			}
+		} else {
+			//pas de fichier
+		}
+	}
 
+	public boolean verifierNom(File file) {
+		boolean result = false;
+		if (Pattern.matches("[0-9]{6}\\.xml", file.getName())) {
+			result = true;
+		}
+		return result;
 	}
 
 	public void chargeXml(File file) {
+		String refGen = file.getName().replace(".xml", "");
 		final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-
 		try {
-			DocumentBuilder builder = factory.newDocumentBuilder();
+			final DocumentBuilder builder = factory.newDocumentBuilder();
 			final Document document = builder.parse(file);
-			final Element elmtMeuble = document.getDocumentElement();
-			final NodeList nodeListeMeuble = elmtMeuble.getChildNodes();
-			if (elmtMeuble.getNodeName().equals("ListeMeuble")) {
+			final Element eListmeuble = document.getDocumentElement();
+			if (eListmeuble.getNodeName().equals("ListeMeuble")) {
+				final NodeList nListmeuble = eListmeuble.getChildNodes();
+				int nbMeuble = nListmeuble.getLength();
+				for (int i = 0; i < nbMeuble; i++) {
+					final Node nMeuble = nListmeuble.item(i);
+					if (nMeuble.getNodeType() == Node.ELEMENT_NODE) {
+						Element eMeuble = (Element) nMeuble;
+						if (eMeuble.getNodeName().equals("Meuble")) {
+							String sNom = eMeuble.getAttribute("nom");
+							String sRef = eMeuble.getAttribute("ref");
+							String sUnite = eMeuble.getAttribute("unite");
+							String sLng = eMeuble.getAttribute("lng");
+							String sLar = eMeuble.getAttribute("lar");
+							String sHau = eMeuble.getAttribute("hau");
 
-				for (int i = 0; i < nodeListeMeuble.getLength(); i++) {
-					if (nodeListeMeuble.item(i).getNodeName().equals("Meuble")) {
-						final Node nMeuble = nodeListeMeuble.item(i);
-						if (nMeuble.getNodeType() == Node.ELEMENT_NODE) {
-							Element eMeuble = (Element) nMeuble;
-							String nom = eMeuble.getAttribute("nom");
-							String ref = eMeuble.getAttribute("ref");
-							String unite = eMeuble.getAttribute("unite");
-							float lng = Float.valueOf(eMeuble.getAttribute("lng")).floatValue();
-							float lar = Float.valueOf(eMeuble.getAttribute("lar")).floatValue();
-							float hau = Float.valueOf(eMeuble.getAttribute("hau")).floatValue();
-							Meuble meuble = new Meuble(this.tri, nom, ref, unite, lng, lar, hau);
-
-							ListeElmt lstElmt = new ListeElmt();
-
-							final NodeList nodeListeElmt = eMeuble.getChildNodes();
-							for (int j = 0; j < nodeListeElmt.getLength(); j++) {
-								if (nodeListeElmt.item(j).getNodeName().equals("Elmt")) {
-									final Node nElmt = nodeListeElmt.item(j);
-									if (nElmt.getNodeType() == Node.ELEMENT_NODE) {
-										Element eElmt = (Element) nElmt;
-										int numero = Integer.valueOf(eElmt.getAttribute("num"));
-										String nomElmt = eElmt.getAttribute("nom");
-										String uniteElmt = eElmt.getAttribute("unite");
-										float lngElmt = Float.valueOf(eElmt.getAttribute("lng")).floatValue();
-										float larElmt = Float.valueOf(eElmt.getAttribute("lar")).floatValue();
-										float hauElmt = Float.valueOf(eElmt.getAttribute("hau")).floatValue();
-										int nb = 1;
-										if (eElmt.hasAttribute("nb")) {
-											nb = Integer.valueOf(eElmt.getAttribute("nb"));
+							String ref = sRef;
+							float lng = Float.valueOf(sLng).floatValue();
+							float lar = Float.valueOf(sLar).floatValue();
+							float hau = Float.valueOf(sHau).floatValue();
+							Meuble meuble = null;
+							if (sUnite == null) {
+								meuble = new Meuble(tri, sNom, refGen + ref, lng, lar, hau);
+							} else {
+								meuble = new Meuble(tri, sNom, refGen + ref, sUnite, lng, lar, hau);
+							}
+							final NodeList nListElement = eMeuble.getChildNodes();
+							int nbElement = nListElement.getLength();
+							for (int j = 0; j < nbElement; j++) {
+								final Node nElement = nListElement.item(j);
+								if (nElement.getNodeType() == Node.ELEMENT_NODE) {
+									Element eElmt = (Element) nElement;
+									if (eElmt.getNodeName().equals("Elmt")) {
+										String sNomE = eElmt.getAttribute("nom");
+										String sNumE = eElmt.getAttribute("num");
+										String sNbE = eElmt.getAttribute("nb");
+										String sUniteE = eElmt.getAttribute("unite");
+										String sLngE = eElmt.getAttribute("lng");
+										String sLarE = eElmt.getAttribute("lar");
+										String sHauE = eElmt.getAttribute("hau");
+										String nomE = (sNomE == null ? "" : sNomE);
+										int numE = Integer.valueOf(sNumE);
+										int nbE = Integer.valueOf(((sNbE == null || sNbE.equals("")) ? "1" : sNbE))
+												.intValue();
+										float lngE = Float.valueOf(sLngE).floatValue();
+										float larE = Float.valueOf(sLarE).floatValue();
+										float hauE = Float.valueOf(sHauE).floatValue();
+										Elmt e = null;
+										if (sUniteE == null) {
+											e = new Elmt(numE, nomE, nbE, lngE, larE, hauE);
+										} else {
+											e = new Elmt(numE, nomE, nbE, sUnite, lngE, larE, hauE);
 										}
-
-										ArrayList<MATERIAUX> lstMateriaux = new ArrayList<MATERIAUX>();
-
-										// code pour recup materiaux
-										final NodeList nodeListeMateriaux = eElmt.getChildNodes();
-										for (int z = 0; z < nodeListeMateriaux.getLength(); z++) {
-											if (nodeListeMateriaux.item(z).getNodeName().equals("Materiaux")) {
-												final Node nMateriaux = nodeListeMateriaux.item(z);
-												if (nMateriaux.getNodeType() == Node.ELEMENT_NODE) {
-													Element eMateriaux = (Element) nMateriaux;
-													MATERIAUX mat = MATERIAUX.valueOf(eMateriaux.getAttribute("type"));
-													mat.setPourcent(Integer.valueOf(eMateriaux.getAttribute("pc")));
-													lstMateriaux.add(mat);
+										final NodeList nListMat = eElmt.getChildNodes();
+										int nbMat = nListMat.getLength();
+										for (int k = 0; k < nbMat; k++) {
+											final Node nMat = nListMat.item(k);
+											if (nMat.getNodeType() == Node.ELEMENT_NODE) {
+												Element eMat = (Element) nMat;
+												if (eMat.getNodeName().equals("Materiaux")) {
+													String sType = eMat.getAttribute("type");
+													String sPc = eMat.getAttribute("pc");
+													MATERIAUX mat = null;
+													if (sType == null) {
+														mat = MATERIAUX.BOIS;
+													} else {
+														mat = MATERIAUX.valueOf(sType);
+													}
+													mat.setPourcent(Integer.valueOf(sPc).intValue());
+													e.getMateriaux().add(mat);
 												}
 											}
 										}
-										Elmt element = new Elmt(numero, nomElmt, nb, uniteElmt, lngElmt, larElmt,
-												hauElmt);
-										element.setMateriaux(lstMateriaux);
-										lstElmt.add(element);
-
+										meuble.getLstElmt().add(e);
 									}
 								}
 							}
-							meuble.setLstElement(lstElmt);
-							this.add(meuble);
+							add(meuble);
 						}
 					}
 				}
-
 			}
-
 		} catch (ParserConfigurationException e) {
-
+			e.printStackTrace();
 		} catch (SAXException e) {
-
+			e.printStackTrace();
 		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
 
 		}
-
 	}
 
 	@Override
