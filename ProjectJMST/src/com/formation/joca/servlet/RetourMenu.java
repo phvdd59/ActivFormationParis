@@ -44,7 +44,6 @@ public class RetourMenu extends HttpServlet {
 		if (personne instanceof Personne) {
 			perso = (Personne) personne;
 		}
-		System.out.println(perso.getNom());
 
 		String noSerieHtml = request.getParameter("noSerie");
 		String noSerie = (String) session.getAttribute("noSerie");

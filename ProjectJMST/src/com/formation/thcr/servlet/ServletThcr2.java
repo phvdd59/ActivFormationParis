@@ -58,6 +58,7 @@ public class ServletThcr2 extends HttpServlet {
 
 		String tableConstruct = "";
 
+		//faire un jsp pour cette page
 		for (Personne personne : listPersonne) {
 			tableConstruct += "\t\t\t\t<form action=\"http://localhost:8080/ProjectJMST/ServletThcr1\" method=\"post\">\n";
 			tableConstruct += "\t\t\t\t<tr>\n\t\t\t\t\t<td><input type=\"hidden\" name=\"login\" value=\"" + personne.getLogin() +"\">" + personne.getLogin() + "</td>\n";
