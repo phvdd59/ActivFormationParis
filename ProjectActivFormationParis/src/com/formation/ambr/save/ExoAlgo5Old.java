@@ -1,12 +1,9 @@
-package com.formation.ambr.ctrSave;
+package com.formation.ambr.save;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.HashMap;
-import java.util.TreeMap;
 
-public class ExoAlgo5 implements com.formation.phva.inter.InterAlgo5 {
+public class ExoAlgo5Old implements com.formation.phva.inter.InterAlgo5 {
 	/*	
 	 * Besoin : Le service marketing de IKAE souhaite connaître ses n meubles,
 	 * 			d'un certain type, les plus vendues
@@ -55,43 +52,34 @@ public class ExoAlgo5 implements com.formation.phva.inter.InterAlgo5 {
 	 */
 
 	public String[] solution(String[] tab, String cat, int n) {
-		
-		ArrayList<String> liste = new ArrayList<String>();
-		ArrayList<String> liste2 = new ArrayList<String>();
-		
+		String[] tab2= new String[tab.length];
+		String[] tab3= new String[tab2.length];
+		String[] tab4= new String[n];
 		int k =0;
-		int kmax=0;
+		int l=0;
 		
 		for (int i = 0; i < tab.length; i++) {
 			if (tab[i].contains(cat)) {
-				liste.add(tab[i]);
+				tab2[l]=tab[i];
+				l++;
 			}
 		}
 		
-		TreeMap<String,Integer> map = new TreeMap<String,Integer>();
-		
-		for (int i = 0; i < liste.size(); i++) {
-			k=Collections.frequency(liste, liste.get(i));
-			map.put(liste.get(i),k);
-			if (i> 0 && k>Collections.frequency(liste, liste.get(i-1))) {
-				kmax=k;
+		for (int j = 0; j < tab3.length; j++) {
+			for (int i = 0; i < tab2.length; i++) {
+				if (tab3[j]==tab2[i]) {
+					tab3[j]=tab2[i];
+				} else if (tab3[j]!=tab2[i]) {
+					tab3[k]=tab2[i];
+					k++;
+				}
 			}
-		}
-		
-		TreeMap<Integer, String> map2 = new TreeMap<Integer, String>();
-		for (int i = 0; i < map.size(); i++) {
-			int value=map.get(i);
-		}
-		
-		for (int i = kmax; i > 0; i--) {
-			//map.(i);
-			//liste2.add(map.getValue(i));
 		}
 		
 		for (int i = 0; i < n; i++) {
-			//tab4[i]=tab3[i];
+			tab4[i]=tab3[i];
 		}
 
-		return tab;
+		return tab4;
 	}
 }

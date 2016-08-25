@@ -1,4 +1,4 @@
-package com.formation.ambr.ctrSave;
+package com.formation.ambr.save;
 
 import com.formation.phva.inter.InterAlgo6;
 

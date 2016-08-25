@@ -1,4 +1,4 @@
-package com.formation.ambr.ctrSave;
+package com.formation.ambr.save;
 
 public enum TRI {
 	ALPHA,REF,VOLUME;

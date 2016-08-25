@@ -1,4 +1,4 @@
-package com.formation.ambr.ctrSave;
+package com.formation.ambr.save;
 
 @SuppressWarnings("unused")
 public enum MATERIAUX {
