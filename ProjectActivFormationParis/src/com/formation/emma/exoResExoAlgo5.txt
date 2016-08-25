@@ -1,4 +1,14 @@
 emma:Algo
 
-emma NOTE : (0 / 0) = ? / 20
-
+emma testMoins (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
+emma testNull (1/1):    | exo.solution(null, cat, n)
+emma testTrop (1/1):    | exo.solution(tab, cat, n)
+emma testAnnormal (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
+emma testCatAnnormal (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
+emma testTrop (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
+emma testCatGrand (0/1): KO | exo.solution(null, cat, n) résultat incorrect
+emma testCatPetit (0/1): KO | exo.solution(null, cat, n) résultat incorrect
+emma testNormal0 (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
+emma testNormal1 (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
+emma testNormal2 (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
+emma NOTE : (2 / 14) = 2,86 / 20

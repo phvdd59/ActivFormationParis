@@ -11,5 +11,5 @@ beba testCatPetit (0/1): KO | exo.solution(tab, cat, n) le programme est trop lo
 beba testNormal0 (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
 beba testNormal1 (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
 beba testNormal2 (0/1): KO | exo.solution(tab, cat, n) le programme est trop long
-beba NOTE : (0 / 14) = ,00 / 20
+beba NOTE : (0 / 14) = 0 / 20
 

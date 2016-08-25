@@ -1,19 +1,20 @@
-Syntaxe:20.00
-Tableau:20.00
-Algo:16.00
+Syntaxe:20
+Tableau:20
+Algo:10.47
 Versionning:-1
 Objet:-1
+Enum:20
 UML:-1
-Collection:20.00
+Collection:10.67
 Tri:-1
-Exceptions:4.00
-Flux:-1
+Exceptions:4
+Flux:16
 Evenement:-1
 XML:-1
 Thread:-1
 JUNIT:-1
-SQL :-1
-JDBC :-1
+SQL:-1
+JDBC:-1
 HTML:-1
 CSS:-1
 JavaScript:-1

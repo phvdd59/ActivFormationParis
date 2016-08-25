@@ -1,7 +1,9 @@
 package com.formation.phva.exo;
 
-public class CleDico implements Comparable<CleDico> {
+import com.formation.etga.exo.main;
 
+public class CleDico implements Comparable<CleDico> {
+main
 	private String lettre;
 	private int lngMot;
 	public CleDico(String lettre, int lngMot) {
