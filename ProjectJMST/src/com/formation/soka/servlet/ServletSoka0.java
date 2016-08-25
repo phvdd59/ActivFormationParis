@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.formation.thcr.metier.Personne;
+
 /**
  * Servlet implementation class ServletSoka0
  */
@@ -30,25 +32,40 @@ public class ServletSoka0 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession(); 
-		File file = new File("C:/DevFormation/" + //
-				"GITActivFormationParis/ProjectJMST/" + //
-				"WebContent/WEB-INF/" + //
+		HttpSession session = request.getSession();
+
+		Object personne = session.getAttribute("Personne");
+		Personne perso = null;
+		if (personne instanceof Personne) {
+			perso = (Personne) personne;
+		}
+		String noSerieHtml = request.getParameter("noSerie");
+		String noSerie = (String) session.getAttribute("noSerie");
+
+		if (noSerie.equals(noSerieHtml)) {
+		File file = new File("C:/DevFormation/GITActivFormationParis/" + //
+				"ProjectJMST/WebContent/WEB-INF/" + //
 				"page/pageActiveFormulaire_part0_modif_mdp.html");
 		BufferedReader bIn = null;
 		bIn = new BufferedReader(new FileReader(file));
-		String noSerie = Integer.toString(((int) (Math.random() * Integer.MAX_VALUE)));
-		noSerie = "20_" + noSerie;
-		session.setAttribute("noSerie", noSerie);
+//		String noSerie = Integer.toString(((int) (Math.random() * Integer.MAX_VALUE)));
+//		noSerie = "200_" + noSerie;
+//		session.setAttribute("noSerie", noSerie);
 		String line = bIn.readLine();
 		while (line != null) {
 			if (line.contains("%%noSerie%%")) {
 				line.replace("%%noSerie%%", noSerie);
 			}
+			if (perso.getLogin().equals(request.getParameter("identifiant")) && perso.getMotDePasse().equals(request.getParameter("mdp"))) {
+				if (request.getParameter("new mdp 1").equals(request.getParameter("new mdp 2"))) {
+					perso.setMotDePasse(request.getParameter("new mdp 2"));
+				}
+			}
 			response.getWriter().println(line);
 			line = bIn.readLine();
 		}
 		bIn.close();
+		}
 	}
 
 	/**
