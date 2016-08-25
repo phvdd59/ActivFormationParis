@@ -9,13 +9,15 @@
 <body>
 	<div style="width: 500px; border: solid;text-align: center">
 		<h1>Test JSP</h1>
-		<%
+		<%-- <%
 			for(int i = 0; i < 10; i++){
 			%>
-				<h3><%=i %> Salut </h3>
+				<h3><%=i+1 %> Salut </h3>
 			<%
 			}
-		%>
+		%> --%>
+		
+		
 	</div>
 </body>
 </html>
