@@ -8,7 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	
 		<div id="main">
             <div id="liste">
             <table>
@@ -31,7 +30,7 @@
 		
 		<tr>
 			<form action="http://localhost:8080/ProjectJMST/ServletThcr1" method="post">
-			<td><input type="hidden" name="login" value="<%= personne.getLogin() %>"></td>
+			<td><input type="hidden" name="login" value="<%= personne.getLogin() %>"><%=personne.getLogin() %></td>
 			<td><%=personne.getPrenom() %></td>
 			<td><%=personne.getNom() %></td>
 			<td><%=personne.getMail() %></td>
