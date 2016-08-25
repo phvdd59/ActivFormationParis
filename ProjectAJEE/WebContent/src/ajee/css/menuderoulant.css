@@ -31,7 +31,7 @@
 /* on enlève ce comportement pour les liens du sous menu */
     display: inherit;
 }
-#menu-deroulant form {
+#menu-deroulant span {
     text-decoration: none;
     
     display: block;
@@ -43,7 +43,7 @@
 
         width : 144px; /* largeur */
 }
-#menu-deroulant form:hover /* Lorsque la souris passe sur un des liens */    
+#menu-deroulant span:hover /* Lorsque la souris passe sur un des liens */    
 
 {
 
