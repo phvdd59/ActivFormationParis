@@ -51,6 +51,7 @@ function verifIdentifiant(champ) {
 		return true;
 	} else {
 		surligne(champ, true);
+		document.getElementById("IDError").innerHTML = "test";
 		return false;
 	}
 }
