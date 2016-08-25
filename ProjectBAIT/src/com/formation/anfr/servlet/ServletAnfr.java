@@ -40,7 +40,7 @@ public class ServletAnfr extends HttpServlet {
 			throws ServletException, IOException {
 
 		File file = new File(
-				"../GITActivFormationParis/ProjectEtudiant/WebContent/WEB-INF/com/formation/anfr/page/Login.html");
+				"../GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/com/formation/anfr/page/Login.html");
 		BufferedReader bIn = new BufferedReader(new FileReader(file));
 		String line = bIn.readLine();
 		while (line != null) {
@@ -58,7 +58,7 @@ public class ServletAnfr extends HttpServlet {
 		if (pseudo != null) {
 			if (pseudo.contains("Antoine")) {
 				File file = new File(
-						"../GITActivFormationParis/ProjectEtudiant/WebContent/WEB-INF/com/formation/anfr/page/InsciprtionPage1.html");
+						"../GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/com/formation/anfr/page/InsciprtionPage1.html");
 				BufferedReader bIn = new BufferedReader(new FileReader(file));
 				String line = bIn.readLine();
 				while (line != null) {
@@ -68,7 +68,7 @@ public class ServletAnfr extends HttpServlet {
 				bIn.close();
 			} else {
 				File file = new File(
-						"../GITActivFormationParis/ProjectEtudiant/WebContent/WEB-INF/com/formation/anfr/page/Login.html");
+						"../GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/com/formation/anfr/page/Login.html");
 				BufferedReader bIn = new BufferedReader(new FileReader(file));
 				String line = bIn.readLine();
 				while (line != null) {

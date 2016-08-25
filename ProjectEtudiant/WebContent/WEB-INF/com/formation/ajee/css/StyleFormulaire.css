@@ -1,6 +1,0 @@
-@CHARSET "ISO-8859-1";
-body {font-family: Century gothic; font-style: italic;}
-h4 {font-style: strong ; background-color: blue; color: white; border: solid}
-table {background-color: lightblue;border : solid;}
-td {border: double; border-color: black; border-width: thin;}
-tbody {border : solid; border-color: black;}

@@ -1,7 +1,7 @@
 package com.formation.anfr.main;
 
-import com.formation.anfr.ctr.ExoAlgo5;
-import com.formation.anfr.ctr.ExoAlgo6;
+import com.formation.anfr.save.ExoAlgo5;
+import com.formation.anfr.save.ExoAlgo6;
 
 public class MainExo5 {
 
