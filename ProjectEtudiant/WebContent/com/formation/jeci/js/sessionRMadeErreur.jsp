@@ -20,8 +20,8 @@
 Eleve <%= nom %> <br/>
 Nombre de bonnes réponses <%= nbr %><br/>
 	voulez vous un Autre exercice pour ?<br/>
-<a href="../com/formation/jeci/page/Personne.html">"<%= nom %>"</a><br/>
-<a href="../html/sessionI.html"> un Autre Eleve</a>
+<a href="http://localhost:8080/ProjectEtudiant/com/formation/jeci/js/sessionQMadeErreur.jsp">"<%= nom %>"</a><br/>
+<a href="http://localhost:8080/ProjectEtudiant/com/formation/jeci/page/Personne.html"> un Autre Eleve</a>
 
 
 </body>

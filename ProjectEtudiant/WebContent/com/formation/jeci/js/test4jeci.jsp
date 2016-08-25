@@ -17,7 +17,7 @@ int n2=(int)(Math.random()*10);
 
 %>
 
-<form action="http://localhost:8080/ProjectEtudiant/com/formation/jeci/js/test3jeci.jsp">
+<form action="http://localhost:8080/ProjectEtudiant/com/formation/jeci/js/sessionQMadeErreur.jsp">
 <%= n1 %>* <%=n2  %>
 <input type="text" name="essai" value=""/>
 <input type="hidden" name="nom" value="<%=nom  %>"/>
