@@ -67,7 +67,7 @@ public class Servletidentification extends HttpServlet {
 		System.out.println(session.getId());
 		session.setAttribute("pseudo", pseudo);
 		// controler les parametres
-		if ((pseudo != null) && (mdp != null)) {
+		if ((pseudo != "") && (mdp != "")) {
 			if (pseudo.equals("Admin") && mdp.equals("123")) {
 				// constituer la nouvelle page
 				/** Lecture Haut de page HTML */
