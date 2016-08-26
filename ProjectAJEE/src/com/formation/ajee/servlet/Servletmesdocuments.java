@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class ServletDocuments
@@ -28,7 +29,9 @@ public class Servletmesdocuments extends HttpServlet {
 	 *      HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		HttpSession session=request.getSession();
+		System.out.println("VDD "+session.getId());
+		String sS=request.getParameter("JSESSIONID");
 		/**A activer quand on aura fait le "DoGet" avec notre "HttpSession" et le "noSerie"*/		
 //		String noSerie = request.getParameter("noSerie");
 //		HttpSession session = request.getSession();

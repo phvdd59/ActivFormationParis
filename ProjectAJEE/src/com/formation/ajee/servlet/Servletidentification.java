@@ -57,14 +57,15 @@ public class Servletidentification extends HttpServlet {
 	}
 
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse resp) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		String sS=request.getParameter("JSESSIONID");
+		System.out.println(session.getId()+" "+sS);
 		// recuperer les parametres
-		String pseudo = req.getParameter("Identifiant");
+		String pseudo = request.getParameter("Identifiant");
 		System.out.println(pseudo);
-		String mdp = req.getParameter("mot de passe");
+		String mdp = request.getParameter("mot de passe");
 
-		HttpSession session = req.getSession();
-		System.out.println(session.getId());
 		session.setAttribute("pseudo", pseudo);
 		// controler les parametres
 		if ((pseudo != "") && (mdp != "")) {
@@ -229,7 +230,7 @@ public class Servletidentification extends HttpServlet {
 			File file = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page/Identification.html");
 			// System.out.println(file.getCanonicalPath());
 			int noserie = (int) Math.random() * Integer.MAX_VALUE;
-			HttpSession session1 = req.getSession(true); // true pour garder le
+			HttpSession session1 = request.getSession(true); // true pour garder le
 															// meme numero de
 															// session qui vient
 															// detre créé
