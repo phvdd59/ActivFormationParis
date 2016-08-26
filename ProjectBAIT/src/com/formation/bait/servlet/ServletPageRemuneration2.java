@@ -35,7 +35,6 @@ public class ServletPageRemuneration2 extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -51,32 +50,6 @@ public class ServletPageRemuneration2 extends HttpServlet {
 				// System.out.println(line);
 				response.getWriter().append(line + "\n");
 				line = bIn.readLine();
-			}
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				bIn.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-
-		String pseudo = request.getParameter("identifiant");
-		File fileA = new File("C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/hautDePageActiv.html");
-		BufferedReader bInA = null;
-		InputStreamReader inputStreamReaderA = null;
-		try {
-			inputStreamReader = new InputStreamReader(new FileInputStream(fileA), "UTF-8"); // pour
-			// texte
-			bIn = new BufferedReader(inputStreamReaderA);
-			String line = bInA.readLine();
-			while (line != null) {
-				// System.out.println(line);
-				response.getWriter().append(line + "\n");
-				line = bInA.readLine();
 			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

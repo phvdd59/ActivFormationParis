@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Servlet1
  */
-@WebServlet(value = "/ServletEtatCivil2", name = "ServletEtatCivil2")
+@WebServlet(value = "/EtatCivil2", name = "ServletEtatCivil2")
 public class ServletEtatCivil2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static int VALEUR = 0;
@@ -87,6 +87,8 @@ public class ServletEtatCivil2 extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
+		
+		
 		File file3 = new File("C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/basDePageActiv.html");
 		BufferedReader bIn3 = null;
 		InputStreamReader inputStreamReader3 = null;
