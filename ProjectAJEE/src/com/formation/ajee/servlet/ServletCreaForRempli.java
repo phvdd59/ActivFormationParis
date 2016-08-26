@@ -14,14 +14,14 @@ import com.formation.ajee.metier.Utilisateurs;
 /**
  * Servlet implementation class ServletFormulaire
  */
-@WebServlet(description = "Servlet Formulaire", urlPatterns = { "/ServletFormulaireAmbr" })
-public class ServletFormulaire extends HttpServlet {
+@WebServlet(description = "Servlet Creation Formulaire Rempli", urlPatterns = { "/ServletCreaForRempli" })
+public class ServletCreaForRempli extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ServletFormulaire() {
+    public ServletCreaForRempli() {
         super();
         // TODO Auto-generated constructor stub
     }
