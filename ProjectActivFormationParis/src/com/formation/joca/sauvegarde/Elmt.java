@@ -14,6 +14,9 @@ public class Elmt implements Comparable<Elmt> {
 
 	private ArrayList<MATERIAUX> materiaux;
 
+	public Elmt() {
+	}
+
 	public Elmt(int numero, String nom, int nb, String unite, float longueur, float largeur, float hauteur) {
 		this(numero, nom, nb, longueur, largeur, hauteur);
 		if (unite != null) {
@@ -138,6 +141,22 @@ public class Elmt implements Comparable<Elmt> {
 			ret = nom.compareTo(o.getNom());
 			break;
 		}
+		return 0;
+	}
+
+	public float volumeL() {
+		return longueur * largeur * hauteur / 1000f;
+	}
+
+	public float poidMat(MATERIAUX mat) {
+		return volumeL() * mat.getDensite() * mat.getPourcent() / 100f;
+	}
+
+	public float poid() {
+		return 0;
+	}
+
+	public float prixFarication(float[] prMats) {
 		return 0;
 	}
 }

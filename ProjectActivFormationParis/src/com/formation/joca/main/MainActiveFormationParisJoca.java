@@ -3,6 +3,7 @@ package com.formation.joca.main;
 import java.awt.Point;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 import com.formation.joca.exo.CleDico;
 import com.formation.joca.exo.Dico;
@@ -24,7 +25,17 @@ public class MainActiveFormationParisJoca {
 
 	public static void main(String[] arg) {
 		MainActiveFormationParisJoca test = new MainActiveFormationParisJoca();
-		test.init15();
+		test.init16();
+
+	}
+
+	private void init16() {
+		float mon_nombre = 12.126975f;
+		String sNombre = Float.toString(mon_nombre);
+		if (Pattern.matches("[0-9]+\\.[0-9]+", sNombre)) {
+			sNombre = sNombre.substring(0, sNombre.lastIndexOf(".") + 4);
+		}
+		float result = Float.parseFloat(sNombre);
 
 	}
 

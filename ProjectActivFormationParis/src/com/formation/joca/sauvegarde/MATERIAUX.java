@@ -28,4 +28,16 @@ public enum MATERIAUX {
 	public void setPourcent(int pourcent) {
 		this.pourcent = pourcent;
 	}
+
+	public float getDensite() {
+		return densite;
+	}
+
+	public SOLIDITE getSolidite() {
+		return solidite;
+	}
+
+	public int getPourcent() {
+		return pourcent;
+	}
 }

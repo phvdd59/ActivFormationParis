@@ -46,7 +46,7 @@ public class ListeMeuble extends ArrayList<Meuble> {
 			} else if (!verifierNom(file)) {
 			}
 		} else {
-			//pas de fichier
+			// pas de fichier
 		}
 	}
 
