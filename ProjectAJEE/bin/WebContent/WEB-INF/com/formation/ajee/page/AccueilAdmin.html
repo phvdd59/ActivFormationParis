@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<LINK rel="stylesheet" type="text/css" href="menuderoulant.css">
+<script type="text/javascript">
+function getNomInvite() {
+	/* var mol=document.getElementById("invite").selectedIndex;
+	
+	var valinvitereader=document.getElementById("invitereader");
+	valinvitereader.setAttribute('value','yolo'); */
+	var valSelected=document.getElementById("choix_invite");
+	document.getElementById('invitereader').value=valSelected.value;
+}
+</script>
+</head>
+<body>
+<label for="choix_invite">Choisissez le profil :</label>
+<input id="choix_invite" list="invite"  type="text" style="border: none" onchange="getNomInvite(this)" value="" >
+<datalist id="invite"  >
+  <option value="Meteor">
+  <option value="Pils">
+  <option value="Kronenbourg">
+  <option value="Grimbergen">
+</datalist>
+</body>
+</html>
