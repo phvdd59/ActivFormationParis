@@ -1,8 +1,10 @@
 package com.formation.soka.servlet;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -42,24 +44,42 @@ public class ServletSokaChgMdp extends HttpServlet {
 		String noSerieHtml = request.getParameter("noSerie");
 		String noSerie = (String) session.getAttribute("noSerie");
 		String s1 = ""; 
-		if (noSerie.equals(noSerieHtml)) {
+//		if (noSerie.equals(noSerieHtml)) {
 		File fileXml = new File("C:/DevFormation/GITActivFormationParis/ProjectJMST/WebContent/Data.xml"); 
+//		File fileXml2 = new File("C:/DevFormation/GITActivFormationParis/ProjectJMST/WebContent/Data2.xml"); 
+
 		BufferedReader bInXml = null;
-		bInXml = new BufferedReader(new FileReader(fileXml));
-		String s= bInXml.readLine(); 
 		
-		if (perso.getLogin().equals(request.getParameter("identifiant")) && perso.getMotDePasse().equals(request.getParameter("ancien mdp"))) {
-			if (request.getParameter("new mdp 1").equals(request.getParameter("new mdp 2"))) {
-				while(s!=null){
-					s1+=s; 
-					if (s.contains((CharSequence) session.getAttribute("login"))) {
-						s=s.replace("password=\"" + perso.getMotDePasse() +"\"", "password="+ request.getParameter("new mdp 2") +"\"");
+		bInXml = new BufferedReader(new FileReader(fileXml));
+		 
+		String s= bInXml.readLine(); 
+		String ident =request.getParameter("identifiant") ;
+		String exMdp= request.getParameter("ancien mdp");
+		String newMdp1 = request.getParameter("new mdp 1"); 
+		String newMdp2 = request.getParameter("new mdp 2");
+		if (perso.getLogin().equals(ident) && perso.getMotDePasse().equals(exMdp)) {
+			if (newMdp1.equals(newMdp2)) {
+				s1=""; 
+//				synchronized (fileXml2) {
+					while (s != null) {
+						if (s.contains(perso.getLogin())) {
+							s = s.replace("password=\"" + perso.getMotDePasse(), "password=\"" + newMdp2);
+						}
+						s1 += s + "\n";
+						s = bInXml.readLine();
 					}
-					s=bInXml.readLine();
-				}
+//				}
 			}
 		}
+		System.out.println(s1);
 		bInXml.close();
+		BufferedWriter bOutXml = null; 
+		bOutXml= new BufferedWriter(new FileWriter(fileXml));
+//		synchronized (fileXml2) {
+			bOutXml.write(s1);
+//		}
+		bOutXml.close();
+		
 		
 		
 	
@@ -83,7 +103,9 @@ public class ServletSokaChgMdp extends HttpServlet {
 				line = bIn.readLine();
 			}
 			bIn.close();
-		}
+//		}else{
+//			response.getWriter().append("FAUX : noSerie.equals(noSerieHtml)!!!");
+//		}
 	}
 
 	/**

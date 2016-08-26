@@ -57,11 +57,6 @@ public class ServletSoka0 extends HttpServlet {
 			if (line.contains("%%noSerie%%")) {
 				line.replace("%%noSerie%%", noSerie);
 			}
-			if (perso.getLogin().equals(request.getParameter("identifiant")) && perso.getMotDePasse().equals(request.getParameter("mdp"))) {
-				if (request.getParameter("new mdp 1").equals(request.getParameter("new mdp 2"))) {
-					perso.setMotDePasse(request.getParameter("new mdp 2"));
-				}
-			}
 			response.getWriter().println(line);
 			line = bIn.readLine();
 		}
