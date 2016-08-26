@@ -35,6 +35,7 @@ function verifExisteDeja(champ) {
 
 function verifLettres(champ) {
 	if ((champ.value.match("[\\w]+")) && (!champ.value.match(".*\\d+.*"))) {
+		//faire en mieux
 		return true;
 	} else {
 		return false;
@@ -54,7 +55,8 @@ function verifIdentifiant(champ) {
 }
 
 function verifMdp1(champ) {
-	if (verifTaille(champ, 6, 20)) {
+	if (verifTaille(champ, 6, 30)) {
+		//avec une lettre et un chiffre
 		surligne(champ, false);
 		return true;
 	} else {
@@ -95,6 +97,7 @@ function verifCodePostal(champ) {
 
 function verifTel(champ) {
 	if ((verifTaille(champ, 10, 10)) && (!verifLettres(champ))) {
+		//le cas +33
 		surligne(champ, false);
 		return true;
 	} else {
@@ -126,6 +129,7 @@ function verifNom(champ) {
 
 function verifDateNaissance(champ) {
 	if (verifTaille(champ, 10, 10)) {
+		//dd/mm/yyyy
 		surligne(champ, false);
 		return true;
 	} else {
@@ -168,13 +172,13 @@ function verifCoefficient(champ) {
 function verifInscription1(f) {
 	var alerttotal = "";
 	if (verifIdentifiant(f.identifiant) == false) {
-		alerttotal = alerttotal + "Probleme identidiant \n";
+		alerttotal = alerttotal + "L'identifiant doit être composé de 4 à 30 caractères \n";
 	}
 	if (verifMdp1(f.mdp1) == false) {
-		alerttotal = alerttotal + "Probleme mdp \n";
+		alerttotal = alerttotal + "Le mot de passe doit être composé de 6 à 30 caractères \n";
 	}
 	 if (verifMdp2(f.mdp2)==false) {
-	 alerttotal = alerttotal+"Probleme mdp2 \n";
+	 alerttotal = alerttotal+"Les mots de passe ne sont pas identiques \n";
 	 }
 	if (verifIdentifiant(f.identifiant) == false || verifMdp1(f.mdp1) == false) {
 		alert(alerttotal);
