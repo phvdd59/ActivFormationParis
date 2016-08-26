@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class ServletDecoAdmin
@@ -48,6 +49,12 @@ public class ServletDecoAdmin extends HttpServlet {
 		// !noSerie.equals("%%noserie%%")) {
 		// if (pseudo.equals("Philippe")) {
 
+		
+		HttpSession session = request.getSession();
+		String sS=request.getParameter("JSESSIONID");
+		System.out.println(sS);
+		System.out.println(session.getId());
+		
 		/** Lecture Haut de page HTML */
 		File fileHaut = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/HautPage.html");
 		BufferedReader bufReadHaut = null;
