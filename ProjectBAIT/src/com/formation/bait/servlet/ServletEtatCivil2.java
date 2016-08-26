@@ -17,14 +17,14 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class Servlet1
  */
 @WebServlet(value = "/ServletEtatCivil2", name = "ServletEtatCivil2")
-public class ServletEtatCivil extends HttpServlet {
+public class ServletEtatCivil2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static int VALEUR = 0;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public ServletEtatCivil() {
+	public ServletEtatCivil2() {
 		super();
 		// TODO Auto-generated constructor stub
 	}

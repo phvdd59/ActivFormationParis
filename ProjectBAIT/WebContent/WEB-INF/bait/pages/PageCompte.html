@@ -1,43 +1,42 @@
 
-<form methode=post action="">
-
-	<h2>Candidat</h2>
 
 
-	<div ID=formu28>
+<h2>Candidat</h2>
 
-		<label>Connecté en tant que :</label>
-		<!-- 					Ajouter un script d'affichage de variable -->
+
+<div ID=formu28>
+
+	<label>Connecté en tant que :</label>
+	<!-- 					Ajouter un script d'affichage de variable -->
+
+</div>
+
+<div>
+
+	<div ID="formu41">Modifier vos informations:</div>
+	<div ID="formu42">
+		<form method="post" action="/ServletEtatCivil2">
+			<input type="submit" name="etatCivil" value="Etat civil">
+		</form>
+
+		<form method="post" action="/Coordonnees2">
+			<input type="submit" name="coordonnees" value="coordonnees">
+		</form>
+
+		<form method="post" action="/Situation2">
+			<input type="submit" name="situation" value="Situation actuelle">
+		</form>
+
+		<form method="post" action="/Remuneration2">
+			<input type="submit" name="remuneration" value="Remuneration souhaite">
+		</form>
+
 
 	</div>
-
 	<div>
+		<input type="submit" name="modify" value="Acceder">
+	</div>
 
-		<div ID="formu41">Modifier vos informations:</div>
-		<div ID="formu42">
-			<form method="post" action="/EtatCivil2">
-				<input type="submit" name="etatCivil" value="Etat civil">
-			</form>
-
-			<form method="post" action="/Coordonnees2">
-				<input type="submit" name="coordonnees" value="coordonnees">
-			</form>
-
-			<form method="post" action="/Situation2">
-				<input type="submit" name="situation" value="Situation actuelle">
-			</form>
-
-			<form method="post" action="/Remuneration2">
-				<input type="submit" name="remuneration"
-					value="Remuneration souhaite">
-			</form>
-
-
-		</div ID="formu43">
-		<div>
-			<input type="submit" name="modify" value="Acceder">
-		</div>
-</form>
 </div>
 
 <div ID=formu30>
@@ -53,5 +52,5 @@
 
 
 
-</form>
+
 
