@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="127.0.0.1/css/formulairetest.css">
+   
+    <title>Formulaire Test</title>
+</head>
+
+<body>
+    <form id="myForm" action="www.google.fr">
+        <fieldset>Login</fieldset>
+        <label>login : <input name="login" id="login" type="text" /></label>
+        <p id="logintooltip" class="tooltip">Le nom doit comporter au moins 4 caractères et que des caractères alphanumérique</p>
+        <br /><br />
+        
+        <label>password : <input name="pass1" id="pass1" type="password" />
+        </label>
+        <p id="pass1tooltip" class="tooltip">le mot de passe doit comporter au moins 6 caractères</p>
+        <br /><br />
+        
+        <label>confirm password : <input name="pass2" id="pass2" type="password" />
+        </label>
+        <p id="pass2tooltip" class="tooltip">Les deux mots de passes doivent être identiques</p>
+        <br /><br />
+        
+        <input id="submit" type="submit">
+        <p id="submitformtooltip" class="tooltip">Formulaire incomplet</p>
+    </form>
+    
+    <script type="text/javascript" src="127.0.0.1/js/formulairetest.js">
+    </script>
+</body>
+   

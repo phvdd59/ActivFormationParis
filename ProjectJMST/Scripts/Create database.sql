@@ -1,0 +1,2 @@
+--DROP DATABASE databaseproject IF EXISTS; 
+--CREATE DATABASE databaseproject;

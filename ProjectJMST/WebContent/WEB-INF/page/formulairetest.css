@@ -1,0 +1,52 @@
+
+#myForm {
+    
+}
+.form_col {
+    display: inline-block;
+    margin-right: 15px;
+    padding: 3px 0px;
+    width: 200px;
+    min-height: 1px;
+    text-align: right;
+}
+.tooltip{
+    color: red;
+    display: none;
+	margin-left: 20px;
+	padding: 2px 4px;
+	border-radius: 4px;
+}
+
+#logintooltip{
+    color: red;
+    display: none;
+	margin-left: 20px;
+	padding: 2px 4px;
+	border-radius: 4px;
+}
+#pass1tooltip{
+    color: red;
+    display: none;
+	margin-left: 20px;
+	padding: 2px 4px;
+	border-radius: 4px;
+}
+#pass2tooltip{
+    color: red;
+    display: none;
+	margin-left: 20px;
+	padding: 2px 4px;
+	border-radius: 4px;
+}
+#submit{
+    position: relative;
+    margin: 2px 20px 20px 219px;
+}
+#submitformtooltip{
+    color: red;
+    display: none;
+	margin-left: 20px;
+	padding: 2px 4px;
+	border-radius: 4px;
+}
