@@ -90,7 +90,7 @@
 		personne = (Personne) o;
 	}
 	%>	
-            <form action="http://localhost:8080/ProjectJMST/ServletSoka3" method='post'>
+        <form action="http://localhost:8080/ProjectJMST/ServletSoka3" method='post'>
 			<table border="1">
 
 				<tr>
@@ -99,21 +99,21 @@
 				</tr>
 				<tr>
 					<td>Date de naissance</td>
-					<td style="width: 273px; height: 25px; color:;"><input
-						type="text" name= "date de naissance" value=''  style="width: 270px;"></td>
+					<td style="width: 273px; height: 25px; color:;"><input id="dateDeNaissance"
+						type="text" name= "date de naissance" value=''  style="width: 270px;"><br><span id="spanDateDeNaissance"></span></td>
 					<td style="width: 72px;">Lieu de naissance</td>
-					<td style="width: 112px; height: 25px; color:;"><input
-						type="text" name= "lieu de naissance" value='' ></td>
+					<td style="width: 112px; height: 25px; color:;"><input id="lieuDeNaissance"
+						type="text" name= "lieu de naissance" value='' ><br><span id="spanLieuDeNaissance"></span></td>
 				</tr>
 				<tr>
 					<td>N° sécurité Social</td>
-					<td colspan="3" style="width: 229px; height: 25px; color:;"><input
-						type="text" name= "num secu" value='' style="width: 615px;"></td>
+					<td colspan="3" style="width: 229px; height: 25px; color:;"><input id="noSecuriteSociale"
+						type="text" name= "num secu" value='' style="width: 615px;"><br><span id="spanNoSecuriteSociale"></span></td>
 				</tr>
 				<tr>
 					<td>Nationalité</td>
-					<td colspan="3" style="width: 229px; height: 25px; color:;"><input
-						type="text" name= "nationalite" value='<%=personne.getNationalite() %>' style="width: 615px;"></td>
+					<td colspan="3" style="width: 229px; height: 25px; color:;"><input id="nationalite"
+						type="text" name= "nationalite" value='<%=personne.getNationalite() %>' style="width: 615px;"><br><span id="spanNationalite"></span></td>
 				</tr>
 				</table>
 				
@@ -128,6 +128,7 @@
 				<input type="submit" value="Deconnexion" ></input>
                 <input type="hidden" name="noSerie" value="%%noSerie%%">
 				</form>
+				<form action=""> <input type="button" onclick="ctrAll()" value="check"> </form>
 				
 		</div>
 		<div id="fpage2">
@@ -146,4 +147,81 @@
 				représentation réservés | Mentions légales</div>
 		</div>
 </body>
+<script type="text/javascript">
+function ctrAll() {
+	ctrDateDeNaissance();
+	ctrLieuDeNaissance();
+	ctrNoSecuriteSociale();
+	ctrNationalite();
+
+}
+
+
+function ctrDateDeNaissance() {
+	var dateDeNaissance = document.getElementById("dateDeNaissance");
+	var no = dateDeNaissance.value.length;
+	var pattDateDeNaissance = new RegExp("(0[1-9]|[12][0-9]|3[01])(\/)(0[1-9]|1[0-2])(\/)(19|20)[0-9]{2}$");
+	var spanDateDeNaissance = document.getElementById("spanDateDeNaissance");
+	if (pattDateDeNaissance.test(dateDeNaissance.value)==false) {
+		spanDateDeNaissance.className = "messageErreur";
+		spanDateDeNaissance.innerHTML = "la date s'écrit suivant le format \"jj/mm/aaaa\"";
+		dateDeNaissance.style.border = "1px solid #ff0000";
+		return false;
+	} else {
+		dateDeNaissance.style.border = "inherit";
+		spanDateDeNaissance.innerHTML = "";
+		return true;
+	}
+}
+function ctrLieuDeNaissance() {
+	var lieuDeNaissance = document.getElementById("lieuDeNaissance");
+	var no = lieuDeNaissance.value.length;
+	var pattLieuDeNaissance = new RegExp("[^a-zA-ZÀ-ÿ]");
+	var spanLieuDeNaissance = document.getElementById("spanLieuDeNaissance");
+	if (no<2 || pattLieuDeNaissance.test(lieuDeNaissance.value)) {
+		spanLieuDeNaissance.className = "messageErreur";
+		spanLieuDeNaissance.innerHTML = "le champ ne doit pas contenir de caractères spéciaux.";
+		lieuDeNaissance.style.border = "1px solid #ff0000";
+		return false;
+	} else {
+		lieuDeNaissance.style.border = "inherit";
+		spanLieuDeNaissance.innerHTML = "";
+		return true;
+	}
+}
+
+function ctrNoSecuriteSociale() {
+	var noSecuriteSociale = document.getElementById("noSecuriteSociale");
+	var no = noSecuriteSociale.value.length;
+	var pattNoSecuriteSociale = new RegExp("^(1|2)([0-9]{13})$");
+	var spanNoSecuriteSociale = document.getElementById("spanNoSecuriteSociale");
+	if (pattNoSecuriteSociale.test(noSecuriteSociale.value)==false) {
+		spanNoSecuriteSociale.className = "messageErreur";
+		spanNoSecuriteSociale.innerHTML = "Le numéro de sécurité sociale commence par 1 ou 2 et comporte 15 chiffres.";
+		noSecuriteSociale.style.border = "1px solid #ff0000";
+		return false;
+	} else {
+		noSecuriteSociale.style.border = "inherit";
+		spanNoSecuriteSociale.innerHTML = "";
+		return true;
+	}
+}
+function ctrNationalite() {
+	var nationalite = document.getElementById("nationalite");
+	var no = nationalite.value.length;
+	var pattNationalite = new RegExp("[^a-zA-ZÀ-ÿ]");
+	var spanNationalite = document.getElementById("spanNationalite");
+	if (no<2 || pattNationalite.test(nationalite.value)) {
+		spanNationalite.className = "messageErreur";
+		spanNationalite.innerHTML = "le champ ne doit pas contenir de caractères spéciaux.";
+		nationalite.style.border = "1px solid #ff0000";
+		return false;
+	} else {
+		nationalite.style.border = "inherit";
+		spanNationalite.innerHTML = "";
+		return true;
+	}
+}
+
+</script>
 </html>

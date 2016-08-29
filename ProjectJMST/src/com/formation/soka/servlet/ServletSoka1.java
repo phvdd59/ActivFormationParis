@@ -62,9 +62,7 @@ public class ServletSoka1 extends HttpServlet {
 //		String pseudo = request.getParameter("identifiant");
 //		String mdp = request.getParameter("mdp");
 		HttpSession session = request.getSession(); 
-		File file = new File("C:/DevFormation/GITActivFormationParis/" + //
-				"ProjectJMST/WebContent/WEB-INF/" + //
-				"page/pageActiveFormulaire_part2_coordonnees_personnelles.html");
+		File file = new File("C:/DevFormation/GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/jsp/Part2.jsp");
 		BufferedReader bIn = null;
 		bIn = new BufferedReader(new FileReader(file));
 		String noSerie = Integer.toString(((int) (Math.random() * Integer.MAX_VALUE)));

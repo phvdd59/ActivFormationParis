@@ -36,10 +36,10 @@ public class ServletSoka0 extends HttpServlet {
 		HttpSession session = request.getSession();
 
 		Object personne = session.getAttribute("Personne");
-		Personne perso = null;
-		if (personne instanceof Personne) {
-			perso = (Personne) personne;
-		}
+//		Personne perso = null;
+//		if (personne instanceof Personne) {
+//			perso = (Personne) personne;
+//		}
 		String noSerieHtml = request.getParameter("noSerie");
 		String noSerie = (String) session.getAttribute("noSerie");
 
@@ -49,9 +49,9 @@ public class ServletSoka0 extends HttpServlet {
 				"page/pageActiveFormulaire_part0_modif_mdp.html");
 		BufferedReader bIn = null;
 		bIn = new BufferedReader(new FileReader(file));
-//		String noSerie = Integer.toString(((int) (Math.random() * Integer.MAX_VALUE)));
-//		noSerie = "200_" + noSerie;
-//		session.setAttribute("noSerie", noSerie);
+		noSerie = Integer.toString(((int) (Math.random() * Integer.MAX_VALUE)));
+		noSerie = "20_" + noSerie;
+		session.setAttribute("noSerie", noSerie);
 		String line = bIn.readLine();
 		while (line != null) {
 			if (line.contains("%%noSerie%%")) {
