@@ -40,7 +40,7 @@ public class ServletCreaForRempli extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		doPost(request, response);
 	}
 
 	/**
@@ -63,7 +63,7 @@ public class ServletCreaForRempli extends HttpServlet {
 		 * A modifier seulement si notre page contient du JavaScript
 		 */
 		
-		File fileJS = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/JSFormulaireRempli.html");
+		File fileJS = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/js/JSFormulaireARemplir.html");
 		// faudra mettre une fonction "bouton modifier" qui enverra vers la servlet "ServletCreaForPreRempli.java" 
 		BufferedReader bufReadJS = null;
 		bufReadJS= new BufferedReader(new FileReader(fileJS));
