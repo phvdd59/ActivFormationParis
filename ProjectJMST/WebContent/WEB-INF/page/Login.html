@@ -79,13 +79,17 @@
 		<div id="info2">
 			<!-- zone disponible -->
 			<div id="menu1">
-				<form action="http://localhost:8080/ProjectJMST/Test" method="post">
-					Identifiant :<br /> <input id="ident" type="text" name="identifiant" /><br /> <br /> Mot de passe :<br /> <input type="text" name="motdepasse">
-				    <input type="submit" value="valider" /><br /> 
-				    <INPUT type="button" name="recupMDP" value="récupérer mot de passe">
-                    <input type="hidden" value="%%noSerie%%">
+				<form action="http://localhost:8080/ProjectJMST/Test" method="post" onsubmit="return verifForm(this)">
+					Identifiant :<br /> <input id="ident" type="text"
+						name="identifiant" onblur="verif_ident(this)" /><span
+						id="erreur2"></span><br/> Mot de passe :<br /> <input
+						type="text" name="motdepasse" onblur="verif_mdp(this)"><span
+						id="erreur"></span><br/> <input type="submit" value="valider" /><br />
+					<INPUT type="button" name="recupMDP" value="récupérer mot de passe">
+					<input type="hidden" value="%%noSerie%%">
 				</form>
-				<form action="http://localhost:8080/ProjectJMST/ServletSoka0" method="post">
+				<form action="http://localhost:8080/ProjectJMST/ServletSoka0"
+					method="post">
 					<INPUT type="submit" name="inscription" value="inscription">
 				</form>
 			</div>
@@ -106,6 +110,52 @@
 				représentation réservés | Mentions légales</div>
 		</div>
 	</div>
+	<script>
+		function verif_mdp(champ) {
+					
+			if (champ.value.length == 0 || champ.value.length > 16) {
+				document.getElementById('erreur').innerHTML = ' saisir un texte entre 1 et 15 caracteres';
+				champ.style.border = "1px solid #f00",
+		        champ.style.backgroundColor = "#fba";
+				return false;
+			} else {
+				document.getElementById('erreur').innerHTML = ' OK';
+				champ.style.border = "",
+		        champ.style.backgroundColor = ""; 
+				return true
+			}
+		}
+		
+		function verif_ident(champ) {
+			
+			if (champ.value.length == 0 || champ.value.length > 16) {
+				document.getElementById('erreur2').innerHTML = ' saisir un texte entre 1 et 15 caracteres';
+				champ.style.border = "1px solid #f00",
+		         champ.style.backgroundColor = "#fba";
+				return false;
+			} else {
+				document.getElementById('erreur2').innerHTML = ' OK';
+				champ.style.border = "",
+		        champ.style.backgroundColor = ""; 
+				return true
+			}
+		}
+		
+		function verifForm(f)
+		{
+		   var identOk = verif_ident(f.identifiant);
+		   var mdpOk = verif_mdp(f.motdepasse);
+		   
+		   
+		   if(identOk && mdpOk)
+		      return true;
+		   else
+		   {
+		      alert("Veuillez remplir correctement tous les champs");
+		      return false;
+		   }
+		}
+	</script>
 </body>
 </html>
 
