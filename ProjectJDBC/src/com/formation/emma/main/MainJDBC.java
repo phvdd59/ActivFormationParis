@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.Driver;
 import java.sql.DriverManager;
 import java.sql.DriverPropertyInfo;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Enumeration;
@@ -21,7 +22,68 @@ public class MainJDBC {
 		//m.create();
 		//m.creTable();
 		//m.insertTable();
-		m.modifMarchand();
+	//	m.modifMarchand();
+	//	m.select();
+		m.selectMetaData();
+		
+	}
+
+	private void selectMetaData() {
+		Connection conn = null;
+		Statement stat = null;
+		
+			try {
+				Class.forName(JDBC_DRIVER);
+				conn = DriverManager.getConnection(DB_URL, user, pass);
+				stat = conn.createStatement();
+				
+					String sql= "select*from marchandemma where age>42;" ;
+					
+					
+					ResultSet resultat = stat.executeQuery(sql);
+					while (resultat.next()){
+						String sNom=resultat.getString("nom");
+						String sPrenom=resultat.getString("prenom");
+						String sAge=resultat.getString("age");
+						System.out.println(sNom + " " + sPrenom + " " + sAge);
+					}
+			
+				System.out.println("fin");
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		
+	}
+
+	private void select() {
+		Connection conn = null;
+		Statement stat = null;
+		
+			try {
+				Class.forName(JDBC_DRIVER);
+				conn = DriverManager.getConnection(DB_URL, user, pass);
+				stat = conn.createStatement();
+				
+					String sql= "select*from marchandemma where age>42;" ;
+					
+					
+					ResultSet resultat = stat.executeQuery(sql);
+					while (resultat.next()){
+						String sNom=resultat.getString("nom");
+						String sPrenom=resultat.getString("prenom");
+						String sAge=resultat.getString("age");
+						System.out.println(sNom + " " + sPrenom + " " + sAge);
+					}
+			
+				System.out.println("fin");
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		
 		
 	}
 
@@ -57,7 +119,7 @@ public class MainJDBC {
 				conn = DriverManager.getConnection(DB_URL, user, pass);
 				stat = conn.createStatement();
 				
-				String[] marchand = {"Dupuis", "Yannick","45","Prost","Yves","58","Leberger","Corinne","64"};
+				String[] marchand = {"Cantonier", "Pierre","30","Bouton","Jeannette","67","Cota","Marie","28"};
 				for (int i = 0; i < marchand.length; i++) {
 					String sql= "insert into marchandemma (nom,prenom,age) values ('"+marchand[i]+"','"+marchand[i+1]+"','"+marchand[i+2]+"');";
 					i=i+2;
@@ -82,8 +144,8 @@ public class MainJDBC {
 				stat = conn.createStatement();
 				
 				String sql="create table marchandEmma (ID BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT, NOM varchar(30) NOT NULL, PRENOM varchar(30) NOT NULL, AGE varchar(10) NOT NULL);";
-				
 				stat.executeUpdate(sql);
+			
 				System.out.println("fin");
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
