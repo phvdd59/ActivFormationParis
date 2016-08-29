@@ -90,7 +90,7 @@
 		personne = (Personne) o;
 	}
 	%>	
-        <form action="http://localhost:8080/ProjectJMST/ServletSoka3" method='post'>
+        <form action="http://localhost:8080/ProjectJMST/ServletSoka4" method='post'>
 			<table border="1">
 
 				<tr>
@@ -120,7 +120,7 @@
 				<input type="submit" value="Suivant" ></input>
                 <input type="hidden" name="noSerie" value="%%noSerie%%">
 				</form>
-				<form action="http://localhost:8080/ProjectJMST/ServletSoka1" method='post'>
+				<form action="http://localhost:8080/ProjectJMST/jsp/Part2.jsp" method='post'>
 				<input type="submit" value="Precedent" ></input>
                 <input type="hidden" name="noSerie" value="%%noSerie%%">
 				</form>
