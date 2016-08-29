@@ -54,17 +54,6 @@ public class ServletMdpAdmin extends HttpServlet {
 			lineHaut = bufReadHaut.readLine();
 		}
 		bufReadHaut.close();
-
-		 /**A modifier seulement si notre page contient du JavaScript */
-//		 File fileJS = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/WEB-INF/com/formation/ajee/js/JSAccueilAdmin.html");
-//		 BufferedReader bufReadJS = null;
-//		 bufReadJS = new BufferedReader(new FileReader(fileJS));
-//		 String lineJS = bufReadJS.readLine();
-//		 while (lineJS != null) {
-//		 response.getWriter().println(lineJS);
-//		 lineJS = bufReadJS.readLine();
-//		 }
-//		 bufReadJS.close();
 		 
 		 File fileJS1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/js/JSBandeauAdmin.html");
 		 BufferedReader bufReadJS1 = null;
