@@ -12,16 +12,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class ServletCreaForPreRempli
+ * Servlet implementation class ServletCreaForRempliB
  */
-@WebServlet("/ServletCreaForPreRempli")
-public class ServletCreaForPreRempli extends HttpServlet {
+@WebServlet("/ServletCreaForRempliB")
+public class ServletCreaForRempliB extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ServletCreaForPreRempli() {
+    public ServletCreaForRempliB() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -62,7 +62,7 @@ public class ServletCreaForPreRempli extends HttpServlet {
 		 */
 		
 		File fileJS = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/JSFormulaireRempli.html");
-		// faudra mettre une fonction "bouton valider" qui enverra vers la servlet "ServletCreaForRempli.java" 
+		// faudra mettre une fonction "bouton modifier" qui enverra vers la servlet "ServletCreaForPreRempli.java" 
 		BufferedReader bufReadJS = null;
 		bufReadJS= new BufferedReader(new FileReader(fileJS));
 		String lineJS= bufReadJS.readLine();
@@ -101,8 +101,8 @@ public class ServletCreaForPreRempli extends HttpServlet {
 		}
 		bufReadDoc.close();
 		
-		// rajouter des if pour créer des objets et rajouter des attributs lorsqu'ils sont rencontrés. Remplir les inputs du nouveau formulaire avc ces attributs. En value mais modifiable.
-		File fileDoc1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/FormulaireRempli.html");
+		// rajouter des if pour créer des objets et rajouter des attributs lorsqu'ils sont rencontrés. Remplir les inputs du nouveau formulaire avc ces attributs. En read-only.
+		File fileDoc1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/FormulairePreRempli.html");
 		BufferedReader bufReadDoc1 = null;
 		bufReadDoc1 = new BufferedReader(new FileReader(fileDoc1));
 		String lineDoc1 = bufReadDoc1.readLine();
@@ -122,6 +122,7 @@ public class ServletCreaForPreRempli extends HttpServlet {
 			lineBas = bufReadBas.readLine();
 		}
 		bufReadBas.close();
+	
 	}
 
 }

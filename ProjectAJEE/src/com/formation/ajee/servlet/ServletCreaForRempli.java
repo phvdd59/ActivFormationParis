@@ -1,5 +1,8 @@
 package com.formation.ajee.servlet;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -37,55 +40,90 @@ public class ServletCreaForRempli extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		
-		//1. Récupérer les données du formulaire
-		// ouvrir le fichier formulaire
-		String pNom=request.getParameter("nom");
-		String pPrenom=request.getParameter("prenom");
-		String pAdresse=request.getParameter("adresse");
-		String pCp=request.getParameter("cp");
-		String pVille=request.getParameter("ville");
-		String pTelFixe=request.getParameter("telFixe");
-		String pTelPort=request.getParameter("telPort");
-		String pFax=request.getParameter("fax");
-		String pEmail=request.getParameter("email");
-		String pDateNaiss=request.getParameter("dateNaiss");
-		String pLieu=request.getParameter("lieu");
-		String pNumSecu=request.getParameter("numSecu");
-		String pNat=request.getParameter("nat");
-		String pSitActuelle=request.getParameter(""); // cf. ForCalLisDer.html de Jérémy
-		String pFctnOccupee=request.getParameter("fctnOccupee");
-		//String pPrenom=request.getParameter("prenom");
-		//String pPrenom=request.getParameter("prenom");
-		//String pPrenom=request.getParameter("prenom");
-		//String pPrenom=request.getParameter("prenom");
-		//String pPrenom=request.getParameter("prenom");
-		//String pPrenom=request.getParameter("prenom");
-		//String pPrenom=request.getParameter("prenom");
-		//String pPrenom=request.getParameter("prenom");
-		//String pPrenom=request.getParameter("prenom");
-		
-		
-		//2. Stockage des données du formulaire -> à mettre dans le init?
-		ListeUtilisateurs lst = new ListeUtilisateurs();
-		Utilisateurs user1 = new Utilisateurs(pNom, pPrenom); // faire constructeur avc ts les champs dans Utilisateurs.java
-		lst.add(user1);
-		
-		//3. Renvoi données pour remplir nouveau formulaire
-		// réception de l'id user i
-		// récupération des données
-		//rPrenom=p.getPrenom(useri);
-		// remplissage du formulaire 2
-		//response.getWriter();
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		
+		/** Lecture Haut de page HTML */
+		File fileHaut = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/HautPage.html");
+		BufferedReader bufReadHaut = null;
+		bufReadHaut = new BufferedReader(new FileReader(fileHaut));
+		String lineHaut = bufReadHaut.readLine();
+		while (lineHaut != null) {
+			response.getWriter().println(lineHaut);
+			lineHaut=bufReadHaut.readLine();
+		}
+		bufReadHaut.close();
+				
+		/**
+		 * A modifier seulement si notre page contient du JavaScript
+		 */
+		
+		File fileJS = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/JSFormulaireRempli.html");
+		// faudra mettre une fonction "bouton modifier" qui enverra vers la servlet "ServletCreaForPreRempli.java" 
+		BufferedReader bufReadJS = null;
+		bufReadJS= new BufferedReader(new FileReader(fileJS));
+		String lineJS= bufReadJS.readLine();
+		while (lineJS != null) {
+			response.getWriter().println(lineJS);
+			lineJS=bufReadJS.readLine();
+		}
+		bufReadJS.close();
+		
+		// appeller le calendrier ici?
+		
+		/** Lecture page ActivConsulting */
+		
+		File fileActiv = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/MenuActiv.html");
+		BufferedReader bufReadActiv = null;
+		bufReadActiv= new BufferedReader(new FileReader(fileActiv));
+		String lineActiv= bufReadActiv.readLine();
+		while (lineActiv != null) {
+			response.getWriter().println(lineActiv);
+			lineActiv=bufReadActiv.readLine();
+		}
+		bufReadActiv.close();
+		
+		/**
+		 * Seule Partie qui va vraiment changer selon les pages (penser
+		 * aux controles si necessaire)
+		 */
+		
+		File fileDoc = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/Bandeau.html");
+		BufferedReader bufReadDoc = null;
+		bufReadDoc = new BufferedReader(new FileReader(fileDoc));
+		String lineDoc = bufReadDoc.readLine();
+		while (lineDoc != null) {
+			response.getWriter().println(lineDoc);
+			lineDoc = bufReadDoc.readLine();
+		}
+		bufReadDoc.close();
+		
+		// rajouter des if pour créer des objets et rajouter des attributs lorsqu'ils sont rencontrés. Remplir les inputs du nouveau formulaire avc ces attributs. En read-only.
+		File fileDoc1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/FormulaireARemplir.html");
+		BufferedReader bufReadDoc1 = null;
+		bufReadDoc1 = new BufferedReader(new FileReader(fileDoc1));
+		String lineDoc1 = bufReadDoc1.readLine();
+		while (lineDoc1 != null) {
+			response.getWriter().println(lineDoc1);
+			lineDoc1 = bufReadDoc1.readLine();
+		}
+		bufReadDoc1.close();
+		
+		/** Lecture bas de page */
+		File fileBas = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/BasPage.html");
+		BufferedReader bufReadBas = null;
+		bufReadBas = new BufferedReader(new FileReader(fileBas));
+		String lineBas = bufReadBas.readLine();
+		while (lineBas != null) {
+			response.getWriter().println(lineBas);
+			lineBas = bufReadBas.readLine();
+		}
+		bufReadBas.close();
 	}
 
 }
