@@ -1,0 +1,1 @@
+select meuble.nom,groupe.valeur from test.meuble,test.groupe where meuble.nom = groupe.nomgroupe group by meuble.nom,groupe.valeur;
