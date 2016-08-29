@@ -6,13 +6,18 @@
 <link href="http://www.activconsult-ing.com/Home.css" rel="stylesheet"
 	type="text/css">
 <script type="text/javascript">
-// 	function maFonction() {
-// 		location.href = "http://www.souadkad.fr/soka/pageActiveFormulaire_part5_fonction_remuneration.html";
-// 	}
-// 	function maFonction2() {
-// 		location.href = "http://www.souadkad.fr/soka/pageActiveFormulaire_part3_etat_civil.html";
-		
-// 	}
+function ctrSituationPro() {
+	var situationPro=document.getElementByName("situationPro");
+	alert(situationPro);
+	for (var i=0;situationPro.length;i++)){
+		if(!situationPro[i].checked){
+			getElementById("spanSituationPro").innerHTML="Veuillez choisir un champs.";
+			alert("ça marche pas)");
+		}
+	}
+	alert("ça marche");
+}
+
 </script>
 </head>
 <body>
@@ -98,29 +103,30 @@
 				<tr>
 					<td>Salarié</td>
 					<td style="width: 273px; height: 25px; color:;"><input
-						type="radio" name="salarie" value="Salarié:  oui"></td>
+						type="radio" name="situationPro" value="Salarié:  oui"></td>
 					<td style="width: 72px;">Auto-Entrepreneur</td>
 					<td style="width: 112px; height: 25px; color:;"><input
-						type="radio" name="auto entrepreneur" value="Salarié:  oui"></td>
+						type="radio" name="situationPro" value="Salarié:  oui"></td>
 				</tr>
 				<tr>
 					<td>Freelance</td>
 					<td style="width: 273px; height: 25px; color:;"><input
-						type="radio" name="freelance" value="Freelance:  oui"></td>
+						type="radio" name="situationPro" value="Freelance:  oui"></td>
 					<td style="width: 72px;">Demandeur d'emploi</td>
 					<td style="width: 112px; height: 25px; color:;"><input
-						type="radio" name="demandeur d emploi" value="Freelance:  oui"></td>
+						type="radio" name="situationPro" value="Freelance:  oui"></td>
 				</tr>
 				<tr>
 					<td>Retraité</td>
 					<td style="width: 273px; height: 25px; color:;"><input
-						type="radio" name="retraite" value="Retraité:  oui"></td>
+						type="radio" name="situationPro" value="Retraité:  oui"></td>
 					<td style="width: 72px;">Autre</td>
 					<td style="width: 112px; height: 25px; color:;"><input
-						type="radio" name="autre" value="Retraité:  oui"></td>
+						type="radio" name="situationPro" value="Retraité:  oui" checked="checked"></td>
 				</tr>
-
+				
 			</table>
+			
 				<input type="submit" value="Suivant" ></input>
                 <input type="hidden" name="noSerie" value="%%noSerie%%">
 				</form>
@@ -132,6 +138,12 @@
 				<input type="submit" value="Deconnexion" ></input>
                 <input type="hidden" name="noSerie" value="%%noSerie%%">
 				</form>
+				<form>
+				<input type="button" value="check" onclick="ctrSituationPro()"></input>
+               
+				</form>
+				
+				<span style="text-align: center;" id="spanSituationPro"></span>
 				
 		</div>
 		<div id="fpage2">
