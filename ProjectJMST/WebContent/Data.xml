@@ -3,7 +3,7 @@
     <Personne prenom="Thomas" login="thcr" password="password" admin="true" mail="thomas.cresson@mail.fr" nationalite="francaise" adresse="adresse de Thomas">
         Cresson
     </Personne>
-    <Personne prenom="Souad" login="soka" password="toto" admin="true" mail="souad.kadri@mail.fr" nationalite="algerienne" adresse="adresse de Souad">
+    <Personne prenom="Souad" login="soka" password="soka" admin="true" mail="souad.kadri@mail.fr" nationalite="algerienne" adresse="adresse de Souad">
         Kadri
     </Personne>
     <Personne prenom="Marc" login="made" password="password" admin="true" mail="marc.denis@mail.fr" nationalite="francaise" adresse="adresse de Marc">
