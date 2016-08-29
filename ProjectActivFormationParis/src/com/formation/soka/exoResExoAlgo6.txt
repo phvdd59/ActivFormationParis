@@ -1,0 +1,14 @@
+soka:Algo
+
+soka testFTrop (0/1): KO | exo.solution(tab, 2, 150), résultat incorrect
+soka testAlea (0/2): KO | exo.solution(tab, 2, 3), résultat incorrect
+soka testNull (1/1):    | exo.solution(null, 2, 3),
+soka testPlus (0/1): KO | exo.solution(tab, -1, 3), résultat incorrect
+soka testZero (0/1): KO | exo.solution(tab, 0, 3), résultat incorrect
+soka testUn (0/1): KO | exo.solution(tab, 1, 3), résultat incorrect
+soka testFMoins (0/1): KO | exo.solution(tab, 2, -1), résultat incorrect
+soka testLength (0/1): KO | exo.solution(tab, 20, 3), résultat incorrect
+soka testMoins1 (0/1): KO | exo.solution(tab, -1, 3), résultat incorrect
+soka testNormal0 (0/2): KO | exo.solution(tab, 2, 3), résultat incorrect
+soka NOTE : (1 / 12) = 1,67 / 20
+

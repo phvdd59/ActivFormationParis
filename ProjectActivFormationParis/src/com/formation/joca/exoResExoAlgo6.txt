@@ -1,0 +1,14 @@
+joca:Algo
+
+joca testFTrop (1/1):    | exo.solution(tab, 2, 150),
+joca testAlea (0/2): KO | exo.solution(tab, 2, 3), résultat incorrect
+joca testNull (1/1):    | exo.solution(null, 2, 3),
+joca testPlus (1/1):    | exo.solution(tab, -1, 3),
+joca testZero (1/1):    | exo.solution(tab, 0, 3),
+joca testUn (1/1):    | exo.solution(tab, 1, 3),
+joca testFMoins (0/1): KO | exo.solution(tab, 2, -1), résultat incorrect
+joca testLength (1/1):    | exo.solution(tab, 20, 3),
+joca testMoins1 (1/1):    | exo.solution(tab, -1, 3),
+joca testNormal0 (2/2):    | exo.solution(tab, 2, 3),
+joca NOTE : (9 / 12) = 15,00 / 20
+

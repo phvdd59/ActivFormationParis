@@ -1,0 +1,14 @@
+thde:Algo
+
+thde testFTrop (1/1):    | exo.solution(tab, 2, 150),
+thde testAlea (0/2): KO | exo.solution(tab, 2, 3), résultat incorrect
+thde testNull (1/1):    | exo.solution(null, 2, 3),
+thde testPlus (1/1):    | exo.solution(tab, -1, 3),
+thde testZero (1/1):    | exo.solution(tab, 0, 3),
+thde testUn (1/1):    | exo.solution(tab, 1, 3),
+thde testFMoins (1/1):    | exo.solution(tab, 2, -1),
+thde testLength (1/1):    | exo.solution(tab, 20, 3),
+thde testMoins1 (1/1):    | exo.solution(tab, -1, 3),
+thde testNormal0 (2/2):    | exo.solution(tab, 2, 3),
+thde NOTE : (10 / 12) = 16,67 / 20
+

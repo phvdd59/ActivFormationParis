@@ -1,0 +1,14 @@
+ambr:Algo
+
+ambr testFTrop (0/1): KO | exo.solution(tab, 2, 150), résultat incorrect
+ambr testAlea (0/2): KO | exo.solution(tab, 2, 3), résultat incorrect
+ambr testNull (0/1): KO | exo.solution(null, 2, 3), résultat incorrect
+ambr testPlus (0/1): KO | exo.solution(tab, -1, 3), résultat incorrect
+ambr testZero (0/1): KO | exo.solution(tab, 0, 3), résultat incorrect
+ambr testUn (0/1): KO | exo.solution(tab, 1, 3), résultat incorrect
+ambr testFMoins (0/1): KO | exo.solution(tab, 2, -1), résultat incorrect
+ambr testLength (0/1): KO | exo.solution(tab, 20, 3), résultat incorrect
+ambr testMoins1 (0/1): KO | exo.solution(tab, -1, 3), résultat incorrect
+ambr testNormal0 (0/2): KO | exo.solution(tab, 2, 3), résultat incorrect
+ambr NOTE : (0 / 12) = 0,00 / 20
+
