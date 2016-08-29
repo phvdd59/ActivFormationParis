@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class ServletCreaForPreRempli
  */
 @WebServlet("/ServletCreaForPreRempli")
-//Cette servlet prend "FormulaireRempli" (le formulaire rempli avc données user en read-only), et génère "FormulairePreRempli", soit le même formulaire avec les champs remplis mais modifiables.
+//Cette servlet prend "FormulaireRempli.html" (le formulaire rempli avc données user en read-only), et génère "FormulairePreRempli.html", soit le même formulaire avec les champs remplis mais modifiables.
 public class ServletCreaForPreRempli extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
