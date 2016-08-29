@@ -90,7 +90,6 @@
 		personne = (Personne) o;
 	}
 	%>	
-	
 		<form action="http://localhost:8080/ProjectJMST/ServletSoka2"
 			method='POST'>
 			<table border="1">
