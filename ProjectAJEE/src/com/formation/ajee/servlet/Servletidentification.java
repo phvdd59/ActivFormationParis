@@ -144,6 +144,9 @@ System.out.println(session.getId());
 				bufReadDoc = new BufferedReader(new FileReader(fileDoc));
 				String lineDoc = bufReadDoc.readLine();
 				while (lineDoc != null) {
+					if (lineDoc.contains("%pseudo%")) {
+						lineDoc=lineDoc.replace("%pseudo%", pseudo);
+					}
 					resp.getWriter().println(lineDoc);
 					lineDoc = bufReadDoc.readLine();
 				}

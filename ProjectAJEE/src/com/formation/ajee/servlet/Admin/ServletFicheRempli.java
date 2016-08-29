@@ -40,6 +40,7 @@ public class ServletFicheRempli extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		String sS=request.getParameter("JSESSIONID");
+		String pseudo = (String) session.getAttribute("pseudo");
 		System.out.println(sS);
 		System.out.println(session.getId());
 		/** Lecture Haut de page HTML */
@@ -94,6 +95,9 @@ public class ServletFicheRempli extends HttpServlet {
 		bufReadDoc = new BufferedReader(new FileReader(fileDoc));
 		String lineDoc = bufReadDoc.readLine();
 		while (lineDoc != null) {
+			if (lineDoc.contains("%pseudo%")) {
+				lineDoc=lineDoc.replace("%pseudo%", pseudo);
+			}
 			response.getWriter().println(lineDoc);
 			lineDoc = bufReadDoc.readLine();
 		}

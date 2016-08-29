@@ -43,7 +43,7 @@ public class ServletMdpAdmin extends HttpServlet {
 		String sS=request.getParameter("JSESSIONID");
 		System.out.println(sS);
 		System.out.println(session.getId());
-		
+		String pseudo = (String) session.getAttribute("pseudo");
 		/** Lecture Haut de page HTML */
 		File fileHaut = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/HautPage.html");
 		BufferedReader bufReadHaut = null;
@@ -96,6 +96,9 @@ public class ServletMdpAdmin extends HttpServlet {
 		bufReadDoc = new BufferedReader(new FileReader(fileDoc));
 		String lineDoc = bufReadDoc.readLine();
 		while (lineDoc != null) {
+			if (lineDoc.contains("%pseudo%")) {
+				lineDoc=lineDoc.replace("%pseudo%", pseudo);
+			}
 			response.getWriter().println(lineDoc);
 			lineDoc = bufReadDoc.readLine();
 		}
