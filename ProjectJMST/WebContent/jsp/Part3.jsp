@@ -90,7 +90,7 @@
 		personne = (Personne) o;
 	}
 	%>	
-        <form action="http://localhost:8080/ProjectJMST/ServletSoka4" method='post'>
+        <form action="http://localhost:8080/ProjectJMST/jsp/Part4.jsp" method='post'>
 			<table border="1">
 
 				<tr>
@@ -100,15 +100,15 @@
 				<tr>
 					<td>Date de naissance</td>
 					<td style="width: 273px; height: 25px; color:;"><input id="dateDeNaissance"
-						type="text" name= "date de naissance" value=''  style="width: 270px;"><br><span id="spanDateDeNaissance"></span></td>
+						type="text" name= "date de naissance" value='<%=personne.getDateNaissance() %>'  style="width: 270px;"><br><span id="spanDateDeNaissance"></span></td>
 					<td style="width: 72px;">Lieu de naissance</td>
 					<td style="width: 112px; height: 25px; color:;"><input id="lieuDeNaissance"
-						type="text" name= "lieu de naissance" value='' ><br><span id="spanLieuDeNaissance"></span></td>
+						type="text" name= "lieu de naissance" value='<%=personne.getLieuNaissance() %>' ><br><span id="spanLieuDeNaissance"></span></td>
 				</tr>
 				<tr>
 					<td>N° sécurité Social</td>
 					<td colspan="3" style="width: 229px; height: 25px; color:;"><input id="noSecuriteSociale"
-						type="text" name= "num secu" value='' style="width: 615px;"><br><span id="spanNoSecuriteSociale"></span></td>
+						type="text" name= "num secu" value='<%=personne.getNumSecu() %>' style="width: 615px;"><br><span id="spanNoSecuriteSociale"></span></td>
 				</tr>
 				<tr>
 					<td>Nationalité</td>

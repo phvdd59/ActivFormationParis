@@ -115,26 +115,26 @@
 				<tr>
 					<td>Code Postale</td>
 					<td style="width: 273px; height: 25px; color:;"><input id="codePostal"
-						type="text" name="code postale" value='' style="width: 270px;"><br><span id="spanCodePostal"></span></td>
+						type="text" name="code postale" value='<%=personne.getCodePostal() %>' style="width: 270px;"><br><span id="spanCodePostal"></span></td>
 					<td style="width: 72px;">Ville</td>
 					<td style="width: 112px; height: 25px; color:;"><input id="ville"
-						type="text" name="ville" value=''><br><span id="spanVille"></span></td>
+						type="text" name="ville" value='<%=personne.getVille() %>'><br><span id="spanVille"></span></td>
 				</tr>
 				<tr>
 					<td>Telephone Fixe</td>
 					<td style="width: 273px; height: 25px; color:;"><input id="telephoneFixe"
-						type="text" name="tel fixe" value='' style="width: 270px;"><br><span id="spanTelephoneFixe"></span></td>
+						type="text" name="tel fixe" value='<%=personne.getTelFixe() %>' style="width: 270px;"><br><span id="spanTelephoneFixe"></span></td>
 					<td style="width: 72px;">Telephone Portable</td>
 					<td style="width: 112px; height: 25px; color:;"><input id="telephonePortable"
-						type="text" name="tel portable" value=''><br><span id="spanTelephonePortable"></span></td>
+						type="text" name="tel portable" value='<%=personne.getTelPort() %>'><br><span id="spanTelephonePortable"></span></td>
 				</tr>
 				<tr>
 					<td>Fax</td>
 					<td style="width: 273px; height: 25px; color:;"><input id="fax"
-						type="text" name="fax" value='' style="width: 270px;"><br><span id="spanFax"></span></td>
+						type="text" name="fax" value='<%=personne.getFax() %>' style="width: 270px;"><br><span id="spanFax"></span></td>
 					<td style="width: 72px;">Mail</td>
 					<td style="width: 112px; height: 25px; color:;"><input 
-						id="mail" type="text" name="mail" value=''><br> <span
+						id="mail" type="text" name="mail" value='<%=personne.getMail() %>'><br> <span
 						id="spanMail"></span></td>
 				</tr>
 			</table>
