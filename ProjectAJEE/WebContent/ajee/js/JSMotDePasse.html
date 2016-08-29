@@ -7,14 +7,12 @@ function ValideMdpActuel() {
 	var mdpA = document.getElementById("mdpA");
 	var VmdpA = document.getElementById("mdpA").value;
 	if (VmdpA != "") {
-	//	if(VmdpC.localeCompare(mdpUser) != 0){
 			mdpA.style.color="red";
 			mdpA.placeholder="Merci de saisir VOTRE mot de passe";
 		} else {
 			b1= true;
 			mdpA.style.color="black";
 		}
-//	}	
 }
 function ValideMdp() {
 	var mdpN = document.getElementById("mdpN");
