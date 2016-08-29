@@ -121,7 +121,7 @@
 			} else {
 				document.getElementById('erreur').innerHTML = ' OK';
 				champ.style.border = "",
-		        champ.style.backgroundColor = ""; 
+		        champ.style.backgroundColor = "#009f00"; 
 				return true
 			}
 		}
@@ -131,12 +131,12 @@
 			if (champ.value.length == 0 || champ.value.length > 16) {
 				document.getElementById('erreur2').innerHTML = ' saisir un texte entre 1 et 15 caracteres';
 				champ.style.border = "1px solid #f00",
-		         champ.style.backgroundColor = "#fba";
+		        champ.style.backgroundColor = "#fba";
 				return false;
 			} else {
 				document.getElementById('erreur2').innerHTML = ' OK';
 				champ.style.border = "",
-		        champ.style.backgroundColor = ""; 
+		        champ.style.backgroundColor = "#009f00"; 
 				return true
 			}
 		}
