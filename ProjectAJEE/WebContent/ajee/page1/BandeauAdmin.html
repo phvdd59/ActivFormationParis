@@ -1,41 +1,43 @@
 <ul id="menu-deroulant">
 
-	<li><a> <%request.getParameter("pseudo");%></a>
-	
-	</li>
-		<li><a>Mon Compte</a>
+	<li><a> %pseudo%</a></li>
+	<li><a>Mon Compte</a>
 		<ul>
-			<li ><span onclick="appelPostFiche()">Fiche d'identification</span>	<div>
-		<form id="formFiche" name="formFiche" action="/" method="POST">
-		</form>
-	</div></li>
-		
-			<li><span onclick="appelPostMdp()">Changement de mot de passe</span>	<div>
-		<form id="formMdp" name="formMdp" action="/" method="POST">
-		</form>
-	</div></li>
-		<li><span onclick="appelPostAccueil()">Accueil-chargement profil</span>	<div>
-		<form id="formAccueil" name="formAccueil" action="http://127.0.0.1:8080/ProjectAJEE/Servletaccueilchargementprofil" method="POST">
-			<input type="submit" value="ACCUEIL">
-		</form>
-	</div></li>
-		</ul>
-	</li>
-	<li><span onclick="appelPostDoc()">Mes documents</span>
-		<div>
-		<form id="formDoc" name="formDoc" action="http://127.0.0.1:8080/ProjectAJEE/MesDocuments" method="POST">
-			<input type="submit" value="DOCUMENT">
-		</form>
-	</div>	
-	</li>
-	<li><input id="invitereader" type="text" value="" readonly  />
-		
-	</li>
+			<li>
+				<form id="formFiche" name="formFiche"
+					action="http://127.0.0.1:8080/ProjectAJEE/ServletFicheRempli"
+					method="POST">
+					<input type="submit" value="Fiche d'identification">
+				</form>
+			</li>
+
+			<li>
+				<form id="formMdp" name="formMdp"
+					action="http://127.0.0.1:8080/ProjectAJEE/ServletMdpAdmin"
+					method="POST">
+					<input type="submit" value="Changement de mot de passe">
+				</form>
+			</li>
+			<li>
+				<form id="formAccueil" name="formAccueil"
+					action="http://127.0.0.1:8080/ProjectAJEE/Servletaccueilchargementprofil"
+					method="POST">
+					<input type="submit" value="Accueil-chargement profil">
+				</form>
+			</li>
+		</ul></li>
+	<li><form id="formDoc" name="formDoc"
+			action="http://127.0.0.1:8080/ProjectAJEE/MesDocuments" method="POST">
+			<input type="submit" value="Mes documents">
+		</form></li>
+	<li><input id="invitereader" type="text" value="" readonly /></li>
 	<!-- -->
-	<li><span onclick="appelPostDeco()">Déconnexion</span>
-		<div>
-		<form id="formDeco" name="formDeco" action="/" method="POST">
+	<li>
+		<form id="formDeco" name="formDeco"
+			action="http://127.0.0.1:8080/ProjectAJEE/ServletDecoAdmin"
+			method="POST">
+			<input type="submit" value="Déconnexion">
 		</form>
-	</div>	
+
 	</li>
 </ul>
