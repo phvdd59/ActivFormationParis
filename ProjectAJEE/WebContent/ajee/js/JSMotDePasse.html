@@ -1,10 +1,7 @@
 <script type="text/javascript">
-
-var b1= false;
-var b2= false;
-var b3= false;
-
-
+boolean b1= false;
+boolean b2= false;
+boolean b3= false;
 function ValideMdpActuel() {
 	var mdpUser = request.getParameter("mdp");
 	var mdpA = document.getElementById("mdpA");
@@ -19,7 +16,6 @@ function ValideMdpActuel() {
 		}
 //	}	
 }
-
 function ValideMdp() {
 	var mdpN = document.getElementById("mdpN");
 	var VmdpN = document.getElementById("mpdN").value;
@@ -34,7 +30,6 @@ function ValideMdp() {
 		}
 	}	
 }
-
 function ValideMdpConfirme() {
 	var VmdpN = document.getElementById("mdpN").value;
 	var mdpC = document.getElementById("mdpC");
@@ -47,12 +42,12 @@ function ValideMdpConfirme() {
 			b3= true;
 			mdpC.style.color="black";
 		}
-//	}	
+	}	
 }
-
 function BoutonValider() {
 	if ((b1 == true) && (b2 == true) && (b3 == true)) {
-		document.location.href = "http://127.0.0.1:8080/ProjectAJEE/Servletaccueilchargementprofil";
+		document.valider.action = "http://127.0.0.1:8080/ProjectAJEE/Servletaccueilchargementprofil";
+		document.valider.submit();
 	} 
 }
 </script>
