@@ -31,7 +31,8 @@ public class Servletmesdocuments extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session=request.getSession();
 		System.out.println("VDD "+session.getId());
-		String sS=request.getParameter("JSESSIONID");
+	
+		String pseudo = (String) session.getAttribute("pseudo");
 		/**A activer quand on aura fait le "DoGet" avec notre "HttpSession" et le "noSerie"*/		
 //		String noSerie = request.getParameter("noSerie");
 //		HttpSession session = request.getSession();
@@ -88,6 +89,9 @@ public class Servletmesdocuments extends HttpServlet {
 				bufReadDoc = new BufferedReader(new FileReader(fileDoc));
 				String lineDoc = bufReadDoc.readLine();
 				while (lineDoc != null) {
+					if (lineDoc.contains("%pseudo%")) {
+						lineDoc=lineDoc.replace("%pseudo%", pseudo);
+					}
 					response.getWriter().println(lineDoc);
 					lineDoc = bufReadDoc.readLine();
 				}
