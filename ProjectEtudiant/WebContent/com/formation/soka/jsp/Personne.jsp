@@ -10,22 +10,23 @@
 </head>
 <body>
 	Ceci est une page jsp
-	
-	<%
-	String pNom=request.getParameter("nom"); 
-	if(pNom!=null){
-		
-	}
+
+
+<%
+		String pNom=request.getParameter("nom");
+		if (pNom != null) {
+			
+		}
 	%>
-	
-	<% String nom = "Dupont";
-	Date dt = new Date();
-	
-	
-	for (int i =0; i < 5; i++){
-		out.println("<h3>"+i+" salut</h3>");
-	
-	}
+
+	<%
+		
+		String nom = "Dupont";
+		Date dt = new Date();
+
+		for (int i = 0; i < 5; i++) {
+			out.println("<h3>" + i + " salut</h3>");
+		}
 	%>
 	<%=dt%> <!-- 	affichage --> 
 	<form action="http://192.168.33.145:8080/ProjectEtudiant/ServletPersonneSoka">
