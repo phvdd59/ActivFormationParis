@@ -11,7 +11,7 @@ public class Utilisateurs {
 
 		this.nom = nom;
 		this.prenom = prenom;
-
+		mdp = " ";
 		String nom2 = nom.replace(" ", "");
 		identifiant = prenom.substring(0, 1) + "." + nom2;
 		while (mdp.length() != 8) {
