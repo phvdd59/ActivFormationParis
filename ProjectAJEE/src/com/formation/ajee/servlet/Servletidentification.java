@@ -36,15 +36,15 @@ public class Servletidentification extends HttpServlet {
 		request.logout();
 		File file = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page/Identification.html");
 		// System.out.println(file.getCanonicalPath());
-		int noserie = (int) Math.random() * Integer.MAX_VALUE;
+		int noSerie = (int) Math.random() * Integer.MAX_VALUE;
 		HttpSession session = request.getSession(true); // true pour garder le
 														// meme numero de
 														// session qui vient
 														// detre créé
-		String id = session.getId();
-
+		
+		System.out.println(session.getId());
 		// donne le numero de session
-		session.setAttribute("noserie", Integer.valueOf(noserie));
+		session.setAttribute("noSerie", Integer.valueOf(noSerie));
 
 		BufferedReader bIn = new BufferedReader(new FileReader(file));
 		String line = bIn.readLine();
@@ -62,6 +62,7 @@ public class Servletidentification extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse resp) throws ServletException, IOException {
 //		request.logout();
 		HttpSession session = request.getSession();
+		
 		// String sS=request.getParameter("JSESSIONID");
 		System.out.println(session.getId());
 		Object oNoSerie = session.getAttribute("noSerie");
@@ -69,14 +70,14 @@ public class Servletidentification extends HttpServlet {
 
 			// recuperer les parametres
 			String pseudo = request.getParameter("Identifiant");
-			
+			System.out.println(pseudo);
 			String mdp = request.getParameter("mot de passe");
-
-		session.setAttribute("pseudo", pseudo);
+			System.out.println(mdp);
+			session.setAttribute("pseudo", pseudo);
 			session.setAttribute("mdp", mdp);
 			// controler les parametres
-			if ((pseudo != "") && (mdp != "")) {
-				if (pseudo.equals("Admin") && mdp.equals("123")) {
+		if ((pseudo != "") && (mdp != "")) {
+			if (pseudo.equals("Admin")&&(mdp.equals("123"))) {
 
 					// constituer la nouvelle page
 					// /** Lecture Haut de page JSP */
