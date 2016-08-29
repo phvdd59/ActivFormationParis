@@ -43,7 +43,7 @@ public class ServletMdpAdmin extends HttpServlet {
 		String sS=request.getParameter("JSESSIONID");
 		System.out.println(sS);
 		System.out.println(session.getId());
-		
+		String pseudo = (String) session.getAttribute("pseudo");
 		/** Lecture Haut de page HTML */
 		File fileHaut = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/HautPage.html");
 		BufferedReader bufReadHaut = null;
@@ -54,17 +54,6 @@ public class ServletMdpAdmin extends HttpServlet {
 			lineHaut = bufReadHaut.readLine();
 		}
 		bufReadHaut.close();
-
-		 /**A modifier seulement si notre page contient du JavaScript */
-//		 File fileJS = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/WEB-INF/com/formation/ajee/js/JSAccueilAdmin.html");
-//		 BufferedReader bufReadJS = null;
-//		 bufReadJS = new BufferedReader(new FileReader(fileJS));
-//		 String lineJS = bufReadJS.readLine();
-//		 while (lineJS != null) {
-//		 response.getWriter().println(lineJS);
-//		 lineJS = bufReadJS.readLine();
-//		 }
-//		 bufReadJS.close();
 		 
 		 File fileJS1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/js/JSBandeauAdmin.html");
 		 BufferedReader bufReadJS1 = null;
@@ -75,6 +64,16 @@ public class ServletMdpAdmin extends HttpServlet {
 		 lineJS1 = bufReadJS1.readLine();
 		 }
 		 bufReadJS1.close();
+		 
+		 File fileJS2 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/js/JSMotDePasse.html");
+		 BufferedReader bufReadJS2 = null;
+		 bufReadJS2 = new BufferedReader(new FileReader(fileJS2));
+		 String lineJS2 = bufReadJS2.readLine();
+		 while (lineJS2 != null) {
+		 response.getWriter().println(lineJS2);
+		 lineJS2 = bufReadJS2.readLine();
+		 }
+		 bufReadJS2.close();
 
 		/** Lecture page ActivConsulting */
 		File fileActiv = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/MenuActiv.html");
@@ -96,6 +95,9 @@ public class ServletMdpAdmin extends HttpServlet {
 		bufReadDoc = new BufferedReader(new FileReader(fileDoc));
 		String lineDoc = bufReadDoc.readLine();
 		while (lineDoc != null) {
+			if (lineDoc.contains("%pseudo%")) {
+				lineDoc=lineDoc.replace("%pseudo%", pseudo);
+			}
 			response.getWriter().println(lineDoc);
 			lineDoc = bufReadDoc.readLine();
 		}

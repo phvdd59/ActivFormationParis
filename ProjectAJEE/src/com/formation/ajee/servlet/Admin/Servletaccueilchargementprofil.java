@@ -42,7 +42,7 @@ public class Servletaccueilchargementprofil extends HttpServlet {
 //		System.out.println(sS+" page accueil2");
 //		System.out.println(session.getId()+"accueil2");
 		String pseudo = (String) session.getAttribute("pseudo");
-		System.out.println(pseudo);
+		
 		// Object oRecupNoSerie=session.getAttribute("noSerie");
 		// String recupNoSerie=(String) oRecupNoSerie;
 
@@ -116,6 +116,9 @@ public class Servletaccueilchargementprofil extends HttpServlet {
 			bufReadDoc = new BufferedReader(new FileReader(fileDoc));
 			String lineDoc = bufReadDoc.readLine();
 			while (lineDoc != null) {
+				if (lineDoc.contains("%pseudo%")) {
+					lineDoc=lineDoc.replace("%pseudo%", pseudo);
+				}
 				response.getWriter().println(lineDoc);
 				lineDoc = bufReadDoc.readLine();
 			}
