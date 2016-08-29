@@ -9,10 +9,10 @@ public class Mot implements InterExoMot1, Comparable<Mot> {
 
 	public Mot(String mot) {
 		this.mot=mot;
-		nb=1;
+		nb=1;		
 		
 	}
-
+	
 	public String getMot() {
 		return mot;
 	}
@@ -31,17 +31,20 @@ public class Mot implements InterExoMot1, Comparable<Mot> {
 
 	@Override
 	public int compareTo(Mot o) {
-
-		int res=-Integer.valueOf(getNb()).compareTo(o.getNb());
-		if(res==0){
-			res=getMot().compareTo(o.getMot());
+		int retour=0;
+		if(this.getNb()>o.getNb()){
+			retour=-1;
+		}else if(this.getNb()<o.getNb()){
+			retour=1;
+		}else{
+			retour=(int)this.getMot().compareTo(o.getMot());
 		}
-		return res;
+		return retour;
 	}
 
 	@Override
 	public void plusUn() {
-	nb++;
+	this.nb+=1;
 		
 	}
 
@@ -49,16 +52,17 @@ public class Mot implements InterExoMot1, Comparable<Mot> {
 	public boolean equals(Object obj) {
 		
 		boolean bRet=false;
-		if(obj instanceof Mot){
-			Mot mMot=(Mot) obj;
-			bRet=getMot().equals(mMot.getMot());
+		Mot temp=(Mot) obj;
+		if(this.getMot().equals(temp.getMot())){
+			bRet=true;
 		}
 		return bRet;
 	}
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return getMot()+"("+getNb()+")";
+		return "Mot [mot=" + mot + ", nb=" + nb + "]";
 	}
+
+
 }
