@@ -34,8 +34,7 @@ function verifExisteDeja(champ) {
 }
 
 function verifLettres(champ) {
-	if ((champ.value.match("[\\w]+")) && (!champ.value.match(".*\\d+.*"))) {
-		//faire en mieux
+	if (!champ.value.match(".*\\d+.*")) {
 		return true;
 	} else {
 		return false;
@@ -97,7 +96,8 @@ function verifCodePostal(champ) {
 
 function verifTel(champ) {
 	if ((verifTaille(champ, 10, 10)) && (!verifLettres(champ))) {
-		//le cas +33
+		//if(tel.match(/^(\+33|0033|0)[0-9]{9}$/g))
+		//tel = this.value.replace(/[\.,\s]/g, '');
 		surligne(champ, false);
 		return true;
 	} else {
