@@ -1,16 +1,129 @@
 package com.formation.joca.main;
 
+import java.sql.Connection;
 import java.sql.Driver;
 import java.sql.DriverManager;
 import java.sql.DriverPropertyInfo;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Enumeration;
 
 public class MainJDBC {
+	public final static String JDBC_DRIVER = "com.mysql.jdbc.Driver";
+	public final static String DB_URL = "jdbc:mysql://localhost/test";
+
+	public String user = "root";
+	public String pass = "";
 
 	public static void main(String[] args) {
 		MainJDBC m = new MainJDBC();
-		m.init();
+		// m.init();
+		//m.create();
+		//m.createTable();
+		//m.insertTable();
+		m.selectTable();
+	}
+
+	private void selectTable() {
+		Connection conn = null;
+		Statement stat=null;
+		try {
+			Class.forName(JDBC_DRIVER);
+			conn = DriverManager.getConnection(DB_URL, user, pass);
+			stat = conn.createStatement();
+			
+			String sql="SELECT * from marchandjoca.meuble WHERE marchandjoca.meuble.prix BETWEEN '100.00' and '200.00'";
+			ResultSet resultat =stat.executeQuery(sql);
+			
+			System.out.println("WELP");
+			while (resultat.next()){
+				String nom=resultat.getString("nom");
+				String prix=resultat.getString("prix");
+				String id=resultat.getString("id");
+				System.out.println(nom+" "+prix+" "+id );
+			}
+			
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}			
+	}
+
+	private void insertTable() {
+		Connection conn = null;
+		Statement stat=null;
+		try {
+			Class.forName(JDBC_DRIVER);
+			conn = DriverManager.getConnection(DB_URL, user, pass);
+			stat = conn.createStatement();
+			
+			String sql="insert into marchandjoca.meuble (nom,largeur,hauteur,longueur, prix) VALUES('CANAPE',13,19,30, 599.99);";
+			String sql2="insert into marchandjoca.meuble (nom,largeur,hauteur,longueur, prix) VALUES('ECHELLE',1,80,5, 125.50);";
+			String sql3="insert into marchandjoca.meuble (nom,largeur,hauteur,longueur, prix) VALUES('TABLE',15,15,25, 158.75);";
+			String sql4="insert into marchandjoca.meuble (nom,largeur,hauteur,longueur, prix) VALUES('CHAISE',8,20,8, 115.00);";
+			String sql5="insert into marchandjoca.meuble (nom,largeur,hauteur,longueur, prix) VALUES('ARMOIRE',10,30,25, 250.45);";
+			System.out.println("FUCK YOU");
+			stat.executeUpdate(sql);
+			stat.executeUpdate(sql2);
+			stat.executeUpdate(sql3);
+			stat.executeUpdate(sql4);
+			stat.executeUpdate(sql5);
+			
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+	}
+
+	private void createTable() {
+		Connection conn = null;
+		Statement stat=null;
+		try {
+			Class.forName(JDBC_DRIVER);
+			conn = DriverManager.getConnection(DB_URL, user, pass);
+			stat = conn.createStatement();			
+
+			String dropMeuble="DROP TABLE marchandjoca.meuble";
+			stat.executeUpdate(dropMeuble);
+			String sql="CREATE TABLE MarchandJOCA.meuble(nom VARCHAR(255) not null, prix DECIMAL(5,2) not null, hauteur DECIMAL(6,2) not null, largeur DECIMAL(6,2) not null, longueur DECIMAL(6,2) not null, id BIGINT not null PRIMARY KEY AUTO_INCREMENT);";
+			stat.executeUpdate(sql);
+			System.out.println("FIN");
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
+	}
+
+	private void create() {
+		Connection conn = null;
+		Statement stat=null;
+		try {
+			Class.forName(JDBC_DRIVER);
+			conn = DriverManager.getConnection(DB_URL, user, pass);
+			stat = conn.createStatement();
+			
+			String sql="CREATE DATABASE MarchandJOCA";
+			stat.executeUpdate(sql);
+		
+			
+			System.out.println("FIN");
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	private void init() {
