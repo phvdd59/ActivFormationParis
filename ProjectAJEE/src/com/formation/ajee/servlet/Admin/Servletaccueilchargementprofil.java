@@ -51,16 +51,16 @@ public class Servletaccueilchargementprofil extends HttpServlet {
 		// !noSerie.equals("%%noserie%%")) {
 		// if (pseudo.equals("Philippe")) {
 //		if (pseudo.equals("Admin")) {
-		/** Lecture Haut de page JSP */
-		File fileHautjsp = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/HautPage.jsp");
-		BufferedReader bufReadHautjsp = null;
-		bufReadHautjsp = new BufferedReader(new FileReader(fileHautjsp));
-		String lineHautjsp = bufReadHautjsp.readLine();
-		while (lineHautjsp != null) {
-								response.getWriter().println(lineHautjsp);
-			lineHautjsp = bufReadHautjsp.readLine();
-		}
-		bufReadHautjsp.close();
+//		/** Lecture Haut de page JSP */
+//		File fileHautjsp = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/HautPage.jsp");
+//		BufferedReader bufReadHautjsp = null;
+//		bufReadHautjsp = new BufferedReader(new FileReader(fileHautjsp));
+//		String lineHautjsp = bufReadHautjsp.readLine();
+//		while (lineHautjsp != null) {
+//								response.getWriter().println(lineHautjsp);
+//			lineHautjsp = bufReadHautjsp.readLine();
+//		}
+//		bufReadHautjsp.close();
 			/** Lecture Haut de page HTML */
 			File fileHaut = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/HautPage.html");
 			BufferedReader bufReadHaut = null;

@@ -77,16 +77,16 @@ System.out.println(session.getId());
 				
 				
 				// constituer la nouvelle page
-				/** Lecture Haut de page JSP */
-				File fileHautjsp = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/HautPage.jsp");
-				BufferedReader bufReadHautjsp = null;
-				bufReadHautjsp = new BufferedReader(new FileReader(fileHautjsp));
-				String lineHautjsp = bufReadHautjsp.readLine();
-				while (lineHautjsp != null) {
-										resp.getWriter().println(lineHautjsp);
-					lineHautjsp = bufReadHautjsp.readLine();
-				}
-				bufReadHautjsp.close();
+//				/** Lecture Haut de page JSP */
+//				File fileHautjsp = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/HautPage.jsp");
+//				BufferedReader bufReadHautjsp = null;
+//				bufReadHautjsp = new BufferedReader(new FileReader(fileHautjsp));
+//				String lineHautjsp = bufReadHautjsp.readLine();
+//				while (lineHautjsp != null) {
+//										resp.getWriter().println(lineHautjsp);
+//					lineHautjsp = bufReadHautjsp.readLine();
+//				}
+//				bufReadHautjsp.close();
 				/** Lecture Haut de page HTML */
 				File fileHaut = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/HautPage.html");
 				BufferedReader bufReadHaut = null;
