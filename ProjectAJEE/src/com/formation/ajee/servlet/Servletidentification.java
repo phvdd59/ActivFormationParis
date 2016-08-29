@@ -33,15 +33,18 @@ public class Servletidentification extends HttpServlet {
 	 *      response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.logout();
 		File file = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page/Identification.html");
 		// System.out.println(file.getCanonicalPath());
 		int noserie = (int) Math.random() * Integer.MAX_VALUE;
-		HttpSession session = request.getSession(true); // true pour garder le
+	HttpSession session = request.getSession(true); // true pour garder le
 														// meme numero de
 														// session qui vient
 														// detre créé
-		System.out.println(session.getId());
-		String id = session.getId(); // donne le numero de session
+String id = session.getId();
+	String sS=request.getParameter("JSESSIONID");
+	System.out.println(sS+"1ere"+id);
+ // donne le numero de session
 		session.setAttribute("noserie", noserie);
 
 		BufferedReader bIn = new BufferedReader(new FileReader(file));
@@ -58,9 +61,10 @@ public class Servletidentification extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse resp) throws ServletException, IOException {
+		request.logout();
 		HttpSession session = request.getSession();
-		String sS=request.getParameter("JSESSIONID");
-		System.out.println(session.getId()+" "+sS);
+//		String sS=request.getParameter("JSESSIONID");
+System.out.println(session.getId());
 		// recuperer les parametres
 		String pseudo = request.getParameter("Identifiant");
 		System.out.println(pseudo);

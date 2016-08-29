@@ -12,13 +12,16 @@ public class MainTest {
 	}
 
 	private void init() {
-		ExoJeci test = new ExoJeci();
-		test.setMdpCache("1aBcdef");
-		System.out.println(test.getMdp());
-		test.setAdresseMail("loic@gmail.com");
-		System.out.println(test.getAdresseMail());
-		test.setTel("+33619402752");
-		System.out.println(test.getTel());
+		
+	
+		
+//		ExoJeci test = new ExoJeci();
+//		test.setMdpCache("1aBcdef");
+//		System.out.println(test.getMdp());
+//		test.setAdresseMail("loic@gmail.com");
+//		System.out.println(test.getAdresseMail());
+//		test.setTel("+33619402752");
+//		System.out.println(test.getTel());
 	}
 
 }

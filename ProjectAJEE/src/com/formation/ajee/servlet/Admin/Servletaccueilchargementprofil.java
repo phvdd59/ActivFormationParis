@@ -34,13 +34,13 @@ public class Servletaccueilchargementprofil extends HttpServlet {
 	 *      response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session=request.getSession();
-		System.out.println("VDD "+session.getId());
-		String sS=request.getParameter("JSESSIONID");
+	HttpSession session=request.getSession();
+	System.out.println("jeci "+session.getId());
+//		String sS=request.getParameter("JSESSIONID");
 		// String noSerie = request.getParameter("noSerie");
 		
-		System.out.println(sS+" page accueil2");
-		System.out.println(session.getId()+"accueil2");
+//		System.out.println(sS+" page accueil2");
+//		System.out.println(session.getId()+"accueil2");
 		String pseudo = (String) session.getAttribute("pseudo");
 		System.out.println(pseudo);
 		// Object oRecupNoSerie=session.getAttribute("noSerie");

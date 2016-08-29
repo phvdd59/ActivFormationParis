@@ -12,6 +12,7 @@ public class ExoJocaTest {
 	@Before
 	public void init() {
 		exoJoca = new ExoJoca();
+		
 	}
 
 	@Test
