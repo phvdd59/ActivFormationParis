@@ -1,0 +1,14 @@
+issa:Algo
+
+issa testFTrop (0/1): KO | exo.solution(tab, 2, 150), résultat incorrect
+issa testAlea (0/2): KO | exo.solution(tab, 2, 3), résultat incorrect
+issa testNull (0/1): KO | exo.solution(null, 2, 3), résultat incorrect
+issa testPlus (0/1): KO | exo.solution(tab, -1, 3), résultat incorrect
+issa testZero (0/1): KO | exo.solution(tab, 0, 3), résultat incorrect
+issa testUn (0/1): KO | exo.solution(tab, 1, 3), résultat incorrect
+issa testFMoins (0/1): KO | exo.solution(tab, 2, -1), résultat incorrect
+issa testLength (0/1): KO | exo.solution(tab, 20, 3), résultat incorrect
+issa testMoins1 (0/1): KO | exo.solution(tab, -1, 3), résultat incorrect
+issa testNormal0 (0/2): KO | exo.solution(tab, 2, 3), résultat incorrect
+issa NOTE : (0 / 12) = 0,00 / 20
+

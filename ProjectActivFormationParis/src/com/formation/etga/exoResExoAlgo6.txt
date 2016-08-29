@@ -1,0 +1,14 @@
+etga:Algo
+
+etga testFTrop (0/1): KO | exo.solution(tab, 2, 150), résultat incorrect
+etga testAlea (0/2): KO | exo.solution(tab, 2, 3), résultat incorrect
+etga testNull (1/1):    | exo.solution(null, 2, 3),
+etga testPlus (1/1):    | exo.solution(tab, -1, 3),
+etga testZero (0/1): KO | exo.solution(tab, 0, 3), résultat incorrect
+etga testUn (0/1): KO | exo.solution(tab, 1, 3), résultat incorrect
+etga testFMoins (1/1):    | exo.solution(tab, 2, -1),
+etga testLength (1/1):    | exo.solution(tab, 20, 3),
+etga testMoins1 (1/1):    | exo.solution(tab, -1, 3),
+etga testNormal0 (0/2): KO | exo.solution(tab, 2, 3), résultat incorrect
+etga NOTE : (5 / 12) = 8,33 / 20
+

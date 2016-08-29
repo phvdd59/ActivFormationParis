@@ -1,0 +1,14 @@
+jeci:Algo
+
+jeci testFTrop (1/1):    | exo.solution(tab, 2, 150),
+jeci testAlea (0/2): KO | exo.solution(tab, 2, 3), résultat incorrect
+jeci testNull (1/1):    | exo.solution(null, 2, 3),
+jeci testPlus (1/1):    | exo.solution(tab, -1, 3),
+jeci testZero (0/1): KO | exo.solution(tab, 0, 3), résultat incorrect
+jeci testUn (0/1): KO | exo.solution(tab, 1, 3), résultat incorrect
+jeci testFMoins (1/1):    | exo.solution(tab, 2, -1),
+jeci testLength (1/1):    | exo.solution(tab, 20, 3),
+jeci testMoins1 (1/1):    | exo.solution(tab, -1, 3),
+jeci testNormal0 (0/2): KO | exo.solution(tab, 2, 3), résultat incorrect
+jeci NOTE : (6 / 12) = 10,00 / 20
+

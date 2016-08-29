@@ -38,7 +38,7 @@ public class ServletVDD1 extends HttpServlet {
 		session.setAttribute("methode", "GET");
 		PrintWriter out = response.getWriter();
 		out.println("<html><body>");
-		out.println("<form id=\"formVDD\" name=\"formVDD\" action=\"http://127.0.0.1:8080/ProjectAJEE/ServletVDD1\" method=\"POST\">");
+		out.println("<form id=\"formVDD\" name=\"formVDD\" action=\"http://192.168.33.143:8080/ProjectAJEE/ServletVDD1\" method=\"POST\">");
 		out.println("<p>PAGE 1 constituée par la servlet" + session.getAttribute("servlet") + " en methode " + session.getAttribute("methode") + " </p>");
 		out.println("<p>Numéro de session : " + session.getId() + "</p>");
 		out.println("<p>Numéro de suivi : " + noSuivi + "</p>");
@@ -69,7 +69,7 @@ public class ServletVDD1 extends HttpServlet {
 
 			PrintWriter out = response.getWriter();
 			out.println("<html><body>");
-			out.println("<form id=\"formVDD\" name=\"formVDD\" action=\"http://127.0.0.1:8080/ProjectAJEE/ServletVDD2\" method=\"POST\">");
+			out.println("<form id=\"formVDD\" name=\"formVDD\" action=\"http://192.168.33.143:8080/ProjectAJEE/ServletVDD2\" method=\"POST\">");
 			out.println("<p>PAGE 1 constituée par la servlet" + session.getAttribute("servlet") + " en methode " + session.getAttribute("methode") + " </p>");
 			out.println("<p>Numéro de session : " + session.getId() + "</p>");
 			out.println("<p>Numéro de suivi : " + noSuivi + "</p>");

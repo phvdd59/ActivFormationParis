@@ -1,6 +1,6 @@
 Syntaxe:20
 Tableau:20
-Algo:10.47
+Algo:6.95
 Versionning:-1
 Objet:-1
 Enum:20

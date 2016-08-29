@@ -1,0 +1,14 @@
+made:Algo
+
+made testFTrop (1/1):    | exo.solution(tab, 2, 150),
+made testAlea (0/2): KO | exo.solution(tab, 2, 3), résultat incorrect
+made testNull (1/1):    | exo.solution(null, 2, 3),
+made testPlus (1/1):    | exo.solution(tab, -1, 3),
+made testZero (0/1): KO | exo.solution(tab, 0, 3), résultat incorrect
+made testUn (0/1): KO | exo.solution(tab, 1, 3), résultat incorrect
+made testFMoins (1/1):    | exo.solution(tab, 2, -1),
+made testLength (1/1):    | exo.solution(tab, 20, 3),
+made testMoins1 (1/1):    | exo.solution(tab, -1, 3),
+made testNormal0 (0/2): KO | exo.solution(tab, 2, 3), résultat incorrect
+made NOTE : (6 / 12) = 10,00 / 20
+

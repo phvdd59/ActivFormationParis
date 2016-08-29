@@ -15,5 +15,4 @@ public class Dico extends TreeMap<CleDico, ArrayList<Mot>> implements InterExoDi
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 }

@@ -1,0 +1,14 @@
+thcr:Algo
+
+thcr testFTrop (1/1):    | exo.solution(tab, 2, 150),
+thcr testAlea (0/2): KO | exo.solution(tab, 2, 3), résultat incorrect
+thcr testNull (1/1):    | exo.solution(null, 2, 3),
+thcr testPlus (1/1):    | exo.solution(tab, -1, 3),
+thcr testZero (0/1): KO | exo.solution(tab, 0, 3), résultat incorrect
+thcr testUn (0/1): KO | exo.solution(tab, 1, 3), résultat incorrect
+thcr testFMoins (1/1):    | exo.solution(tab, 2, -1),
+thcr testLength (1/1):    | exo.solution(tab, 20, 3),
+thcr testMoins1 (1/1):    | exo.solution(tab, -1, 3),
+thcr testNormal0 (0/2): KO | exo.solution(tab, 2, 3), résultat incorrect
+thcr NOTE : (6 / 12) = 10,00 / 20
+
