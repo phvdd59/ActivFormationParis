@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Exemple avec preventDefault</title>
+
+</head>
+
+<body>
+
+<p>Veuillez entrer votre nom en minuscules.</p>
+<form>
+<input type="text" id="my-textbox" />
+</form>
+
+    
+<script>
+var myTextbox = document.getElementById('my-textbox');
+
+function checkName(evt) {
+    var charCode = evt.charCode;
+
+    if (charCode != 0) {
+        if (charCode < 97 || charCode > 122) {
+            evt.preventDefault();
+            alert(
+                "Veuillez n'entrer que des lettres minuscules." + "\n"
+                + "charCode: " + charCode + "\n"
+            );
+        }
+    }
+}
+
+myTextbox.addEventListener( 'keypress', checkName, false );
+
+</script>
+    
+</body>
+</html>
