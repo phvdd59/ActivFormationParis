@@ -25,10 +25,58 @@ public class MainJDBCjeci {
 		// m.create();
 		// m.createTable();
 		// m.insertTable();
-		m.selectTable();
+//		m.selectTable();
+//		m.updateTable();
+		m.test();
 
 	}
+	private void test() {
+		Connection conne = null;
+		Statement stat = null;
+		try {
+			Class.forName(JDBC_DRIVER);
+			conne = DriverManager.getConnection(DB_URL, user, pass);
+			stat = conne.createStatement();
+			for (int i = 0; i < 4; i++) {
+				for (int j = 0; j <10; j++) {
+					String sql = "INSERT INTO produit (idMarchand,nomProduit,qteProduit) VALUES("+(i+1)+","+j+",'10');";
+					 stat.executeUpdate(sql);
+				}
+				
+			}
+			
+			System.out.println("fin");
+			
+			System.out.println("fin");
+		} catch (ClassNotFoundException | SQLException e) {
 
+			e.printStackTrace();
+		}
+
+	}
+	private void updateTable() {
+		Connection conne = null;
+		Statement stat = null;
+		try {
+			Class.forName(JDBC_DRIVER);
+			conne = DriverManager.getConnection(DB_URL, user, pass);
+			stat = conne.createStatement();
+			String sql = "UPDATE etga set NOM = 'troller' where NOM = 'toto';";
+			int resultat = stat.executeUpdate(sql);
+			if (resultat>0) {
+				System.out.println("ok");
+			}else {
+				System.out.println("nok");
+			}
+			;
+			
+			System.out.println("fin");
+		} catch (ClassNotFoundException | SQLException e) {
+
+			e.printStackTrace();
+		}
+
+	}
 	private void metaData() {
 		Connection conne = null;
 		Statement stat = null;
