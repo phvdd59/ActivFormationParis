@@ -53,6 +53,7 @@ public class Personne {
 	public Personne(String nom, String prenom) {
 		this.nom = nom;
 		this.prenom = prenom;
+		mdp=" ";
 		String nomE = epuration(nom);
 		String prenomE = epuration(prenom);
 		this.identifiant = prenomE.substring(0, 1) + "." + nomE;
@@ -112,11 +113,11 @@ public class Personne {
 
 	public String epuration(String texte) {
 		texte = texte.toLowerCase();
-		texte = texte.replaceAll("[ав]", "a");
+		texte = texte.replaceAll("[авг]", "a");
 		texte = texte.replaceAll("[йикл]", "e");
 		texte = texte.replaceAll("щ", "u");
 		texte = texte.replaceAll("з", "c");
-		texte = texte.replaceAll("ф", "o");
+		texte = texte.replaceAll("фх", "o");
 		texte = texte.replaceAll("[оп]", "i");
 		texte = texte.replaceAll("\\s+", " ");
 		return texte;

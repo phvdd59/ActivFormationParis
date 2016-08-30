@@ -48,42 +48,59 @@ public class Servletlisteutilisateurs extends HttpServlet {
 	 *      response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		Object oNom = request.getParameter("nom");
 		Object oPrenom = request.getParameter("prenom");
-		
+		boolean existe = false;
 
 		if (oNom != null && oPrenom != null) {
 			String nom = (String) oNom;
 			String prenom = (String) oPrenom;
-			user = new Personne(nom, prenom);					
-			for (int i = 0; i < lstUser.size(); i++) {
-				if (lstUser.get(i).equals(user)) {
-					// alert "personne deja existante"
-					response.getWriter().println("<alert('utilisateur déjà existant')>");
-				} else {
-					lstUser.add(user);
-					//test
-					response.getWriter().println("<alert('ça marche')>");
+
+			user = new Personne(nom, prenom);
+			if (lstUser.size() == 0) {
+				lstUser.add(user);
+			} else {
+				for (int i = 0; i < lstUser.size(); i++) {
+					if (lstUser.get(i).equals(user)) {
+						existe = true;
+						break;
+					} else {
+						lstUser.add(user);
+						break;
+					}
 				}
 			}
-			
 
 			File file = new File("../GITActivFormationParis/ProjectAJEE/WebContent/WEB-INF/com/formation/ajee/page/ListeUtilisateurs2.html");
 			BufferedReader bIn = new BufferedReader(new FileReader(file));
 			String line = bIn.readLine();
 
-			while (line != null) {
-				if (line.contains("%%alerte%%")) {
-					line = line.replace("%%alerte%%", "Identifiant: " + user.getIdentifiant() + " Mot de passe : " + user.getMdp());
-				} else if (line.contains("%%value%%")) {
-					line = line.replace("%%value%%", nom + prenom);
-					line = line.replace("></", ">" + nom + prenom + "</");
-					response.getWriter().println("<option value='%%value%%'></option>");
-				
+				while (line != null) {
+					
+					if (line.contains("%%value%%")) {
+						for (int i = 0; i < lstUser.size(); i++) {
+						String ligne ="<option value='%%value%%'></option>" ;
+						ligne = ligne.replace("%%value%%", lstUser.get(i).getNom() + lstUser.get(i).getPrenom());
+						ligne = ligne.replace("></", ">" + lstUser.get(i).getNom() + " " + lstUser.get(i).getPrenom() + "  -  Identifiant : " + lstUser.get(i).getIdentifiant() + " / Mot de passe : "+ lstUser.get(i).getMdp() +"</");
+						response.getWriter().println(ligne);
+						
+						}
+					} else if (line.contains("%%existe%%")) {
+						if (existe == true) {
+							line = line.replace("%%existe%%", "onload='alert(\"personne dÃ©jÃ  existante\")'");
+							existe = false;
+						} else {
+							line = line.replace("%%existe%%", "");
+						}
+					}
+					
+					response.getWriter().println(line);
+					line = bIn.readLine();
+
 				}
-				response.getWriter().println(line);
-				line = bIn.readLine();
-			}
+			
 			bIn.close();
 
 		} else {
@@ -94,7 +111,7 @@ public class Servletlisteutilisateurs extends HttpServlet {
 			while (line != null) {
 				response.getWriter().println(line);
 				line = bIn.readLine();
-				
+
 			}
 			bIn.close();
 
