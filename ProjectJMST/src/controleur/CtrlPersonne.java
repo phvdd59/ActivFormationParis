@@ -11,10 +11,6 @@ public class CtrlPersonne implements InterCtrlPersonne{
 
 	Personne personne;
 
-	public CtrlPersonne(Personne personne) {
-		this.personne = personne;
-	}
-
 	public Personne getPersonne() {
 		return personne;
 	}
