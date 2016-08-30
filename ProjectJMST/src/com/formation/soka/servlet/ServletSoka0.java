@@ -51,7 +51,7 @@ public class ServletSoka0 extends HttpServlet {
 		String line = bIn.readLine();
 		while (line != null) {
 			if (line.contains("%%noSerie%%")) {
-				line.replace("%%noSerie%%", noSerie);
+				line=line.replace("%%noSerie%%", noSerie);
 			}
 			response.getWriter().println(line);
 			line = bIn.readLine();
