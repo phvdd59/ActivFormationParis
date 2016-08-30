@@ -14,7 +14,7 @@ import com.formation.ajee.metier.Personne;
 /**
  * Servlet implementation class ServletFormulaire
  */
-@WebServlet(description = "Servlet Creation Formulaire Rempli", urlPatterns = { "/ServletCreaForRempli" })
+@WebServlet(description = "Servlet Creation Formulaire Rempli", urlPatterns = { "/ServletCreaForRempli_ExRecupParam" })
 public class ServletCreaForRempli_ExRecupParam extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
