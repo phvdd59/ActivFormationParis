@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class Servlet1
@@ -34,96 +35,115 @@ public class ServletEtatCivil2 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		RequestDispatcher rd = request.getRequestDispatcher("//ServletLogin3");
 		rd.forward(request, response);
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		File file = new File("C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/hautDePageActiv.html");
-		BufferedReader bIn = null;
-		InputStreamReader inputStreamReader = null;
-		try {
-			inputStreamReader = new InputStreamReader(new FileInputStream(file), "UTF-8"); // pour
-			// texte
-			bIn = new BufferedReader(inputStreamReader);
-			String line = bIn.readLine();
-			while (line != null) {
-				// System.out.println(line);
-				response.getWriter().append(line + "\n");
-				line = bIn.readLine();
-			}
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		String sNoSuiviClient = request.getParameter("suiviClient");
+		String sNbAppelClient = request.getParameter("nbAppelClient");
+		Object oNoSuivi = session.getAttribute("suivi");
+		if (oNoSuivi != null) {
+			session.setAttribute("servlet", "EtatCivil");
+			session.setAttribute("methode", "POST");
+			int nbAppel = ((Integer) session.getAttribute("nbAppel")).intValue();
+			nbAppel++;
+			session.setAttribute("nbAppel", Integer.valueOf(nbAppel));
+			File file = new File(
+					"C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/hautDePageActiv.html");
+			BufferedReader bIn = null;
+			InputStreamReader inputStreamReader = null;
 			try {
-				bIn.close();
+				inputStreamReader = new InputStreamReader(new FileInputStream(file), "UTF-8"); // pour
+				// texte
+				bIn = new BufferedReader(inputStreamReader);
+				String line = bIn.readLine();
+				while (line != null) {
+					// System.out.println(line);
+					response.getWriter().append(line + "\n");
+					line = bIn.readLine();
+				}
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
 			} catch (IOException e) {
 				e.printStackTrace();
+			} finally {
+				try {
+					bIn.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
-		}
 
-		File file2 = new File("C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/EtatCivil.html");
-		BufferedReader bIn2 = null;
-		InputStreamReader inputStreamReader2 = null;
-		try {
-			inputStreamReader2 = new InputStreamReader(new FileInputStream(file2), "UTF-8");
-			bIn2 = new BufferedReader(inputStreamReader2);
-			String line2 = bIn2.readLine();
-			while (line2 != null) {
-				// System.out.println(line);
-				response.getWriter().append(line2 + "\n");
-				line2 = bIn2.readLine();
-			}
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
+			File file2 = new File(
+					"C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/EtatCivil.html");
+			BufferedReader bIn2 = null;
+			InputStreamReader inputStreamReader2 = null;
 			try {
-				bIn2.close();
+				inputStreamReader2 = new InputStreamReader(new FileInputStream(file2), "UTF-8");
+				bIn2 = new BufferedReader(inputStreamReader2);
+				String line2 = bIn2.readLine();
+				while (line2 != null) {
+					// System.out.println(line);
+					response.getWriter().append(line2 + "\n");
+					line2 = bIn2.readLine();
+				}
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
 			} catch (IOException e) {
 				e.printStackTrace();
+			} finally {
+				try {
+					bIn2.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
-		}
-		
-		
-		File file3 = new File("C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/basDePageActiv.html");
-		BufferedReader bIn3 = null;
-		InputStreamReader inputStreamReader3 = null;
-		try
 
-		{
-			inputStreamReader3 = new InputStreamReader(new FileInputStream(file3), "UTF-8");
-			bIn3 = new BufferedReader(inputStreamReader3);
-			String line3 = bIn3.readLine();
-			while (line3 != null) {
-				// System.out.println(line);
-				response.getWriter().append(line3);
-				line3 = bIn3.readLine();
-			}
-		} catch (
+			File file3 = new File(
+					"C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/basDePageActiv.html");
+			BufferedReader bIn3 = null;
+			InputStreamReader inputStreamReader3 = null;
+			try
 
-		FileNotFoundException e)
+			{
+				inputStreamReader3 = new InputStreamReader(new FileInputStream(file3), "UTF-8");
+				bIn3 = new BufferedReader(inputStreamReader3);
+				String line3 = bIn3.readLine();
+				while (line3 != null) {
+					// System.out.println(line);
+					response.getWriter().append(line3);
+					line3 = bIn3.readLine();
+				}
+			} catch (
 
-		{
-			e.printStackTrace();
-		} catch (
+			FileNotFoundException e)
 
-		IOException e)
-
-		{
-			e.printStackTrace();
-		} finally
-
-		{
-			try {
-				bIn3.close();
-			} catch (IOException e) {
+			{
 				e.printStackTrace();
+			} catch (
+
+			IOException e)
+
+			{
+				e.printStackTrace();
+			} finally
+
+			{
+				try {
+					bIn3.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
+		} else {
+			session.invalidate();
+			RequestDispatcher rd = request.getRequestDispatcher("//ServletLoginTest");
+			rd.forward(request, response);
 		}
 	}
 }
