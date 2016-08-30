@@ -77,10 +77,10 @@ public class ServletThcr1 extends HttpServlet {
 		String kmestime = "nombre de kilometre estime";
 
 		for (Personne personne : listPersonne) {
-			if (personne.getLogin().equals(login)) {
+			if (personne.getIdentifiant().equals(login)) {
 				nom = personne.getNom();
 				adresse = personne.getAdresse();
-				mail = personne.getMail();
+				mail = personne.getEmail();
 				nationalite = personne.getNationalite();
 				prenom = personne.getPrenom();
 			}
