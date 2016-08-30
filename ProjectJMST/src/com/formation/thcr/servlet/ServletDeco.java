@@ -33,7 +33,8 @@ public class ServletDeco extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		HttpSession session = request.getSession(false);
+		HttpSession session = request.getSession();
+		session.invalidate();
 		BufferedReader lecture = null;
 		File page = new File("C:/DevFormation/GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/Login.html");
 			InputStreamReader input = new InputStreamReader(new FileInputStream(page));

@@ -33,10 +33,10 @@
 		if (noSerie.equals(noSerieHtml) && perso.isAdmin()){
 			
 		
-		if(o instanceof ListPersonne){
-			listPersonne = (ListPersonne) o;
-		}
-		for(Personne personne : listPersonne){
+			if(o instanceof ListPersonne){
+				listPersonne = (ListPersonne) o;
+			}
+			for(Personne personne : listPersonne){
 	%>	
 		
 		<tr>
@@ -51,7 +51,7 @@
 		</tr>
 		
 	<% 
-		}
+			}
 		
 		}
 	%>
