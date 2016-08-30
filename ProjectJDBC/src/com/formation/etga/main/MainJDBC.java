@@ -25,109 +25,10 @@ public class MainJDBC {
 //		m.createTable();
 //		m.insertTable();
 //		m.selectTable();
-		m.selectMetadata();
-	}
-	
-	public void selectMetadata() {
-		Connection conn = null;
-		Statement stat = null;
-		try {
-			Class.forName(JDBC_DRIVER);
-			conn = DriverManager.getConnection(DB_URL, user, pass);
-			stat = conn.createStatement();
-			String sql = "SELECT * FROM tetga where prenom='etga';";
-			ResultSet resultat = stat.executeQuery(sql);
-			ResultSetMetaData meta = resultat.getMetaData();
-			int nb = meta.getColumnCount();
-			for (int i = 0; i < nb; i++) {
-				System.out.println(meta.getColumnName(i+1));
-			}
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}	
-	}
-	
-	public void selectTable() {
-		Connection conn = null;
-		Statement stat = null;
-		try {
-			Class.forName(JDBC_DRIVER);
-			conn = DriverManager.getConnection(DB_URL, user, pass);
-			stat = conn.createStatement();
-			String sql = "SELECT * FROM tetga;";
-			ResultSet resultat = stat.executeQuery(sql);
-			while (resultat.next()) {
-				String sNom = resultat.getString("nom");
-				String sPrenom = resultat.getString("prenom");
-				String sAge = resultat.getString("age");
-				System.out.println(sNom+" "+sPrenom+" "+sAge);
-			}
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}	
-	}
-	
-	public void insertTable() {
-		Connection conn = null;
-		Statement stat = null;
-		try {
-			Class.forName(JDBC_DRIVER);
-			conn = DriverManager.getConnection(DB_URL, user, pass);
-			stat = conn.createStatement();
-			
-			String [] tabEtudiant = {"ambr", "anfr", "beba", "emma", "etga", "issa", "jeci", "joca","made", "soka", "thcr", "thde"};
-			for (int i = 0; i < tabEtudiant.length; i++) {
-				String sql = "INSERT INTO tetga "
-						+" (nom, prenom, age) "
-						+ "VALUES ( 'ACTIV','"+tabEtudiant[i]+"','"+i+"');";
-				stat.executeUpdate(sql);
-			}
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}	
-	}
-	
-	public void createTable() {
-		Connection conn = null;
-		Statement stat = null;
-		try {
-			Class.forName(JDBC_DRIVER);
-			conn = DriverManager.getConnection(DB_URL, user, pass);
-			stat = conn.createStatement();
-			String sql = "CREATE TABLE TETGA ("
-					+"ID BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT, " 
-					+"NOM VARCHAR (30) NOT NULL, " 
-					+"PRENOM VARCHAR (30) NOT NULL, "
-					+"AGE VARCHAR (10) NOT NULL);";
-			stat.executeUpdate(sql);
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
-
-	public void create() {
-		Connection conn = null;
-		Statement stat = null;
-		try {
-			Class.forName(JDBC_DRIVER);
-			conn = DriverManager.getConnection(DB_URL, user, pass);
-			stat = conn.createStatement();
-			String sql = "CREATE DATABASE DBETGA";
-			stat.executeUpdate(sql);
-			System.out.println("FIN");
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+//		m.selectMetadata();
+//		m.updateTable();
+		m.deleteTable();
+		
 	}
 	
 	public void init() {
@@ -155,9 +56,161 @@ public class MainJDBC {
 						}
 					}
 				}
+			System.out.println("FIN");
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
 		}
 	}
+	
+	public void createTable() {
+		Connection conn = null;
+		Statement stat = null;
+		try {
+			Class.forName(JDBC_DRIVER);
+			conn = DriverManager.getConnection(DB_URL, user, pass);
+			stat = conn.createStatement();
+			String sql = "CREATE TABLE TETGA ("
+					+"ID BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT, " 
+					+"NOM VARCHAR (30) NOT NULL, " 
+					+"PRENOM VARCHAR (30) NOT NULL, "
+					+"AGE VARCHAR (10) NOT NULL);";
+			stat.executeUpdate(sql);
+			System.out.println("FIN");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void create() {
+		Connection conn = null;
+		Statement stat = null;
+		try {
+			Class.forName(JDBC_DRIVER);
+			conn = DriverManager.getConnection(DB_URL, user, pass);
+			stat = conn.createStatement();
+			String sql = "CREATE DATABASE DBETGA";
+			stat.executeUpdate(sql);
+			System.out.println("FIN");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void insertTable() {
+		Connection conn = null;
+		Statement stat = null;
+		try {
+			Class.forName(JDBC_DRIVER);
+			conn = DriverManager.getConnection(DB_URL, user, pass);
+			stat = conn.createStatement();
+			String [] tabEtudiant = {"ambr", "anfr", "beba", "emma", "etga", "issa", "jeci", "joca","made", "soka", "thcr", "thde"};
+			for (int i = 0; i < tabEtudiant.length; i++) {
+				String sql = "INSERT INTO tetga "
+						+" (nom, prenom, age) "
+						+ "VALUES ( 'ACTIV','"+tabEtudiant[i]+"','"+i+"');";
+				stat.executeUpdate(sql);
+			}
+			System.out.println("FIN");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	
+	}
+	
+	public void selectTable() {
+		Connection conn = null;
+		Statement stat = null;
+		try {
+			Class.forName(JDBC_DRIVER);
+			conn = DriverManager.getConnection(DB_URL, user, pass);
+			stat = conn.createStatement();
+			String sql = "SELECT * FROM tetga;";
+			ResultSet resultat = stat.executeQuery(sql);
+			while (resultat.next()) {
+				String sNom = resultat.getString("nom");
+				String sPrenom = resultat.getString("prenom");
+				String sAge = resultat.getString("age");
+				System.out.println(sNom+" "+sPrenom+" "+sAge);
+			}
+			System.out.println("FIN");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	
+	}
+	
+	public void selectMetadata() {
+		Connection conn = null;
+		Statement stat = null;
+		try {
+			Class.forName(JDBC_DRIVER);
+			conn = DriverManager.getConnection(DB_URL, user, pass);
+			stat = conn.createStatement();
+			String sql = "SELECT * FROM tetga where prenom='etga';";
+			ResultSet resultat = stat.executeQuery(sql);
+			ResultSetMetaData meta = resultat.getMetaData();
+			int nb = meta.getColumnCount();
+			for (int i = 0; i < nb; i++) {
+				meta.getColumnLabel(i);
+			}
+			System.out.println("FIN");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	
+	}
+	
+	public void updateTable() {
+		Connection conn = null;
+		Statement stat = null;
+		try {
+			Class.forName(JDBC_DRIVER);
+			conn = DriverManager.getConnection(DB_URL, user, pass);
+			stat = conn.createStatement();
+			String[] tabEtudiant = { "ambr", "anfr", "beba", "emma", "etga", "issa", "jeci", "joca", "made", "soka", "thcr", "thde" };
+			String sql = "UPDATE tetga "+ "set prenom = 'ambr' " + "where prenom = 'ambr1';";
+				int resultat = stat.executeUpdate(sql);
+				if (resultat >= 0) {
+					System.out.println("OK");
+				} else {
+					System.out.println("NOK");
+				}
+			System.out.println("FIN");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void deleteTable() {
+		Connection conn = null;
+		Statement stat = null;
+		try {
+			Class.forName(JDBC_DRIVER);
+			conn = DriverManager.getConnection(DB_URL, user, pass);
+			stat = conn.createStatement();
+			String sql = "DELETE from test.meuble "+ "where nom = 'SALUTCESTCOOL';";
+				int resultat = stat.executeUpdate(sql);
+				if (resultat >= 0) {
+					System.out.println("OK");
+				} else {
+					System.out.println("NOK");
+				}
+			System.out.println("FIN");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+		
 }
