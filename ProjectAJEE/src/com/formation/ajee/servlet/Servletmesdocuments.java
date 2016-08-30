@@ -36,7 +36,7 @@ public class Servletmesdocuments extends HttpServlet {
 		Object oNomUtilisateur = session.getAttribute("nomUtilisateur");
 		if (oPseudo != null) {
 
-			String pseudo = (String) session.getAttribute("pseudo");
+			String pseudo = (String)oPseudo;
 			if (pseudo.equals("Admin")) {
 				if (oNomUtilisateur == null) {
 					// Faux question à poser

@@ -46,12 +46,13 @@ public class ServletFicheRempli extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 Object oNoSerie=session.getAttribute("noSerie");
+
 if (oNoSerie!=null) {
 	
 
 		String pseudo = (String) session.getAttribute("pseudo");
 System.out.println(pseudo);
-		Object oNomUtilisateur = session.getAttribute("nomUtilisateur");
+		Object oNomUtilisateur = session.getAttribute("utilisateur");
 		if (oNomUtilisateur != null&& pseudo.equals("Admin")) {
 			String nomUtilisateur = (String) oNomUtilisateur;
 
@@ -91,6 +92,8 @@ System.out.println(pseudo);
 			while (lineDoc != null) {
 				if (lineDoc.contains("%pseudo%")) {
 					lineDoc = lineDoc.replace("%pseudo%", pseudo);
+				}if (lineDoc.contains("%utilisateur%")) {
+					lineDoc = lineDoc.replace("%utilisateur%", "");
 				}
 				response.getWriter().println(lineDoc);
 				lineDoc = bufReadDoc.readLine();

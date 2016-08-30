@@ -41,6 +41,7 @@ public class Servletaccueilchargementprofil extends HttpServlet {
 		 Object noSerie = session.getAttribute("noSerie");
 
 		String pseudo = (String) session.getAttribute("pseudo");
+		Object utilisateur =  session.getAttribute("utilisateur");
 		
 		// Object oRecupNoSerie=session.getAttribute("noSerie");
 		// String recupNoSerie=(String) oRecupNoSerie;
@@ -107,6 +108,9 @@ public class Servletaccueilchargementprofil extends HttpServlet {
 			while (lineDoc != null) {
 				if (lineDoc.contains("%pseudo%")) {
 					lineDoc=lineDoc.replace("%pseudo%", pseudo);
+				}
+				if (lineDoc.contains("%utilisateur%")) {
+					lineDoc=lineDoc.replace("%utilisateur%", ((utilisateur == null)?"":utilisateur.toString()));
 				}
 				response.getWriter().println(lineDoc);
 				lineDoc = bufReadDoc.readLine();

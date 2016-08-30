@@ -48,7 +48,8 @@ public class ServletRechercheProfil extends HttpServlet {
 		if (noSerie != null &&oPseudo != null ) {
 		String pseudo=(String)oPseudo;
 		if (pseudo.equals("Admin")) {
-			String utilisateur= request.getParameter("Utilisateur");
+			String utilisateur= request.getParameter("utilisateur");
+			System.out.println(utilisateur);
 			session.setAttribute("nomUtilisateur", utilisateur);
 			/** Lecture Haut de page HTML */
 			File fileHaut = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/HautPage.html");
@@ -102,7 +103,7 @@ public class ServletRechercheProfil extends HttpServlet {
 						lineDoc=lineDoc.replace("%pseudo%", pseudo);
 					}
 					if (lineDoc.contains("%utilisateur%")) {
-						lineDoc=lineDoc.replace("%utilisateur%", utilisateur);
+						lineDoc=lineDoc.replace("%utilisateur%", ((utilisateur == null)?"":utilisateur));
 					}
 					response.getWriter().println(lineDoc);
 					lineDoc = bufReadDoc.readLine();

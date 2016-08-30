@@ -12,6 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.formation.ajee.metier.Personne;
+import com.formation.ajee.metierjmst.ListPersonne;
+
 /**
  * Servlet implementation class Servlet1
  */
@@ -34,6 +37,10 @@ public class Servletidentification extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.logout();
+		ListPersonne lstPersonne = new ListPersonne();
+		Personne personne=new Personne();
+		
+
 		File file = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page/Identification.html");
 		// System.out.println(file.getCanonicalPath());
 		int noSerie = (int) Math.random() * Integer.MAX_VALUE;
@@ -41,7 +48,7 @@ public class Servletidentification extends HttpServlet {
 														// meme numero de
 														// session qui vient
 														// detre créé
-		
+session.setAttribute("lstpersonne", lstPersonne);
 		System.out.println(session.getId());
 		// donne le numero de session
 		session.setAttribute("noSerie", Integer.valueOf(noSerie));
@@ -60,9 +67,9 @@ public class Servletidentification extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse resp) throws ServletException, IOException {
-//		request.logout();
+		// request.logout();
 		HttpSession session = request.getSession();
-		
+
 		// String sS=request.getParameter("JSESSIONID");
 		System.out.println(session.getId());
 		Object oNoSerie = session.getAttribute("noSerie");
@@ -76,8 +83,8 @@ public class Servletidentification extends HttpServlet {
 			session.setAttribute("pseudo", pseudo);
 			session.setAttribute("mdp", mdp);
 			// controler les parametres
-		if ((pseudo != "") && (mdp != "")) {
-			if (pseudo.equals("Admin")&&(mdp.equals("123"))) {
+			if ((pseudo != "") && (mdp != "")) {
+				if (pseudo.equals("Admin") && (mdp.equals("123"))) {
 
 					// constituer la nouvelle page
 					// /** Lecture Haut de page JSP */
@@ -151,6 +158,9 @@ public class Servletidentification extends HttpServlet {
 					while (lineDoc != null) {
 						if (lineDoc.contains("%pseudo%")) {
 							lineDoc = lineDoc.replace("%pseudo%", pseudo);
+						}
+						if (lineDoc.contains("%utilisateur%")) {
+							lineDoc = lineDoc.replace("%utilisateur%", "");
 						}
 						resp.getWriter().println(lineDoc);
 						lineDoc = bufReadDoc.readLine();
@@ -260,4 +270,5 @@ public class Servletidentification extends HttpServlet {
 			doGet(request, resp);
 		}
 	}
+
 }
