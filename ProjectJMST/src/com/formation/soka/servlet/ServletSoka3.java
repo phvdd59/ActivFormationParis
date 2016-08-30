@@ -59,7 +59,7 @@ public class ServletSoka3 extends HttpServlet {
 		if (personne instanceof Personne) {
 			perso = (Personne) personne;
 		}
-
+		
 		if (noSerieHtml.equals(noSerie)) {
 			noSerie = "23_" + noSerie;
 			session.setAttribute("noSerie", noSerie);

@@ -72,8 +72,8 @@ public class ServletSoka1 extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// String pseudo = request.getParameter("identifiant");
-		// String mdp = request.getParameter("mdp");
+		String pseudo = request.getParameter("identifiant");
+		String mdp = request.getParameter("mdp");
 		HttpSession session = request.getSession();
 		File file = new File("C:/DevFormation/" + //
 				"GITActivFormationParis/ProjectJMST/" + //
@@ -89,7 +89,7 @@ public class ServletSoka1 extends HttpServlet {
 		if (personne instanceof Personne) {
 			perso = (Personne) personne;
 		}
-
+		
 		if (noSerieHtml.equals(noSerie)) {
 			noSerie = "21_" + noSerie;
 			session.setAttribute("noSerie", noSerie);
