@@ -2,23 +2,30 @@ package com.formation.issa.beans;
 
 public class Candidat {
 
-	private String identifiant;
-	private String motDePasse;
+	
+	
 	private String nom;
 	private String prenom;
-	private String dateDeNaissance;
-	private String lieu;
-	private String nationalite;
-	private String numeroDeSecuriteSociale;
+	private String identifiant;
+	private String motDePasse; 
+	private String email;	
 	private String adresse;
-	private String codePostal;
-	private String Ville;
-	private String tel;
-	private String email;
-	private String fonctionOccupee;
+	private String codePostal;//CP
+	private String ville;
+	private String tel; //telFixe et telPort
+	//fax
+	private String dateDeNaissance;
+	private String lieu; //lieuNaissance	
+	private String numeroDeSecuriteSociale;//numSecu
+	private String nationalite;
+	//private String position;
 	private String position;
-	private String coefficient;
-	private String salaireSouhaite;
+	private String coefficient; //coeff
+	private String salaireSouhaite; //salaire
+	private String fonctionOccupee;		
+	
+	
+	
 
 	public String getIdentifiant() {
 		return identifiant;
@@ -101,11 +108,11 @@ public class Candidat {
 	}
 
 	public String getVille() {
-		return Ville;
+		return ville;
 	}
 
 	public void setVille(String ville) {
-		Ville = ville;
+		ville = ville;
 	}
 
 	public String getTel() {

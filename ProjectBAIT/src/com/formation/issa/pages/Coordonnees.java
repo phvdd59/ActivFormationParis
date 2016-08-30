@@ -96,7 +96,7 @@ public class Coordonnees {
 
 	private void validationTel(String tel) throws Exception {
 		if (tel != null) {
-			if (!tel.matches("^(\\+[0-9]{2}([0-9][0-9])+)|([0-9]+|([0-9]{4}([0-9][0-9])+))") && tel.length() > 13) {
+			if (!tel.matches("^(\\+[0-9]{2}([0-9]{9})([\\-.s/]*)|([0-9]{10}[\\-.s/]*|([0-9]{4}([0-9]{9})[\\-.s/]*)")) {
 				throw new Exception("Merci de bien vouloir saisir un numéro de téléphone correcte.");
 			}
 		} else {
