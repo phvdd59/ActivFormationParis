@@ -13,21 +13,21 @@ import java.util.Enumeration;
 public class MainJDBC {
 	
 	public final static String JDBC_DRIVER= "com.mysql.jdbc.Driver";
-	public final static String DB_URL= "jdbc:mysql://localhost/dbetga";
+	public final static String DB_URL= "jdbc:mysql://localhost/AJEE";
 	
 	public String user = "root";
 	public String pass = "";
 	
 	public static void main(String[] args) {
 		MainJDBC m = new MainJDBC();
-//		m.init();
-//		m.create();
+		m.init();
+		m.create();
 //		m.createTable();
 //		m.insertTable();
 //		m.selectTable();
 //		m.selectMetadata();
 //		m.updateTable();
-		m.deleteTable();
+//		m.deleteTable();
 		
 	}
 	
@@ -91,7 +91,7 @@ public class MainJDBC {
 			Class.forName(JDBC_DRIVER);
 			conn = DriverManager.getConnection(DB_URL, user, pass);
 			stat = conn.createStatement();
-			String sql = "CREATE DATABASE DBETGA";
+			String sql = "CREATE DATABASE AJEE";
 			stat.executeUpdate(sql);
 			System.out.println("FIN");
 		} catch (ClassNotFoundException e) {
