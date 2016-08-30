@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.formation.ajee.metier.ListeUtilisateurs;
+import com.formation.ajee.metier.Personne;
 import com.formation.ajee.metier.Utilisateurs;
 
 /**
@@ -69,8 +70,9 @@ public class ServletCreaForRempli_ExRecupParam extends HttpServlet {
 		
 		//2. Stockage des données du formulaire -> à mettre dans le init?
 		ListeUtilisateurs lst = new ListeUtilisateurs();
-		Utilisateurs user1 = new Utilisateurs(pNom, pPrenom); // faire constructeur avc ts les champs dans Utilisateurs.java
-		lst.add(user1);
+		Personne personne1 = new Personne(pNom, pPrenom); // faire constructeur avc ts les champs dans Utilisateurs.java
+		personne1.setNom(pNom);
+		//lst.add(user1);
 		
 		//3. Renvoi données pour remplir nouveau formulaire
 		// réception de l'id user i
