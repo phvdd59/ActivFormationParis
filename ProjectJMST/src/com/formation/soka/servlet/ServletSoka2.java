@@ -41,7 +41,7 @@ public class ServletSoka2 extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(); 
-		File file = new File("C:/DevFormation/GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/jsp/Part3.jsp");
+		File file = new File("C:/DevFormation/GITActivFormationParis/ProjectJMST/WebContent/jsp/Part3.jsp");
 		BufferedReader bIn = null;
 		bIn = new BufferedReader(new FileReader(file));
 		String noSerie = Integer.toString(((int) (Math.random() * Integer.MAX_VALUE)));

@@ -1,8 +1,14 @@
+<form id="AccueilAdmin" name="AccueilAdmin"
+					action="http://127.0.0.1:8080/ProjectAJEE/ServletRechercheProfil"
+					method="POST">
 <label for="choix_invite">Choisissez le profil :</label>
-<input id="choix_invite" list="invite"  type="text" onchange="getNomInvite(this)" value="" >
+<input id="choix_invite" list="invite"  type="text" name="utilisateur" value="" >
 <datalist id="invite"  >
   <option value="Meteor">
   <option value="Pils">
   <option value="Kronenbourg">
   <option value="Grimbergen">
 </datalist>
+
+					<input type="submit" value="Valider" >
+				</form>

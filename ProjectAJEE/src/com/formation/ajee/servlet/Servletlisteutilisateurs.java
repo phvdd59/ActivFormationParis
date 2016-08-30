@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -52,22 +53,17 @@ public class Servletlisteutilisateurs extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String nom = request.getParameter("nom");
 		String prenom = request.getParameter("prenom");
-		String identifiant = "";
-		String mdp = "";
 
 		if (nom != null && prenom != null) {
 			user = new Utilisateurs(nom, prenom);
-			if (lstUser.size() == 0) {
-				lstUser.add(user);
-			} else {
-				for (int i = 0; i < lstUser.size(); i++) {
-					if (lstUser.get(i).equals(user)) {
-						// alert "personne deja existante"
-						response.getWriter().println("<alert('personne deja existante')>");
-					} else {
-						lstUser.add(user);
-					}
-				}
+			for (int i = 0; i <= lstUser.size(); i++) {
+			//	if (lstUser.get(i).equals(user)) {
+					// alert "personne deja existante"
+					response.getWriter().println("<alert('utilisateur déjà existant')>");
+			//	} else {
+					lstUser.add(user);
+
+			//	}
 			}
 
 			File file = new File("../GITActivFormationParis/ProjectAJEE/WebContent/WEB-INF/com/formation/ajee/page/ListeUtilisateurs2.html");
@@ -77,9 +73,9 @@ public class Servletlisteutilisateurs extends HttpServlet {
 			while (line != null) {
 				if (line.contains("%%alerte%%")) {
 					line = line.replace("%%alerte%%", "Identifiant: " + user.getIdentifiant() + " Mot de passe : " + user.getMdp());
-				}else if(line.contains("%%value%%")){
-					line=line.replace("%%value%%", nom + prenom );
-					line=line.replace("></", ">" + nom + prenom + "</");
+				} else if (line.contains("%%value%%")) {
+					line = line.replace("%%value%%", nom + prenom);
+					line = line.replace("></", ">" + nom + prenom + "</");
 					response.getWriter().println("<option value='%%value%%'></option>");
 				}
 				response.getWriter().println(line);

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@ page import="com.formation.thcr.metier.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -10,7 +11,7 @@
 	type="text/css">
 </head>
 <body>
-	<div id="background">
+<div id="background">
 		<div id="back2">
 			<img src="http://www.activconsult-ing.com/img/Article_fond_bleu.png" />
 		</div>
@@ -80,7 +81,14 @@
 		<div id="tlogo">CENTRE DE FORMATION</div>
 		<div id="info2">
 			<!-- zone disponible -->
-		<% 
+
+			<form action="http://localhost:8080/ProjectJMST/ServletJOCA1"
+				method='post'>
+				<table border="1">
+					<caption>
+						<h1>Changement mot de passe</h1>
+					</caption>
+ 	<% 
  	Personne personne = null;
 	Object o = session.getAttribute("Personne");
 	
@@ -88,39 +96,36 @@
 		personne = (Personne) o;
 	}
 	%>	
-			<form action="http://localhost:8080/ProjectJMST/ServletSoka1"
-				method='post'>
-				<table border="1">
-					<caption>
-						<h1>Demande d'inscription</h1>
-					</caption>
-
 					<tr>
 						<th colspan="4" style="width: 627px;">Identifiant</th>
-						<th style="width: 273px; height: 25px; color:;"><input
-							type="text" name="identifiant" value='<%=personne.getLogin() %>' style="width: 270px;"></th>
+						<th style="width: 273px; height: 25px; color:;">
+						<input type="text" name="identifiant" value='<%=personne.getLogin() %>' style="width: 270px;"></th>
 					</tr>
 					<tr>
-						<th colspan="4" style="width: 627px;">Mot de passe</th>
-						<th style="width: 273px; height: 25px; color:;"><input
-							type="password" name="mdp" value='' style="width: 270px;"></th>
+						<th colspan="4" style="width: 627px;"> Ancien Mot de passe</th>
+						<th style="width: 273px; height: 25px; color:;">
+						<input type="password" name="ancien mdp" value='' style="width: 270px;"></th>
 					</tr>
 					<tr>
-						<th colspan="4" style="width: 627px;">Mot de passe</th>
-						<th style="width: 273px; height: 25px; color:;"><input
-							type="password" name="mdp" value='' style="width: 270px;"></th>
+						<th colspan="4" style="width: 627px;">Nouveau Mot de passe</th>
+						<th style="width: 273px; height: 25px; color:;">
+						<input type="password" name="new mdp 1" value='' style="width: 270px;"></th>
+					</tr>
+					<tr>
+						<th colspan="4" style="width: 627px;">Nouveau Mot de passe</th>
+						<th style="width: 273px; height: 25px; color:;">
+						<input type="password" name="new mdp 2" value='' style="width: 270px;"></th>
 					</tr>
 				</table>
 
-				<input type="submit" name="Suivant" value="Suivant"></input> <input
-					type="hidden" name="noSerie" value="%%noSerie%%">
+				<input type="submit" name="Valider" value="Valider"></input>
+				<input type="hidden" name="noSerie" value="%%noSerie%%">
 			</form>
-			<form action="http://localhost:8080/ProjectJMST/ServletDeco"
-				method='get'>
-				<input type="submit" value="Deconnexion"></input> <input
-					type="hidden" name="noSerie" value="%%noSerie%%">
+			<form action="http://localhost:8080/ProjectJMST/ServletDeco" method='get'>
+				<input type="submit" value="Deconnexion"></input> 
+				<input type="hidden" name="noSerie" value="%%noSerie%%">
 			</form>
-			
+
 		</div>
 		<div id="fpage2">
 			<img
@@ -137,5 +142,6 @@
 			<div id="droit2">©1997-2012 - Tous droits de reproduction et de
 				représentation réservés | Mentions légales</div>
 		</div>
+		<script type="text/javascript" src="Test.js"></script>
 </body>
 </html>

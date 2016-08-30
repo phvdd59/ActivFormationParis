@@ -9,9 +9,8 @@
       font-weight : bold; /* on met le texte en gras */
         font-family : Arial; /* on utilise Arial, c'est plus beau ^^ */
         font-size : 12px; /* hauteur du texte : 12 pixels */
-/*         margin-left: -48px;
-		width: 800px;
-		margin-top: -135px; */
+
+		margin-top: -135px; 
       
 }
 #menu-deroulant li {
@@ -22,11 +21,26 @@
 }
 #menu-deroulant input {
 /* on place les liens du menu horizontalement */
+    
     display: inline-block;
+    border-style:none;
     border-left:1px solid black;
    background:url('../img/static.png')-150px 0px;
    color : #fff;
+   width: 120px;
+   height: 20px;
+   font-family : Arial;
+   font-weight : bold;
 }
+#menu-deroulant input:hover /* Lorsque la souris passe sur un des liens */    
+
+{
+        color: red; /* On passe le texte en noir... */
+
+        background: #fff; /* ... et au contraire, le fond en blanc */
+
+}
+
 #menu-deroulant ul li {
 /* on enlève ce comportement pour les liens du sous menu */
     display: inherit;
@@ -62,17 +76,10 @@
 
         text-decoration : none; /* on supprime le style par défaut des liens (la plupart du temps = souligné) */
 
-        width : 144px; /* largeur */
+        width : 120px; /* largeur */
+        height: 20px;
 }
-#menu-deroulant a:hover /* Lorsque la souris passe sur un des liens */    
 
-{
-
-        color: red; /* On passe le texte en noir... */
-
-        background: #fff; /* ... et au contraire, le fond en blanc */
-
-}
 #menu-deroulant ul {
     position: absolute;
 /* on cache les sous menus complètement sur la gauche */

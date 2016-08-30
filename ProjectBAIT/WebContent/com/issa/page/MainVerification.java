@@ -15,7 +15,7 @@ public class MainVerification {
 		String Identifiant="15Animalis";
 		verif.fonctionIdentifiant(Identifiant);
 		VerificationsInscriptionPage2 verif2=new VerificationsInscriptionPage2();
-		String nom="145Dupont";
+		String nom="Dupont";
 		verif2.fonctionNom(nom);
 		String prenom="125Guillaumme";
 		verif2.fonctionPrenom(prenom);

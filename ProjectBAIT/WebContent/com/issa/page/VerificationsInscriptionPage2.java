@@ -15,15 +15,20 @@ public class VerificationsInscriptionPage2 {
 
 	public boolean fonctionNom(String nom) {
 		boolean retour = false;
-		char[] tab = nom.toCharArray();
-		for (int i = 0; i < tab.length; i++) {
-			if (Character.isLetter(tab[i])) {
-				retour = true;
-			} else {
-				retour = false;
-				break;
-			}
+		if(nom.matches("^[a-zA-Z\\-'s]*[a-zA-Z]+$")){
+			retour=true;
+		}else{
+			retour=false;
 		}
+//		char[] tab = nom.toCharArray();
+//		for (int i = 0; i < tab.length; i++) {
+//			if (Character.isLetter(tab[i])) {
+//				retour = true;
+//			} else {
+//				retour = false;
+//				break;
+//			}
+//		}
 		return retour;
 
 	}

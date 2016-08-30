@@ -18,6 +18,7 @@ import com.formation.ajee.metier.Utilisateurs;
  * Servlet implementation class ServletFormulaire
  */
 @WebServlet(description = "Servlet Creation Formulaire Rempli", urlPatterns = { "/ServletCreaForRempli" })
+// Cette servlet prend "FormulaireARemplir" (le formulaire vide) qui a été rempli par l'user, et génère "FormulaireRempli", soit le même formulaire avec les champs remplis en read-only.
 public class ServletCreaForRempli extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
