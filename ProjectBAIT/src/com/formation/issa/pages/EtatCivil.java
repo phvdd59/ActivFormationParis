@@ -12,12 +12,12 @@ import javax.servlet.http.HttpServletRequest;
 import com.formation.issa.beans.Candidat;
 
 public class EtatCivil {
-	private static final String CHAMP_NOM = "nom";
-	private static final String CHAMP_PRENOM = "prenom";
-	private static final String CHAMP_DATE = "date";
-	private static final String CHAMP_LIEU = "lieu";
-	private static final String CHAMP_NATIONALITE = "nati";
-	private static final String CHAMP_NUMEROSECU = "secu";
+	private static String CHAMP_NOM = "nom";
+	private static String CHAMP_PRENOM = "prenom";
+	private static String CHAMP_DATE = "date";
+	private static String CHAMP_LIEU = "lieu";
+	private static String CHAMP_NATIONALITE = "nati";
+	private static String CHAMP_NUMEROSECU = "secu";
 
 	private String resultat;
 	private Map<String, String> erreurs = new HashMap<String, String>();
@@ -34,9 +34,9 @@ public class EtatCivil {
 		String nom = getValeurChamp(request, CHAMP_NOM);
 		String prenom = getValeurChamp(request, CHAMP_PRENOM);
 		String dateDeNaissance = getValeurChamp(request, CHAMP_DATE);
-		String lieu = getValeurChamp(request, CHAMP_LIEU);
+		String lieuNaissance = getValeurChamp(request, CHAMP_LIEU);
 		String nationalite = getValeurChamp(request, CHAMP_NATIONALITE);
-		String numeroDeSecuriteSociale = getValeurChamp(request, CHAMP_NUMEROSECU);
+		String numSecu = getValeurChamp(request, CHAMP_NUMEROSECU);
 		Candidat candidat = new Candidat();
 
 		try {
@@ -55,7 +55,7 @@ public class EtatCivil {
 			setErreur(CHAMP_DATE, e.getMessage());
 		}
 		try {
-			validationLieu(lieu);
+			validationLieu(lieuNaissance);
 		} catch (Exception e) {
 			setErreur(CHAMP_LIEU, e.getMessage());
 		}
@@ -66,7 +66,7 @@ public class EtatCivil {
 			setErreur(CHAMP_NATIONALITE, e.getMessage());
 		}
 		try {
-			validationNumeroDeSecuriteSociale(numeroDeSecuriteSociale);
+			validationNumeroDeSecuriteSociale(numSecu);
 		} catch (Exception e) {
 			setErreur(CHAMP_NUMEROSECU, e.getMessage());
 		}
@@ -116,10 +116,10 @@ public class EtatCivil {
 	private void validationLieu(String lieu) throws Exception {
 		if (lieu != null) {
 			if (!lieu.matches("^[a-zA-ZÀ-ÿ\\-'s]*[a-zA-Z]+$")) {
-				throw new Exception("Merci de bien vouloir saisir un lieu correct.");
+				throw new Exception("Merci de bien vouloir saisir un lieu de naissance correct.");
 			}
 		} else {
-			throw new Exception("Merci de bien vouloir saisir votre lieu de résidence.");
+			throw new Exception("Merci de bien vouloir saisir votre lieu de naissance.");
 		}
 
 	}
