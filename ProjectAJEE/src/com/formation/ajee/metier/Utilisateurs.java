@@ -12,7 +12,8 @@ public class Utilisateurs {
 		this.nom = nom;
 		this.prenom = prenom;
 		mdp = " ";
-		String nom2 = nom.replace(" ", "");
+	
+		String nom2 = epuration(nom);
 		identifiant = prenom.substring(0, 1) + "." + nom2;
 		while (mdp.length() != 8) {
 			int a = (int) (Math.random() * 123);
@@ -27,6 +28,18 @@ public class Utilisateurs {
 		}
 	}
 
+	public String epuration(String texte) {
+		texte = texte.toLowerCase();
+		texte = texte.replaceAll("[ав]", "a");
+		texte = texte.replaceAll("[йикл]", "e");
+		texte = texte.replaceAll("щ", "u");
+		texte = texte.replaceAll("з", "c");
+		texte = texte.replaceAll("ф", "o");
+		texte = texte.replaceAll("[оп]", "i");
+		texte = texte.replaceAll("\\s+", " ");
+		return texte;
+	}
+	
 	public String getIdentifiant() {
 		return identifiant;
 	}

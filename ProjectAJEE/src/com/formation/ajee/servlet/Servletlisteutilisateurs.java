@@ -35,7 +35,6 @@ public class Servletlisteutilisateurs extends HttpServlet {
 
 	public void init(ServletConfig config) throws ServletException {
 		lstUser = new ListeUtilisateurs();
-
 	}
 
 	/**
@@ -51,20 +50,24 @@ public class Servletlisteutilisateurs extends HttpServlet {
 	 *      response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String nom = request.getParameter("nom");
-		String prenom = request.getParameter("prenom");
+		Object oNom = request.getParameter("nom");
+		Object oPrenom = request.getParameter("prenom");
+		
 
-		if (nom != null && prenom != null) {
-			user = new Utilisateurs(nom, prenom);
-			for (int i = 0; i <= lstUser.size(); i++) {
-			//	if (lstUser.get(i).equals(user)) {
+		if (oNom != null && oPrenom != null) {
+			String nom = (String) oNom;
+			String prenom = (String) oPrenom;
+			user = new Utilisateurs(nom, prenom);					
+			for (int i = 0; i < lstUser.size(); i++) {
+				if (lstUser.get(i).equals(user)) {
 					// alert "personne deja existante"
 					response.getWriter().println("<alert('utilisateur déjà existant')>");
-			//	} else {
+				} else {
 					lstUser.add(user);
 
-			//	}
+				}
 			}
+			
 
 			File file = new File("../GITActivFormationParis/ProjectAJEE/WebContent/WEB-INF/com/formation/ajee/page/ListeUtilisateurs2.html");
 			BufferedReader bIn = new BufferedReader(new FileReader(file));
