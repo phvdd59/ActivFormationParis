@@ -96,10 +96,12 @@ function verifCodePostal(champ) {
 }
 
 function verifTel(champ) {
-	var tel = champ.value.replace(/ /g,"");
-	if ((tel.match(/^(\+|00)[0-9]{10}$/))||(tel.match(/^(\+|00)[0-9]{11}$/))||(tel.match(/^(\+|00)[0-9]{12}$/))||(tel.match(/^(0)[0-9]{9}$/))) {
+	var tel = champ.value.replace(/ /g, "");
+	if ((tel.match(/^(\+|00)[0-9]{10}$/)) || (tel.match(/^(\+|00)[0-9]{11}$/))
+			|| (tel.match(/^(\+|00)[0-9]{12}$/))
+			|| (tel.match(/^(0)[0-9]{9}$/))) {
 		surligne(champ, false);
-		champ.value=tel;
+		champ.value = tel;
 		return true;
 	} else {
 		surligne(champ, true);
@@ -129,7 +131,7 @@ function verifNom(champ) {
 }
 
 function verifDateNaissance(champ) {
-		if ((champ.value.match(/^[0-3][0-9]\/[0-1][0-9]\/[1-2][0-9]{3}$/))) {
+	if ((champ.value.match(/^[0-3][0-9]\/[0-1][0-9]\/[1-2][0-9]{3}$/))) {
 		surligne(champ, false);
 		return true;
 	} else {
@@ -169,14 +171,22 @@ function verifCoefficient(champ) {
 }
 
 function verifSitAutre(champ) {
-	document.getElementById("MDP1").value
-	if (verifVide(champ)) {
-		surligne(champ, false);
-		return true;
-	} else {
+	if (document.getElementById("autreSit").checked) {
 		surligne(champ, true);
 		return false;
 	}
+//	}
+//		if (verifVide(champ)) {
+//			surligne(champ, false);
+//			return true;
+//		} else {
+//			surligne(champ, true);
+//			return false;
+//		}
+//	}else{
+//		surligne(champ, false);
+//		return true;
+//	}
 }
 
 // ____ Dernière verifs au submit ____
@@ -207,16 +217,20 @@ function verifCoordonnees(f) {
 		alerttotal = alerttotal + "L'adresse n'est pas indiquée \n";
 	}
 	if (verifCodePostal(f.cp) == false) {
-		alerttotal = alerttotal + "Le code postal doit être composé de 5 chiffes \n";
+		alerttotal = alerttotal
+				+ "Le code postal doit être composé de 5 chiffes \n";
 	}
 	if (verifNom(f.ville) == false) {
-		alerttotal = alerttotal + "La ville n'est pas indiquée ou elle contient un chiffre \n";
+		alerttotal = alerttotal
+				+ "La ville n'est pas indiquée ou elle contient un chiffre \n";
 	}
 	if (verifTel(f.tel) == false) {
-		alerttotal = alerttotal + "Le numéro de téléphone n'est pas indiqué ou est invalide \n";
+		alerttotal = alerttotal
+				+ "Le numéro de téléphone n'est pas indiqué ou est invalide \n";
 	}
 	if (verifEmail(f.mail) == false) {
-		alerttotal = alerttotal + "L'email n'est pas indiqué ou est invalide \n";
+		alerttotal = alerttotal
+				+ "L'email n'est pas indiqué ou est invalide \n";
 	}
 	if (verifAdresse(f.adresse) == false || verifCodePostal(f.cp) == false
 			|| verifNom(f.ville) == false || verifTel(f.tel) == false
@@ -231,22 +245,28 @@ function verifCoordonnees(f) {
 function verifEtatCivil(f) {
 	var alerttotal = "";
 	if (verifNom(f.nom) == false) {
-		alerttotal = alerttotal + "Le nom n'est pas indiqué ou il contient un chiffre \n";
+		alerttotal = alerttotal
+				+ "Le nom n'est pas indiqué ou il contient un chiffre \n";
 	}
 	if (verifNom(f.prenom) == false) {
-		alerttotal = alerttotal + "Le prénom n'est pas indiqué ou il contient un chiffre \n";
+		alerttotal = alerttotal
+				+ "Le prénom n'est pas indiqué ou il contient un chiffre \n";
 	}
 	if (verifDateNaissance(f.date) == false) {
-		alerttotal = alerttotal + "La date de naissance n'est pas indiquée ou est invalide \n";
+		alerttotal = alerttotal
+				+ "La date de naissance n'est pas indiquée ou est invalide \n";
 	}
 	if (verifNom(f.lieu) == false) {
-		alerttotal = alerttotal + "Le lieu de naissance n'est pas indiqué ou contient un chiffre \n";
+		alerttotal = alerttotal
+				+ "Le lieu de naissance n'est pas indiqué ou contient un chiffre \n";
 	}
 	if (verifNom(f.nati) == false) {
-		alerttotal = alerttotal + "La nationalité n'est pas indiquée ou elle contient un chiffre \n";
+		alerttotal = alerttotal
+				+ "La nationalité n'est pas indiquée ou elle contient un chiffre \n";
 	}
 	if (verifSecu(f.secu) == false) {
-		alerttotal = alerttotal + "Le numéro de sécurité sociale est invalide \n";
+		alerttotal = alerttotal
+				+ "Le numéro de sécurité sociale est invalide \n";
 	}
 	if (verifNom(f.nom) == false || verifNom(f.prenom) == false
 			|| verifDateNaissance(f.date) == false || verifNom(f.lieu) == false
@@ -261,13 +281,16 @@ function verifEtatCivil(f) {
 function verifRemuneration(f) {
 	var alerttotal = "";
 	if (verifNom(f.Fonction) == false) {
-		alerttotal = alerttotal + "La fonction ? n'est pas indiquée ou elle contient un chiffre \n";
+		alerttotal = alerttotal
+				+ "La fonction ? n'est pas indiquée ou elle contient un chiffre \n";
 	}
 	if (verifNom(f.Position) == false) {
-		alerttotal = alerttotal + "La position souhaitée n'est pas indiquée ou elle contient un chiffre \n";
+		alerttotal = alerttotal
+				+ "La position souhaitée n'est pas indiquée ou elle contient un chiffre \n";
 	}
 	if (verifSalaire(f.SalaireS) == false) {
-		alerttotal = alerttotal + "Le salaire n'est pas indiqué ou il ne contient pas que les chiffres \n";
+		alerttotal = alerttotal
+				+ "Le salaire n'est pas indiqué ou il ne contient pas que les chiffres \n";
 	}
 	if (verifCoefficient(f.Coefficient) == false) {
 		alerttotal = alerttotal + "Le coefficient n'est pas indiqué \n";
@@ -280,4 +303,13 @@ function verifRemuneration(f) {
 	} else {
 		return true;
 	}
+}
+
+function verifSit(f) {
+	}
+	if (verifSitAutre(f.aut) == false) {
+		alert("Le champ Autre est vide");
+		return false;
+	} else {
+		return true;
 }
