@@ -104,6 +104,8 @@ function ctrSituationPro() {
 	if(o instanceof Personne){
 		personne = (Personne) o;
 	}
+	String situation = SITUATION.valueOf(personne.getSituation()).getNom(); 
+	
 	%>	
             <form action="http://localhost:8080/ProjectJMST/jsp/Part5.jsp" method='post'>
 			<table border="1">
@@ -112,30 +114,60 @@ function ctrSituationPro() {
 					<th colspan="4">Situation Actuelle</th>
 
 				</tr>
+				
 				<tr>
 					<td>Salarié</td>
-					<td style="width: 273px; height: 25px; color:;"><input
-						type="radio" name="situation" value="<%=personne.isSalarie() %>Salarié:  oui"></td>
+					<td style="width: 273px; height: 25px;">
+					<% if (situation.equals("Salarie")){ %>
+					<input type="radio" name="situation" value="Salarie" checked="checked"></td>
+					<%}else{ %>
+					<td><input type="radio" name="situation" value="Salarie"></td>
+					<%} %>
 					<td style="width: 72px;">Auto-Entrepreneur</td>
-					<td style="width: 112px; height: 25px; color:;"><input
-						type="radio" name="situation" value="<%=personne.isAutoEntrepreneur() %>"></td>
+					<td style="width: 112px; height: 25px;">
+					<% if (situation.equals("auto")){ %>
+					<td><input type="radio" name="situation" value="auto" checked="checked"></td>
+					<%}else{ %>
+					<td><input type="radio" name="situation" value="auto"></td>
+					<%} %>
 				</tr>
+				
 				<tr>
 					<td>Freelance</td>
-					<td style="width: 273px; height: 25px; color:;"><input
-						type="radio" name="situation" value="<%=personne.isFreelance() %>"></td>
+					<td style="width: 273px; height: 25px;">
+					<% if (situation.equals("freelance")){ %>
+					<input type="radio" name="situation" value="freelance" checked="checked"></td>
+					<%}else{ %>
+					<td><input type="radio" name="situation" value="freelance"></td>
+					<%} %>
 					<td style="width: 72px;">Demandeur d'emploi</td>
-					<td style="width: 112px; height: 25px; color:;"><input
-						type="radio" name="situation" value="<%=personne.isChomage() %>"></td>
+					<td style="width: 112px; height: 25px;">
+					<% if (situation.equals("demandeur")){ %>
+					<td><input type="radio" name="situation" value="demandeur" checked="checked"></td>
+					<%}else{ %>
+					<td><input type="radio" name="situation" value="demandeur"></td>
+					<%} %>
 				</tr>
+				
 				<tr>
 					<td>Retraité</td>
-					<td style="width: 273px; height: 25px; color:;"><input
-						type="radio" name="situation" value="<%=personne.isRetraite() %>"></td>
+					<td style="width: 273px; height: 25px;">
+					<% if (situation.equals("retraite")){ %>
+					<input type="radio" name="situation" value="retraite" checked="checked"></td>
+					<%}else{ %>
+					<td><input type="radio" name="situation" value="retraite"></td>
+					<%} %>
 					<td style="width: 72px;">Autre</td>
-					<td style="width: 112px; height: 25px; color:;"><input
-						type="radio" name="situation" value="<%=personne.isAutre() %>" checked="checked"></td>
+					<td style="width: 112px; height: 25px;">
+					<% if (situation.equals("autre")){ %>
+					<td><input type="radio" name="situation" value="autre" checked="checked"></td>
+					<td><input type="text" name="situation" value="<%=personne.getSituation()%>"></td>
+					<%}else{ %>
+					<td><input type="radio" name="situation" value="autre"></td>
+					<%} %>
 				</tr>
+			
+				
 				
 			</table>
 			

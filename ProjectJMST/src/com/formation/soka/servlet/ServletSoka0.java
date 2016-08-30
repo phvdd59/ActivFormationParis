@@ -43,10 +43,10 @@ public class ServletSoka0 extends HttpServlet {
 		String noSerieHtml = request.getParameter("noSerie");
 		String noSerie = (String) session.getAttribute("noSerie");
 
-		if (noSerie.equals(noSerieHtml)) {
+		//if (noSerie.equals(noSerieHtml)) {
 		File file = new File("C:/DevFormation/GITActivFormationParis/" + //
 				"ProjectJMST/WebContent/WEB-INF/" + //
-				"page/pageActiveFormulaire_part0_modif_mdp.html");
+				"page/pageActiveFormulaire_part1_ident_mdp.html");
 		BufferedReader bIn = null;
 		bIn = new BufferedReader(new FileReader(file));
 		noSerie = Integer.toString(((int) (Math.random() * Integer.MAX_VALUE)));
@@ -61,7 +61,7 @@ public class ServletSoka0 extends HttpServlet {
 			line = bIn.readLine();
 		}
 		bIn.close();
-		}
+		//}
 	}
 
 	/**

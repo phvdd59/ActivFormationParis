@@ -37,7 +37,7 @@ public class ServletSoka1 extends HttpServlet {
 		File file = new File("C:/DevFormation/" + //
 				"GITActivFormationParis/ProjectJMST/" + //
 				"WebContent/WEB-INF/" + //
-				"page/pageActiveFormulaire_part1_ident_mdp.html");
+				"page/pageActiveFormulaire_part2_coordonnees_personnelles.html");
 		BufferedReader bIn = null;
 		bIn = new BufferedReader(new FileReader(file));
 		String noSerie = Integer.toString(((int) (Math.random() * Integer.MAX_VALUE)));

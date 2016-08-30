@@ -234,7 +234,7 @@
 							type="radio" name="fonction occupee"
 							value="<%=personne.isCadre()%>"> Cadre</td>
 						<td colspan="2" style="width: 116px;"><input type="radio"
-							name="fonction occupee" value="<%=personne.isCadre() %>"
+							name="fonction occupee" value="<%=personne.isCadre()%>"
 							checked="checked"> Non cadre</td>
 					</tr>
 					<tr>

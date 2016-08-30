@@ -98,7 +98,7 @@
 					<tr>
 						<th colspan="4" style="width: 627px;">Identifiant</th>
 						<th style="width: 273px; height: 25px; color:;"><input
-							type="text" name="identifiant" value='<%=personne.getLogin() %>' style="width: 270px;"></th>
+							type="text" name="identifiant" value='<%=personne.getIdentifiant() %>' style="width: 270px;"></th>
 					</tr>
 					<tr>
 						<th colspan="4" style="width: 627px;">Mot de passe</th>
