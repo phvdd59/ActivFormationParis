@@ -168,6 +168,17 @@ function verifCoefficient(champ) {
 	}
 }
 
+function verifSitAutre(champ) {
+	document.getElementById("MDP1").value
+	if (verifVide(champ)) {
+		surligne(champ, false);
+		return true;
+	} else {
+		surligne(champ, true);
+		return false;
+	}
+}
+
 // ____ Dernière verifs au submit ____
 function verifInscription1(f) {
 	var alerttotal = "";
