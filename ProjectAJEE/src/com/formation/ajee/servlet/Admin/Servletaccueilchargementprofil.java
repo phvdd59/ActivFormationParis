@@ -38,7 +38,7 @@ public class Servletaccueilchargementprofil extends HttpServlet {
 	HttpSession session=request.getSession();
 
 
-		 Object noSerie = request.getParameter("noSerie");
+		 Object noSerie = session.getAttribute("noSerie");
 
 		String pseudo = (String) session.getAttribute("pseudo");
 		

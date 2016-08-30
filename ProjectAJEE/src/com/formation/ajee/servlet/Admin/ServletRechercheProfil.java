@@ -37,16 +37,16 @@ public class ServletRechercheProfil extends HttpServlet {
 		HttpSession session=request.getSession();
 
 
-		 Object noSerie = request.getParameter("noSerie");
+		 Object noSerie = session.getAttribute("noSerie");
 
-		String pseudo = (String) session.getAttribute("pseudo");
+		 Object oPseudo =  session.getAttribute("pseudo");
 		
 		// Object oRecupNoSerie=session.getAttribute("noSerie");
 		// String recupNoSerie=(String) oRecupNoSerie;
 
 		// Constituer la nouvelle page
-		if (noSerie != null &&pseudo != null ) {
-		
+		if (noSerie != null &&oPseudo != null ) {
+		String pseudo=(String)oPseudo;
 		if (pseudo.equals("Admin")) {
 			String utilisateur= request.getParameter("Utilisateur");
 			session.setAttribute("nomUtilisateur", utilisateur);

@@ -50,7 +50,7 @@ if (oNoSerie!=null) {
 	
 
 		String pseudo = (String) session.getAttribute("pseudo");
-
+System.out.println(pseudo);
 		Object oNomUtilisateur = session.getAttribute("nomUtilisateur");
 		if (oNomUtilisateur != null&& pseudo.equals("Admin")) {
 			String nomUtilisateur = (String) oNomUtilisateur;
@@ -68,15 +68,6 @@ if (oNoSerie!=null) {
 
 			/** A modifier seulement si notre page contient du JavaScript */
 
-			File fileJS1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/js/JSBandeauAdmin.html");
-			BufferedReader bufReadJS1 = null;
-			bufReadJS1 = new BufferedReader(new FileReader(fileJS1));
-			String lineJS1 = bufReadJS1.readLine();
-			while (lineJS1 != null) {
-				response.getWriter().println(lineJS1);
-				lineJS1 = bufReadJS1.readLine();
-			}
-			bufReadJS1.close();
 
 			/** Lecture page ActivConsulting */
 			File fileActiv = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/MenuActiv.html");
@@ -106,7 +97,7 @@ if (oNoSerie!=null) {
 			}
 			bufReadDoc.close();
 
-			File fileDoc1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/FormulaireRempli.html");
+			File fileDoc1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/FormulairePreRempli.html");
 			BufferedReader bufReadDoc1 = null;
 			bufReadDoc1 = new BufferedReader(new FileReader(fileDoc1));
 			String lineDoc1 = bufReadDoc1.readLine();
@@ -141,15 +132,7 @@ if (oNoSerie!=null) {
 
 			/** A modifier seulement si notre page contient du JavaScript */
 
-			File fileJS1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/js/JSBandeauAdmin.html");
-			BufferedReader bufReadJS1 = null;
-			bufReadJS1 = new BufferedReader(new FileReader(fileJS1));
-			String lineJS1 = bufReadJS1.readLine();
-			while (lineJS1 != null) {
-				response.getWriter().println(lineJS1);
-				lineJS1 = bufReadJS1.readLine();
-			}
-			bufReadJS1.close();
+	
 
 			/** Lecture page ActivConsulting */
 			File fileActiv = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/MenuActiv.html");
@@ -179,7 +162,7 @@ if (oNoSerie!=null) {
 			}
 			bufReadDoc.close();
 
-			File fileDoc1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/FormulaireRempli.html");
+			File fileDoc1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/FormulairePreRempli.html");
 			BufferedReader bufReadDoc1 = null;
 			bufReadDoc1 = new BufferedReader(new FileReader(fileDoc1));
 			String lineDoc1 = bufReadDoc1.readLine();

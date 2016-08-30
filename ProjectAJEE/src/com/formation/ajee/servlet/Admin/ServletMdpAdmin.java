@@ -46,9 +46,9 @@ public class ServletMdpAdmin extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		HttpSession session = request.getSession();
-		Object noSerie = request.getParameter("noSerie");
+		Object noSerie = session.getAttribute("noSerie");
 		String pseudo = (String) session.getAttribute("pseudo");
-		if (noSerie != null && pseudo != null) {
+				if (noSerie != null && pseudo != null) {
 			if (pseudo.equals("Admin")) {
 				/** Lecture Haut de page HTML */
 				File fileHaut = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/HautPage.html");
