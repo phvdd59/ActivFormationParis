@@ -41,9 +41,9 @@ public class Personne {
 	private boolean bloque;
 	private String raisonBlocage;
 	private ListeDoc listeDoc;
-	
+
 	public Personne() {
-		super(); //initialiser les valeurs
+		super(); // initialiser les valeurs
 	}
 
 	public int getIdPersonne() {
@@ -68,6 +68,14 @@ public class Personne {
 
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
+	}
+
+	public SEXE getSexe() {
+		return sexe;
+	}
+
+	public void setSexe(SEXE sexe) {
+		this.sexe = sexe;
 	}
 
 	public String getIdentifiant() {
@@ -325,5 +333,5 @@ public class Personne {
 	public void setListeDoc(ListeDoc listeDoc) {
 		this.listeDoc = listeDoc;
 	}
-	
+
 }
