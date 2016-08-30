@@ -5,41 +5,41 @@ import java.util.Date;
 
 public class Personne {
 
-	private int idPersonne;
-	private String nom;
-	private String prenom;
+	private int idPersonne;  
+	private String nom;  //alpha - ' espace
+	private String prenom;  //idem qu'au dessus
 	private SEXE sexe;
-	private String identifiant;
-	private String mdp;
-	private String email;
-	private String adresse;
-	private String cp;
-	private String ville;
-	private String telFixe;
-	private String telPort;
-	private String fax;
-	private Date dateNaissance;
-	private String lieuNaissance;
-	private String numSecu;
-	private String nationalite;
-	private String situation;
-	private String fonction;
-	private String position;
-	private boolean cadre;
-	private String coeff;
-	private String salaire;
-	private Date visiteMedicale;
-	private String montantTransport;
+	private String identifiant; //min4 max25 alphanum - _ .
+	private String mdp; //tout min6 
+	private String email; //recuperer regex pour mail sur internet
+	private String adresse; //alpha num - ' espace ()
+	private String cp; //5 chiffres
+	private String ville; // alpha ' - espace
+	private String telFixe; // 9 entiers
+	private String telPort; // 9 entiers
+	private String fax; //9 entiers
+	private Date dateNaissance; // JJ-MM-AAAA
+	private String lieuNaissance; // comme ville
+	private String numSecu; //(1|2)14 chiffres
+	private String nationalite; //alpha - espace
+	private String situation; //alpha - ' espace
+	private String fonction; //alpha - ' espace
+	private String position; // apha - ' espace
+	private boolean cadre; 
+	private String coeff; // 3 entiers
+	private String salaire; // [0-9]+.[0-9]{2} annuel ? mensuel ?
+	private Date visiteMedicale; //JJ-MM-AAAA
+	private String montantTransport; //[0-9]+.[0-9]{2}
 	private boolean voiture;
-	private int nbCV;
-	private String nbKm;
+	private int nbCV; // des entiers
+	private String nbKm; // des entiers
 	private boolean mutuelle;
 	private boolean ticketResto;
 	private boolean admin;
-	private Date dateCreation;
-	private Timestamp dateModification;
+	private Date dateCreation; //JJ-MM-AAAA
+	private Timestamp dateModification; //HH-MM-SS JJ-MM-AAAA 
 	private boolean bloque;
-	private String raisonBlocage;
+	private String raisonBlocage; //tout
 	private ListeDoc listeDoc;
 
 	public Personne() {
