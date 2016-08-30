@@ -34,7 +34,11 @@ public class ServletLoginTest extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession(true);
-		String id = session.getId();
+		int noSuivi = (int) (Math.random() * 1000);
+		session.setAttribute("suivi", Integer.valueOf(noSuivi));
+		session.setAttribute("nbAppel", new Integer(0));
+		session.setAttribute("servlet", "Login");
+		session.setAttribute("methode", "GET");
 		File file2 = new File(
 				"C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/anfr/pages/Login.html");
 		BufferedReader bIn2 = null;
@@ -67,9 +71,18 @@ public class ServletLoginTest extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		String pseudo = request.getParameter("nom");
-		// Contrôler les params
-		if (session != null) {
+		String sNoSuiviClient = request.getParameter("suiviClient");
+		String sNbAppelClient = request.getParameter("nbAppelClient");
+		Object oNoSuivi = session.getAttribute("suivi");
+		if (oNoSuivi != null) {
+			session.setAttribute("servlet", "VDD1");
+			session.setAttribute("methode", "POST");
+			int noSuivi = ((Integer) oNoSuivi).intValue();
+			int nbAppel = ((Integer) session.getAttribute("nbAppel")).intValue();
+			nbAppel++;
+			session.setAttribute("nbAppel", Integer.valueOf(nbAppel));
+
+			String pseudo = request.getParameter("nom");
 			File file2 = new File(
 					"C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/Login.html");
 			BufferedReader bIn2 = null;
