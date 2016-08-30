@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.formation.ajee.metier.Personne;
-import com.formation.ajee.metierjmst.ListPersonne;
+import com.formation.ajee.metier.ListPersonne;
 
 /**
  * Servlet implementation class Servlet1
