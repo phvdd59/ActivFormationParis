@@ -175,6 +175,9 @@ public class Servletaccueilchargementprofil extends HttpServlet {
 			bufReadDoc = new BufferedReader(new FileReader(fileDoc));
 			String lineDoc = bufReadDoc.readLine();
 			while (lineDoc != null) {
+				if (lineDoc.contains("%pseudo%")) {
+					lineDoc=lineDoc.replace("%pseudo%", pseudo);
+				}
 				response.getWriter().println(lineDoc);
 				lineDoc = bufReadDoc.readLine();
 			}

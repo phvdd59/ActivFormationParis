@@ -167,7 +167,9 @@ public class ServletMdpAdmin extends HttpServlet {
 				BufferedReader bufReadDoc = null;
 				bufReadDoc = new BufferedReader(new FileReader(fileDoc));
 				String lineDoc = bufReadDoc.readLine();
-				while (lineDoc != null) {
+				while (lineDoc != null) {if (lineDoc.contains("%pseudo%")) {
+					lineDoc=lineDoc.replace("%pseudo%", pseudo);
+				}
 					response.getWriter().println(lineDoc);
 					lineDoc = bufReadDoc.readLine();
 				}
