@@ -44,7 +44,6 @@ public class ServletSoka0 extends HttpServlet {
 				"page/pageActiveFormulaire_part1_ident_mdp.html");
 		BufferedReader bIn = null;
 		bIn = new BufferedReader(new FileReader(file));
-
 		String noSerie = Integer.toString(((int) (Math.random() * Integer.MAX_VALUE)));
 		noSerie = "20_" + noSerie;
 		session.setAttribute("noSerie", noSerie);
