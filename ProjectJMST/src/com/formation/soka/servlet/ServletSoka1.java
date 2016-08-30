@@ -14,6 +14,8 @@ import javax.servlet.http.HttpSession;
 
 import com.formation.thcr.metier.Personne;
 
+import controleur.CtrlPersonne;
+
 /**
  * Servlet implementation class ServletIdentMdp
  */
@@ -45,12 +47,6 @@ public class ServletSoka1 extends HttpServlet {
 		String noSerieHtml = request.getParameter("noSerie");
 		String noSerie = (String) session.getAttribute("noSerie");
 
-		Object personne = session.getAttribute("Personne");
-		Personne perso = null;
-		if (personne instanceof Personne) {
-			perso = (Personne) personne;
-		}
-
 		if (noSerieHtml.equals(noSerie)) {
 			noSerie = "20_" + noSerie;
 			session.setAttribute("noSerie", noSerie);
@@ -72,9 +68,30 @@ public class ServletSoka1 extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String pseudo = request.getParameter("identifiant");
-		String mdp = request.getParameter("mdp");
+		// String pseudo = request.getParameter("identifiant");
+		// String mdp = request.getParameter("mdp");
 		HttpSession session = request.getSession();
+		
+		Object personne = session.getAttribute("Personne");
+		Personne perso = null;
+		if (personne instanceof Personne) {
+			perso = (Personne) personne;
+		}
+
+		/***************************
+		 * RECUP DONNEE FORMULAIRE
+		 */
+		String sIdentifiant = request.getParameter("identifiant");
+		String sMdp = request.getParameter("mdp");
+		/***************************
+		 * CONTROLE ET CONVERSION
+		 */
+		CtrlPersonne ctrl = new CtrlPersonne();
+//		if(ctrl.ctrlIdentifiant(sIdentifiant) && ctrl.ctrlMdp(sMdp)){
+			perso.setIdentifiant(sIdentifiant);
+			perso.setMdp(sMdp);
+//		}
+		
 		File file = new File("C:/DevFormation/" + //
 				"GITActivFormationParis/ProjectJMST/" + //
 				"WebContent/WEB-INF/" + //
@@ -84,12 +101,6 @@ public class ServletSoka1 extends HttpServlet {
 		String noSerieHtml = request.getParameter("noSerie");
 		String noSerie = (String) session.getAttribute("noSerie");
 
-		Object personne = session.getAttribute("Personne");
-		Personne perso = null;
-		if (personne instanceof Personne) {
-			perso = (Personne) personne;
-		}
-		
 		if (noSerieHtml.equals(noSerie)) {
 			noSerie = "21_" + noSerie;
 			session.setAttribute("noSerie", noSerie);

@@ -4,6 +4,9 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,7 +15,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.formation.thcr.conversion.ConversionPersonne;
 import com.formation.thcr.metier.Personne;
+import com.formation.thcr.metier.SEXE;
+
+import controleur.CtrlPersonne;
 
 /**
  * Servlet implementation class ServletSoka3
@@ -46,11 +53,7 @@ public class ServletSoka3 extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		File file = new File("C:/DevFormation/GITActivFormationParis/" + //
-				"ProjectJMST/WebContent/WEB-INF/" + //
-				"page/pageActiveFormulaire_part4_situation_actuelle.html");
-		BufferedReader bIn = null;
-		bIn = new BufferedReader(new FileReader(file));
+	
 		String noSerieHtml = request.getParameter("noSerie");
 		String noSerie = (String) session.getAttribute("noSerie");
 
@@ -60,6 +63,36 @@ public class ServletSoka3 extends HttpServlet {
 			perso = (Personne) personne;
 		}
 		
+		/***************************
+		 * RECUP DONNEE FORMULAIRE
+		 */
+		String sDateNaissance = request.getParameter("date de naissance");
+		String sLieuNaissance = request.getParameter("lieu de naissance");
+		String sNumSecu = request.getParameter("num secu");
+		String sNationalite = request.getParameter("nationalite");
+		/***************************
+		 * CONTROLE ET CONVERSION
+		 */
+		CtrlPersonne ctrl = new CtrlPersonne();
+//		if (ctrl.ctrlDateNaissance(sDateNaissance)&&ctrl.ctrlLieuNaissance(sLieuNaissance)
+//				&& ctrl.ctrlNumSecu(sNumSecu)&&ctrl.ctrlNationalite(sNationalite)){
+			ConversionPersonne conv = new ConversionPersonne();
+			perso.setDateNaissance(conv.conversionDate(sDateNaissance));
+			perso.setLieuNaissance(sLieuNaissance);
+			perso.setNumSecu(sNumSecu);
+			if(perso.getNumSecu().charAt(0) == '1'){
+				perso.setSexe(SEXE.MASCULIN);
+			} else {
+				perso.setSexe(SEXE.FEMININ);
+			}
+			perso.setNationalite(sNationalite);
+//		}
+			File file = new File("C:/DevFormation/GITActivFormationParis/" + //
+					"ProjectJMST/WebContent/WEB-INF/" + //
+					"page/pageActiveFormulaire_part4_situation_actuelle.html");
+			BufferedReader bIn = null;
+			bIn = new BufferedReader(new FileReader(file));
+			
 		if (noSerieHtml.equals(noSerie)) {
 			noSerie = "23_" + noSerie;
 			session.setAttribute("noSerie", noSerie);
