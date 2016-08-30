@@ -8,9 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.formation.ajee.metier.ListeUtilisateurs;
+import com.formation.ajee.metier.ListPersonne;
 import com.formation.ajee.metier.Personne;
-import com.formation.ajee.metier.Utilisateurs;
 
 /**
  * Servlet implementation class ServletFormulaire
@@ -69,9 +68,13 @@ public class ServletCreaForRempli_ExRecupParam extends HttpServlet {
 		
 		
 		//2. Stockage des données du formulaire -> à mettre dans le init?
-		ListeUtilisateurs lst = new ListeUtilisateurs();
+		ListPersonne lst = new ListPersonne();
 		Personne personne1 = new Personne(pNom, pPrenom); // faire constructeur avc ts les champs dans Utilisateurs.java
+		//ou
 		personne1.setNom(pNom);
+		personne1.setPrenom(pNom);
+		//etc.
+		
 		//lst.add(user1);
 		
 		//3. Renvoi données pour remplir nouveau formulaire

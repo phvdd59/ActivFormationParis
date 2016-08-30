@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.formation.ajee.metier.ListeUtilisateurs;
-import com.formation.ajee.metier.Utilisateurs;
+import com.formation.ajee.metier.ListPersonne;
+import com.formation.ajee.metier.Personne;
 
 /**
  * Servlet implementation class ServletFormulaire
