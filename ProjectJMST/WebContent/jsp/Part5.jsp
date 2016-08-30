@@ -17,7 +17,6 @@
 		ctrMontantTransport();
 		ctrNbChevaux();
 		ctrKmMensuel();
-
 	}
 
 	function ctrPosition() {

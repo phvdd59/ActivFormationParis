@@ -116,7 +116,7 @@
 					<td>Code Postale</td>
 					}
 					<td style="width: 273px; height: 25px; color:;"><input id="codePostal"
-						type="text" name="code postale" value='<%=personne.getCodePostal() %>' style="width: 270px;"><br><span id="spanCodePostal"></span></td>
+						type="text" name="code postale" value='<%=personne.getCp() %>' style="width: 270px;"><br><span id="spanCodePostal"></span></td>
 					<td style="width: 72px;">Ville</td>
 					<td style="width: 112px; height: 25px; color:;"><input id="ville"
 						type="text" name="ville" value='<%=personne.getVille() %>'><br><span id="spanVille"></span></td>
@@ -135,7 +135,7 @@
 						type="text" name="fax" value='<%=personne.getFax() %>' style="width: 270px;"><br><span id="spanFax"></span></td>
 					<td style="width: 72px;">Mail</td>
 					<td style="width: 112px; height: 25px; color:;"><input 
-						id="mail" type="text" name="mail" value='<%=personne.getMail() %>'><br> <span
+						id="mail" type="text" name="mail" value='<%=personne.getEmail() %>'><br> <span
 						id="spanMail"></span></td>
 				</tr>
 			</table>

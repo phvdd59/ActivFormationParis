@@ -12,7 +12,7 @@
 function ctrSituationPro() {
 	var situationPro=document.getElementByName("situationPro");
 	alert(situationPro);
-	for (var i=0;situationPro.length;i++)){
+	for (var i=0;situationPro.length;i++){
 		if(!situationPro[i].checked){
 			getElementById("spanSituationPro").innerHTML="Veuillez choisir un champs.";
 			alert("ça marche pas)");

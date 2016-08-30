@@ -8,7 +8,7 @@ import java.sql.Statement;
 
 import com.formation.thcr.metier.Personne;
 
-public class DAO {
+public class DAOPersonne {
 
 	public final static String	JDBC_DRIVER	= "com.mysql.jdbc.Driver";
 	public final static String	DB_URL		= "jdbc:mysql://localhost/listpersonne";
