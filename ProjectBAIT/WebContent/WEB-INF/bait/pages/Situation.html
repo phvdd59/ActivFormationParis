@@ -6,7 +6,7 @@
 		<div ID="formu12">
 
 			<input type="radio" name="sit" value="emploi"
-				style="margin-left: 20px"> Employé
+				style="margin-left: 20px" checked="checked"> Employé
 		</div>
 		<div ID="formu13">
 			<input type="radio" name="sit" value="recherche"
@@ -24,7 +24,7 @@
 		<div ID="formu16">
 			<input type="radio" name="sit" value="autre"
 				style="margin-left: 20px"> Autre <input type="text"
-				name="aut" style="width: 150px;" />
+				name="aut" onblur="verifSitAutre(this)" style="width: 150px;" />
 		</div>
 	</div>
 
