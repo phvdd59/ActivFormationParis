@@ -61,9 +61,11 @@ public class ExoAlgo6New implements InterAlgo6{
 								tabF[i]=sommeN;
 							}
 							//
+							int maxF=0;
 							for (int i = 0; i < tabF.length; i++) {
-								if (tabF[i]>indice) {
-									indice=tabF[i];
+								if (tabF[i]>maxF) {
+									maxF=tabF[i];
+									indice=(i+n);
 								}	
 							}
 						}
