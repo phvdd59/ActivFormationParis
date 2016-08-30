@@ -4,20 +4,9 @@ import java.sql.Timestamp;
 import java.util.Date;
 
 import com.formation.thcr.metier.ListeDoc;
-import com.formation.thcr.metier.Personne;
 import com.formation.thcr.metier.SEXE;
 
 public class CtrlPersonne implements InterCtrlPersonne{
-
-	Personne personne;
-
-	public Personne getPersonne() {
-		return personne;
-	}
-
-	public void setPersonne(Personne personne) {
-		this.personne = personne;
-	}
 
 	@Override
 	public boolean ctrlIdPersonne(int idPersonne) {
