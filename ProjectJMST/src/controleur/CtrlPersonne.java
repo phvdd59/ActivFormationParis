@@ -1,13 +1,17 @@
 package controleur;
 
-import com.formation.thcr.metier.Personne;
+import java.sql.Timestamp;
+import java.util.Date;
 
-public class CtrlPersonne {
+import com.formation.thcr.metier.ListeDoc;
+import com.formation.thcr.metier.Personne;
+import com.formation.thcr.metier.SEXE;
+
+public class CtrlPersonne implements InterCtrlPersonne{
 
 	Personne personne;
 
 	public CtrlPersonne(Personne personne) {
-		super();
 		this.personne = personne;
 	}
 
@@ -19,124 +23,220 @@ public class CtrlPersonne {
 		this.personne = personne;
 	}
 
-	public boolean CtrlNom() {
-		return true;
+	@Override
+	public boolean ctrlIdPersonne(int idPersonne) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
-	public boolean CtrlPrenom() {
-		return true;
+	@Override
+	public boolean ctrlNom(String nom) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
-	public boolean CtrlLogin() {
-		return true;
+	@Override
+	public boolean ctrlPrenom(String prenom) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
-	public boolean CtrlMotDePasse() {
-		return true;
+	@Override
+	public boolean ctrlSexe(SEXE sexe) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
-	public boolean CtrlMail() {
-		return true;
+	@Override
+	public boolean ctrlIdentifiant(String identifiant) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
-	public boolean CtrlNationalite() {
-		return true;
+	@Override
+	public boolean ctrlMdp(String mdp) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
-	public boolean CtrlAdresse() {
-		return true;
+	@Override
+	public boolean ctrlEmail(String email) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
-	public boolean CtrlTelFix() {
-		return true;
+	@Override
+	public boolean ctrlAdresse(String adresse) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
-	public boolean CtrlTelPort() {
-		return true;
+	@Override
+	public boolean ctrlCp(String cp) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
-	public boolean CtrlFax() {
-		return true;
+	@Override
+	public boolean ctrlVille(String ville) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
-	public boolean CtrlVille() {
-		return true;
+	@Override
+	public boolean ctrlTelFixe(String telFixe) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
-	public boolean CtrlCodePostal() {
-		return true;
+	@Override
+	public boolean ctrlTelPort(String telPort) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
-	public boolean CtrlDateNaissance() {
-		return true;
+	@Override
+	public boolean ctrlFax(String fax) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
-	public boolean CtrlLieuNaissance() {
-		return true;
+	@Override
+	public boolean ctrlDateNaissance(Date dateNaissance) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
-	public boolean CtrlNumSecu() {
-		return true;
+	@Override
+	public boolean ctrlLieuNaissance(String lieuNaissance) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
-	public boolean CtrlPosition() {
-		return true;
+	@Override
+	public boolean ctrlNumSecu(String numSecu) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
-	public boolean CtrlCoeff() {
-		return true;
+	@Override
+	public boolean ctrlNationalite(String nationalite) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
-	public boolean CtrlSalaire() {
-		return true;
+	@Override
+	public boolean ctrlSituation(String situation) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
-	public boolean CtrlVisiteMedicale() {
-		return true;
+	@Override
+	public boolean ctrlFonction(String fonction) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
-	public boolean CtrlMontantTransport() {
-		return true;
+	@Override
+	public boolean ctrlPosition(String position) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
-	public boolean CtrlNbCV() {
-		return true;
+	@Override
+	public boolean ctrlCadre(boolean cadre) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
-	public boolean CtrlNbKm() {
-		return true;
+	@Override
+	public boolean ctrlCoeff(String coeff) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
-	public boolean CtrlSituation() {
-		return true;
+	@Override
+	public boolean ctrlSalaire(String salaire) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
-	public boolean CtrlVoiture() {
-		return true;
+	@Override
+	public boolean ctrlVisiteMedicale(Date visiteMedicale) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
-	public boolean CtrlCadre() {
-		return true;
+	@Override
+	public boolean ctrlMontantTransport(String montantTransport) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
-	public boolean CtrlMutuelle() {
-		return true;
+	@Override
+	public boolean ctrlVoiture(boolean voiture) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
-	public boolean CtrlTicketResto() {
-		return true;
+	@Override
+	public boolean ctrlNbCV(int nbCV) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
-	public boolean CtrlAdmin() {
-		return true;
+	@Override
+	public boolean ctrlNbKm(String nbKm) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
-	public boolean CtrlTotal() {
-		return CtrlNom() & CtrlPrenom() & CtrlLogin() & CtrlMotDePasse() & CtrlMail() & CtrlNationalite()
-				& CtrlAdresse() & CtrlTelFix() & CtrlTelPort() & CtrlFax() & CtrlVille() & CtrlCodePostal()
-				& CtrlDateNaissance() & CtrlLieuNaissance() & CtrlNumSecu() & CtrlPosition() & CtrlCoeff()
-				& CtrlSalaire() & CtrlVisiteMedicale() & CtrlMontantTransport() & CtrlNbCV() & CtrlNbKm()
-				& CtrlSituation() & CtrlVoiture() & CtrlVoiture() & CtrlCadre() & CtrlMutuelle() & CtrlTicketResto()
-				& CtrlAdmin() & CtrlAdmin();
+	@Override
+	public boolean ctrlMutuelle(boolean mutuelle) {
+		// TODO Auto-generated method stub
+		return false;
 	}
+
+	@Override
+	public boolean ctrlTicketResto(boolean ticketResto) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean ctrlAdmin(boolean admin) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean ctrlDateCreation(Date dateCreation) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean ctrlDateModification(Timestamp dateModification) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean ctrlBloque(boolean bloque) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean ctrlRaisonBlocage(String raisonBlocage) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean ctrlListeDoc(ListeDoc listeDoc) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }
