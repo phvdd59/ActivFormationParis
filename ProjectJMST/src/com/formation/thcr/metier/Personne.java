@@ -8,6 +8,7 @@ public class Personne {
 	private int idPersonne;
 	private String nom;
 	private String prenom;
+	private SEXE sexe;
 	private String identifiant;
 	private String mdp;
 	private String email;
