@@ -19,7 +19,6 @@ import javax.servlet.http.HttpSession;
 public class ServletSoka1 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
@@ -33,11 +32,11 @@ public class ServletSoka1 extends HttpServlet {
 	 *      response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession(); 
+		HttpSession session = request.getSession();
 		File file = new File("C:/DevFormation/" + //
 				"GITActivFormationParis/ProjectJMST/" + //
 				"WebContent/WEB-INF/" + //
-				"page/pageActiveFormulaire_part2_coordonnees_personnelles.html");
+				"page/pageActiveFormulaire_part1_ident_mdp.html");
 		BufferedReader bIn = null;
 		bIn = new BufferedReader(new FileReader(file));
 		String noSerie = Integer.toString(((int) (Math.random() * Integer.MAX_VALUE)));
@@ -59,10 +58,13 @@ public class ServletSoka1 extends HttpServlet {
 	 *      response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		String pseudo = request.getParameter("identifiant");
-//		String mdp = request.getParameter("mdp");
-		HttpSession session = request.getSession(); 
-		File file = new File("C:/DevFormation/GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/jsp/Part2.jsp");
+		//		String pseudo = request.getParameter("identifiant");
+		//		String mdp = request.getParameter("mdp");
+		HttpSession session = request.getSession();
+		File file = new File("C:/DevFormation/" + //
+				"GITActivFormationParis/ProjectJMST/" + //
+				"WebContent/WEB-INF/" + //
+				"page/pageActiveFormulaire_part2_coordonnees_personnelles.html");
 		BufferedReader bIn = null;
 		bIn = new BufferedReader(new FileReader(file));
 		String noSerie = Integer.toString(((int) (Math.random() * Integer.MAX_VALUE)));
@@ -75,8 +77,8 @@ public class ServletSoka1 extends HttpServlet {
 			}
 			response.getWriter().println(line);
 			line = bIn.readLine();
-			}
+		}
 		bIn.close();
-		
+
 	}
 }

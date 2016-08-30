@@ -100,7 +100,7 @@
 				<tr>
 					<td>Date de naissance</td>
 					<td style="width: 273px; height: 25px; color:;"><input id="dateDeNaissance"
-						type="text" name= "date de naissance" value='<%=personne.getDateNaissance() %>'  style="width: 270px;"><br><span id="spanDateDeNaissance"></span></td>
+						type="date" name= "date de naissance" value='<%=personne.getDateNaissance() %>'  style="width: 270px;"><br><span id="spanDateDeNaissance"></span></td>
 					<td style="width: 72px;">Lieu de naissance</td>
 					<td style="width: 112px; height: 25px; color:;"><input id="lieuDeNaissance"
 						type="text" name= "lieu de naissance" value='<%=personne.getLieuNaissance() %>' ><br><span id="spanLieuDeNaissance"></span></td>

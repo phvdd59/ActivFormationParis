@@ -275,7 +275,7 @@
 					<tr>
 						<td>Date de la dernière visite médicale</td>
 						<td colspan="3" style="width: 229px; height: 25px; color:;"><input
-							id="dateVisiteMedicale" type="text" name="date visite medicale"
+							id="dateVisiteMedicale" type="date" name="date visite medicale"
 							value='<%=personne.getVisiteMedicale() %>' style="width: 615px;"><br> <span
 							id="spanDateVisiteMedicale"></span></td>
 					</tr>

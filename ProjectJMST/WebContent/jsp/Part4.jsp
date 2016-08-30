@@ -125,10 +125,10 @@ function ctrSituationPro() {
 					<%} %>
 					<td style="width: 72px;">Auto-Entrepreneur</td>
 					<td style="width: 112px; height: 25px;">
-					<% if (situation.equals("auto")){ %>
-					<td><input type="radio" name="situation" value="auto" checked="checked"></td>
+					<% if (situation.equals("auto entrepreneur")){ %>
+					<td><input type="radio" name="situation" value="auto entrepreneur" checked="checked"></td>
 					<%}else{ %>
-					<td><input type="radio" name="situation" value="auto"></td>
+					<td><input type="radio" name="situation" value="auto entrepreneur"></td>
 					<%} %>
 				</tr>
 				
@@ -142,10 +142,10 @@ function ctrSituationPro() {
 					<%} %>
 					<td style="width: 72px;">Demandeur d'emploi</td>
 					<td style="width: 112px; height: 25px;">
-					<% if (situation.equals("demandeur")){ %>
-					<td><input type="radio" name="situation" value="demandeur" checked="checked"></td>
+					<% if (situation.equals("demandeur d'emploi")){ %>
+					<td><input type="radio" name="situation" value="demandeur d'emploi" checked="checked"></td>
 					<%}else{ %>
-					<td><input type="radio" name="situation" value="demandeur"></td>
+					<td><input type="radio" name="situation" value="demandeur d'emploi"></td>
 					<%} %>
 				</tr>
 				
@@ -159,11 +159,11 @@ function ctrSituationPro() {
 					<%} %>
 					<td style="width: 72px;">Autre</td>
 					<td style="width: 112px; height: 25px;">
-					<% if (situation.equals("autre")){ %>
-					<td><input type="radio" name="situation" value="autre" checked="checked"></td>
+					<% if (situation.equals("")){ %>
+					<td><input type="radio" name="situation" value="" checked="checked"></td>
 					<td><input type="text" name="situation" value="<%=personne.getSituation()%>"></td>
 					<%}else{ %>
-					<td><input type="radio" name="situation" value="autre"></td>
+					<td><input type="radio" name="situation" value=""></td>
 					<%} %>
 				</tr>
 			
