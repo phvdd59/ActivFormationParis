@@ -1,18 +1,8 @@
 package controleur;
 
-import java.sql.Timestamp;
 import java.util.Date;
 
-import com.formation.thcr.metier.ListeDoc;
-import com.formation.thcr.metier.SEXE;
-
-public class CtrlPersonne implements InterCtrlPersonne{
-
-	@Override
-	public boolean ctrlIdPersonne(int idPersonne) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+public class CtrlPersonne implements InterCtrlPersonne {
 
 	@Override
 	public boolean ctrlNom(String nom) {
@@ -27,7 +17,7 @@ public class CtrlPersonne implements InterCtrlPersonne{
 	}
 
 	@Override
-	public boolean ctrlSexe(SEXE sexe) {
+	public boolean ctrlSexe(String sexe) {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -129,7 +119,7 @@ public class CtrlPersonne implements InterCtrlPersonne{
 	}
 
 	@Override
-	public boolean ctrlCadre(boolean cadre) {
+	public boolean ctrlCadre(String cadre) {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -159,13 +149,13 @@ public class CtrlPersonne implements InterCtrlPersonne{
 	}
 
 	@Override
-	public boolean ctrlVoiture(boolean voiture) {
+	public boolean ctrlVoiture(String voiture) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean ctrlNbCV(int nbCV) {
+	public boolean ctrlNbCV(String nbCV) {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -177,49 +167,20 @@ public class CtrlPersonne implements InterCtrlPersonne{
 	}
 
 	@Override
-	public boolean ctrlMutuelle(boolean mutuelle) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean ctrlMutuelle(String mutuelle) {
+		try {
+			if (mutuelle.equals("oui") || mutuelle.equals("non")) {
+				return true;
+			} else {
+				return false;
+			}
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
 	@Override
-	public boolean ctrlTicketResto(boolean ticketResto) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean ctrlAdmin(boolean admin) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean ctrlDateCreation(Date dateCreation) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean ctrlDateModification(Timestamp dateModification) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean ctrlBloque(boolean bloque) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean ctrlRaisonBlocage(String raisonBlocage) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean ctrlListeDoc(ListeDoc listeDoc) {
+	public boolean ctrlTicketResto(String ticketResto) {
 		// TODO Auto-generated method stub
 		return false;
 	}
