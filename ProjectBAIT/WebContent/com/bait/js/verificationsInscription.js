@@ -172,20 +172,17 @@ function verifCoefficient(champ) {
 
 function verifSitAutre(champ) {
 	if (document.getElementById("autreSit").checked) {
-		surligne(champ, true);
-		return false;
+		if (verifVide(champ)) {
+			surligne(champ, false);
+			return true;
+		} else {
+			surligne(champ, true);
+			return false;
+		}
+	} else {
+		surligne(champ, false);
+		return true;
 	}
-	// if (verifVide(champ)) {
-	// surligne(champ, false);
-	// return true;
-	// } else {
-	// surligne(champ, true);
-	// return false;
-	// }
-	// }else{
-	// surligne(champ, false);
-	// return true;
-	// }
 }
 
 // ____ Dernière verifs au submit ____
@@ -278,7 +275,7 @@ function verifEtatCivil(f) {
 }
 
 function verifRemuneration(f) {
-	
+
 	var alerttotal = "";
 	if (verifNom(f.Fonction) == false) {
 		alerttotal = alerttotal
@@ -295,10 +292,10 @@ function verifRemuneration(f) {
 	if (verifCoefficient(f.Coefficient) == false) {
 		alerttotal = alerttotal + "Le coefficient n'est pas indiqué \n";
 	}
-	
+
 	if (verifNom(f.Fonction) == false || verifNom(f.Position) == false
 			|| verifSalaire(f.SalaireS) == false
-			|| verifCoefficient(f.Coefficient)==false) {
+			|| verifCoefficient(f.Coefficient) == false) {
 		alert(alerttotal);
 		return false;
 	} else {
@@ -307,10 +304,10 @@ function verifRemuneration(f) {
 }
 
 function verifSit(f) {
-}
-if (verifSitAutre(f.aut) == false) {
-	alert("Le champ Autre est vide");
-	return false;
-} else {
-	return true;
+	if (verifSitAutre(f.aut) == false) {
+		alert("Le champ Autre est vide");
+		return false;
+	} else {
+		return true;
+	}
 }
