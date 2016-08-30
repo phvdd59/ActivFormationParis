@@ -9,9 +9,9 @@ import com.formation.issa.beans.Candidat;
 
 public final class Inscription {
 
-	private static final String CHAMP_ID = "identifiant";
-	private static final String CHAMP_MOTDEPASSE = "mdp1";
-	private static final String CHAMP_CONFIRMATION = "mdp2";
+	private static String CHAMP_ID = "identifiant";
+	private static String CHAMP_MOTDEPASSE = "mdp1";
+	private static String CHAMP_CONFIRMATION = "mdp2";
 	private String resultat;
 	private Map<String, String> erreurs = new HashMap<String, String>();
 
