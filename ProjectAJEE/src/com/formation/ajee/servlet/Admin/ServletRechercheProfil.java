@@ -50,7 +50,7 @@ public class ServletRechercheProfil extends HttpServlet {
 		if (pseudo.equals("Admin")) {
 			String utilisateur= request.getParameter("utilisateur");
 			System.out.println(utilisateur);
-			session.setAttribute("nomUtilisateur", utilisateur);
+			session.setAttribute("utilisateur", utilisateur);
 			/** Lecture Haut de page HTML */
 			File fileHaut = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/HautPage.html");
 			BufferedReader bufReadHaut = null;

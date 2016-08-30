@@ -52,9 +52,9 @@ if (oNoSerie!=null) {
 
 		String pseudo = (String) session.getAttribute("pseudo");
 System.out.println(pseudo);
-		Object oNomUtilisateur = session.getAttribute("utilisateur");
-		if (oNomUtilisateur != null&& pseudo.equals("Admin")) {
-			String nomUtilisateur = (String) oNomUtilisateur;
+		Object utilisateur = session.getAttribute("utilisateur");
+		if (utilisateur != null&& pseudo.equals("Admin")) {
+			String nomUtilisateur = (String) utilisateur;
 
 			/** Lecture Haut de page HTML */
 			File fileHaut = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/HautPage.html");
@@ -93,7 +93,7 @@ System.out.println(pseudo);
 				if (lineDoc.contains("%pseudo%")) {
 					lineDoc = lineDoc.replace("%pseudo%", pseudo);
 				}if (lineDoc.contains("%utilisateur%")) {
-					lineDoc = lineDoc.replace("%utilisateur%", "");
+					lineDoc=lineDoc.replace("%utilisateur%", ((utilisateur == null)?"":utilisateur.toString()));
 				}
 				response.getWriter().println(lineDoc);
 				lineDoc = bufReadDoc.readLine();

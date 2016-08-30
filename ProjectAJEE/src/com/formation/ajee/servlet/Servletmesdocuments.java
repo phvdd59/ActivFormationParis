@@ -33,12 +33,12 @@ public class Servletmesdocuments extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		Object oPseudo = session.getAttribute("pseudo");
-		Object oNomUtilisateur = session.getAttribute("nomUtilisateur");
+		Object utilisateur = session.getAttribute("utilisateur");
 		if (oPseudo != null) {
 
 			String pseudo = (String)oPseudo;
 			if (pseudo.equals("Admin")) {
-				if (oNomUtilisateur == null) {
+				if (utilisateur == null) {
 					// Faux question à poser
 					response.getWriter().println("<alert('Veuillez selectionner une personne dans accueil')>");
 
@@ -77,6 +77,8 @@ public class Servletmesdocuments extends HttpServlet {
 					while (lineDoc != null) {
 						if (lineDoc.contains("%pseudo%")) {
 							lineDoc = lineDoc.replace("%pseudo%", pseudo);
+						}if (lineDoc.contains("%utilisateur%")) {
+							lineDoc=lineDoc.replace("%utilisateur%", ((utilisateur == null)?"":utilisateur.toString()));
 						}
 						response.getWriter().println(lineDoc);
 						lineDoc = bufReadDoc.readLine();
