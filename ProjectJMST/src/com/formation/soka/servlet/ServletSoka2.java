@@ -75,6 +75,8 @@ public class ServletSoka2 extends HttpServlet {
 			}
 			bIn.close();
 		}
+		
+		//controle + set Personne
 	}
 
 }
