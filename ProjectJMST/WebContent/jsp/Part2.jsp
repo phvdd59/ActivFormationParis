@@ -114,7 +114,7 @@
 				</tr>
 				<tr>
 					<td>Code Postale</td>
-					}
+					
 					<td style="width: 273px; height: 25px; color:;"><input id="codePostal"
 						type="text" name="code postale" value='<%=personne.getCp() %>' style="width: 270px;"><br><span id="spanCodePostal"></span></td>
 					<td style="width: 72px;">Ville</td>

@@ -79,9 +79,6 @@ public class ServletSokaChgMdp extends HttpServlet {
 			bOutXml.write(s1);
 //		}
 		bOutXml.close();
-		
-		
-		
 	
 //			File file = new File("C:/DevFormation/GITActivFormationParis/" + //
 //					"ProjectJMST/WebContent/WEB-INF/" + //
