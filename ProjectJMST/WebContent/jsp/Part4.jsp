@@ -115,26 +115,26 @@ function ctrSituationPro() {
 				<tr>
 					<td>Salarié</td>
 					<td style="width: 273px; height: 25px; color:;"><input
-						type="radio" name="salarie" value="<%=personne.isSalarie() %>Salarié:  oui"></td>
+						type="radio" name="situation" value="<%=personne.isSalarie() %>Salarié:  oui"></td>
 					<td style="width: 72px;">Auto-Entrepreneur</td>
 					<td style="width: 112px; height: 25px; color:;"><input
-						type="radio" name="auto entrepreneur " value="<%=personne.isAutoEntrepreneur() %>"></td>
+						type="radio" name="situation" value="<%=personne.isAutoEntrepreneur() %>"></td>
 				</tr>
 				<tr>
 					<td>Freelance</td>
 					<td style="width: 273px; height: 25px; color:;"><input
-						type="radio" name="freelance" value="<%=personne.isFreelance() %>"></td>
+						type="radio" name="situation" value="<%=personne.isFreelance() %>"></td>
 					<td style="width: 72px;">Demandeur d'emploi</td>
 					<td style="width: 112px; height: 25px; color:;"><input
-						type="radio" name="chomage" value="<%=personne.isChomage() %>"></td>
+						type="radio" name="situation" value="<%=personne.isChomage() %>"></td>
 				</tr>
 				<tr>
 					<td>Retraité</td>
 					<td style="width: 273px; height: 25px; color:;"><input
-						type="radio" name="retraite" value="<%=personne.isRetraite() %>"></td>
+						type="radio" name="situation" value="<%=personne.isRetraite() %>"></td>
 					<td style="width: 72px;">Autre</td>
 					<td style="width: 112px; height: 25px; color:;"><input
-						type="radio" name="autre" value="<%=personne.isAutre() %>" checked="checked"></td>
+						type="radio" name="situation" value="<%=personne.isAutre() %>" checked="checked"></td>
 				</tr>
 				
 			</table>

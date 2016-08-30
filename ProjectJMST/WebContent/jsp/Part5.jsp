@@ -258,19 +258,19 @@
 					<tr>
 						<td>Mutuelle souhaitée:</td>
 						<td style="width: 273px; height: 25px; color:;"><input
-							type="radio" name="mutuelle souhaitee oui"
+							type="radio" name="mutuelle"
 							value="<%=personne.isMutuelle() %>"> oui</td>
 						<td colspan="2" style="width: 116px;"><input type="radio"
-							name="mutuelle souhaitee non" value="<%=personne.isMutuelle() %>"
+							name="mutuelle" value="<%=personne.isMutuelle() %>"
 							checked="checked"> non</td>
 					</tr>
 					<tr>
 						<td>Ticket resto:</td>
 						<td style="width: 273px; height: 25px; color:;"><input
-							type="radio" name="ticket resto oui" value="<%=personne.isTicketResto()%>">
+							type="radio" name="ticket resto" value="<%=personne.isTicketResto()%>">
 							oui</td>
 						<td colspan="2" style="width: 116px;"><input type="radio"
-							name="ticket resto non" value="<%=personne.isTicketResto()%>" checked="checked">
+							name="ticket resto" value="<%=personne.isTicketResto()%>" checked="checked">
 							non</td>
 					</tr>
 					<tr>
@@ -290,10 +290,10 @@
 					<tr>
 						<td>Vehicule personnel:</td>
 						<td style="width: 273px; height: 25px; color:;"><input
-							type="radio" name="vehicule perso oui"
+							type="radio" name="vehicule perso"
 							value="<%=personne.isVoiture()%>"> oui</td>
 						<td colspan="2" style="width: 116px;"><input type="radio"
-							name="vehicule perso non" value="<%=personne.isVoiture() %>"
+							name="vehicule perso" value="<%=personne.isVoiture() %>"
 							checked="checked"> non</td>
 					</tr>
 					<tr>
