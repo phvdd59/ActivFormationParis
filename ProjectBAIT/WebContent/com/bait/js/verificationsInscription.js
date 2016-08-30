@@ -175,18 +175,28 @@ function verifSitAutre(champ) {
 		surligne(champ, true);
 		return false;
 	}
-//	}
-//		if (verifVide(champ)) {
-//			surligne(champ, false);
-//			return true;
-//		} else {
-//			surligne(champ, true);
-//			return false;
-//		}
-//	}else{
-//		surligne(champ, false);
-//		return true;
-//	}
+	// if (verifVide(champ)) {
+	// surligne(champ, false);
+	// return true;
+	// } else {
+	// surligne(champ, true);
+	// return false;
+	// }
+	// }else{
+	// surligne(champ, false);
+	// return true;
+	// }
+}
+
+function verifCadre() {
+	if ((!document.getElementById("autreSit").checked)
+			&& (!document.getElementById("autreSit").checked)) {
+		surligne(champ, false);
+		return true;
+	} else {
+		surligne(champ, true);
+		return false;
+	}
 }
 
 // ____ Dernière verifs au submit ____
@@ -306,10 +316,10 @@ function verifRemuneration(f) {
 }
 
 function verifSit(f) {
-	}
-	if (verifSitAutre(f.aut) == false) {
-		alert("Le champ Autre est vide");
-		return false;
-	} else {
-		return true;
+}
+if (verifSitAutre(f.aut) == false) {
+	alert("Le champ Autre est vide");
+	return false;
+} else {
+	return true;
 }
