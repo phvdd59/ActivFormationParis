@@ -54,10 +54,10 @@ public class ServletThcr2 extends HttpServlet {
 		//faire un jsp pour cette page
 		for (Personne personne : listPersonne) {
 			tableConstruct += "\t\t\t\t<form action=\"http://localhost:8080/ProjectJMST/ServletThcr1\" method=\"post\">\n";
-			tableConstruct += "\t\t\t\t<tr>\n\t\t\t\t\t<td><input type=\"hidden\" name=\"login\" value=\"" + personne.getLogin() +"\">" + personne.getLogin() + "</td>\n";
+			tableConstruct += "\t\t\t\t<tr>\n\t\t\t\t\t<td><input type=\"hidden\" name=\"login\" value=\"" + personne.getIdentifiant() +"\">" + personne.getIdentifiant() + "</td>\n";
 			tableConstruct += "\t\t\t\t\t<td>" + "<input type=\"hidden\" name=\"prenom\" value=\"" + personne.getPrenom().trim() + "\">" +  personne.getPrenom().trim() + "</td>\n";
 			tableConstruct += "\t\t\t\t\t<td>" + "<input type=\"hidden\" name=\"prenom\" value=\"" + personne.getNom() + "\">" +  personne.getNom() + "</td>\n";
-			tableConstruct += "\t\t\t\t\t<td>" + "<input type=\"hidden\" name=\"mail\" value=\"" + personne.getMail() +"\">" + personne.getMail() +"</td>\n";
+			tableConstruct += "\t\t\t\t\t<td>" + "<input type=\"hidden\" name=\"mail\" value=\"" + personne.getEmail() +"\">" + personne.getEmail() +"</td>\n";
 			tableConstruct += "\t\t\t\t\t<input type=\"hidden\" name=\"%%noSerie%%\" value=\"%%noSerie%%\">\n";
 			tableConstruct += "\t\t\t\t\t<td id=\"afficher\" type=\"text\"><input type=\"submit\" value=\"afficher\"></td>\n";
 			tableConstruct += "\t\t\t\t\t<input type=\"hidden\" name=\"noSerie\" value=\"%%noSerie%%\">";

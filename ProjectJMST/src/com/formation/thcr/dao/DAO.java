@@ -25,8 +25,8 @@ public class DAO {
 			statement = con.createStatement();
 			String sql = "INSERT INTO listpersonne.personne"//
 					+ "(LOGIN,PASS,NOM,PRENOM,MAIL,NATIONALITE,ADMIN,ADRESSE)"//
-					+ "VALUES('" + personne.getLogin() + "','" + personne.getMotDePasse() + "','" + personne.getNom() + "',"//
-					+ "'" + personne.getPrenom() + "','" + personne.getMail() + "','" + personne.getNationalite() + "',"//
+					+ "VALUES('" + personne.getIdentifiant() + "','" + personne.getMdp() + "','" + personne.getNom() + "',"//
+					+ "'" + personne.getPrenom() + "','" + personne.getEmail() + "','" + personne.getNationalite() + "',"//
 					+ "'" + personne.isAdmin() + "','" + personne.getAdresse() + "');";//
 			int result = statement.executeUpdate(sql);
 			if (result > 0) {
@@ -55,13 +55,13 @@ public class DAO {
 			boolean check = false;
 			//TRAITER LES METADATA pour contrôler les erreurs
 			while (result.next()) {
-				if (personne.getLogin().equals(result.getString("LOGIN"))) {
-					personne.setLogin(result.getString("LOGIN"));
+				if (personne.getIdentifiant().equals(result.getString("LOGIN"))) {
+					personne.setIdentifiant(result.getString("LOGIN"));
 					personne.setAdmin(Boolean.valueOf(result.getString("ADMIN")).booleanValue());
 					personne.setAdresse(result.getString("ADRESSE"));
 					personne.setNom(result.getString("NOM"));
 					personne.setPrenom(result.getString("PRENOM"));
-					personne.setMail(result.getString("MAIL"));
+					personne.setEmail(result.getString("MAIL"));
 					personne.setNationalite(result.getString("NATIONALITE"));
 					check = true;
 				}

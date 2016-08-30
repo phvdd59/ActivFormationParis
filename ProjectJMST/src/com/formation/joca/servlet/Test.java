@@ -84,10 +84,10 @@ public class Test extends HttpServlet {
 							admin = true;
 						}
 						Personne personne = new Personne();
-						personne.setLogin(login);
-						personne.setMotDePasse(password);
+						personne.setIdentifiant(login);
+						personne.setMdp(password);
 						personne.setAdmin(admin);
-						personne.setMail(mail);
+						personne.setEmail(mail);
 						personne.setNom(nom);
 						personne.setPrenom(prenom);
 						personne.setNationalite(nationalite);
@@ -107,7 +107,7 @@ public class Test extends HttpServlet {
 		Personne utilisateur = null;
 
 		for (Personne personne : listPersonne) {
-			if (personne.getLogin().equals(identifiant) && personne.getMotDePasse().equals(motdepasse)) {
+			if (personne.getIdentifiant().equals(identifiant) && personne.getMdp().equals(motdepasse)) {
 				session = request.getSession(true);
 				utilisateur = personne;
 				break;

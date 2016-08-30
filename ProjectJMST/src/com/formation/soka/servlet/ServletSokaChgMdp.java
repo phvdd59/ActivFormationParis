@@ -57,13 +57,13 @@ public class ServletSokaChgMdp extends HttpServlet {
 		String exMdp= request.getParameter("ancien mdp");
 		String newMdp1 = request.getParameter("new mdp 1"); 
 		String newMdp2 = request.getParameter("new mdp 2");
-		if (perso.getLogin().equals(ident) && perso.getMotDePasse().equals(exMdp)) {
+		if (perso.getIdentifiant().equals(ident) && perso.getMdp().equals(exMdp)) {
 			if (newMdp1.equals(newMdp2)) {
 				s1=""; 
 //				synchronized (fileXml2) {
 					while (s != null) {
-						if (s.contains(perso.getLogin())) {
-							s = s.replace("password=\"" + perso.getMotDePasse(), "password=\"" + newMdp2);
+						if (s.contains(perso.getIdentifiant())) {
+							s = s.replace("password=\"" + perso.getMdp(), "password=\"" + newMdp2);
 						}
 						s1 += s + "\n";
 						s = bInXml.readLine();

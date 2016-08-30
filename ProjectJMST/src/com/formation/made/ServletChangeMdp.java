@@ -48,8 +48,8 @@ public class ServletChangeMdp extends HttpServlet {
 			perso=(Personne)personne;
 		}
 		
-		String loginPersonne=perso.getLogin();
-		String mdpPersonne=perso.getMotDePasse();
+		String loginPersonne=perso.getIdentifiant();
+		String mdpPersonne=perso.getMdp();
 		
 		String sLogin=request.getParameter("identifiant");
 		String sAncienMdp=request.getParameter("ancien mdp"); //il faudrait changer les noms "names" des differents mots de passe
@@ -59,7 +59,7 @@ public class ServletChangeMdp extends HttpServlet {
 		if (perso!=null) {
 			if (mdpPersonne.equals(sAncienMdp)&&loginPersonne.equals(sLogin)) {
 				if (sNouveauMdp.equals(sRenouvellementMdp)) {
-					perso.setMotDePasse(sNouveauMdp);
+					perso.setMdp(sNouveauMdp);
 				}
 			}
 		}

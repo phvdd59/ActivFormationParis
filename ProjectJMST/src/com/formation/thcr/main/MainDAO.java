@@ -8,7 +8,7 @@ public class MainDAO {
 	public static void main(String[] args) {
 		DAO dao = new DAO();
 		Personne personne = new Personne();
-		personne.setLogin("test");
+		personne.setIdentifiant("test");
 		personne.setAdmin(false);
 		System.out.println(dao.read(personne));
 
