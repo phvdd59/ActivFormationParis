@@ -1,7 +1,7 @@
 package com.formation.beba.metier;
 
 public class Consultant {
-	private String identifiant = new String();
+	private final String identifiant = new String();
 	private String prenom = new String();
 	private String nom = new String();
 	private String mdp = new String();
