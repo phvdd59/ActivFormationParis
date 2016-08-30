@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.formation.thcr.metier.Personne;
+
 /**
  * Servlet implementation class ServletIdentMdp
  */
@@ -31,7 +33,8 @@ public class ServletSoka1 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		File file = new File("C:/DevFormation/" + //
 				"GITActivFormationParis/ProjectJMST/" + //
@@ -39,27 +42,38 @@ public class ServletSoka1 extends HttpServlet {
 				"page/pageActiveFormulaire_part1_ident_mdp.html");
 		BufferedReader bIn = null;
 		bIn = new BufferedReader(new FileReader(file));
-		String noSerie = Integer.toString(((int) (Math.random() * Integer.MAX_VALUE)));
-		noSerie = "20_" + noSerie;
-		session.setAttribute("noSerie", noSerie);
-		String line = bIn.readLine();
-		while (line != null) {
-			if (line.contains("%%noSerie%%")) {
-				line.replace("%%noSerie%%", noSerie);
-			}
-			response.getWriter().println(line);
-			line = bIn.readLine();
+		String noSerieHtml = request.getParameter("noSerie");
+		String noSerie = (String) session.getAttribute("noSerie");
+
+		Object personne = session.getAttribute("Personne");
+		Personne perso = null;
+		if (personne instanceof Personne) {
+			perso = (Personne) personne;
 		}
-		bIn.close();
+
+		if (noSerieHtml.equals(noSerie)) {
+			noSerie = "20_" + noSerie;
+			session.setAttribute("noSerie", noSerie);
+			String line = bIn.readLine();
+			while (line != null) {
+				if (line.contains("%%noSerie%%")) {
+					line.replace("%%noSerie%%", noSerie);
+				}
+				response.getWriter().println(line);
+				line = bIn.readLine();
+			}
+			bIn.close();
+		}
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//		String pseudo = request.getParameter("identifiant");
-		//		String mdp = request.getParameter("mdp");
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// String pseudo = request.getParameter("identifiant");
+		// String mdp = request.getParameter("mdp");
 		HttpSession session = request.getSession();
 		File file = new File("C:/DevFormation/" + //
 				"GITActivFormationParis/ProjectJMST/" + //
@@ -67,18 +81,27 @@ public class ServletSoka1 extends HttpServlet {
 				"page/pageActiveFormulaire_part2_coordonnees_personnelles.html");
 		BufferedReader bIn = null;
 		bIn = new BufferedReader(new FileReader(file));
-		String noSerie = Integer.toString(((int) (Math.random() * Integer.MAX_VALUE)));
-		noSerie = "21_" + noSerie;
-		session.setAttribute("noSerie", noSerie);
-		String line = bIn.readLine();
-		while (line != null) {
-			if (line.contains("%%noSerie%%")) {
-				line.replace("%%noSerie%%", noSerie);
-			}
-			response.getWriter().println(line);
-			line = bIn.readLine();
-		}
-		bIn.close();
+		String noSerieHtml = request.getParameter("noSerie");
+		String noSerie = (String) session.getAttribute("noSerie");
 
+		Object personne = session.getAttribute("Personne");
+		Personne perso = null;
+		if (personne instanceof Personne) {
+			perso = (Personne) personne;
+		}
+
+		if (noSerieHtml.equals(noSerie)) {
+			noSerie = "21_" + noSerie;
+			session.setAttribute("noSerie", noSerie);
+			String line = bIn.readLine();
+			while (line != null) {
+				if (line.contains("%%noSerie%%")) {
+					line.replace("%%noSerie%%", noSerie);
+				}
+				response.getWriter().println(line);
+				line = bIn.readLine();
+			}
+			bIn.close();
+		}
 	}
 }

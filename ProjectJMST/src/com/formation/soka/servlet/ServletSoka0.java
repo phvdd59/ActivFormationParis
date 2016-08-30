@@ -33,23 +33,19 @@ public class ServletSoka0 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
+		HttpSession session = request.getSession(true);
+		
+		Personne personne=new Personne();
+		session.setAttribute("Personne", personne);
+		
 
-		Object personne = session.getAttribute("Personne");
-//		Personne perso = null;
-//		if (personne instanceof Personne) {
-//			perso = (Personne) personne;
-//		}
-		String noSerieHtml = request.getParameter("noSerie");
-		String noSerie = (String) session.getAttribute("noSerie");
-
-		//if (noSerie.equals(noSerieHtml)) {
 		File file = new File("C:/DevFormation/GITActivFormationParis/" + //
 				"ProjectJMST/WebContent/WEB-INF/" + //
 				"page/pageActiveFormulaire_part1_ident_mdp.html");
 		BufferedReader bIn = null;
 		bIn = new BufferedReader(new FileReader(file));
-		noSerie = Integer.toString(((int) (Math.random() * Integer.MAX_VALUE)));
+
+		String noSerie = Integer.toString(((int) (Math.random() * Integer.MAX_VALUE)));
 		noSerie = "20_" + noSerie;
 		session.setAttribute("noSerie", noSerie);
 		String line = bIn.readLine();
@@ -61,7 +57,6 @@ public class ServletSoka0 extends HttpServlet {
 			line = bIn.readLine();
 		}
 		bIn.close();
-		//}
 	}
 
 	/**
