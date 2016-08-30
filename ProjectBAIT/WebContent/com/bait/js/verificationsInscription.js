@@ -189,13 +189,20 @@ function verifSitAutre(champ) {
 }
 
 function verifCadre() {
-	if ((!document.getElementById("autreSit").checked)
-			&& (!document.getElementById("autreSit").checked)) {
-		surligne(champ, false);
-		return true;
-	} else {
-		surligne(champ, true);
+	if ((document.getElementById("cadre").checked)
+			&& (document.getElementById("ncadre").checked)) {
 		return false;
+	} else {
+		return true;
+	}
+}
+
+function verifResto() {
+	if ((!document.getElementById("checkOUI").checked)
+			&& (!document.getElementById("checkNON").checked)) {
+		return false;
+	} else {
+		return true;
 	}
 }
 
@@ -305,9 +312,18 @@ function verifRemuneration(f) {
 	if (verifCoefficient(f.Coefficient) == false) {
 		alerttotal = alerttotal + "Le coefficient n'est pas indiqué \n";
 	}
+	
+	if (verifCadre() == false) {
+		alerttotal = alerttotal + "Veuillez indiquer cadre/non-cadre \n";
+	}
+	
+	if (verifResto() == false) {
+		alerttotal = alerttotal + "Les tickets resto oui/non \n";
+	}
+	
 	if (verifNom(f.Fonction) == false || verifNom(f.Position) == false
 			|| verifSalaire(f.SalaireS) == false
-			|| verifCoefficient(f.Coefficient) == false) {
+			|| verifCoefficient(f.Coefficient) == verifCadre() == false ||verifResto() == false) {
 		alert(alerttotal);
 		return false;
 	} else {
