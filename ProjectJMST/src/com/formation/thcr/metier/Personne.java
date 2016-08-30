@@ -40,6 +40,10 @@ public class Personne {
 	private boolean bloque;
 	private String raisonBlocage;
 	private ListeDoc listeDoc;
+	
+	public Personne() {
+		super(); //initialiser les valeurs
+	}
 
 	public int getIdPersonne() {
 		return idPersonne;
@@ -320,5 +324,5 @@ public class Personne {
 	public void setListeDoc(ListeDoc listeDoc) {
 		this.listeDoc = listeDoc;
 	}
-
+	
 }
