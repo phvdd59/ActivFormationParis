@@ -1,5 +1,7 @@
 package controleur;
 
+import java.util.regex.Pattern;
+
 public class CtrlDocPerso implements InterCtrlDocPerso {
 
 	@Override
@@ -17,14 +19,25 @@ public class CtrlDocPerso implements InterCtrlDocPerso {
 
 	@Override
 	public boolean ctrlType(String type) {
-		// TODO Auto-generated method stub
-		return false;
+		if (type == null) {
+			return false;
+		} else if (type.length()==0){
+			return true;
+		} else if (Pattern.matches("[a-zA-Z]+", type)) {
+			return true;
+		} else {
+			return false;
+		}
 	}
+	
 
 	@Override
 	public boolean ctrlCommentaire(String commentaire) {
-		// TODO Auto-generated method stub
-		return false;
+		if (commentaire == null) {
+			return false;
+		} else {
+			return true;
+		}
 	}
 
 }
