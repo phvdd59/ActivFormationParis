@@ -25,8 +25,14 @@ public class MainActiveFormationParisJoca {
 
 	public static void main(String[] arg) {
 		MainActiveFormationParisJoca test = new MainActiveFormationParisJoca();
-		test.init16();
+		//test.init16();
+		test.init17();
 
+	}
+
+	private void init17() {
+		// TODO Auto-generated method stub
+		
 	}
 
 	private void init16() {
