@@ -134,8 +134,9 @@ public class Servletlisteutilisateurs extends HttpServlet {
 
 			}
 		} else if (boutonSupp != null) {
-			// voir comment recupere la valeur de option
-			// verif mise commentaire pour suppression voir le mettre en rouge dans la liste
+			// case nom+ prenom + string raison blocage + boolean bloque
+			//le mettre en rouge dans la liste
+			// ajouter commentaire suppression dans la liste des utilisateurs
 		}
 
 	}

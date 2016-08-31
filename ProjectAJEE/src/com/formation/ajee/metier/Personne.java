@@ -53,7 +53,7 @@ public class Personne {
 	public Personne(String nom, String prenom) {
 		this.nom = nom;
 		this.prenom = prenom;
-		mdp=" ";
+		mdp = " ";
 		String nomE = epuration(nom);
 		String prenomE = epuration(prenom);
 		this.identifiant = prenomE.substring(0, 1) + "." + nomE;
@@ -71,8 +71,8 @@ public class Personne {
 	}
 
 	public Personne(int idPersonne, String nom, String prenom, SEXE sexe, String identifiant, String mdp, String email, String adresse, String cp, String ville, String telFixe, String telPort, String fax, Date dateNaissance, String lieuNaissance, String numSecu, String nationalite,
-			SITUATION situation, String fonction, String positionEntreprise, boolean cadre, String coeff, String salaire, Date visiteMedicale, String montantTransport, boolean voiture, int nbCV, String nbKm, boolean mutuelle, boolean ticketResto, Date dateCreation, Timestamp dateModification, boolean bloque,
-			String raisonBlocage, ListeDoc listeDoc) {
+			SITUATION situation, String fonction, String positionEntreprise, boolean cadre, String coeff, String salaire, Date visiteMedicale, String montantTransport, boolean voiture, int nbCV, String nbKm, boolean mutuelle, boolean ticketResto, Date dateCreation, Timestamp dateModification,
+			boolean bloque, String raisonBlocage, ListeDoc listeDoc) {
 		super();
 		this.idPersonne = idPersonne;
 		this.nom = nom;

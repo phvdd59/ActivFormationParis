@@ -192,6 +192,10 @@ public class Servletidentification extends HttpServlet {
 						}
 						bufReadBas.close();
 					} else {
+						
+						// verif mdp et identifiant personne pour se connecter
+						// atention quand personne supp avec boolean
+						
 						/** Lecture Haut de page HTML */
 						File fileHaut = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/HautPage.html");
 						BufferedReader bufReadHaut = null;
