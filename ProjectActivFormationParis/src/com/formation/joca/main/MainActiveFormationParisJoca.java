@@ -31,7 +31,7 @@ public class MainActiveFormationParisJoca {
 	}
 
 	private void init17() {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method s
 		
 	}
 
