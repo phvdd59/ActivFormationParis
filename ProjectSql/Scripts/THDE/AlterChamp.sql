@@ -1,0 +1,1 @@
+alter table test.meuble modify longueur DECIMAL(6,2) default 0;
