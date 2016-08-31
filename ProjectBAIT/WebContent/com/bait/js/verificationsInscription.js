@@ -25,7 +25,7 @@ function verifTaille(champ, min, max) {
 }
 
 function verifExisteDeja(champ) {
-	// pour l'instant, même chose que Vide. A changer.
+	// pour l'instant, m\352me chose que Vide. A changer.
 	if (champ.value == '') {
 		return false;
 	} else {
@@ -190,11 +190,11 @@ function verifInscription1(f) {
 	var alerttotal = "";
 	if (verifIdentifiant(f.identifiant) == false) {
 		alerttotal = alerttotal
-				+ "L'identifiant doit être composé de 4 à 30 caractères \n";
+				+ "L'identifiant doit \352tre compos\351 de 4 à 30 caractères \n";
 	}
 	if (verifMdp1(f.mdp1) == false) {
 		alerttotal = alerttotal
-				+ "Le mot de passe doit être composé de 6 à 30 caractères dont une lettre et un chiffre \n";
+				+ "Le mot de passe doit \352tre compos\351 de 6 à 30 caractères dont une lettre et un chiffre \n";
 	}
 	if (verifMdp2(f.mdp2) == false) {
 		alerttotal = alerttotal + "Les mots de passe ne sont pas identiques \n";
@@ -210,23 +210,23 @@ function verifInscription1(f) {
 function verifCoordonnees(f) {
 	var alerttotal = "";
 	if (verifAdresse(f.adresse) == false) {
-		alerttotal = alerttotal + "L'adresse n'est pas indiquée \n";
+		alerttotal = alerttotal + "L'adresse n'est pas indiqu\351e \n";
 	}
 	if (verifCodePostal(f.cp) == false) {
 		alerttotal = alerttotal
-				+ "Le code postal doit être composé de 5 chiffes \n";
+				+ "Le code postal doit \352tre compos\351 de 5 chiffes \n";
 	}
 	if (verifNom(f.ville) == false) {
 		alerttotal = alerttotal
-				+ "La ville n'est pas indiquée ou elle contient un chiffre \n";
+				+ "La ville n'est pas indiqu\351e ou elle contient un chiffre \n";
 	}
 	if (verifTel(f.tel) == false) {
 		alerttotal = alerttotal
-				+ "Le numéro de téléphone n'est pas indiqué ou est invalide \n";
+				+ "Le num\351ro de t\351l\351phone n'est pas indiqu\351 ou est invalide \n";
 	}
 	if (verifEmail(f.mail) == false) {
 		alerttotal = alerttotal
-				+ "L'email n'est pas indiqué ou est invalide \n";
+				+ "L'email n'est pas indiqu\351 ou est invalide \n";
 	}
 	if (verifAdresse(f.adresse) == false || verifCodePostal(f.cp) == false
 			|| verifNom(f.ville) == false || verifTel(f.tel) == false
@@ -242,27 +242,27 @@ function verifEtatCivil(f) {
 	var alerttotal = "";
 	if (verifNom(f.nom) == false) {
 		alerttotal = alerttotal
-				+ "Le nom n'est pas indiqué ou il contient un chiffre \n";
+				+ "Le nom n'est pas indiqu\351 ou il contient un chiffre \n";
 	}
 	if (verifNom(f.prenom) == false) {
 		alerttotal = alerttotal
-				+ "Le prénom n'est pas indiqué ou il contient un chiffre \n";
+				+ "Le pr\351nom n'est pas indiqu\351 ou il contient un chiffre \n";
 	}
 	if (verifDateNaissance(f.date) == false) {
 		alerttotal = alerttotal
-				+ "La date de naissance n'est pas indiquée ou est invalide \n";
+				+ "La date de naissance n'est pas indiqu\351e ou est invalide \n";
 	}
 	if (verifNom(f.lieu) == false) {
 		alerttotal = alerttotal
-				+ "Le lieu de naissance n'est pas indiqué ou contient un chiffre \n";
+				+ "Le lieu de naissance n'est pas indiqu\351 ou contient un chiffre \n";
 	}
 	if (verifNom(f.nati) == false) {
 		alerttotal = alerttotal
-				+ "La nationalité n'est pas indiquée ou elle contient un chiffre \n";
+				+ "La nationalit\351 n'est pas indiqu\351e ou elle contient un chiffre \n";
 	}
 	if (verifSecu(f.secu) == false) {
 		alerttotal = alerttotal
-				+ "Le numéro de sécurité sociale est invalide \n";
+				+ "Le num\351ro de s\351curit\351 sociale est invalide \n";
 	}
 	if (verifNom(f.nom) == false || verifNom(f.prenom) == false
 			|| verifDateNaissance(f.date) == false || verifNom(f.lieu) == false
@@ -279,18 +279,18 @@ function verifRemuneration(f) {
 	var alerttotal = "";
 	if (verifNom(f.Fonction) == false) {
 		alerttotal = alerttotal
-				+ "La fonction ? n'est pas indiquée ou elle contient un chiffre \n";
+				+ "La fonction ? n'est pas indiqu\351e ou elle contient un chiffre \n";
 	}
 	if (verifNom(f.Position) == false) {
 		alerttotal = alerttotal
-				+ "La position souhaitée n'est pas indiquée ou elle contient un chiffre \n";
+				+ "La position souhait\351e n'est pas indiqu\351e ou elle contient un chiffre \n";
 	}
 	if (verifSalaire(f.SalaireS) == false) {
 		alerttotal = alerttotal
-				+ "Le salaire n'est pas indiqué ou il ne contient pas que les chiffres \n";
+				+ "Le salaire n'est pas indiqu\351 ou il ne contient pas que les chiffres \n";
 	}
 	if (verifCoefficient(f.Coefficient) == false) {
-		alerttotal = alerttotal + "Le coefficient n'est pas indiqué \n";
+		alerttotal = alerttotal + "Le coefficient n'est pas indiqu\351 \n";
 	}
 
 	if (verifNom(f.Fonction) == false || verifNom(f.Position) == false

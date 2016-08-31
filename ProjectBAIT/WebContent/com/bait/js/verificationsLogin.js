@@ -31,7 +31,7 @@ function verifForm(f) {
 	if (idOk && mdpOk)
 		return true;
 	else {
-		alert("Erreur");
+		alert("Echec de l'identification");
 		return false;
 	}
 }
