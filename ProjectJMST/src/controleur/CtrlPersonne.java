@@ -1,127 +1,218 @@
 package controleur;
 
-import java.util.Date;
+import java.util.regex.Pattern;
 
 public class CtrlPersonne implements InterCtrlPersonne {
 
 	@Override
 	public boolean ctrlNom(String nom) {
-		// TODO Auto-generated method stub
-		return false;
+		if (nom == null) {
+			return false;
+		} else if (Pattern.matches("[a-zA-Z\\-\\'\\s]+", nom)) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	@Override
 	public boolean ctrlPrenom(String prenom) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean ctrlSexe(String sexe) {
-		// TODO Auto-generated method stub
-		return false;
+		if (prenom == null) {
+			return false;
+		} else if (Pattern.matches("[a-zA-Z\\-\\'\\s]+", prenom)) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	@Override
 	public boolean ctrlIdentifiant(String identifiant) {
-		// TODO Auto-generated method stub
-		return false;
+		if (identifiant == null) {
+			return false;
+		} else if (Pattern.matches("[a-zA-Z0-9\\-\\.\\_]{4,25}", identifiant)) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	@Override
 	public boolean ctrlMdp(String mdp) {
-		// TODO Auto-generated method stub
-		return false;
+		if (mdp != null) {
+			if (mdp.length() >= 6 && !mdp.contains(" ")) {
+				return true;
+			} else {
+				return false;
+			}
+		} else {
+			return false;
+		}
 	}
 
 	@Override
 	public boolean ctrlEmail(String email) {
-		// TODO Auto-generated method stub
-		return false;
+		if (email == null) {
+			return false;
+		} else if (Pattern.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$", email)) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	@Override
 	public boolean ctrlAdresse(String adresse) {
-		// TODO Auto-generated method stub
-		return false;
+		if (adresse == null) {
+			return false;
+		} else if (Pattern.matches("[a-zA-Z0-9\\-\\'\\s\\(\\)]+", adresse)) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	@Override
 	public boolean ctrlCp(String cp) {
-		// TODO Auto-generated method stub
-		return false;
+		if (cp == null) {
+			return false;
+		} else if (Pattern.matches("[0-9]{5}", cp)) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	@Override
 	public boolean ctrlVille(String ville) {
-		// TODO Auto-generated method stub
-		return false;
+		if (ville == null) {
+			return false;
+		} else if (Pattern.matches("[a-zA-Z\\-\\'\\s]+", ville)) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	@Override
 	public boolean ctrlTelFixe(String telFixe) {
-		// TODO Auto-generated method stub
-		return false;
+		if (telFixe == null) {
+			return false;
+		} else if (Pattern.matches("[0-9]{9}", telFixe)) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	@Override
 	public boolean ctrlTelPort(String telPort) {
-		// TODO Auto-generated method stub
-		return false;
+		if (telPort == null) {
+			return false;
+		} else if (Pattern.matches("[0-9]{9}", telPort)) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	@Override
 	public boolean ctrlFax(String fax) {
-		// TODO Auto-generated method stub
-		return false;
+		if (fax == null) {
+			return false;
+		} else if (Pattern.matches("[0-9]{9}", fax)) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	@Override
-	public boolean ctrlDateNaissance(Date dateNaissance) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean ctrlDateNaissance(String dateNaissance) {
+		if (dateNaissance == null) {
+			return false;
+		} else if (Pattern.matches("^(0?[1-9]|[12][0-9]|3[01])-(0?[1-9]|1[012])-((19|20)\\d\\d)$", dateNaissance)) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	@Override
 	public boolean ctrlLieuNaissance(String lieuNaissance) {
-		// TODO Auto-generated method stub
-		return false;
+		if (lieuNaissance == null) {
+			return false;
+		} else if (Pattern.matches("[a-zA-Z\\-\\'\\s]+", lieuNaissance)) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	@Override
 	public boolean ctrlNumSecu(String numSecu) {
-		// TODO Auto-generated method stub
-		return false;
+		if (numSecu == null) {
+			return false;
+		} else if (Pattern.matches("(1|2)[0-9]{14}", numSecu)) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	@Override
 	public boolean ctrlNationalite(String nationalite) {
-		// TODO Auto-generated method stub
-		return false;
+		if (nationalite == null) {
+			return false;
+		} else if (Pattern.matches("[a-zA-Z\\-\\s]+", nationalite)) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	@Override
 	public boolean ctrlSituation(String situation) {
-		// TODO Auto-generated method stub
-		return false;
+		if (situation == null) {
+			return false;
+		} else if (Pattern.matches("[a-zA-Z\\-\\'\\s]+", situation)) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	@Override
 	public boolean ctrlFonction(String fonction) {
-		// TODO Auto-generated method stub
-		return false;
+		if (fonction == null) {
+			return false;
+		} else if (Pattern.matches("[a-zA-Z\\-\\'\\s]+", fonction)) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	@Override
 	public boolean ctrlPosition(String position) {
-		// TODO Auto-generated method stub
-		return false;
+		if (position == null) {
+			return false;
+		} else if (Pattern.matches("[a-zA-Z\\-\\'\\s]+", position)) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	@Override
 	public boolean ctrlCadre(String cadre) {
-		// TODO Auto-generated method stub
-		return false;
+		if (cadre == null) {
+			return false;
+		} else if (cadre.equals("Cadre") || cadre.equals("Non cadre")) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	@Override
@@ -137,9 +228,14 @@ public class CtrlPersonne implements InterCtrlPersonne {
 	}
 
 	@Override
-	public boolean ctrlVisiteMedicale(Date visiteMedicale) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean ctrlVisiteMedicale(String visiteMedicale) {
+		if (visiteMedicale == null) {
+			return false;
+		} else if (Pattern.matches("^(0?[1-9]|[12][0-9]|3[01])-(0?[1-9]|1[012])-((19|20)\\d\\d)$", visiteMedicale)) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	@Override
@@ -150,8 +246,13 @@ public class CtrlPersonne implements InterCtrlPersonne {
 
 	@Override
 	public boolean ctrlVoiture(String voiture) {
-		// TODO Auto-generated method stub
-		return false;
+		if (voiture == null) {
+			return false;
+		} else if (voiture.equals("oui") || voiture.equals("non")) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	@Override
@@ -168,21 +269,25 @@ public class CtrlPersonne implements InterCtrlPersonne {
 
 	@Override
 	public boolean ctrlMutuelle(String mutuelle) {
-		try {
-			if (mutuelle.equals("oui") || mutuelle.equals("non")) {
-				return true;
-			} else {
-				return false;
-			}
-		} catch (Exception e) {
+
+		if (mutuelle == null) {
+			return false;
+		} else if (mutuelle.equals("oui") || mutuelle.equals("non")) {
+			return true;
+		} else {
 			return false;
 		}
 	}
 
 	@Override
 	public boolean ctrlTicketResto(String ticketResto) {
-		// TODO Auto-generated method stub
-		return false;
+		if (ticketResto == null) {
+			return false;
+		} else if (ticketResto.equals("oui") || ticketResto.equals("non")) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 }

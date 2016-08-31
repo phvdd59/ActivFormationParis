@@ -5,41 +5,41 @@ import java.util.Date;
 
 public class Personne {
 
-	private int idPersonne;  
-	private String nom;  //alpha - ' espace
-	private String prenom;  //idem qu'au dessus
+	private int idPersonne;
+	private String nom; // alpha - ' espace
+	private String prenom; // idem qu'au dessus
 	private SEXE sexe;
-	private String identifiant; //min4 max25 alphanum - _ .
-	private String mdp; //tout min6 
-	private String email; //recuperer regex pour mail sur internet
-	private String adresse; //alpha num - ' espace ()
-	private String cp; //5 chiffres
+	private String identifiant; // min4 max25 alphanum - _ .
+	private String mdp; // tout min6
+	private String email; // recuperer regex pour mail sur internet
+	private String adresse; // alpha num - ' espace ()
+	private String cp; // 5 chiffres
 	private String ville; // alpha ' - espace
 	private String telFixe; // 9 entiers
 	private String telPort; // 9 entiers
-	private String fax; //9 entiers
+	private String fax; // 9 entiers
 	private Date dateNaissance; // JJ-MM-AAAA
 	private String lieuNaissance; // comme ville
-	private String numSecu; //(1|2)14 chiffres
-	private String nationalite; //alpha - espace
-	private String situation; //alpha - ' espace
-	private String fonction; //alpha - ' espace
+	private String numSecu; // (1|2)14 chiffres
+	private String nationalite; // alpha - espace
+	private String situation; // alpha - ' espace
+	private String fonction; // alpha - ' espace
 	private String position; // apha - ' espace
-	private boolean cadre; 
+	private boolean cadre;
 	private String coeff; // 3 entiers
 	private String salaire; // [0-9]+.[0-9]{2} annuel ? mensuel ?
-	private Date visiteMedicale; //JJ-MM-AAAA
-	private String montantTransport; //[0-9]+.[0-9]{2}
+	private Date visiteMedicale; // JJ-MM-AAAA
+	private String montantTransport; // [0-9]+.[0-9]{2}
 	private boolean voiture;
 	private int nbCV; // des entiers
 	private String nbKm; // des entiers
 	private boolean mutuelle;
 	private boolean ticketResto;
 	private boolean admin;
-	private Date dateCreation; //JJ-MM-AAAA
-	private Timestamp dateModification; //HH-MM-SS JJ-MM-AAAA 
+	private Date dateCreation; // JJ-MM-AAAA
+	private Timestamp dateModification; // HH-MM-SS JJ-MM-AAAA
 	private boolean bloque;
-	private String raisonBlocage; //tout
+	private String raisonBlocage; // tout
 	private ListeDoc listeDoc;
 
 	public Personne() {
@@ -184,6 +184,17 @@ public class Personne {
 
 	public String getSituation() {
 		return situation;
+	}
+
+	public SITUATION getEnumSituation() {
+		if (situation == null) {
+			return SITUATION.AUTRE;
+		} else if (situation.equals("Salarie") || situation.equals("auto entrepreneur") || situation.equals("freelance")
+				|| situation.equals("demandeur d'emploi") || situation.equals("retraite")) {
+			return SITUATION.valueOf(situation);
+		} else {
+			return SITUATION.AUTRE;
+		}
 	}
 
 	public void setSituation(String situation) {

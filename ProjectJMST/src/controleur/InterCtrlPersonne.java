@@ -8,8 +8,6 @@ public interface InterCtrlPersonne {
 
 	public boolean ctrlPrenom(String prenom);
 
-	public boolean ctrlSexe(String sexe);
-
 	public boolean ctrlIdentifiant(String identifiant);
 
 	public boolean ctrlMdp(String mdp);
@@ -28,7 +26,7 @@ public interface InterCtrlPersonne {
 
 	public boolean ctrlFax(String fax);
 
-	public boolean ctrlDateNaissance(Date dateNaissance);
+	public boolean ctrlDateNaissance(String dateNaissance);
 
 	public boolean ctrlLieuNaissance(String lieuNaissance);
 
@@ -48,7 +46,7 @@ public interface InterCtrlPersonne {
 
 	public boolean ctrlSalaire(String salaire);
 
-	public boolean ctrlVisiteMedicale(Date visiteMedicale);
+	public boolean ctrlVisiteMedicale(String visiteMedicale);
 
 	public boolean ctrlMontantTransport(String montantTransport);
 

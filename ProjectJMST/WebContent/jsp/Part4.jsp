@@ -104,7 +104,7 @@ function ctrSituationPro() {
 	if(o instanceof Personne){
 		personne = (Personne) o;
 	}
-	String situation = SITUATION.valueOf(personne.getSituation()).getNom(); 
+	String situation = personne.getEnumSituation().getNom(); 
 	
 	%>	
             <form action="http://localhost:8080/ProjectJMST/jsp/Part5.jsp" method='post'>
