@@ -209,7 +209,7 @@
 		<div id="info2">
 			<!-- zone disponible -->
 
-			<form= action:"http://www.souadkad.fr/soka/identification.html"></form>
+			<!--<form= action:"http://www.souadkad.fr/soka/identification.html"></form> -->
 
 			<form action="http://localhost:8080/ProjectJMST/Inscription"
 				method='post'>
@@ -221,11 +221,12 @@
 					</tr>
 					<tr>
 						<td>Fonction occupée:</td>
+						<td style="width: 273px; height: 25px; color:;"><input type="texte" name="fonction occupee"></td>
 						<td style="width: 273px; height: 25px; color:;"><input
-							type="radio" name="fonction occupee"
-							value="Fonction occupée:  oui"> Cadre</td>
+							type="radio" name="cadre"
+							value="oui"> Cadre</td>
 						<td colspan="2" style="width: 116px;"><input type="radio"
-							name="fonction occupee" value="Fonction occupée:  oui"
+							name="cadre" value="non"
 							checked="checked"> Non cadre</td>
 					</tr>
 					<tr>
@@ -241,59 +242,59 @@
 					<tr>
 						<td>Salaire souhaité</td>
 						<td colspan="3" style="width: 229px; height: 25px; color:;"><input
-							id="salaireSouhaite" type="text" name="salaire souhaite" value=''
+							id="salaireSouhaite" type="text" name="salaire" value=''
 							style="width: 615px;"><br> <span
 							id="spanSalaireSouhaite"></span></td>
 					</tr>
 					<tr>
 						<td>Mutuelle souhaitée:</td>
 						<td style="width: 273px; height: 25px; color:;"><input
-							type="radio" name="mutuelle souhaitee"
-							value="Mutuelle souhaitée:  oui"> oui</td>
+							type="radio" name="mutuelle"
+							value="oui"> oui</td>
 						<td colspan="2" style="width: 116px;"><input type="radio"
-							name="mutuelle souhaitee" value="Mutuelle souhaitée:  non"
+							name="mutuelle" value="non"
 							checked="checked"> non</td>
 					</tr>
 					<tr>
 						<td>Ticket resto:</td>
 						<td style="width: 273px; height: 25px; color:;"><input
-							type="radio" name="ticket resto" value="Ticket resto:  oui">
+							type="radio" name="ticketResto" value="oui">
 							oui</td>
 						<td colspan="2" style="width: 116px;"><input type="radio"
-							name="ticket resto" value="Ticket resto:  non" checked="checked">
+							name="ticketResto" value="non" checked="checked">
 							non</td>
 					</tr>
 					<tr>
 						<td>Date de la dernière visite médicale</td>
 						<td colspan="3" style="width: 229px; height: 25px; color:;"><input
-							id="dateVisiteMedicale" type="text" name="date visite medicale"
+							id="dateVisiteMedicale" type="text" name="dateVisiteMedicale"
 							value='' style="width: 615px;"><br> <span
 							id="spanDateVisiteMedicale"></span></td>
 					</tr>
 					<tr>
 						<td>Montant carte d'abonnement Transports</td>
 						<td colspan="3" style="width: 229px; height: 25px; color:;"><input
-							id="montantTransport" type="text" name="carte de transport"
+							id="montantTransport" type="text" name="montantTransport"
 							value='' style="width: 615px;"><br> <span
 							id="spanMontantTransport"></span></td>
 					</tr>
 					<tr>
 						<td>Vehicule personnel:</td>
 						<td style="width: 273px; height: 25px; color:;"><input
-							type="radio" name="vehicule perso"
-							value="Vehicule personnel:  oui"> oui</td>
+							type="radio" name="vehicule"
+							value="oui"> oui</td>
 						<td colspan="2" style="width: 116px;"><input type="radio"
-							name="vehicule perso" value="Vehicule personnel:  non"
+							name="vehicule" value="non"
 							checked="checked"> non</td>
 					</tr>
 					<tr>
 						<td>Nombre de CV</td>
 						<td style="width: 273px; height: 25px; color:;"><input
-							id="nbChevaux" type="text" name="nb de CV" value=''
+							id="nbChevaux" type="text" name="nbCv" value=''
 							style="width: 270px;"><br> <span id="spanNbChevaux"></span></td>
 						<td style="width: 116px;">Km mensuel estimé</td>
 						<td style="width: 112px; height: 25px; color:;"><input
-							id="kmMensuel" type="text" name="km mensuel " value=''><br>
+							id="kmMensuel" type="text" name="nbKm" value=''><br>
 						<span id=spanKmMensuel></span></td>
 					</tr>
 				</table>
