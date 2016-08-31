@@ -149,7 +149,7 @@ public class Elmt implements Comparable<Elmt> {
 	}
 
 	public float poidMat(MATERIAUX mat) {
-		return volumeL() * mat.getDensite() * mat.getPourcent() / 100f;
+		return volumeL()*mat.getDensite()*mat.getPourcent()/100f;
 	}
 
 	public float poid() {
