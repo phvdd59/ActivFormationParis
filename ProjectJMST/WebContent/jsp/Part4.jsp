@@ -156,8 +156,8 @@ function ctrSituationPro() {
 					<%} %>
 					<td style="width: 272px; height: 25px;">Autre</td>
 					<% if (personne.getEnumSituation().getNom().equals("")){ %>
-					<td><input type="radio" name="situationRadio" value="" checked="checked"></td>
-					<td><input type="text" name="situation" value="<%=situation%>"></td>
+					<td><input type="radio" name="situation" value="" checked="checked"></td>
+					<td><input type="text" name="situationVal" value="<%=situation%>"></td>
 					<%}else{ %>
 					<td><input type="radio" name="situation" value=""></td>
 					<%} %>
