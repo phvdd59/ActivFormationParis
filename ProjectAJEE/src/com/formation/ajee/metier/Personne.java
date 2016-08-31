@@ -27,7 +27,7 @@ public class Personne {
 
 	private SITUATION situation;
 	private String fonction;
-	private String position;
+	private String positionEntreprise;
 	private boolean cadre;
 	private String coeff;
 	private String salaire;
@@ -71,7 +71,7 @@ public class Personne {
 	}
 
 	public Personne(int idPersonne, String nom, String prenom, SEXE sexe, String identifiant, String mdp, String email, String adresse, String cp, String ville, String telFixe, String telPort, String fax, Date dateNaissance, String lieuNaissance, String numSecu, String nationalite,
-			SITUATION situation, String fonction, String position, boolean cadre, String coeff, String salaire, Date visiteMedicale, String montantTransport, boolean voiture, int nbCV, String nbKm, boolean mutuelle, boolean ticketResto, Date dateCreation, Timestamp dateModification, boolean bloque,
+			SITUATION situation, String fonction, String positionEntreprise, boolean cadre, String coeff, String salaire, Date visiteMedicale, String montantTransport, boolean voiture, int nbCV, String nbKm, boolean mutuelle, boolean ticketResto, Date dateCreation, Timestamp dateModification, boolean bloque,
 			String raisonBlocage, ListeDoc listeDoc) {
 		super();
 		this.idPersonne = idPersonne;
@@ -93,7 +93,7 @@ public class Personne {
 		this.nationalite = nationalite;
 		this.situation = situation;
 		this.fonction = fonction;
-		this.position = position;
+		this.positionEntreprise = positionEntreprise;
 		this.cadre = cadre;
 		this.coeff = coeff;
 		this.salaire = salaire;
@@ -275,12 +275,12 @@ public class Personne {
 		this.fonction = fonction;
 	}
 
-	public String getPosition() {
-		return position;
+	public String getPositionEntreprise() {
+		return positionEntreprise;
 	}
 
-	public void setPosition(String position) {
-		this.position = position;
+	public void setPositionEntreprise(String positionEntreprise) {
+		this.positionEntreprise = positionEntreprise;
 	}
 
 	public boolean isCadre() {
