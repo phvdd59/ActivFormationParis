@@ -14,7 +14,7 @@ public class MainJoca {
 
 	private void test() {
 		CtrlDocPerso ctrlPerso = new CtrlDocPerso();
-		String test = "5555\55555";
+		String test = "ahdauhnpu";
 		System.out.println(ctrlPerso.ctrlNomDocUtil(test));
 
 	}

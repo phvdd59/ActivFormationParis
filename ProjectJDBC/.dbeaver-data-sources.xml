@@ -1,19 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <data-sources>
-<<<<<<< HEAD
-	<data-source id="mysql3-156d67d5b4f-255139962e91f269" provider="generic" driver="mysql3" name="MySQL 3.x - localhost" create-date="1472477369759" save-password="true" show-system-objects="true" read-only="false">
-		<connection host="localhost" port="3306" server="" database="" url="jdbc:mysql://localhost:3306/" user="root" type="dev">
-			<network-handler type="PROXY" id="socks_proxy" enabled="false" user="" save-password="false">
-				<property name="socks-host" value=""/>
-				<property name="socks-port" value="1080"/>
-			</network-handler>
-			<network-handler type="TUNNEL" id="ssh_tunnel" enabled="false" user="" save-password="false">
-				<property name="port" value="22"/>
-				<property name="keyPath" value=""/>
-				<property name="host" value=""/>
-				<property name="authType" value="PASSWORD"/>
-=======
-	<data-source id="mysql3-156d67c7785-17e130f94e95160f" provider="generic" driver="mysql3" name="MySQL 3.x - localhost" create-date="1472477303316" save-password="true" show-system-objects="true" read-only="false">
+	<data-source id="mysql3-156db7cffa6-2c505b076ed05225" provider="generic" driver="mysql3" name="MySQL 3.x - localhost" create-date="1472561225852" save-password="true" show-system-objects="true" read-only="false">
 		<connection host="localhost" port="3306" server="" database="" url="jdbc:mysql://localhost:3306/" user="root" type="dev">
 			<network-handler type="TUNNEL" id="ssh_tunnel" enabled="false" user="" save-password="false">
 				<property name="port" value="22"/>
@@ -24,7 +11,6 @@
 			<network-handler type="PROXY" id="socks_proxy" enabled="false" user="" save-password="false">
 				<property name="socks-host" value=""/>
 				<property name="socks-port" value="1080"/>
->>>>>>> branch 'master' of https://github.com/phvdd59/ActivFormationParis.git
 			</network-handler>
 			<bootstrap/>
 		</connection>

@@ -1,22 +1,43 @@
 package controleur;
 
+import java.util.regex.Pattern;
+
 public class CtrlDocPerso implements InterCtrlDocPerso {
 
 	@Override
 	public boolean ctrlNomDocUtil(String nomDocUtil) {
-		return false;
+		if (nomDocUtil == null) {
+			return false;
+		} else if (nomDocUtil.contains("?") || nomDocUtil.contains("*") || nomDocUtil.contains("<")
+				|| nomDocUtil.contains(">") || nomDocUtil.contains(":") || nomDocUtil.contains("/")
+				|| nomDocUtil.contains("\\") || nomDocUtil.contains("\"") || nomDocUtil.contains("|")) {
+			return false;
+		} else {
+			return true;
+		}
 	}
 
 	@Override
 	public boolean ctrlType(String type) {
-		// TODO Auto-generated method stub
-		return false;
+		if (type == null) {
+			return false;
+		} else if (type.length()==0){
+			return true;
+		} else if (Pattern.matches("[a-zA-Z]+", type)) {
+			return true;
+		} else {
+			return false;
+		}
 	}
+	
 
 	@Override
 	public boolean ctrlCommentaire(String commentaire) {
-		// TODO Auto-generated method stub
-		return false;
+		if (commentaire == null) {
+			return false;
+		} else {
+			return true;
+		}
 	}
 
 }

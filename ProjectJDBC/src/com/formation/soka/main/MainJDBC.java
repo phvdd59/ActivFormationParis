@@ -5,11 +5,10 @@ import java.sql.Driver;
 import java.sql.DriverManager;
 import java.sql.DriverPropertyInfo;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Enumeration;
-
-import java.sql.ResultSetMetaData;
 
 public class MainJDBC {
 	public final static String JDBC_DRIVER = "com.mysql.jdbc.Driver";
@@ -25,7 +24,88 @@ public class MainJDBC {
 		//m.createTable();
 		//m.insertTable(); 
 		//m.selectTable();
-		m.selectTableMetaData();
+		//m.selectTableMetaData();
+		//m.updateTable();
+		//m.deleteTable();
+		m.prodMarchand();
+	}
+
+	public void prodMarchand() {
+		Connection conn = null;
+		Statement stat = null;
+		try {
+			Class.forName(JDBC_DRIVER);
+			conn = DriverManager.getConnection(DB_URL, user, pass);
+			stat = conn.createStatement();
+			String[] tabEtudiant = { "made", "soka", "thcr", "thde" };
+			String insertTable = null; 
+			for (int i = 0; i < tabEtudiant.length; i++) {
+				for (int j = 0; j < 5; j++) {
+					insertTable = "INSERT INTO marchandsoka.produit "//
+							+ "(idMarchand, nomProduit, qteProduit)"//
+							+ "VALUES (" + i + ", 'titi" + j + "', 2);";
+					stat.executeUpdate(insertTable);
+				}
+				
+//				int resultat = stat.executeUpdate(sql);
+//				if (resultat >= 0) {
+//					System.out.println("OK");
+//				} else {
+//					System.out.println("NOK");
+//				}
+			}
+			System.out.println("fin");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	public void deleteTable() {
+		Connection conn = null;
+		Statement stat = null;
+		try {
+			Class.forName(JDBC_DRIVER);
+			conn = DriverManager.getConnection(DB_URL, user, pass);
+			stat = conn.createStatement();
+			String sql = "DELETE from marchandsoka.produit where idProduit>=1081 ; ";
+			int resultat = stat.executeUpdate(sql);
+			if (resultat >= 0) {
+				System.out.println("ok");
+			} else {
+				System.out.println("non ok");
+			}
+			System.out.println("FIN");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	public void updateTable() {
+		Connection conn = null;
+		Statement stat = null;
+		try {
+			Class.forName(JDBC_DRIVER);
+			conn = DriverManager.getConnection(DB_URL, user, pass);
+			stat = conn.createStatement();
+			String sql = "UPDATE marchandsoka.marchand set nom='soka11' where nom='Kadri' ; ";
+			int resultat = stat.executeUpdate(sql);
+			if (resultat >= 0) {
+				System.out.println("ok");
+			} else {
+				System.out.println("non ok");
+			}
+			System.out.println("FIN");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void selectTableMetaData() {

@@ -104,9 +104,9 @@ function ctrSituationPro() {
 	if(o instanceof Personne){
 		personne = (Personne) o;
 	}
-	String situation = personne.getEnumSituation().getNom(); 
+	//String situation = personne.getEnumSituation().getNom(); 
 	//String situation = (SITUATION.valueOf(personne.getSituation())).getNom();
-	
+	String situation = personne.getSituation();
 	%>	
             <form action="http://localhost:8080/ProjectJMST/jsp/Part5.jsp" method='post'>
 			<table border="1">
@@ -160,9 +160,9 @@ function ctrSituationPro() {
 					<%} %>
 					<td style="width: 72px;">Autre</td>
 					<td style="width: 112px; height: 25px;">
-					<% if (situation.equals("")){ %>
+					<% if (personne.getEnumSituation().getNom().equals("")){ %>
 					<td><input type="radio" name="situation" value="" checked="checked"></td>
-					<td><input type="text" name="situation" value="<%=personne.getSituation()%>"></td>
+					<td><input type="text" name="situation" value="<%=situation%>"></td>
 					<%}else{ %>
 					<td><input type="radio" name="situation" value=""></td>
 					<%} %>
