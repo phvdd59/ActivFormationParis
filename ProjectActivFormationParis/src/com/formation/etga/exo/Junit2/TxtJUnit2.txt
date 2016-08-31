@@ -1,0 +1,18 @@
+durée : 60 minutes
+
+Besoin : 
+	Développer le programme ExoJUnit2.java qui doit être 
+			un  programme JUnit 4 qui test :
+	
+		- le constructeur --> 
+			public Meuble(TRI tri, String nomCommercial, String refAbrege, String unite, float longueur, float largeur, float hauteur)   
+				de la classe Meuble.
+				
+			sachant que :
+				
+				le nomCommercial doit être un nom cohérent : (lng < 50)
+				la refAbrégé doit être un nombre < 1000
+				l'unité doit être : ("mm","cm","m","i")
+				les longeur,largeur,hauteur doivent être en résultat cohérentes et en milimmetre.
+				tri egal TRI.REF
+				seul le nom sera null
