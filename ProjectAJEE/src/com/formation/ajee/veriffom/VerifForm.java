@@ -12,22 +12,22 @@ import com.formation.ajee.metier.SITUATION;
 public class VerifForm {
 
 	public String nomVerif(String nom) {
-		String retour = null;
+		String retour = "";
 		try {
-			if (nom.matches("[^A-Za-zь-я]") == false) {
+		if (nom.matches("([A-Za-zабвдзийклмнопстуфцщъыь\\-\\'])*") &&nom.length()<=100) {
 				retour = nom;
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
+			
 		}
 
 		return retour;
 	}
 
 	public String prenomVerif(String prenom) {
-		String retour = null;
+		String retour = "";
 		try {
-			if (prenom.matches("[^A-Za-zь-я]") == false) {
+			if (prenom.matches("[A-Za-zабвдзийклмнопстуфцщъыь]*")&&prenom.length()<=100) {
 				retour = prenom;
 			}
 		} catch (Exception e) {
@@ -38,7 +38,7 @@ public class VerifForm {
 	}
 
 	public SEXE sexeVerif(String sexe) {
-		SEXE retour = null;
+		SEXE retour =null;
 		try {
 			sexe = sexe.toUpperCase();
 			if (sexe.equals("MASCULIN")) {
@@ -54,9 +54,9 @@ public class VerifForm {
 	}
 
 	public String identifiantVerif(String identifiant) {
-		String retour = null;
+		String retour = "";
 		try {
-			if (identifiant.matches("[^A-Za-zь-я]") == false) {
+			if (identifiant.matches("[^A-Za-zь-я]*") == false) {
 				retour = identifiant;
 			}
 		} catch (Exception e) {
@@ -67,9 +67,9 @@ public class VerifForm {
 	}
 
 	public String mdpVerif(String mdp) {
-		String retour = null;
+		String retour = "";
 		try {
-			if (mdp.matches("[^0-9A-Za-z]") == false) {
+			if (mdp.matches("[^0-9A-Za-z]*") == false) {
 				retour = mdp;
 			}
 		} catch (Exception e) {
@@ -80,7 +80,7 @@ public class VerifForm {
 	}
 
 	public String emailVerif(String email) {
-		String retour = null;
+		String retour = "";
 		try {
 			if (email != null) {
 				if (Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE).matcher(email).find()) {
@@ -95,10 +95,10 @@ public class VerifForm {
 	}
 
 	public String adresseVerif(String adresse) {
-		String retour = null;
+		String retour = "";
 		try {
 			adresse = adresse.replaceAll(",", "");
-			if (adresse.matches("[^0-9A-Za-z]") == false) {
+			if (adresse.matches("[^0-9A-Za-z]*") == false) {
 				retour = adresse;
 			}
 
@@ -110,9 +110,9 @@ public class VerifForm {
 	}
 
 	public String cpVerif(String cp) {
-		String retour = null;
+		String retour = "";
 		try {
-			if (cp.matches("[^0-9]") == false) {
+			if (cp.matches("[^0-9]{5}") == false) {
 				retour = cp;
 			}
 		} catch (Exception e) {
@@ -123,10 +123,10 @@ public class VerifForm {
 	}
 
 	public String villeVerif(String ville) {
-		String retour = null;
+		String retour = "";
 		try {
 			ville = ville.toLowerCase();
-			if (ville.matches("[^a-zь-я]") == false) {
+			if (ville.matches("[^'-a-zь-я]*") == false) {
 				retour = ville;
 			}
 		} catch (Exception e) {
@@ -137,7 +137,7 @@ public class VerifForm {
 	}
 
 	public String telFixVerif(String telFix) {
-		String retour = null;
+		String retour = "";
 		try {
 			char premierchiffre = telFix.charAt(0);
 			char deuxiemechiffre = telFix.charAt(1);
@@ -146,14 +146,14 @@ public class VerifForm {
 				retour = telFix;
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
+	
 		}
 
 		return retour;
 	}
 
 	public String telPortVerif(String telPort) {
-		String retour = null;
+		String retour = "";
 		try {
 			if (telPort.matches("[0-9]{10}") && (telPort.substring(0, 1).equals("06") || telPort.substring(0, 1).equals("07"))) {
 				retour = telPort;
@@ -166,7 +166,7 @@ public class VerifForm {
 	}
 
 	public String faxVerif(String fax) {
-		String retour = null;
+		String retour =null;
 		try {
 			char premierchiffre = fax.charAt(0);
 			char deuxiemechiffre = fax.charAt(1);
@@ -175,14 +175,14 @@ public class VerifForm {
 				retour = fax;
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
+
 		}
 
 		return retour;
 	}
 
 	public Date dateNaissanceVerif(String dateNaissance) {
-		Date retour = null;
+		Date retour =null;
 		try {
 			String s = dateNaissance;
 			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy");
@@ -195,9 +195,9 @@ public class VerifForm {
 	}
 
 	public String lieuNaissanceVerif(String lieuNaissance) {
-		String retour = null;
+		String retour = "";
 		try {
-			if (lieuNaissance.matches("[^A-Za-zь-я]") == false) {
+			if (lieuNaissance.matches("[^A-Za-zь-я]*") == false) {
 				retour = lieuNaissance;
 			}
 		} catch (Exception e) {
@@ -208,7 +208,7 @@ public class VerifForm {
 	}
 
 	public String numSecuVerif(String numSecu) {
-		String retour = null;
+		String retour = "";
 		try {
 			if (numSecu.matches("^[12][0-9]{2}[0-1][0-9](2[AB]|[0-9]{2})[0-9]{3}[0-9]{3}[0-9]{2}") == false) {
 				retour = numSecu;
@@ -221,10 +221,10 @@ public class VerifForm {
 	}
 
 	public String nationaliteVerif(String nationalite) {
-		String retour = null;
+		String retour = "";
 		try {
 			nationalite = nationalite.toLowerCase();
-			if (nationalite.matches("[^a-zь-я]") == false) {
+			if (nationalite.matches("[^a-zь-я]*") == false) {
 				retour = nationalite;
 			}
 		} catch (Exception e) {
@@ -270,9 +270,9 @@ public class VerifForm {
 	}
 
 	public String fonctionVerif(String fonction) {
-		String retour = null;
+		String retour = "";
 		try {
-			if (fonction.matches("[^A-Za-zь-я]") == false) {
+			if (fonction.matches("[^A-Za-zь-я]*") == false) {
 				retour = fonction;
 			}
 		} catch (Exception e) {
@@ -297,9 +297,9 @@ public class VerifForm {
 	}
 
 	public String coeffVerif(String coeff) {
-		String retour = null;
+		String retour = "";
 		try {
-			if (coeff.matches("[^0-9]") == false) {
+			if (coeff.matches("[^0-9]*") == false) {
 				retour = coeff;
 			}
 		} catch (Exception e) {
@@ -310,9 +310,9 @@ public class VerifForm {
 	}
 
 	public String salaireVerif(String salaire) {
-		String retour = null;
+		String retour = "";
 		try {
-			if (salaire.matches("[^0-9]") == false) {
+			if (salaire.matches("[^0-9]*") == false) {
 				retour = salaire;
 			}
 		} catch (Exception e) {
@@ -323,7 +323,7 @@ public class VerifForm {
 	}
 
 	public Date visiteMedicaleVerif(String visiteMedicale) {
-		Date retour = null;
+		Date retour =null;
 		try {
 			String s = visiteMedicale;
 			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy");
@@ -336,9 +336,9 @@ public class VerifForm {
 	}
 
 	public String montantTransportVerif(String montantTransport) {
-		String retour = null;
+		String retour = "";
 		try {
-			if (montantTransport.matches("[^0-9]") == false) {
+			if (montantTransport.matches("[^0-9]*") == false) {
 				retour = montantTransport;
 			}
 		} catch (Exception e) {
@@ -365,7 +365,7 @@ public class VerifForm {
 	public int nbCVVerif(String nbCV) {
 		int retour = 0;
 		try {
-			if (nbCV.matches("[^0-9]") == false) {
+			if (nbCV.matches("[^0-9]*") == false) {
 				retour = Integer.valueOf(nbCV);
 			}
 		} catch (Exception e) {
@@ -376,9 +376,9 @@ public class VerifForm {
 	}
 
 	public String nbKm(String nbKm) {
-		String retour = null;
+		String retour = "";
 		try {
-			if (nbKm.matches("[^0-9]") == false) {
+			if (nbKm.matches("[^0-9]*") == false) {
 				retour = nbKm;
 			}
 		} catch (Exception e) {
@@ -457,8 +457,8 @@ public class VerifForm {
 	}
 
 	public String raisonBlocageVerif(String raisonBlocage) {
-		String retour = null;
-		if (raisonBlocage.matches("[a-zA-Z]")) {
+		String retour = "";
+		if (raisonBlocage.matches("[a-zA-Z]*")) {
 
 		}
 
@@ -467,7 +467,7 @@ public class VerifForm {
 
 	ListeDoc listDocVerif(String listDoc) {
 		ListeDoc retour = null;
-		if (listDoc.matches("[a-zA-Z]")) {
+		if (listDoc.matches("[a-zA-Z]*")) {
 
 		}
 
