@@ -208,7 +208,7 @@ public class CtrlPersonne implements InterCtrlPersonne {
 	public boolean ctrlCadre(String cadre) {
 		if (cadre == null) {
 			return false;
-		} else if (cadre.equals("Cadre") || cadre.equals("Non cadre")) {
+		} else if (cadre.equals("oui") || cadre.equals("non")) {
 			return true;
 		} else {
 			return false;
