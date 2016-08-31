@@ -105,6 +105,7 @@ function ctrSituationPro() {
 		personne = (Personne) o;
 	}
 	String situation = personne.getEnumSituation().getNom(); 
+	//String situation = (SITUATION.valueOf(personne.getSituation())).getNom();
 	
 	%>	
             <form action="http://localhost:8080/ProjectJMST/jsp/Part5.jsp" method='post'>

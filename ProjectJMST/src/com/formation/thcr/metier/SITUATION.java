@@ -2,7 +2,7 @@ package com.formation.thcr.metier;
 
 public enum SITUATION {
 	SALARIE("Salarie"), AUTOENTREPRENEUR("auto entrepreneur"), FREELANCE("freelance"), DEMANDEUR(
-			"demandeur d'emploi"), RETRAITE("retraite"), AUTRE("placeholder");
+			"demandeur d'emploi"), RETRAITE("retraite"), AUTRE("");
 
 	private String nom;
 
