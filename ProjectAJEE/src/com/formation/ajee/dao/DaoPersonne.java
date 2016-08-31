@@ -41,7 +41,7 @@ public class DaoPersonne {
 						+","+personne.getVille()+","+personne.getTelFixe()+","+personne.getFax()+","
 						+personne.getDateNaissance()+","+personne.getLieuNaissance()+","
 						+personne.getNumSecu()+","+personne.getNationalite()+","
-						+personne.getSituation()+","+personne.getFonction()+", "+personne.getPosition()
+						+personne.getSituation()+","+personne.getFonction()+", "+personne.getPositionEntreprise()
 						+","+personne.isCadre()+","+personne.getCoeff()+","+personne.getSalaire()+","
 						+personne.getVisiteMedicale()+","+personne.getMontantTransport()+","
 						+personne.isVoiture()+","+personne.getNbCV()+","+personne.getNbKm()+","
@@ -85,7 +85,7 @@ public class DaoPersonne {
 								 + "set nationalité = "+personne.getNationalite()+" " + "where idPersonne = "+personne.getIdPersonne()+", "
 								 + "set situation = "+personne.getSituation()+" " + "where idPersonne = "+personne.getIdPersonne()+", "
 								 + "set fonction = "+personne.getFonction()+" " + "where idPersonne = "+personne.getIdPersonne()+", "
-								 + "set position = "+personne.getPosition()+" " + "where idPersonne = "+personne.getIdPersonne()+", "
+								 + "set position = "+personne.getPositionEntreprise()+" " + "where idPersonne = "+personne.getIdPersonne()+", "
 								 + "set cadre = "+personne.isCadre()+" " + "where idPersonne = "+personne.getIdPersonne()+", "
 								 + "set coeff = "+personne.getCoeff()+" " + "where idPersonne = "+personne.getIdPersonne()+", "
 								 + "set salaire = "+personne.getSalaire()+" " + "where idPersonne = "+personne.getIdPersonne()+", "

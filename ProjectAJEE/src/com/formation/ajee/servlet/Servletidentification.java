@@ -40,8 +40,7 @@ public class Servletidentification extends HttpServlet {
 		ListPersonne lstPersonne = new ListPersonne();
 		Personne personne=new Personne();
 		
-
-		File file = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page/Identification.html");
+		File file = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/WEB-INF/com/formation/ajee/page/Identification.html");
 		// System.out.println(file.getCanonicalPath());
 		int noSerie = (int) Math.random() * Integer.MAX_VALUE;
 		HttpSession session = request.getSession(true); // true pour garder le
