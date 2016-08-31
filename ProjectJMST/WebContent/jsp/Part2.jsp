@@ -1,3 +1,4 @@
+<%@page import="controleur.CtrlPersonne"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="com.formation.thcr.metier.*"%>
@@ -84,12 +85,18 @@
 			<!-- 			<form= action:"http://www.souadkad.fr/soka/identification.html"></form> -->
 		<% 
 		
-//	String string = request.getParameter(arg0)
+
  	Personne personne = null;
 	Object o = session.getAttribute("Personne");
 	
 	if(o instanceof Personne){
 		personne = (Personne) o;
+		String sIdentifiant=request.getParameter("identifiant");
+		String sMdp=request.getParameter("mdp");
+// 		if (CtrlPersonne.ctrlIdentifiant(sIdentifiant)&&CtrlPersonne.ctrlMdp(sMdp)){
+// 			personne.setIdentifiant(sIdentifiant);
+// 			personne.setMdp(sMdp);
+// 		}
 	}
 	//personne.set
 	%>	

@@ -216,6 +216,12 @@
 	
 	if(o instanceof Personne){
 		personne = (Personne) o;
+		String sSituation=request.getParameter("situationVal");
+		/* if(CtrlPersonne.ctrlSituation(sSituation)){
+			personne.setSituation(sSituation);
+		} */
+		
+		
 	}
 	%>	
 			<form= action:"http://www.souadkad.fr/soka/identification.html"></form>

@@ -88,6 +88,45 @@
 	
 	if(o instanceof Personne){
 		personne = (Personne) o;
+		String sNom = request.getParameter("nom");
+		String sPrenom = request.getParameter("prenom");
+		String sAdresse = request.getParameter("adresse");
+		String sTelFixe = request.getParameter("tel fixe");
+		String sTelPort = request.getParameter("tel portable");
+		String sFax = request.getParameter("fax");
+		String sCp = request.getParameter("code postale");
+		String sVille = request.getParameter("ville");
+		String sEmail = request.getParameter("mail");
+		/* if(CtrlPersonne.ctrlNom(sNom)){
+			if(CtrlPersonne.ctrlPrenom(sPrenom)){
+				if(CtrlPersonne.crtlAdresse(sAdresse)){
+					if(CtrlPersonne.crtlTelFixe(sTelFixe)){
+						if(CtrlPersonne.crtlTelPort(sTelPort)){
+							if(CtrlPersonne.crtlFax(sFax)){
+								if(CtrlPersonne.crtlCp(sCp)){
+									if(CtrlPersonne.crtlVille(sVille)){
+										if(CtrlPersonne.crtlEmail(sEmail)){
+											personne.setNom(sNom);
+											personne.setPrenom(sPrenom);
+											personne.setAdresse(sAdresse);
+											personne.setTelFixe(sTelFixe);
+											personne.setTelPort(sTelPort);
+											personne.setFax(sFax);
+											personne.setCp(sCp);
+											personne.setVille(sVille);
+											personne.setEmail(sEmail);
+											
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		} */
+		
+		
 	}
 	%>	
         <form action="http://localhost:8080/ProjectJMST/jsp/Part4.jsp" method='post'>

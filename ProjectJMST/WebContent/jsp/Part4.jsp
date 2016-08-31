@@ -103,10 +103,23 @@ function ctrSituationPro() {
 	
 	if(o instanceof Personne){
 		personne = (Personne) o;
+		String sDateNaissance = request.getParameter("date de naissance");
+		String sLieuNaissance = request.getParameter("lieu de naissance");
+		String sNumSecu = request.getParameter("num secu");
+		String sNationalite = request.getParameter("nationalite");
+/* 		if(CtrlPersonne.ctrlDateNaissance(sDateNaissance)&&CtrlPersonne.ctrlLieuNaissance(sLieuNaissance)&&//
+				+ CtrlPersonne.ctrlNumSecu(sNumSecu)&&CtrlPersonne.ctrlNationalite(sNationalite)){
+			personne.setDateNaissance(ConversionPersonne.conversionDate(sDateNaissance));
+			personne.setLieuNaissance(sLieuNaissance);
+			personne.setNumSecu(sNumSecu);
+			personne.setNationalite(sNationalite);
+		} */
+		
 	}
 	//String situation = personne.getEnumSituation().getNom(); 
 	//String situation = (SITUATION.valueOf(personne.getSituation())).getNom();
 	String situation = personne.getSituation();
+	
 	%>	
             <form action="http://localhost:8080/ProjectJMST/jsp/Part5.jsp" method='post'>
 			<table border="1">
