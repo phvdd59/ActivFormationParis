@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data-sources>
+	<data-source id="mysql3-156e062a8b1-7dbfb5ff8b887600" provider="generic" driver="mysql3" name="MySQL 3.x - test" create-date="1472643432035" save-password="true" show-system-objects="true" read-only="false">
+		<connection host="127.0.0.1" port="3306" server="" database="test" url="jdbc:mysql://127.0.0.1:3306/test" user="root" type="dev">
+			<network-handler type="PROXY" id="socks_proxy" enabled="false" user="" save-password="false">
+				<property name="socks-host" value=""/>
+				<property name="socks-port" value="1080"/>
+			</network-handler>
+			<network-handler type="TUNNEL" id="ssh_tunnel" enabled="false" user="" save-password="false">
+				<property name="port" value="22"/>
+				<property name="keyPath" value=""/>
+				<property name="host" value=""/>
+				<property name="authType" value="PASSWORD"/>
+			</network-handler>
+			<bootstrap/>
+		</connection>
+	</data-source>
+</data-sources>
