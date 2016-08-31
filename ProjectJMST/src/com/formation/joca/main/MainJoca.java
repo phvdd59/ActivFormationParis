@@ -2,6 +2,7 @@ package com.formation.joca.main;
 
 import com.formation.thcr.metier.SITUATION;
 
+import controleur.CtrlDocPerso;
 import controleur.CtrlPersonne;
 
 public class MainJoca {
@@ -12,11 +13,10 @@ public class MainJoca {
 	}
 
 	private void test() {
-		CtrlPersonne ctrlPerso = new CtrlPersonne();
-		String test = null;
-		System.out.println(ctrlPerso.ctrlMdp(test));
-		SITUATION sit=SITUATION.AUTOENTREPRENEUR;
-		System.out.println(sit.name());
+		CtrlDocPerso ctrlPerso = new CtrlDocPerso();
+		String test = "5555\55555";
+		System.out.println(ctrlPerso.ctrlNomDocUtil(test));
+
 	}
 
 }

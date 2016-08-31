@@ -4,7 +4,6 @@ public class CtrlDocPerso implements InterCtrlDocPerso {
 
 	@Override
 	public boolean ctrlNomDocUtil(String nomDocUtil) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
