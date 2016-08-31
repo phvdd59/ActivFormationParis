@@ -52,40 +52,44 @@ public class Servletlisteutilisateurs extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		Object oNom = request.getParameter("nom");
 		Object oPrenom = request.getParameter("prenom");
+		Object boutonAjouter = request.getParameter("ajouter");
+		Object boutonSupp = request.getParameter("supprimer");
 		boolean existe = false;
 
-		if (oNom != null && oPrenom != null) {
-			String nom = (String) oNom;
-			String prenom = (String) oPrenom;
+		if (boutonAjouter != null) {
+			if (oNom != null && oPrenom != null) {
+				String nom = (String) oNom;
+				String prenom = (String) oPrenom;
 
-			user = new Personne(nom, prenom);
-			if (lstUser.size() == 0) {
-				lstUser.add(user);
-			} else {
-				for (int i = 0; i < lstUser.size(); i++) {
-					if (lstUser.get(i).equals(user)) {
-						existe = true;
-						break;
-					} else {
-						lstUser.add(user);
-						break;
+				user = new Personne(nom, prenom);
+				if (lstUser.size() == 0) {
+					lstUser.add(user);
+				} else {
+					for (int i = 0; i < lstUser.size(); i++) {
+						if (lstUser.get(i).equals(user)) {
+							existe = true;
+							break;
+						} else {
+							lstUser.add(user);
+							break;
+						}
 					}
-				}
-			}
 
-			File file = new File("../GITActivFormationParis/ProjectAJEE/WebContent/WEB-INF/com/formation/ajee/page/ListeUtilisateurs2.html");
-			BufferedReader bIn = new BufferedReader(new FileReader(file));
-			String line = bIn.readLine();
+				}
+
+				File file = new File("../GITActivFormationParis/ProjectAJEE/WebContent/WEB-INF/com/formation/ajee/page/ListeUtilisateurs2.html");
+				BufferedReader bIn = new BufferedReader(new FileReader(file));
+				String line = bIn.readLine();
 
 				while (line != null) {
-					
+
 					if (line.contains("%%value%%")) {
 						for (int i = 0; i < lstUser.size(); i++) {
-						String ligne ="<option value='%%value%%'></option>" ;
-						ligne = ligne.replace("%%value%%", lstUser.get(i).getNom() + lstUser.get(i).getPrenom());
-						ligne = ligne.replace("></", ">" + lstUser.get(i).getNom() + " " + lstUser.get(i).getPrenom() + "  -  Identifiant : " + lstUser.get(i).getIdentifiant() + " / Mot de passe : "+ lstUser.get(i).getMdp() +"</");
-						response.getWriter().println(ligne);
-						
+							String ligne = "<option value='%%value%%'></option>";
+							ligne = ligne.replace("%%value%%", lstUser.get(i).getNom() + lstUser.get(i).getPrenom());
+							ligne = ligne.replace("></", ">" + lstUser.get(i).getNom() + " " + lstUser.get(i).getPrenom() + "  -  Identifiant : " + lstUser.get(i).getIdentifiant() + " / Mot de passe : " + lstUser.get(i).getMdp() + "</");
+							response.getWriter().println(ligne);
+
 						}
 					} else if (line.contains("%%existe%%")) {
 						if (existe == true) {
@@ -95,27 +99,47 @@ public class Servletlisteutilisateurs extends HttpServlet {
 							line = line.replace("%%existe%%", "");
 						}
 					}
-					
+
 					response.getWriter().println(line);
 					line = bIn.readLine();
 
 				}
-			
-			bIn.close();
 
-		} else {
-			File file = new File("../GITActivFormationParis/ProjectAJEE/WebContent/WEB-INF/com/formation/ajee/page/ListeUtilisateurs2.html");
-			BufferedReader bIn = new BufferedReader(new FileReader(file));
-			String line = bIn.readLine();
+				bIn.close();
 
-			while (line != null) {
-				response.getWriter().println(line);
-				line = bIn.readLine();
+			} else {
+				File file = new File("../GITActivFormationParis/ProjectAJEE/WebContent/WEB-INF/com/formation/ajee/page/ListeUtilisateurs2.html");
+				BufferedReader bIn = new BufferedReader(new FileReader(file));
+				String line = bIn.readLine();
+
+				while (line != null) {
+					if (line.contains("%%value%%")) {
+						if (lstUser.size() == 0) {
+
+						} else {
+							for (int i = 0; i < lstUser.size(); i++) {
+								String ligne = "<option value='%%value%%'></option>";
+								ligne = ligne.replace("%%value%%", lstUser.get(i).getNom() + lstUser.get(i).getPrenom());
+								ligne = ligne.replace("></", ">" + lstUser.get(i).getNom() + " " + lstUser.get(i).getPrenom() + "  -  Identifiant : " + lstUser.get(i).getIdentifiant() + " / Mot de passe : " + lstUser.get(i).getMdp() + "</");
+								response.getWriter().println(ligne);
+
+							}
+						}
+					}
+					response.getWriter().println(line);
+					line = bIn.readLine();
+
+				}
+				bIn.close();
 
 			}
-			bIn.close();
-
+		} else if (boutonSupp != null) {
+			// voir comment recupere la valeur de option
+			// verif mise commentaire pour suppression voir le mettre en rouge dans la liste
 		}
+
 	}
 
 }
+
+
