@@ -83,12 +83,15 @@
 			<!-- zone disponible -->
 			<!-- 			<form= action:"http://www.souadkad.fr/soka/identification.html"></form> -->
 		<% 
+		
+//	String string = request.getParameter(arg0)
  	Personne personne = null;
 	Object o = session.getAttribute("Personne");
 	
 	if(o instanceof Personne){
 		personne = (Personne) o;
 	}
+	//personne.set
 	%>	
 		<form action="http://localhost:8080/ProjectJMST/jsp/Part3.jsp"
 			method='POST'>
