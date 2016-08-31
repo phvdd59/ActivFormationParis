@@ -4,7 +4,15 @@ public class CtrlDocPerso implements InterCtrlDocPerso {
 
 	@Override
 	public boolean ctrlNomDocUtil(String nomDocUtil) {
-		return false;
+		if (nomDocUtil == null) {
+			return false;
+		} else if (nomDocUtil.contains("?") || nomDocUtil.contains("*") || nomDocUtil.contains("<")
+				|| nomDocUtil.contains(">") || nomDocUtil.contains(":") || nomDocUtil.contains("/")
+				|| nomDocUtil.contains("\\") || nomDocUtil.contains("\"") || nomDocUtil.contains("|")) {
+			return false;
+		} else {
+			return true;
+		}
 	}
 
 	@Override
