@@ -104,12 +104,51 @@ public class ServletCreaForRempli extends HttpServlet {
 		}
 		bufReadDoc.close();
 		
-		// rajouter des if pour créer des objets et rajouter des attributs lorsqu'ils sont rencontrés. Remplir les inputs du nouveau formulaire avc ces attributs. En read-only.
+		// rajouter des if pour créer des objets et rajouter des attributs lorsqu'ils sont rencontrés. (Remplir les inputs du nouveau formulaire avc ces attributs. En read-only.)->non
+		Personne personne = new Personne();
 		File fileDoc1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/FormulaireARemplir.html");
 		BufferedReader bufReadDoc1 = null;
 		bufReadDoc1 = new BufferedReader(new FileReader(fileDoc1));
 		String lineDoc1 = bufReadDoc1.readLine();
 		while (lineDoc1 != null) {
+			// Récupérer les données du formulaire et ranger dans objet personne
+			if (lineDoc1.contains("id='nom'")) {
+				String pNom=request.getParameter("nom");
+				personne.setNom(pNom);
+			}
+			if (lineDoc1.contains("id='prenom'")) {
+				String pPrenom=request.getParameter("prenom");
+				personne.setPrenom(pPrenom);
+			}
+			if (lineDoc1.contains("id='adresse'")) {
+				String pPrenom=request.getParameter("prenom");
+				personne.setPrenom(pPrenom);
+			}
+			
+			
+			String pAdresse=request.getParameter("adresse");
+			String pCp=request.getParameter("cp");
+			String pVille=request.getParameter("ville");
+			String pTelFixe=request.getParameter("telFixe");
+			String pTelPort=request.getParameter("telPort");
+			String pFax=request.getParameter("fax");
+			String pEmail=request.getParameter("email");
+			String pDateNaiss=request.getParameter("dateNaiss");
+			String pLieu=request.getParameter("lieu");
+			String pNumSecu=request.getParameter("numSecu");
+			String pNat=request.getParameter("nat");
+			String pSitActuelle=request.getParameter(""); // cf. ForCalLisDer.html de Jérémy
+			String pFctnOccupee=request.getParameter("fctnOccupee");
+			//String pPrenom=request.getParameter("prenom");
+			//String pPrenom=request.getParameter("prenom");
+			//String pPrenom=request.getParameter("prenom");
+			//String pPrenom=request.getParameter("prenom");
+			//String pPrenom=request.getParameter("prenom");
+			//String pPrenom=request.getParameter("prenom");
+			//String pPrenom=request.getParameter("prenom");
+			//String pPrenom=request.getParameter("prenom");
+			//String pPrenom=request.getParameter("prenom");
+			//
 			response.getWriter().println(lineDoc1);
 			lineDoc1 = bufReadDoc1.readLine();
 		}
