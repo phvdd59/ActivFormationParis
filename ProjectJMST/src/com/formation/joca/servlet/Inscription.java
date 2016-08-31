@@ -92,7 +92,6 @@ public class Inscription extends HttpServlet {
 			perso.setBloque(false);
 			perso.setListeDoc(new ListeDoc());
 			DAOPersonne dao = new DAOPersonne();
-			System.out.println(perso);
 			dao.create(perso);
 			
 			
