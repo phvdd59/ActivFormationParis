@@ -20,7 +20,6 @@ public class ExoJUnit1 {
 		elmt.setLongeur(10f);
 		ArrayList<MATERIAUX> lstMat = new ArrayList<MATERIAUX>();
 		MATERIAUX bois = MATERIAUX.BOIS;
-		bois.
 	}
 	
 	@Test
