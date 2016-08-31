@@ -23,7 +23,7 @@ public class MainJDBC {
 		//m.create();
 		//m.createTable();
 		//m.insertTable(); 
-		//m.selectTable();
+		m.selectTable();
 		//m.selectTableMetaData();
 		//m.updateTable();
 		//m.deleteTable();
