@@ -1,0 +1,5 @@
+phva:Algo
+
+phva testNormal0 (2/2):    | exo.solution(),
+
+phva NOTE : (2 / 2) = 20,00 / 20
