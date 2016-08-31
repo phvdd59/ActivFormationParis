@@ -80,7 +80,7 @@ public class EtatCivil {
 
 	private void validationNom(String nom) throws Exception {
 		if (nom != null) {
-			if (!nom.matches("^[a-zA-ZÀ-ÿ\\-'s]*[a-zA-Z]+$")) {
+			if (!nom.matches("^[a-zA-ZÀ-ÿ\\-' ]*[a-zA-Z]+$")) {
 				throw new Exception("Merci de bien vouloir saisir un nom correct.");
 			}
 		} else {
@@ -91,7 +91,7 @@ public class EtatCivil {
 
 	private void validationPrenom(String prenom) throws Exception {
 		if (prenom != null) {
-			if (!prenom.matches("^[a-zA-ZÀ-ÿ\\-'s]*[a-zA-Z]+$")) {
+			if (!prenom.matches("^[a-zA-ZÀ-ÿ\\-' ]*[a-zA-Z]+$")) {
 				throw new Exception("Merci de bien vouloir saisir un prénom correct.");
 			}
 		} else {
@@ -115,7 +115,7 @@ public class EtatCivil {
 
 	private void validationLieu(String lieu) throws Exception {
 		if (lieu != null) {
-			if (!lieu.matches("^[a-zA-ZÀ-ÿ\\-'s]*[a-zA-Z]+$")) {
+			if (!lieu.matches("^[a-zA-ZÀ-ÿ\\-' ]*[a-zA-Z]+$")) {
 				throw new Exception("Merci de bien vouloir saisir un lieu de naissance correct.");
 			}
 		} else {
@@ -126,7 +126,7 @@ public class EtatCivil {
 
 	private void validationNationalite(String nationalite) throws Exception {
 		if (nationalite != null) {
-			if (!nationalite.matches("^[a-zA-ZÀ-ÿ\\-]*[a-zA-Z]+$")) {
+			if (!nationalite.matches("^[a-zA-ZÀ-ÿ\\- ]*[a-zA-Z]+$")) {
 				throw new Exception("Merci de bien vouloir saisir une nationalité correcte.");
 			}
 		} else {
@@ -137,7 +137,7 @@ public class EtatCivil {
 
 	private void validationNumeroDeSecuriteSociale(String numeroDeSecuriteSociale) throws Exception {
 		if (numeroDeSecuriteSociale != null) {
-			if (!numeroDeSecuriteSociale.matches(".*\\d+.*") && numeroDeSecuriteSociale.length() != 15) {
+			if (!numeroDeSecuriteSociale.matches("^[1234][\\ ]?[0-9]{2}[\\ ]?[0-9]{2}[\\ ]?[0-9]{2}[\\ ]?[0-9]{3}[\\ ]?[0-9]{3}[\\ ]?[0-9]{2}$")) {
 				throw new Exception("Merci de bien vouloir saisir un numéro de sécurité sociale correcte.");
 			}
 		} else {

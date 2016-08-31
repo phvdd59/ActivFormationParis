@@ -15,7 +15,7 @@ public class VerificationsInscriptionPage2 {
 
 	public boolean fonctionNom(String nom) {
 		boolean retour = false;
-		if(nom.matches("^[a-zA-Z\\-'s]*[a-zA-Z]+$")){
+		if(nom.matches("^[a-zA-ZÀ-ÿ\\-'s]*[a-zA-Z]+$")){
 			retour=true;
 		}else{
 			retour=false;

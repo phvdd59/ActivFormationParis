@@ -78,7 +78,9 @@ public class Coordonnees {
 
 	private void validationTelFixe(String telFixe) throws Exception {
 		if (telFixe != null) {
-			if (!telFixe.matches("^(\\+[0-9]{2}[0-9]{9}[\\-.s/]*)|([0-9]{10}[\\-.s/]*)|([0-9]{4}[0-9]{9}[\\-.s/]*)")) {
+			if (!telFixe.matches("^[\\+][0-9]{2}[\\-./ ]?[0-9]{1}[\\-./ ]?[0-9]{2}[\\-./ ]?[0-9]{2}[\\-./ ]?[0-9]{2}[\\-./ ]?[0-9]{2}$")
+					||(!telFixe.matches("^[0-9]{2}[\\-./ ]?[0-9]{2}[\\-./ ]?[0-9]{2}[\\-./ ]?[0-9]{2}[\\-./ ]?[0-9]{2}$"))
+					||(!telFixe.matches("^[0-9]{2}[\\-./ ]?[0-9]{2}[\\-./ ]?[0-9]{1}[\\-./ ]?[0-9]{2}[\\-./ ]?[0-9]{2}[\\-./ ]?[0-9]{2}[\\-./ ]?[0-9]{2}$"))) {
 				throw new Exception("Merci de bien vouloir saisir un numéro de téléphone correct.");
 			}
 		} else {
@@ -89,7 +91,7 @@ public class Coordonnees {
 
 	private void validationAdresse(String adresse) throws Exception {
 		if (adresse != null) {
-			if (!adresse.matches("^[a-zA-ZÀ-ÿ0-9//-'s]*[a-zA-Z]+$")) {
+			if (!adresse.matches("^[a-zA-ZÀ-ÿ0-9//-' ]*[a-zA-Z]+$")) {
 				throw new Exception("Merci de bien vouloir saisir une adresse correcte.");
 			}
 		} else {
@@ -111,7 +113,7 @@ public class Coordonnees {
 
 	private void validationVille(String ville) throws Exception {
 		if (ville != null) {
-			if (!ville.matches("^[a-zA-ZÀ-ÿ\\-'s]*[a-zA-Z]+$")) {
+			if (!ville.matches("^[a-zA-ZÀ-ÿ\\-' ]*[a-zA-Z]+$")) {
 				throw new Exception("Merci de bien vouloir saisir une ville correcte.");
 			}
 		} else {
@@ -122,7 +124,9 @@ public class Coordonnees {
 
 	private void validationTelPort(String telPort) throws Exception {
 		if (telPort != null) {
-			if (!telPort.matches("^(\\+[0-9]{2}[0-9]{9}[\\-.s/*)|([0-9]{10}[\\-.s/]*)|([0-9]{4}[0-9]{9}[\\-.s/]*)")) {
+			if(!telPort.matches("^[\\+][0-9]{2}[\\-./ ]?[0-9]{1}[\\-./ ]?[0-9]{2}[\\-./ ]?[0-9]{2}[\\-./ ]?[0-9]{2}[\\-./ ]?[0-9]{2}$")
+					||(!telPort.matches("^[0-9]{2}[\\-./ ]?[0-9]{2}[\\-./ ]?[0-9]{2}[\\-./ ]?[0-9]{2}[\\-./ ]?[0-9]{2}$"))
+					||(!telPort.matches("^[0-9]{2}[\\-./ ]?[0-9]{2}[\\-./ ]?[0-9]{1}[\\-./ ]?[0-9]{2}[\\-./ ]?[0-9]{2}[\\-./ ]?[0-9]{2}[\\-./ ]?[0-9]{2}$")))  {
 				throw new Exception("Merci de bien vouloir saisir un numéro de téléphone correct.");
 			}
 		} else {
@@ -132,7 +136,9 @@ public class Coordonnees {
 	}
 	private void validationFax(String fax) throws Exception {
 		if (fax != null) {
-			if (!fax.matches("^(\\+[0-9]{2}[0-9]{9}[\\-.s/]*)|([0-9]{10}[\\-.s/]*)|([0-9]{4}[0-9]{9}[\\-.s/]*)")) {
+			if(!fax.matches("^[\\+][0-9]{2}[\\-./ ]?[0-9]{1}[\\-./ ]?[0-9]{2}[\\-./ ]?[0-9]{2}[\\-./ ]?[0-9]{2}[\\-./ ]?[0-9]{2}$")
+					  ||(!fax.matches("^[0-9]{2}[\\-./ ]?[0-9]{2}[\\-./ ]?[0-9]{2}[\\-./ ]?[0-9]{2}[\\-./ ]?[0-9]{2}$"))
+					  ||(!fax.matches("^[0-9]{2}[\\-./ ]?[0-9]{2}[\\-./ ]?[0-9]{1}[\\-./ ]?[0-9]{2}[\\-./ ]?[0-9]{2}[\\-./ ]?[0-9]{2}[\\-./ ]?[0-9]{2}$")))  {
 				throw new Exception("Merci de bien vouloir saisir un numéro de fax correct.");
 			}
 		} else {

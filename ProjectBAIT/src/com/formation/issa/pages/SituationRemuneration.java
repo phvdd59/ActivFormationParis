@@ -97,7 +97,7 @@ public class SituationRemuneration {
 
 	private void validationFonction(String fonction) throws Exception {
 		if (fonction != null) {
-			if (!fonction.matches("^[a-zA-ZÀ-ÿ\\-'s]*[a-zA-Z]+$")) {
+			if (!fonction.matches("^[a-zA-ZÀ-ÿ\\-' ]*[a-zA-Z]+$")) {
 				throw new Exception("Merci de bien vouloir saisir une fonction correcte.");
 			}
 		} else {
@@ -108,7 +108,7 @@ public class SituationRemuneration {
 
 	private void validationSituation(String situation) throws Exception {
 		if (situation != null) {
-			if (!situation.matches("^[a-zA-ZÀ-ÿ\\-'s]*[a-zA-Z]+$")) {
+			if (!situation.matches("^[a-zA-ZÀ-ÿ\\-' ]*[a-zA-Z]+$")) {
 				throw new Exception("Merci de bien vouloir saisir une situation correcte.");
 			}
 		} else {
