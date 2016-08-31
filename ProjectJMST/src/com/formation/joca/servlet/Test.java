@@ -22,6 +22,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import com.formation.thcr.dao.DAOPersonne;
 import com.formation.thcr.metier.ListPersonne;
 import com.formation.thcr.metier.Personne;
 
@@ -48,82 +49,83 @@ public class Test extends HttpServlet {
 			throws ServletException, IOException {
 
 		HttpSession session = null;
-		ListPersonne listPersonne = new ListPersonne();
 
 		String identifiant = request.getParameter("identifiant");
 		String motdepasse = request.getParameter("motdepasse");
-
-		final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-		try {
-			final DocumentBuilder builder = factory.newDocumentBuilder();
-			File xmlFile = new File("C:/DevFormation/GITActivFormationParis/ProjectJMST/WebContent/Data2.xml");
-
-			final Document document = builder.parse(xmlFile);
-
-			final Element eListPersonne = document.getDocumentElement();
-
-			if (eListPersonne.getNodeName().equals("ListPersonne")) {
-
-				final NodeList nListPersonne = eListPersonne.getChildNodes();
-				final int nbracinenoeuds = nListPersonne.getLength();
-				for (int i = 0; i < nbracinenoeuds; i++) {
-					final Node nodePersonne = nListPersonne.item(i);
-					if (nodePersonne.getNodeType() == Node.ELEMENT_NODE) {
-						final Element ePersonne = (Element) nodePersonne;
-						String nom = ePersonne.getTextContent();
-						nom = nom.trim();
-						String login = ePersonne.getAttribute("login");
-						String password = ePersonne.getAttribute("password");
-						String adminString = ePersonne.getAttribute("admin");
-						String mail = ePersonne.getAttribute("mail");
-						String prenom = ePersonne.getAttribute("prenom");
-						String nationalite = ePersonne.getAttribute("nationalite");
-						String adresse = ePersonne.getAttribute("adresse");
-						String situation = ePersonne.getAttribute("situation");
-						boolean admin = false;
-						if (adminString.equals("true")) {
-							admin = true;
-						}
-						Personne personne = new Personne();
-						personne.setIdentifiant(login);
-						personne.setMdp(password);
-						personne.setAdmin(admin);
-						personne.setEmail(mail);
-						personne.setNom(nom);
-						personne.setPrenom(prenom);
-						personne.setNationalite(nationalite);
-						personne.setAdresse(adresse);
-						personne.setSituation(situation);
-						synchronized (listPersonne) {
-							listPersonne.add(personne);
-						}
-					}
-				}
-			}
-		} catch (ParserConfigurationException e) {
-			e.printStackTrace();
-		} catch (SAXException e) {
-			e.printStackTrace();
-		}
-
-		Personne utilisateur = null;
-
-		for (Personne personne : listPersonne) {
-			if (personne.getIdentifiant().equals(identifiant) && personne.getMdp().equals(motdepasse)) {
-				session = request.getSession(true);
-				utilisateur = personne;
-				break;
-			}
-		}
 		
-		if (utilisateur != null && utilisateur.isAdmin()) {
-			session.setAttribute("listPersonne", listPersonne);
+		Personne utilisateur = new Personne();
+		utilisateur.setIdentifiant(identifiant);
+		DAOPersonne dao = new DAOPersonne();
+		utilisateur = dao.read(utilisateur);
+		
+//		final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+//		try {
+//			final DocumentBuilder builder = factory.newDocumentBuilder();
+//			File xmlFile = new File("C:/DevFormation/GITActivFormationParis/ProjectJMST/WebContent/Data2.xml");
+//
+//			final Document document = builder.parse(xmlFile);
+//
+//			final Element eListPersonne = document.getDocumentElement();
+//
+//			if (eListPersonne.getNodeName().equals("ListPersonne")) {
+//
+//				final NodeList nListPersonne = eListPersonne.getChildNodes();
+//				final int nbracinenoeuds = nListPersonne.getLength();
+//				for (int i = 0; i < nbracinenoeuds; i++) {
+//					final Node nodePersonne = nListPersonne.item(i);
+//					if (nodePersonne.getNodeType() == Node.ELEMENT_NODE) {
+//						final Element ePersonne = (Element) nodePersonne;
+//						String nom = ePersonne.getTextContent();
+//						nom = nom.trim();
+//						String login = ePersonne.getAttribute("login");
+//						String password = ePersonne.getAttribute("password");
+//						String adminString = ePersonne.getAttribute("admin");
+//						String mail = ePersonne.getAttribute("mail");
+//						String prenom = ePersonne.getAttribute("prenom");
+//						String nationalite = ePersonne.getAttribute("nationalite");
+//						String adresse = ePersonne.getAttribute("adresse");
+//						String situation = ePersonne.getAttribute("situation");
+//						boolean admin = false;
+//						if (adminString.equals("true")) {
+//							admin = true;
+//						}
+//						Personne personne = new Personne();
+//						personne.setIdentifiant(login);
+//						personne.setMdp(password);
+//						personne.setAdmin(admin);
+//						personne.setEmail(mail);
+//						personne.setNom(nom);
+//						personne.setPrenom(prenom);
+//						personne.setNationalite(nationalite);
+//						personne.setAdresse(adresse);
+//						personne.setSituation(situation);
+//						synchronized (listPersonne) {
+//							listPersonne.add(personne);
+//						}
+//					}
+//				}
+//			}
+//		} catch (ParserConfigurationException e) {
+//			e.printStackTrace();
+//		} catch (SAXException e) {
+//			e.printStackTrace();
+//		}
+//
+//		Personne utilisateur = null;
+//
+//		for (Personne personne : listPersonne) {
+//			if (personne.getIdentifiant().equals(identifiant) && personne.getMdp().equals(motdepasse)) {
+//				session = request.getSession(true);
+//				utilisateur = personne;
+//				break;
+//			}
+//		}
+//		
+		
+		if (utilisateur != null && utilisateur.isAdmin() && utilisateur.getMdp().equals(motdepasse)) {
+			session = request.getSession();
 			session.setAttribute("Personne", utilisateur);
-			Object personne = session.getAttribute("Personne");
-			Personne perso = null;
-			if (personne instanceof Personne) {
-				perso = (Personne) personne;
-			}
+			
 			BufferedReader lecture = null;
 			File page = new File(
 					"../GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/pagecompteadministrateur.html");
@@ -141,7 +143,8 @@ public class Test extends HttpServlet {
 				line = lecture.readLine();
 			}
 			lecture.close();
-		} else if (utilisateur != null && !utilisateur.isAdmin()) {
+		} else if (utilisateur != null && !utilisateur.isAdmin() && utilisateur.getMdp().equals(motdepasse)) {
+			session = request.getSession();
 			session.setAttribute("Personne", utilisateur);
 			BufferedReader lecture = null;
 			File page = new File(

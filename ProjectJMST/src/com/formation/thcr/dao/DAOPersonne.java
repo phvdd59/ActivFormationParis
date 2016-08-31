@@ -121,14 +121,14 @@ public class DAOPersonne {
 			//|LP_NBCV |LP_NBKM |LP_MUTUELLE |LP_TICKETRESTO |LP_ADMIN |LP_DATECREATION 
 			//|LP_DATEMODIFICATION |LP_BLOQUE |LP_RAISONBLOCAGE |
 			String sql = "INSERT INTO listpersonne.personne"//
-					+ "(LP_NOM, LP_SEXE, LP_IDENTIFIANT, LP_MDP, LP_EMAIL, LP_ADRESSE, LP_CP, LP_VILLE, LP_TELFIXE, "
+					+ "(LP_NOM, LP_PRENOM, LP_SEXE, LP_IDENTIFIANT, LP_MDP, LP_EMAIL, LP_ADRESSE, LP_CP, LP_VILLE, LP_TELFIXE, "
 					+ "LP_TELPORT, LP_FAX, LP_DATENAISSANCE, LP_LIEUNAISSANCE, LP_NUMSECU, LP_NATIONALITE, "
 					+ "LP_SITUATION, LP_FONCTION, LP_CADRE, LP_COEFF, LP_SALAIRE, LP_VISITEMEDICALE, "
 					+ "LP_MONTANTTRANSPORT, LP_VOITURE, LP_NBCV, LP_NBKM, LP_MUTUELLE, LP_TICKETRESTO, LP_ADMIN, "
-					+ "LP_DATECREATION, LP_DATEMODIFICATION, LP_BLOQUE, LP_RAISONBLOCAGE)"
-					+ "VALUES('" + personne.getNom() + "','" + personne.getSexe().name() + "','" + personne.getIdentifiant() + "'," + "'"
-					+ personne.getMdp() + "','" + personne.getEmail() + "','" + personne.getAdresse() + "'," + "'" + personne.getCp() + "','"
-					+ personne.getVille() + "','" + personne.getTelFixe() + "'," + "'" + personne.getTelPort() + "','" + personne.getFax() + "','"
+					+ "LP_DATECREATION, LP_DATEMODIFICATION, LP_BLOQUE, LP_RAISONBLOCAGE)" + "VALUES('" + personne.getNom() + "','"
+					+ personne.getPrenom() + "','" + personne.getSexe().name() + "','" + personne.getIdentifiant() + "'," + "'" + personne.getMdp()
+					+ "','" + personne.getEmail() + "','" + personne.getAdresse() + "'," + "'" + personne.getCp() + "','" + personne.getVille()
+					+ "','" + personne.getTelFixe() + "'," + "'" + personne.getTelPort() + "','" + personne.getFax() + "','"
 					+ personne.getDateNaissance() + "'," + "'" + personne.getLieuNaissance() + "','" + personne.getNumSecu() + "','"
 					+ personne.getNationalite() + "'," + "'" + personne.getSituation() + "','" + personne.getFonction() + "','" + personne.isCadre()
 					+ "'," + "'" + personne.getCoeff() + "','" + personne.getSalaire() + "','" + personne.getVisiteMedicale() + "'," + "'"
@@ -170,9 +170,10 @@ public class DAOPersonne {
 			//|LP_NBCV |LP_NBKM |LP_MUTUELLE |LP_TICKETRESTO |LP_ADMIN |LP_DATECREATION 
 			//|LP_DATEMODIFICATION |LP_BLOQUE |LP_RAISONBLOCAGE |
 			while (result.next()) {
-				if (personne.getIdentifiant().equals(result.getString("LOGIN"))) {
+				if (personne.getIdentifiant().equals(result.getString("LP_IDENTIFIANT"))) {
 					personne.setIdPersonne(Integer.valueOf(result.getString("LP_IDPERSONNE")).intValue());
 					personne.setNom(result.getString("LP_NOM"));
+					personne.setPrenom(result.getString("LP_PRENOM"));
 					personne.setSexe(SEXE.valueOf(result.getString("LP_SEXE")));
 					personne.setIdentifiant(result.getString("LP_IDENTIFIANT"));
 					personne.setMdp(result.getString("LP_MDP"));
@@ -206,7 +207,6 @@ public class DAOPersonne {
 					personne.setDateModification(result.getTimestamp("LP_DATECREATION"));
 					personne.setBloque(Boolean.valueOf(result.getString("LP_NOM")).booleanValue());
 					personne.setRaisonBlocage(result.getString("LP_RAISONBLOQUAGE"));
-
 					check = true;
 				}
 			}
@@ -214,7 +214,7 @@ public class DAOPersonne {
 			if (check) {
 				System.out.println("OK");
 			} else {
-				System.out.println("erreur de lecture");
+				System.out.println("erreur de lecture, personne non trouvé dans la base de donnée avec le login : " + personne.getIdentifiant());
 			}
 			System.out.println("fin");
 		} catch (ClassNotFoundException e) {

@@ -3,6 +3,8 @@ package com.formation.thcr.main;
 import java.sql.Date;
 import java.sql.Timestamp;
 
+import com.formation.thcr.metier.Personne;
+
 public class MainDate {
 
 	public static void main(String[] args) {
@@ -11,11 +13,13 @@ public class MainDate {
 	}
 	
 	public void init(){
+		
 		java.util.Date dateUtil = new java.util.Date();
 		Date date = new Date(dateUtil.getTime());
 		System.out.println(date);
 		Timestamp timestamp = new Timestamp(dateUtil.getTime());
 		System.out.println(timestamp);
+		
 	}
 	
 }

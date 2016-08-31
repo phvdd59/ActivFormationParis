@@ -53,7 +53,24 @@ public class MainDAO {
 		personne.setVisiteMedicale(conv.conversionDate(StringDateCreation));
 		personne.setVoiture(false);
 		
-		dao.create(personne);
+		String sql = "INSERT INTO listpersonne.personne"//
+				+ "(LP_NOM, LP_PRENOM, LP_SEXE, LP_IDENTIFIANT, LP_MDP, LP_EMAIL, LP_ADRESSE, LP_CP, LP_VILLE, LP_TELFIXE, "
+				+ "LP_TELPORT, LP_FAX, LP_DATENAISSANCE, LP_LIEUNAISSANCE, LP_NUMSECU, LP_NATIONALITE, "
+				+ "LP_SITUATION, LP_FONCTION, LP_CADRE, LP_COEFF, LP_SALAIRE, LP_VISITEMEDICALE, "
+				+ "LP_MONTANTTRANSPORT, LP_VOITURE, LP_NBCV, LP_NBKM, LP_MUTUELLE, LP_TICKETRESTO, LP_ADMIN, "
+				+ "LP_DATECREATION, LP_DATEMODIFICATION, LP_BLOQUE, LP_RAISONBLOCAGE)" + "VALUES('" + personne.getNom() + "','"
+				+ personne.getPrenom() + "','" + personne.getSexe().name() + "','" + personne.getIdentifiant() + "'," + "'" + personne.getMdp()
+				+ "','" + personne.getEmail() + "','" + personne.getAdresse() + "'," + "'" + personne.getCp() + "','" + personne.getVille()
+				+ "','" + personne.getTelFixe() + "'," + "'" + personne.getTelPort() + "','" + personne.getFax() + "','"
+				+ personne.getDateNaissance() + "'," + "'" + personne.getLieuNaissance() + "','" + personne.getNumSecu() + "','"
+				+ personne.getNationalite() + "'," + "'" + personne.getSituation() + "','" + personne.getFonction() + "','" + personne.isCadre()
+				+ "'," + "'" + personne.getCoeff() + "','" + personne.getSalaire() + "','" + personne.getVisiteMedicale() + "'," + "'"
+				+ personne.getMontantTransport() + "','" + personne.isVoiture() + "','" + personne.getNbCV() + "'," + "'" + personne.getNbKm()
+				+ "','" + personne.isMutuelle() + "','" + personne.isTicketResto() + "'," + "'" + personne.isAdmin() + "','"
+				+ personne.getDateCreation() + "','" + personne.getDateModification() + "'," + "'" + personne.isBloque() + "','"
+				+ personne.getRaisonBlocage() + "')";
+		
+		System.out.println(sql);
 
 
 	}
