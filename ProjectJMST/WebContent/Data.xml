@@ -9,7 +9,7 @@
     <Personne prenom="Marc" login="made" password="password" admin="true" mail="marc.denis@mail.fr" nationalite="francaise" adresse="adresse de Marc">
         Denis
     </Personne>
-    <Personne prenom="Johann" login="joca" password="password" admin="true" mail="johann.cassagne@mail.fr" nationalite="francaise" adresse="adresse de Johann">
+    <Personne prenom="Johann" login="joca" password="password" admin="true" mail="johann.cassagne@mail.fr" nationalite="francaise" adresse="adresse de Johann" situation="Plop">
         Cassagne
     </Personne>
     <Personne prenom="prenomTest" login="test" password="password" admin="false" mail="test@test.test" nationalite="natioTest" adresse="adresse de Test">

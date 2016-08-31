@@ -117,15 +117,14 @@ function ctrSituationPro() {
 				</tr>
 				
 				<tr>
-					<td>Salarié</td>
-					<td style="width: 273px; height: 25px;">
+					<td style="width: 272px; height: 25px;">Salarié</td>
+					
 					<% if (situation.equals("Salarie")){ %>
 					<input type="radio" name="situation" value="Salarie" checked="checked"></td>
 					<%}else{ %>
 					<td><input type="radio" name="situation" value="Salarie"></td>
 					<%} %>
-					<td style="width: 72px;">Auto-Entrepreneur</td>
-					<td style="width: 112px; height: 25px;">
+					<td style="width: 272px; height: 25px;">Auto-Entrepreneur</td>
 					<% if (situation.equals("auto entrepreneur")){ %>
 					<td><input type="radio" name="situation" value="auto entrepreneur" checked="checked"></td>
 					<%}else{ %>
@@ -134,15 +133,13 @@ function ctrSituationPro() {
 				</tr>
 				
 				<tr>
-					<td>Freelance</td>
-					<td style="width: 273px; height: 25px;">
+					<td style="width: 272px; height: 25px;">Freelance</td>
 					<% if (situation.equals("freelance")){ %>
 					<input type="radio" name="situation" value="freelance" checked="checked"></td>
 					<%}else{ %>
 					<td><input type="radio" name="situation" value="freelance"></td>
 					<%} %>
-					<td style="width: 72px;">Demandeur d'emploi</td>
-					<td style="width: 112px; height: 25px;">
+					<td style="width: 272px; height: 25px;">Demandeur d'emploi</td>
 					<% if (situation.equals("demandeur d'emploi")){ %>
 					<td><input type="radio" name="situation" value="demandeur d'emploi" checked="checked"></td>
 					<%}else{ %>
@@ -151,17 +148,15 @@ function ctrSituationPro() {
 				</tr>
 				
 				<tr>
-					<td>Retraité</td>
-					<td style="width: 273px; height: 25px;">
+					<td style="width: 272px; height: 25px;">Retraité</td>
 					<% if (situation.equals("retraite")){ %>
 					<input type="radio" name="situation" value="retraite" checked="checked"></td>
 					<%}else{ %>
 					<td><input type="radio" name="situation" value="retraite"></td>
 					<%} %>
-					<td style="width: 72px;">Autre</td>
-					<td style="width: 112px; height: 25px;">
+					<td style="width: 272px; height: 25px;">Autre</td>
 					<% if (personne.getEnumSituation().getNom().equals("")){ %>
-					<td><input type="radio" name="situation" value="" checked="checked"></td>
+					<td><input type="radio" name="situationRadio" value="" checked="checked"></td>
 					<td><input type="text" name="situation" value="<%=situation%>"></td>
 					<%}else{ %>
 					<td><input type="radio" name="situation" value=""></td>

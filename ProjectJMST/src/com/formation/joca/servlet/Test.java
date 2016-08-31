@@ -79,6 +79,7 @@ public class Test extends HttpServlet {
 						String prenom = ePersonne.getAttribute("prenom");
 						String nationalite = ePersonne.getAttribute("nationalite");
 						String adresse = ePersonne.getAttribute("adresse");
+						String situation = ePersonne.getAttribute("situation");
 						boolean admin = false;
 						if (adminString.equals("true")) {
 							admin = true;
@@ -92,6 +93,7 @@ public class Test extends HttpServlet {
 						personne.setPrenom(prenom);
 						personne.setNationalite(nationalite);
 						personne.setAdresse(adresse);
+						personne.setSituation(situation);
 						synchronized (listPersonne) {
 							listPersonne.add(personne);
 						}
