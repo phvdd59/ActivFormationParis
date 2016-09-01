@@ -67,11 +67,11 @@ public class Servletlisteutilisateurs extends HttpServlet {
 				user = new Personne(nomA, prenomA);
 				user.setBloque(false);
 				
-				if (lstUser.size() == 0) {
-					lstUser.add(user);
+				if (lstUser.size() == 0) { // quand bdd fonctionne plus de liste nulle ->adnim a ajoute direct dans bdd
+					lstUser.add(user);	// a supprimer
 				} else {
 					for (int i = 0; i < lstUser.size(); i++) {
-						if (lstUser.get(i).equals(user)) {
+						if (lstUser.get(i).getPrenom().contains(prenomA) && lstUser.get(i).getNom().contains(nomA)) {
 							existe = true;
 							break;
 						} else {
@@ -98,7 +98,7 @@ public class Servletlisteutilisateurs extends HttpServlet {
 						}
 					} else if (line.contains("%%existe%%")) {
 						if (existe == true) {
-							line = line.replace("%%existe%%", "onload='alert(\"personne déjà existante\")'");
+							line = line.replace("%%existe%%", "onload='alert(\"Personne déjà existante\")'");
 							existe = false;
 						} else {
 							line = line.replace("%%existe%%", "");
@@ -119,7 +119,7 @@ public class Servletlisteutilisateurs extends HttpServlet {
 
 				while (line != null) {
 					if (line.contains("%%value%%")) {
-						if (lstUser.size() == 0) {
+						if (lstUser.size() == 0) { // a supprimer quand bdd fonctionne
 
 						} else {
 							for (int i = 0; i < lstUser.size(); i++) {
@@ -139,9 +139,9 @@ public class Servletlisteutilisateurs extends HttpServlet {
 
 			}
 		} else if (boutonSupp != null) {
-			// case nom+ prenom + string raison blocage + boolean bloque
+			
 			//le mettre en rouge dans la liste
-			// ajouter commentaire suppression dans la liste des utilisateurs
+		
 			if (oNomB != null && oPrenomB != null) {
 				String nomB = (String) oNomB;
 				String prenomB = (String) oPrenomB;
@@ -152,6 +152,8 @@ public class Servletlisteutilisateurs extends HttpServlet {
 						lstUser.get(i).setBloque(true);
 						lstUser.get(i).setRaisonBlocage(commentaire);
 						break;
+					} else {
+						existe=true;
 					}
 				}
 
@@ -163,19 +165,26 @@ public class Servletlisteutilisateurs extends HttpServlet {
 
 					if (line.contains("%%value%%")) {
 						for (int i = 0; i < lstUser.size(); i++) {
-							String ligne = "<option value='%%value%%'></option>";
+							String ligne = "";
 							if (lstUser.get(i).getPrenom().contains(prenomB) && lstUser.get(i).getNom().contains(nomB)) {
+								ligne = "<option style=\"color:red;\" value='%%value%%'></option>";
 								ligne = ligne.replace("%%value%%", lstUser.get(i).getNom() + lstUser.get(i).getPrenom());
 								ligne = ligne.replace("></", ">" + lstUser.get(i).getNom() + " " + lstUser.get(i).getPrenom() + " " + "  -  Identifiant : " + lstUser.get(i).getIdentifiant() + " / Mot de passe : " + lstUser.get(i).getMdp() + " / BLOQUE :" + lstUser.get(i).getRaisonBlocage() + "</");
 								response.getWriter().println(ligne);
 							} else {
+								ligne = "<option value='%%value%%'></option>";
 								ligne = ligne.replace("%%value%%", lstUser.get(i).getNom() + lstUser.get(i).getPrenom());
 								ligne = ligne.replace("></", ">" + lstUser.get(i).getNom() + " " + lstUser.get(i).getPrenom() + "  -  Identifiant : " + lstUser.get(i).getIdentifiant() + " / Mot de passe : " + lstUser.get(i).getMdp() + "</");
 								response.getWriter().println(ligne);
 							}
 						}
 					} else if (line.contains("%%existe%%")) {
-						line = line.replace("%%existe%%", "");
+						if (existe == true) {
+							line = line.replace("%%existe%%", "onload='alert(\"Personne non trouvée - Nom et/ou prénom inconnus\")'");
+							existe = false;
+						} else {
+							line = line.replace("%%existe%%", "");
+						}
 					}
 
 					response.getWriter().println(line);
