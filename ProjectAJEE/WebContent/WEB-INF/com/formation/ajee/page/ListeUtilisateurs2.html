@@ -31,21 +31,41 @@
 	
 		<table align = "center" > 
 			
-			<tr><td colspan="2" ><h2 align = "center">Ajouter un nouvel utilisateur</h2></td></tr>
+			<tr>
+			<td colspan="2" ><h2 align = "center">Ajouter un nouvel utilisateur</h2></td>
+			</tr>
 						
 
 			<tr >
-				<td style="width: 93px; ">Nom :  </td><td style="width: 268px; "><input type="text" name="nom" style="width: 237px; "/></td>
-			</tr>
+				<td style="width: 93px; ">Nom :  </td><td style="width: 268px; "><input type="text" name="nomA" style="width: 237px; "/></td>
+				</tr>
 			<tr>
-				<td>Pr&eacute;nom : </td><td> <input type="text" name="prenom" style="width: 238px; "/></td>
-			</tr>
+				<td>Pr&eacute;nom : </td><td> <input type="text" name="prenomA" style="width: 238px; "/></td>
+					</tr>
 			
 			<tr>
 				<td colspan="2" align="center" style="width: 337px; "><input type = "submit" value = "Ajouter" name="ajouter"  style="width: 227px; "/></td>
 			</tr>
-		
-		<tr><td height="50"></td></tr>
+			</table>
+			
+			<table align = "center" style="width: 718px; "> 
+			<tr>
+				<td colspan="4" style="width: 708px; "><h2 align = "center">Bloquer un utilisateur</h2></td>
+			</tr>
+			
+			<tr>
+			<td style="width: 72px; ">Nom :  </td><td style="width: 249px; "><input type="text" name="nomB" style="width: 237px; "/></td>
+			<td style="width: 68px; ">Pr&eacute;nom : </td><td style="width: 223px; "> <input type="text" name="prenomB" style="width: 238px; "/></td>
+			</tr>
+			
+			<tr>
+			<td  style="width: 93px; " colspan="4" >Raisons du blocage :  <input type="text" name="commentaire" style="width: 506px; "/></td>
+			</tr>
+			
+			<tr>
+			<td colspan="4" align="center" style="width: 337px; "><input type="submit" value = "Supprimer" name="supprimer" style="width: 227px; "/></td>
+			</tr>
+	
 		
 		</table>
 		
@@ -58,10 +78,7 @@
 			<option value="%%value%%" ></option>
 		
 			</select>
-		</td>
-		
-				<td ><input type="submit" value = "Supprimer" name="supprimer" /></td>
-		
+		</td>		
 			</tr>
 				
 		</table>

@@ -50,18 +50,21 @@ public class Servletlisteutilisateurs extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
-		Object oNom = request.getParameter("nom");
-		Object oPrenom = request.getParameter("prenom");
+		Object oNomA = request.getParameter("nomA");
+		Object oPrenomA = request.getParameter("prenomA");
+		Object oNomB = request.getParameter("nomB");
+		Object oPrenomB = request.getParameter("prenomB");
+		Object oCommentaire = request.getParameter("commentaire");
 		Object boutonAjouter = request.getParameter("ajouter");
 		Object boutonSupp = request.getParameter("supprimer");
 		boolean existe = false;
 
 		if (boutonAjouter != null) {
-			if (oNom != null && oPrenom != null) {
-				String nom = (String) oNom;
-				String prenom = (String) oPrenom;
+			if (oNomA != null && oPrenomA != null) {
+				String nomA = (String) oNomA;
+				String prenomA = (String) oPrenomA;
 
-				user = new Personne(nom, prenom);
+				user = new Personne(nomA, prenomA);
 				if (lstUser.size() == 0) {
 					lstUser.add(user);
 				} else {
@@ -137,10 +140,78 @@ public class Servletlisteutilisateurs extends HttpServlet {
 			// case nom+ prenom + string raison blocage + boolean bloque
 			//le mettre en rouge dans la liste
 			// ajouter commentaire suppression dans la liste des utilisateurs
+			if (oNomB != null && oPrenomB != null) {
+				String nomB = (String) oNomB;
+				String prenomB = (String) oPrenomB;
+				String commentaire = (String) oCommentaire;
+				
+				for (int i = 0; i < lstUser.size(); i++) {
+					if (lstUser.get(i).getPrenom().contains(prenomB) && lstUser.get(i).getNom().contains(nomB)) {
+						lstUser.get(i).setBloque(true);
+						lstUser.get(i).setRaisonBlocage(commentaire);
+						break;
+					} 
+				}
+				
+				File file = new File("../GITActivFormationParis/ProjectAJEE/WebContent/WEB-INF/com/formation/ajee/page/ListeUtilisateurs2.html");
+				BufferedReader bIn = new BufferedReader(new FileReader(file));
+				String line = bIn.readLine();
+
+//				while (line != null) {
+//
+//					if (line.contains("%%value%%")) {
+//						for (int i = 0; i < lstUser.size(); i++) {
+//							String ligne = "<option value='%%value%%'></option>";
+//							ligne = ligne.replace("%%value%%", lstUser.get(i).getNom() + lstUser.get(i).getPrenom());
+//							ligne = ligne.replace("></", ">" + lstUser.get(i).getNom() + " " + lstUser.get(i).getPrenom() + "  -  Identifiant : " + lstUser.get(i).getIdentifiant() + " / Mot de passe : " + lstUser.get(i).getMdp() + "</");
+//							response.getWriter().println(ligne);
+//
+//						}
+//					} else if (line.contains("%%existe%%")) {
+//						if (existe == true) {
+//							line = line.replace("%%existe%%", "onload='alert(\"personne déjà existante\")'");
+//							existe = false;
+//						} else {
+//							line = line.replace("%%existe%%", "");
+//						}
+//					}
+//
+//					response.getWriter().println(line);
+//					line = bIn.readLine();
+//
+//				}
+//
+//				bIn.close();
+
+			} else {
+				File file = new File("../GITActivFormationParis/ProjectAJEE/WebContent/WEB-INF/com/formation/ajee/page/ListeUtilisateurs2.html");
+				BufferedReader bIn = new BufferedReader(new FileReader(file));
+				String line = bIn.readLine();
+
+				while (line != null) {
+					if (line.contains("%%value%%")) {
+						if (lstUser.size() == 0) {
+
+						} else {
+							for (int i = 0; i < lstUser.size(); i++) {
+								String ligne = "<option value='%%value%%'></option>";
+								ligne = ligne.replace("%%value%%", lstUser.get(i).getNom() + lstUser.get(i).getPrenom());
+								ligne = ligne.replace("></", ">" + lstUser.get(i).getNom() + " " + lstUser.get(i).getPrenom() + "  -  Identifiant : " + lstUser.get(i).getIdentifiant() + " / Mot de passe : " + lstUser.get(i).getMdp() + "</");
+								response.getWriter().println(ligne);
+
+							}
+						}
+					}
+					response.getWriter().println(line);
+					line = bIn.readLine();
+
+				}
+				bIn.close();
+
+			}
+
 		}
 
 	}
 
 }
-
-
