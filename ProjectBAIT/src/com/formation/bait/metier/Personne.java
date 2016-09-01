@@ -41,6 +41,10 @@ public class Personne {
 	private String raisonBlocage=new String();
 	private ListeDoc listeDoc;
 
+	public Personne(){
+		
+	}
+	
 	public Personne(String identifiant, String mdp) {
 		this.idPersonne = 0;
 		this.identifiant = identifiant;
@@ -353,6 +357,11 @@ public class Personne {
 
 	public void setListeDoc(ListeDoc listeDoc) {
 		listeDoc = listeDoc;
+	}
+
+	@Override
+	public String toString() {
+		return "Personne [idPersonne=" + idPersonne + ", nom=" + nom + ", prenom=" + prenom + "]";
 	}
 
 	

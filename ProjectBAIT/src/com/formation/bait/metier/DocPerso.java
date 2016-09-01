@@ -12,6 +12,10 @@ public class DocPerso {
 	private String time = new String();
 	private String commentaire;
 	
+	public DocPerso(){
+		super();
+	}
+	
 	
 	public DocPerso(int iDPersonne, int iDDocument) {
 		super();

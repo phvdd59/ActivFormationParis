@@ -5,24 +5,20 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Date;
 
-import javax.crypto.AEADBadTagException;
+import com.formation.bait.metier.DocPerso;
+import com.formation.bait.metier.ListeDoc;
+import com.formation.bait.metier.Personne;
 
-import com.formation.beba.metier.DocPerso;
-import com.formation.beba.metier.ListeDoc;
-import com.formation.beba.metier.Personne;
-
-public class AccesBDD {
+public class AccesBDDPersonne {
 	public final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 	public final String DB_URL = "jdbc:mysql://localhost/";
 
 	public String user = "root";
 	public String pass = "";
 
-	private int savePersonne(Personne personne) {
+	public int savePersonne(Personne personne) {
 		Connection conn = null;
 		Statement stat = null;
 		int result = 0;
@@ -32,49 +28,86 @@ public class AccesBDD {
 			conn = DriverManager.getConnection(url, user, pass);
 			stat = conn.createStatement();
 
-			String sql = "UPDATE listeUser set identifiant='"+personne.getIdentifiant()+"', mdp='"+personne.getMdp()+ //
-					"',       WHERE identifiant='" + Identifiant//
-					+ "';";
-
+			String sql = "UPDATE listeUser set identifiant='" + personne.getIdentifiant() + "', mdp='"
+					+ personne.getMdp() + //
+					"', email='" + personne.getEmail() + "', nom='" + personne.getNom() + "', prenom='"
+					+ personne.getPrenom() + //
+					"', adresse='" + personne.getAdresse() + "', cp='" + personne.getcP() + "', ville='"
+					+ personne.getVille() + //
+					"', telFixe='" + personne.getTelFixe() + "', telPort='" + personne.getTelPort() + "', fax='"
+					+ personne.getFax() + //
+					"', dateNaissance='" + personne.getDateNaissance() + "', lieuNaissance='"
+					+ personne.getLieuNaissance() + //
+					"', numSecu='" + personne.getNumSecu() + "', situation='" + personne.getSituation()
+					+ "', fonction='" + //
+					personne.getFonction() + "', positionEntreprise='" + personne.getPosition() + "', cadre='"
+					+ booleanConverter(personne.isCadre()) + //
+					"', coeff='" + personne.getCoeff() + "', salaire='" + personne.getSalaire() + "', visiteMedicale='"
+					+ //
+					personne.getVisiteMedicale() + "', montantTransport='" + personne.getMontantTransport()
+					+ "', voiture='" + //
+					booleanConverter(personne.isVoiture()) + "', nbCV='" + personne.getNbCV() + "', nbKm='" + personne.getNdKm()
+					+ "', mutuelle='" + //
+					booleanConverter(personne.isMutuelle()) + "', ticketResto='" + booleanConverter(personne.isTicket()) + "', admin='" + booleanConverter(personne.isAdmin())
+					+ //
+					"', dateCreation='" + personne.getDateCreation() + "', dateModification='"
+					+ personne.getDateModification() + //
+					"', bloque='" + booleanConverter(personne.isBloque()) + "', raisonBlocage='" + personne.getRaisonBlocage()
+					+ "' WHERE IDPersonne=" + personne.getIdPersonne() + ";";
+			stat.executeUpdate(sql);
+			result = 1;
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
 		return result;
 	}
 
-	private int createNewPersonne(String identifiant, String mdp){
-		int result 0;
+	public int createNewPersonne(String identifiant, String mdp, String email, String nom, String prenom) {
+		int result = 0;
 		Personne personne = new Personne(identifiant, mdp);
+		personne.setNom(nom);
+		personne.setPrenom(prenom);
+		personne.setEmail(email);
 		Connection conn = null;
 		Statement stat = null;
 		try {
 			Class.forName(JDBC_DRIVER);
-			String url = DB_URL;
+			String url = DB_URL + "listeUserActiv";
 			conn = DriverManager.getConnection(url, user, pass);
 			stat = conn.createStatement();
-			
-			String sql = "insert into listeUser (identifiant,mdp,email,nom,prenom,adresse,cp,ville,"+//
-			"telFixe,telPort,fax,dateNaissance,lieuNaissance,numSecu,situation,fonction,positionEntreprise,"+//
-			"cadre,coeff,salaire,visiteMedicale,montantTransport,voiture,nbCV,nbKm,mutuelle,ticketResto,admin,"+//
-			"dateCreation,dateModification,bloque,raisonBlocage) values ('"+ personne.getIdentifiant()+"','"+//
-			personne.getMdp()+"','"+personne.getEmail()+"','"+personne.getNom()+"','"+personne.getPrenom()+"','"+//
-			personne.getAdresse()+"','"+personne.getcP()+"','"+personne.getVille()+"','"+personne.getTelFixe()+"','"+//
-			personne.getTelPort()+"','"+personne.getFax()+"','"+personne.getDateNaissance()+"','"+//
-			personne.getLieuNaissance()+"','"+personne.getNumSecu()+"','"+personne.getSituation()+"','"+//
-			personne.getFonction()+"','"+personne.getPosition()+"','"+personne.isCadre()+"','"+personne.getCoeff()+"','"+//
-			personne.getSalaire()+"','"+personne.getVisiteMedicale()+"','"+personne.getMontantTransport()+"','"+//
-			personne.isVoiture()+"','"+personne.getNbCV()+"','"+personne.getNdKm()+"','"+personne.isMutuelle()+"','"+//
-			personne.isTicket()+"','"+personne.isAdmin()+"','"+personne.getDateCreation()+"','"+personne.getDateModification()+"','"+//
-			personne.isBloque()+"','"+personne.getRaisonBlocage()+"');";
-			
+
+			String sql = "insert into listeUser (identifiant,mdp,email,nom,prenom,adresse,cp,ville," + //
+					"telFixe,telPort,fax,dateNaissance,lieuNaissance,numSecu,situation,fonction,positionEntreprise," + //
+					"cadre,coeff,salaire,visiteMedicale,montantTransport,voiture,nbCV,nbKm,mutuelle,ticketResto,admin,"
+					+ //
+					"dateCreation,dateModification,bloque,raisonBlocage) values ('" + personne.getIdentifiant() + "','"
+					+ //
+					personne.getMdp() + "','" + personne.getEmail() + "','" + personne.getNom() + "','"
+					+ personne.getPrenom() + "','" + //
+					personne.getAdresse() + "','" + personne.getcP() + "','" + personne.getVille() + "','"
+					+ personne.getTelFixe() + "','" + //
+					personne.getTelPort() + "','" + personne.getFax() + "','" + personne.getDateNaissance() + "','" + //
+					personne.getLieuNaissance() + "','" + personne.getNumSecu() + "','" + personne.getSituation()
+					+ "','" + //
+					personne.getFonction() + "','" + personne.getPosition() + "','"
+					+ booleanConverter(personne.isCadre()) + "','" + personne.getCoeff() + "','" + //
+					personne.getSalaire() + "','" + personne.getVisiteMedicale() + "','"
+					+ personne.getMontantTransport() + "','" + //
+					booleanConverter(personne.isVoiture()) + "','" + personne.getNbCV() + "','" + personne.getNdKm()
+					+ "','" + booleanConverter(personne.isMutuelle()) + "','" + //
+					booleanConverter(personne.isTicket()) + "','" + booleanConverter(personne.isAdmin()) + "','"
+					+ personne.getDateCreation() + "','" + personne.getDateModification() + "','" + //
+					booleanConverter(personne.isBloque()) + "','" + personne.getRaisonBlocage() + "');";
+
 			stat.executeUpdate(sql);
+			result = 1;
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
 		return result;
 	}
 
-	private String[] findPersonne(String Identifiant) {
+	public String[] findPersonne(String Identifiant) {
 		Connection conn = null;
 		Statement stat = null;
 		String[] parameters = new String[2];
@@ -100,17 +133,17 @@ public class AccesBDD {
 		return parameters;
 	}
 
-	private ArrayList<String> findAllUserId() {
+	public ArrayList<String> findAllUserId() {
 		ArrayList<String> listUser = new ArrayList<String>();
 		Connection conn = null;
 		Statement stat = null;
 		try {
 			Class.forName(JDBC_DRIVER);
-			String url = DB_URL;
+			String url = DB_URL + "listeUserActiv";
 			conn = DriverManager.getConnection(url, user, pass);
 			stat = conn.createStatement();
 
-			String sql = "SELECT IDPersonne FROM listeUser ;";
+			String sql = "SELECT IDPersonne FROM listeUser;";
 
 			ResultSet resultat = stat.executeQuery(sql);
 			while (resultat.next()) {
@@ -123,13 +156,13 @@ public class AccesBDD {
 		return listUser;
 	}
 
-	private Personne getPersonne(String Id) {
+	public Personne getPersonne(String Id) {
 		Personne personne = null;
 		Connection conn = null;
 		Statement stat = null;
 		try {
 			Class.forName(JDBC_DRIVER);
-			String url = DB_URL;
+			String url = DB_URL+ "listeUserActiv";
 			conn = DriverManager.getConnection(url, user, pass);
 			stat = conn.createStatement();
 
@@ -176,7 +209,7 @@ public class AccesBDD {
 			personne.setBloque(resultat.getBoolean("bloque"));
 			personne.setRaisonBlocage(resultat.getString("raisonBlocage"));
 
-			String sql2 = "SELECT * FROM listeDocs WHERE IDPERSONNE ='" + Id + "';";
+			String sql2 = "SELECT * FROM listDocuments WHERE IDPERSONNE ='" + Id + "';";
 			ListeDoc lstDoc = personne.getListeDoc();
 			ResultSet resultat2 = stat.executeQuery(sql2);
 			while (resultat2.next()) {
@@ -198,7 +231,7 @@ public class AccesBDD {
 		return personne;
 	}
 
-	private void creTables() {
+	public void creTables() {
 		Connection conn = null;
 		Statement stat = null;
 		try {
@@ -207,11 +240,14 @@ public class AccesBDD {
 
 			conn = DriverManager.getConnection(url, user, pass);
 			stat = conn.createStatement();
-
-			String sql0 = "CREATE DATABASE listUserActiv";
+			String sql1 = "DROP DATABASE listeUserActiv;";
+			String sql0 = "CREATE DATABASE listeUserActiv;";
+			stat.executeUpdate(sql1);
 			stat.executeUpdate(sql0);
-			url += "listUserActiv";
-			String sql = "CREATE TABLE listUser (" + //
+			url += "listeUserActiv";
+			conn = DriverManager.getConnection(url, user, pass);
+			stat = conn.createStatement();
+			String sql = "CREATE TABLE listeUser (" + //
 					"IDPersonne INTEGER(11) NOT NULL PRIMARY KEY AUTO_INCREMENT," + //
 					"identifiant VARCHAR(255) NOT NULL UNIQUE, " + //
 					"mdp VARCHAR(255) NOT NULL, " + //
@@ -227,7 +263,6 @@ public class AccesBDD {
 					"dateNaissance VARCHAR(255), " + //
 					"lieuNaissance VARCHAR(255), " + //
 					"numSecu VARCHAR(255), " + //
-					"lieuNaissance VARCHAR(255), " + //
 					"situation VARCHAR(255), " + //
 					"fonction VARCHAR(255), " + //
 					"positionEntreprise VARCHAR(255), " + //
@@ -245,23 +280,41 @@ public class AccesBDD {
 					"dateCreation VARCHAR(255), " + //
 					"dateModification VARCHAR(255), " + //
 					"bloque BOOLEAN, " + //
-					"raisonBlocage VARCHAR(1000);";
-
+					"raisonBlocage VARCHAR(1000));";
+			System.out.println(sql);
 			stat.executeUpdate(sql);
 
 			String sql2 = "CREATE TABLE listDocuments (" + //
-					"IDDoument INTEGER(11) NOT NULL PRIMARY KEY AUTO_INCREMENT," + //
+					"IDDocument INTEGER(11) NOT NULL PRIMARY KEY AUTO_INCREMENT," + //
 					"IDPersonne INTEGER(11) NOT NULL," + //
 					"nomDocUtil VARCHAR(255)," + //
 					"type VARCHAR(50)," + //
 					"nomDocFile VARCHAR(500)," + //
 					"dateCreationDoc VARCHAR(255)," + //
 					"commentaire VARCHAR(255)," + //
-					"document BLOB ;";
+					"document BLOB);";
 			stat.executeUpdate(sql2);
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
+	}
+
+	private int booleanConverter(boolean bool) {
+		int res = 0;
+
+		if (bool == true) {
+			res = 1;
+		}
+		return res;
+	}
+
+	private boolean integerConverter(int i) {
+		boolean res = false;
+
+		if (i == 1) {
+			res = true;
+		}
+		return res;
 	}
 
 }
