@@ -19,13 +19,13 @@ import com.formation.ajee.metier.Personne;
  */
 @WebServlet(description = "Servlet Creation Formulaire Rempli", urlPatterns = { "/ServletCreaForRempli" })
 // Cette servlet part "FormulaireARemplir" (le formulaire vide) qui a été rempli par l'user.
-public class ServletCreaForRempli2 extends HttpServlet {
+public class ServletFormulaireB extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ServletCreaForRempli2() {
+    public ServletFormulaireB() {
         super();
         // TODO Auto-generated constructor stub
     }
