@@ -16,6 +16,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.formation.bait.metier.Personne;
+
 /**
  * Servlet implementation class Servlet1
  */
@@ -148,6 +150,10 @@ public class ServletPageLogin3 extends HttpServlet {
 		String sNbAppelClient = request.getParameter("nbAppelClient");
 		Object oNoSuivi = session.getAttribute("suivi");
 		if (oNoSuivi != null) {
+			String IdPersonne = request.getParameter("nom");
+			String MdpPersonne = request.getParameter("password");
+			Personne personne = new Personne(IdPersonne, MdpPersonne);
+			session.setAttribute("personne", personne);
 			session.setAttribute("servlet", "Compte");
 			session.setAttribute("methode", "POST");
 			ServletContext context = this.getServletContext();
