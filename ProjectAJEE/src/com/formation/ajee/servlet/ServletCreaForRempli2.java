@@ -18,14 +18,14 @@ import com.formation.ajee.metier.Personne;
  * Servlet implementation class ServletFormulaire
  */
 @WebServlet(description = "Servlet Creation Formulaire Rempli", urlPatterns = { "/ServletCreaForRempli" })
-// Cette servlet prend "FormulaireARemplir" (le formulaire vide) qui a été rempli par l'user, et génère "FormulaireRempli", soit le même formulaire avec les champs remplis en read-only.
-public class ServletCreaForRempli extends HttpServlet {
+// Cette servlet part "FormulaireARemplir" (le formulaire vide) qui a été rempli par l'user.
+public class ServletCreaForRempli2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ServletCreaForRempli() {
+    public ServletCreaForRempli2() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -65,7 +65,6 @@ public class ServletCreaForRempli extends HttpServlet {
 		 */
 		
 		File fileJS = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/js/JSFormulaireARemplir.html");
-		// faudra mettre une fonction "bouton modifier" qui enverra vers la servlet "ServletCreaForPreRempli.java" 
 		BufferedReader bufReadJS = null;
 		bufReadJS= new BufferedReader(new FileReader(fileJS));
 		String lineJS= bufReadJS.readLine();
@@ -74,9 +73,7 @@ public class ServletCreaForRempli extends HttpServlet {
 			lineJS=bufReadJS.readLine();
 		}
 		bufReadJS.close();
-		
-		// appeller le calendrier ici?
-		
+				
 		/** Lecture page ActivConsulting */
 		
 		File fileActiv = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/MenuActiv.html");
@@ -125,7 +122,7 @@ public class ServletCreaForRempli extends HttpServlet {
 				personne.setPrenom(pAdresse);
 			}
 			// insert enum SEXE
-			// no insert string identifiant
+			
 			if (lineDoc1.contains("id='cp'")) {
 				String pCp=request.getParameter("cp");
 				personne.setPrenom(pCp);
@@ -166,6 +163,12 @@ public class ServletCreaForRempli extends HttpServlet {
 				String pNationalite=request.getParameter("nationalite");
 				personne.setPrenom(pNationalite);
 			}
+			if (lineDoc1.contains("id='situation'")) {
+				String pSituation=request.getParameter("situation");
+				personne.setPrenom(pSituation);
+				String a = personne.getPrenom();
+				System.out.println(a);
+			}
 			if (lineDoc1.contains("id='fonction'")) {
 				String pFonction=request.getParameter("fonction");
 				personne.setPrenom(pFonction);
@@ -203,15 +206,21 @@ public class ServletCreaForRempli extends HttpServlet {
 				personne.setPrenom(pNbKm);
 			}
 			
-			
+			// print : formulaire bien enregistré
+			// retour page accueil en bas de page (bouton)
 			
 			String pSituation=request.getParameter(""); // cf. ForCalLisDer.html de Jérémy // edit : on a fait un enum
 			//String pPrenom=request.getParameter("prenom");
 			//String pPrenom=request.getParameter("prenom");
 			//
-			response.getWriter().println(lineDoc1);
+			
+			//response.getWriter().println(lineDoc1);
+			
 			lineDoc1 = bufReadDoc1.readLine();
 		}
+		response.getWriter().println("Formulaire enregistre");
+		String html = "<html><form action='http://127.0.0.1:8080/ProjectAJEE/src/com/formation/ajee/servlet/Servletidentification.java'><input type='submit' value='Accueil'></form></html>";
+		response.getWriter().println(html);
 		bufReadDoc1.close();
 		
 		/** Lecture bas de page */
