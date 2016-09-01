@@ -36,20 +36,21 @@ public class Servletidentification extends HttpServlet {
 	 *      response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.logout();
-		ListPersonne lstPersonne = new ListPersonne();
-		Personne personne = new Personne();
+		
+//		ListPersonne lstPersonne = new ListPersonne();
+//		Personne personne = new Personne();
 
 		File file = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/WEB-INF/com/formation/ajee/page/Identification.html");
 		// System.out.println(file.getCanonicalPath());
-		int noSerie = (int) Math.random() * Integer.MAX_VALUE;
+		
 		HttpSession session = request.getSession(true); // true pour garder le
 														// meme numero de
 														// session qui vient
 														// detre créé
-		session.setAttribute("lstpersonne", lstPersonne);
+//		session.setAttribute("lstpersonne", lstPersonne);
 		System.out.println(session.getId());
 		// donne le numero de session
+		int noSerie = (int) Math.random() * Integer.MAX_VALUE;
 		session.setAttribute("noSerie", Integer.valueOf(noSerie));
 
 		BufferedReader bIn = new BufferedReader(new FileReader(file));
@@ -68,6 +69,8 @@ public class Servletidentification extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse resp) throws ServletException, IOException {
 		// request.logout();
 		HttpSession session = request.getSession();
+	
+		
 
 		// String sS=request.getParameter("JSESSIONID");
 		System.out.println(session.getId());
