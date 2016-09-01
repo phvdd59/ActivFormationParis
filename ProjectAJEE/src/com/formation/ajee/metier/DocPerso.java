@@ -12,9 +12,8 @@ public class DocPerso {
 	public DocPerso() {
 	}
 	
-	public DocPerso(int idDoc, String nomDocUtil, String type, String nomDocFile, long time, String commentaire) {
+	public DocPerso(String nomDocUtil, String type, String nomDocFile, long time, String commentaire) {
 		super();
-		this.idDoc = idDoc;
 		this.nomDocUtil = nomDocUtil;
 		this.type = type;
 		this.nomDocFile = nomDocFile;

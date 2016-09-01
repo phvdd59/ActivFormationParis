@@ -17,6 +17,7 @@ import javax.servlet.http.HttpSession;
 import com.formation.ajee.metier.DocPerso;
 import com.formation.ajee.metier.ListPersonne;
 import com.formation.ajee.metier.ListeDoc;
+import com.formation.ajee.metier.Personne;
 
 /**
  * Servlet implementation class ServletDocuments
@@ -53,11 +54,8 @@ public class Servletmesdocuments extends HttpServlet {
 			String pseudo = (String)oPseudo;
 			if (pseudo.equals("Admin")) {
 				if (utilisateur == null) {
-					// Faux question à poser
 					response.getWriter().println("<alert('Veuillez selectionner une personne dans accueil')>");
-
 				} else {
-
 					/** Lecture Haut de page HTML */
 					File fileHaut = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/HautPage.html");
 					BufferedReader bufReadHaut = null;
@@ -80,10 +78,7 @@ public class Servletmesdocuments extends HttpServlet {
 					}
 					bufReadActiv.close();
 
-					/**
-					 * Seule Partie qui va vraiment changer selon les pages
-					 * (penser aux controles si necessaire)
-					 */
+					/** lecture du bandeau */
 					File fileDoc = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/BandeauAdmin.html");
 					BufferedReader bufReadDoc = null;
 					bufReadDoc = new BufferedReader(new FileReader(fileDoc));
@@ -99,44 +94,78 @@ public class Servletmesdocuments extends HttpServlet {
 					}
 					bufReadDoc.close();
 
-					Object oIdDoc = request.getParameter("idDoc");
+					/** lecture du corp de page */
+					
 					Object oNomDocUtil = request.getParameter("nomDocUtil");
-					Object oType = request.getParameter("type");
-					Object oNomDocFile = request.getParameter("nomDocFile");
-					Object oTime = request.getParameter("time");
 					Object oCommentaire = request.getParameter("commentaire");
-					if ((oIdDoc != null) && (oNomDocUtil != null) && (oType != null) && (oNomDocFile != null) && (oTime != null) && (oCommentaire != null)) {
-						int idDoc = (int) oIdDoc;
-						String nomDocUtil = (String) oNomDocUtil;
-						String type = (String) oType;
-						String nomDocFile = (String) oNomDocFile;
-						long time = (long) oTime; 
-						String commentaire = (String) oCommentaire;
-						doc = new DocPerso(idDoc, nomDocUtil, type, nomDocFile, time, commentaire);		
-						for (int i = 0; i < listeDoc.size(); i++) {
-							if (listeDoc.get(i).equals(doc)) {
-								// alert "personne deja existante"
-								response.getWriter().println("<alert('document déjà existant')>");
-							} else {
-								listeDoc.add(doc);
-								//test
-								response.getWriter().println("<alert('ça marche')>");
+					Object oTime = request.getParameter("time");
+					Object boutonAjouter = request.getParameter("ajouter");
+					Object boutonSupp = request.getParameter("supprimer");
+					Object boutonTel = request.getParameter("telecharger");
+					
+					if (boutonAjouter != null) {
+						if ((oNomDocUtil != null) && (oCommentaire != null)) {
+							String nomDocUtil = (String)oNomDocUtil;
+							nomDocUtil = ((String)oNomDocUtil).substring(0, nomDocUtil.lastIndexOf(".")-1);
+							String type = ((String)oNomDocUtil).substring(nomDocUtil.lastIndexOf(".")+1);
+							long time = (long)oTime; 
+							String nomDocFile = Long.toString(time);
+							String commentaire = (String) oCommentaire;
+						
+							doc = new DocPerso(nomDocUtil, type, nomDocFile, time, commentaire);		
+							listeDoc.add(doc);
+
+							File fileDoc1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/Documents.html");
+							BufferedReader bufReadDoc1 = null;
+							bufReadDoc1 = new BufferedReader(new FileReader(fileDoc1));
+							String lineDoc1 = bufReadDoc1.readLine();
+							while (lineDoc1 != null) {
+								 if (lineDoc1.contains("%%value%%")) {
+									for (int i = 0; i < listeDoc.size(); i++) { 
+										lineDoc1 = lineDoc1.replace("%%value%%", listeDoc.get(i).getNomDocUtil());
+										lineDoc1 = lineDoc1.replace("></", ">" + listeDoc.get(i).getNomDocUtil() + "</");
+										response.getWriter().println("<option value='%%value%%'></option>");
+									}
+								 }
+								response.getWriter().println(lineDoc1);
+								lineDoc1 = bufReadDoc1.readLine();
 							}
+							bufReadDoc1.close();	
+						} else {
+							File fileDoc1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/Documents.html");
+							BufferedReader bufReadDoc1 = null;
+							bufReadDoc1 = new BufferedReader(new FileReader(fileDoc1));
+							String lineDoc1 = bufReadDoc1.readLine();
+							while (lineDoc1 != null) {
+								 if (lineDoc1.contains("%%value%%")) {
+									for (int i = 0; i < listeDoc.size(); i++) { 
+										lineDoc1 = lineDoc1.replace("%%value%%", listeDoc.get(i).getNomDocUtil());
+										lineDoc1 = lineDoc1.replace("></", ">" + listeDoc.get(i).getNomDocUtil() + "</");
+										response.getWriter().println("<option value='%%value%%'></option>");
+									}
+								 }
+								response.getWriter().println(lineDoc1);
+								lineDoc1 = bufReadDoc1.readLine();
+							}
+							bufReadDoc1.close();
 						}
+					} else if (boutonSupp != null) {
 						File fileDoc1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/Documents.html");
 						BufferedReader bufReadDoc1 = null;
 						bufReadDoc1 = new BufferedReader(new FileReader(fileDoc1));
 						String lineDoc1 = bufReadDoc1.readLine();
 						while (lineDoc1 != null) {
-							 if (lineDoc1.contains("%%value%%")) {
-								lineDoc1 = lineDoc1.replace("%%value%%", nomDocUtil);
-								lineDoc1 = lineDoc1.replace("></", ">" + nomDocUtil + "</");
-								response.getWriter().println("<option value='%%value%%'></option>");
-							}
+							 if (lineDoc1.contains("checked")) {
+								for (int i = 0; i < listeDoc.size(); i++) { 
+									lineDoc1 = lineDoc1.replace(listeDoc.get(i).getNomDocUtil(), "");
+									listeDoc.remove(i);
+									response.getWriter().println("<input type=\"checkbox\"/><option value='%%value%%'></option>");
+								}
+							 }
 							response.getWriter().println(lineDoc1);
 							lineDoc1 = bufReadDoc1.readLine();
 						}
-						bufReadDoc1.close();	
+						bufReadDoc1.close();
 					} else {
 						File fileDoc1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/Documents.html");
 						BufferedReader bufReadDoc1 = null;
@@ -161,7 +190,6 @@ public class Servletmesdocuments extends HttpServlet {
 					bufReadBas.close();
 				}
 			} else {
-				// utiliser le pseudo
 				/** Lecture Haut de page HTML */
 				File fileHaut = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/HautPage.html");
 				BufferedReader bufReadHaut = null;
@@ -184,10 +212,7 @@ public class Servletmesdocuments extends HttpServlet {
 				}
 				bufReadActiv.close();
 
-				/**
-				 * Seule Partie qui va vraiment changer selon les pages (penser
-				 * aux controles si necessaire)
-				 */
+				/** lecture du bandeau */
 				File fileDoc = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/Bandeau.html");
 				BufferedReader bufReadDoc = null;
 				bufReadDoc = new BufferedReader(new FileReader(fileDoc));
@@ -201,44 +226,77 @@ public class Servletmesdocuments extends HttpServlet {
 				}
 				bufReadDoc.close();
 
-				Object oIdDoc = request.getParameter("idDoc");
+				/** lecture corp de page */
 				Object oNomDocUtil = request.getParameter("nomDocUtil");
-				Object oType = request.getParameter("type");
-				Object oNomDocFile = request.getParameter("nomDocFile");
-				Object oTime = request.getParameter("time");
 				Object oCommentaire = request.getParameter("commentaire");
-				if ((oIdDoc != null) && (oNomDocUtil != null) && (oType != null) && (oNomDocFile != null) && (oTime != null) && (oCommentaire != null)) {
-					int idDoc = (int) oIdDoc;
-					String nomDocUtil = (String) oNomDocUtil;
-					String type = (String) oType;
-					String nomDocFile = (String) oNomDocFile;
-					long time = (long) oTime; 
-					String commentaire = (String) oCommentaire;
-					doc = new DocPerso(idDoc, nomDocUtil, type, nomDocFile, time, commentaire);		
-					for (int i = 0; i < listeDoc.size(); i++) {
-						if (listeDoc.get(i).equals(doc)) {
-							// alert "personne deja existante"
-							response.getWriter().println("<alert('document déjà existant')>");
-						} else {
-							listeDoc.add(doc);
-							//test
-							response.getWriter().println("<alert('ça marche')>");
+				Object oTime = request.getParameter("time");
+				Object boutonAjouter = request.getParameter("ajouter");
+				Object boutonSupp = request.getParameter("supprimer");
+				Object boutonTel = request.getParameter("telecharger");
+				
+				if (boutonAjouter != null) {
+					if ((oNomDocUtil != null) && (oCommentaire != null)) {
+						String nomDocUtil = (String)oNomDocUtil;
+						nomDocUtil = ((String)oNomDocUtil).substring(0, nomDocUtil.lastIndexOf(".")-1);
+						String type = ((String)oNomDocUtil).substring(nomDocUtil.lastIndexOf(".")+1);
+						long time = (long)oTime; 
+						String nomDocFile = Long.toString(time);
+						String commentaire = (String) oCommentaire;
+					
+						doc = new DocPerso(nomDocUtil, type, nomDocFile, time, commentaire);		
+						listeDoc.add(doc);
+
+						File fileDoc1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/Documents.html");
+						BufferedReader bufReadDoc1 = null;
+						bufReadDoc1 = new BufferedReader(new FileReader(fileDoc1));
+						String lineDoc1 = bufReadDoc1.readLine();
+						while (lineDoc1 != null) {
+							 if (lineDoc1.contains("%%value%%")) {
+								for (int i = 0; i < listeDoc.size(); i++) { 
+									lineDoc1 = lineDoc1.replace("%%value%%", listeDoc.get(i).getNomDocUtil());
+									lineDoc1 = lineDoc1.replace("></", ">" + listeDoc.get(i).getNomDocUtil() + "</");
+									response.getWriter().println("<option value='%%value%%'></option>");
+								}
+							 }
+							response.getWriter().println(lineDoc1);
+							lineDoc1 = bufReadDoc1.readLine();
 						}
+						bufReadDoc1.close();	
+					} else {
+						File fileDoc1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/Documents.html");
+						BufferedReader bufReadDoc1 = null;
+						bufReadDoc1 = new BufferedReader(new FileReader(fileDoc1));
+						String lineDoc1 = bufReadDoc1.readLine();
+						while (lineDoc1 != null) {
+							 if (lineDoc1.contains("%%value%%")) {
+								for (int i = 0; i < listeDoc.size(); i++) { 
+									lineDoc1 = lineDoc1.replace("%%value%%", listeDoc.get(i).getNomDocUtil());
+									lineDoc1 = lineDoc1.replace("></", ">" + listeDoc.get(i).getNomDocUtil() + "</");
+									response.getWriter().println("<option value='%%value%%'></option>");
+								}
+							 }
+							response.getWriter().println(lineDoc1);
+							lineDoc1 = bufReadDoc1.readLine();
+						}
+						bufReadDoc1.close();
 					}
+				} else if (boutonSupp != null) {
 					File fileDoc1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/Documents.html");
 					BufferedReader bufReadDoc1 = null;
 					bufReadDoc1 = new BufferedReader(new FileReader(fileDoc1));
 					String lineDoc1 = bufReadDoc1.readLine();
 					while (lineDoc1 != null) {
-						 if (lineDoc1.contains("%%value%%")) {
-							lineDoc1 = lineDoc1.replace("%%value%%", nomDocUtil);
-							lineDoc1 = lineDoc1.replace("></", ">" + nomDocUtil + "</");
-							response.getWriter().println("<option value='%%value%%'></option>");
-						}
+						 if (lineDoc1.contains("checked")) {
+							for (int i = 0; i < listeDoc.size(); i++) { 
+								lineDoc1 = lineDoc1.replace(listeDoc.get(i).getNomDocUtil(), "");
+								listeDoc.remove(i);
+								response.getWriter().println("<input type=\"checkbox\"/><option value='%%value%%'></option>");
+							}
+						 }
 						response.getWriter().println(lineDoc1);
 						lineDoc1 = bufReadDoc1.readLine();
 					}
-					bufReadDoc1.close();	
+					bufReadDoc1.close();
 				} else {
 					File fileDoc1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/Documents.html");
 					BufferedReader bufReadDoc1 = null;
@@ -268,7 +326,5 @@ public class Servletmesdocuments extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher("//Servletidentification");
 			rd.forward(request, response);
 		}
-		// }
-		// }
 	}
 }

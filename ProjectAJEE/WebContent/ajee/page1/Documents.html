@@ -1,27 +1,36 @@
-<table align="center"; style="margin-top: 120px">
-	<tr>
-		<td><h2 align="center">LISTE DE DOCUMENTS</h2></td>
-	</tr>
-	<tr>
-		<form action="http://127.0.0.1:8080/ProjectAJEE/MesDocuments" method='POST'>
-			<td><input type="submit" name="telecharger" value="Telecharger" />
-		</form>
-	</tr>
-	<tr>
-		<form action="http://127.0.0.1:8080/ProjectAJEE/MesDocuments" method='POST'>
-			<td><input type="file" name="file" value="" style="width: 450px;"/>
-			<input type="button" name="upload" value="Valider" /></td>
-		</form>
-	</tr>
-	<tr/>
-	<tbody>
-			<tr>
-				<td>
-					<select name="liste"  size="15" align="top" style="width: 436px; ">	
-						<option value="%%value%%"></option>
-					</select>
-					<input type="submit" value = "Supprimer" />
-				</td>
-			</tr>	
-	</tbody>
+<form action="http://127.0.0.1:8080/ProjectAJEE/MesDocuments" method='POST'>
+	<table align="center"; style="margin-top: 60px">
+		<tr>
+			<td><h2 align="center">LISTE DE DOCUMENTS</h2></td>
+		</tr>
+		<tr><td height="15"></td></tr>	
+		<tr>
+			<td>
+				<input type="file" name="file" value="" style="width: 450px;"/>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Légende du document : <input style="width: 365px" type="text" name="commentaire" value=""/>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<input type="submit" name="upload" value="Ajouter"/>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<select name="liste"  size="15" align="top" style="width: 520px; ">	
+					<option value="%%value%%"></option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<input type="submit" name="supprimer" value = "Supprimer"/>
+				<input type="submit" name="telecharger" value="Telecharger"/>
+			</td>
+		</tr>
 </table>
+</form>
