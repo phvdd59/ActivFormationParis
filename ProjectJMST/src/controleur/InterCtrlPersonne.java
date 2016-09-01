@@ -1,7 +1,5 @@
 package controleur;
 
-import java.util.Date;
-
 public interface InterCtrlPersonne {
 
 	public boolean ctrlNom(String nom);
