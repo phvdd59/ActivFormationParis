@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.formation.bait.dao.AccesBDDPersonne;
 import com.formation.bait.metier.Personne;
 
 /**
@@ -37,15 +38,24 @@ public class ServletPageLogin3 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		boolean echecID=false;
+		HttpSession session2 = request.getSession();
+		Object oNoSuivi = session2.getAttribute("suivi");
+		if (oNoSuivi != null) {
+			echecID=true;
+			session2.invalidate();
+		}else {
+			session2.invalidate();
+		}
+		
 		HttpSession session = request.getSession(true);
 		String noSuivi = "";
 		for (int i = 0; i < 2; i++) {
-			int k = (int) (Math.random() * 26)+1;
-			noSuivi += String.valueOf((char)(k + 64));
+			int k = (int) (Math.random() * 26) + 1;
+			noSuivi += String.valueOf((char) (k + 64));
 		}
-		noSuivi+="_";
+		noSuivi += "_";
 		for (int i = 0; i < 8; i++) {
 			int k = (int) (Math.random() * 10);
 			noSuivi += k;
@@ -55,8 +65,7 @@ public class ServletPageLogin3 extends HttpServlet {
 		session.setAttribute("servlet", "Login");
 		session.setAttribute("methode", "GET");
 
-		File file = new File(
-				"C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/hautDePageActiv.html");
+		File file = new File("C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/hautDePageActiv.html");
 		BufferedReader bIn = null;
 		InputStreamReader inputStreamReader = null;
 		try {
@@ -80,9 +89,7 @@ public class ServletPageLogin3 extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-
-		File file2 = new File(
-				"C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/Login.html");
+		File file2 = new File("C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/Login.html");
 		BufferedReader bIn2 = null;
 		InputStreamReader inputStreamReader2 = null;
 		try {
@@ -92,6 +99,11 @@ public class ServletPageLogin3 extends HttpServlet {
 			while (line2 != null) {
 				// System.out.println(line);
 				response.getWriter().append(line2 + "\n");
+				if (line2.contains("Identification")){
+					if (echecID==true){
+				response.getWriter().append("gros sac"+"\n");
+					}
+				}
 				line2 = bIn2.readLine();
 			}
 		} catch (FileNotFoundException e) {
@@ -105,8 +117,7 @@ public class ServletPageLogin3 extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		File file3 = new File(
-				"C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/basDePageActiv.html");
+		File file3 = new File("C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/basDePageActiv.html");
 		BufferedReader bIn3 = null;
 		InputStreamReader inputStreamReader3 = null;
 		try
@@ -143,8 +154,7 @@ public class ServletPageLogin3 extends HttpServlet {
 		}
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		String sNoSuiviClient = request.getParameter("suiviClient");
 		String sNbAppelClient = request.getParameter("nbAppelClient");
@@ -152,8 +162,27 @@ public class ServletPageLogin3 extends HttpServlet {
 		if (oNoSuivi != null) {
 			String IdPersonne = request.getParameter("nom");
 			String MdpPersonne = request.getParameter("password");
-			Personne personne = new Personne(IdPersonne, MdpPersonne);
-			session.setAttribute("personne", personne);
+
+//			AccesBDDPersonne acces = new AccesBDDPersonne();
+//			if (acces.findPersonne(IdPersonne)[0] != null) {
+//				// la personne existe
+//				if (acces.findPersonne(IdPersonne)[1] == MdpPersonne) {
+//					// mot de passe correct
+//					session.setAttribute("personne", acces.getPersonne(IdPersonne));
+//				}else{
+//					//mot de passe incorrect
+//					String echecID = "true";
+//					session.setAttribute("echecID", echecID);
+//					RequestDispatcher rd = request.getRequestDispatcher("//ServletLoginTest");
+//					rd.forward(request, response);
+//				}
+//			}else{
+//				//id n'existe pas
+//				String echecID = "true";
+//				session.setAttribute("echecID", echecID);
+//				RequestDispatcher rd = request.getRequestDispatcher("//ServletLoginTest");
+//				rd.forward(request, response);
+//			}
 			session.setAttribute("servlet", "Compte");
 			session.setAttribute("methode", "POST");
 			ServletContext context = this.getServletContext();
