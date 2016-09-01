@@ -121,31 +121,91 @@ public class ServletCreaForRempli extends HttpServlet {
 				personne.setPrenom(pPrenom);
 			}
 			if (lineDoc1.contains("id='adresse'")) {
-				String pPrenom=request.getParameter("prenom");
-				personne.setPrenom(pPrenom);
+				String pAdresse=request.getParameter("adresse");
+				personne.setPrenom(pAdresse);
+			}
+			// insert enum SEXE
+			// no insert string identifiant
+			if (lineDoc1.contains("id='cp'")) {
+				String pCp=request.getParameter("cp");
+				personne.setPrenom(pCp);
+			}
+			if (lineDoc1.contains("id='ville'")) {
+				String pVille=request.getParameter("ville");
+				personne.setPrenom(pVille);
+			}
+			if (lineDoc1.contains("id='telFixe'")) {
+				String pTelFixe=request.getParameter("telFixe");
+				personne.setPrenom(pTelFixe);
+			}
+			if (lineDoc1.contains("id='telPort'")) {
+				String pTelPort=request.getParameter("telPort");
+				personne.setPrenom(pTelPort);
+			}
+			if (lineDoc1.contains("id='fax'")) {
+				String pFax=request.getParameter("fax");
+				personne.setPrenom(pFax);
+			}
+			if (lineDoc1.contains("id='email'")) {
+				String pEmail=request.getParameter("email");
+				personne.setPrenom(pEmail);
+			}
+			if (lineDoc1.contains("id='dateNaissance'")) {
+				String pDateNaissance=request.getParameter("dateNaissance");
+				personne.setPrenom(pDateNaissance);
+			}
+			if (lineDoc1.contains("id='lieuNaissance'")) {
+				String pLieuNaissance=request.getParameter("lieuNaissance");
+				personne.setPrenom(pLieuNaissance);
+			}
+			if (lineDoc1.contains("id='numSecu'")) {
+				String pNumSecu=request.getParameter("numSecu");
+				personne.setPrenom(pNumSecu);
+			}
+			if (lineDoc1.contains("id='nationalite'")) {
+				String pNationalite=request.getParameter("nationalite");
+				personne.setPrenom(pNationalite);
+			}
+			if (lineDoc1.contains("id='fonction'")) {
+				String pFonction=request.getParameter("fonction");
+				personne.setPrenom(pFonction);
+			}
+			if (lineDoc1.contains("id='positionEntreprise'")) {
+				String pPositionEntreprise=request.getParameter("positionEntreprise");
+				personne.setPrenom(pPositionEntreprise);
+			}
+			if (lineDoc1.contains("id='coeff'")) {
+				String pCoeff=request.getParameter("coeff");
+				personne.setPrenom(pCoeff);
+			}
+			if (lineDoc1.contains("id='salaire'")) {
+				String pSalaire=request.getParameter("salaire");
+				personne.setPrenom(pSalaire);
+			}
+			if (lineDoc1.contains("id='visiteMedicale'")) {
+				String pVisiteMedicale=request.getParameter("visiteMedicale");
+				personne.setPrenom(pVisiteMedicale);
+			}
+			if (lineDoc1.contains("id='montantTransport'")) {
+				String pMontantTransport=request.getParameter("montantTransport");
+				personne.setPrenom(pMontantTransport);
+			}
+			if (lineDoc1.contains("id='voiture'")) {
+				String pVoiture=request.getParameter("voiture");
+				personne.setPrenom(pVoiture);
+			}
+			if (lineDoc1.contains("id='nbCV'")) {
+				String pNbCV=request.getParameter("nbCV");
+				personne.setPrenom(pNbCV);
+			}
+			if (lineDoc1.contains("id='nbKm'")) {
+				String pNbKm=request.getParameter("nbKm");
+				personne.setPrenom(pNbKm);
 			}
 			
 			
-			String pAdresse=request.getParameter("adresse");
-			String pCp=request.getParameter("cp");
-			String pVille=request.getParameter("ville");
-			String pTelFixe=request.getParameter("telFixe");
-			String pTelPort=request.getParameter("telPort");
-			String pFax=request.getParameter("fax");
-			String pEmail=request.getParameter("email");
-			String pDateNaiss=request.getParameter("dateNaiss");
-			String pLieu=request.getParameter("lieu");
-			String pNumSecu=request.getParameter("numSecu");
-			String pNat=request.getParameter("nat");
-			String pSitActuelle=request.getParameter(""); // cf. ForCalLisDer.html de Jérémy
-			String pFctnOccupee=request.getParameter("fctnOccupee");
-			//String pPrenom=request.getParameter("prenom");
-			//String pPrenom=request.getParameter("prenom");
-			//String pPrenom=request.getParameter("prenom");
-			//String pPrenom=request.getParameter("prenom");
-			//String pPrenom=request.getParameter("prenom");
-			//String pPrenom=request.getParameter("prenom");
-			//String pPrenom=request.getParameter("prenom");
+			
+			String pSituation=request.getParameter(""); // cf. ForCalLisDer.html de Jérémy // edit : on a fait un enum
 			//String pPrenom=request.getParameter("prenom");
 			//String pPrenom=request.getParameter("prenom");
 			//
