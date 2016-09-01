@@ -144,44 +144,44 @@ public class Servletlisteutilisateurs extends HttpServlet {
 				String nomB = (String) oNomB;
 				String prenomB = (String) oPrenomB;
 				String commentaire = (String) oCommentaire;
-				
+
 				for (int i = 0; i < lstUser.size(); i++) {
 					if (lstUser.get(i).getPrenom().contains(prenomB) && lstUser.get(i).getNom().contains(nomB)) {
 						lstUser.get(i).setBloque(true);
 						lstUser.get(i).setRaisonBlocage(commentaire);
 						break;
-					} 
+					}
 				}
-				
+
 				File file = new File("../GITActivFormationParis/ProjectAJEE/WebContent/WEB-INF/com/formation/ajee/page/ListeUtilisateurs2.html");
 				BufferedReader bIn = new BufferedReader(new FileReader(file));
 				String line = bIn.readLine();
 
-//				while (line != null) {
-//
-//					if (line.contains("%%value%%")) {
-//						for (int i = 0; i < lstUser.size(); i++) {
-//							String ligne = "<option value='%%value%%'></option>";
-//							ligne = ligne.replace("%%value%%", lstUser.get(i).getNom() + lstUser.get(i).getPrenom());
-//							ligne = ligne.replace("></", ">" + lstUser.get(i).getNom() + " " + lstUser.get(i).getPrenom() + "  -  Identifiant : " + lstUser.get(i).getIdentifiant() + " / Mot de passe : " + lstUser.get(i).getMdp() + "</");
-//							response.getWriter().println(ligne);
-//
-//						}
-//					} else if (line.contains("%%existe%%")) {
-//						if (existe == true) {
-//							line = line.replace("%%existe%%", "onload='alert(\"personne déjà existante\")'");
-//							existe = false;
-//						} else {
-//							line = line.replace("%%existe%%", "");
-//						}
-//					}
-//
-//					response.getWriter().println(line);
-//					line = bIn.readLine();
-//
-//				}
-//
-//				bIn.close();
+				while (line != null) {
+
+					if (line.contains("%%value%%")) {
+						for (int i = 0; i < lstUser.size(); i++) {
+							String ligne = "<option value='%%value%%'></option>";
+							if (lstUser.get(i).getPrenom().contains(prenomB) && lstUser.get(i).getNom().contains(nomB)) {
+								ligne = ligne.replace("%%value%%", lstUser.get(i).getNom() + lstUser.get(i).getPrenom());
+								ligne = ligne.replace("></", ">" + lstUser.get(i).getNom() + " " + lstUser.get(i).getPrenom() + " " + "  -  Identifiant : " + lstUser.get(i).getIdentifiant() + " / Mot de passe : " + lstUser.get(i).getMdp() + " / BLOQUE :" + lstUser.get(i).getRaisonBlocage() + "</");
+								response.getWriter().println(ligne);
+							} else {
+								ligne = ligne.replace("%%value%%", lstUser.get(i).getNom() + lstUser.get(i).getPrenom());
+								ligne = ligne.replace("></", ">" + lstUser.get(i).getNom() + " " + lstUser.get(i).getPrenom() + "  -  Identifiant : " + lstUser.get(i).getIdentifiant() + " / Mot de passe : " + lstUser.get(i).getMdp() + "</");
+								response.getWriter().println(ligne);
+							}
+						}
+					} else if (line.contains("%%existe%%")) {
+						line = line.replace("%%existe%%", "");
+					}
+
+					response.getWriter().println(line);
+					line = bIn.readLine();
+
+				}
+
+				bIn.close();
 
 			} else {
 				File file = new File("../GITActivFormationParis/ProjectAJEE/WebContent/WEB-INF/com/formation/ajee/page/ListeUtilisateurs2.html");
@@ -209,6 +209,31 @@ public class Servletlisteutilisateurs extends HttpServlet {
 				bIn.close();
 
 			}
+
+		} else {
+			File file = new File("../GITActivFormationParis/ProjectAJEE/WebContent/WEB-INF/com/formation/ajee/page/ListeUtilisateurs2.html");
+			BufferedReader bIn = new BufferedReader(new FileReader(file));
+			String line = bIn.readLine();
+
+			while (line != null) {
+				if (line.contains("%%value%%")) {
+					if (lstUser.size() == 0) {
+
+					} else {
+						for (int i = 0; i < lstUser.size(); i++) {
+							String ligne = "<option value='%%value%%'></option>";
+							ligne = ligne.replace("%%value%%", lstUser.get(i).getNom() + lstUser.get(i).getPrenom());
+							ligne = ligne.replace("></", ">" + lstUser.get(i).getNom() + " " + lstUser.get(i).getPrenom() + "  -  Identifiant : " + lstUser.get(i).getIdentifiant() + " / Mot de passe : " + lstUser.get(i).getMdp() + "</");
+							response.getWriter().println(ligne);
+
+						}
+					}
+				}
+				response.getWriter().println(line);
+				line = bIn.readLine();
+
+			}
+			bIn.close();
 
 		}
 
