@@ -17,47 +17,61 @@ public class Personne {
 	private String telFixe = new String();
 	private String telPort = new String();
 	private String fax = new String();
-	private Date dateNaissance;
+	private String dateNaissance = new String();
 	private String lieuNaissance = new String();
 	private String numSecu = new String();
 	private String nationalite = new String();
 	private String situation = new String();
 	private String fonction = new String();
 	private String position = new String();
-	private boolean cadre;
+	private boolean cadre = false;
 	private String coeff = new String();
 	private String salaire = new String();
-	private Date visiteMedicale;
+	private String visiteMedicale = new String();
 	private String montantTransport = new String();
-	private boolean voiture;
-	private int nbCV;
+	private boolean voiture = false;
+	private String nbCV = new String();
 	private String ndKm = new String();
-	private boolean mutuelle;
+	private boolean mutuelle = false;
 	private boolean ticket = false;
-	private boolean admin;
-	private Date dateCreation;
-	private Timestamp dateModification;
-	private boolean bloque;
+	private boolean admin = false;
+	private String dateCreation = new String();
+	private String dateModification = new String();
+	private boolean bloque =false;
 	private String raisonBlocage=new String();
-	private ListeDoc ListeDoc;
+	private ListeDoc listeDoc;
 
 	public Personne(String identifiant, String mdp) {
-
+		this.idPersonne = 0;
 		this.identifiant = identifiant;
 		this.prenom = "";
 		this.nom = "";
 		this.mdp = mdp;
-
-		this.fonction = "";
-		this.position = "";
-		this.salaire = "";
-		this.ticket = false;
-		this.cadre = false;
-		this.coeff = "";
+		this.email = "";
 		this.adresse = "";
 		this.cP = "";
 		this.ville = "";
-		this.email = "";
+		this.telFixe = "";
+		this.telPort = "";
+		this.fax= "";
+		this.dateNaissance="";
+		this.lieuNaissance ="";
+		this.numSecu="";
+		this.nationalite="";
+		this.situation = "";
+		this.fonction = "";
+		this.position = "";
+		this.coeff = "";
+		this.salaire = "";
+		this.visiteMedicale = "";
+		this.montantTransport = "";
+		this.nbCV = "";
+		this.ndKm = "";
+		this.dateCreation = "";
+		this.dateModification ="";
+		this.raisonBlocage = "";
+		this.listeDoc = new ListeDoc();
+		
 
 	}
 
@@ -157,11 +171,11 @@ public class Personne {
 		this.fax = fax;
 	}
 
-	public Date getDateNaissance() {
+	public String getDateNaissance() {
 		return dateNaissance;
 	}
 
-	public void setDateNaissance(Date dateNaissance) {
+	public void setDateNaissance(String dateNaissance) {
 		this.dateNaissance = dateNaissance;
 	}
 
@@ -237,11 +251,11 @@ public class Personne {
 		this.salaire = salaire;
 	}
 
-	public Date getVisiteMedicale() {
+	public String getVisiteMedicale() {
 		return visiteMedicale;
 	}
 
-	public void setVisiteMedicale(Date visiteMedicale) {
+	public void setVisiteMedicale(String visiteMedicale) {
 		this.visiteMedicale = visiteMedicale;
 	}
 
@@ -261,11 +275,11 @@ public class Personne {
 		this.voiture = voiture;
 	}
 
-	public int getNbCV() {
+	public String getNbCV() {
 		return nbCV;
 	}
 
-	public void setNbCV(int nbCV) {
+	public void setNbCV(String nbCV) {
 		this.nbCV = nbCV;
 	}
 
@@ -299,6 +313,46 @@ public class Personne {
 
 	public void setAdmin(boolean admin) {
 		this.admin = admin;
+	}
+
+	public String getDateCreation() {
+		return dateCreation;
+	}
+
+	public void setDateCreation(String dateCreation) {
+		this.dateCreation = dateCreation;
+	}
+
+	public String getDateModification() {
+		return dateModification;
+	}
+
+	public void setDateModification(String dateModification) {
+		this.dateModification = dateModification;
+	}
+
+	public boolean isBloque() {
+		return bloque;
+	}
+
+	public void setBloque(boolean bloque) {
+		this.bloque = bloque;
+	}
+
+	public String getRaisonBlocage() {
+		return raisonBlocage;
+	}
+
+	public void setRaisonBlocage(String raisonBlocage) {
+		this.raisonBlocage = raisonBlocage;
+	}
+
+	public ListeDoc getListeDoc() {
+		return listeDoc;
+	}
+
+	public void setListeDoc(ListeDoc listeDoc) {
+		listeDoc = listeDoc;
 	}
 
 	

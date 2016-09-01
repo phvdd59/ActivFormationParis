@@ -23,7 +23,78 @@ public class MainAnfrJDBC {
 		// m.init();
 		// m.creTable();
 		//m.insertTable();
-		m.selectTable();
+		// m.updateTable();
+		// m.removeFromTable();
+		// m.selectTable();
+		//m.superselect();
+		m.keyTables();
+		 m.selectTable();
+	}
+
+	private void keyTables(){
+		Connection conn = null;
+		Statement stat = null;
+		try {
+			Class.forName(JDBC_DRIVER);
+			String url = DB_URL + "marchandanfr";
+			conn = DriverManager.getConnection(url, user, pass);
+			stat = conn.createStatement();
+			String sql = "insert into marchandANFR ";
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private void superselect() {
+		Connection conn = null;
+		Statement stat = null;
+		try {
+			Class.forName(JDBC_DRIVER);
+			String url = DB_URL + "marchandanfr";
+			conn = DriverManager.getConnection(url, user, pass);
+			stat = conn.createStatement();
+
+			String sql = "SELECT * FROM marchandANFR INNERJOIN produit ON (marchand.ANFR.ID = produit.IDMARCHAND);";
+			ResultSet resultat = stat.executeQuery(sql);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
+
+		
+	}
+
+	private void updateTable() {
+		Connection conn = null;
+		Statement stat = null;
+		try {
+			Class.forName(JDBC_DRIVER);
+			String url = DB_URL + "marchandanfr";
+			conn = DriverManager.getConnection(url, user, pass);
+			stat = conn.createStatement();
+			String sql = "UPDATE marchandANFR set PRENOM='GOGO' where prenom = 'Vlac';";
+			int resultat = stat.executeUpdate(sql);
+
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	private void removeFromTable() {
+		Connection conn = null;
+		Statement stat = null;
+		try {
+			Class.forName(JDBC_DRIVER);
+			String url = DB_URL + "marchandanfr";
+			conn = DriverManager.getConnection(url, user, pass);
+			stat = conn.createStatement();
+			String sql = "delete from marchandANFR where nom = 'Vincent';";
+			int resultat = stat.executeUpdate(sql);
+
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
+
 	}
 
 	private void selectTable() {
@@ -34,29 +105,28 @@ public class MainAnfrJDBC {
 			String url = DB_URL + "marchandanfr";
 			conn = DriverManager.getConnection(url, user, pass);
 			stat = conn.createStatement();
-			
+
 			String sql = "SELECT * FROM marchandANFR;";
 			ResultSet resultat = stat.executeQuery(sql);
-			while (resultat.next()){
-				String sNom=resultat.getString("nom");
-				String sPrenom=resultat.getString("prenom");
+			while (resultat.next()) {
+				String sNom = resultat.getString("nom");
+				String sPrenom = resultat.getString("prenom");
 				String sAge = resultat.getString("age");
-				System.out.println(sNom + sPrenom+sAge);
+				System.out.println(sNom + sPrenom + sAge);
 			}
-			
+
 			sql = "SELECT * FROM marchandANFR where nom='Vlac';";
 			resultat = stat.executeQuery(sql);
 			ResultSetMetaData meta = resultat.getMetaData();
 			int nb = meta.getColumnCount();
 			for (int i = 0; i < nb; i++) {
-				System.out.println(meta.getColumnName(i+1));
+				System.out.println(meta.getColumnName(i + 1));
 			}
-			
-			
+
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
-	
+
 	}
 
 	private void insertTable() {
@@ -68,20 +138,26 @@ public class MainAnfrJDBC {
 			conn = DriverManager.getConnection(url, user, pass);
 			stat = conn.createStatement();
 
-			String[] tab = { "Hubert", "Louis", "Vincent", "Charles" };
+			String[] tab = { "Pomme", "Poire", "Saucisson", "Caramel", "Lune", "Jeux", "Cartes", "Chaton", "Peigne",
+					"Disque", "Lumiere", "Etoile" };
+			int[] tab2 = { 1, 2, 3, 4, 5, 7, 8, 9, 11 };
+			for (int i = 0; i < tab2.length; i++) {
+				for (int k = 0; k < tab.length; k++) {
 
-			for (int i = 0; i < tab.length; i++) {
-				String sql = "INSERT INTO marchandANFR (nom,prenom,age)" + //
-						"values ('" + tab[i] + "','Vlac','" + (20 + i) + "');";
-				
-				int resultat = stat.executeUpdate(sql);
-				if (resultat > 0){
-					System.out.println(sql);
+					String sql = "INSERT INTO produit (idmarchand,nomProduit,qteProduit)" + //
+							"values ('" + tab2[i] + "','" + tab[k] + "','10');";
+
+					int resultat = stat.executeUpdate(sql);
+					if (resultat > 0) {
+						System.out.println(sql);
+					}
 				}
 			}
 
 			System.out.println("FIN");
-		} catch (ClassNotFoundException | SQLException e) {
+		} catch (ClassNotFoundException |
+
+				SQLException e) {
 			e.printStackTrace();
 		}
 	}
@@ -112,11 +188,11 @@ public class MainAnfrJDBC {
 			conn = DriverManager.getConnection(url, user, pass);
 			stat = conn.createStatement();
 
-			String sql = "CREATE TABLE marchandANFR (" + //
-					"ID BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT," + //
-					"NOM VARCHAR(30) NOT NULL, " + //
-					"PRENOM VARCHAR(30) NOT NULL, " + //
-					"AGE VARCHAR(10) NOT NULL);";
+			String sql = "CREATE TABLE marchandANFR.produit (" + //
+					"IDPRODUIT INTEGER(11) NOT NULL PRIMARY KEY AUTO_INCREMENT," + //
+					"IDMARCHAND BIGINT," + //
+					"nomProduit VARCHAR(255), " + //
+					"qteProduit INT);";
 
 			stat.executeUpdate(sql);
 			System.out.println("FIN");
