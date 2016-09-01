@@ -65,6 +65,8 @@ public class Servletlisteutilisateurs extends HttpServlet {
 				String prenomA = (String) oPrenomA;
 
 				user = new Personne(nomA, prenomA);
+				user.setBloque(false);
+				
 				if (lstUser.size() == 0) {
 					lstUser.add(user);
 				} else {

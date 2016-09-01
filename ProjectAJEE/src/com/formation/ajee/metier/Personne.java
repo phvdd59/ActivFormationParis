@@ -53,23 +53,12 @@ public class Personne {
 	public Personne(String nom, String prenom) {
 		this.nom = nom;
 		this.prenom = prenom;
-		mdp = " ";
-		String nomE = epuration(nom);
-		String prenomE = epuration(prenom);
-		this.identifiant = prenomE.substring(0, 1) + "." + nomE;
-		while (mdp.length() != 8) {
-			int a = (int) (Math.random() * 123);
-			char lettre = (char) a;
-			if (a > 47 && a < 58) {
-				mdp = mdp + lettre;
-			} else if (a > 96 && a < 123) {
-				mdp = mdp + lettre;
-			} else if (a > 64 && a < 91) {
-				mdp = mdp + lettre;
-			}
-		}
+		this.identifiant = creationId(nom, prenom);
+		this.mdp = creationMdp();
 	}
 
+
+	
 	public Personne(int idPersonne, String nom, String prenom, SEXE sexe, String identifiant, String mdp, String email, String adresse, String cp, String ville, String telFixe, String telPort, String fax, Date dateNaissance, String lieuNaissance, String numSecu, String nationalite,
 			SITUATION situation, String fonction, String positionEntreprise, boolean cadre, String coeff, String salaire, Date visiteMedicale, String montantTransport, boolean voiture, int nbCV, String nbKm, boolean mutuelle, boolean ticketResto, Date dateCreation, Timestamp dateModification,
 			boolean bloque, String raisonBlocage, ListeDoc listeDoc) {
@@ -78,8 +67,8 @@ public class Personne {
 		this.nom = nom;
 		this.prenom = prenom;
 		this.sexe = sexe;
-		this.identifiant = identifiant;
-		this.mdp = mdp;
+		this.identifiant = creationId(nom, prenom);
+		this.mdp = creationMdp();
 		this.email = email;
 		this.adresse = adresse;
 		this.cp = cp;
@@ -123,6 +112,31 @@ public class Personne {
 		return texte;
 	}
 
+	public String creationId(String nom, String prenom){
+		
+		String nomE = epuration(nom);
+		String prenomE = epuration(prenom);
+		String identifiant = prenomE.substring(0, 1) + "." + nomE;
+				
+		return identifiant;
+	}
+	
+	public String creationMdp(){
+		String mdp = " ";
+		while (mdp.length() != 8) {
+			int a = (int) (Math.random() * 123);
+			char lettre = (char) a;
+			if (a > 47 && a < 58) {
+				mdp = mdp + lettre;
+			} else if (a > 96 && a < 123) {
+				mdp = mdp + lettre;
+			} else if (a > 64 && a < 91) {
+				mdp = mdp + lettre;
+			}
+		}
+		return mdp;
+	}
+	
 	public int getIdPersonne() {
 		return idPersonne;
 	}
