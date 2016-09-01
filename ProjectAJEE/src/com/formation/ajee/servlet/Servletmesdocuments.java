@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.formation.ajee.metier.DocPerso;
+import com.formation.ajee.metier.ListPersonne;
 import com.formation.ajee.metier.ListeDoc;
 
 /**
@@ -22,12 +24,16 @@ import com.formation.ajee.metier.ListeDoc;
 @WebServlet(value = "/MesDocuments", name = "Servletdocument")
 public class Servletmesdocuments extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private ListeDoc lstDoc;
+	private ListeDoc listeDoc;
 	private DocPerso doc;
 
 	/** @see HttpServlet#HttpServlet() */
 	public Servletmesdocuments() {
 		super();
+	}
+	
+	public void init(ServletConfig config) throws ServletException {
+		listeDoc = new ListeDoc();
 	}
 
 	/**
@@ -35,6 +41,9 @@ public class Servletmesdocuments extends HttpServlet {
 	 *      response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		
 		HttpSession session = request.getSession();
 		
 		Object oPseudo = session.getAttribute("pseudo");
@@ -104,12 +113,12 @@ public class Servletmesdocuments extends HttpServlet {
 						long time = (long) oTime; 
 						String commentaire = (String) oCommentaire;
 						doc = new DocPerso(idDoc, nomDocUtil, type, nomDocFile, time, commentaire);		
-						for (int i = 0; i < lstDoc.size(); i++) {
-							if (lstDoc.get(i).equals(doc)) {
+						for (int i = 0; i < listeDoc.size(); i++) {
+							if (listeDoc.get(i).equals(doc)) {
 								// alert "personne deja existante"
 								response.getWriter().println("<alert('document déjà existant')>");
 							} else {
-								lstDoc.add(doc);
+								listeDoc.add(doc);
 								//test
 								response.getWriter().println("<alert('ça marche')>");
 							}
@@ -206,12 +215,12 @@ public class Servletmesdocuments extends HttpServlet {
 					long time = (long) oTime; 
 					String commentaire = (String) oCommentaire;
 					doc = new DocPerso(idDoc, nomDocUtil, type, nomDocFile, time, commentaire);		
-					for (int i = 0; i < lstDoc.size(); i++) {
-						if (lstDoc.get(i).equals(doc)) {
+					for (int i = 0; i < listeDoc.size(); i++) {
+						if (listeDoc.get(i).equals(doc)) {
 							// alert "personne deja existante"
 							response.getWriter().println("<alert('document déjà existant')>");
 						} else {
-							lstDoc.add(doc);
+							listeDoc.add(doc);
 							//test
 							response.getWriter().println("<alert('ça marche')>");
 						}
