@@ -1,17 +1,23 @@
 
-			<form action="http://localhost:8080/ProjectBAIT/ServletLogin3" method="get" onsubmit="return verifInscription1(this)">
-				<H2>Informations de compte</H2>
-				<div ID="formu1">
-					Identifiant : <input type="text" onblur="verifIdentifiant(this)" name="identifiant" style="width: 250px; margin-left: 76px" /><br>
-				</div>
-				<div ID="formu2">
-					Mot de Passe : <input type="password" ID="MDP1" onblur="verifMdp1(this)" name="mdp1" style="width: 250px; margin-left: 58px" /> <br>
-				</div>
-				<div ID="formu3">
-					Verifier mot de Passe : <input type="password" ID="MDP2" onblur="verifMdp2(this)" name="mdp2" style="width: 250px; margin-left: 10px" />
-				</div>
-				<div ID="formu11">
-					<input type="submit" name="subm" value="Valider l'inscription" style="width: 250px; margin-left: 20px" /><br> <br>
-				</div>
-			</form>
+<form action="http://localhost:8080/ProjectBAIT/ServletLogin3" method="get" onsubmit="return verifInscription1(this)">
+	<H2>Informations de compte</H2>
+	<div ID="formu1">
+		Identifiant : <input type="text" onblur="verifIdentifiant(this)" name="identifiant" style="width: 250px; margin-left: 15px" /><br>
+	</div>
+	<div ID="formu4">
+		 Nom :<input type="text" name="nom" onblur="verifNom(this)" style="width: 150px; margin-left: 15px" /> <label style="margin-left: 20px"> Pr&eacute;nom : </label><input type="text" name="prenom" onblur="verifNom(this)" style="width: 150px;" />
+	</div>
+	<div ID="formu9">
+		email : <input type="email" name="mail" onblur="verifEmail(this)" style="width: 250px;" />
+	</div>
+	<div ID="formu2">
+		Mot de Passe : <input type="password" ID="MDP1" onblur="verifMdp1(this)" name="mdp1" style="width: 250px; margin-left: 58px" /> <br>
+	</div>
+	<div ID="formu3">
+		Verifier mot de Passe : <input type="password" ID="MDP2" onblur="verifMdp2(this)" name="mdp2" style="width: 250px; margin-left: 10px" />
+	</div>
+	<div ID="formu11">
+		<input type="submit" name="subm" value="Valider l'inscription" style="width: 250px; margin-left: 20px" /><br> <br>
+	</div>
+</form>
 
