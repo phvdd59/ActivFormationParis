@@ -2,7 +2,6 @@ package com.formation.anfr.main;
 
 import java.util.ArrayList;
 
-import com.formation.bait.dao.AccesBDD;
 import com.formation.bait.dao.AccesBDDPersonne;
 import com.formation.bait.metier.Personne;
 
