@@ -12,23 +12,23 @@ import java.util.Enumeration;
 
 public class MainJDBC {
 	public final static String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-	public final static String DB_URL = "jdbc:mysql://localhost/MarchandSoka";
+	public final static String DB_URL = "jdbc:mysql://www.psyeval.fr/jmst";
 
-	public String user = "root";
-	public String pass = "";
+	public String user = "jmst";
+	public String pass = "erreurmade";
 
 	public static void main(String[] args) {
 		MainJDBC m = new MainJDBC();
 		//m.init();
 		//m.create();
 		//m.createTable();
-		//m.insertTable(); 
+		m.insertTable();
 		//m.selectTable();
 		//m.selectTableMetaData();
 		//m.updateTable();
 		//m.deleteTable();
 		//m.prodMarchand();
-		m.foreignKey();
+		//m.foreignKey();
 	}
 
 	public void foreignKey() {
@@ -189,14 +189,19 @@ public class MainJDBC {
 			Class.forName(JDBC_DRIVER);
 			conn = DriverManager.getConnection(DB_URL, user, pass);
 			stat = conn.createStatement();
-			String insertTable = "INSERT INTO marchand "//
-					+ "(nom, prenom, age)"//
-					+ "VALUES ('KADRI', 'Souad', '24');";
-			String insertTable2 = "INSERT INTO marchand "//
-					+ "(nom, prenom, age)"//
-					+ "VALUES ('CRESSON', 'Thomas', '4');";
-			stat.executeUpdate(insertTable);
-			stat.executeUpdate(insertTable2);
+			String insertTable = null;
+			String insertTable2 = null;
+			for (int i = 0; i < 10; i++) {
+				insertTable = "INSERT INTO jmst.listePersonne "//
+						+ "(nom, prenom, identifiant, adresse, mail)"//
+						+ "VALUES ('KADRI " + i + "', 'Souad " + i + "', 'souad.kadri" + i + "', 'adresse souad " + i + "','mail souad " + i + "');";
+				insertTable2 = "INSERT INTO jmst.listePersonne "//
+						+ "(nom, prenom, identifiant, adresse, mail)"//
+						+ "VALUES ('CRESSON " + i + "', 'Thomas " + i + "', 'thomas.cresson" + i + "', 'adresse thomas " + i + "','mail thomas " + i + "');";
+				stat.executeUpdate(insertTable);
+				stat.executeUpdate(insertTable2);
+			}
+
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -211,10 +216,12 @@ public class MainJDBC {
 			Class.forName(JDBC_DRIVER);
 			conn = DriverManager.getConnection(DB_URL, user, pass);
 			stat = conn.createStatement();
-			String table = "CREATE TABLE marchand (ID bigint not null primary key auto_increment, "//
+			String table = "CREATE TABLE listePersonne(ID bigint not null primary key auto_increment, "//
 					+ "NOM varchar(30) not null, "//
 					+ "PRENOM varchar(30) not null, "//
-					+ "AGE varchar(10) not null) ;";
+					+ "IDENTIFIANT varchar(30) not null, "//
+					+ "MAIL varchar(30) not null, "//
+					+ "ADRESSE varchar(255) not null) ;";
 			stat.executeUpdate(table);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
@@ -230,7 +237,7 @@ public class MainJDBC {
 			Class.forName(JDBC_DRIVER);
 			conn = DriverManager.getConnection(DB_URL, user, pass);
 			stat = conn.createStatement();
-			String sql = "CREATE DATABASE MarchandSoka";
+			String sql = "CREATE DATABASE listPersonnes";
 			stat.executeUpdate(sql);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
