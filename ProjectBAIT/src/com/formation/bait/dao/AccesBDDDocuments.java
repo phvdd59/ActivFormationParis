@@ -12,10 +12,10 @@ import com.formation.bait.metier.ListeDoc;
 public class AccesBDDDocuments {
 
 	public final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-	public final String DB_URL = "jdbc:mysql://localhost/";
+	public final String DB_URL = "jdbc:mysql://www.psyeval.fr/";
 
-	public String user = "root";
-	public String pass = "";
+	public String user = "bait";
+	public String pass = "erreurthde";
 
 	public int saveAllDocs(ListeDoc lstdoc){
 		int result = 1;
@@ -35,7 +35,7 @@ public class AccesBDDDocuments {
 		int result = 0;
 		try {
 			Class.forName(JDBC_DRIVER);
-			String url = DB_URL + "listeUserActiv";
+			String url = DB_URL + "bait";
 			conn = DriverManager.getConnection(url, user, pass);
 			stat = conn.createStatement();
 
@@ -57,7 +57,7 @@ public class AccesBDDDocuments {
 		Statement stat = null;
 		try {
 			Class.forName(JDBC_DRIVER);
-			String url = DB_URL + "listeUserActiv";
+			String url = DB_URL + "bait";
 			conn = DriverManager.getConnection(url, user, pass);
 			stat = conn.createStatement();
 
@@ -87,7 +87,7 @@ public class AccesBDDDocuments {
 		int result = 0;
 		try {
 			Class.forName(JDBC_DRIVER);
-			String url = DB_URL + "listeUserActiv";
+			String url = DB_URL + "bait";
 			conn = DriverManager.getConnection(url, user, pass);
 			stat = conn.createStatement();
 

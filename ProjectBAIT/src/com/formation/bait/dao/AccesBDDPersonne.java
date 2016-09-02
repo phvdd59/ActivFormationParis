@@ -13,10 +13,10 @@ import com.formation.bait.metier.Personne;
 
 public class AccesBDDPersonne {
 	public final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-	public final String DB_URL = "jdbc:mysql://localhost/";
+	public final String DB_URL = "jdbc:mysql://www.psyeval.fr/";
 
-	public String user = "root";
-	public String pass = "";
+	public String user = "bait";
+	public String pass = "erreurthde";
 
 	public int savePersonne(Personne personne) {
 		Connection conn = null;
@@ -24,7 +24,7 @@ public class AccesBDDPersonne {
 		int result = 0;
 		try {
 			Class.forName(JDBC_DRIVER);
-			String url = DB_URL + "listeUserActiv";
+			String url = DB_URL + "bait";
 			conn = DriverManager.getConnection(url, user, pass);
 			stat = conn.createStatement();
 
@@ -72,7 +72,7 @@ public class AccesBDDPersonne {
 		Statement stat = null;
 		try {
 			Class.forName(JDBC_DRIVER);
-			String url = DB_URL + "listeUserActiv";
+			String url = DB_URL + "bait";
 			conn = DriverManager.getConnection(url, user, pass);
 			stat = conn.createStatement();
 
@@ -115,7 +115,7 @@ public class AccesBDDPersonne {
 		parameters[1] = null;
 		try {
 			Class.forName(JDBC_DRIVER);
-			String url = DB_URL + "listeUserActiv";
+			String url = DB_URL + "bait";
 			conn = DriverManager.getConnection(url, user, pass);
 			stat = conn.createStatement();
 
@@ -123,9 +123,9 @@ public class AccesBDDPersonne {
 					+ "';";
 
 			ResultSet resultat = stat.executeQuery(sql);
-			resultat.first();
+			while (resultat.next()){
 			parameters[0] = resultat.getString("IDPersonne");
-			parameters[1] = resultat.getString("mdp");
+			parameters[1] = resultat.getString("mdp");}
 
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
@@ -139,7 +139,7 @@ public class AccesBDDPersonne {
 		Statement stat = null;
 		try {
 			Class.forName(JDBC_DRIVER);
-			String url = DB_URL + "listeUserActiv";
+			String url = DB_URL + "bait";
 			conn = DriverManager.getConnection(url, user, pass);
 			stat = conn.createStatement();
 
@@ -162,7 +162,7 @@ public class AccesBDDPersonne {
 		Statement stat = null;
 		try {
 			Class.forName(JDBC_DRIVER);
-			String url = DB_URL+ "listeUserActiv";
+			String url = DB_URL+ "bait";
 			conn = DriverManager.getConnection(url, user, pass);
 			stat = conn.createStatement();
 
@@ -201,9 +201,6 @@ public class AccesBDDPersonne {
 			personne.setMutuelle(resultat.getBoolean("mutuelle"));
 			personne.setTicket(resultat.getBoolean("ticketResto"));
 			personne.setAdmin(resultat.getBoolean("admin"));
-			personne.setSalaire(resultat.getString("salaire"));
-			personne.setVisiteMedicale(resultat.getString("visiteMedicale"));
-			personne.setAdmin(resultat.getBoolean("admin"));
 			personne.setDateCreation(resultat.getString("dateCreation"));
 			personne.setDateModification(resultat.getString("dateModification"));
 			personne.setBloque(resultat.getBoolean("bloque"));
@@ -240,11 +237,11 @@ public class AccesBDDPersonne {
 
 			conn = DriverManager.getConnection(url, user, pass);
 			stat = conn.createStatement();
-			String sql1 = "DROP DATABASE listeUserActiv;";
-			String sql0 = "CREATE DATABASE listeUserActiv;";
+//			String sql1 = "DROP DATABASE listeUserActiv;";
+//			String sql0 = "CREATE DATABASE listeUserActiv;";
 //			stat.executeUpdate(sql1);
-			stat.executeUpdate(sql0);
-			url += "listeUserActiv";
+//			stat.executeUpdate(sql0);
+			url += "bait";
 			conn = DriverManager.getConnection(url, user, pass);
 			stat = conn.createStatement();
 			String sql = "CREATE TABLE listeUser (" + //
