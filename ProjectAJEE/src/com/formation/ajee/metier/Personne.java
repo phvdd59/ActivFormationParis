@@ -1,10 +1,18 @@
 package com.formation.ajee.metier;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.util.Date;
 
-public class Personne {
+import com.formation.ajee.dao.DaoPersonne;
 
+public class Personne implements Serializable {
+	private static final long serialVersionUID = 1L;
+	public static final int FEMINIM=0;
+	public static final int MASCULIN=1;
+	
 	private int idPersonne;
 	private String nom;
 	private String prenom;
@@ -55,10 +63,13 @@ public class Personne {
 		this.prenom = prenom;
 		this.identifiant = creationId(nom, prenom);
 		this.mdp = creationMdp();
+		this.visiteMedicale =new Date(2016-9-02);
+		this.dateNaissance=new Date(2016-9-02);
+		this.dateCreation=new Date(2016-9-02);
+		DaoPersonne daoP = new DaoPersonne();
+		daoP.insertTable(this);
 	}
 
-
-	
 	public Personne(int idPersonne, String nom, String prenom, SEXE sexe, String identifiant, String mdp, String email, String adresse, String cp, String ville, String telFixe, String telPort, String fax, Date dateNaissance, String lieuNaissance, String numSecu, String nationalite,
 			SITUATION situation, String fonction, String positionEntreprise, boolean cadre, String coeff, String salaire, Date visiteMedicale, String montantTransport, boolean voiture, int nbCV, String nbKm, boolean mutuelle, boolean ticketResto, Date dateCreation, Timestamp dateModification,
 			boolean bloque, String raisonBlocage, ListeDoc listeDoc) {
@@ -93,11 +104,13 @@ public class Personne {
 		this.nbKm = nbKm;
 		this.mutuelle = mutuelle;
 		this.ticketResto = ticketResto;
-		this.dateCreation = dateCreation;
+		this.dateCreation=Date.from(Instant.now());
 		this.dateModification = dateModification;
 		this.bloque = bloque;
 		this.raisonBlocage = raisonBlocage;
 		this.listeDoc = listeDoc;
+		DaoPersonne daoP = new DaoPersonne();
+		daoP.insertTable(this);
 	}
 
 	public String epuration(String texte) {
@@ -112,16 +125,16 @@ public class Personne {
 		return texte;
 	}
 
-	public String creationId(String nom, String prenom){
-		
+	public String creationId(String nom, String prenom) {
+
 		String nomE = epuration(nom);
 		String prenomE = epuration(prenom);
 		String identifiant = prenomE.substring(0, 1) + "." + nomE;
-				
+
 		return identifiant;
 	}
-	
-	public String creationMdp(){
+
+	public String creationMdp() {
 		String mdp = " ";
 		while (mdp.length() != 8) {
 			int a = (int) (Math.random() * 123);
@@ -136,7 +149,7 @@ public class Personne {
 		}
 		return mdp;
 	}
-	
+
 	public int getIdPersonne() {
 		return idPersonne;
 	}
@@ -273,8 +286,8 @@ public class Personne {
 		this.nationalite = nationalite;
 	}
 
-	public SITUATION getSituation() {
-		return situation;
+	public String getSituation() {
+		return situation.getNom();
 	}
 
 	public void setSituation(SITUATION situation) {

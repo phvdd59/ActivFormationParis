@@ -21,8 +21,8 @@ import com.formation.ajee.metier.Personne;
 
 public class Servletlisteutilisateurs extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private ListPersonne lstUser;
-	private Personne user;
+	public ListPersonne lstUser;
+	public Personne user;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -65,21 +65,19 @@ public class Servletlisteutilisateurs extends HttpServlet {
 				String prenomA = (String) oPrenomA;
 
 				user = new Personne(nomA, prenomA);
-				user.setBloque(false);
-				
+
 				if (lstUser.size() == 0) { // quand bdd fonctionne plus de liste nulle ->adnim a ajoute direct dans bdd
-					lstUser.add(user);	// a supprimer
+					lstUser.add(user); // a supprimer
 				} else {
 					for (int i = 0; i < lstUser.size(); i++) {
 						if (lstUser.get(i).getPrenom().contains(prenomA) && lstUser.get(i).getNom().contains(nomA)) {
 							existe = true;
 							break;
-						} else {
-							lstUser.add(user);
-							break;
 						}
 					}
-
+					if (existe == false) {
+						lstUser.add(user);
+					}
 				}
 
 				File file = new File("../GITActivFormationParis/ProjectAJEE/WebContent/WEB-INF/com/formation/ajee/page/ListeUtilisateurs2.html");
@@ -139,22 +137,23 @@ public class Servletlisteutilisateurs extends HttpServlet {
 
 			}
 		} else if (boutonSupp != null) {
-			
-			//le mettre en rouge dans la liste
-		
+
 			if (oNomB != null && oPrenomB != null) {
 				String nomB = (String) oNomB;
 				String prenomB = (String) oPrenomB;
 				String commentaire = (String) oCommentaire;
+				int indice = -1;
 
 				for (int i = 0; i < lstUser.size(); i++) {
 					if (lstUser.get(i).getPrenom().contains(prenomB) && lstUser.get(i).getNom().contains(nomB)) {
 						lstUser.get(i).setBloque(true);
 						lstUser.get(i).setRaisonBlocage(commentaire);
+						indice = 1;
 						break;
-					} else {
-						existe=true;
 					}
+				}
+				if (indice == -1) {
+					existe = true;
 				}
 
 				File file = new File("../GITActivFormationParis/ProjectAJEE/WebContent/WEB-INF/com/formation/ajee/page/ListeUtilisateurs2.html");
