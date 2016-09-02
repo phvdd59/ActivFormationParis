@@ -6,8 +6,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import controleur.CtrlPersonne;
-import controleur.InterCtrlPersonne;
+import com.formation.joca.controleur.CtrlPersonne;
+import com.formation.joca.controleur.InterCtrlPersonne;
 
 public class CtrlPersonneTest {
 	CtrlPersonne ctrlPersonne;

@@ -15,11 +15,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.formation.joca.controleur.CtrlPersonne;
 import com.formation.thcr.conversion.ConversionPersonne;
 import com.formation.thcr.metier.Personne;
 import com.formation.thcr.metier.SEXE;
-
-import controleur.CtrlPersonne;
 
 /**
  * Servlet implementation class ServletSoka3

@@ -81,18 +81,22 @@
 		<div id="info2">
 			<!-- zone disponible -->
 		<% 
- 	Personne personne = null;
-	Object o = session.getAttribute("Personne");
-	
-	if(o instanceof Personne){
-		personne = (Personne) o;
-	}
+		String noSerieHtml = request.getParameter("noSerie");
+		String noSerie = (String) session.getAttribute("noSerie");
+		Object p = session.getAttribute("Personne");
+		Personne personne = null;
+
+		if (p instanceof Personne) {
+			personne = (Personne) p;
+		}
+
+		if (noSerie.equals(noSerieHtml)) {
 	%>	
 			<form action="http://localhost:8080/ProjectJMST/jsp/Part2.jsp"
 				method='post'>
 				<table border="1">
 					<caption>
-						<h1>Demande d'inscription</h1>
+						<h1>Information Compte</h1>
 					</caption>
 
 					<tr>
@@ -137,5 +141,6 @@
 			<div id="droit2">©1997-2012 - Tous droits de reproduction et de
 				représentation réservés | Mentions légales</div>
 		</div>
+		<%} %>
 </body>
 </html>

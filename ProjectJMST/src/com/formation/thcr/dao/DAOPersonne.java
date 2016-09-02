@@ -13,10 +13,10 @@ import com.formation.thcr.metier.Sexe;
 public class DAOPersonne {
 
 	public final static String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-	public final static String DB_URL = "jdbc:mysql://www.psyeval.fr";
+	public final static String DB_URL = "jdbc:mysql://localhost/listpersonne";
 
-	public String user = "jsmt";
-	public String pass = "erreurmade";
+	public String user = "root";
+	public String pass = "";
 
 	public void delete(Personne personne) {
 		Connection con = null;
@@ -42,9 +42,10 @@ public class DAOPersonne {
 		}
 	}
 
-	public void update(Personne personne) {
+	public boolean update(Personne personne) {
 		Connection con = null;
 		Statement statement = null;
+		boolean bool = false;
 		try {
 			Class.forName(JDBC_DRIVER); // nom du driver
 			con = DriverManager.getConnection(DB_URL, user, pass);
@@ -94,6 +95,7 @@ public class DAOPersonne {
 			int result = statement.executeUpdate(sql);
 			if (result > 0) {
 				System.out.println("OK : " + result);
+				bool=true;
 			} else {
 				System.out.println("Erreur");
 			}
@@ -104,6 +106,7 @@ public class DAOPersonne {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		return bool;
 	}
 
 	public void create(Personne personne) {
@@ -157,10 +160,10 @@ public class DAOPersonne {
 		}
 	}
 
-	public Personne read(Personne personne) {
+	public boolean read(Personne personne) {
+		boolean retour=false;
 		Connection con = null;
 		Statement statement = null;
-		Personne perso = new Personne();
 		try {
 			Class.forName(JDBC_DRIVER); // nom du driver
 			con = DriverManager.getConnection(DB_URL, user, pass);
@@ -180,50 +183,51 @@ public class DAOPersonne {
 			while (result.next()) {
 				if (personne.getIdentifiant().equals(result.getString("LP_IDENTIFIANT"))
 						|| personne.getIdPersonne() == result.getInt("LP_IDPERSONNE")) {
-					perso.setIdentifiant(result.getString("LP_IDENTIFIANT"));
-					perso.setIdPersonne(Integer.valueOf(result.getString("LP_IDPERSONNE")).intValue());
-					perso.setNom(result.getString("LP_NOM"));
-					perso.setPrenom(result.getString("LP_PRENOM"));
+					personne.setIdentifiant(result.getString("LP_IDENTIFIANT"));
+					personne.setIdPersonne(Integer.valueOf(result.getString("LP_IDPERSONNE")).intValue());
+					personne.setNom(result.getString("LP_NOM"));
+					personne.setPrenom(result.getString("LP_PRENOM"));
 					if (result.getString("LP_SEXE").equals(Sexe.FEMININ)) {
 
 						personne.setSexe(new Sexe(Sexe.FEMININ));
 					} else {
 						personne.setSexe(new Sexe(Sexe.MASCULIN));
 					}
-					perso.setIdentifiant(result.getString("LP_IDENTIFIANT"));
-					perso.setMdp(result.getString("LP_MDP"));
-					perso.setEmail(result.getString("LP_EMAIL"));
-					perso.setAdresse(result.getString("LP_ADRESSE"));
-					perso.setCp(result.getString("LP_CP"));
-					perso.setVille(result.getString("LP_VILLE"));
-					perso.setTelFixe(result.getString("LP_TELFIXE"));
-					perso.setTelPort(result.getString("LP_TELPORT"));
-					perso.setFax(result.getString("LP_FAX"));
-					perso.setDateNaissance(result.getDate("LP_DATENAISSANCE"));
-					perso.setLieuNaissance(result.getString("LP_LIEUNAISSANCE"));
-					perso.setNumSecu(result.getString("LP_NUMSECU"));
-					perso.setNationalite(result.getString("LP_NATIONALITE"));
-					perso.setSituation(result.getString("LP_SITUATION"));
-					perso.setFonction(result.getString("LP_FONCTION"));
-					perso.setCadre(Boolean.valueOf(result.getString("LP_NOM")).booleanValue());
-					perso.setCoeff(result.getString("LP_COEFF"));
-					perso.setSalaire(result.getString("LP_SALAIRE"));
-					perso.setVisiteMedicale(result.getDate("LP_VISITEMEDICALE"));
+					personne.setIdentifiant(result.getString("LP_IDENTIFIANT"));
+					personne.setMdp(result.getString("LP_MDP"));
+					personne.setEmail(result.getString("LP_EMAIL"));
+					personne.setAdresse(result.getString("LP_ADRESSE"));
+					personne.setCp(result.getString("LP_CP"));
+					personne.setVille(result.getString("LP_VILLE"));
+					personne.setTelFixe(result.getString("LP_TELFIXE"));
+					personne.setTelPort(result.getString("LP_TELPORT"));
+					personne.setFax(result.getString("LP_FAX"));
+					personne.setDateNaissance(result.getDate("LP_DATENAISSANCE"));
+					personne.setLieuNaissance(result.getString("LP_LIEUNAISSANCE"));
+					personne.setNumSecu(result.getString("LP_NUMSECU"));
+					personne.setNationalite(result.getString("LP_NATIONALITE"));
+					personne.setSituation(result.getString("LP_SITUATION"));
+					personne.setFonction(result.getString("LP_FONCTION"));
+					personne.setCadre(Boolean.valueOf(result.getString("LP_NOM")).booleanValue());
+					personne.setCoeff(result.getString("LP_COEFF"));
+					personne.setSalaire(result.getString("LP_SALAIRE"));
+					personne.setVisiteMedicale(result.getDate("LP_VISITEMEDICALE"));
 					// |LP_MONTANTTRANSPORT |LP_VOITURE
 					// |LP_NBCV |LP_NBKM |LP_MUTUELLE |LP_TICKETRESTO |LP_ADMIN
 					// |LP_DATECREATION
 					// |LP_DATEMODIFICATION |LP_BLOQUE |LP_RAISONBLOCAGE |
-					perso.setMontantTransport(result.getString("LP_MONTANTTRANSPORT"));
-					perso.setVoiture(Boolean.valueOf(result.getString("LP_VOITURE")).booleanValue());
-					perso.setNbCV(Integer.valueOf(result.getString("LP_NBCV")).intValue());
-					perso.setNbKm(result.getString("LP_NBKM"));
-					perso.setMutuelle(Boolean.valueOf(result.getString("LP_MUTUELLE")).booleanValue());
-					perso.setTicketResto(Boolean.valueOf(result.getString("LP_TICKETRESTO")).booleanValue());
-					perso.setAdmin(Boolean.valueOf(result.getString("LP_ADMIN")).booleanValue());
-					perso.setDateModification(result.getTimestamp("LP_DATECREATION"));
-					perso.setBloque(Boolean.valueOf(result.getString("LP_BLOQUE")).booleanValue());
-					perso.setRaisonBlocage(result.getString("LP_RAISONBLOCAGE"));
+					personne.setMontantTransport(result.getString("LP_MONTANTTRANSPORT"));
+					personne.setVoiture(Boolean.valueOf(result.getString("LP_VOITURE")).booleanValue());
+					personne.setNbCV(Integer.valueOf(result.getString("LP_NBCV")).intValue());
+					personne.setNbKm(result.getString("LP_NBKM"));
+					personne.setMutuelle(Boolean.valueOf(result.getString("LP_MUTUELLE")).booleanValue());
+					personne.setTicketResto(Boolean.valueOf(result.getString("LP_TICKETRESTO")).booleanValue());
+					personne.setAdmin(Boolean.valueOf(result.getString("LP_ADMIN")).booleanValue());
+					personne.setDateModification(result.getTimestamp("LP_DATECREATION"));
+					personne.setBloque(Boolean.valueOf(result.getString("LP_BLOQUE")).booleanValue());
+					personne.setRaisonBlocage(result.getString("LP_RAISONBLOCAGE"));
 					check = true;
+					retour=true;
 				}
 			}
 			statement.close();
@@ -239,7 +243,7 @@ public class DAOPersonne {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return perso;
+		return retour;
 	}
 
 	public ListPersonne read() {

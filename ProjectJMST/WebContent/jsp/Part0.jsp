@@ -1,3 +1,4 @@
+<%@page import="com.formation.thcr.dao.DAOPersonne"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
@@ -82,19 +83,23 @@
 		<div id="info2">
 			<!-- zone disponible -->
 
-			<form action="http://localhost:8080/ProjectJMST/ServletJOCA1"
+			<form action="http://localhost:8080/ProjectJMST/chgt.jsp"
 				method='post'>
 				<table border="1">
 					<caption>
 						<h1>Changement mot de passe</h1>
 					</caption>
  	<% 
- 	Personne personne = null;
-	Object o = session.getAttribute("Personne");
-	
-	if(o instanceof Personne){
-		personne = (Personne) o;
+ 	String noSerieHtml = request.getParameter("noSerie");
+	String noSerie = (String) session.getAttribute("noSerie");
+	Object p = session.getAttribute("Personne");
+	Personne personne = null;
+
+	if (p instanceof Personne) {
+		personne = (Personne) p;
 	}
+
+	if (noSerie.equals(noSerieHtml)) {
 	%>	
 					<tr>
 						<th colspan="4" style="width: 627px;">Identifiant</th>
@@ -119,11 +124,11 @@
 				</table>
 
 				<input type="submit" name="Valider" value="Valider"></input>
-				<input type="hidden" name="noSerie" value="%%noSerie%%">
+				<input type="hidden" name="noSerie" value="<%=noSerie%>">
 			</form>
 			<form action="http://localhost:8080/ProjectJMST/ServletDeco" method='get'>
 				<input type="submit" value="Deconnexion"></input> 
-				<input type="hidden" name="noSerie" value="%%noSerie%%">
+				<input type="hidden" name="noSerie" value="<%=noSerie%>">
 			</form>
 
 		</div>
@@ -142,6 +147,14 @@
 			<div id="droit2">©1997-2012 - Tous droits de reproduction et de
 				représentation réservés | Mentions légales</div>
 		</div>
+		
+<% 
+	
+	
+	}else{
+// 		forward();
+	}%>
 		<script type="text/javascript" src="Test.js"></script>
+
 </body>
 </html>

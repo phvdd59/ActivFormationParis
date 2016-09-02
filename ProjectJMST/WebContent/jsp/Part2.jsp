@@ -86,18 +86,23 @@
 		<% 
 		
 
- 	Personne personne = null;
-	Object o = session.getAttribute("Personne");
-	
-	if(o instanceof Personne){
-		personne = (Personne) o;
+		String noSerieHtml = request.getParameter("noSerie");
+		String noSerie = (String) session.getAttribute("noSerie");
+		Object p = session.getAttribute("Personne");
+		Personne personne = null;
+
+		if (p instanceof Personne) {
+			personne = (Personne) p;
+		}
+
 		String sIdentifiant=request.getParameter("identifiant");
 		String sMdp=request.getParameter("mdp");
+		if (noSerie.equals(noSerieHtml)) {
 // 		if (CtrlPersonne.ctrlIdentifiant(sIdentifiant)&&CtrlPersonne.ctrlMdp(sMdp)){
 // 			personne.setIdentifiant(sIdentifiant);
 // 			personne.setMdp(sMdp);
 // 		}
-	}
+	
 	//personne.set
 	%>	
 		<form action="http://localhost:8080/ProjectJMST/jsp/Part3.jsp"
@@ -182,6 +187,7 @@
 			<div id="droit2">©1997-2012 - Tous droits de reproduction et de
 				représentation réservés | Mentions légales</div>
 		</div>
+		<%} %>
 </body>
 <script type="text/javascript">
 	function ctrAll() {

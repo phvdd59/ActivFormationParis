@@ -1,6 +1,6 @@
 package com.formation.joca.main;
 
-import controleur.CtrlPersonne;
+import com.formation.joca.controleur.CtrlPersonne;
 
 public class MainJoca {
 

@@ -1,4 +1,4 @@
-package controleur;
+package com.formation.joca.controleur;
 
 public interface InterCtrlDocPerso {
 
