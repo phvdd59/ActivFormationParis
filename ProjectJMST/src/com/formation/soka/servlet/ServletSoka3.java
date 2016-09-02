@@ -4,9 +4,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,7 +15,7 @@ import javax.servlet.http.HttpSession;
 import com.formation.joca.controleur.CtrlPersonne;
 import com.formation.thcr.conversion.ConversionPersonne;
 import com.formation.thcr.metier.Personne;
-import com.formation.thcr.metier.SEXE;
+import com.formation.thcr.metier.Sexe;
 
 /**
  * Servlet implementation class ServletSoka3
@@ -80,9 +77,9 @@ public class ServletSoka3 extends HttpServlet {
 			perso.setLieuNaissance(sLieuNaissance);
 			perso.setNumSecu(sNumSecu);
 			if(perso.getNumSecu().charAt(0) == '1'){
-				perso.setSexe(SEXE.MASCULIN);
+				perso.setSexe(new Sexe(Sexe.MASCULIN));
 			} else {
-				perso.setSexe(SEXE.FEMININ);
+				perso.setSexe(new Sexe(Sexe.FEMININ));
 			}
 			perso.setNationalite(sNationalite);
 //		}

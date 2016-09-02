@@ -1,7 +1,10 @@
 package com.formation.thcr.metier;
 
-public class Sexe {
+import java.io.Serializable;
 
+public class Sexe implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 	public static final String FEMININ = "feminin";
 	public static final String MASCULIN = "masculin";
 

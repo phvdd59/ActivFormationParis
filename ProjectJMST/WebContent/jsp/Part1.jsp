@@ -81,38 +81,24 @@
 		<div id="info2">
 			<!-- zone disponible -->
 		<% 
-		String noSerieHtml = request.getParameter("noSerie");
-		String noSerie = (String) session.getAttribute("noSerie");
-		Object p = session.getAttribute("Personne");
-		Personne personne = null;
-
-		if (p instanceof Personne) {
-			personne = (Personne) p;
-		}
-
-		if (noSerie.equals(noSerieHtml)) {
+		
 	%>	
-			<form action="http://localhost:8080/ProjectJMST/jsp/Part2.jsp"
+			<form action="http://localhost:8080/ProjectJMST/Test"
 				method='post'>
 				<table border="1">
 					<caption>
-						<h1>Information Compte</h1>
+						<h1>Login</h1>
 					</caption>
 
 					<tr>
 						<th colspan="4" style="width: 627px;">Identifiant</th>
 						<th style="width: 273px; height: 25px; color:;"><input
-							type="text" name="identifiant" value='<%=personne.getIdentifiant() %>' style="width: 270px;"></th>
+							type="text" name="identifiant" style="width: 270px;"></th>
 					</tr>
 					<tr>
 						<th colspan="4" style="width: 627px;">Mot de passe</th>
 						<th style="width: 273px; height: 25px; color:;"><input
-							type="password" name="mdp" value='' style="width: 270px;"></th>
-					</tr>
-					<tr>
-						<th colspan="4" style="width: 627px;">Mot de passe</th>
-						<th style="width: 273px; height: 25px; color:;"><input
-							type="password" name="mdp" value='' style="width: 270px;"></th>
+							type="password" name="motdepasse" value='' style="width: 270px;"></th>
 					</tr>
 				</table>
 
@@ -141,6 +127,6 @@
 			<div id="droit2">©1997-2012 - Tous droits de reproduction et de
 				représentation réservés | Mentions légales</div>
 		</div>
-		<%} %>
+
 </body>
 </html>

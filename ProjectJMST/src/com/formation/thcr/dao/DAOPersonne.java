@@ -13,10 +13,10 @@ import com.formation.thcr.metier.Sexe;
 public class DAOPersonne {
 
 	public final static String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-	public final static String DB_URL = "jdbc:mysql://localhost/listpersonne";
+	public final static String DB_URL = "jdbc:mysql://www.psyeval.fr/jmst";
 
-	public String user = "root";
-	public String pass = "";
+	public String user = "jmst";
+	public String pass = "erreurmade";
 
 	public void delete(Personne personne) {
 		Connection con = null;
@@ -25,7 +25,7 @@ public class DAOPersonne {
 			Class.forName(JDBC_DRIVER); // nom du driver
 			con = DriverManager.getConnection(DB_URL, user, pass);
 			statement = con.createStatement();
-			String sql = "DELETE FROM listpersonne.personne"//
+			String sql = "DELETE FROM personne"//
 					+ "WHERE LP_EMAIL=" + "'" + personne.getEmail() + "';";
 			int result = statement.executeUpdate(sql);
 			if (result > 0) {
@@ -55,7 +55,7 @@ public class DAOPersonne {
 			// |LP_FAX |LP_DATENAISSANCE |LP_LIEUNAISSANCE |LP_NUMSECU
 			// |LP_NATIONALITE |LP_SITUATION |LP_FONCTION |LP_CADRE |LP_COEFF
 			// |LP_SALAIRE |LP_VISITEMEDICALE |LP_MONTANTTRANSPORT |LP_VOITURE
-			String sql = "UPDATE listpersonne.personne"//
+			String sql = "UPDATE personne"//
 					+ " SET LP_NOM='" + personne.getNom() //
 					+ "', LP_PRENOM='" + personne.getPrenom()//
 					+ "', LP_SEXE='" + personne.getSexe().getSexe()//
@@ -126,7 +126,7 @@ public class DAOPersonne {
 			// |LP_NBCV |LP_NBKM |LP_MUTUELLE |LP_TICKETRESTO |LP_ADMIN
 			// |LP_DATECREATION
 			// |LP_DATEMODIFICATION |LP_BLOQUE |LP_RAISONBLOCAGE |
-			String sql = "INSERT INTO listpersonne.personne"//
+			String sql = "INSERT INTO personne"//
 					+ "(LP_NOM, LP_PRENOM, LP_SEXE, LP_IDENTIFIANT, LP_MDP, LP_EMAIL, LP_ADRESSE, LP_CP, LP_VILLE, LP_TELFIXE, "
 					+ "LP_TELPORT, LP_FAX, LP_DATENAISSANCE, LP_LIEUNAISSANCE, LP_NUMSECU, LP_NATIONALITE, "
 					+ "LP_SITUATION, LP_FONCTION, LP_CADRE, LP_COEFF, LP_SALAIRE, LP_VISITEMEDICALE, "
@@ -168,7 +168,7 @@ public class DAOPersonne {
 			Class.forName(JDBC_DRIVER); // nom du driver
 			con = DriverManager.getConnection(DB_URL, user, pass);
 			statement = con.createStatement();
-			String sql = "SELECT * FROM listpersonne.personne";
+			String sql = "SELECT * FROM personne";
 			ResultSet result = statement.executeQuery(sql);
 			boolean check = false;
 			// TRAITER LES METADATA pour contrôler les erreurs

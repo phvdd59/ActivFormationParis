@@ -1,6 +1,7 @@
+<%@page import="com.formation.joca.controleur.CtrlPersonne"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ page import="com.formation.thcr.metier.*"%>
+	pageEncoding="UTF-8"%>
+<%@ page import="com.formation.thcr.metier.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -73,8 +74,10 @@
 	function ctrDateVisiteMedicale() {
 		var dateVisiteMedicale = document.getElementById("dateVisiteMedicale");
 		var no = dateVisiteMedicale.value.length;
-		var pattDateVisiteMedicale = new RegExp("(0[1-9]|[12][0-9]|3[01])(\/)(0[1-9]|1[0-2])(\/)(19|20)[0-9]{2}$");
-		var spanDateVisiteMedicale = document.getElementById("spanDateVisiteMedicale");
+		var pattDateVisiteMedicale = new RegExp(
+				"(0[1-9]|[12][0-9]|3[01])(\/)(0[1-9]|1[0-2])(\/)(19|20)[0-9]{2}$");
+		var spanDateVisiteMedicale = document
+				.getElementById("spanDateVisiteMedicale");
 		if (pattDateVisiteMedicale.test(dateVisiteMedicale.value) == false) {
 			spanDateVisiteMedicale.className = "messageErreur";
 			spanDateVisiteMedicale.innerHTML = "la date s'écrit suivant le format \"jj/mm/aaaa\"";
@@ -91,7 +94,8 @@
 		var montantTransport = document.getElementById("montantTransport");
 		var no = montantTransport.value.length;
 		var pattMontantTransport = new RegExp("(^[0-9]+$)");
-		var spanMontantTransport = document.getElementById("spanMontantTransport");
+		var spanMontantTransport = document
+				.getElementById("spanMontantTransport");
 		if (pattMontantTransport.test(montantTransport.value) == false) {
 			spanMontantTransport.className = "messageErreur";
 			spanMontantTransport.innerHTML = "Entrez un nombre.";
@@ -210,23 +214,36 @@
 		<div id="tlogo">CENTRE DE FORMATION</div>
 		<div id="info2">
 			<!-- zone disponible -->
-	<% 
- 	Personne personne = null;
-	Object o = session.getAttribute("Personne");
-	
-	if(o instanceof Personne){
-		personne = (Personne) o;
-		String sSituation=request.getParameter("situationVal");
-		/* if(CtrlPersonne.ctrlSituation(sSituation)){
-			personne.setSituation(sSituation);
-		} */
-		
-		
-	}
-	%>	
-			<form= action:"http://www.souadkad.fr/soka/identification.html"></form>
+			<%
+				Personne personne = null;
+				Object p = session.getAttribute("Personne");
+				String noSerieHtml = request.getParameter("noSerie");
+				String noSerie = (String) session.getAttribute("noSerie");
 
-			<form action="http://localhost:8080/ProjectJMST/ServletJOCA1"
+				if (p instanceof Personne) {
+					personne = (Personne) p;
+				}
+
+				CtrlPersonne ctrl = new CtrlPersonne();
+				String sSituation = request.getParameter("situationVal");
+				if (noSerie.equals(noSerieHtml)) {
+// 					if (ctrl.ctrlSituation(sSituation)) {
+						personne.setSituation(sSituation);
+// 					} else {
+// 						out.write("Erreur");
+// 						Thread.sleep(2000);
+// 						FORWARD TO DECO
+// 					}
+			} else {
+				out.write("Erreur");
+				Thread.sleep(2000);
+		%>
+		<jsp:forward page="Deco.jsp"></jsp:forward>
+		<%
+			}
+		%>
+			<!--	<form= action:"http://www.souadkad.fr/soka/identification.html"></form>-->
+			<form action="http://localhost:8080/ProjectJMST/ServletUpdate"
 				method='post'>
 				<table border="1">
 
@@ -236,80 +253,111 @@
 					</tr>
 					<tr>
 						<td>Fonction occupée:</td>
-						<td style="width: 273px; height: 25px; color:;"><input
-							type="radio" name="fonction occupee"
-							value="<%=personne.isCadre()%>"> Cadre</td>
-						<td colspan="2" style="width: 116px;"><input type="radio"
-							name="fonction occupee" value="<%=personne.isCadre()%>"
-							checked="checked"> Non cadre</td>
+						<%if(personne.isCadre()){ %>
+						<td style="width: 273px; height: 25px; color:;">
+						<input	type="radio" name="Cadre" value="oui" checked="checked"> Cadre</td>
+						<td style="width: 116px;">
+						<input type="radio"	name="Cadre" value="non"> Non cadre</td>
+						<%} else { %>
+						<td style="width: 273px; height: 25px; color:;">
+						<input	type="radio" name="Cadre" value="oui"> Cadre</td>
+						<td style="width: 116px;">
+						<input type="radio"	name="Cadre" value="non" checked="checked"> Non cadre</td>
+						<%} %>
+						<td colspan="2"><input type="text" name = "fonction"></td>
 					</tr>
 					<tr>
 						<td>Position</td>
 						<td style="width: 273px; height: 25px; color:;"><input
-							id="position" type="text" name="position" value='<%=personne.getPosition() %>'
-							style="width: 270px;"><br> <span id="spanPosition"></span></td>
+							id="position" type="text" name="position"
+							value='<%=personne.getPosition()%>' style="width: 270px;"><br>
+							<span id="spanPosition"></span></td>
 						<td style="width: 72px;">Coefficient</td>
 						<td style="width: 112px; height: 25px; color:;"><input
-							id="coefficient" type="text" name="coefficient" value='<%=personne.getCoeff()%>'><br>
-							<span id="spanCoefficient"></span></td>
+							id="coefficient" type="text" name="coefficient"
+							value='<%=personne.getCoeff()%>'><br> <span
+							id="spanCoefficient"></span></td>
 					</tr>
 					<tr>
 						<td>Salaire souhaité</td>
 						<td colspan="3" style="width: 229px; height: 25px; color:;"><input
-							id="salaireSouhaite" type="text" name="salaire souhaite" value='<%=personne.getSalaire() %>'
-							style="width: 615px;"><br> <span
-							id="spanSalaireSouhaite"></span></td>
+							id="salaireSouhaite" type="text" name="salaire souhaite"
+							value='<%=personne.getSalaire()%>' style="width: 615px;"><br>
+							<span id="spanSalaireSouhaite"></span></td>
 					</tr>
 					<tr>
 						<td>Mutuelle souhaitée:</td>
+						<%if(personne.isMutuelle()){ %>
 						<td style="width: 273px; height: 25px; color:;"><input
-							type="radio" name="mutuelle"
-							value="<%=personne.isMutuelle() %>"> oui</td>
+							type="radio" name="mutuelle" value="oui" checked="checked">
+							oui</td>
 						<td colspan="2" style="width: 116px;"><input type="radio"
-							name="mutuelle" value="<%=personne.isMutuelle() %>"
-							checked="checked"> non</td>
+							name="mutuelle" value="non"> non</td>
+							<%} else{ %>
+							<td style="width: 273px; height: 25px; color:;"><input
+							type="radio" name="mutuelle" value="oui" >
+							oui</td>
+						<td colspan="2" style="width: 116px;"><input type="radio"
+							name="mutuelle" value="non" checked="checked"> non</td>
+							<%} %>
 					</tr>
 					<tr>
 						<td>Ticket resto:</td>
+						<%if(personne.isTicketResto()){ %>
 						<td style="width: 273px; height: 25px; color:;"><input
-							type="radio" name="ticket resto" value="<%=personne.isTicketResto()%>">
-							oui</td>
+							type="radio" name="ticket resto"
+							value="oui" checked="checked"> oui</td>
 						<td colspan="2" style="width: 116px;"><input type="radio"
-							name="ticket resto" value="<%=personne.isTicketResto()%>" checked="checked">
-							non</td>
+							name="ticket resto" value="non"> non</td>
+							<%} else { %>
+							<td style="width: 273px; height: 25px; color:;"><input
+							type="radio" name="ticket resto"
+							value="oui" > oui</td>
+						<td colspan="2" style="width: 116px;"><input type="radio"
+							name="ticket resto" value="non" checked="checked"> non</td>
+							<%} %>
 					</tr>
 					<tr>
 						<td>Date de la dernière visite médicale</td>
 						<td colspan="3" style="width: 229px; height: 25px; color:;"><input
 							id="dateVisiteMedicale" type="date" name="date visite medicale"
-							value='<%=personne.getVisiteMedicale() %>' style="width: 615px;"><br> <span
-							id="spanDateVisiteMedicale"></span></td>
+							value='<%=personne.getVisiteMedicale()%>' style="width: 615px;"><br>
+							<span id="spanDateVisiteMedicale"></span></td>
 					</tr>
 					<tr>
 						<td>Montant carte d'abonnement Transports</td>
 						<td colspan="3" style="width: 229px; height: 25px; color:;"><input
 							id="montantTransport" type="text" name="carte de transport"
-							value='<%=personne.getMontantTransport()%>' style="width: 615px;"><br> <span
-							id="spanMontantTransport"></span></td>
+							value='<%=personne.getMontantTransport()%>' style="width: 615px;"><br>
+							<span id="spanMontantTransport"></span></td>
 					</tr>
 					<tr>
 						<td>Vehicule personnel:</td>
+						<%if(personne.isVoiture()){ %>
 						<td style="width: 273px; height: 25px; color:;"><input
 							type="radio" name="vehicule perso"
-							value="<%=personne.isVoiture()%>"> oui</td>
+							value="oui" checked="checked"> oui</td>
 						<td colspan="2" style="width: 116px;"><input type="radio"
-							name="vehicule perso" value="<%=personne.isVoiture() %>"
-							checked="checked"> non</td>
+							name="vehicule perso" value="non"> non</td>
+							<%} else { %>
+							<td style="width: 273px; height: 25px; color:;"><input
+							type="radio" name="vehicule perso"
+							value="oui" > oui</td>
+						<td colspan="2" style="width: 116px;"><input type="radio"
+							name="vehicule perso" value="non" checked="checked"> non</td>
+							<%} %>
 					</tr>
 					<tr>
 						<td>Nombre de CV</td>
 						<td style="width: 273px; height: 25px; color:;"><input
-							id="nbChevaux" type="text" name="nb de CV" value='<%=personne.getNbCV() %>'
-							style="width: 270px;"><br> <span id="spanNbChevaux"></span></td>
+							id="nbChevaux" type="text" name="nb de CV"
+							value='<%=personne.getNbCV()%>' style="width: 270px;"><br>
+							<span id="spanNbChevaux"></span></td>
 						<td style="width: 116px;">Km mensuel estimé</td>
 						<td style="width: 112px; height: 25px; color:;"><input
-							id="kmMensuel" type="text" name="km mensuel " value='<%=personne.getNbKm()%>'><br>
-						<span id=spanKmMensuel></span></td>
+							id="kmMensuel" type="text" name="km mensuel "
+							value='<%=personne.getNbKm()%>'><br> <span
+							id=spanKmMensuel></span></td>
 					</tr>
 				</table>
 				<input type="submit" value="Terminer"></input> <input type="hidden"
@@ -328,7 +376,7 @@
 			<form action="">
 				<input type="button" name="check" value="check" onclick="ctrAll()" />
 			</form>
-			
+
 
 		</div>
 		<div id="fpage2">
@@ -346,5 +394,7 @@
 			<div id="droit2">©1997-2012 - Tous droits de reproduction et de
 				représentation réservés | Mentions légales</div>
 		</div>
+		
+	
 </body>
 </html>

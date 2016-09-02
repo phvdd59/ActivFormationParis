@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 
 import com.formation.thcr.conversion.ConversionPersonne;
 import com.formation.thcr.metier.Personne;
-import com.formation.thcr.metier.SEXE;
+import com.formation.thcr.metier.Sexe;
 
 /**
  * Servlet implementation class ServletTestDAO
@@ -69,7 +69,7 @@ public class ServletTestDAO extends HttpServlet {
 		personne.setPrenom("Prenomtest");
 		personne.setRaisonBlocage("pas de raison");
 		personne.setSalaire("32000");
-		personne.setSexe(SEXE.MASCULIN);
+		personne.setSexe(new Sexe(Sexe.MASCULIN));
 		personne.setSituation("situation test");
 		personne.setTelFixe("01");
 		personne.setTelPort("06");
