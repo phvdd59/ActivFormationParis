@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 
 import com.formation.thcr.conversion.ConversionPersonne;
 import com.formation.thcr.dao.DAOPersonne;
-import com.formation.thcr.metier.ListeDoc;
+import com.formation.thcr.metier.DocPerso;
 import com.formation.thcr.metier.Personne;
 
 import controleur.CtrlPersonne;
@@ -39,7 +39,8 @@ public class Inscription extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
 		HttpSession session = request.getSession();
 		Object personne = session.getAttribute("Personne");
@@ -69,7 +70,7 @@ public class Inscription extends HttpServlet {
 		 * CONTROLE ET CONVERSION
 		 */
 		CtrlPersonne ctrl = new CtrlPersonne();
-		//if (ctrl.ctrlSituation(situationPro)){
+		// if (ctrl.ctrlSituation(situationPro)){
 		ConversionPersonne conv = new ConversionPersonne();
 		perso.setFonction(sFonctionOccupe);
 		perso.setCadre(conv.conversionBoolean(sCadre));
@@ -81,7 +82,7 @@ public class Inscription extends HttpServlet {
 		perso.setVisiteMedicale(conv.conversionDate(sDateVisiteMedicale));
 		perso.setMontantTransport(sMontantTransport);
 		perso.setVoiture(conv.conversionBoolean(sVehicule));
-		if(nbCv == null || nbCv.equals("")){
+		if (nbCv == null || nbCv.equals("")) {
 			nbCv = "0";
 		}
 		perso.setNbCV(Integer.valueOf(nbCv));
@@ -94,20 +95,19 @@ public class Inscription extends HttpServlet {
 		perso.setRaisonBlocage("pas de raison");
 		perso.setAdmin(false);
 		perso.setBloque(false);
-		perso.setListeDoc(new ListeDoc());
+		perso.setListeDoc(new DocPerso[1]);
 		DAOPersonne dao = new DAOPersonne();
 		dao.create(perso);
 
-		//}
-		//}
+		// }
+		// }
 
-		//FORWARD TO Deconnexion (login)
+		// FORWARD TO Deconnexion (login)
 		ServletContext context = getServletContext();
 		RequestDispatcher requestDispatcher = context.getRequestDispatcher("/ServletDeco");
 		requestDispatcher.forward(request, response);
-		//REDIRECT to Deco
-		//response.sendRedirect("/ServletDeco");
-		
+		// REDIRECT to Deco
+		// response.sendRedirect("/ServletDeco");
 
 	}
 
@@ -115,7 +115,8 @@ public class Inscription extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
