@@ -19,7 +19,11 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
     </complexType>
    </element>
    <complexType name="Personne">
-    <sequence/>
+    <sequence>
+     <element name="mail" nillable="true" type="xsd:string"/>
+     <element name="nom" nillable="true" type="xsd:string"/>
+     <element name="prenom" nillable="true" type="xsd:string"/>
+    </sequence>
    </complexType>
   </schema>
  </wsdl:types>

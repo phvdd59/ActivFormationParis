@@ -43,7 +43,7 @@ public class PersonneTest {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		personne = new Personne ("testemail", "testnom","testprenom");
+//		personne = new Personne ("testemail", "testnom","testprenom");
 		return personne;
 	}
 }

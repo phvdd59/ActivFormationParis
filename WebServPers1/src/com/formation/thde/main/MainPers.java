@@ -13,8 +13,8 @@ public class MainPers {
 
 	private void init() {
 		PersonneTest persTest = new PersonneTest();
-		Personne pers = new Personne();
-		System.out.println(persTest.getPersonne("2"));
+//		Personne pers = new Personne();
+		System.out.println(persTest.getPersonne("1"));
 
 	}
 
