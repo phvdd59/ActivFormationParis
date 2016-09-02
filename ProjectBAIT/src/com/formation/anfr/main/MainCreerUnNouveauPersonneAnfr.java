@@ -21,9 +21,9 @@ public class MainCreerUnNouveauPersonneAnfr {
 		jojo.setNom("FRERE");
 		jojo.setPrenom("Antoine");
 		jojo.setEmail("anfr@activConsulting.fr");
-		bdd.createNewPersonne(jojo.getIdentifiant(), jojo.getMdp(), jojo.getEmail(), jojo.getNom(), jojo.getPrenom());
+//		bdd.createNewPersonne(jojo.getIdentifiant(), jojo.getMdp(), jojo.getEmail(), jojo.getNom(), jojo.getPrenom());
 		ArrayList<String> lstPersonnes = new ArrayList<String>();
-		String[] st = bdd.findPersonne("anfr");
+		String[] st = bdd.findPersonne(jojo.getIdentifiant());
 		toto = bdd.getPersonne(st[0]);
 		toto.setAdresse("15 rue du de chez moi");
 		toto.setcP("49000");
