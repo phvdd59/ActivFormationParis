@@ -93,15 +93,15 @@ public class ServletFormulaireB extends HttpServlet {
 		 * aux controles si necessaire)
 		 */
 		
-		File fileDoc = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/Bandeau.html");
-		BufferedReader bufReadDoc = null;
-		bufReadDoc = new BufferedReader(new FileReader(fileDoc));
-		String lineDoc = bufReadDoc.readLine();
-		while (lineDoc != null) {
-			response.getWriter().println(lineDoc);
-			lineDoc = bufReadDoc.readLine();
-		}
-		bufReadDoc.close();
+//		File fileDoc = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/Bandeau.html");
+//		BufferedReader bufReadDoc = null;
+//		bufReadDoc = new BufferedReader(new FileReader(fileDoc));
+//		String lineDoc = bufReadDoc.readLine();
+//		while (lineDoc != null) {
+//			response.getWriter().println(lineDoc);
+//			lineDoc = bufReadDoc.readLine();
+//		}
+//		bufReadDoc.close();
 		
 		Personne personne = new Personne();
 		
@@ -169,7 +169,7 @@ public class ServletFormulaireB extends HttpServlet {
 		// print : formulaire bien enregistré
 		response.getWriter().println("Formulaire enregistre");
 		// retour page accueil en bas de page (bouton)
-		String html = "<html><form action='http://127.0.0.1:8080/ProjectAJEE/Servletidentification'><input type='submit' value='Accueil'></form></html>";
+		String html = "<html><form action='http://127.0.0.1:8080/ProjectAJEE/Servletidentification'><input type='submit' value='Retour page identification'></form></html>";
 		response.getWriter().println(html);
 		
 		
