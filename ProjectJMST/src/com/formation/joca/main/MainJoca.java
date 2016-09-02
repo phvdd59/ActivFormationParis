@@ -1,8 +1,5 @@
 package com.formation.joca.main;
 
-import com.formation.thcr.metier.SITUATION;
-
-import controleur.CtrlDocPerso;
 import controleur.CtrlPersonne;
 
 public class MainJoca {
@@ -13,9 +10,9 @@ public class MainJoca {
 	}
 
 	private void test() {
-		CtrlDocPerso ctrlPerso = new CtrlDocPerso();
-		String test = "ahdauhnpu";
-		System.out.println(ctrlPerso.ctrlNomDocUtil(test));
+		CtrlPersonne ctrlPerso = new CtrlPersonne();
+		String test = "150 avenue Olvier d'Ormesson (paris)";
+		System.out.println(ctrlPerso.ctrlAdresse(test));
 
 	}
 
