@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://metier.thde.formation.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://metier.thde.formation.com" xmlns:intf="http://metier.thde.formation.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://metier.thde.formation.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="getPersonne">
+    <complexType>
+     <sequence>
+      <element name="Id" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getPersonneResponse">
+    <complexType>
+     <sequence>
+      <element name="getPersonneReturn" type="impl:Personne"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="Personne">
+    <sequence/>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getPersonneRequest">
+
+      <wsdl:part element="impl:getPersonne" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getPersonneResponse">
+
+      <wsdl:part element="impl:getPersonneResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="PersonneTest">
+
+      <wsdl:operation name="getPersonne">
+
+         <wsdl:input message="impl:getPersonneRequest" name="getPersonneRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getPersonneResponse" name="getPersonneResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="PersonneTestSoapBinding" type="impl:PersonneTest">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getPersonne">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getPersonneRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getPersonneResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="PersonneTestService">
+
+      <wsdl:port binding="impl:PersonneTestSoapBinding" name="PersonneTest">
+
+         <wsdlsoap:address location="http://localhost:8080/WebServPers1/services/PersonneTest"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
