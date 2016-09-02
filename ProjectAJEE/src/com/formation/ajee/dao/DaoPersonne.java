@@ -18,12 +18,12 @@ public class DaoPersonne {
 	
 	public String user = "root";
 	public String pass = "";
+	public ArrayList<Personne> listPersonne;
+	public Personne personne;
 	
 	public void insertTable() {
 		Connection connexion = null;
 		Statement statement = null;
-		ArrayList<Personne> listPersonne = new ArrayList<Personne>();
-		Personne personne = new Personne();
 		try {
 			Class.forName(JDBC_DRIVER);
 			connexion = DriverManager.getConnection(DB_URL, user, pass);
@@ -61,8 +61,6 @@ public class DaoPersonne {
 	public void updateTable() {
 		Connection conn = null;
 		Statement stat = null;
-		ArrayList<Personne> listPersonne = new ArrayList<Personne>();
-		Personne personne = new Personne();
 		try {
 			Class.forName(JDBC_DRIVER);
 			conn = DriverManager.getConnection(DB_URL, user, pass);
@@ -111,7 +109,6 @@ public class DaoPersonne {
 	public void deleteTable() {
 		Connection conn = null;
 		Statement stat = null;
-		Personne personne = new Personne();
 		try {
 			Class.forName(JDBC_DRIVER);
 			conn = DriverManager.getConnection(DB_URL, user, pass);
