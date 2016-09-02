@@ -1,1 +1,1 @@
-drop table test.marchand; 
+drop table marchandsoka.produit; 
