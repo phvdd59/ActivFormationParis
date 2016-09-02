@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import org.jcp.xml.dsig.internal.dom.DOMSignatureProperties;
+
 import com.formation.thcr.metier.DocPerso;
 
 public class DAODoc {
@@ -51,6 +53,7 @@ public class DAODoc {
 			String sql = "SELECT * FROM listpersonne.docPerso;";
 			ResultSet result = statement.executeQuery(sql);
 			while (result.next()) {
+				docPerso.setIdDoc(Integer.valueOf(result.getString("idDoc")).intValue());
 				docPerso.setNomDocUtil(result.getString("nomDocUtil"));
 				docPerso.setType(result.getString("type"));
 				docPerso.setNomDocFile(result.getString("nomDocFile"));
@@ -113,5 +116,4 @@ public class DAODoc {
 			e.printStackTrace();
 		}
 	}
-
 }

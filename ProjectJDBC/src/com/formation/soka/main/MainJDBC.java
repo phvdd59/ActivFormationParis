@@ -23,11 +23,38 @@ public class MainJDBC {
 		//m.create();
 		//m.createTable();
 		//m.insertTable(); 
-		m.selectTable();
+		//m.selectTable();
 		//m.selectTableMetaData();
 		//m.updateTable();
 		//m.deleteTable();
-		m.prodMarchand();
+		//m.prodMarchand();
+		m.foreignKey();
+	}
+
+	public void foreignKey() {
+		Connection conn = null;
+		Statement stat = null;
+		try {
+			Class.forName(JDBC_DRIVER);
+			conn = DriverManager.getConnection(DB_URL, user, pass);
+			stat = conn.createStatement();
+			String[] tabEtudiant = { "made", "soka", "thcr", "thde" };
+			String insertTable = null;
+			for (int i = 0; i < tabEtudiant.length; i++) {
+				for (int j = 0; j < 5; j++) {
+					insertTable = "ALTER TABLE marchandsoka.produit" + //
+							" add constraint idmfk" + //
+							" foreign key(idMarchand)" + //
+							" references marchandsoka.marchand(idMarchand);";
+					stat.executeUpdate(insertTable);
+				}
+			}
+			System.out.println("fin");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void prodMarchand() {
@@ -38,21 +65,21 @@ public class MainJDBC {
 			conn = DriverManager.getConnection(DB_URL, user, pass);
 			stat = conn.createStatement();
 			String[] tabEtudiant = { "made", "soka", "thcr", "thde" };
-			String insertTable = null; 
+			String insertTable = null;
 			for (int i = 0; i < tabEtudiant.length; i++) {
 				for (int j = 0; j < 5; j++) {
 					insertTable = "INSERT INTO marchandsoka.produit "//
 							+ "(idMarchand, nomProduit, qteProduit)"//
-							+ "VALUES (" + i + ", 'titi" + j + "', 2);";
+							+ "VALUES (" + i + ", '" + tabEtudiant[i] + j + "', 2);";
 					stat.executeUpdate(insertTable);
 				}
-				
-//				int resultat = stat.executeUpdate(sql);
-//				if (resultat >= 0) {
-//					System.out.println("OK");
-//				} else {
-//					System.out.println("NOK");
-//				}
+
+				//				int resultat = stat.executeUpdate(sql);
+				//				if (resultat >= 0) {
+				//					System.out.println("OK");
+				//				} else {
+				//					System.out.println("NOK");
+				//				}
 			}
 			System.out.println("fin");
 		} catch (ClassNotFoundException e) {
