@@ -17,7 +17,7 @@ import com.formation.ajee.metier.Personne;
 /**
  * Servlet implementation class ServletFormulaire
  */
-@WebServlet(description = "Servlet Creation Formulaire Rempli", urlPatterns = { "/ServletCreaForRempli" })
+@WebServlet(description = "Servlet Creation Formulaire Rempli", urlPatterns = { "/ServletFormulaire" })
 // Cette servlet part "FormulaireARemplir" (le formulaire vide) qui a été rempli par l'user.
 public class ServletFormulaire extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -101,126 +101,14 @@ public class ServletFormulaire extends HttpServlet {
 		}
 		bufReadDoc.close();
 		
-		// rajouter des if pour créer des objets et rajouter des attributs lorsqu'ils sont rencontrés. (Remplir les inputs du nouveau formulaire avc ces attributs. En read-only.)->non
-		Personne personne = new Personne();
 		File fileDoc1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/FormulaireARemplir.html");
 		BufferedReader bufReadDoc1 = null;
 		bufReadDoc1 = new BufferedReader(new FileReader(fileDoc1));
 		String lineDoc1 = bufReadDoc1.readLine();
 		while (lineDoc1 != null) {
-			// Récupérer les données du formulaire et ranger dans objet personne
-			if (lineDoc1.contains("id='nom'")) {
-				String pNom=request.getParameter("nom");
-				personne.setNom(pNom);
-			}
-			if (lineDoc1.contains("id='prenom'")) {
-				String pPrenom=request.getParameter("prenom");
-				personne.setPrenom(pPrenom);
-			}
-			if (lineDoc1.contains("id='adresse'")) {
-				String pAdresse=request.getParameter("adresse");
-				personne.setPrenom(pAdresse);
-			}
-			// insert enum SEXE
-			
-			if (lineDoc1.contains("id='cp'")) {
-				String pCp=request.getParameter("cp");
-				personne.setPrenom(pCp);
-			}
-			if (lineDoc1.contains("id='ville'")) {
-				String pVille=request.getParameter("ville");
-				personne.setPrenom(pVille);
-			}
-			if (lineDoc1.contains("id='telFixe'")) {
-				String pTelFixe=request.getParameter("telFixe");
-				personne.setPrenom(pTelFixe);
-			}
-			if (lineDoc1.contains("id='telPort'")) {
-				String pTelPort=request.getParameter("telPort");
-				personne.setPrenom(pTelPort);
-			}
-			if (lineDoc1.contains("id='fax'")) {
-				String pFax=request.getParameter("fax");
-				personne.setPrenom(pFax);
-			}
-			if (lineDoc1.contains("id='email'")) {
-				String pEmail=request.getParameter("email");
-				personne.setPrenom(pEmail);
-			}
-			if (lineDoc1.contains("id='dateNaissance'")) {
-				String pDateNaissance=request.getParameter("dateNaissance");
-				personne.setPrenom(pDateNaissance);
-			}
-			if (lineDoc1.contains("id='lieuNaissance'")) {
-				String pLieuNaissance=request.getParameter("lieuNaissance");
-				personne.setPrenom(pLieuNaissance);
-			}
-			if (lineDoc1.contains("id='numSecu'")) {
-				String pNumSecu=request.getParameter("numSecu");
-				personne.setPrenom(pNumSecu);
-			}
-			if (lineDoc1.contains("id='nationalite'")) {
-				String pNationalite=request.getParameter("nationalite");
-				personne.setPrenom(pNationalite);
-			}
-			if (lineDoc1.contains("id='situation'")) {
-				String pSituation=request.getParameter("situation");
-				personne.setPrenom(pSituation);
-				String a = personne.getPrenom();
-				System.out.println(a);
-			}
-			if (lineDoc1.contains("id='fonction'")) {
-				String pFonction=request.getParameter("fonction");
-				personne.setPrenom(pFonction);
-			}
-			if (lineDoc1.contains("id='positionEntreprise'")) {
-				String pPositionEntreprise=request.getParameter("positionEntreprise");
-				personne.setPrenom(pPositionEntreprise);
-			}
-			if (lineDoc1.contains("id='coeff'")) {
-				String pCoeff=request.getParameter("coeff");
-				personne.setPrenom(pCoeff);
-			}
-			if (lineDoc1.contains("id='salaire'")) {
-				String pSalaire=request.getParameter("salaire");
-				personne.setPrenom(pSalaire);
-			}
-			if (lineDoc1.contains("id='visiteMedicale'")) {
-				String pVisiteMedicale=request.getParameter("visiteMedicale");
-				personne.setPrenom(pVisiteMedicale);
-			}
-			if (lineDoc1.contains("id='montantTransport'")) {
-				String pMontantTransport=request.getParameter("montantTransport");
-				personne.setPrenom(pMontantTransport);
-			}
-			if (lineDoc1.contains("id='voiture'")) {
-				String pVoiture=request.getParameter("voiture");
-				personne.setPrenom(pVoiture);
-			}
-			if (lineDoc1.contains("id='nbCV'")) {
-				String pNbCV=request.getParameter("nbCV");
-				personne.setPrenom(pNbCV);
-			}
-			if (lineDoc1.contains("id='nbKm'")) {
-				String pNbKm=request.getParameter("nbKm");
-				personne.setPrenom(pNbKm);
-			}
-			
-			// print : formulaire bien enregistré
-			// retour page accueil en bas de page (bouton)
-			
-			String pSituation=request.getParameter(""); // cf. ForCalLisDer.html de Jérémy // edit : on a fait un enum
-			//String pPrenom=request.getParameter("prenom");
-			//String pPrenom=request.getParameter("prenom");
-			//
-			
-			//response.getWriter().println(lineDoc1);
-			
+			response.getWriter().println(lineDoc1);
 			lineDoc1 = bufReadDoc1.readLine();
 		}
-		response.getWriter().println("Formulaire enregistre");
-		String html = "<html><form action='http://127.0.0.1:8080/ProjectAJEE/src/com/formation/ajee/servlet/Servletidentification.java'><input type='submit' value='Accueil'></form></html>";
-		response.getWriter().println(html);
 		bufReadDoc1.close();
 		
 		/** Lecture bas de page */

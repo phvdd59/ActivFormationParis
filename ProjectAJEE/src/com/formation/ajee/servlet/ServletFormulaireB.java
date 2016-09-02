@@ -17,8 +17,8 @@ import com.formation.ajee.metier.Personne;
 /**
  * Servlet implementation class ServletFormulaire
  */
-@WebServlet(description = "Servlet Creation Formulaire Rempli", urlPatterns = { "/ServletCreaForRempli" })
-// Cette servlet part "FormulaireARemplir" (le formulaire vide) qui a été rempli par l'user.
+@WebServlet(description = "Servlet Creation Formulaire Rempli", urlPatterns = { "/ServletFormulaireB" })
+// Cette servlet part de "FormulaireARemplir" (le formulaire vide) qui a été rempli par l'user.
 public class ServletFormulaireB extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -219,7 +219,7 @@ public class ServletFormulaireB extends HttpServlet {
 			lineDoc1 = bufReadDoc1.readLine();
 		}
 		response.getWriter().println("Formulaire enregistre");
-		String html = "<html><form action='http://127.0.0.1:8080/ProjectAJEE/src/com/formation/ajee/servlet/Servletidentification.java'><input type='submit' value='Accueil'></form></html>";
+		String html = "<html><form action='http://127.0.0.1:8080/ProjectAJEE/Servletidentification'><input type='submit' value='Accueil'></form></html>";
 		response.getWriter().println(html);
 		bufReadDoc1.close();
 		
