@@ -3,6 +3,7 @@ package com.formation.anfr.main;
 import java.util.ArrayList;
 
 import com.formation.bait.dao.AccesBDD;
+import com.formation.bait.dao.AccesBDDPersonne;
 import com.formation.bait.metier.Personne;
 
 public class MainProjectAnfr {
@@ -14,7 +15,7 @@ public class MainProjectAnfr {
 	}
 
 	private void init() {
-		AccesBDD bdd = new AccesBDD();
+		AccesBDDPersonne bdd = new AccesBDDPersonne();
 		Personne jojo = new Personne("JOJO","JOJO76");
 		Personne toto = new Personne("","");
 		jojo.setNom("Bueller");
