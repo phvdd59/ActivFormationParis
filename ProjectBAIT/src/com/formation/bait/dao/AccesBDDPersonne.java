@@ -242,7 +242,7 @@ public class AccesBDDPersonne {
 			stat = conn.createStatement();
 			String sql1 = "DROP DATABASE listeUserActiv;";
 			String sql0 = "CREATE DATABASE listeUserActiv;";
-			stat.executeUpdate(sql1);
+//			stat.executeUpdate(sql1);
 			stat.executeUpdate(sql0);
 			url += "listeUserActiv";
 			conn = DriverManager.getConnection(url, user, pass);

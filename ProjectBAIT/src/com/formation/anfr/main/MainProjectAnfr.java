@@ -24,7 +24,7 @@ public class MainProjectAnfr {
 		momo.setNom("Bueller");
 		momo.setPrenom("Moris");
 		momo.setEmail("momo76@serieall.fr");
-	//	bdd.creTables();
+		bdd.creTables();
 		bdd.createNewPersonne(jojo.getIdentifiant(), jojo.getMdp(), jojo.getEmail(), jojo.getNom(), jojo.getPrenom());
 		bdd.createNewPersonne(momo.getIdentifiant(), momo.getMdp(), momo.getEmail(), momo.getNom(), momo.getPrenom());
 		ArrayList<String> lstPersonnes = new ArrayList<String>();
