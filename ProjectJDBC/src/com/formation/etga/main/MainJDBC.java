@@ -13,16 +13,16 @@ import java.util.Enumeration;
 public class MainJDBC {
 	
 	public final static String JDBC_DRIVER= "com.mysql.jdbc.Driver";
-	public final static String DB_URL= "jdbc:mysql://localhost/AJEE";
+	public final static String DB_URL= "jdbc:mysql://www.psyeval.fr/ajee";
 	
-	public String user = "root";
-	public String pass = "";
+	public String user = "ajee";
+	public String pass = "erreuretga";
 	
 	public static void main(String[] args) {
 		MainJDBC m = new MainJDBC();
-		m.init();
-		m.create();
-//		m.createTable();
+//		m.init();
+//		m.create();
+		m.createTable();
 //		m.insertTable();
 //		m.selectTable();
 //		m.selectMetadata();
@@ -63,6 +63,13 @@ public class MainJDBC {
 		}
 	}
 	
+	private int idDoc;
+	private String nomDocUtil;
+	private String type;
+	private String nomDocFile;
+	private long time;
+	private String commentaire;
+	
 	public void createTable() {
 		Connection conn = null;
 		Statement stat = null;
@@ -70,11 +77,13 @@ public class MainJDBC {
 			Class.forName(JDBC_DRIVER);
 			conn = DriverManager.getConnection(DB_URL, user, pass);
 			stat = conn.createStatement();
-			String sql = "CREATE TABLE TETGA ("
-					+"ID BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT, " 
-					+"NOM VARCHAR (30) NOT NULL, " 
-					+"PRENOM VARCHAR (30) NOT NULL, "
-					+"AGE VARCHAR (10) NOT NULL);";
+			String sql = "CREATE TABLE DocPerso ("
+					+"idDoc BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT, " 
+					+"nomDocUtil VARCHAR (50), "
+					+"type VARCHAR (10), " 
+					+"nomDocFile VARCHAR (50), "
+					+"time BIGINT (50), "
+					+"commentaire VARCHAR (100));";
 			stat.executeUpdate(sql);
 			System.out.println("FIN");
 		} catch (ClassNotFoundException e) {
