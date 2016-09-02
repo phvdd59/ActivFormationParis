@@ -21,6 +21,8 @@ import com.formation.ajee.metier.Personne;
 // Cette servlet part de "FormulaireARemplir" (le formulaire vide) qui a été rempli par l'user.
 public class ServletFormulaireB extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	ListPersonne lst = new ListPersonne();
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -41,7 +43,7 @@ public class ServletFormulaireB extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doPost(request, response);
+		//doPost(request, response);
 	}
 
 	/**
@@ -103,125 +105,70 @@ public class ServletFormulaireB extends HttpServlet {
 		
 		// rajouter des if pour créer des objets et rajouter des attributs lorsqu'ils sont rencontrés. (Remplir les inputs du nouveau formulaire avc ces attributs. En read-only.)->non
 		Personne personne = new Personne();
-		File fileDoc1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/FormulaireARemplir.html");
-		BufferedReader bufReadDoc1 = null;
-		bufReadDoc1 = new BufferedReader(new FileReader(fileDoc1));
-		String lineDoc1 = bufReadDoc1.readLine();
-		while (lineDoc1 != null) {
-			// Récupérer les données du formulaire et ranger dans objet personne
-			if (lineDoc1.contains("id='nom'")) {
-				String pNom=request.getParameter("nom");
-				personne.setNom(pNom);
-			}
-			if (lineDoc1.contains("id='prenom'")) {
-				String pPrenom=request.getParameter("prenom");
-				personne.setPrenom(pPrenom);
-			}
-			if (lineDoc1.contains("id='adresse'")) {
-				String pAdresse=request.getParameter("adresse");
-				personne.setPrenom(pAdresse);
-			}
-			// insert enum SEXE
-			
-			if (lineDoc1.contains("id='cp'")) {
-				String pCp=request.getParameter("cp");
-				personne.setPrenom(pCp);
-			}
-			if (lineDoc1.contains("id='ville'")) {
-				String pVille=request.getParameter("ville");
-				personne.setPrenom(pVille);
-			}
-			if (lineDoc1.contains("id='telFixe'")) {
-				String pTelFixe=request.getParameter("telFixe");
-				personne.setPrenom(pTelFixe);
-			}
-			if (lineDoc1.contains("id='telPort'")) {
-				String pTelPort=request.getParameter("telPort");
-				personne.setPrenom(pTelPort);
-			}
-			if (lineDoc1.contains("id='fax'")) {
-				String pFax=request.getParameter("fax");
-				personne.setPrenom(pFax);
-			}
-			if (lineDoc1.contains("id='email'")) {
-				String pEmail=request.getParameter("email");
-				personne.setPrenom(pEmail);
-			}
-			if (lineDoc1.contains("id='dateNaissance'")) {
-				String pDateNaissance=request.getParameter("dateNaissance");
-				personne.setPrenom(pDateNaissance);
-			}
-			if (lineDoc1.contains("id='lieuNaissance'")) {
-				String pLieuNaissance=request.getParameter("lieuNaissance");
-				personne.setPrenom(pLieuNaissance);
-			}
-			if (lineDoc1.contains("id='numSecu'")) {
-				String pNumSecu=request.getParameter("numSecu");
-				personne.setPrenom(pNumSecu);
-			}
-			if (lineDoc1.contains("id='nationalite'")) {
-				String pNationalite=request.getParameter("nationalite");
-				personne.setPrenom(pNationalite);
-			}
-			if (lineDoc1.contains("id='situation'")) {
-				String pSituation=request.getParameter("situation");
-				personne.setPrenom(pSituation);
-				String a = personne.getPrenom();
-				System.out.println(a);
-			}
-			if (lineDoc1.contains("id='fonction'")) {
-				String pFonction=request.getParameter("fonction");
-				personne.setPrenom(pFonction);
-			}
-			if (lineDoc1.contains("id='positionEntreprise'")) {
-				String pPositionEntreprise=request.getParameter("positionEntreprise");
-				personne.setPrenom(pPositionEntreprise);
-			}
-			if (lineDoc1.contains("id='coeff'")) {
-				String pCoeff=request.getParameter("coeff");
-				personne.setPrenom(pCoeff);
-			}
-			if (lineDoc1.contains("id='salaire'")) {
-				String pSalaire=request.getParameter("salaire");
-				personne.setPrenom(pSalaire);
-			}
-			if (lineDoc1.contains("id='visiteMedicale'")) {
-				String pVisiteMedicale=request.getParameter("visiteMedicale");
-				personne.setPrenom(pVisiteMedicale);
-			}
-			if (lineDoc1.contains("id='montantTransport'")) {
-				String pMontantTransport=request.getParameter("montantTransport");
-				personne.setPrenom(pMontantTransport);
-			}
-			if (lineDoc1.contains("id='voiture'")) {
-				String pVoiture=request.getParameter("voiture");
-				personne.setPrenom(pVoiture);
-			}
-			if (lineDoc1.contains("id='nbCV'")) {
-				String pNbCV=request.getParameter("nbCV");
-				personne.setPrenom(pNbCV);
-			}
-			if (lineDoc1.contains("id='nbKm'")) {
-				String pNbKm=request.getParameter("nbKm");
-				personne.setPrenom(pNbKm);
-			}
-			
-			// print : formulaire bien enregistré
-			// retour page accueil en bas de page (bouton)
-			
-			String pSituation=request.getParameter(""); // cf. ForCalLisDer.html de Jérémy // edit : on a fait un enum
-			//String pPrenom=request.getParameter("prenom");
-			//String pPrenom=request.getParameter("prenom");
-			//
-			
-			//response.getWriter().println(lineDoc1);
-			
-			lineDoc1 = bufReadDoc1.readLine();
-		}
+		
+		// Récupérer les données du formulaire et ranger dans objet personne
+		String pNom=request.getParameter("nom");
+		personne.setNom(pNom);
+		String pPrenom=request.getParameter("prenom");
+		personne.setPrenom(pPrenom);
+		String pAdresse=request.getParameter("adresse");
+		personne.setPrenom(pAdresse);
+		String pCp=request.getParameter("cp");
+		personne.setPrenom(pCp);
+		String pVille=request.getParameter("ville");
+		personne.setPrenom(pVille);
+		String pTelFixe=request.getParameter("telFixe");
+		personne.setPrenom(pTelFixe);
+		String pTelPort=request.getParameter("telPort");
+		personne.setPrenom(pTelPort);
+		String pFax=request.getParameter("fax");
+		personne.setPrenom(pFax);
+		String pEmail=request.getParameter("email");
+		personne.setPrenom(pEmail);
+		String pDateNaissance=request.getParameter("dateNaissance");
+		personne.setPrenom(pDateNaissance);
+		String pLieuNaissance=request.getParameter("lieuNaissance");
+		personne.setPrenom(pLieuNaissance);
+		String pNumSecu=request.getParameter("numSecu");
+		personne.setPrenom(pNumSecu);
+		String pNationalite=request.getParameter("nationalite");
+		personne.setPrenom(pNationalite);
+		String pSituation=request.getParameter("situation");
+		personne.setPrenom(pSituation);
+		String a = personne.getPrenom();
+		System.out.println(a);
+		String pFonction=request.getParameter("fonction");
+		personne.setPrenom(pFonction);
+		String pPositionEntreprise=request.getParameter("positionEntreprise");
+		personne.setPrenom(pPositionEntreprise);
+		String pCoeff=request.getParameter("coeff");
+		personne.setPrenom(pCoeff);
+		String pSalaire=request.getParameter("salaire");
+		personne.setPrenom(pSalaire);
+		String pVisiteMedicale=request.getParameter("visiteMedicale");
+		personne.setPrenom(pVisiteMedicale);
+		String pMontantTransport=request.getParameter("montantTransport");
+		personne.setPrenom(pMontantTransport);
+		String pVoiture=request.getParameter("voiture");
+		personne.setPrenom(pVoiture);
+		String pNbCV=request.getParameter("nbCV");
+		personne.setPrenom(pNbCV);
+		String pNbKm=request.getParameter("nbKm");
+		personne.setPrenom(pNbKm);
+		//String pSituation=request.getParameter(""); // cf. ForCalLisDer.html de Jérémy // edit : on a fait un enum
+		//String pPrenom=request.getParameter("prenom");
+		//String pPrenom=request.getParameter("prenom");
+		
+		//ajout personne à la liste
+		lst.add(personne);
+		System.out.println(lst.get(0).toString());
+		
+		// print : formulaire bien enregistré
 		response.getWriter().println("Formulaire enregistre");
+		// retour page accueil en bas de page (bouton)
 		String html = "<html><form action='http://127.0.0.1:8080/ProjectAJEE/Servletidentification'><input type='submit' value='Accueil'></form></html>";
 		response.getWriter().println(html);
-		bufReadDoc1.close();
+		
 		
 		/** Lecture bas de page */
 		File fileBas = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/BasPage.html");
