@@ -123,7 +123,7 @@ public class Test extends HttpServlet {
 //		
 		
 		if (utilisateur != null && utilisateur.isAdmin() && utilisateur.getMdp().equals(motdepasse)) {
-			session = request.getSession();
+			session = request.getSession(true);
 			session.setAttribute("Personne", utilisateur);
 			
 			BufferedReader lecture = null;
@@ -144,7 +144,7 @@ public class Test extends HttpServlet {
 			}
 			lecture.close();
 		} else if (utilisateur != null && !utilisateur.isAdmin() && utilisateur.getMdp().equals(motdepasse)) {
-			session = request.getSession();
+			session = request.getSession(true);
 			session.setAttribute("Personne", utilisateur);
 			BufferedReader lecture = null;
 			File page = new File(

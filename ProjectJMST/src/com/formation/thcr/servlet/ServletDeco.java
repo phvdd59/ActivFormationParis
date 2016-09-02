@@ -6,6 +6,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,23 +36,18 @@ public class ServletDeco extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		session.invalidate();
-		BufferedReader lecture = null;
-		File page = new File("C:/DevFormation/GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/Login.html");
-			InputStreamReader input = new InputStreamReader(new FileInputStream(page));
-			lecture = new BufferedReader(input);
-			String line = lecture.readLine();
-			while (line != null) {
-				response.getWriter().println(line);
-				line = lecture.readLine();
-		}
-			lecture.close();
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/ServletJOCA1");
+		dispatcher.forward(request, response);
+		
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		doGet(request, response);
+		
 	}
 
 }

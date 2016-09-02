@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.formation.thcr.dao.DAOPersonne;
 import com.formation.thcr.metier.ListPersonne;
 import com.formation.thcr.metier.Personne;
 
@@ -40,14 +41,10 @@ public class ServletThcr2 extends HttpServlet {
 		String noSerie = (String)session.getAttribute("noSerie");
 		String noSerieHtml = request.getParameter("noSerie");
 		
-		ListPersonne listPersonne = null;
-		Object o = session.getAttribute("listPersonne");
-		
+		DAOPersonne dao = new DAOPersonne();
+		ListPersonne listPersonne = dao.read();
+		session.setAttribute("ListPersonne", listPersonne);
 		if (noSerieHtml.equals(noSerie)) {
-		
-		if(o instanceof ListPersonne){
-			listPersonne = (ListPersonne) o;
-		}
 
 		String tableConstruct = "";
 

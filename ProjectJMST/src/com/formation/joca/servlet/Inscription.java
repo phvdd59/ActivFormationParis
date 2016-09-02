@@ -91,7 +91,7 @@ public class Inscription extends HttpServlet {
 		perso.setDateCreation(dateCreation);
 		Timestamp dateModification = new Timestamp(dateCreationUtil.getTime());
 		perso.setDateModification(dateModification);
-		perso.setRaisonBlocage("");
+		perso.setRaisonBlocage("pas de raison");
 		perso.setAdmin(false);
 		perso.setBloque(false);
 		perso.setListeDoc(new ListeDoc());
@@ -105,6 +105,9 @@ public class Inscription extends HttpServlet {
 		ServletContext context = getServletContext();
 		RequestDispatcher requestDispatcher = context.getRequestDispatcher("/ServletDeco");
 		requestDispatcher.forward(request, response);
+		//REDIRECT to Deco
+		//response.sendRedirect("/ServletDeco");
+		
 
 	}
 
