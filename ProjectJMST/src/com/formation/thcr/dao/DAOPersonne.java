@@ -8,21 +8,21 @@ import java.sql.Statement;
 
 import com.formation.thcr.metier.ListPersonne;
 import com.formation.thcr.metier.Personne;
-import com.formation.thcr.metier.SEXE;
+import com.formation.thcr.metier.Sexe;
 
 public class DAOPersonne {
 
-	public final static String	JDBC_DRIVER	= "com.mysql.jdbc.Driver";
-	public final static String	DB_URL		= "jdbc:mysql://www.psyeval.fr";
+	public final static String JDBC_DRIVER = "com.mysql.jdbc.Driver";
+	public final static String DB_URL = "jdbc:mysql://www.psyeval.fr";
 
-	public String				user		= "jsmt";
-	public String				pass		= "erreurmade";
+	public String user = "jsmt";
+	public String pass = "erreurmade";
 
 	public void delete(Personne personne) {
 		Connection con = null;
 		Statement statement = null;
 		try {
-			Class.forName(JDBC_DRIVER); //nom du driver
+			Class.forName(JDBC_DRIVER); // nom du driver
 			con = DriverManager.getConnection(DB_URL, user, pass);
 			statement = con.createStatement();
 			String sql = "DELETE FROM listpersonne.personne"//
@@ -46,18 +46,18 @@ public class DAOPersonne {
 		Connection con = null;
 		Statement statement = null;
 		try {
-			Class.forName(JDBC_DRIVER); //nom du driver
+			Class.forName(JDBC_DRIVER); // nom du driver
 			con = DriverManager.getConnection(DB_URL, user, pass);
 			statement = con.createStatement();
-			//LP_IDPERSONNE |LP_NOM |LP_SEXE |LP_IDENTIFIANT |LP_MDP 
-			//|LP_EMAIL |LP_ADRESSE |LP_CP |LP_VILLE |LP_TELFIXE |LP_TELPORT 
-			//|LP_FAX |LP_DATENAISSANCE |LP_LIEUNAISSANCE |LP_NUMSECU 
-			//|LP_NATIONALITE |LP_SITUATION |LP_FONCTION |LP_CADRE |LP_COEFF 
-			//|LP_SALAIRE |LP_VISITEMEDICALE |LP_MONTANTTRANSPORT |LP_VOITURE 
+			// LP_IDPERSONNE |LP_NOM |LP_SEXE |LP_IDENTIFIANT |LP_MDP
+			// |LP_EMAIL |LP_ADRESSE |LP_CP |LP_VILLE |LP_TELFIXE |LP_TELPORT
+			// |LP_FAX |LP_DATENAISSANCE |LP_LIEUNAISSANCE |LP_NUMSECU
+			// |LP_NATIONALITE |LP_SITUATION |LP_FONCTION |LP_CADRE |LP_COEFF
+			// |LP_SALAIRE |LP_VISITEMEDICALE |LP_MONTANTTRANSPORT |LP_VOITURE
 			String sql = "UPDATE listpersonne.personne"//
 					+ "SET LP_NOM='" + personne.getNom() //
 					+ "', LP_PRENOM='" + personne.getPrenom()//
-					+ "', LP_SEXE='" + personne.getSexe().name()//
+					+ "', LP_SEXE='" + personne.getSexe().getSexe()//
 					+ "', LP_IDENTIFIANT='" + personne.getIdentifiant()//
 					+ "', LP_MDP='" + personne.getMdp()//
 					+ "', LP_EMAIL='" + personne.getEmail()//
@@ -79,8 +79,9 @@ public class DAOPersonne {
 					+ "', LP_VISITEMEDICALE='" + personne.getVisiteMedicale()//
 					+ "', LP_MONTANTTRANSPORT='" + personne.getMontantTransport()//
 					+ "', LP_VOITURE='" + personne.isVoiture()//
-					//|LP_NBCV |LP_NBKM |LP_MUTUELLE |LP_TICKETRESTO |LP_ADMIN |LP_DATECREATION 
-					//|LP_DATEMODIFICATION |LP_BLOQUE |LP_RAISONBLOCAGE |
+					// |LP_NBCV |LP_NBKM |LP_MUTUELLE |LP_TICKETRESTO |LP_ADMIN
+					// |LP_DATECREATION
+					// |LP_DATEMODIFICATION |LP_BLOQUE |LP_RAISONBLOCAGE |
 					+ "', LP_NBCV='" + personne.getNbCV()//
 					+ "', LP_MUTUELLE='" + personne.isMutuelle()//
 					+ "', LP_TICKETRESTO='" + personne.isTicketResto()//
@@ -109,33 +110,37 @@ public class DAOPersonne {
 		Connection con = null;
 		Statement statement = null;
 		try {
-			Class.forName(JDBC_DRIVER); //nom du driver
+			Class.forName(JDBC_DRIVER); // nom du driver
 			con = DriverManager.getConnection(DB_URL, user, pass);
 			statement = con.createStatement();
-			//TRAITER LES METADATA pour contrôler les erreurs
+			// TRAITER LES METADATA pour contrôler les erreurs
 
-			//LP_IDPERSONNE |LP_NOM |LP_SEXE |LP_IDENTIFIANT |LP_MDP 
-			//|LP_EMAIL |LP_ADRESSE |LP_CP |LP_VILLE |LP_TELFIXE |LP_TELPORT 
-			//|LP_FAX |LP_DATENAISSANCE |LP_LIEUNAISSANCE |LP_NUMSECU 
-			//|LP_NATIONALITE |LP_SITUATION |LP_FONCTION |LP_CADRE |LP_COEFF 
-			//|LP_SALAIRE |LP_VISITEMEDICALE |LP_MONTANTTRANSPORT |LP_VOITURE 
-			//|LP_NBCV |LP_NBKM |LP_MUTUELLE |LP_TICKETRESTO |LP_ADMIN |LP_DATECREATION 
-			//|LP_DATEMODIFICATION |LP_BLOQUE |LP_RAISONBLOCAGE |
+			// LP_IDPERSONNE |LP_NOM |LP_SEXE |LP_IDENTIFIANT |LP_MDP
+			// |LP_EMAIL |LP_ADRESSE |LP_CP |LP_VILLE |LP_TELFIXE |LP_TELPORT
+			// |LP_FAX |LP_DATENAISSANCE |LP_LIEUNAISSANCE |LP_NUMSECU
+			// |LP_NATIONALITE |LP_SITUATION |LP_FONCTION |LP_CADRE |LP_COEFF
+			// |LP_SALAIRE |LP_VISITEMEDICALE |LP_MONTANTTRANSPORT |LP_VOITURE
+			// |LP_NBCV |LP_NBKM |LP_MUTUELLE |LP_TICKETRESTO |LP_ADMIN
+			// |LP_DATECREATION
+			// |LP_DATEMODIFICATION |LP_BLOQUE |LP_RAISONBLOCAGE |
 			String sql = "INSERT INTO listpersonne.personne"//
 					+ "(LP_NOM, LP_PRENOM, LP_SEXE, LP_IDENTIFIANT, LP_MDP, LP_EMAIL, LP_ADRESSE, LP_CP, LP_VILLE, LP_TELFIXE, "
 					+ "LP_TELPORT, LP_FAX, LP_DATENAISSANCE, LP_LIEUNAISSANCE, LP_NUMSECU, LP_NATIONALITE, "
 					+ "LP_SITUATION, LP_FONCTION, LP_CADRE, LP_COEFF, LP_SALAIRE, LP_VISITEMEDICALE, "
 					+ "LP_MONTANTTRANSPORT, LP_VOITURE, LP_NBCV, LP_NBKM, LP_MUTUELLE, LP_TICKETRESTO, LP_ADMIN, "
-					+ "LP_DATECREATION, LP_DATEMODIFICATION, LP_BLOQUE, LP_RAISONBLOCAGE)" + "VALUES('" + personne.getNom() + "','"
-					+ personne.getPrenom() + "','" + personne.getSexe().name() + "','" + personne.getIdentifiant() + "'," + "'" + personne.getMdp()
-					+ "','" + personne.getEmail() + "','" + personne.getAdresse() + "'," + "'" + personne.getCp() + "','" + personne.getVille()
-					+ "','" + personne.getTelFixe() + "'," + "'" + personne.getTelPort() + "','" + personne.getFax() + "','"
-					+ personne.getDateNaissance() + "'," + "'" + personne.getLieuNaissance() + "','" + personne.getNumSecu() + "','"
-					+ personne.getNationalite() + "'," + "'" + personne.getSituation() + "','" + personne.getFonction() + "','" + personne.isCadre()
-					+ "'," + "'" + personne.getCoeff() + "','" + personne.getSalaire() + "','" + personne.getVisiteMedicale() + "'," + "'"
-					+ personne.getMontantTransport() + "','" + personne.isVoiture() + "','" + personne.getNbCV() + "'," + "'" + personne.getNbKm()
-					+ "','" + personne.isMutuelle() + "','" + personne.isTicketResto() + "'," + "'" + personne.isAdmin() + "','"
-					+ personne.getDateCreation() + "','" + personne.getDateModification() + "'," + "'" + personne.isBloque() + "','"
+					+ "LP_DATECREATION, LP_DATEMODIFICATION, LP_BLOQUE, LP_RAISONBLOCAGE)" + "VALUES('"
+					+ personne.getNom() + "','" + personne.getPrenom() + "','" + personne.getSexe().getSexe() + "','"
+					+ personne.getIdentifiant() + "'," + "'" + personne.getMdp() + "','" + personne.getEmail() + "','"
+					+ personne.getAdresse() + "'," + "'" + personne.getCp() + "','" + personne.getVille() + "','"
+					+ personne.getTelFixe() + "'," + "'" + personne.getTelPort() + "','" + personne.getFax() + "','"
+					+ personne.getDateNaissance() + "'," + "'" + personne.getLieuNaissance() + "','"
+					+ personne.getNumSecu() + "','" + personne.getNationalite() + "'," + "'" + personne.getSituation()
+					+ "','" + personne.getFonction() + "','" + personne.isCadre() + "'," + "'" + personne.getCoeff()
+					+ "','" + personne.getSalaire() + "','" + personne.getVisiteMedicale() + "'," + "'"
+					+ personne.getMontantTransport() + "','" + personne.isVoiture() + "','" + personne.getNbCV() + "',"
+					+ "'" + personne.getNbKm() + "','" + personne.isMutuelle() + "','" + personne.isTicketResto() + "',"
+					+ "'" + personne.isAdmin() + "','" + personne.getDateCreation() + "','"
+					+ personne.getDateModification() + "'," + "'" + personne.isBloque() + "','"
 					+ personne.getRaisonBlocage() + "')";//
 			int result = statement.executeUpdate(sql);
 			if (result > 0) {
@@ -157,27 +162,34 @@ public class DAOPersonne {
 		Statement statement = null;
 		Personne perso = new Personne();
 		try {
-			Class.forName(JDBC_DRIVER); //nom du driver
+			Class.forName(JDBC_DRIVER); // nom du driver
 			con = DriverManager.getConnection(DB_URL, user, pass);
 			statement = con.createStatement();
 			String sql = "SELECT * FROM listpersonne.personne";
 			ResultSet result = statement.executeQuery(sql);
 			boolean check = false;
-			//TRAITER LES METADATA pour contrôler les erreurs
-			//LP_IDPERSONNE |LP_NOM |LP_SEXE |LP_IDENTIFIANT |LP_MDP 
-			//|LP_EMAIL |LP_ADRESSE |LP_CP |LP_VILLE |LP_TELFIXE |LP_TELPORT 
-			//|LP_FAX |LP_DATENAISSANCE |LP_LIEUNAISSANCE |LP_NUMSECU 
-			//|LP_NATIONALITE |LP_SITUATION |LP_FONCTION |LP_CADRE |LP_COEFF 
-			//|LP_SALAIRE |LP_VISITEMEDICALE |LP_MONTANTTRANSPORT |LP_VOITURE 
-			//|LP_NBCV |LP_NBKM |LP_MUTUELLE |LP_TICKETRESTO |LP_ADMIN |LP_DATECREATION 
-			//|LP_DATEMODIFICATION |LP_BLOQUE |LP_RAISONBLOCAGE |
+			// TRAITER LES METADATA pour contrôler les erreurs
+			// LP_IDPERSONNE |LP_NOM |LP_SEXE |LP_IDENTIFIANT |LP_MDP
+			// |LP_EMAIL |LP_ADRESSE |LP_CP |LP_VILLE |LP_TELFIXE |LP_TELPORT
+			// |LP_FAX |LP_DATENAISSANCE |LP_LIEUNAISSANCE |LP_NUMSECU
+			// |LP_NATIONALITE |LP_SITUATION |LP_FONCTION |LP_CADRE |LP_COEFF
+			// |LP_SALAIRE |LP_VISITEMEDICALE |LP_MONTANTTRANSPORT |LP_VOITURE
+			// |LP_NBCV |LP_NBKM |LP_MUTUELLE |LP_TICKETRESTO |LP_ADMIN
+			// |LP_DATECREATION
+			// |LP_DATEMODIFICATION |LP_BLOQUE |LP_RAISONBLOCAGE |
 			while (result.next()) {
-				if (personne.getIdentifiant().equals(result.getString("LP_IDENTIFIANT"))||personne.getIdPersonne() == result.getInt("LP_IDPERSONNE")) {
+				if (personne.getIdentifiant().equals(result.getString("LP_IDENTIFIANT"))
+						|| personne.getIdPersonne() == result.getInt("LP_IDPERSONNE")) {
 					perso.setIdentifiant(result.getString("LP_IDENTIFIANT"));
 					perso.setIdPersonne(Integer.valueOf(result.getString("LP_IDPERSONNE")).intValue());
 					perso.setNom(result.getString("LP_NOM"));
 					perso.setPrenom(result.getString("LP_PRENOM"));
-					perso.setSexe(SEXE.valueOf(result.getString("LP_SEXE")));
+					if (result.getString("LP_SEXE").equals(Sexe.FEMININ)) {
+
+						personne.setSexe(new Sexe(Sexe.FEMININ));
+					} else {
+						personne.setSexe(new Sexe(Sexe.MASCULIN));
+					}
 					perso.setIdentifiant(result.getString("LP_IDENTIFIANT"));
 					perso.setMdp(result.getString("LP_MDP"));
 					perso.setEmail(result.getString("LP_EMAIL"));
@@ -197,9 +209,10 @@ public class DAOPersonne {
 					perso.setCoeff(result.getString("LP_COEFF"));
 					perso.setSalaire(result.getString("LP_SALAIRE"));
 					perso.setVisiteMedicale(result.getDate("LP_VISITEMEDICALE"));
-					//|LP_MONTANTTRANSPORT |LP_VOITURE 
-					//|LP_NBCV |LP_NBKM |LP_MUTUELLE |LP_TICKETRESTO |LP_ADMIN |LP_DATECREATION 
-					//|LP_DATEMODIFICATION |LP_BLOQUE |LP_RAISONBLOCAGE |
+					// |LP_MONTANTTRANSPORT |LP_VOITURE
+					// |LP_NBCV |LP_NBKM |LP_MUTUELLE |LP_TICKETRESTO |LP_ADMIN
+					// |LP_DATECREATION
+					// |LP_DATEMODIFICATION |LP_BLOQUE |LP_RAISONBLOCAGE |
 					perso.setMontantTransport(result.getString("LP_MONTANTTRANSPORT"));
 					perso.setVoiture(Boolean.valueOf(result.getString("LP_VOITURE")).booleanValue());
 					perso.setNbCV(Integer.valueOf(result.getString("LP_NBCV")).intValue());
@@ -217,7 +230,8 @@ public class DAOPersonne {
 			if (check) {
 				System.out.println("OK");
 			} else {
-				System.out.println("erreur de lecture, personne non trouvé dans la base de donnée avec le login : " + personne.getIdentifiant());
+				System.out.println("erreur de lecture, personne non trouvé dans la base de donnée avec le login : "
+						+ personne.getIdentifiant());
 			}
 			System.out.println("fin");
 		} catch (ClassNotFoundException e) {
@@ -233,26 +247,33 @@ public class DAOPersonne {
 		Statement statement = null;
 		ListPersonne list = new ListPersonne();
 		try {
-			Class.forName(JDBC_DRIVER); //nom du driver
+			Class.forName(JDBC_DRIVER); // nom du driver
 			con = DriverManager.getConnection(DB_URL, user, pass);
 			statement = con.createStatement();
 			String sql = "SELECT * FROM listpersonne.personne";
 			ResultSet result = statement.executeQuery(sql);
 			boolean check = false;
-			//TRAITER LES METADATA pour contrôler les erreurs
-			//LP_IDPERSONNE |LP_NOM |LP_SEXE |LP_IDENTIFIANT |LP_MDP 
-			//|LP_EMAIL |LP_ADRESSE |LP_CP |LP_VILLE |LP_TELFIXE |LP_TELPORT 
-			//|LP_FAX |LP_DATENAISSANCE |LP_LIEUNAISSANCE |LP_NUMSECU 
-			//|LP_NATIONALITE |LP_SITUATION |LP_FONCTION |LP_CADRE |LP_COEFF 
-			//|LP_SALAIRE |LP_VISITEMEDICALE |LP_MONTANTTRANSPORT |LP_VOITURE 
-			//|LP_NBCV |LP_NBKM |LP_MUTUELLE |LP_TICKETRESTO |LP_ADMIN |LP_DATECREATION 
-			//|LP_DATEMODIFICATION |LP_BLOQUE |LP_RAISONBLOCAGE |
+			// TRAITER LES METADATA pour contrôler les erreurs
+			// LP_IDPERSONNE |LP_NOM |LP_SEXE |LP_IDENTIFIANT |LP_MDP
+			// |LP_EMAIL |LP_ADRESSE |LP_CP |LP_VILLE |LP_TELFIXE |LP_TELPORT
+			// |LP_FAX |LP_DATENAISSANCE |LP_LIEUNAISSANCE |LP_NUMSECU
+			// |LP_NATIONALITE |LP_SITUATION |LP_FONCTION |LP_CADRE |LP_COEFF
+			// |LP_SALAIRE |LP_VISITEMEDICALE |LP_MONTANTTRANSPORT |LP_VOITURE
+			// |LP_NBCV |LP_NBKM |LP_MUTUELLE |LP_TICKETRESTO |LP_ADMIN
+			// |LP_DATECREATION
+			// |LP_DATEMODIFICATION |LP_BLOQUE |LP_RAISONBLOCAGE |
 			while (result.next()) {
 				Personne personne = new Personne();
 				personne.setIdPersonne(Integer.valueOf(result.getString("LP_IDPERSONNE")).intValue());
 				personne.setNom(result.getString("LP_NOM"));
 				personne.setPrenom(result.getString("LP_PRENOM"));
-				personne.setSexe(SEXE.valueOf(result.getString("LP_SEXE")));
+
+				if (result.getString("LP_SEXE").equals(Sexe.FEMININ)) {
+
+					personne.setSexe(new Sexe(Sexe.FEMININ));
+				} else {
+					personne.setSexe(new Sexe(Sexe.MASCULIN));
+				}
 				personne.setIdentifiant(result.getString("LP_IDENTIFIANT"));
 				personne.setMdp(result.getString("LP_MDP"));
 				personne.setEmail(result.getString("LP_EMAIL"));
@@ -272,9 +293,10 @@ public class DAOPersonne {
 				personne.setCoeff(result.getString("LP_COEFF"));
 				personne.setSalaire(result.getString("LP_SALAIRE"));
 				personne.setVisiteMedicale(result.getDate("LP_VISITEMEDICALE"));
-				//|LP_MONTANTTRANSPORT |LP_VOITURE 
-				//|LP_NBCV |LP_NBKM |LP_MUTUELLE |LP_TICKETRESTO |LP_ADMIN |LP_DATECREATION 
-				//|LP_DATEMODIFICATION |LP_BLOQUE |LP_RAISONBLOCAGE |
+				// |LP_MONTANTTRANSPORT |LP_VOITURE
+				// |LP_NBCV |LP_NBKM |LP_MUTUELLE |LP_TICKETRESTO |LP_ADMIN
+				// |LP_DATECREATION
+				// |LP_DATEMODIFICATION |LP_BLOQUE |LP_RAISONBLOCAGE |
 				personne.setMontantTransport(result.getString("LP_MONTANTTRANSPORT"));
 				personne.setVoiture(Boolean.valueOf(result.getString("LP_VOITURE")).booleanValue());
 				personne.setNbCV(Integer.valueOf(result.getString("LP_NBCV")).intValue());

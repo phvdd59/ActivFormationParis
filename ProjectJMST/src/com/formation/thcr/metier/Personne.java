@@ -1,14 +1,17 @@
 package com.formation.thcr.metier;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Date;
 
-public class Personne {
+public class Personne implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	private int idPersonne;
 	private String nom; // alpha - ' espace
 	private String prenom; // idem qu'au dessus
-	private SEXE sexe;
+	private Sexe sexe;
 	private String identifiant; // min4 max25 alphanum - _ .
 	private String mdp; // tout min6
 	private String email; // recuperer regex pour mail sur internet
@@ -40,7 +43,7 @@ public class Personne {
 	private Timestamp dateModification; // HH-MM-SS JJ-MM-AAAA
 	private boolean bloque;
 	private String raisonBlocage; // tout
-	private ListeDoc listeDoc;
+	private DocPerso[] listeDoc;
 
 	public Personne() {
 		super(); // initialiser les valeurs
@@ -68,14 +71,6 @@ public class Personne {
 
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
-	}
-
-	public SEXE getSexe() {
-		return sexe;
-	}
-
-	public void setSexe(SEXE sexe) {
-		this.sexe = sexe;
 	}
 
 	public String getIdentifiant() {
@@ -184,17 +179,6 @@ public class Personne {
 
 	public String getSituation() {
 		return situation;
-	}
-
-	public SITUATION getEnumSituation() {
-		if (situation == null) {
-			return SITUATION.AUTRE;
-		} else if (situation.equals("Salarie") || situation.equals("auto entrepreneur") || situation.equals("freelance")
-				|| situation.equals("demandeur d'emploi") || situation.equals("retraite")) {
-			return SITUATION.valueOf(situation);
-		} else {
-			return SITUATION.AUTRE;
-		}
 	}
 
 	public void setSituation(String situation) {
@@ -337,12 +321,20 @@ public class Personne {
 		this.raisonBlocage = raisonBlocage;
 	}
 
-	public ListeDoc getListeDoc() {
+	public DocPerso[] getListeDoc() {
 		return listeDoc;
 	}
 
-	public void setListeDoc(ListeDoc listeDoc) {
+	public void setListeDoc(DocPerso[] listeDoc) {
 		this.listeDoc = listeDoc;
+	}
+
+	public Sexe getSexe() {
+		return sexe;
+	}
+
+	public void setSexe(Sexe sexe) {
+		this.sexe = sexe;
 	}
 
 }

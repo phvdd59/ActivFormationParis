@@ -1,14 +1,11 @@
 package com.formation.thcr.main;
 
 import java.sql.Timestamp;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.sql.Date;
 
 import com.formation.thcr.conversion.ConversionPersonne;
 import com.formation.thcr.dao.DAOPersonne;
 import com.formation.thcr.metier.Personne;
-import com.formation.thcr.metier.SEXE;
+import com.formation.thcr.metier.Sexe;
 
 public class MainDAO {
 
@@ -44,7 +41,7 @@ public class MainDAO {
 		personne.setPrenom("Prenomtest");
 		personne.setRaisonBlocage("pas de raison");
 		personne.setSalaire("32000");
-		personne.setSexe(SEXE.MASCULIN);
+		personne.setSexe(Sexe.MASCULIN);
 		personne.setSituation("situation test");
 		personne.setTelFixe("01");
 		personne.setTelPort("06");
@@ -52,26 +49,27 @@ public class MainDAO {
 		personne.setVille("Ville test");
 		personne.setVisiteMedicale(conv.conversionDate(StringDateCreation));
 		personne.setVoiture(false);
-		
+
 		String sql = "INSERT INTO listpersonne.personne"//
 				+ "(LP_NOM, LP_PRENOM, LP_SEXE, LP_IDENTIFIANT, LP_MDP, LP_EMAIL, LP_ADRESSE, LP_CP, LP_VILLE, LP_TELFIXE, "
 				+ "LP_TELPORT, LP_FAX, LP_DATENAISSANCE, LP_LIEUNAISSANCE, LP_NUMSECU, LP_NATIONALITE, "
 				+ "LP_SITUATION, LP_FONCTION, LP_CADRE, LP_COEFF, LP_SALAIRE, LP_VISITEMEDICALE, "
 				+ "LP_MONTANTTRANSPORT, LP_VOITURE, LP_NBCV, LP_NBKM, LP_MUTUELLE, LP_TICKETRESTO, LP_ADMIN, "
-				+ "LP_DATECREATION, LP_DATEMODIFICATION, LP_BLOQUE, LP_RAISONBLOCAGE)" + "VALUES('" + personne.getNom() + "','"
-				+ personne.getPrenom() + "','" + personne.getSexe().name() + "','" + personne.getIdentifiant() + "'," + "'" + personne.getMdp()
-				+ "','" + personne.getEmail() + "','" + personne.getAdresse() + "'," + "'" + personne.getCp() + "','" + personne.getVille()
-				+ "','" + personne.getTelFixe() + "'," + "'" + personne.getTelPort() + "','" + personne.getFax() + "','"
-				+ personne.getDateNaissance() + "'," + "'" + personne.getLieuNaissance() + "','" + personne.getNumSecu() + "','"
-				+ personne.getNationalite() + "'," + "'" + personne.getSituation() + "','" + personne.getFonction() + "','" + personne.isCadre()
-				+ "'," + "'" + personne.getCoeff() + "','" + personne.getSalaire() + "','" + personne.getVisiteMedicale() + "'," + "'"
-				+ personne.getMontantTransport() + "','" + personne.isVoiture() + "','" + personne.getNbCV() + "'," + "'" + personne.getNbKm()
-				+ "','" + personne.isMutuelle() + "','" + personne.isTicketResto() + "'," + "'" + personne.isAdmin() + "','"
-				+ personne.getDateCreation() + "','" + personne.getDateModification() + "'," + "'" + personne.isBloque() + "','"
+				+ "LP_DATECREATION, LP_DATEMODIFICATION, LP_BLOQUE, LP_RAISONBLOCAGE)" + "VALUES('" + personne.getNom()
+				+ "','" + personne.getPrenom() + "','" + personne.getSexe().name() + "','" + personne.getIdentifiant()
+				+ "'," + "'" + personne.getMdp() + "','" + personne.getEmail() + "','" + personne.getAdresse() + "',"
+				+ "'" + personne.getCp() + "','" + personne.getVille() + "','" + personne.getTelFixe() + "'," + "'"
+				+ personne.getTelPort() + "','" + personne.getFax() + "','" + personne.getDateNaissance() + "'," + "'"
+				+ personne.getLieuNaissance() + "','" + personne.getNumSecu() + "','" + personne.getNationalite() + "',"
+				+ "'" + personne.getSituation() + "','" + personne.getFonction() + "','" + personne.isCadre() + "',"
+				+ "'" + personne.getCoeff() + "','" + personne.getSalaire() + "','" + personne.getVisiteMedicale()
+				+ "'," + "'" + personne.getMontantTransport() + "','" + personne.isVoiture() + "','"
+				+ personne.getNbCV() + "'," + "'" + personne.getNbKm() + "','" + personne.isMutuelle() + "','"
+				+ personne.isTicketResto() + "'," + "'" + personne.isAdmin() + "','" + personne.getDateCreation()
+				+ "','" + personne.getDateModification() + "'," + "'" + personne.isBloque() + "','"
 				+ personne.getRaisonBlocage() + "')";
-		
-		System.out.println(sql);
 
+		System.out.println(sql);
 
 	}
 
