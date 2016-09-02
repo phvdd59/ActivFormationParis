@@ -103,7 +103,6 @@ public class ServletFormulaireB extends HttpServlet {
 		}
 		bufReadDoc.close();
 		
-		// rajouter des if pour créer des objets et rajouter des attributs lorsqu'ils sont rencontrés. (Remplir les inputs du nouveau formulaire avc ces attributs. En read-only.)->non
 		Personne personne = new Personne();
 		
 		// Récupérer les données du formulaire et ranger dans objet personne
@@ -112,49 +111,53 @@ public class ServletFormulaireB extends HttpServlet {
 		String pPrenom=request.getParameter("prenom");
 		personne.setPrenom(pPrenom);
 		String pAdresse=request.getParameter("adresse");
-		personne.setPrenom(pAdresse);
+		personne.setAdresse(pAdresse);
 		String pCp=request.getParameter("cp");
-		personne.setPrenom(pCp);
+		personne.setCp(pCp);
 		String pVille=request.getParameter("ville");
-		personne.setPrenom(pVille);
+		personne.setVille(pVille);
 		String pTelFixe=request.getParameter("telFixe");
-		personne.setPrenom(pTelFixe);
+		personne.setTelFixe(pTelFixe);
 		String pTelPort=request.getParameter("telPort");
-		personne.setPrenom(pTelPort);
+		personne.setTelPort(pTelPort);
 		String pFax=request.getParameter("fax");
-		personne.setPrenom(pFax);
+		personne.setFax(pFax);
 		String pEmail=request.getParameter("email");
-		personne.setPrenom(pEmail);
+		personne.setEmail(pEmail);
 		String pDateNaissance=request.getParameter("dateNaissance");
-		personne.setPrenom(pDateNaissance);
+		//personne.setDateNaissance(pDateNaissance);
 		String pLieuNaissance=request.getParameter("lieuNaissance");
 		personne.setPrenom(pLieuNaissance);
 		String pNumSecu=request.getParameter("numSecu");
-		personne.setPrenom(pNumSecu);
+		personne.setNumSecu(pNumSecu);
 		String pNationalite=request.getParameter("nationalite");
-		personne.setPrenom(pNationalite);
+		personne.setNationalite(pNationalite);
 		String pSituation=request.getParameter("situation");
-		personne.setPrenom(pSituation);
-		String a = personne.getPrenom();
-		System.out.println(a);
+		//personne.setSituation(pSituation);
+		//String a = personne.getSituation();
+		//System.out.println(a);
 		String pFonction=request.getParameter("fonction");
-		personne.setPrenom(pFonction);
+		personne.setFonction(pFonction);
 		String pPositionEntreprise=request.getParameter("positionEntreprise");
-		personne.setPrenom(pPositionEntreprise);
+		personne.setPositionEntreprise(pPositionEntreprise);
 		String pCoeff=request.getParameter("coeff");
-		personne.setPrenom(pCoeff);
+		personne.setCoeff(pCoeff);
 		String pSalaire=request.getParameter("salaire");
-		personne.setPrenom(pSalaire);
+		personne.setSalaire(pSalaire);
+		String pMutuelle=request.getParameter("mutuelle");
+		//personne.setMutuelle(pMutuelle);
+		String pTicketResto=request.getParameter("ticketResto");
+		//personne.setTicketResto(pTicketResto);
 		String pVisiteMedicale=request.getParameter("visiteMedicale");
-		personne.setPrenom(pVisiteMedicale);
+		//personne.setVisiteMedicale(pVisiteMedicale);
 		String pMontantTransport=request.getParameter("montantTransport");
-		personne.setPrenom(pMontantTransport);
+		personne.setMontantTransport(pMontantTransport);
 		String pVoiture=request.getParameter("voiture");
-		personne.setPrenom(pVoiture);
+		//personne.setVoiture(pVoiture);
 		String pNbCV=request.getParameter("nbCV");
-		personne.setPrenom(pNbCV);
+		//personne.setNbCV(pNbCV);
 		String pNbKm=request.getParameter("nbKm");
-		personne.setPrenom(pNbKm);
+		personne.setNbKm(pNbKm);
 		//String pSituation=request.getParameter(""); // cf. ForCalLisDer.html de Jérémy // edit : on a fait un enum
 		//String pPrenom=request.getParameter("prenom");
 		//String pPrenom=request.getParameter("prenom");
