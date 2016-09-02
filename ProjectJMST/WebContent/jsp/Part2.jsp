@@ -107,13 +107,7 @@
 					//}
 
 					//personne.set
-				} else {
-					out.write("Erreur");
-					Thread.sleep(2000);
-			%>
-			<jsp:forward page="Deco.jsp"></jsp:forward>
-			<%
-				}
+			
 			%>
 			<form action="http://localhost:8080/ProjectJMST/jsp/Part3.jsp"
 				method='POST'>
@@ -181,18 +175,18 @@
 							id="spanMail"></span></td>
 					</tr>
 				</table>
-				<input type="submit" value="Suivant" onclick="ctrAll()"></input> <input
-					type="hidden" value="%%noSerie%%">
+				<input type="submit" value="Suivant" onclick="ctrAll()"></input> <input name="noSerie"
+					type="hidden" value="<%=noSerie%>">
 			</form>
 			<form action="http://localhost:8080/ProjectJMST/RetourMenu"
 				method='post'>
 				<input type="submit" value="Precedent"></input> <input type="hidden"
-					name="noSerie" value="%%noSerie%%">
+					name="noSerie" value="<%=noSerie%>">
 			</form>
 			<form action="http://localhost:8080/ProjectJMST/ServletDeco"
 				method='get'>
 				<input type="submit" value="Deconnexion"></input> <input
-					type="hidden" name="noSerie" value="%%noSerie%%">
+					type="hidden" name="noSerie" value="<%=noSerie%>">
 			</form>
 			<form action="">
 				<input type="button" name="check" value="check" onclick="ctrAll()" />
@@ -214,6 +208,9 @@
 			<div id="droit2">©1997-2012 - Tous droits de reproduction et de
 				représentation réservés | Mentions légales</div>
 		</div>
+		<%}else{
+			
+		}%>
 	
 </body>
 <script type="text/javascript">

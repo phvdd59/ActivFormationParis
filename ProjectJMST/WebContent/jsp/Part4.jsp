@@ -134,17 +134,11 @@
 					// 						Thread.sleep(2000);
 					//						FORWARD TO DECO
 					// 					}
-				} else {
-					out.write("Erreur");
-					Thread.sleep(2000);
-			%>
-			<jsp:forward page="Deco.jsp"></jsp:forward>
-			<%
-				}
 
 				//String situation = personne.getEnumSituation().getNom(); 
 				//String situation = (SITUATION.valueOf(personne.getSituation())).getNom();
 				String situation = personne.getSituation();
+				System.out.println(situation);
 			%>
 			<form action="http://localhost:8080/ProjectJMST/jsp/Part5.jsp"
 				method='post'>
@@ -255,17 +249,17 @@
 				</table>
 
 				<input type="submit" value="Suivant"></input> <input type="hidden"
-					name="noSerie" value="%%noSerie%%">
+					name="noSerie" value="<%=noSerie%>">
 			</form>
 			<form action="http://localhost:8080/ProjectJMST/jsp/Part3.jsp"
 				method='post'>
 				<input type="submit" value="Precedent"></input> <input type="hidden"
-					name="noSerie" value="%%noSerie%%">
+					name="noSerie" value="<%=noSerie%>">
 			</form>
 			<form action="http://localhost:8080/ProjectJMST/ServletDeco"
 				method='get'>
 				<input type="submit" value="Deconnexion"></input> <input
-					type="hidden" name="noSerie" value="%%noSerie%%">
+					type="hidden" name="noSerie" value="%<%=noSerie%>">
 			</form>
 			<form>
 				<input type="button" value="check" onclick="ctrSituationPro()"></input>
@@ -290,5 +284,6 @@
 			<div id="droit2">©1997-2012 - Tous droits de reproduction et de
 				représentation réservés | Mentions légales</div>
 		</div>
+		<%} %>
 </body>
 </html>

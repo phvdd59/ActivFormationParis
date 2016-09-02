@@ -97,7 +97,7 @@ public class DAOPersonne {
 				System.out.println("OK : " + result);
 				bool=true;
 			} else {
-				System.out.println("Erreur");
+				System.out.println("Erreur DAO update");
 			}
 			statement.close();
 			System.out.println("fin");

@@ -227,21 +227,15 @@
 				CtrlPersonne ctrl = new CtrlPersonne();
 				String sSituation = request.getParameter("situationVal");
 				if (noSerie.equals(noSerieHtml)) {
-// 					if (ctrl.ctrlSituation(sSituation)) {
-						personne.setSituation(sSituation);
-// 					} else {
-// 						out.write("Erreur");
-// 						Thread.sleep(2000);
-// 						FORWARD TO DECO
-// 					}
-			} else {
-				out.write("Erreur");
-				Thread.sleep(2000);
-		%>
-		<jsp:forward page="Deco.jsp"></jsp:forward>
-		<%
-			}
-		%>
+					// 					if (ctrl.ctrlSituation(sSituation)) {
+					System.out.println(personne.getSituation());
+					personne.setSituation(sSituation);
+					// 					} else {
+					// 						out.write("Erreur");
+					// 						Thread.sleep(2000);
+					// 						FORWARD TO DECO
+					// 					}
+			%>
 			<!--	<form= action:"http://www.souadkad.fr/soka/identification.html"></form>-->
 			<form action="http://localhost:8080/ProjectJMST/ServletUpdate"
 				method='post'>
@@ -253,18 +247,25 @@
 					</tr>
 					<tr>
 						<td>Fonction occupée:</td>
-						<%if(personne.isCadre()){ %>
-						<td style="width: 273px; height: 25px; color:;">
-						<input	type="radio" name="Cadre" value="oui" checked="checked"> Cadre</td>
-						<td style="width: 116px;">
-						<input type="radio"	name="Cadre" value="non"> Non cadre</td>
-						<%} else { %>
-						<td style="width: 273px; height: 25px; color:;">
-						<input	type="radio" name="Cadre" value="oui"> Cadre</td>
-						<td style="width: 116px;">
-						<input type="radio"	name="Cadre" value="non" checked="checked"> Non cadre</td>
-						<%} %>
-						<td colspan="2"><input type="text" name = "fonction"></td>
+						<%
+							if (personne.isCadre()) {
+						%>
+						<td style="width: 273px; height: 25px; color:;"><input
+							type="radio" name="Cadre" value="oui" checked="checked">
+							Cadre</td>
+						<td style="width: 116px;"><input type="radio" name="Cadre"
+							value="non"> Non cadre</td>
+						<%
+							} else {
+						%>
+						<td style="width: 273px; height: 25px; color:;"><input
+							type="radio" name="Cadre" value="oui"> Cadre</td>
+						<td style="width: 116px;"><input type="radio" name="Cadre"
+							value="non" checked="checked"> Non cadre</td>
+						<%
+							}
+						%>
+						<td colspan="2"><input type="text" name="fonction"></td>
 					</tr>
 					<tr>
 						<td>Position</td>
@@ -287,35 +288,45 @@
 					</tr>
 					<tr>
 						<td>Mutuelle souhaitée:</td>
-						<%if(personne.isMutuelle()){ %>
+						<%
+							if (personne.isMutuelle()) {
+						%>
 						<td style="width: 273px; height: 25px; color:;"><input
 							type="radio" name="mutuelle" value="oui" checked="checked">
 							oui</td>
 						<td colspan="2" style="width: 116px;"><input type="radio"
 							name="mutuelle" value="non"> non</td>
-							<%} else{ %>
-							<td style="width: 273px; height: 25px; color:;"><input
-							type="radio" name="mutuelle" value="oui" >
-							oui</td>
+						<%
+							} else {
+						%>
+						<td style="width: 273px; height: 25px; color:;"><input
+							type="radio" name="mutuelle" value="oui"> oui</td>
 						<td colspan="2" style="width: 116px;"><input type="radio"
 							name="mutuelle" value="non" checked="checked"> non</td>
-							<%} %>
+						<%
+							}
+						%>
 					</tr>
 					<tr>
 						<td>Ticket resto:</td>
-						<%if(personne.isTicketResto()){ %>
+						<%
+							if (personne.isTicketResto()) {
+						%>
 						<td style="width: 273px; height: 25px; color:;"><input
-							type="radio" name="ticket resto"
-							value="oui" checked="checked"> oui</td>
+							type="radio" name="ticket resto" value="oui" checked="checked">
+							oui</td>
 						<td colspan="2" style="width: 116px;"><input type="radio"
 							name="ticket resto" value="non"> non</td>
-							<%} else { %>
-							<td style="width: 273px; height: 25px; color:;"><input
-							type="radio" name="ticket resto"
-							value="oui" > oui</td>
+						<%
+							} else {
+						%>
+						<td style="width: 273px; height: 25px; color:;"><input
+							type="radio" name="ticket resto" value="oui"> oui</td>
 						<td colspan="2" style="width: 116px;"><input type="radio"
 							name="ticket resto" value="non" checked="checked"> non</td>
-							<%} %>
+						<%
+							}
+						%>
 					</tr>
 					<tr>
 						<td>Date de la dernière visite médicale</td>
@@ -333,19 +344,24 @@
 					</tr>
 					<tr>
 						<td>Vehicule personnel:</td>
-						<%if(personne.isVoiture()){ %>
+						<%
+							if (personne.isVoiture()) {
+						%>
 						<td style="width: 273px; height: 25px; color:;"><input
-							type="radio" name="vehicule perso"
-							value="oui" checked="checked"> oui</td>
+							type="radio" name="vehicule perso" value="oui" checked="checked">
+							oui</td>
 						<td colspan="2" style="width: 116px;"><input type="radio"
 							name="vehicule perso" value="non"> non</td>
-							<%} else { %>
-							<td style="width: 273px; height: 25px; color:;"><input
-							type="radio" name="vehicule perso"
-							value="oui" > oui</td>
+						<%
+							} else {
+						%>
+						<td style="width: 273px; height: 25px; color:;"><input
+							type="radio" name="vehicule perso" value="oui"> oui</td>
 						<td colspan="2" style="width: 116px;"><input type="radio"
 							name="vehicule perso" value="non" checked="checked"> non</td>
-							<%} %>
+						<%
+							}
+						%>
 					</tr>
 					<tr>
 						<td>Nombre de CV</td>
@@ -361,17 +377,17 @@
 					</tr>
 				</table>
 				<input type="submit" value="Terminer"></input> <input type="hidden"
-					name="noSerie" value="%%noSerie%%">
+					name="noSerie" value="<%=noSerie%>">
 			</form>
 			<form action="http://localhost:8080/ProjectJMST/jsp/Part4.jsp"
 				method='post'>
 				<input type="submit" value="Precedent"></input> <input type="hidden"
-					name="noSerie" value="%%noSerie%%">
+					name="noSerie" value="<%=noSerie%>">
 			</form>
 			<form action="http://localhost:8080/ProjectJMST/ServletDeco"
 				method='get'>
 				<input type="submit" value="Deconnexion"></input> <input
-					type="hidden" name="noSerie" value="%%noSerie%%">
+					type="hidden" name="noSerie" value="<%=noSerie%>">
 			</form>
 			<form action="">
 				<input type="button" name="check" value="check" onclick="ctrAll()" />
@@ -394,7 +410,9 @@
 			<div id="droit2">©1997-2012 - Tous droits de reproduction et de
 				représentation réservés | Mentions légales</div>
 		</div>
-		
+		<%
+			}
+		%>
 	
 </body>
 </html>

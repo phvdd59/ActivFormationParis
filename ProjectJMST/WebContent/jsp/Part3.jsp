@@ -98,6 +98,7 @@
 				if (p instanceof Personne) {
 					personne = (Personne) p;
 				}
+				
 				String sNom = request.getParameter("nom");
 				String sPrenom = request.getParameter("prenom");
 				String sAdresse = request.getParameter("adresse");
@@ -109,40 +110,28 @@
 				String sEmail = request.getParameter("mail");
 
 				if (noSerie.equals(noSerieHtml)) {
+					System.out.println("je passe");
+					// 					if (ctrl.ctrlNom(sNom) && ctrl.ctrlPrenom(sPrenom) && ctrl.ctrlAdresse(sAdresse)
+					// 							&& ctrl.ctrlTelFixe(sTelFixe) && ctrl.ctrlTelPort(sTelPort) && ctrl.ctrlFax(sFax)
+					// 							&& ctrl.ctrlCp(sCp) && ctrl.ctrlVille(sVille) && ctrl.ctrlEmail(sEmail)) {
 
-// 					if (ctrl.ctrlNom(sNom) && ctrl.ctrlPrenom(sPrenom) && ctrl.ctrlAdresse(sAdresse)
-// 							&& ctrl.ctrlTelFixe(sTelFixe) && ctrl.ctrlTelPort(sTelPort) && ctrl.ctrlFax(sFax)
-// 							&& ctrl.ctrlCp(sCp) && ctrl.ctrlVille(sVille) && ctrl.ctrlEmail(sEmail)) {
-
-						personne.setNom(sNom);
-						personne.setPrenom(sPrenom);
-						personne.setAdresse(sAdresse);
-						personne.setTelFixe(sTelFixe);
-						personne.setTelPort(sTelPort);
-						personne.setFax(sFax);
-						personne.setCp(sCp);
-						personne.setVille(sVille);
-						personne.setEmail(sEmail);
+					personne.setNom(sNom);
+					personne.setPrenom(sPrenom);
+					personne.setAdresse(sAdresse);
+					personne.setTelFixe(sTelFixe);
+					personne.setTelPort(sTelPort);
+					personne.setFax(sFax);
+					personne.setCp(sCp);
+					personne.setVille(sVille);
+					personne.setEmail(sEmail);
 
 					//} 
-// 					else {
-// 						out.write("Erreur");
-// 						Thread.sleep(2000);
-			} else {
-				out.write("Erreur");
-				Thread.sleep(2000);
-		%>
-		<jsp:forward page="Deco.jsp"></jsp:forward>
-		<%
-			}
-		%>
+					// 					else {
+					// 						out.write("Erreur");
+					// 						Thread.sleep(2000);
+					// 					}
+			%>
 
-
-
-<%-- 			<jsp:forward page="Deco.jsp"></jsp:forward> --%>
-<%-- 			<% --%>
-<!-- // 				} -->
-<%-- 			%> --%>
 			<form action="http://localhost:8080/ProjectJMST/jsp/Part4.jsp"
 				method='post'>
 				<table border="1">
@@ -180,17 +169,17 @@
 				</table>
 
 				<input type="submit" value="Suivant"></input> <input type="hidden"
-					name="noSerie" value="%%noSerie%%">
+					name="noSerie" value="<%=noSerie%>">
 			</form>
 			<form action="http://localhost:8080/ProjectJMST/jsp/Part2.jsp"
 				method='post'>
 				<input type="submit" value="Precedent"></input> <input type="hidden"
-					name="noSerie" value="%%noSerie%%">
+					name="noSerie" value="<%=noSerie%>">
 			</form>
 			<form action="http://localhost:8080/ProjectJMST/ServletDeco"
 				method='get'>
 				<input type="submit" value="Deconnexion"></input> <input
-					type="hidden" name="noSerie" value="%%noSerie%%">
+					type="hidden" name="noSerie" value="<%=noSerie%>">
 			</form>
 			<form action="">
 				<input type="button" onclick="ctrAll()" value="check">
@@ -212,7 +201,9 @@
 			<div id="droit2">©1997-2012 - Tous droits de reproduction et de
 				représentation réservés | Mentions légales</div>
 		</div>
-		
+		<%
+			}
+		%>
 	
 </body>
 <script type="text/javascript">
