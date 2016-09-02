@@ -83,7 +83,7 @@
 		<div id="info2">
 			<!-- zone disponible -->
 
-			<form action="http://localhost:8080/ProjectJMST/chgt.jsp"
+			<form action="http://localhost:8080/ProjectJMST/jsp/chgt.jsp"
 				method='post'>
 				<table border="1">
 					<caption>

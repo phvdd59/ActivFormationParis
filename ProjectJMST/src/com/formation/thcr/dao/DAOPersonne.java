@@ -56,7 +56,7 @@ public class DAOPersonne {
 			// |LP_NATIONALITE |LP_SITUATION |LP_FONCTION |LP_CADRE |LP_COEFF
 			// |LP_SALAIRE |LP_VISITEMEDICALE |LP_MONTANTTRANSPORT |LP_VOITURE
 			String sql = "UPDATE listpersonne.personne"//
-					+ "SET LP_NOM='" + personne.getNom() //
+					+ " SET LP_NOM='" + personne.getNom() //
 					+ "', LP_PRENOM='" + personne.getPrenom()//
 					+ "', LP_SEXE='" + personne.getSexe().getSexe()//
 					+ "', LP_IDENTIFIANT='" + personne.getIdentifiant()//
@@ -91,7 +91,7 @@ public class DAOPersonne {
 					+ "', LP_DATEMODIFICATION='" + personne.getDateModification()//
 					+ "', LP_BLOQUE='" + personne.isBloque()//
 					+ "', LP_RAISONBLOCAGE='" + personne.getRaisonBlocage()//
-					+ "WHERE LP_EMAIL=" + "'" + personne.getIdentifiant() + "';";//
+					+ "' WHERE LP_EMAIL=" + "'" + personne.getIdentifiant() + "';";//
 			int result = statement.executeUpdate(sql);
 			if (result > 0) {
 				System.out.println("OK : " + result);

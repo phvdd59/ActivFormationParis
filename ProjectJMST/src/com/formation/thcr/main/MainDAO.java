@@ -41,7 +41,7 @@ public class MainDAO {
 		personne.setPrenom("Prenomtest");
 		personne.setRaisonBlocage("pas de raison");
 		personne.setSalaire("32000");
-		personne.setSexe(Sexe.MASCULIN);
+		personne.setSexe(new Sexe(Sexe.MASCULIN));
 		personne.setSituation("situation test");
 		personne.setTelFixe("01");
 		personne.setTelPort("06");
@@ -56,7 +56,7 @@ public class MainDAO {
 				+ "LP_SITUATION, LP_FONCTION, LP_CADRE, LP_COEFF, LP_SALAIRE, LP_VISITEMEDICALE, "
 				+ "LP_MONTANTTRANSPORT, LP_VOITURE, LP_NBCV, LP_NBKM, LP_MUTUELLE, LP_TICKETRESTO, LP_ADMIN, "
 				+ "LP_DATECREATION, LP_DATEMODIFICATION, LP_BLOQUE, LP_RAISONBLOCAGE)" + "VALUES('" + personne.getNom()
-				+ "','" + personne.getPrenom() + "','" + personne.getSexe().name() + "','" + personne.getIdentifiant()
+				+ "','" + personne.getPrenom() + "','" + personne.getSexe().getSexe() + "','" + personne.getIdentifiant()
 				+ "'," + "'" + personne.getMdp() + "','" + personne.getEmail() + "','" + personne.getAdresse() + "',"
 				+ "'" + personne.getCp() + "','" + personne.getVille() + "','" + personne.getTelFixe() + "'," + "'"
 				+ personne.getTelPort() + "','" + personne.getFax() + "','" + personne.getDateNaissance() + "'," + "'"
@@ -68,8 +68,46 @@ public class MainDAO {
 				+ personne.isTicketResto() + "'," + "'" + personne.isAdmin() + "','" + personne.getDateCreation()
 				+ "','" + personne.getDateModification() + "'," + "'" + personne.isBloque() + "','"
 				+ personne.getRaisonBlocage() + "')";
+		
+		String sql2 = "UPDATE listpersonne.personne"//
+				+ "SET LP_NOM='" + personne.getNom() //
+				+ "', LP_PRENOM='" + personne.getPrenom()//
+				+ "', LP_SEXE='" + personne.getSexe().getSexe()//
+				+ "', LP_IDENTIFIANT='" + personne.getIdentifiant()//
+				+ "', LP_MDP='" + personne.getMdp()//
+				+ "', LP_EMAIL='" + personne.getEmail()//
+				+ "', LP_ADRESSE='" + personne.getAdresse()//
+				+ "', LP_CP='" + personne.getCp()//
+				+ "', LP_VILLE='" + personne.getVille()//
+				+ "', LP_TELFIXE='" + personne.getTelFixe()//
+				+ "', LP_TELPORT='" + personne.getTelPort()//
+				+ "', LP_FAX='" + personne.getFax()//
+				+ "', LP_DATENAISSANCE='" + personne.getDateNaissance()//
+				+ "', LP_LIEUNAISSANCE='" + personne.getLieuNaissance()//
+				+ "', LP_NUMSECU='" + personne.getNumSecu()//
+				+ "', LP_NATIONALITE='" + personne.getNationalite()//
+				+ "', LP_SITUATION='" + personne.getSituation()//
+				+ "', LP_FONCTION='" + personne.getFonction()//
+				+ "', LP_CADRE='" + personne.isCadre()//
+				+ "', LP_COEFF='" + personne.getCoeff()//
+				+ "', LP_SALAIRE='" + personne.getSalaire()//
+				+ "', LP_VISITEMEDICALE='" + personne.getVisiteMedicale()//
+				+ "', LP_MONTANTTRANSPORT='" + personne.getMontantTransport()//
+				+ "', LP_VOITURE='" + personne.isVoiture()//
+				// |LP_NBCV |LP_NBKM |LP_MUTUELLE |LP_TICKETRESTO |LP_ADMIN
+				// |LP_DATECREATION
+				// |LP_DATEMODIFICATION |LP_BLOQUE |LP_RAISONBLOCAGE |
+				+ "', LP_NBCV='" + personne.getNbCV()//
+				+ "', LP_MUTUELLE='" + personne.isMutuelle()//
+				+ "', LP_TICKETRESTO='" + personne.isTicketResto()//
+				+ "', LP_ADMIN='" + personne.isAdmin()//
+				+ "', LP_DATECREATION='" + personne.getDateCreation()//
+				+ "', LP_DATEMODIFICATION='" + personne.getDateModification()//
+				+ "', LP_BLOQUE='" + personne.isBloque()//
+				+ "', LP_RAISONBLOCAGE='" + personne.getRaisonBlocage()//
+				+ "WHERE LP_EMAIL=" + "'" + personne.getIdentifiant() + "';";//
 
-		System.out.println(sql);
+		System.out.println(sql2);
 
 	}
 
