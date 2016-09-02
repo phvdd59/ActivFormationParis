@@ -15,16 +15,10 @@ public class MainProjectAnfr {
 
 	private void init() {
 		AccesBDDPersonne bdd = new AccesBDDPersonne();
-		Personne jojo = new Personne("JOJO","JOJO76");
-		Personne toto = new Personne("","");
-		jojo.setNom("Bueller");
-		jojo.setPrenom("Joris");
-		jojo.setEmail("jojo76@serieall.fr");
-		Personne momo = new Personne("MOMO","JOJO76");
-		momo.setNom("Bueller");
-		momo.setPrenom("Moris");
-		momo.setEmail("momo76@serieall.fr");
-		bdd.creTables();
+		Personne jojo = new Personne("anfr","admin");
+		jojo.setNom("FRERE");
+		jojo.setPrenom("Antoine");
+		jojo.setEmail("anfr@activConsulting.fr");
 		bdd.createNewPersonne(jojo.getIdentifiant(), jojo.getMdp(), jojo.getEmail(), jojo.getNom(), jojo.getPrenom());
 		bdd.createNewPersonne(momo.getIdentifiant(), momo.getMdp(), momo.getEmail(), momo.getNom(), momo.getPrenom());
 		ArrayList<String> lstPersonnes = new ArrayList<String>();
