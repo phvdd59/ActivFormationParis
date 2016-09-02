@@ -48,7 +48,7 @@ public class Personne implements Serializable {
 	private boolean bloque;
 	private String raisonBlocage; // tout
 	private DocPerso[] listeDoc;
-	private DocPerso d;
+
 
 	public Personne() {
 		super(); // initialiser les valeurs
@@ -356,14 +356,6 @@ public class Personne implements Serializable {
 	@Override
 	public String toString() {
 		return "Personne [idPersonne=" + idPersonne + ", nom=" + nom + "]";
-	}
-
-	public DocPerso getD() {
-		return d;
-	}
-
-	public void setD(DocPerso d) {
-		this.d = d;
 	}
 
 	public DocPerso[] getListeDoc() {
