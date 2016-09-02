@@ -27,7 +27,7 @@ public class DAODoc {
 			statement = con.createStatement();
 			String sql = "INSERT INTO listpersonne.docPerso"//
 					+ "(nomDocUtil, type, nomDocFile, time, commentaire)"//
-					+ "VALUES('" + docPerso.getNomDocUtil() + "','" + docPerso.getType() + "','" + docPerso.getNomDocFile() + "',"//
+					+ "VALUES('" + docPerso.getNomDocUtil() + "','" + docPerso.getNomDocUtil().substring(docPerso.getNomDocUtil().lastIndexOf(".")) + "','" + docPerso.getNomDocFile() + "',"//
 					+ docPerso.getTime() + ",'" + docPerso.getCommentaire() + "');";//
 			int result = statement.executeUpdate(sql);
 			if (result > 0) {
@@ -76,7 +76,7 @@ public class DAODoc {
 			conn = DriverManager.getConnection(DB_URL, user, pass);
 			stat = conn.createStatement();
 			String sql = "UPDATE listpersonne.docPerso SET nomDocUtile='" + docPerso.getNomDocUtil() //
-					+ "', type='" + docPerso.getType()//
+					+ "', type='" + docPerso.getNomDocUtil().substring(docPerso.getNomDocUtil().lastIndexOf("."))//
 					+ "', nomDocFile='" + docPerso.getNomDocFile()//
 					+ "', time=" + docPerso.getTime()//
 					+ ", commentaire='" + docPerso.getCommentaire()//
