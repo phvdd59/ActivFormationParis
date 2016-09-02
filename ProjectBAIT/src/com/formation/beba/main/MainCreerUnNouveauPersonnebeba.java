@@ -6,10 +6,10 @@ import java.util.Date;
 import com.formation.bait.dao.AccesBDDPersonne;
 import com.formation.bait.metier.Personne;
 
-public class MainCreerUnNouveauPersonneAnfr {
+public class MainCreerUnNouveauPersonnebeba {
 
 	public static void main(String[] args) {
-		MainCreerUnNouveauPersonneAnfr m = new MainCreerUnNouveauPersonneAnfr();
+		MainCreerUnNouveauPersonnebeba m = new MainCreerUnNouveauPersonnebeba();
 		m.init();
 
 	}
