@@ -25,7 +25,7 @@ public class DAOPersonne {
 			Class.forName(JDBC_DRIVER); // nom du driver
 			con = DriverManager.getConnection(DB_URL, user, pass);
 			statement = con.createStatement();
-			String sql = "DELETE FROM personne"//
+			String sql = "DELETE FROM jmst.personne"//
 					+ "WHERE LP_EMAIL=" + "'" + personne.getEmail() + "';";
 			int result = statement.executeUpdate(sql);
 			if (result > 0) {
@@ -55,7 +55,7 @@ public class DAOPersonne {
 			// |LP_FAX |LP_DATENAISSANCE |LP_LIEUNAISSANCE |LP_NUMSECU
 			// |LP_NATIONALITE |LP_SITUATION |LP_FONCTION |LP_CADRE |LP_COEFF
 			// |LP_SALAIRE |LP_VISITEMEDICALE |LP_MONTANTTRANSPORT |LP_VOITURE
-			String sql = "UPDATE personne"//
+			String sql = "UPDATE jmst.personne"//
 					+ " SET LP_NOM='" + personne.getNom() //
 					+ "', LP_PRENOM='" + personne.getPrenom()//
 					+ "', LP_SEXE='" + personne.getSexe().getSexe()//
@@ -91,7 +91,7 @@ public class DAOPersonne {
 					+ "', LP_DATEMODIFICATION='" + personne.getDateModification()//
 					+ "', LP_BLOQUE='" + personne.isBloque()//
 					+ "', LP_RAISONBLOCAGE='" + personne.getRaisonBlocage()//
-					+ "' WHERE LP_EMAIL=" + "'" + personne.getIdentifiant() + "';";//
+					+ "' WHERE LP_IDENTIFIANT=" + "'" + personne.getIdentifiant() + "';";//
 			int result = statement.executeUpdate(sql);
 			if (result > 0) {
 				System.out.println("OK : " + result);
@@ -126,7 +126,7 @@ public class DAOPersonne {
 			// |LP_NBCV |LP_NBKM |LP_MUTUELLE |LP_TICKETRESTO |LP_ADMIN
 			// |LP_DATECREATION
 			// |LP_DATEMODIFICATION |LP_BLOQUE |LP_RAISONBLOCAGE |
-			String sql = "INSERT INTO personne"//
+			String sql = "INSERT INTO jmst.personne"//
 					+ "(LP_NOM, LP_PRENOM, LP_SEXE, LP_IDENTIFIANT, LP_MDP, LP_EMAIL, LP_ADRESSE, LP_CP, LP_VILLE, LP_TELFIXE, "
 					+ "LP_TELPORT, LP_FAX, LP_DATENAISSANCE, LP_LIEUNAISSANCE, LP_NUMSECU, LP_NATIONALITE, "
 					+ "LP_SITUATION, LP_FONCTION, LP_CADRE, LP_COEFF, LP_SALAIRE, LP_VISITEMEDICALE, "
@@ -168,7 +168,7 @@ public class DAOPersonne {
 			Class.forName(JDBC_DRIVER); // nom du driver
 			con = DriverManager.getConnection(DB_URL, user, pass);
 			statement = con.createStatement();
-			String sql = "SELECT * FROM personne";
+			String sql = "SELECT * FROM jmst.personne";
 			ResultSet result = statement.executeQuery(sql);
 			boolean check = false;
 			// TRAITER LES METADATA pour contrôler les erreurs
@@ -254,7 +254,7 @@ public class DAOPersonne {
 			Class.forName(JDBC_DRIVER); // nom du driver
 			con = DriverManager.getConnection(DB_URL, user, pass);
 			statement = con.createStatement();
-			String sql = "SELECT * FROM listpersonne.personne";
+			String sql = "SELECT * FROM jmst.personne";
 			ResultSet result = statement.executeQuery(sql);
 			boolean check = false;
 			// TRAITER LES METADATA pour contrôler les erreurs

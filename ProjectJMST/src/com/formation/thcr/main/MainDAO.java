@@ -18,7 +18,7 @@ public class MainDAO {
 		personne.setCadre(false);
 		personne.setCoeff("1");
 		personne.setCp("cp");
-		String StringDateCreation = "2010-03-06";
+		String StringDateCreation = "06-03-2010";
 		ConversionPersonne conv = new ConversionPersonne();
 		personne.setDateCreation(conv.conversionDate(StringDateCreation));
 		java.util.Date date = new java.util.Date();
@@ -49,6 +49,8 @@ public class MainDAO {
 		personne.setVille("Ville test");
 		personne.setVisiteMedicale(conv.conversionDate(StringDateCreation));
 		personne.setVoiture(false);
+		
+		//dao.create(personne);
 
 		String sql = "INSERT INTO listpersonne.personne"//
 				+ "(LP_NOM, LP_PRENOM, LP_SEXE, LP_IDENTIFIANT, LP_MDP, LP_EMAIL, LP_ADRESSE, LP_CP, LP_VILLE, LP_TELFIXE, "
@@ -67,10 +69,13 @@ public class MainDAO {
 				+ personne.getNbCV() + "'," + "'" + personne.getNbKm() + "','" + personne.isMutuelle() + "','"
 				+ personne.isTicketResto() + "'," + "'" + personne.isAdmin() + "','" + personne.getDateCreation()
 				+ "','" + personne.getDateModification() + "'," + "'" + personne.isBloque() + "','"
-				+ personne.getRaisonBlocage() + "')";
+				+ personne.getRaisonBlocage() + "');";
 		
-		String sql2 = "UPDATE listpersonne.personne"//
-				+ "SET LP_NOM='" + personne.getNom() //
+		personne.setIdentifiant("thcr");
+		dao.read(personne);
+		
+		String sql2 = "UPDATE personne"//
+				+ " SET LP_NOM='" + personne.getNom() //
 				+ "', LP_PRENOM='" + personne.getPrenom()//
 				+ "', LP_SEXE='" + personne.getSexe().getSexe()//
 				+ "', LP_IDENTIFIANT='" + personne.getIdentifiant()//
@@ -105,9 +110,11 @@ public class MainDAO {
 				+ "', LP_DATEMODIFICATION='" + personne.getDateModification()//
 				+ "', LP_BLOQUE='" + personne.isBloque()//
 				+ "', LP_RAISONBLOCAGE='" + personne.getRaisonBlocage()//
-				+ "WHERE LP_EMAIL=" + "'" + personne.getIdentifiant() + "';";//
-
+				+ "' WHERE LP_IDENTIFIANT=" + "'" + personne.getIdentifiant() + "';";//
+		
+		
 		System.out.println(sql2);
+		System.out.println(sql);
 
 	}
 

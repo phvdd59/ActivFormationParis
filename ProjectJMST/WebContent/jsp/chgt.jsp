@@ -45,6 +45,6 @@
 		}
 		
 	%>
-	<jsp:forward page="deco.jsp"/>
+	
 </body>
 </html>

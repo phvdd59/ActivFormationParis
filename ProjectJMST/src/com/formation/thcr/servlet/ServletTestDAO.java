@@ -70,7 +70,7 @@ public class ServletTestDAO extends HttpServlet {
 		personne.setRaisonBlocage("pas de raison");
 		personne.setSalaire("32000");
 		personne.setSexe(new Sexe(Sexe.MASCULIN));
-		personne.setSituation("situation test");
+		personne.setSituation("Salarie");
 		personne.setTelFixe("01");
 		personne.setTelPort("06");
 		personne.setTicketResto(false);
@@ -81,7 +81,7 @@ public class ServletTestDAO extends HttpServlet {
 		session.setAttribute("Personne", personne);
 
 		ServletContext context = getServletContext();
-		RequestDispatcher rd = context.getRequestDispatcher("/ServletTestDAO2");
+		RequestDispatcher rd = context.getRequestDispatcher("/ServletUpdate");
 		rd.forward(request, response);
 
 	}

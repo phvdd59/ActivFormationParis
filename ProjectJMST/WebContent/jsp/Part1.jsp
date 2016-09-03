@@ -80,9 +80,7 @@
 		<div id="tlogo">CENTRE DE FORMATION</div>
 		<div id="info2">
 			<!-- zone disponible -->
-		<% 
 		
-	%>	
 			<form action="http://localhost:8080/ProjectJMST/Test"
 				method='post'>
 				<table border="1">
@@ -103,11 +101,6 @@
 				</table>
 
 				<input type="submit" name="Suivant" value="Suivant"></input> <input
-					type="hidden" name="noSerie" value="%%noSerie%%">
-			</form>
-			<form action="http://localhost:8080/ProjectJMST/ServletDeco"
-				method='get'>
-				<input type="submit" value="Deconnexion"></input> <input
 					type="hidden" name="noSerie" value="%%noSerie%%">
 			</form>
 			
