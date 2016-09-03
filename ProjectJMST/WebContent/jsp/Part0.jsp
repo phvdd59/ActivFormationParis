@@ -114,13 +114,13 @@
 					<tr>
 						<th colspan="4" style="width: 627px;">Nouveau Mot de passe</th>
 						<th style="width: 273px; height: 25px; color:;">
-						<input onblur="ctrMdp1()" type="password" name="new mdp 1" value='' style="width: 270px;"><br> <span
+						<input id="new mdp 1" onblur="ctrMdp1()" type="password" name="new mdp 1" value='' style="width: 270px;"><br> <span
 							id="spanMdp1"></span></th>
 					</tr>
 					<tr>
 						<th colspan="4" style="width: 627px;">Nouveau Mot de passe</th>
 						<th style="width: 273px; height: 25px; color:;">
-						<input onblur="ctrMdp2()" type="password" name="new mdp 2" value='' style="width: 270px;"><br> <span
+						<input id="new mdp 2"  onblur="ctrMdp2()" type="password" name="new mdp 2" value='' style="width: 270px;"><br> <span
 							id="spanMdp2"></span></th>
 					</tr>
 				</table>
@@ -142,6 +142,7 @@ function ctrMdp1() {
 	if (no<6) {
 		spanMdp1.innerHTML = "Le mot de passe doit contenir au moins 6 caracteres.";
 		mdp.style.border = "1px solid #ff0000";
+		alert("mdp inferieur a 6");
 		return false;
 	} else {
 		mdp.style.border = "inherit";
@@ -165,9 +166,6 @@ function ctrMdp2() {
 		return true;
 	}
 }
-
-
-
 
 </script>
 
