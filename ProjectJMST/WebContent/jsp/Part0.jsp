@@ -114,12 +114,14 @@
 					<tr>
 						<th colspan="4" style="width: 627px;">Nouveau Mot de passe</th>
 						<th style="width: 273px; height: 25px; color:;">
-						<input type="password" name="new mdp 1" value='' style="width: 270px;"></th>
+						<input onblur="ctrMdp1()" type="password" name="new mdp 1" value='' style="width: 270px;"><br> <span
+							id="spanMdp1"></span></th>
 					</tr>
 					<tr>
 						<th colspan="4" style="width: 627px;">Nouveau Mot de passe</th>
 						<th style="width: 273px; height: 25px; color:;">
-						<input type="password" name="new mdp 2" value='' style="width: 270px;"></th>
+						<input onblur="ctrMdp2()" type="password" name="new mdp 2" value='' style="width: 270px;"><br> <span
+							id="spanMdp2"></span></th>
 					</tr>
 				</table>
 
@@ -130,6 +132,45 @@
 				<input type="submit" value="Deconnexion"></input> 
 				<input type="hidden" name="noSerie" value="<%=noSerie%>">
 			</form>
+
+<script type="text/javascript">
+function ctrMdp1() {
+	var mdp= document.getElementById("new mdp 1");
+	var no = mdp.value.length;
+	//var pattPrenom = new RegExp("^([a-zA-Z\-\'\s]+)$");
+	var spanMdp1 = document.getElementById("spanMdp1");
+	if (no<6) {
+		spanMdp1.innerHTML = "Le mot de passe doit contenir au moins 6 caracteres.";
+		mdp.style.border = "1px solid #ff0000";
+		return false;
+	} else {
+		mdp.style.border = "inherit";
+		spanMdp1.innerHTML = "";
+		return true;
+	}
+}
+
+function ctrMdp2() {
+	var mdp1= document.getElementById("new mdp 1");
+	var mdp2= document.getElementById("new mdp 2");
+	
+	var spanMdp2 = document.getElementById("spanMdp2");
+	if (mdp2.value!=mdp1.value) {
+		spanMdp2.innerHTML = "Les mots de passe doivent être identiques.";
+		mdp2.style.border = "1px solid #ff0000";
+		return false;
+	} else {
+		mdp2.style.border = "inherit";
+		spanMdp2.innerHTML = "";
+		return true;
+	}
+}
+
+
+
+
+</script>
+
 
 		</div>
 		<div id="fpage2">
