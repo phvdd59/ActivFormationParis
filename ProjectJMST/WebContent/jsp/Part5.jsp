@@ -23,11 +23,11 @@
 	function ctrPosition() {
 		var position = document.getElementById("position");
 		var no = position.value.length;
-		var pattPosition = new RegExp("[^a-zA-ZÀ-ÿ]");
+		var pattPosition = new RegExp("^([a-zA-Z\-\'\s]+)$");
 		var spanPosition = document.getElementById("spanPosition");
 		if (pattPosition.test(position.value)) {
 			spanPosition.className = "messageErreur";
-			spanPosition.innerHTML = "le champ ne doit pas contenir de caractères spéciaux.";
+			spanPosition.innerHTML = "Veuillez verifier les caractères utilisés('- acceptés).";
 			position.style.border = "1px solid #ff0000";
 			return false;
 		} else {
@@ -40,11 +40,11 @@
 	function ctrCoefficient() {
 		var coefficient = document.getElementById("coefficient");
 		var no = coefficient.value.length;
-		var pattCoefficient = new RegExp("(^[0-9])$");
+		var pattCoefficient = new RegExp("^[0-9]{3}$");
 		var spanCoefficient = document.getElementById("spanCoefficient");
 		if (pattCoefficient.test(coefficient.value) == false) {
 			spanCoefficient.className = "messageErreur";
-			spanCoefficient.innerHTML = "Entrez un nombre entre 0 et 9.";
+			spanCoefficient.innerHTML = "Veuillez entrer 3 chiffres.";
 			coefficient.style.border = "1px solid #ff0000";
 			return false;
 		} else {
@@ -57,12 +57,12 @@
 	function ctrSalaireSouhaite() {
 		var salaireSouhaite = document.getElementById("salaireSouhaite");
 		var no = salaireSouhaite.value.length;
-		var pattSalaireSouhaite = new RegExp("(^[0-9]+$)");
+		var pattSalaireSouhaite = new RegExp("^[0-9]+\.?[0-9]{1,2}?$");
 		var spanSalaireSouhaite = document
 				.getElementById("spanSalaireSouhaite");
 		if (pattSalaireSouhaite.test(salaireSouhaite.value) == false) {
 			spanSalaireSouhaite.className = "messageErreur";
-			spanSalaireSouhaite.innerHTML = "Entrez un nombre.";
+			spanSalaireSouhaite.innerHTML = "Veuillez entrer un nombre.";
 			salaireSouhaite.style.border = "1px solid #ff0000";
 			return false;
 		} else {
@@ -93,12 +93,12 @@
 	function ctrMontantTransport() {
 		var montantTransport = document.getElementById("montantTransport");
 		var no = montantTransport.value.length;
-		var pattMontantTransport = new RegExp("(^[0-9]+$)");
+		var pattMontantTransport = new RegExp("^[0-9]+\.?[0-9]{1,2}?$");
 		var spanMontantTransport = document
 				.getElementById("spanMontantTransport");
 		if (pattMontantTransport.test(montantTransport.value) == false) {
 			spanMontantTransport.className = "messageErreur";
-			spanMontantTransport.innerHTML = "Entrez un nombre.";
+			spanMontantTransport.innerHTML = "Veuillez entrer un nombre.";
 			montantTransport.style.border = "1px solid #ff0000";
 			return false;
 		} else {
@@ -111,11 +111,11 @@
 	function ctrNbChevaux() {
 		var nbChevaux = document.getElementById("nbChevaux");
 		var no = nbChevaux.value.length;
-		var pattNbChevaux = new RegExp("(^[0-9])$");
+		var pattNbChevaux = new RegExp("^[0-9]{1,3}$");
 		var spanNbChevaux = document.getElementById("spanNbChevaux");
 		if (pattNbChevaux.test(nbChevaux.value) == false) {
 			spanNbChevaux.className = "messageErreur";
-			spanNbChevaux.innerHTML = "Entrez le nombre entre 1 et 9 de chevaux fiscaux du vehicule.";
+			spanNbChevaux.innerHTML = "Entrez le nombre chevaux fiscaux du vehicule.";
 			nbChevaux.style.border = "1px solid #ff0000";
 			return false;
 		} else {
@@ -128,7 +128,7 @@
 	function ctrKmMensuel() {
 		var kmMensuel = document.getElementById("kmMensuel");
 		var no = kmMensuel.value.length;
-		var pattKmMensuel = new RegExp("(^[0-9]+$)");
+		var pattKmMensuel = new RegExp("(^[0-9]*$)");
 		var spanKmMensuel = document.getElementById("spanKmMensuel");
 		if (pattKmMensuel.test(kmMensuel.value) == false) {
 			spanKmMensuel.className = "messageErreur";

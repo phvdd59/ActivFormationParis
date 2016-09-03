@@ -38,7 +38,7 @@ function ctrLieuDeNaissance() {
 	var spanLieuDeNaissance = document.getElementById("spanLieuDeNaissance");
 	if (pattLieuDeNaissance.test(lieuDeNaissance.value)==false) {
 		spanLieuDeNaissance.className = "messageErreur";
-		spanLieuDeNaissance.innerHTML = "le champ ne doit pas contenir de caractères spéciaux.";
+		spanLieuDeNaissance.innerHTML = "Veuillez verifier les caractères utilisés('- acceptés).";
 		lieuDeNaissance.style.border = "1px solid #ff0000";
 		return false;
 	} else {
@@ -71,7 +71,7 @@ function ctrNationalite() {
 	var spanNationalite = document.getElementById("spanNationalite");
 	if (pattNationalite.test(nationalite.value)==false) {
 		spanNationalite.className = "messageErreur";
-		spanNationalite.innerHTML = "le champ ne doit pas contenir de caractères spéciaux.";
+		spanNationalite.innerHTML = "Veuillez verifier les caractères utilisés('- acceptés).";
 		nationalite.style.border = "1px solid #ff0000";
 		return false;
 	} else {

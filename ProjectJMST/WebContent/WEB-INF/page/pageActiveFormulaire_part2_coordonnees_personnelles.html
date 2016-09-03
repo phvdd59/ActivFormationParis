@@ -106,7 +106,7 @@
 		var no = ville.value.length;
 		var pattVille = new RegExp("^([a-zA-Z\-\'\s]+)$");
 		var spanVille = document.getElementById("spanVille");
-		if (no < 2 || pattVille.test(ville.value)) {
+		if (pattVille.test(ville.value)==false) {
 			spanVille.className = "messageErreur";
 			spanVille.innerHTML = "Veuillez verifier les caractères utilisés('- acceptés).";
 			ville.style.border = "1px solid #ff0000";
