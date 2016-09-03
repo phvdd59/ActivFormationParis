@@ -137,12 +137,12 @@
 function ctrMdp1() {
 	var mdp= document.getElementById("new mdp 1");
 	var no = mdp.value.length;
-	//var pattPrenom = new RegExp("^([a-zA-Z\-\'\s]+)$");
+
 	var spanMdp1 = document.getElementById("spanMdp1");
 	if (no<6) {
 		spanMdp1.innerHTML = "Le mot de passe doit contenir au moins 6 caracteres.";
 		mdp.style.border = "1px solid #ff0000";
-		alert("mdp inferieur a 6");
+
 		return false;
 	} else {
 		mdp.style.border = "inherit";
