@@ -236,12 +236,12 @@
 	function ctrLieuDeNaissance() {
 		var lieuDeNaissance = document.getElementById("lieuDeNaissance");
 		var no = lieuDeNaissance.value.length;
-		var pattLieuDeNaissance = new RegExp("[^a-zA-ZÀ-ÿ]");
+		var pattLieuDeNaissance = new RegExp("^([a-zA-Z\-\'\s]+)$");
 		var spanLieuDeNaissance = document
 				.getElementById("spanLieuDeNaissance");
-		if (no < 2 || pattLieuDeNaissance.test(lieuDeNaissance.value)) {
+		if (pattLieuDeNaissance.test(lieuDeNaissance.value)==false) {
 			spanLieuDeNaissance.className = "messageErreur";
-			spanLieuDeNaissance.innerHTML = "le champ ne doit pas contenir de caractères spéciaux.";
+			spanLieuDeNaissance.innerHTML = "Veuillez verifier les caractères utilisés('- acceptés).";
 			lieuDeNaissance.style.border = "1px solid #ff0000";
 			return false;
 		} else {
@@ -254,7 +254,7 @@
 	function ctrNoSecuriteSociale() {
 		var noSecuriteSociale = document.getElementById("noSecuriteSociale");
 		var no = noSecuriteSociale.value.length;
-		var pattNoSecuriteSociale = new RegExp("^(1|2)([0-9]{13})$");
+		var pattNoSecuriteSociale = new RegExp("^(1|2)([0-9]{14})$");
 		var spanNoSecuriteSociale = document
 				.getElementById("spanNoSecuriteSociale");
 		if (pattNoSecuriteSociale.test(noSecuriteSociale.value) == false) {
@@ -271,11 +271,11 @@
 	function ctrNationalite() {
 		var nationalite = document.getElementById("nationalite");
 		var no = nationalite.value.length;
-		var pattNationalite = new RegExp("[^a-zA-ZÀ-ÿ]");
+		var pattNationalite = new RegExp("^([a-zA-Z\-\'\s]+)$");
 		var spanNationalite = document.getElementById("spanNationalite");
-		if (no < 2 || pattNationalite.test(nationalite.value)) {
+		if (pattNationalite.test(nationalite.value)==false) {
 			spanNationalite.className = "messageErreur";
-			spanNationalite.innerHTML = "le champ ne doit pas contenir de caractères spéciaux.";
+			spanNationalite.innerHTML = "Veuillez verifier les caractères utilisés('- acceptés).";
 			nationalite.style.border = "1px solid #ff0000";
 			return false;
 		} else {
