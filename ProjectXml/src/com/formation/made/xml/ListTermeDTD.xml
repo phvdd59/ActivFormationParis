@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE terme [
+	<!ELEMENT ListTerme (terme)*>
+		<!ELEMENT Terme (nom,posX,posY,sens)+>
+			<!ATTLIST Terme nom CDATA) #REQUIRED>
+			<!ATTLIST Terme posX CDATA #REQUIRED>
+			<!ATTLIST Terme poxY CDATA #REQUIRED>
+			<!ATTLIST Terme sens "(HORIZONTAL|VERTICAL)"  #REQUIRED>
+]>
+<ListTerme>
+	<Terme nom='wagonA' posX='2' posY='3' sens='HORIZONTAL' >
+	<Terme nom='wagonB' posX='0' posY='8' sens='VERTICAL' >
+	<Terme nom='wagonC' posX='2' posY='3' sens='GLOUBIBOULGA' >
+	<Terme nom='wagonD' posX='2' posY='3' sens='BONJOUR' >
+</ListTerme>

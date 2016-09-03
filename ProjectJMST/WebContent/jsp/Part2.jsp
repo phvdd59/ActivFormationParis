@@ -231,11 +231,11 @@
 		//nom
 		var ident = document.getElementById("ident");//pour recuperer la balise pour l' id ident.
 		var no = ident.value.length;
-		var pattNom = new RegExp("[^a-zA-ZÀ-ÿ]");
+		var pattNom = new RegExp("^([a-zA-Z\-\'\s]+)$");
 		var spanNom = document.getElementById("spanNom");
-		if (no<2 || no>10 || pattNom.test(ident.value)) {
+		if (pattNom.test(ident.value)==false) {
 			spanNom.className = "messageErreur";
-			spanNom.innerHTML = "le nombre de caractère doit être comprit entre 2 et 10. Sans caractères spéciaux";
+			spanNom.innerHTML = "Veuillez verifier les caractères utilisés('- acceptés)";
 			ident.style.border = "1px solid #ff0000";
 			return false;
 		} else {
@@ -248,11 +248,11 @@
 	function ctrPrenom() {
 		var prenom = document.getElementById("prenom");
 		var no = prenom.value.length;
-		var pattPrenom = new RegExp("[^a-zA-ZÀ-ÿ]");
+		var pattPrenom = new RegExp("^([a-zA-Z\-\'\s]+)$");
 		var spanPrenom = document.getElementById("spanPrenom");
-		if (no<2 || no>10 || pattPrenom.test(prenom.value)) {
+		if (pattPrenom.test(prenom.value)==false) {
 			spanPrenom.className = "messageErreur";
-			spanPrenom.innerHTML = "le nombre de caractère doit être comprit entre 2 et 10. Sans caractères speciaux";
+			spanPrenom.innerHTML = "Veuillez verifier les caractères utilisés('- acceptés)";
 			prenom.style.border = "1px solid #ff0000";
 			return false;
 		} else {
@@ -266,9 +266,10 @@
 		var adresse = document.getElementById("adresse");
 		var no = adresse.value.length;
 		var spanAdresse = document.getElementById("spanAdresse");
-		if (no<3||no>255) {
+		var pattAdresse = new RegExp("^[a-zA-Z0-9\s\(\)\.\']+$");
+		if (pattAdresse.test(adresse.value)==false) {
 			spanAdresse.className = "messageErreur";
-			spanAdresse.innerHTML = "Verifiez la longueur de l'adresse.";
+			spanAdresse.innerHTML = "Veuillez verifier les caractères utilisés('- ()acceptés).";
 			adresse.style.border = "1px solid #ff0000";
 			return false;
 		} else {
@@ -282,11 +283,11 @@
 		var codePostalOK = false;
 		var codePostal = document.getElementById("codePostal");
 		var no = codePostal.value.length;
-		var pattCodePostal = new RegExp("^([0-9]{2}|(2A)|2B)[[0-9]{3}");
+		var pattCodePostal = new RegExp("^[0-9]{5}$");
 		var spanCodePostal = document.getElementById("spanCodePostal");
-		if (no != 5 || pattCodePostal.test(codePostal.value) == false) {
+		if (pattCodePostal.test(codePostal.value) == false) {
 			spanCodePostal.className = "messageErreur";
-			spanCodePostal.innerHTML = "Le code postal doit contenir 5 chiffres(Peut commencer par 2A ou 2B).";
+			spanCodePostal.innerHTML = "Le code postal doit contenir 5 chiffres.";
 			codePostal.style.border = "1px solid #ff0000";
 			return false;
 		} else {
@@ -299,11 +300,11 @@
 	function ctrVille() {
 		var ville = document.getElementById("ville");
 		var no = ville.value.length;
-		var pattVille = new RegExp("[^a-zA-ZÀ-ÿ]");
+		var pattVille = new RegExp("^([a-zA-Z\-\'\s]+)$");
 		var spanVille = document.getElementById("spanVille");
-		if (no < 2 || pattVille.test(ville.value)) {
+		if (pattVille.test(ville.value)==false) {
 			spanVille.className = "messageErreur";
-			spanVille.innerHTML = "le champ ne doit pas contenir de caractères spéciaux.";
+			spanVille.innerHTML = "Veuillez verifier les caractères utilisés('- acceptés).";
 			ville.style.border = "1px solid #ff0000";
 			return false;
 		} else {
@@ -317,11 +318,11 @@
 		var telephoneFixe = document.getElementById("telephoneFixe");
 		var no = telephoneFixe.value.length;
 		var pattTelephoneFixe = new RegExp(
-				"(01|02|03|04|05|06|07|08|09)[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}");
+				"^(1|2|3|4|5|6|7|8|9)[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}");
 		var spanTelephoneFixe = document.getElementById("spanTelephoneFixe");
 		if (pattTelephoneFixe.test(telephoneFixe.value) == false) {
 			spanTelephoneFixe.className = "messageErreur";
-			spanTelephoneFixe.innerHTML = "le nombre de caractère doit être égal à 10.";
+			spanTelephoneFixe.innerHTML = "Veuillez entrez les 9 chiffres de votre numero de telephone (0 exclus).";
 			telephoneFixe.style.border = "1px solid #ff0000";
 			return false;
 		} else {
@@ -334,12 +335,12 @@
 		var telephonePortable = document.getElementById("telephonePortable");
 		var no = telephonePortable.value.length;
 		var pattTelephonePortable = new RegExp(
-				"(01|02|03|04|05|06|07|08|09)[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}");
+				"^(1|2|3|4|5|6|7|8|9)[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}");
 		var spanTelephonePortable = document
 				.getElementById("spanTelephonePortable");
 		if (pattTelephonePortable.test(telephonePortable.value) == false) {
 			spanTelephonePortable.className = "messageErreur";
-			spanTelephonePortable.innerHTML = "le nombre de caractère doit être égal à 10.";
+			spanTelephonePortable.innerHTML = "Veuillez entrer les 9 chiffres de votre numero de telephone (0 exclus).";
 			telephonePortable.style.border = "1px solid #ff0000";
 			return false;
 		} else {
@@ -353,11 +354,11 @@
 		var fax = document.getElementById("fax");
 		var no = fax.value.length;
 		var pattFax = new RegExp(
-				"(01|02|03|04|05|06|07|08|09)[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}");
+				"^(1|2|3|4|5|6|7|8|9)[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}");
 		var spanFax = document.getElementById("spanFax");
 		if (pattFax.test(fax.value) == false) {
 			spanFax.className = "messageErreur";
-			spanFax.innerHTML = "Le nombre de caractère doit être égal à 10.";
+			spanFax.innerHTML = "Veuillez entrer les 9 chiffres de votre numero de fax (0 exclus).";
 			fax.style.border = "1px solid #ff0000";
 			return false;
 		} else {
