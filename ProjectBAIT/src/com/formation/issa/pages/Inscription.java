@@ -49,31 +49,25 @@ public final class Inscription {
 
 	}
 
-	private void validationMotsdePasse(String motDePasse, String verifMotDePasse) throws Exception {
-		if (motDePasse != null && verifMotDePasse != null) {
-			if (!motDePasse.matches("[\\w]") && (!motDePasse.matches(".*\\d+.*"))) {
-				throw new Exception("Le mot de passe doit contenir au moins une lettre et un chiffre.");
-
-			} else if (!motDePasse.equals(verifMotDePasse)) {
-				throw new Exception("Le mot de passe et sa confirmation doivent être identiques.");
-			}
-		} else {
-			throw new Exception("Merci de bien vouloir saisir et confirmer un mot de passe.");
+	public boolean validationMotsdePasse(String motDePasse, String verifMotDePasse) {
+		boolean retour=false;
+		if (motDePasse != null && verifMotDePasse != null && motDePasse.length()>=8){
+			if (motDePasse.matches("^(.*[A-Z]+.*)(.*[a-z]+.*)(.*[0-9]+.*)(.*[\\@#$%^&+=/-_]+.*)$")&& motDePasse.equals(verifMotDePasse)){
+				retour=true;
+			} 
 		}
+		return retour; 
 
 	}
 
-	private void validationIdentifiant(String identifiant) throws Exception {
-		if (identifiant != null) {
-			if (!identifiant.matches("[\\w]") && (!identifiant.matches(".*\\d+.*"))) {
-				throw new Exception("L'identifiant doit contenir au moins une lettre et un chiffre.");
-			} else if (identifiant.length() < 3) {
-				throw new Exception("L'identifiant doit contenir au moins trois caractères.");
-			}
-		} else {
-			throw new Exception("Merci de bien vouloir saisir un identifiant.");
+	public boolean validationIdentifiant(String identifiant){
+		boolean retour=false;
+		if (identifiant != null && identifiant.length()>3) {
+			if (identifiant.matches("^[0-9]*[A-Za-z]+[0-9]*[a-z]*$")) {
+				retour=true;;
+			} 
 		}
-
+		return retour; 
 	}
 
 	private static String getValeurChamp(HttpServletRequest request, String champ) {

@@ -62,58 +62,57 @@ public class SituationRemuneration {
 
 	}
 
-	private void validationSalaire(String salaire) throws Exception {
+	public boolean validationSalaire(String salaire) {
+		boolean retour=false;
 		if (salaire!=null){
-			if(!salaire.matches("^[0-9]+[0-9\\,]*$")){
-				throw new Exception("Merci de bien vouloir saisir un salaire correct");
+			if(salaire.matches("^[0-9]+[0-9\\,]*$")){
+				retour=true;
 			}
-		}else{
-			throw new Exception("Merci de bien vouloir saisir votre salaire.");
 		}
-		
+		return retour;
 	}
 
-	private void validationCoeff(String coeff) throws Exception {
+	public boolean validationCoeff(String coeff) {
+		boolean retour=false;
 		if(coeff!=null){
-			if(!coeff.matches("^[0-9]{1,4}$")){
-				throw new Exception("Merci de bien vouloir saisir un coefficient correct.");
+			if(coeff.matches("^[0-9]{1,4}$")){
+				retour=true;
 			}
-		}else{
-			throw new Exception("Merci de bien vouloir saisir votre coefficient.");
 		}
+		return retour;
 		
 	}
 
-	private void validationPosition(String position) throws Exception {
+	public boolean validationPosition(String position) {
+		boolean retour=false;
 		if(position!=null){
-			if(!position.matches("^[0-9]+\\.[0-9]+[0-9\\.]*$")){
-				throw new Exception("Merci de bien vouloir saisir une position correcte.");
+			if(position.matches("^[0-9]{1}\\.[0-9]{1}[0-9\\.]+$")){
+				retour=true;
 			}
-		}else{
-			throw new Exception("Merci de bien vouloir saisir votre position.");
 		}
+		return retour;
 		
 	}
 
-	private void validationFonction(String fonction) throws Exception {
+	public boolean validationFonction(String fonction) {
+		boolean retour=false;
 		if (fonction != null) {
-			if (!fonction.matches("^[a-zA-ZÀ-ÿ\\-' ]*[a-zA-Z]+$")) {
-				throw new Exception("Merci de bien vouloir saisir une fonction correcte.");
+			if (fonction.matches("^[a-zA-ZÀ-ÿ\\-' ]*[a-zA-Z]+$")) {
+				retour=true;
 			}
-		} else {
-			throw new Exception("Merci de bien vouloir saisir votre fonction.");
-		}	
+		}
+		return retour; 
 		
 	}
 
-	private void validationSituation(String situation) throws Exception {
+	public boolean validationSituation(String situation) {
+		boolean retour=false;
 		if (situation != null) {
-			if (!situation.matches("^[a-zA-ZÀ-ÿ\\-' ]*[a-zA-Z]+$")) {
-				throw new Exception("Merci de bien vouloir saisir une situation correcte.");
+			if (situation.matches("^[a-zA-ZÀ-ÿ\\-' ]*[a-zA-Z]+$")) {
+				retour=true;
 			}
-		} else {
-			throw new Exception("Merci de bien vouloir saisir votre situation.");
 		}
+		return retour; 
 
 	}
 

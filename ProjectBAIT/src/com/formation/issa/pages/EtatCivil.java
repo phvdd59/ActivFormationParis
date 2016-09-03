@@ -78,71 +78,71 @@ public class EtatCivil {
 
 	}
 
-	private void validationNom(String nom) throws Exception {
+	public boolean validationNom(String nom) {
+		boolean retour = false;
 		if (nom != null) {
-			if (!nom.matches("^[a-zA-ZÀ-ÿ\\-' ]*[a-zA-Z]+$")) {
-				throw new Exception("Merci de bien vouloir saisir un nom correct.");
+			if (nom.matches("^[a-zA-ZÀ-ÿ\\-' ]*[a-zA-Z]+$")) {
+				retour = true;
 			}
-		} else {
-			throw new Exception("Merci de bien vouloir saisir votre nom.");
 		}
+		return retour;
 
 	}
 
-	private void validationPrenom(String prenom) throws Exception {
+	public boolean validationPrenom(String prenom) {
+		boolean retour = false;
 		if (prenom != null) {
-			if (!prenom.matches("^[a-zA-ZÀ-ÿ\\-' ]*[a-zA-Z]+$")) {
-				throw new Exception("Merci de bien vouloir saisir un prénom correct.");
+			if (prenom.matches("^[a-zA-ZÀ-ÿ\\-' ]*[a-zA-Z]+$")) {
+				retour = true;
 			}
-		} else {
-			throw new Exception("Merci de bien vouloir saisir votre prénom.");
 		}
+		return retour;
 
 	}
 
-	private void validationDateDeNaissance(String dateDeNaissance) throws Exception, ParseException {
+	public boolean validationDateDeNaissance(String dateDeNaissance) throws ParseException {
+		boolean retour = false;
 		final DateFormat df = new SimpleDateFormat("DD/MM/YYYY");
 		final Date date = df.parse(dateDeNaissance);
 		if (dateDeNaissance != null) {
-			if (dateDeNaissance.length() != 10) {
-				throw new Exception("Merci de bien vouloir saisir une date de naissance selon le format fixé.");
+			if (dateDeNaissance.length() == 10) {
+				retour = true;
 			}
-		} else {
-			throw new Exception("Merci de bien vouloir saisir votre date de naissance.");
 		}
+		return retour;
 
 	}
 
-	private void validationLieu(String lieu) throws Exception {
+	public boolean validationLieu(String lieu) {
+		boolean retour = false;
 		if (lieu != null) {
-			if (!lieu.matches("^[a-zA-ZÀ-ÿ\\-' ]*[a-zA-Z]+$")) {
-				throw new Exception("Merci de bien vouloir saisir un lieu de naissance correct.");
+			if (lieu.matches("^[a-zA-ZÀ-ÿ\\-' ]*[a-zA-Z]+$")) {
+				retour = true;
 			}
-		} else {
-			throw new Exception("Merci de bien vouloir saisir votre lieu de naissance.");
 		}
+		return retour;
 
 	}
 
-	private void validationNationalite(String nationalite) throws Exception {
+	public boolean validationNationalite(String nationalite) {
+		boolean retour=false;
 		if (nationalite != null) {
-			if (!nationalite.matches("^[a-zA-ZÀ-ÿ\\- ]*[a-zA-Z]+$")) {
-				throw new Exception("Merci de bien vouloir saisir une nationalité correcte.");
+			if (nationalite.matches("^[a-zA-ZÀ-ÿ\\- ]*[a-zA-Z]+$")) {
+				retour=true;
 			}
-		} else {
-			throw new Exception("Merci de bien vouloir saisir votre nationalité.");
 		}
+		return retour; 
 
 	}
 
-	private void validationNumeroDeSecuriteSociale(String numeroDeSecuriteSociale) throws Exception {
+	public boolean validationNumeroDeSecuriteSociale(String numeroDeSecuriteSociale) {
+		boolean retour=false;
 		if (numeroDeSecuriteSociale != null) {
-			if (!numeroDeSecuriteSociale.matches("^[1234][\\ ]?[0-9]{2}[\\ ]?[0-9]{2}[\\ ]?[0-9]{2}[\\ ]?[0-9]{3}[\\ ]?[0-9]{3}[\\ ]?[0-9]{2}$")) {
-				throw new Exception("Merci de bien vouloir saisir un numéro de sécurité sociale correcte.");
+			if (numeroDeSecuriteSociale.matches("^[1234][\\ ]?[0-9]{2}[\\ ]?[0-9]{2}[\\ ]?[0-9]{2}[\\ ]?[0-9]{3}[\\ ]?[0-9]{3}[\\ ]?[0-9]{2}$")) {
+				retour=true;
 			}
-		} else {
-			throw new Exception("Merci de bien vouloir saisir votre numéro de sécurité sociale");
 		}
+		return retour; 
 
 	}
 

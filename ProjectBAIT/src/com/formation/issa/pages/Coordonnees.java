@@ -104,7 +104,7 @@ public class Coordonnees {
 	public boolean validationCodePostal(String codePostal){
 		boolean retour=false;
 		if (codePostal != null) {
-			if (codePostal.matches(".*\\d+.*") && codePostal.length() != 5) {
+			if (codePostal.matches(".*\\d+.*") && codePostal.length()== 5) {
 				retour=true;
 			}
 		} 
@@ -126,7 +126,8 @@ public class Coordonnees {
 	public boolean validationTelPort(String telPort) {
 		boolean retour = false;
 		if (telPort != null) {
-			if (telPort.matches("^[\\+][0-9]{2}[\\-./ ]?[0-9]{1}[\\-./ ]?[0-9]{2}[\\-./ ]?[0-9]{2}[\\-./ ]?[0-9]{2}[\\-./ ]?[0-9]{2}$") || (telPort.matches("^[0-9]{2}[\\-./ ]?[0-9]{2}[\\-./ ]?[0-9]{2}[\\-./ ]?[0-9]{2}[\\-./ ]?[0-9]{2}$"))
+			if (telPort.matches("^[\\+][0-9]{2}[\\-./ ]?[0-9]{1}[\\-./ ]?[0-9]{2}[\\-./ ]?[0-9]{2}[\\-./ ]?[0-9]{2}[\\-./ ]?[0-9]{2}$") 
+					|| (telPort.matches("^[0-9]{2}[\\-./ ]?[0-9]{2}[\\-./ ]?[0-9]{2}[\\-./ ]?[0-9]{2}[\\-./ ]?[0-9]{2}$"))
 					|| (telPort.matches("^[0-9]{2}[\\-./ ]?[0-9]{2}[\\-./ ]?[0-9]{1}[\\-./ ]?[0-9]{2}[\\-./ ]?[0-9]{2}[\\-./ ]?[0-9]{2}[\\-./ ]?[0-9]{2}$"))) {
 				retour = true;
 			} 
