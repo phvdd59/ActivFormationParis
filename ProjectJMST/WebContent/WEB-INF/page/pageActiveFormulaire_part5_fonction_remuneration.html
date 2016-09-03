@@ -24,7 +24,7 @@
 		var spanPosition = document.getElementById("spanPosition");
 		if (pattPosition.test(position.value)==false) {
 			spanPosition.className = "messageErreur";
-			spanPosition.innerHTML = "le champ ne doit pas contenir de caractères spéciaux.";
+			spanPosition.innerHTML = "Veuillez verifier les caractères utilisés('- acceptés).";
 			position.style.border = "1px solid #ff0000";
 			return false;
 		} else {
@@ -41,7 +41,7 @@
 		var spanCoefficient = document.getElementById("spanCoefficient");
 		if (pattCoefficient.test(coefficient.value) == false) {
 			spanCoefficient.className = "messageErreur";
-			spanCoefficient.innerHTML = "Entrez un nombre entre 0 et 9.";
+			spanCoefficient.innerHTML = "Veuillez entrer 3 chiffres.";
 			coefficient.style.border = "1px solid #ff0000";
 			return false;
 		} else {
@@ -59,7 +59,7 @@
 				.getElementById("spanSalaireSouhaite");
 		if (pattSalaireSouhaite.test(salaireSouhaite.value) == false) {
 			spanSalaireSouhaite.className = "messageErreur";
-			spanSalaireSouhaite.innerHTML = "Entrez un nombre.";
+			spanSalaireSouhaite.innerHTML = "Veuillez entrer un nombre.";
 			salaireSouhaite.style.border = "1px solid #ff0000";
 			return false;
 		} else {
@@ -92,7 +92,7 @@
 		var spanMontantTransport = document.getElementById("spanMontantTransport");
 		if (pattMontantTransport.test(montantTransport.value) == false) {
 			spanMontantTransport.className = "messageErreur";
-			spanMontantTransport.innerHTML = "Entrez un nombre.";
+			spanMontantTransport.innerHTML = "Veuillez entrer un nombre.";
 			montantTransport.style.border = "1px solid #ff0000";
 			return false;
 		} else {
@@ -109,7 +109,7 @@
 		var spanNbChevaux = document.getElementById("spanNbChevaux");
 		if (pattNbChevaux.test(nbChevaux.value) == false) {
 			spanNbChevaux.className = "messageErreur";
-			spanNbChevaux.innerHTML = "Entrez le nombre entre 1 et 9 de chevaux fiscaux du vehicule.";
+			spanNbChevaux.innerHTML = "Entrez le nombre fiscaux du vehicule.";
 			nbChevaux.style.border = "1px solid #ff0000";
 			return false;
 		} else {
