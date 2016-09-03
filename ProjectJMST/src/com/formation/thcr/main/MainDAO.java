@@ -73,6 +73,8 @@ public class MainDAO {
 		
 		personne.setIdentifiant("thcr");
 		dao.read(personne);
+		personne.setMdp("password");
+		personne.setDateModification(new Timestamp(date.getTime()));
 		
 		String sql2 = "UPDATE personne"//
 				+ " SET LP_NOM='" + personne.getNom() //
@@ -112,7 +114,7 @@ public class MainDAO {
 				+ "', LP_RAISONBLOCAGE='" + personne.getRaisonBlocage()//
 				+ "' WHERE LP_IDENTIFIANT=" + "'" + personne.getIdentifiant() + "';";//
 		
-		
+		dao.update(personne);
 		System.out.println(sql2);
 		System.out.println(sql);
 

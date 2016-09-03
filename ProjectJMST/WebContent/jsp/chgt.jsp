@@ -1,3 +1,5 @@
+<%@page import="java.util.Date"%>
+<%@page import="java.sql.Timestamp"%>
 <%@page import="com.formation.joca.controleur.CtrlPersonne"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
@@ -39,12 +41,21 @@
 			if (dao.read(personne)) {
 				if (personne.getMdp().equals(ancienMdp) && mdp1.equals(mdp2)) {
 					personne.setMdp(mdp1);
-					dao.update(personne);
+					Date dateModif = new Date();
+					personne.setDateModification(new Timestamp(dateModif.getTime()));
+					if(dao.update(personne)){
+						out.write("mis à jour réussi, cliquer sur retour login");
+					}
 				}
 			}
 		}
 		
 	%>
+	<p></p>
+	<form action="http://localhost:8080/ProjectJMST/ServletJOCA1" method="post">
+	<input type="submit" value="retour login">
+	</form>
+	
 	
 </body>
 </html>

@@ -87,8 +87,8 @@ public class DAOPersonne {
 					+ "', LP_MUTUELLE='" + personne.isMutuelle()//
 					+ "', LP_TICKETRESTO='" + personne.isTicketResto()//
 					+ "', LP_ADMIN='" + personne.isAdmin()//
-					+ "', LP_DATECREATION='" + personne.getDateCreation()//
-					+ "', LP_DATEMODIFICATION='" + personne.getDateModification()//
+					+ "', LP_DATECREATION=" + personne.getDateCreation()//Issues with datecreation
+					+ ", LP_DATEMODIFICATION='" + personne.getDateModification()// 
 					+ "', LP_BLOQUE='" + personne.isBloque()//
 					+ "', LP_RAISONBLOCAGE='" + personne.getRaisonBlocage()//
 					+ "' WHERE LP_IDENTIFIANT=" + "'" + personne.getIdentifiant() + "';";//

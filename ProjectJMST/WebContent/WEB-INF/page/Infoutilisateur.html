@@ -1,127 +1,210 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <script type="text/javascript" src="http://127.0.0.1/js/Infoutilisateur.js">
- 
-        
-    </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Affichage</title>
-<link rel="stylesheet" href="http://127.0.0.1/css/Infoutilisateur.css">
+<title>Login</title>
+<link href="http://www.activconsult-ing.com/Home.css" rel="stylesheet"
+	type="text/css">
+<link href="../css/Login.css" rel="stylesheet" type="text/css">
 </head>
-    <body>
-        <div id="table1">
-        <table border="3">
-                <tr>
-					<th colspan="4" style="width: 700px;">Coordonnées Personnelles</th>
-				</tr>
-				<tr>
-					<td style="width: 270px; height: 25px;">Nom</td>
-					<td id="nom" style="width: 120px; height: 25px; color:;"></td>
-					<td style="width: 140px;">Prenom</td>
-					<td id="prenom" ></td>
-				</tr>
-				<tr>
-					<td>Adresse</td>
-					<td id="adresse" colspan="3"></td>
-				</tr>
-				<tr>
-					<td>Code Postale</td>
-					<td id="codepost"></td>
-					<td style="width: 80px;">Ville</td>
-					<td id="ville"></td>
-				</tr>
-				<tr>
-					<td>Telephone Fixe</td>
-					<td id="telfix"></td>
-					<td >Telephone Portable</td>
-					<td id="telport"></td>
-				</tr>
-				<tr>
-					<td>Fax</td>
-					<td id="fax"></td>
-					<td >Mail</td>
-					<td id="mail"></td>
-				</tr>
-				<tr>
-					<th colspan="4">Etat Civil</th>
+<body>
+	<div id="background">
+		<div id="back2">
+			<img src="http://www.activconsult-ing.com/img/Article_fond_bleu.png" />
+		</div>
+		<div id="back3">
+			<img
+				src="http://www.activconsult-ing.com/img/shutterstock_106416164.png" />
+		</div>
+		<div id="logo">
+			<a href="http://www.activconsult-ing.com/index.html"><img
+				src="http://www.activconsult-ing.com/img/ACI_Logo_quadri_blanc.png"
+				width="184" height="185" /></a>
+		</div>
+		<div id="white">
+			<img src="http://www.activconsult-ing.com/img/Article_fond_blanc.png"
+				width="782" height="595" />
+		</div>
+		<div id="logo1">
+			<a href="http://www.activconsult-ing.com/qui_sommes_nous.html"><img
+				src="http://www.activconsult-ing.com/img/Menu_ancre.png"
+				alt="Qui sommes nous ?" /></a>
+		</div>
+		<div id="logo2">
+			<a href="http://www.activconsult-ing.com/le_groupe.html"><img
+				src="http://www.activconsult-ing.com/img/Menu_poulpe.png" width="70"
+				height="93" alt="Le groupe" /></a>
+		</div>
+		<div id="logo3">
+			<a href="http://www.activconsult-ing.com/centre_formation.html"><img
+				src="http://www.activconsult-ing.com/img/Menu_pagaies.png"
+				width="71" height="103" alt="Centre de formation" /></a>
+		</div>
+		<div id="logo4">
+			<a href="http://www.activconsult-ing.com/nos_offres1.html"><img
+				src="http://www.activconsult-ing.com/img/Menu_rose_des_vents.png"
+				width="71" height="93" alt="Nos offres" /></a>
+		</div>
+		<div id="logo5">
+			<a href="http://www.activconsult-ing.com/domaines_activites.html"><img
+				src="http://www.activconsult-ing.com/img/Menu_noeuds.png" width="72"
+				height="103" alt="Domaines d'activités" /></a>
+		</div>
+		<div id="logo6">
+			<a href="http://www.activconsult-ing.com/recrutement_rh.html"><img
+				src="http://www.activconsult-ing.com/img/Menu_capitaine.png"
+				width="71" height="103" alt="Recrutement RH" /></a>
+		</div>
+		<div id="logo8">
+			<a href="http://www.activconsult-ing.com/ressources_externes.html"><img
+				src="http://www.activconsult-ing.com/img/Menu_bouée.png" width="71"
+				height="103" alt="Ressouces externes" /></a>
+		</div>
+		<div id="logo7">
+			<a href="http://www.activconsult-ing.com/contact.html"><img
+				src="http://www.activconsult-ing.com/img/Menu_gouvernail.png"
+				width="71" height="93" alt="Contact" /></a>
+		</div>
+		<div id="titre1">ENTREPRISE DE SERVICES DU NUMERIQUE</div>
+		<div id="menu3">
+			<img
+				src="http://www.activconsult-ing.com/img/Objet_dynamique_vectoriel.png"
+				width="342" height="57" alt="" />
+		</div>
+		<div id="ogol1">
+			<img src="http://www.activconsult-ing.com/img/Menu_pagaies2.png"
+				width="71" height="71" alt="" />
+		</div>
+		<div id="tlogo">CENTRE DE FORMATION</div>
+		<div id="info2">
+			<!-- zone disponible -->
+			<div id="table1">
+				<table border="3">
+					<tr>
+						<th colspan="4" style="width: 700px;">Coordonnées
+							Personnelles</th>
+					</tr>
+					<tr>
+						<td style="width: 270px; height: 25px;">Nom</td>
+						<td id="nom" style="width: 120px; height: 25px; color:;"></td>
+						<td style="width: 140px;">Prenom</td>
+						<td id="prenom"></td>
+					</tr>
+					<tr>
+						<td>Adresse</td>
+						<td id="adresse" colspan="3"></td>
+					</tr>
+					<tr>
+						<td>Code Postale</td>
+						<td id="codepost"></td>
+						<td style="width: 80px;">Ville</td>
+						<td id="ville"></td>
+					</tr>
+					<tr>
+						<td>Telephone Fixe</td>
+						<td id="telfix"></td>
+						<td>Telephone Portable</td>
+						<td id="telport"></td>
+					</tr>
+					<tr>
+						<td>Fax</td>
+						<td id="fax"></td>
+						<td>Mail</td>
+						<td id="mail"></td>
+					</tr>
+					<tr>
+						<th colspan="4">Etat Civil</th>
 
-				</tr>
-				<tr>
-					<td>Date de naissance</td>
-					<td id="datenaissance"></td>
-					<td >Lieu de naissance</td>
-					<td id="lieunaissance"></td>
-				</tr>
-				<tr>
-					<td>N° sécurité Social</td>
-					<td id="secusocial"></td>
-                    <td>Nationalité</td>
-					<td id="nationalite"></td>
-				</tr>
-				<tr>
-					<th colspan="4">Situation Actuelle</th>
-				</tr>
-				<tr>
-                    <td>Situation</td>
-					<td id="situation"></td>
-                </tr>
-				<tr>
-					<th colspan="4">Fonction/Remuneration</th>
-				</tr>
-				<tr>
-					<td>Fonction occupée</td>
-					<td id="fonctionoccupe"></td>
-                    <td>Salaire souhaité</td>
-					<td id="salaire"></td>
-				</tr>
-				<tr>
-					<td>Position</td>
-					<td id="position"></td>
-					<td >Coefficient</td>
-					<td id="coefficient"></td>
-				</tr>
-				<tr>
-					<td>Mutuelle souhaitée:</td>
-					<td id="mutuelle"></td>
-                    <td>Ticket resto:</td>
-					<td id="ticketresto"></td>
-				</tr>
-				<tr>
-					<td>Date de la dernière visite médicale</td>
-					<td id="visitemedicale" ></td>
-				</tr>
-				<tr>
-					<td>Montant carte d'abonnement Transports</td>
-					<td id="abotransport"></td>
-                    <td>Véhicule personnel:</td>
-					<td id="vehicule"></td>
-				</tr>
-				<tr>
-					<td>Nombre de CV</td>
-					<td id="nbcv"></td>
-					<td >Km mensuel estimé</td>
-					<td id="kmestime"></td>
-				</tr>
-        </table>
-        </div>
-        <div id="boutton1">
-            <form action="http://localhost:8080/ProjectJMST/ServletThcr2" method="post">
-                <input class="button" type="submit" value="retour">
-                <input type="hidden" name="noSerie" value="%%noSerie%%">
-            </form>
-        </div>
-        <div id="boutton2">
-            <form action="http://localhost:8080/ProjectJMST/jsp/ListUtilisateur.jsp" method="post">
-                <input class="button" type="submit" value="retour (jsp)">
-                <input type="hidden" name="noSerie" value="%%noSerie%%">
-            </form>
-        </div>
-        <div id="deco">
-            <form action=http://localhost:8080/ProjectJMST/ServletDeco method="post">
-                <input type="submit" value="deconnexion">
-                <input type="hidden" name="noSerie" value="%%noSerie%%">
-            </form>
-            </div>
-    </body>
+					</tr>
+					<tr>
+						<td>Date de naissance</td>
+						<td id="datenaissance"></td>
+						<td>Lieu de naissance</td>
+						<td id="lieunaissance"></td>
+					</tr>
+					<tr>
+						<td>N° sécurité Social</td>
+						<td id="secusocial"></td>
+						<td>Nationalité</td>
+						<td id="nationalite"></td>
+					</tr>
+					<tr>
+						<th colspan="4">Situation Actuelle</th>
+					</tr>
+					<tr>
+						<td>Situation</td>
+						<td id="situation"></td>
+					</tr>
+					<tr>
+						<th colspan="4">Fonction/Remuneration</th>
+					</tr>
+					<tr>
+						<td>Fonction occupée</td>
+						<td id="fonctionoccupe"></td>
+						<td>Salaire souhaité</td>
+						<td id="salaire"></td>
+					</tr>
+					<tr>
+						<td>Position</td>
+						<td id="position"></td>
+						<td>Coefficient</td>
+						<td id="coefficient"></td>
+					</tr>
+					<tr>
+						<td>Mutuelle souhaitée:</td>
+						<td id="mutuelle"></td>
+						<td>Ticket resto:</td>
+						<td id="ticketresto"></td>
+					</tr>
+					<tr>
+						<td>Date de la dernière visite médicale</td>
+						<td id="visitemedicale"></td>
+					</tr>
+					<tr>
+						<td>Montant carte d'abonnement Transports</td>
+						<td id="abotransport"></td>
+						<td>Véhicule personnel:</td>
+						<td id="vehicule"></td>
+					</tr>
+					<tr>
+						<td>Nombre de CV</td>
+						<td id="nbcv"></td>
+						<td>Km mensuel estimé</td>
+						<td id="kmestime"></td>
+					</tr>
+				</table>
+			</div>
+			<div id="boutton1">
+				<form action="http://localhost:8080/ProjectJMST/ServletThcr2"
+					method="post">
+					<input class="button" type="submit" value="retour"> <input
+						type="hidden" name="noSerie" value="%%noSerie%%">
+				</form>
+			</div>
+			<div id="deco">
+				<form action=http://localhost:8080/ProjectJMST/ServletDeco
+					method="post">
+					<input type="submit" value="deconnexion"> <input
+						type="hidden" name="noSerie" value="%%noSerie%%">
+				</form>
+			</div>
+		</div>
+		<div id="fpage2">
+			<img
+				src="http://www.activconsult-ing.com/img/Article_fond_blanc_double_copie.png" />
+			<div id="Facebook2">
+				<img src="http://www.activconsult-ing.com/img/Facebook.png" />
+			</div>
+			<div id="linkedin2">
+				<img src="http://www.activconsult-ing.com/img/Linkedin.png" />
+			</div>
+			<div id="viadeo2">
+				<img src="http://www.activconsult-ing.com/img/Viadeo.png" />
+			</div>
+			<div id="droit2">©1997-2012 - Tous droits de reproduction et de
+				représentation réservés | Mentions légales</div>
+		</div>
+	</div>
+
+</body>
 </html>
