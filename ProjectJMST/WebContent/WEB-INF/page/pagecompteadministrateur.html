@@ -41,11 +41,19 @@
 					title="Selection d'un utilisateur"> <input type="hidden" name="noSerie"
 					value="%%noSerie%%">
 			</form>
+			<form action="http://localhost:8080/ProjectJMST/jsp/testjspsuppression.jsp"
+				method="post">
+				<input type="submit" value="Bloquer un utilisateur" title="blocage">
+				<input type="hidden" name="noSerie" value="%%noSerie%%">
+			</form>
 			<form action="http://localhost:8080/ProjectJMST/ServletDeco"
 				method="post">
 				<input type="submit" value="deconnexion" title="deconnexion session">
 				<input type="hidden" name="noSerie" value="%%noSerie%%">
 			</form>
+			
+			
+			
 		</div>
 	</div>
 
