@@ -70,7 +70,8 @@ public class Servletlisteutilisateurs extends HttpServlet {
 					lstUser.add(user); // a supprimer
 				} else {
 					for (int i = 0; i < lstUser.size(); i++) {
-						if (lstUser.get(i).getPrenom().contains(prenomA) && lstUser.get(i).getNom().contains(nomA)) {
+//						if (lstUser.get(i).getPrenom().contains(prenomA) && lstUser.get(i).getNom().contains(nomA))
+						if (lstUser.get(i).getIdentifiant().equals(nomA.substring(0,1)+"."+nomA.toLowerCase())) {
 							existe = true;
 							break;
 						}

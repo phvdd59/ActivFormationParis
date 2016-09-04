@@ -175,6 +175,14 @@ public class Servletidentification extends HttpServlet {
 							bufReadDoc1 = new BufferedReader(new FileReader(fileDoc1));
 							String lineDoc1 = bufReadDoc1.readLine();
 							while (lineDoc1 != null) {
+								if (lineDoc1.contains("%listepersonne%")){
+									for (int i = 0; i <lstpersonne.size(); i++) {
+										if (lineDoc1.contains("%listepersonne%")&&i<lstpersonne.size()-1) {
+											lineDoc1 = lineDoc1.replace("%listepersonne%", lstpersonne.get(i).getIdentifiant())+"<option value=\"%listepersonne%\">";
+										}else if (lineDoc1.contains("%listepersonne%")&&i==lstpersonne.size()-1) {
+											lineDoc1 = lineDoc1.replace("%listepersonne%", lstpersonne.get(i).getIdentifiant());
+										}
+									}}
 								resp.getWriter().println(lineDoc1);
 								lineDoc1 = bufReadDoc1.readLine();
 							}

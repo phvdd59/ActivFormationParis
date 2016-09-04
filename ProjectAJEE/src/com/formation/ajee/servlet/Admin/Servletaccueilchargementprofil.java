@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.formation.ajee.metier.ListPersonne;
 import com.formation.ajee.metier.Personne;
 
 /**
@@ -39,23 +40,12 @@ public class Servletaccueilchargementprofil extends HttpServlet {
 
 		Object noSerie = session.getAttribute("noSerie");
 
-		String pseudo = (String) session.getAttribute("pseudo");
-		String mdp = (String) session.getAttribute("mot de passe");
-		Object utilisateur = session.getAttribute("utilisateur");
+ListPersonne lstPersonne=new ListPersonne();
+		Personne utilisateur =(Personne) session.getAttribute("utilisateur");
 		Personne personne = (Personne) session.getAttribute("personne");
 		
-		// ListPersonne lstpersonne=new ListPersonne();
-		// for (int i = 0; i < lstpersonne.size(); i++) {
-		// if
-		// (lstpersonne.get(i).getIdentifiant().equals(pseudo)&&lstpersonne.get(i).getMdp().equals(mdp))
-		// {
-		// personne=lstpersonne.get(i);
-		// session.setAttribute("personne", personne);
-		// break;
-		// }
-		// }
-
-		if (noSerie != null && pseudo != null) {
+		
+		if (noSerie != null && personne.getIdentifiant() != null) {
 
 			if (personne.getIdentifiant().equals("Admin")) {
 
@@ -115,10 +105,10 @@ public class Servletaccueilchargementprofil extends HttpServlet {
 				String lineDoc = bufReadDoc.readLine();
 				while (lineDoc != null) {
 					if (lineDoc.contains("%pseudo%")) {
-						lineDoc = lineDoc.replace("%pseudo%", pseudo);
+						lineDoc = lineDoc.replace("%pseudo%", personne.getIdentifiant());
 					}
 					if (lineDoc.contains("%utilisateur%")) {
-						lineDoc = lineDoc.replace("%utilisateur%", ((utilisateur == null) ? "" : utilisateur.toString()));
+						lineDoc = lineDoc.replace("%utilisateur%", ((utilisateur == null) ? "" : utilisateur.getIdentifiant()));
 					}
 					response.getWriter().println(lineDoc);
 					lineDoc = bufReadDoc.readLine();
@@ -130,6 +120,14 @@ public class Servletaccueilchargementprofil extends HttpServlet {
 				bufReadDoc1 = new BufferedReader(new FileReader(fileDoc1));
 				String lineDoc1 = bufReadDoc1.readLine();
 				while (lineDoc1 != null) {
+					if (lineDoc1.contains("%listepersonne%")){
+					for (int i = 0; i <lstPersonne.size(); i++) {
+						if (lineDoc1.contains("%listepersonne%")&&i<lstPersonne.size()-1) {
+							lineDoc1 = lineDoc1.replace("%listepersonne%", lstPersonne.get(i).getIdentifiant())+"<option value=\"%listepersonne%\">";
+						}else if (lineDoc1.contains("%listepersonne%")&&i==lstPersonne.size()-1) {
+							lineDoc1 = lineDoc1.replace("%listepersonne%", lstPersonne.get(i).getIdentifiant());
+						}
+					}}
 					response.getWriter().println(lineDoc1);
 					lineDoc1 = bufReadDoc1.readLine();
 				}
@@ -147,7 +145,7 @@ public class Servletaccueilchargementprofil extends HttpServlet {
 				bufReadBas.close();
 			}
 
-			else if (pseudo.equals(personne.getIdentifiant())) {
+			else if (personne.getIdentifiant().isEmpty()==false) {
 				/** Lecture Haut de page HTML */
 				File fileHaut = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/HautPage.html");
 				BufferedReader bufReadHaut = null;
@@ -182,7 +180,7 @@ public class Servletaccueilchargementprofil extends HttpServlet {
 				String lineDoc = bufReadDoc.readLine();
 				while (lineDoc != null) {
 					if (lineDoc.contains("%pseudo%")) {
-						lineDoc = lineDoc.replace("%pseudo%", pseudo);
+						lineDoc = lineDoc.replace("%pseudo%", personne.getIdentifiant());
 					}
 					response.getWriter().println(lineDoc);
 					lineDoc = bufReadDoc.readLine();
