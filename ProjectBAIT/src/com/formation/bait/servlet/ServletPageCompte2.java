@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.formation.bait.dao.AccesBDDPersonne;
+
 /**
  * Servlet implementation class Servlet1
  */
@@ -46,6 +48,7 @@ public class ServletPageCompte2 extends HttpServlet {
 		HttpSession session = request.getSession();
 		String sNoSuiviClient = request.getParameter("suiviClient");
 		String sNbAppelClient = request.getParameter("nbAppelClient");
+		AccesBDDPersonne bddPersonne = new AccesBDDPersonne();
 		Object oNoSuivi = session.getAttribute("suivi");
 		if (oNoSuivi != null) {
 			session.setAttribute("servlet", "Compte");

@@ -1,9 +1,5 @@
 package com.formation.bait.metier;
 
-import java.sql.Timestamp;
-import java.util.Date;
-
-
 public class Personne {
 	private int idPersonne;
 	private String nom = new String();
@@ -62,7 +58,7 @@ public class Personne {
 		this.lieuNaissance ="";
 		this.numSecu="";
 		this.nationalite="";
-		this.situation = "";
+		this.situation = SITUATION.SALARIE;
 		this.fonction = "";
 		this.position = "";
 		this.coeff = "";

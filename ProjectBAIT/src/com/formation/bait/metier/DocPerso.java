@@ -1,7 +1,5 @@
 package com.formation.bait.metier;
 
-import java.sql.Timestamp;
-
 public class DocPerso {
 	private int IDPersonne;
 	private int IDDocument;

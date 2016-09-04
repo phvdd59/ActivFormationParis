@@ -1,5 +1,5 @@
 
-<form method="post" action="/PageCompte2"
+<form method="post" action="http://localhost:8080/ProjectBAIT/ServletBDD"
 	onsubmit="return verifCoordonnees(this)">
 	<H2>Coordonnees</H2>
 
@@ -15,10 +15,14 @@
 			name="ville" onblur="verifNom(this)" style="width: 150px;" />
 	</div>
 	<div ID="formu9">
-		Tel : <input type="tel" name="tel" onblur="verifTel(this)"
-			style="margin-left: 57px" /> <label style="margin-left: 21px">
+		Tel Fixe : <input type="tel" name="telfixe" onblur="verifTel(this)"
+			style="margin-left: 57px" /> Tel Port :
+			<input type="tel" name="telport" onblur="verifTel(this)"
+			style="margin-left: 57px" /><label style="margin-left: 21px">
 			email : </label><input type="email" name="mail" onblur="verifEmail(this)"
 			style="width: 250px;" />
+			Fax : <input type="tel" name="fax" onblur="verifTel(this)"
+			style="margin-left: 57px" />
 	</div>
 
 

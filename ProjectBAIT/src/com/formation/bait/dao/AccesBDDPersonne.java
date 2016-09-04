@@ -18,10 +18,10 @@ public class AccesBDDPersonne {
 	public String user = "bait";
 	public String pass = "erreurthde";
 
-	public int savePersonne(Personne personne) {
+	public boolean savePersonne(Personne personne) {
 		Connection conn = null;
 		Statement stat = null;
-		int result = 0;
+		boolean result = false;
 		try {
 			Class.forName(JDBC_DRIVER);
 			String url = DB_URL + "bait";
@@ -46,24 +46,48 @@ public class AccesBDDPersonne {
 					+ //
 					personne.getVisiteMedicale() + "', montantTransport='" + personne.getMontantTransport()
 					+ "', voiture='" + //
-					booleanConverter(personne.isVoiture()) + "', nbCV='" + personne.getNbCV() + "', nbKm='" + personne.getNdKm()
-					+ "', mutuelle='" + //
-					booleanConverter(personne.isMutuelle()) + "', ticketResto='" + booleanConverter(personne.isTicket()) + "', admin='" + booleanConverter(personne.isAdmin())
-					+ //
+					booleanConverter(personne.isVoiture()) + "', nbCV='" + personne.getNbCV() + "', nbKm='"
+					+ personne.getNdKm() + "', mutuelle='" + //
+					booleanConverter(personne.isMutuelle()) + "', ticketResto='" + booleanConverter(personne.isTicket())
+					+ "', admin='" + booleanConverter(personne.isAdmin()) + //
 					"', dateCreation='" + personne.getDateCreation() + "', dateModification='"
 					+ personne.getDateModification() + //
-					"', bloque='" + booleanConverter(personne.isBloque()) + "', raisonBlocage='" + personne.getRaisonBlocage()
-					+ "' WHERE IDPersonne=" + personne.getIdPersonne() + ";";
+					"', bloque='" + booleanConverter(personne.isBloque()) + "', raisonBlocage='"
+					+ personne.getRaisonBlocage() + "' WHERE IDPersonne=" + personne.getIdPersonne() + ";";
 			stat.executeUpdate(sql);
-			result = 1;
+			result = true;
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
 		return result;
 	}
 
-	public int createNewPersonne(String identifiant, String mdp, String email, String nom, String prenom) {
-		int result = 0;
+	public boolean checkUserName(String identifiant) {
+		Connection conn = null;
+		Statement stat = null;
+		boolean result = false;
+		try {
+			Class.forName(JDBC_DRIVER);
+			String url = DB_URL + "bait";
+			conn = DriverManager.getConnection(url, user, pass);
+			stat = conn.createStatement();
+			String sql = "SELECT IDPersonne FROM listeUser WHERE identifiant='" + identifiant//
+					+ "';";
+			
+			ResultSet resultat = stat.executeQuery(sql);
+			while (resultat.next()){
+				result = true;
+			}
+				
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+
+	public boolean createNewPersonne(String identifiant, String mdp, String email, String nom, String prenom) {
+		boolean result = false;
 		Personne personne = new Personne(identifiant, mdp);
 		personne.setNom(nom);
 		personne.setPrenom(prenom);
@@ -100,7 +124,7 @@ public class AccesBDDPersonne {
 					booleanConverter(personne.isBloque()) + "','" + personne.getRaisonBlocage() + "');";
 
 			stat.executeUpdate(sql);
-			result = 1;
+			result = true;
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
@@ -123,9 +147,10 @@ public class AccesBDDPersonne {
 					+ "';";
 
 			ResultSet resultat = stat.executeQuery(sql);
-			while (resultat.next()){
-			parameters[0] = resultat.getString("IDPersonne");
-			parameters[1] = resultat.getString("mdp");}
+			while (resultat.next()) {
+				parameters[0] = resultat.getString("IDPersonne");
+				parameters[1] = resultat.getString("mdp");
+			}
 
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
@@ -162,7 +187,7 @@ public class AccesBDDPersonne {
 		Statement stat = null;
 		try {
 			Class.forName(JDBC_DRIVER);
-			String url = DB_URL+ "bait";
+			String url = DB_URL + "bait";
 			conn = DriverManager.getConnection(url, user, pass);
 			stat = conn.createStatement();
 
@@ -237,10 +262,10 @@ public class AccesBDDPersonne {
 
 			conn = DriverManager.getConnection(url, user, pass);
 			stat = conn.createStatement();
-//			String sql1 = "DROP DATABASE listeUserActiv;";
-//			String sql0 = "CREATE DATABASE listeUserActiv;";
-//			stat.executeUpdate(sql1);
-//			stat.executeUpdate(sql0);
+			// String sql1 = "DROP DATABASE listeUserActiv;";
+			// String sql0 = "CREATE DATABASE listeUserActiv;";
+			// stat.executeUpdate(sql1);
+			// stat.executeUpdate(sql0);
 			url += "bait";
 			conn = DriverManager.getConnection(url, user, pass);
 			stat = conn.createStatement();
