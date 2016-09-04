@@ -14,12 +14,7 @@
 
 
 <p>bonjour</p>
-<form action="">
-<select>
 
-<option>  
-</option>
-</select>
-</form>
+
 </body>
 </html>
