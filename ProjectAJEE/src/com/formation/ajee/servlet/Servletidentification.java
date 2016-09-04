@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.formation.ajee.metier.Personne;
 import com.formation.ajee.metier.ListPersonne;
+import com.formation.ajee.metier.Personne;
 
 /**
  * Servlet implementation class Servlet1
@@ -36,18 +36,18 @@ public class Servletidentification extends HttpServlet {
 	 *      response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-//		ListPersonne lstPersonne = new ListPersonne();
-//		Personne personne = new Personne();
+
+		// ListPersonne lstPersonne = new ListPersonne();
+		// Personne personne = new Personne();
 
 		File file = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/WEB-INF/com/formation/ajee/page/Identification.html");
 		// System.out.println(file.getCanonicalPath());
-		
+
 		HttpSession session = request.getSession(true); // true pour garder le
 														// meme numero de
 														// session qui vient
 														// detre créé
-//		session.setAttribute("lstpersonne", lstPersonne);
+		// session.setAttribute("lstpersonne", lstPersonne);
 		System.out.println(session.getId());
 		// donne le numero de session
 		int noSerie = (int) Math.random() * Integer.MAX_VALUE;
@@ -69,8 +69,6 @@ public class Servletidentification extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse resp) throws ServletException, IOException {
 		// request.logout();
 		HttpSession session = request.getSession();
-	
-		
 
 		// String sS=request.getParameter("JSESSIONID");
 		System.out.println(session.getId());
@@ -84,204 +82,196 @@ public class Servletidentification extends HttpServlet {
 			System.out.println(pseudo);
 			String mdp = request.getParameter("mot de passe");
 			System.out.println(mdp);
-			session.setAttribute("pseudo", pseudo);
-			session.setAttribute("mdp", mdp);
+			// session.setAttribute("pseudo", pseudo);
+			// session.setAttribute("mdp", mdp);
 			// controler les parametres
-
+			Personne personne = null;
+			ListPersonne lstpersonne = new ListPersonne();
+			for (int i = 0; i < lstpersonne.size(); i++) {
+				if (lstpersonne.get(i).getIdentifiant().equals(pseudo) && lstpersonne.get(i).getMdp().equals(mdp)) {
+					personne = lstpersonne.get(i);
+					session.setAttribute("personne", personne);
+					break;
+				}
+			}
 			if (boutonEntrer != null) {
 				if ((pseudo != "") && (mdp != "")) {
-					if (pseudo.equals("Admin") && (mdp.equals("123"))) {
+					if (personne != null) {
+						if (personne.getIdentifiant().equals("Admin")) {
 
-						// constituer la nouvelle page
-						// /** Lecture Haut de page JSP */
-						// File fileHautjsp = new
-						// File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/HautPage.jsp");
-						// BufferedReader bufReadHautjsp = null;
-						// bufReadHautjsp = new BufferedReader(new
-						// FileReader(fileHautjsp));
-						// String lineHautjsp = bufReadHautjsp.readLine();
-						// while (lineHautjsp != null) {
-						// resp.getWriter().println(lineHautjsp);
-						// lineHautjsp = bufReadHautjsp.readLine();
-						// }
-						// bufReadHautjsp.close();
-						/** Lecture Haut de page HTML */
-						File fileHaut = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/HautPage.html");
-						BufferedReader bufReadHaut = null;
-						bufReadHaut = new BufferedReader(new FileReader(fileHaut));
-						String lineHaut = bufReadHaut.readLine();
-						while (lineHaut != null) {
-							if (lineHaut.contains("<title>Espace Personnel ActivConsulting</title>")) {
-								lineHaut = lineHaut.replace("<title>Espace Personnel ActivConsulting</title>", "<title>Accueil</title>");
+							// constituer la nouvelle page
+
+							/** Lecture Haut de page HTML */
+							File fileHaut = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/HautPage.html");
+							BufferedReader bufReadHaut = null;
+							bufReadHaut = new BufferedReader(new FileReader(fileHaut));
+							String lineHaut = bufReadHaut.readLine();
+							while (lineHaut != null) {
+								if (lineHaut.contains("<title>Espace Personnel ActivConsulting</title>")) {
+									lineHaut = lineHaut.replace("<title>Espace Personnel ActivConsulting</title>", "<title>Accueil</title>");
+								}
+								resp.getWriter().println(lineHaut);
+								lineHaut = bufReadHaut.readLine();
 							}
-							resp.getWriter().println(lineHaut);
-							lineHaut = bufReadHaut.readLine();
-						}
-						bufReadHaut.close();
+							bufReadHaut.close();
 
-						/**
-						 * A modifier seulement si notre page contient du
-						 * JavaScript
-						 */
-						File fileJS = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/js/JSAccueilAdmin.html");
-						BufferedReader bufReadJS = null;
-						bufReadJS = new BufferedReader(new FileReader(fileJS));
-						String lineJS = bufReadJS.readLine();
-						while (lineJS != null) {
-							resp.getWriter().println(lineJS);
-							lineJS = bufReadJS.readLine();
-						}
-						bufReadJS.close();
-
-						File fileJS1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/js/JSBandeauAdmin.html");
-						BufferedReader bufReadJS1 = null;
-						bufReadJS1 = new BufferedReader(new FileReader(fileJS1));
-						String lineJS1 = bufReadJS1.readLine();
-						while (lineJS1 != null) {
-							resp.getWriter().println(lineJS1);
-							lineJS1 = bufReadJS1.readLine();
-						}
-						bufReadJS1.close();
-
-						/** Lecture page ActivConsulting */
-						File fileActiv = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/MenuActiv.html");
-						BufferedReader bufReadActiv = null;
-						bufReadActiv = new BufferedReader(new FileReader(fileActiv));
-						String lineActiv = bufReadActiv.readLine();
-						while (lineActiv != null) {
-							resp.getWriter().println(lineActiv);
-							lineActiv = bufReadActiv.readLine();
-						}
-						bufReadActiv.close();
-
-						/**
-						 * Seule Partie qui va vraiment changer selon les pages
-						 * (penser aux controles si necessaire)
-						 */
-						File fileDoc = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/BandeauAdmin.html");
-						BufferedReader bufReadDoc = null;
-						bufReadDoc = new BufferedReader(new FileReader(fileDoc));
-						String lineDoc = bufReadDoc.readLine();
-						while (lineDoc != null) {
-							if (lineDoc.contains("%pseudo%")) {
-								lineDoc = lineDoc.replace("%pseudo%", pseudo);
+							/**
+							 * A modifier seulement si notre page contient du
+							 * JavaScript
+							 */
+							File fileJS = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/js/JSAccueilAdmin.html");
+							BufferedReader bufReadJS = null;
+							bufReadJS = new BufferedReader(new FileReader(fileJS));
+							String lineJS = bufReadJS.readLine();
+							while (lineJS != null) {
+								resp.getWriter().println(lineJS);
+								lineJS = bufReadJS.readLine();
 							}
-							if (lineDoc.contains("%utilisateur%")) {
-								lineDoc = lineDoc.replace("%utilisateur%", "");
+							bufReadJS.close();
+
+							File fileJS1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/js/JSBandeauAdmin.html");
+							BufferedReader bufReadJS1 = null;
+							bufReadJS1 = new BufferedReader(new FileReader(fileJS1));
+							String lineJS1 = bufReadJS1.readLine();
+							while (lineJS1 != null) {
+								resp.getWriter().println(lineJS1);
+								lineJS1 = bufReadJS1.readLine();
 							}
-							resp.getWriter().println(lineDoc);
-							lineDoc = bufReadDoc.readLine();
-						}
-						bufReadDoc.close();
+							bufReadJS1.close();
 
-						File fileDoc1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/AccueilAdmin.html");
-						BufferedReader bufReadDoc1 = null;
-						bufReadDoc1 = new BufferedReader(new FileReader(fileDoc1));
-						String lineDoc1 = bufReadDoc1.readLine();
-						while (lineDoc1 != null) {
-							resp.getWriter().println(lineDoc1);
-							lineDoc1 = bufReadDoc1.readLine();
-						}
-						bufReadDoc1.close();
+							/** Lecture page ActivConsulting */
+							File fileActiv = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/MenuActiv.html");
+							BufferedReader bufReadActiv = null;
+							bufReadActiv = new BufferedReader(new FileReader(fileActiv));
+							String lineActiv = bufReadActiv.readLine();
+							while (lineActiv != null) {
+								resp.getWriter().println(lineActiv);
+								lineActiv = bufReadActiv.readLine();
+							}
+							bufReadActiv.close();
 
-						/** Lecture bas de page */
-						File fileBas = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/BasPage.html");
-						BufferedReader bufReadBas = null;
-						bufReadBas = new BufferedReader(new FileReader(fileBas));
-						String lineBas = bufReadBas.readLine();
-						while (lineBas != null) {
-							resp.getWriter().println(lineBas);
-							lineBas = bufReadBas.readLine();
+							/**
+							 * Seule Partie qui va vraiment changer selon les
+							 * pages (penser aux controles si necessaire)
+							 */
+							File fileDoc = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/BandeauAdmin.html");
+							BufferedReader bufReadDoc = null;
+							bufReadDoc = new BufferedReader(new FileReader(fileDoc));
+							String lineDoc = bufReadDoc.readLine();
+							while (lineDoc != null) {
+								if (lineDoc.contains("%pseudo%")) {
+									lineDoc = lineDoc.replace("%pseudo%", pseudo);
+								}
+								if (lineDoc.contains("%utilisateur%")) {
+									lineDoc = lineDoc.replace("%utilisateur%", "");
+								}
+								resp.getWriter().println(lineDoc);
+								lineDoc = bufReadDoc.readLine();
+							}
+							bufReadDoc.close();
+
+							File fileDoc1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/AccueilAdmin.html");
+							BufferedReader bufReadDoc1 = null;
+							bufReadDoc1 = new BufferedReader(new FileReader(fileDoc1));
+							String lineDoc1 = bufReadDoc1.readLine();
+							while (lineDoc1 != null) {
+								resp.getWriter().println(lineDoc1);
+								lineDoc1 = bufReadDoc1.readLine();
+							}
+							bufReadDoc1.close();
+
+							/** Lecture bas de page */
+							File fileBas = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/BasPage.html");
+							BufferedReader bufReadBas = null;
+							bufReadBas = new BufferedReader(new FileReader(fileBas));
+							String lineBas = bufReadBas.readLine();
+							while (lineBas != null) {
+								resp.getWriter().println(lineBas);
+								lineBas = bufReadBas.readLine();
+							}
+							bufReadBas.close();
+						} else if (pseudo.equals(personne.getIdentifiant()) && personne.isBloque() == false) {
+
+							// verif mdp et identifiant personne pour se
+							// connecter
+							// atention quand personne supp avec boolean
+
+							/** Lecture Haut de page HTML */
+							File fileHaut = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/HautPage.html");
+							BufferedReader bufReadHaut = null;
+							bufReadHaut = new BufferedReader(new FileReader(fileHaut));
+							String lineHaut = bufReadHaut.readLine();
+							while (lineHaut != null) {
+								resp.getWriter().println(lineHaut);
+								lineHaut = bufReadHaut.readLine();
+							}
+							bufReadHaut.close();
+
+							/**
+							 * A modifier seulement si notre page contient du
+							 * JavaScript
+							 */
+
+							/** Lecture page ActivConsulting */
+							File fileActiv = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/MenuActiv.html");
+							BufferedReader bufReadActiv = null;
+							bufReadActiv = new BufferedReader(new FileReader(fileActiv));
+							String lineActiv = bufReadActiv.readLine();
+							while (lineActiv != null) {
+								resp.getWriter().println(lineActiv);
+								lineActiv = bufReadActiv.readLine();
+							}
+							bufReadActiv.close();
+
+							/**
+							 * Seule Partie qui va vraiment changer selon les
+							 * pages (penser aux controles si necessaire)
+							 */
+							File fileDoc = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/Bandeau.html");
+							BufferedReader bufReadDoc = null;
+							bufReadDoc = new BufferedReader(new FileReader(fileDoc));
+							String lineDoc = bufReadDoc.readLine();
+							while (lineDoc != null) {
+								if (lineDoc.contains("%pseudo%")) {
+									lineDoc = lineDoc.replace("%pseudo%", pseudo);
+								}
+								resp.getWriter().println(lineDoc);
+								lineDoc = bufReadDoc.readLine();
+							}
+							bufReadDoc.close();
+
+							File fileDoc1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/Accueil.html");
+							BufferedReader bufReadDoc1 = null;
+							bufReadDoc1 = new BufferedReader(new FileReader(fileDoc1));
+							String lineDoc1 = bufReadDoc1.readLine();
+							while (lineDoc1 != null) {
+								resp.getWriter().println(lineDoc1);
+								lineDoc1 = bufReadDoc1.readLine();
+							}
+							bufReadDoc1.close();
+
+							/** Lecture bas de page */
+							File fileBas = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/BasPage.html");
+							BufferedReader bufReadBas = null;
+							bufReadBas = new BufferedReader(new FileReader(fileBas));
+							String lineBas = bufReadBas.readLine();
+							while (lineBas != null) {
+								resp.getWriter().println(lineBas);
+								lineBas = bufReadBas.readLine();
+							}
+							bufReadBas.close();
+
 						}
-						bufReadBas.close();
 					} else {
-						
-						// verif mdp et identifiant personne pour se connecter
-						// atention quand personne supp avec boolean
-						
-						/** Lecture Haut de page HTML */
-						File fileHaut = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/HautPage.html");
-						BufferedReader bufReadHaut = null;
-						bufReadHaut = new BufferedReader(new FileReader(fileHaut));
-						String lineHaut = bufReadHaut.readLine();
-						while (lineHaut != null) {
-							resp.getWriter().println(lineHaut);
-							lineHaut = bufReadHaut.readLine();
-						}
-						bufReadHaut.close();
-
-						/**
-						 * A modifier seulement si notre page contient du
-						 * JavaScript
-						 */
-						//
-						// File fileJS1 = new
-						// File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/js/JSBandeau.html");
-						// BufferedReader bufReadJS1 = null;
-						// bufReadJS1 = new BufferedReader(new FileReader(fileJS1));
-						// String lineJS1 = bufReadJS1.readLine();
-						// while (lineJS1 != null) {
-						// resp.getWriter().println(lineJS1);
-						// lineJS1 = bufReadJS1.readLine();
-						// }
-						// bufReadJS1.close();
-
-						/** Lecture page ActivConsulting */
-						File fileActiv = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/MenuActiv.html");
-						BufferedReader bufReadActiv = null;
-						bufReadActiv = new BufferedReader(new FileReader(fileActiv));
-						String lineActiv = bufReadActiv.readLine();
-						while (lineActiv != null) {
-							resp.getWriter().println(lineActiv);
-							lineActiv = bufReadActiv.readLine();
-						}
-						bufReadActiv.close();
-
-						/**
-						 * Seule Partie qui va vraiment changer selon les pages
-						 * (penser aux controles si necessaire)
-						 */
-						File fileDoc = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/Bandeau.html");
-						BufferedReader bufReadDoc = null;
-						bufReadDoc = new BufferedReader(new FileReader(fileDoc));
-						String lineDoc = bufReadDoc.readLine();
-						while (lineDoc != null) {
-							if (lineDoc.contains("%pseudo%")) {
-								lineDoc = lineDoc.replace("%pseudo%", pseudo);
-							}
-							resp.getWriter().println(lineDoc);
-							lineDoc = bufReadDoc.readLine();
-						}
-						bufReadDoc.close();
-
-						File fileDoc1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/Accueil.html");
-						BufferedReader bufReadDoc1 = null;
-						bufReadDoc1 = new BufferedReader(new FileReader(fileDoc1));
-						String lineDoc1 = bufReadDoc1.readLine();
-						while (lineDoc1 != null) {
-							resp.getWriter().println(lineDoc1);
-							lineDoc1 = bufReadDoc1.readLine();
-						}
-						bufReadDoc1.close();
-
-						/** Lecture bas de page */
-						File fileBas = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/BasPage.html");
-						BufferedReader bufReadBas = null;
-						bufReadBas = new BufferedReader(new FileReader(fileBas));
-						String lineBas = bufReadBas.readLine();
-						while (lineBas != null) {
-							resp.getWriter().println(lineBas);
-							lineBas = bufReadBas.readLine();
-						}
-						bufReadBas.close();
-
+						session.invalidate();
+						doGet(request, resp);
 					}
 				} else {
 					session.invalidate();
 					doGet(request, resp);
 				}
 			} else if (boutonInscription != null) {
-				
+
 				/** Lecture Haut de page HTML */
 				File fileHaut = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/HautPage.html");
 				BufferedReader bufReadHaut = null;
@@ -303,7 +293,7 @@ public class Servletidentification extends HttpServlet {
 					lineActiv = bufReadActiv.readLine();
 				}
 				bufReadActiv.close();
-				
+
 				/** Lecture formulaire */
 				File fileDoc1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/js/JSFormulaireARemplir.html");
 				BufferedReader bufReadDoc1 = null;
@@ -314,17 +304,17 @@ public class Servletidentification extends HttpServlet {
 					lineDoc1 = bufReadDoc1.readLine();
 				}
 				bufReadDoc1.close();
-				
+
 				File fileDoc2 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/FormulaireARemplir.html");
 				BufferedReader bufReadDoc2 = null;
-				bufReadDoc2= new BufferedReader(new FileReader(fileDoc2));
+				bufReadDoc2 = new BufferedReader(new FileReader(fileDoc2));
 				String lineDoc2 = bufReadDoc2.readLine();
 				while (lineDoc2 != null) {
 					resp.getWriter().println(lineDoc2);
 					lineDoc2 = bufReadDoc2.readLine();
 				}
 				bufReadDoc2.close();
-				
+
 				/** Lecture bas de page */
 				File fileBas = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/BasPage.html");
 				BufferedReader bufReadBas = null;
@@ -342,4 +332,5 @@ public class Servletidentification extends HttpServlet {
 		}
 	}
 
+	
 }

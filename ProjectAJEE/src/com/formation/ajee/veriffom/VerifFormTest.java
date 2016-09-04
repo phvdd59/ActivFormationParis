@@ -1,10 +1,13 @@
 package com.formation.ajee.veriffom;
 
+import java.util.Date;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import com.formation.ajee.metier.SEXE;
+import com.formation.ajee.metier.SITUATION;
 
 public class VerifFormTest {
 	VerifForm test;
@@ -318,7 +321,7 @@ public class VerifFormTest {
 
 	@Test
 	public void testtelfixonzechiffre() {
-		String num = test.telFixVerif("047385258");
+		String num = test.telFixVerif("047385258484");
 
 		Assert.assertEquals("", num);
 	}
@@ -339,4 +342,108 @@ if (a.equals("01")||a.equals("02")||a.equals("03")||a.equals("04")||a.equals("05
 		}
 
 	}
+	
+	@Test
+	public void testtelportokaccent() {
+		String num = test.telPortVerif("Jérémy");
+
+		Assert.assertEquals("", num);
+	}
+
+	@Test
+	public void testtelPortneufchiffre() {
+		String num = test.telPortVerif("067385258");
+
+		Assert.assertEquals("", num); 
+	}
+
+	@Test
+	public void testPortfixok() {
+		String num = test.telPortVerif("0673852589");
+
+		Assert.assertEquals("0673852589", num);
+	}
+	@Test
+	public void testPortfixok2() {
+		String num = test.telPortVerif("0773852589");
+
+		Assert.assertEquals("0773852589", num);
+	}
+
+	@Test
+	public void testtelPortonzechiffre() {
+		String num = test.telPortVerif("067385258484");
+
+		Assert.assertEquals("", num);
+	}
+	@Test
+	public void testdateNaissance() {
+		Date num = test.dateNaissanceVerif("29/06/1990");
+
+		Assert.assertEquals("1990/06/29", num);
+	}
+	
+	@Test
+	public void testnumSecu() {
+		String num = test.numSecuVerif("190062A11335323");
+
+		Assert.assertEquals("190062A11335323", num);
+	}
+	@Test
+	public void testnumSecu2() {
+		String num = test.numSecuVerif("390062A11335323");
+
+		Assert.assertEquals("", num);
+	}
+	@Test
+	public void testnumSecu3() {
+		String num = test.numSecuVerif("190062A11A35323");
+
+		Assert.assertEquals("", num);
+	}
+	
+	@Test
+	public void testNationaliteokaccent() {
+		String nom = test.nationaliteVerif("Saint-Marinoise");
+
+		Assert.assertEquals("Saint-Marinoise", nom);
+	}
+	@Test
+	public void testsituation() {
+		SITUATION situation = test.situationVerif("salarié");
+
+		Assert.assertEquals(SITUATION.SALARIE, situation);
+	}
+	@Test
+	public void testsituation1() {
+		SITUATION situation = test.situationVerif("auto entrepreneur");
+
+		Assert.assertEquals(SITUATION.AUTO_ENTREPRENEUR, situation);
+	}
+	@Test
+	public void testsituation2() {
+		SITUATION situation = test.situationVerif("freelance");
+
+		Assert.assertEquals(SITUATION.FREELANCE, situation);
+	}
+	@Test
+	public void testsituation3() {
+		SITUATION situation = test.situationVerif("demandeur d'emplois");
+
+		Assert.assertEquals(SITUATION.DEMANDEUR, situation);
+	}
+	@Test
+	public void testsituation4() {
+		SITUATION situation = test.situationVerif("autre");
+
+		Assert.assertEquals(SITUATION.AUTRE, situation);
+	}
+	@Test
+	public void testsituation5() {
+		SITUATION situation = test.situationVerif("retraité");
+
+		Assert.assertEquals(SITUATION.RETRAITE, situation);
+	}
+	
+	
 }

@@ -155,8 +155,11 @@ public class VerifForm {
 	public String telPortVerif(String telPort) {
 		String retour = "";
 		try {
-			if (telPort.matches("[0-9]{10}") && (telPort.substring(0, 1).equals("06") || telPort.substring(0, 1).equals("07"))) {
-				retour = telPort;
+			if (telPort.matches("[0-9]{10}")&&(telPort.substring(0, 2).equals("06") || telPort.substring(0, 2).equals("07")))  {
+				
+					retour = telPort;	
+				
+				
 			}
 		} catch (Exception e) {
 
@@ -170,7 +173,7 @@ public class VerifForm {
 		try {
 			char premierchiffre = fax.charAt(0);
 			char deuxiemechiffre = fax.charAt(1);
-			if (fax.matches("[0-9]{10}") && (premierchiffre != '0' && deuxiemechiffre != '6' && deuxiemechiffre != '7' && deuxiemechiffre != '0')) {
+			if (fax.matches("[0-9]{10}") && (premierchiffre == '0' && deuxiemechiffre != '6' && deuxiemechiffre != '7' && deuxiemechiffre != '0')) {
 
 				retour = fax;
 			}
@@ -185,7 +188,7 @@ public class VerifForm {
 		Date retour =null;
 		try {
 			String s = dateNaissance;
-			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy");
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 			retour = sdf.parse(s);
 		} catch (Exception e) {
 
@@ -197,7 +200,7 @@ public class VerifForm {
 	public String lieuNaissanceVerif(String lieuNaissance) {
 		String retour = "";
 		try {
-			if (lieuNaissance.matches("[^A-Za-zь-я]*") == false) {
+			if (lieuNaissance.matches("[a-zабвдзийклмнопстуфцщъыь\\-\\'\\s]*")) {
 				retour = lieuNaissance;
 			}
 		} catch (Exception e) {
@@ -210,7 +213,7 @@ public class VerifForm {
 	public String numSecuVerif(String numSecu) {
 		String retour = "";
 		try {
-			if (numSecu.matches("^[12][0-9]{2}[0-1][0-9](2[AB]|[0-9]{2})[0-9]{3}[0-9]{3}[0-9]{2}") == false) {
+			if (numSecu.matches("[12][0-9]{2}[0-1][0-9](2[AB]|[0-9]{2})[0-9]{3}[0-9]{3}[0-9]{2}")) {
 				retour = numSecu;
 			}
 		} catch (Exception e) {
@@ -224,7 +227,7 @@ public class VerifForm {
 		String retour = "";
 		try {
 			nationalite = nationalite.toLowerCase();
-			if (nationalite.matches("[^a-zь-я]*") == false) {
+			if (nationalite.matches("[a-zабвдзийклмнопстуфцщъыь\\-\\'\\s]*") ) {
 				retour = nationalite;
 			}
 		} catch (Exception e) {
@@ -240,7 +243,7 @@ public class VerifForm {
 			situation = situation.toLowerCase();
 
 			switch (situation) {
-			case "salarie":
+			case "salariй":
 				retour = SITUATION.SALARIE;
 				break;
 			case "auto entrepreneur":
@@ -252,7 +255,7 @@ public class VerifForm {
 			case "demandeur d'emplois":
 				retour = SITUATION.DEMANDEUR;
 				break;
-			case "retraite":
+			case "retraitй":
 				retour = SITUATION.RETRAITE;
 				break;
 			case "autre":
@@ -272,7 +275,7 @@ public class VerifForm {
 	public String fonctionVerif(String fonction) {
 		String retour = "";
 		try {
-			if (fonction.matches("[^A-Za-zь-я]*") == false) {
+			if (fonction.matches("[a-zабвдзийклмнопстуфцщъыь\\-\\'\\s]*") ) {
 				retour = fonction;
 			}
 		} catch (Exception e) {
@@ -299,7 +302,7 @@ public class VerifForm {
 	public String coeffVerif(String coeff) {
 		String retour = "";
 		try {
-			if (coeff.matches("[^0-9]*") == false) {
+			if (coeff.matches("[0-9]+")) {
 				retour = coeff;
 			}
 		} catch (Exception e) {
@@ -312,7 +315,7 @@ public class VerifForm {
 	public String salaireVerif(String salaire) {
 		String retour = "";
 		try {
-			if (salaire.matches("[^0-9]*") == false) {
+			if (salaire.matches("[0-9]*") ) {
 				retour = salaire;
 			}
 		} catch (Exception e) {
@@ -338,7 +341,7 @@ public class VerifForm {
 	public String montantTransportVerif(String montantTransport) {
 		String retour = "";
 		try {
-			if (montantTransport.matches("[^0-9]*") == false) {
+			if (montantTransport.matches("[0-9]*")) {
 				retour = montantTransport;
 			}
 		} catch (Exception e) {
@@ -365,7 +368,7 @@ public class VerifForm {
 	public int nbCVVerif(String nbCV) {
 		int retour = 0;
 		try {
-			if (nbCV.matches("[^0-9]*") == false) {
+			if (nbCV.matches("[0-9]+")) {
 				retour = Integer.valueOf(nbCV);
 			}
 		} catch (Exception e) {
@@ -378,7 +381,7 @@ public class VerifForm {
 	public String nbKm(String nbKm) {
 		String retour = "";
 		try {
-			if (nbKm.matches("[^0-9]*") == false) {
+			if (nbKm.matches("[0-9]+") ) {
 				retour = nbKm;
 			}
 		} catch (Exception e) {
@@ -458,8 +461,8 @@ public class VerifForm {
 
 	public String raisonBlocageVerif(String raisonBlocage) {
 		String retour = "";
-		if (raisonBlocage.matches("[a-zA-Z]*")) {
-
+		if (raisonBlocage.matches("[a-zабвдзийклмнопстуфцщъыь\\-\\'\\s]*")) {
+retour=raisonBlocage;
 		}
 
 		return retour;
