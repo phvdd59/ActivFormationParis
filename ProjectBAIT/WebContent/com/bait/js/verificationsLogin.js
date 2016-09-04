@@ -5,25 +5,25 @@ function surligne(champ, erreur) {
 		champ.style.backgroundColor = "";
 }
 
-function verifIdentifiant(champ) {
-	if (champ.value != "Admin") {
-		surligne(champ, true);
-		return false;
-	} else {
-		surligne(champ, false);
-		return true;
-	}
-}
-
-function verifMdp(champ) {
-	if (champ.value != "Admin") {
-		surligne(champ, true);
-		return false;
-	} else {
-		surligne(champ, false);
-		return true;
-	}
-}
+//function verifIdentifiant(champ) {
+//	if (champ.value != "Admin") {
+//		surligne(champ, true);
+//		return false;
+//	} else {
+//		surligne(champ, false);
+//		return true;
+//	}
+//}
+//
+//function verifMdp(champ) {
+//	if (champ.value != "Admin") {
+//		surligne(champ, true);
+//		return false;
+//	} else {
+//		surligne(champ, false);
+//		return true;
+//	}
+//}
 
 function verifForm(f) {
 	var idOk = verifIdentifiant(f.identifiant);

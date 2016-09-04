@@ -16,6 +16,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.formation.bait.dao.AccesBDDPersonne;
+
 /**
  * Servlet implementation class Servlet1
  */
@@ -36,15 +38,6 @@ public class ServletPageLogin3 extends HttpServlet {
 	 *      response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		boolean echecID=false;
-		HttpSession session2 = request.getSession();
-		Object oNoSuivi = session2.getAttribute("suivi");
-		if (oNoSuivi != null) {
-			echecID=true;
-			session2.invalidate();
-		}else {
-			session2.invalidate();
-		}
 		
 		HttpSession session = request.getSession(true);
 		String noSuivi = "";
@@ -96,11 +89,7 @@ public class ServletPageLogin3 extends HttpServlet {
 			while (line2 != null) {
 				// System.out.println(line);
 				response.getWriter().append(line2 + "\n");
-				if (line2.contains("Identification")){
-					if (echecID==true){
-				response.getWriter().append("gros sac"+"\n");
-					}
-				}
+
 				line2 = bIn2.readLine();
 			}
 		} catch (FileNotFoundException e) {
@@ -158,35 +147,37 @@ public class ServletPageLogin3 extends HttpServlet {
 		Object oNoSuivi = session.getAttribute("suivi");
 		if (oNoSuivi != null) {
 			String IdPersonne = request.getParameter("nom");
-			String MdpPersonne = request.getParameter("password");
+			String MdpPersonne = request.getParameter("mdp");
 
-//			AccesBDDPersonne acces = new AccesBDDPersonne();
-//			if (acces.findPersonne(IdPersonne)[0] != null) {
-//				// la personne existe
-//				if (acces.findPersonne(IdPersonne)[1] == MdpPersonne) {
-//					// mot de passe correct
-//					session.setAttribute("personne", acces.getPersonne(IdPersonne));
-//				}else{
-//					//mot de passe incorrect
-//					String echecID = "true";
-//					session.setAttribute("echecID", echecID);
-//					RequestDispatcher rd = request.getRequestDispatcher("//ServletLoginTest");
-//					rd.forward(request, response);
-//				}
-//			}else{
-//				//id n'existe pas
-//				String echecID = "true";
-//				session.setAttribute("echecID", echecID);
-//				RequestDispatcher rd = request.getRequestDispatcher("//ServletLoginTest");
-//				rd.forward(request, response);
-//			}
+			AccesBDDPersonne acces = new AccesBDDPersonne();
+			String test2 =acces.findPersonne(IdPersonne)[0];
+			if (acces.findPersonne(IdPersonne)[0] != null) {
+				// la personne existe
+				String test=acces.findPersonne(IdPersonne)[1];
+				if (acces.findPersonne(IdPersonne)[1] == MdpPersonne) {
+					// mot de passe correct
+					session.setAttribute("personne", acces.getPersonne(IdPersonne));
+				}else{
+					//mot de passe incorrect
+					String echecID = "true";
+					session.setAttribute("echecID", echecID);
+					RequestDispatcher rd = request.getRequestDispatcher("//ServletLoginFalse");
+					rd.forward(request, response);
+				}
+			}else{
+				//id n'existe pas
+				String echecID = "true";
+				session.setAttribute("echecID", echecID);
+				RequestDispatcher rd = request.getRequestDispatcher("//ServletLoginFalse");
+				rd.forward(request, response);
+			}
 
-			ServletContext context = this.getServletContext();
-			RequestDispatcher dispatcher = context.getRequestDispatcher("/ServletBDD");
-			dispatcher.forward(request, response);
+//			ServletContext context = this.getServletContext();
+//			RequestDispatcher dispatcher = context.getRequestDispatcher("/ServletBDD");
+//			dispatcher.forward(request, response);
 		} else {
 			session.invalidate();
-			RequestDispatcher rd = request.getRequestDispatcher("//ServletLoginTest");
+			RequestDispatcher rd = request.getRequestDispatcher("//ServletLoginPageLogin3");
 			rd.forward(request, response);
 		}
 
