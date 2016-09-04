@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.formation.bait.dao.AccesBDDPersonne;
+import com.formation.bait.metier.VerifComplet;
 
 /**
  * Servlet implementation class Servlet1
@@ -87,12 +88,17 @@ public class ServletPageCompte2 extends HttpServlet {
 			BufferedReader bIn2 = null;
 			InputStreamReader inputStreamReader2 = null;
 			try {
+				VerifComplet verif=new VerifComplet();
 				inputStreamReader2 = new InputStreamReader(new FileInputStream(file2), "UTF-8");
 				bIn2 = new BufferedReader(inputStreamReader2);
 				String line2 = bIn2.readLine();
 				while (line2 != null) {
 					// System.out.println(line);
 					response.getWriter().append(line2 + "\n");
+
+					if (verif.validTotal(session) && line2.contains("disabled")) {
+						line2.replace("disabled=\"disabled\"", "");
+					}
 					line2 = bIn2.readLine();
 				}
 			} catch (FileNotFoundException e) {
