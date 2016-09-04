@@ -15,6 +15,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.formation.bait.metier.FonctionsCommune;
+import com.formation.bait.metier.Personne;
+
 /**
  * Servlet implementation class Servlet1
  */
@@ -43,6 +46,7 @@ public class ServletCoordonnees extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		FonctionsCommune fonctions = new FonctionsCommune();
 		HttpSession session = request.getSession();
 		String sNoSuiviClient = request.getParameter("suiviClient");
 		String sNbAppelClient = request.getParameter("nbAppelClient");
@@ -53,17 +57,40 @@ public class ServletCoordonnees extends HttpServlet {
 			int nbAppel = ((Integer) session.getAttribute("nbAppel")).intValue();
 			nbAppel++;
 			session.setAttribute("nbAppel", Integer.valueOf(nbAppel));
-			File file = new File(
-					"C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/hautDePageActiv.html");
+			Personne personne = (Personne) session.getAttribute("Personne");
+
+			fonctions.AfficherHautDePage(response);
+
+			File file2 = new File(
+					"C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/Coordonnees.html");
 			BufferedReader bIn = null;
 			InputStreamReader inputStreamReader = null;
 			try {
-				inputStreamReader = new InputStreamReader(new FileInputStream(file), "UTF-8"); // pour
-				// texte
+				inputStreamReader = new InputStreamReader(new FileInputStream(file2), "UTF-8");
 				bIn = new BufferedReader(inputStreamReader);
 				String line = bIn.readLine();
 				while (line != null) {
-					// System.out.println(line);
+					if (line.contains("%%%adresse%%%")) {
+						line.replace("%%%adresse%%%", personne.getAdresse());
+					}
+					if (line.contains("%%%cp%%%")) {
+						line.replace("%%%cp%%%", personne.getcP());
+					}
+					if (line.contains("%%%ville%%%")) {
+						line.replace("%%%ville%%%", personne.getVille());
+					}
+					if (line.contains("%%%telfixe%%%")) {
+						line.replace("%%%telfixe%%%", personne.getTelFixe());
+					}
+					if (line.contains("%%%telport%%%")) {
+						line.replace("%%%telport%%%", personne.getTelPort());
+					}
+					if (line.contains("%%%email%%%")) {
+						line.replace("%%%email%%%", personne.getEmail());
+					}
+					if (line.contains("%%%fax%%%")) {
+						line.replace("%%%fax%%%", personne.getFax());
+					}
 					response.getWriter().append(line + "\n");
 					line = bIn.readLine();
 				}
@@ -79,66 +106,8 @@ public class ServletCoordonnees extends HttpServlet {
 				}
 			}
 
-			File file2 = new File(
-					"C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/Coordonnees.html");
-			BufferedReader bIn2 = null;
-			InputStreamReader inputStreamReader2 = null;
-			try {
-				inputStreamReader2 = new InputStreamReader(new FileInputStream(file2), "UTF-8");
-				bIn2 = new BufferedReader(inputStreamReader2);
-				String line2 = bIn2.readLine();
-				while (line2 != null) {
-					// System.out.println(line);
-					response.getWriter().append(line2 + "\n");
-					line2 = bIn2.readLine();
-				}
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			} finally {
-				try {
-					bIn2.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-			File file3 = new File(
-					"C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/basDePageActiv.html");
-			BufferedReader bIn3 = null;
-			InputStreamReader inputStreamReader3 = null;
-			try
+			fonctions.AfficherBasDePage(response);
 
-			{
-				inputStreamReader3 = new InputStreamReader(new FileInputStream(file3), "UTF-8");
-				bIn3 = new BufferedReader(inputStreamReader3);
-				String line3 = bIn3.readLine();
-				while (line3 != null) {
-					// System.out.println(line);
-					response.getWriter().append(line3);
-					line3 = bIn3.readLine();
-				}
-			} catch (
-
-			FileNotFoundException e)
-
-			{
-				e.printStackTrace();
-			} catch (
-
-			IOException e)
-
-			{
-				e.printStackTrace();
-			} finally
-
-			{
-				try {
-					bIn3.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
 		} else {
 			session.invalidate();
 			RequestDispatcher rd = request.getRequestDispatcher("//ServletLoginTest");

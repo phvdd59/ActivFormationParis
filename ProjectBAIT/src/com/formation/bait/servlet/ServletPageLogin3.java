@@ -59,7 +59,7 @@ public class ServletPageLogin3 extends HttpServlet {
 		}
 		session.setAttribute("suivi", noSuivi);
 		session.setAttribute("nbAppel", new Integer(0));
-		session.setAttribute("servlet", "Login");
+		session.setAttribute("servlet", "login");
 		session.setAttribute("methode", "GET");
 
 		File file = new File("C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/hautDePageActiv.html");
@@ -180,10 +180,9 @@ public class ServletPageLogin3 extends HttpServlet {
 //				RequestDispatcher rd = request.getRequestDispatcher("//ServletLoginTest");
 //				rd.forward(request, response);
 //			}
-			session.setAttribute("servlet", "Compte");
-			session.setAttribute("methode", "POST");
+
 			ServletContext context = this.getServletContext();
-			RequestDispatcher dispatcher = context.getRequestDispatcher("/ServletPageCompte2");
+			RequestDispatcher dispatcher = context.getRequestDispatcher("/ServletBDD");
 			dispatcher.forward(request, response);
 		} else {
 			session.invalidate();
