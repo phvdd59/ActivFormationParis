@@ -43,13 +43,12 @@ public class ServletTelecharger extends HttpServlet {
 
 		HttpSession session = request.getSession();
 		Object oNoSerie = session.getAttribute("noSerie");
-		Object oPseudo = session.getAttribute("pseudo");
 		Personne utilisateur = (Personne) session.getAttribute("utilisateur");
+		Personne personne = (Personne) session.getAttribute("personnne");
 		Object oIdPersonne = utilisateur.getIdPersonne();
 
-		if (oNoSerie != null && oPseudo != null) {
-			String pseudo = (String) oPseudo;
-			if (pseudo.equals("Admin")) {
+		if (oNoSerie != null && personne != null) {
+			if (personne.getIdentifiant().equals("Admin")) {
 				if (utilisateur.equals(null)) {
 					RequestDispatcher rd = request.getRequestDispatcher("/Servletaccueilchargementprofil");
 					rd.forward(request, response);
@@ -83,10 +82,10 @@ public class ServletTelecharger extends HttpServlet {
 					String lineDoc = bufReadDoc.readLine();
 					while (lineDoc != null) {
 						if (lineDoc.contains("%pseudo%")) {
-							lineDoc = lineDoc.replace("%pseudo%", pseudo);
+							lineDoc = lineDoc.replace("%pseudo%", personne.getIdentifiant());
 						}
 						if (lineDoc.contains("%utilisateur%")) {
-							lineDoc = lineDoc.replace("%utilisateur%", ((utilisateur == null) ? "" : utilisateur.toString()));
+							lineDoc = lineDoc.replace("%utilisateur%", ((utilisateur == null) ? "" : utilisateur.getIdentifiant()));
 						}
 						response.getWriter().println(lineDoc);
 						lineDoc = bufReadDoc.readLine();
@@ -151,7 +150,7 @@ public class ServletTelecharger extends HttpServlet {
 				String lineDoc = bufReadDoc.readLine();
 				while (lineDoc != null) {
 					if (lineDoc.contains("%pseudo%")) {
-						lineDoc = lineDoc.replace("%pseudo%", pseudo);
+						lineDoc = lineDoc.replace("%pseudo%", personne.getIdentifiant());
 					}
 					response.getWriter().println(lineDoc);
 					lineDoc = bufReadDoc.readLine();

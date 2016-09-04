@@ -1,0 +1,14 @@
+<script type="text/javascript">
+
+function ajouter() {
+	Documents.form.doc.liste.option[Documents.form.doc.liste.options.length] = new Option("", <option value="%%value%%"></option>);
+	document.location.href = "http://127.0.0.1:8080/ProjectAJEE/MesDocuments";
+}
+
+function supprimer() {
+	document.location.href = "http://127.0.0.1:8080/ProjectAJEE/ServletSupprimer";
+}
+function telecharger() {
+	document.location.href = "http://127.0.0.1:8080/ProjectAJEE/ServletTelecharger";
+}
+</script>
