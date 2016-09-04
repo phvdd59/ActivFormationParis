@@ -38,7 +38,7 @@
 		</select>
 	</form>
 	
-	<form action="">
+	<form action="servletblocage">
 	<input type="button" value="bloquer l'utilisateur">
 	</form>
 
@@ -60,8 +60,21 @@
 			<td>Date d'inscription</td>
 			<td>Date de blocage</td>
 			<td>Motif</td>
-
 		</tr>
+		<%for(Personne perso : listePersonne) {
+			//if(perso.isBloque()){
+		
+		%>
+		<tr>
+			<td><%=perso.getNom()%></td>
+			<td><%=perso.getPrenom()%></td>
+			<td><%=perso.getDateCreation()%></td>
+			<td>Date de blocage</td>
+			<td><%=perso.getRaisonBlocage()%></td>
+		</tr>
+		<%
+		//}
+			}%>
 	</table>
 	<%
 		} else {
