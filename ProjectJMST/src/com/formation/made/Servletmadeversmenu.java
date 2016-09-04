@@ -11,7 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import com.formation.thcr.metier.*;
+
+import com.formation.thcr.metier.Personne;
 
 /**
  * Servlet implementation class Servletmadeversmenu
@@ -29,18 +30,13 @@ public class Servletmadeversmenu extends HttpServlet {
 	}
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doPost(request, response);
-	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		Object objNoSerieSession = (session.getAttribute("noSerie"));
+		Object objNoSerieSession = session.getAttribute("noSerie");
 		Object objPersonne = session.getAttribute("personne");
 		String noSeriePageAdmin = request.getParameter("noSerie");// ajouter le name noSerie dans l'html
 
@@ -55,21 +51,35 @@ public class Servletmadeversmenu extends HttpServlet {
 					bIn = new BufferedReader(new FileReader(file));
 					String maLigne = bIn.readLine();
 					while (maLigne != null) {
+						if (maLigne.contains("%%noSerie%%")) {
+							maLigne = maLigne.replace("%%noSerie%%", strNoSerieSession);
+						}
 						response.getWriter().println(maLigne);
 						maLigne = bIn.readLine();
 					}
-					bIn.close();
 				} else if (!pPersonne.isAdmin()) {
 					File file = new File("../GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/pagecompteutilisateur");
 					bIn = new BufferedReader(new FileReader(file));
 					String maLigne = bIn.readLine();
 					while (maLigne != null) {
+						if (maLigne.contains("%%noSerie%%")) {
+							maLigne = maLigne.replace("%%noSerie%%", strNoSerieSession);
+						}
 						response.getWriter().println(maLigne);
 						maLigne = bIn.readLine();
 					}
-					bIn.close();
 				}
+				bIn.close();
 			}
 		}
+
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
 	}
 }

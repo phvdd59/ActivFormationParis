@@ -87,8 +87,8 @@ public class DAOPersonne {
 					+ "', LP_MUTUELLE='" + personne.isMutuelle()//
 					+ "', LP_TICKETRESTO='" + personne.isTicketResto()//
 					+ "', LP_ADMIN='" + personne.isAdmin()//
-					+ "', LP_DATECREATION=" + personne.getDateCreation()//Issues with datecreation
-					+ ", LP_DATEMODIFICATION='" + personne.getDateModification()// 
+					+ "', LP_DATECREATION='" + personne.getDateCreation()//Issues with datecreation
+					+ "', LP_DATEMODIFICATION='" + personne.getDateModification()// 
 					+ "', LP_BLOQUE='" + personne.isBloque()//
 					+ "', LP_RAISONBLOCAGE='" + personne.getRaisonBlocage()//
 					+ "' WHERE LP_IDENTIFIANT=" + "'" + personne.getIdentifiant() + "';";//
@@ -149,7 +149,7 @@ public class DAOPersonne {
 			if (result > 0) {
 				System.out.println("OK : " + result);
 			} else {
-				System.out.println("pas de modif");
+				System.out.println("erreur DAO create");
 			}
 			statement.close();
 			System.out.println("fin");
@@ -161,7 +161,7 @@ public class DAOPersonne {
 	}
 
 	public boolean read(Personne personne) {
-		boolean retour=false;
+		boolean check=false;
 		Connection con = null;
 		Statement statement = null;
 		try {
@@ -170,7 +170,6 @@ public class DAOPersonne {
 			statement = con.createStatement();
 			String sql = "SELECT * FROM jmst.personne";
 			ResultSet result = statement.executeQuery(sql);
-			boolean check = false;
 			// TRAITER LES METADATA pour contrôler les erreurs
 			// LP_IDPERSONNE |LP_NOM |LP_SEXE |LP_IDENTIFIANT |LP_MDP
 			// |LP_EMAIL |LP_ADRESSE |LP_CP |LP_VILLE |LP_TELFIXE |LP_TELPORT
@@ -181,14 +180,12 @@ public class DAOPersonne {
 			// |LP_DATECREATION
 			// |LP_DATEMODIFICATION |LP_BLOQUE |LP_RAISONBLOCAGE |
 			while (result.next()) {
-				if (personne.getIdentifiant().equals(result.getString("LP_IDENTIFIANT"))
-						|| personne.getIdPersonne() == result.getInt("LP_IDPERSONNE")) {
+				if (personne.getIdentifiant().equals(result.getString("LP_IDENTIFIANT"))) {
 					personne.setIdentifiant(result.getString("LP_IDENTIFIANT"));
-					personne.setIdPersonne(Integer.valueOf(result.getString("LP_IDPERSONNE")).intValue());
+					personne.setIdPersonne(result.getInt("LP_IDPERSONNE"));
 					personne.setNom(result.getString("LP_NOM"));
 					personne.setPrenom(result.getString("LP_PRENOM"));
 					if (result.getString("LP_SEXE").equals(Sexe.FEMININ)) {
-
 						personne.setSexe(new Sexe(Sexe.FEMININ));
 					} else {
 						personne.setSexe(new Sexe(Sexe.MASCULIN));
@@ -223,11 +220,11 @@ public class DAOPersonne {
 					personne.setMutuelle(Boolean.valueOf(result.getString("LP_MUTUELLE")).booleanValue());
 					personne.setTicketResto(Boolean.valueOf(result.getString("LP_TICKETRESTO")).booleanValue());
 					personne.setAdmin(Boolean.valueOf(result.getString("LP_ADMIN")).booleanValue());
-					personne.setDateModification(result.getTimestamp("LP_DATECREATION"));
+					personne.setDateCreation(result.getDate("LP_DATECREATION"));
+					personne.setDateModification(result.getTimestamp("LP_DATEMODIFICATION"));
 					personne.setBloque(Boolean.valueOf(result.getString("LP_BLOQUE")).booleanValue());
 					personne.setRaisonBlocage(result.getString("LP_RAISONBLOCAGE"));
 					check = true;
-					retour=true;
 				}
 			}
 			statement.close();
@@ -243,7 +240,7 @@ public class DAOPersonne {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return retour;
+		return check;
 	}
 
 	public ListPersonne read() {
@@ -271,7 +268,6 @@ public class DAOPersonne {
 				personne.setIdPersonne(Integer.valueOf(result.getString("LP_IDPERSONNE")).intValue());
 				personne.setNom(result.getString("LP_NOM"));
 				personne.setPrenom(result.getString("LP_PRENOM"));
-
 				if (result.getString("LP_SEXE").equals(Sexe.FEMININ)) {
 
 					personne.setSexe(new Sexe(Sexe.FEMININ));
@@ -308,7 +304,8 @@ public class DAOPersonne {
 				personne.setMutuelle(Boolean.valueOf(result.getString("LP_MUTUELLE")).booleanValue());
 				personne.setTicketResto(Boolean.valueOf(result.getString("LP_TICKETRESTO")).booleanValue());
 				personne.setAdmin(Boolean.valueOf(result.getString("LP_ADMIN")).booleanValue());
-				personne.setDateModification(result.getTimestamp("LP_DATECREATION"));
+				personne.setDateCreation(result.getDate("LP_DATECREATION"));
+				personne.setDateModification(result.getTimestamp("LP_DATEMODIFICATION"));
 				personne.setBloque(Boolean.valueOf(result.getString("LP_BLOQUE")).booleanValue());
 				personne.setRaisonBlocage(result.getString("LP_RAISONBLOCAGE"));
 				list.add(personne);

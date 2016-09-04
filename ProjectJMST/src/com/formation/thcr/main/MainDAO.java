@@ -1,5 +1,6 @@
 package com.formation.thcr.main;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 
 import com.formation.thcr.conversion.ConversionPersonne;
@@ -18,12 +19,12 @@ public class MainDAO {
 		personne.setCadre(false);
 		personne.setCoeff("1");
 		personne.setCp("cp");
-		String StringDateCreation = "06-03-2010";
+		String stringDate = "06-03-2010";
 		ConversionPersonne conv = new ConversionPersonne();
-		personne.setDateCreation(conv.conversionDate(StringDateCreation));
+		personne.setDateCreation(conv.conversionDate(stringDate));
 		java.util.Date date = new java.util.Date();
 		personne.setDateModification(new Timestamp(date.getTime()));
-		personne.setDateNaissance(conv.conversionDate(StringDateCreation));
+		personne.setDateNaissance(conv.conversionDate(stringDate));
 		personne.setEmail("test.test@test.fr");
 		personne.setFax("");
 		personne.setFonction("fonction");
@@ -47,12 +48,12 @@ public class MainDAO {
 		personne.setTelPort("06");
 		personne.setTicketResto(false);
 		personne.setVille("Ville test");
-		personne.setVisiteMedicale(conv.conversionDate(StringDateCreation));
+		personne.setVisiteMedicale(conv.conversionDate(stringDate));
 		personne.setVoiture(false);
 		
 		//dao.create(personne);
 
-		String sql = "INSERT INTO listpersonne.personne"//
+		String sql = "INSERT INTO jmst.personne"//
 				+ "(LP_NOM, LP_PRENOM, LP_SEXE, LP_IDENTIFIANT, LP_MDP, LP_EMAIL, LP_ADRESSE, LP_CP, LP_VILLE, LP_TELFIXE, "
 				+ "LP_TELPORT, LP_FAX, LP_DATENAISSANCE, LP_LIEUNAISSANCE, LP_NUMSECU, LP_NATIONALITE, "
 				+ "LP_SITUATION, LP_FONCTION, LP_CADRE, LP_COEFF, LP_SALAIRE, LP_VISITEMEDICALE, "
@@ -75,8 +76,9 @@ public class MainDAO {
 		dao.read(personne);
 		personne.setMdp("password");
 		personne.setDateModification(new Timestamp(date.getTime()));
+		personne.setDateCreation(conv.conversionDate(stringDate));
 		
-		String sql2 = "UPDATE personne"//
+		String sql2 = "UPDATE jmst.personne"//
 				+ " SET LP_NOM='" + personne.getNom() //
 				+ "', LP_PRENOM='" + personne.getPrenom()//
 				+ "', LP_SEXE='" + personne.getSexe().getSexe()//
@@ -108,8 +110,8 @@ public class MainDAO {
 				+ "', LP_MUTUELLE='" + personne.isMutuelle()//
 				+ "', LP_TICKETRESTO='" + personne.isTicketResto()//
 				+ "', LP_ADMIN='" + personne.isAdmin()//
-				+ "', LP_DATECREATION='" + personne.getDateCreation()//
-				+ "', LP_DATEMODIFICATION='" + personne.getDateModification()//
+				+ "', LP_DATECREATION='" + personne.getDateCreation()//Issues with datecreation
+				+ "', LP_DATEMODIFICATION='" + personne.getDateModification()// 
 				+ "', LP_BLOQUE='" + personne.isBloque()//
 				+ "', LP_RAISONBLOCAGE='" + personne.getRaisonBlocage()//
 				+ "' WHERE LP_IDENTIFIANT=" + "'" + personne.getIdentifiant() + "';";//

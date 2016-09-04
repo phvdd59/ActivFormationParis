@@ -100,8 +100,6 @@
 				String sMdp = request.getParameter("mdp");
 				if (noSerie.equals(noSerieHtml)) {
 					//if (ctrl.ctrlIdentifiant(sIdentifiant) && ctrl.ctrlMdp(sMdp)) {
-						personne.setIdentifiant(sIdentifiant);
-						personne.setMdp(sMdp);
 					//} else {
 					//forward to deco
 					//}

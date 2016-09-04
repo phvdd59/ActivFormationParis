@@ -155,7 +155,7 @@
 						<%
 							if (situation.equals("Salarie")) {
 						%>
-						<input type="radio" name="situation" value="Salarie"
+						<td><input type="radio" name="situation" value="Salarie"
 							checked="checked">
 						</td>
 						<%
@@ -244,12 +244,10 @@
 						%>
 					</tr>
 
-
-
 				</table>
 
-				<input type="submit" value="Suivant"></input> <input type="hidden"
-					name="noSerie" value="<%=noSerie%>">
+				<input type="submit" value="Suivant"></input>
+				<input type="hidden" name="noSerie" value="<%=noSerie%>">
 			</form>
 			<form action="http://localhost:8080/ProjectJMST/jsp/Part3.jsp"
 				method='post'>

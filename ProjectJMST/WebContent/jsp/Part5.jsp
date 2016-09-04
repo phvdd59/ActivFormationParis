@@ -225,14 +225,11 @@
 				}
 
 				CtrlPersonne ctrl = new CtrlPersonne();
-				String sSituation = request.getParameter("situationVal");
+				String sSituation = request.getParameter("situation");
 				if (noSerie.equals(noSerieHtml)) {
 					// 					if (ctrl.ctrlSituation(sSituation)) {
-					System.out.println(personne.getSituation());
 					personne.setSituation(sSituation);
 					// 					} else {
-					// 						out.write("Erreur");
-					// 						Thread.sleep(2000);
 					// 						FORWARD TO DECO
 					// 					}
 			%>

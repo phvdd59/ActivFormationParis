@@ -46,6 +46,7 @@ public class ServletUpdate extends HttpServlet {
 
 		String noSerieHtml = request.getParameter("noSerie");
 		String noSerie = (String) session.getAttribute("noSerie");
+		
 		String sCadre = request.getParameter("Cadre");
 		String sFonction = request.getParameter("fonction");
 		String sPosition = request.getParameter("position");
@@ -82,27 +83,7 @@ public class ServletUpdate extends HttpServlet {
 			java.util.Date dateModificationUtil = new java.util.Date();
 			Timestamp dateModification = new Timestamp(dateModificationUtil.getTime());
 			personne.setDateModification(dateModification);
-			
-			if(!dao.update(personne)){
-				response.getWriter().println("Erreur Update: DAO problem");
-				try {
-					Thread.sleep(2000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-				RequestDispatcher rd = getServletContext().getRequestDispatcher("/ServletDeco");
-				rd.forward(request, response);
-			}
-//		} else {
-//			response.getWriter().println("Erreur");
-//			try {
-//				Thread.sleep(2000);
-//			} catch (InterruptedException e) {
-//				e.printStackTrace();
-//			}
-//			RequestDispatcher rd = getServletContext().getRequestDispatcher("/ServletDeco");
-//			rd.forward(request, response);
-//		}
+			dao.update(personne);
 			RequestDispatcher rd = getServletContext().getRequestDispatcher("/Servletmadeversmenu");
 			rd.forward(request, response);
 

@@ -2,6 +2,7 @@ package com.formation.thcr.metier;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.Arrays;
 import java.util.Date;
 
 public class Personne implements Serializable {
@@ -336,5 +337,19 @@ public class Personne implements Serializable {
 	public void setSexe(Sexe sexe) {
 		this.sexe = sexe;
 	}
+
+	@Override
+	public String toString() {
+		return getClass().getName() + ": idPersonne=" + idPersonne + ",nom=" + nom + ",prenom=" + prenom + ",sexe=" + sexe + ",identifiant="
+				+ identifiant + ",mdp=" + mdp + ",email=" + email + ",adresse=" + adresse + ",cp=" + cp + ",ville=" + ville + ",telFixe=" + telFixe
+				+ ",telPort=" + telPort + ",fax=" + fax + ",dateNaissance=" + dateNaissance + ",lieuNaissance=" + lieuNaissance + ",numSecu="
+				+ numSecu + ",nationalite=" + nationalite + ",situation=" + situation + ",fonction=" + fonction + ",position=" + position + ",cadre="
+				+ cadre + ",coeff=" + coeff + ",salaire=" + salaire + ",visiteMedicale=" + visiteMedicale + ",montantTransport=" + montantTransport
+				+ ",voiture=" + voiture + ",nbCV=" + nbCV + ",nbKm=" + nbKm + ",mutuelle=" + mutuelle + ",ticketResto=" + ticketResto + ",admin="
+				+ admin + ",dateCreation=" + dateCreation + ",dateModification=" + dateModification + ",bloque=" + bloque + ",raisonBlocage="
+				+ raisonBlocage + ",listeDoc=" + Arrays.toString(listeDoc);
+	}
+
+	
 
 }

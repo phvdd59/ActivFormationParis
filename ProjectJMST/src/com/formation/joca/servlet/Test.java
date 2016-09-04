@@ -47,7 +47,6 @@ public class Test extends HttpServlet {
 		utilisateur.setIdentifiant(identifiant);
 		DAOPersonne dao = new DAOPersonne();
 		if (dao.read(utilisateur)) {
-
 			//		final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 			//		try {
 			//			final DocumentBuilder builder = factory.newDocumentBuilder();
@@ -167,12 +166,6 @@ public class Test extends HttpServlet {
 				lecture.close();
 			}
 		} else {
-			response.getWriter().print("error reading bdd: DAO problem");
-			try {
-				Thread.sleep(2000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
 			RequestDispatcher requestDispacher = getServletContext().getRequestDispatcher("/ServletDeco");
 			requestDispacher.forward(request, response);
 		}

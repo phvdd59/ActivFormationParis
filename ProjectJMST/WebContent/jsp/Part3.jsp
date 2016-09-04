@@ -99,6 +99,7 @@
 					personne = (Personne) p;
 				}
 				
+				
 				String sNom = request.getParameter("nom");
 				String sPrenom = request.getParameter("prenom");
 				String sAdresse = request.getParameter("adresse");
@@ -110,7 +111,6 @@
 				String sEmail = request.getParameter("mail");
 
 				if (noSerie.equals(noSerieHtml)) {
-					System.out.println("je passe");
 					// 					if (ctrl.ctrlNom(sNom) && ctrl.ctrlPrenom(sPrenom) && ctrl.ctrlAdresse(sAdresse)
 					// 							&& ctrl.ctrlTelFixe(sTelFixe) && ctrl.ctrlTelPort(sTelPort) && ctrl.ctrlFax(sFax)
 					// 							&& ctrl.ctrlCp(sCp) && ctrl.ctrlVille(sVille) && ctrl.ctrlEmail(sEmail)) {
@@ -124,7 +124,6 @@
 					personne.setCp(sCp);
 					personne.setVille(sVille);
 					personne.setEmail(sEmail);
-
 					//} 
 					// 					else {
 					// 						out.write("Erreur");

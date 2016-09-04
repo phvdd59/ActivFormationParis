@@ -1,6 +1,8 @@
 package com.formation.thcr.servlet;
 
 import java.io.IOException;
+import java.sql.Date;
+import java.sql.Timestamp;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -45,10 +47,10 @@ public class ServletMdpUpdate extends HttpServlet {
 			personne.setMdp(sMdpNew1);
 		}
 		DAOPersonne dao = new DAOPersonne();
+		java.util.Date dateModif = new java.util.Date();
+		personne.setDateModification(new Timestamp(dateModif.getTime()));
 		dao.update(personne);
-		//FORWARD TO LOGIN
-		RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/ServletJOCA1");
-		requestDispatcher.forward(request, response);
+		getServletContext().getRequestDispatcher("/ServletJOCA1").forward(request, response);
 		//REDIRECT TO LOGIN
 		//response.sendRedirect("/ServletJOCA1");
 	}
