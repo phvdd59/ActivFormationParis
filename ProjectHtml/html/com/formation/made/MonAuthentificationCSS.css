@@ -1,0 +1,5 @@
+@CHARSET "ISO-8859-1";
+
+label{display:inline-block; width:100px;}
+input{display:inline-block;width:200px }
+input[type="submit"]{border:thick;  width: 300px;}

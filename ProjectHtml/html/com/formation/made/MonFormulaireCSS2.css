@@ -1,0 +1,15 @@
+@CHARSET "ISO-8859-1";
+table{width: 90%;
+height: 100%;
+position: relative;
+ left: 10%
+ }
+td{width: 75px;}
+
+input[type=submit], input[type=reset] {
+ width:100px;
+ margin-left:20%;
+ box-shadow:1px 1px 1px #000080;
+ cursor:pointer;
+ }
+ th{background-image: radial-gradient(white, #F2F2F2); }

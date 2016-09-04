@@ -1,0 +1,37 @@
+@CHARSET "ISO-8859-1";
+/* td{style="text-align: center"} */
+/* tr{style="text-align: center"} */
+
+/* label{display:inline-block; width:100px;} */
+/* input{display:inline-block;width:200px } */
+/* input[type="submit"]{border:thick;  width: 300px;} */
+
+
+html{height: 100%;width: 100%}
+nav
+{
+height:100%; width: 100% 
+}
+body {
+height:100%; width: 100%
+}
+fieldset{margin-bottom: 10px;
+	border: #CCC 1px solid;
+	height:40%;}
+input{width: 10%;}
+input:HOVER,input:FOCUS{border: #0080ff 1px solid;}
+input[type=text]{width: 70%;}
+input[type=radio]{width: 10px;}
+td{width:auto; }
+input[type=submit], input[type=reset] {
+ width:100px;
+ margin-left:20%;
+ box-shadow:1px 1px 1px #000080;
+ cursor:pointer;
+ }
+ 
+#info label
+{
+   display: inline;
+   float: none;
+}
