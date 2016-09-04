@@ -168,7 +168,8 @@ public class ServletNouvelleInscription2 extends HttpServlet {
 
 		//				creation de personne dans la BDD, sans protections pour le moment !
 		AccesBDDPersonne bdd = new AccesBDDPersonne();
-		Personne newPers = new Personne(request.getParameter("identifiant"), request.getParameter("mdp1"));
+//		Personne newPers = new Personne(request.getParameter("identifiant"), request.getParameter("mdp1"));
+		Personne newPers = new Personne(request.getParameter("identifiant"), "MDPtest999");
 		newPers.setNom(request.getParameter("nom"));
 		newPers.setPrenom(request.getParameter("prenom"));
 		newPers.setEmail(request.getParameter("mail"));
@@ -188,7 +189,7 @@ public class ServletNouvelleInscription2 extends HttpServlet {
 
 		if (oNoSuivi != null) {
 			session.setAttribute("servlet", "Inscription");
-			session.setAttribute("methode", "POST");
+			session.setAttribute("methode", "GET");
 			int nbAppel = ((Integer) session.getAttribute("nbAppel")).intValue();
 			nbAppel++;
 			session.setAttribute("nbAppel", Integer.valueOf(nbAppel));
