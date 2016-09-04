@@ -210,5 +210,7 @@ public class Servletaccueilchargementprofil extends HttpServlet {
 	RequestDispatcher rd = request.getRequestDispatcher("//Servletidentification");
 	rd.forward(request, response);
 		}
+		
 	}
+	
 }

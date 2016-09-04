@@ -14,7 +14,7 @@ public class VerifForm {
 	public String nomVerif(String nom) {
 		String retour = "";
 		try {
-		if (nom.matches("([A-Za-zאבגהחטיךכלםמןסעףפצשתûü\\-\\'])*") &&nom.length()<=100) {
+		if (nom.matches("[A-Za-zאבגהחטיךכלםמןסעףפצשתûü\\-\\']*") &&nom.length()<=100) {
 				retour = nom;
 			}
 		} catch (Exception e) {
@@ -56,7 +56,7 @@ public class VerifForm {
 	public String identifiantVerif(String identifiant) {
 		String retour = "";
 		try {
-			if (identifiant.matches("[^A-Za-zü-ÿ]*") == false) {
+			if (identifiant.matches("[A-Za-zאבגהחטיךכלםמןסעףפצשתûü]*")&&identifiant.length()<=100 ) {
 				retour = identifiant;
 			}
 		} catch (Exception e) {
@@ -69,7 +69,7 @@ public class VerifForm {
 	public String mdpVerif(String mdp) {
 		String retour = "";
 		try {
-			if (mdp.matches("[^0-9A-Za-z]*") == false) {
+			if (mdp.matches("[0-9A-Za-z]*")&&mdp.length()<=100) {
 				retour = mdp;
 			}
 		} catch (Exception e) {
@@ -97,8 +97,8 @@ public class VerifForm {
 	public String adresseVerif(String adresse) {
 		String retour = "";
 		try {
-			adresse = adresse.replaceAll(",", "");
-			if (adresse.matches("[^0-9A-Za-z]*") == false) {
+		
+			if (adresse.matches("[0-9A-Za-zאבגהחטיךכלםמןסעףפצשתûü\\s\\-\\,]*")&&adresse.length()<=100) {
 				retour = adresse;
 			}
 
@@ -112,7 +112,7 @@ public class VerifForm {
 	public String cpVerif(String cp) {
 		String retour = "";
 		try {
-			if (cp.matches("[^0-9]{5}") == false) {
+			if (cp.matches("[0-9]{5}")) {
 				retour = cp;
 			}
 		} catch (Exception e) {
@@ -126,7 +126,7 @@ public class VerifForm {
 		String retour = "";
 		try {
 			ville = ville.toLowerCase();
-			if (ville.matches("[^'-a-zü-ÿ]*") == false) {
+			if (ville.matches("[a-zאבגהחטיךכלםמןסעףפצשתûü\\-\\'\\s]*")&&ville.length()<100) {
 				retour = ville;
 			}
 		} catch (Exception e) {
@@ -141,7 +141,7 @@ public class VerifForm {
 		try {
 			char premierchiffre = telFix.charAt(0);
 			char deuxiemechiffre = telFix.charAt(1);
-			if (telFix.matches("[0-9]{10}") && (premierchiffre != '0' && deuxiemechiffre != '6' || deuxiemechiffre != '7' || deuxiemechiffre != '0')) {
+			if (telFix.matches("[0-9]{10}") && (premierchiffre == '0' && (deuxiemechiffre != '6' && deuxiemechiffre != '7' && deuxiemechiffre != '0'))) {
 
 				retour = telFix;
 			}

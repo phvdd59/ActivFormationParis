@@ -1,15 +1,9 @@
 <ul id="menu-deroulant">
 
-	<li><a> %pseudo%</a></li>
+	<li><a style="width: 150px"> Bienvenue : %pseudo%</a></li>
 	<li><a>Mon Compte</a>
 		<ul>
-			<li>
-				<form id="formFiche" name="formFiche"
-					action="http://127.0.0.1:8080/ProjectAJEE/ServletFicheRempli"
-					method="POST">
-					<input type="submit" value="Fiche d'identification" style="width: 200px">
-				</form>
-			</li>
+			
 
 			<li>
 				<form id="formMdp" name="formMdp"
@@ -26,11 +20,27 @@
 				</form>
 			</li>
 		</ul></li>
-	<li><form id="formDoc" name="formDoc"
+	<li><a style="width: 200px">Documents de : %utilisateur%</a>
+	<ul><li><form id="formDoc" name="formDoc"
 			action="http://127.0.0.1:8080/ProjectAJEE/MesDocuments" method="POST">
-			<input type="submit" value="Mes documents">
-		</form></li>
-	<li><a> %utilisateur%</a></li>
+			<input type="submit" style="width: 200px" value="Gestion des documents">
+		</form>
+		</li><li>
+				<form id="formFiche" name="formFiche"
+					action="http://127.0.0.1:8080/ProjectAJEE/ServletFicheRempli"
+					method="POST">
+					<input type="submit" value="Fiche d'identification" style="width: 200px">
+				</form>
+			</li>
+			<li>
+				<form id="formLstUtilisateur" name="formLstUtilisateur"
+					action="http://127.0.0.1:8080/ProjectAJEE/Servletlisteutilisateurs"
+					method="POST">
+					<input type="submit" value="Gestion des utilisateurs" style="width: 200px">
+				</form>
+			</li>
+			</ul></li>
+	
 	<!-- -->
 	<li>
 		<form id="formDeco" name="formDeco"

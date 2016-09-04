@@ -1,16 +1,9 @@
 <ul id="menu-deroulant">
 
-	<li><a> %pseudo%</a></li>
+	<li><a style="width: 200px"> Bienvenue: %pseudo%</a></li>
 	<li><a>Mon Compte</a>
 		<ul>
-			<li>
-				<form id="formFiche" name="formFiche"
-					action="http://127.0.0.1:8080/ProjectAJEE/ServletFicheRempli"
-					method="POST">
-					<input type="submit" value="Fiche d'identification" style="width: 200px">
-				</form>
-			</li>
-
+			
 			<li>
 				<form id="formMdp" name="formMdp"
 					action="http://127.0.0.1:8080/ProjectAJEE/ServletMdpAdmin"
@@ -26,10 +19,18 @@
 				</form>
 			</li>
 		</ul></li>
-	<li><form id="formDoc" name="formDoc"
+	<li><a>Documents</a>
+	<ul><li><form id="formDoc" name="formDoc"
 			action="http://127.0.0.1:8080/ProjectAJEE/MesDocuments" method="POST">
 			<input type="submit" value="Mes documents">
-		</form></li>
+		</form>
+		</li><li>
+				<form id="formFiche" name="formFiche"
+					action="http://127.0.0.1:8080/ProjectAJEE/ServletFicheRempli"
+					method="POST">
+					<input type="submit" value="Fiche d'identification" style="width: 200px">
+				</form>
+			</li>
 	
 	<!-- -->
 	<li>
