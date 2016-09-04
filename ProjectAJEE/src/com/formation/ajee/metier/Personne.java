@@ -2,7 +2,6 @@ package com.formation.ajee.metier;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.util.Date;
 
@@ -10,9 +9,9 @@ import com.formation.ajee.dao.DaoPersonne;
 
 public class Personne implements Serializable {
 	private static final long serialVersionUID = 1L;
-	public static final int FEMINIM=0;
-	public static final int MASCULIN=1;
-	
+	public static final int FEMINIM = 0;
+	public static final int MASCULIN = 1;
+
 	private int idPersonne;
 	private String nom;
 	private String prenom;
@@ -58,14 +57,21 @@ public class Personne implements Serializable {
 	public Personne() {
 	}
 
+	public Personne(String Nom, String identifiant, String mdp) {
+
+		this.identifiant = identifiant;
+		this.mdp = mdp;
+		this.nom = Nom;
+	}
+
 	public Personne(String nom, String prenom) {
 		this.nom = nom;
 		this.prenom = prenom;
 		this.identifiant = creationId(nom, prenom);
 		this.mdp = creationMdp();
-		this.visiteMedicale =new Date(2016-9-02);
-		this.dateNaissance=new Date(2016-9-02);
-		this.dateCreation=new Date(2016-9-02);
+		this.visiteMedicale = new Date(2016 - 9 - 02);
+		this.dateNaissance = new Date(2016 - 9 - 02);
+		this.dateCreation = new Date(2016 - 9 - 02);
 		DaoPersonne daoP = new DaoPersonne();
 		daoP.insertTable(this);
 	}
@@ -104,7 +110,7 @@ public class Personne implements Serializable {
 		this.nbKm = nbKm;
 		this.mutuelle = mutuelle;
 		this.ticketResto = ticketResto;
-		this.dateCreation=Date.from(Instant.now());
+		this.dateCreation = Date.from(Instant.now());
 		this.dateModification = dateModification;
 		this.bloque = bloque;
 		this.raisonBlocage = raisonBlocage;

@@ -2,6 +2,7 @@ package com.formation.ajee.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -99,4 +100,37 @@ public class DaoPersonne {
 			e.printStackTrace();
 		}
 	}
+	
+public ArrayList<Personne> lectureTable() {
+	ArrayList<Personne>retour=new ArrayList<Personne>();
+	Connection conne = null;
+	Statement stat = null;
+	try {
+		Class.forName(JDBC_DRIVER);
+		conne = DriverManager.getConnection(DB_URL, user, pass);
+		stat = conne.createStatement();
+		String sql = "SELECT * FROM personne;";
+		ResultSet resultat = stat.executeQuery(sql);
+		while (resultat.next()) {
+			String sNom = resultat.getString("nom");
+			String sIdentifiant = resultat.getString("identifiant");
+			String sMdp = resultat.getString("mdp");
+			System.out.println(sIdentifiant + " " + sNom+ " " + sMdp);
+			Personne pers=new Personne(sNom,sIdentifiant,sMdp);
+			retour.add(pers);
+		}
+		;
+
+		System.out.println("fin");
+	} catch (ClassNotFoundException | SQLException e) {
+
+		e.printStackTrace();
+	}
+	
+	
+	return retour;
+	
+}
+
+
 }

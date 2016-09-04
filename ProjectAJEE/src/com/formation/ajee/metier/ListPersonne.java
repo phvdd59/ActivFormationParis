@@ -10,7 +10,7 @@ public class ListPersonne extends ArrayList<Personne> {
 DaoPersonne dao=new DaoPersonne();
 	public ListPersonne() {
 		
-//	ArrayList<Personne>	listepersonne=dao.insertTable(personne);
-//		this.addAll(listepersonne)
+	ArrayList<Personne>	listepersonne=dao.lectureTable();
+		this.addAll(listepersonne);
 	}
 }
