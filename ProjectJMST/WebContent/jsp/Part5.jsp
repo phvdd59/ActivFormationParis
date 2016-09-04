@@ -221,7 +221,7 @@
 				String noSerie = (String) session.getAttribute("noSerie");
 
 				if (p instanceof Personne) {
-					personne = (Personne) p;
+					personne = (Personne) p;			
 				}
 
 				CtrlPersonne ctrl = new CtrlPersonne();
