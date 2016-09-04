@@ -15,6 +15,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.formation.bait.dao.AccesBDDPersonne;
+import com.formation.bait.metier.Personne;
+
 /**
  * Servlet implementation class Servlet1
  */
@@ -35,18 +38,32 @@ public class ServletNouvelleInscription2 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher rd = request.getRequestDispatcher("//ServletLogin3");
 		rd.forward(request, response);
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		String sNoSuiviClient = request.getParameter("suiviClient");
 		String sNbAppelClient = request.getParameter("nbAppelClient");
 		Object oNoSuivi = session.getAttribute("suivi");
+
+		//creation de personne dans la BDD, sans protections pour le moment !
+		//		AccesBDDPersonne bdd = new AccesBDDPersonne();
+		//		Personne newPers = new Personne(request.getParameter("identifiant"),request.getParameter("password"));
+		//		newPers.setNom(request.getParameter("nom"));
+		//		newPers.setPrenom(request.getParameter("prenom"));
+		//		newPers.setEmail(request.getParameter("mail"));
+		//		bdd.createNewPersonne(newPers.getIdentifiant(), newPers.getMdp(), newPers.getEmail(), newPers.getNom(), newPers.getPrenom());
+
+		AccesBDDPersonne bdd = new AccesBDDPersonne();
+		Personne newPers = new Personne("thdetest5", "admin");
+		newPers.setNom("Desole");
+		newPers.setPrenom("DeRemplirLaBDD");
+		newPers.setEmail("jaipaslechoix@activConsulting.fr");
+		bdd.createNewPersonne(newPers.getIdentifiant(), newPers.getMdp(), newPers.getEmail(), newPers.getNom(), newPers.getPrenom());
+
 		if (oNoSuivi != null) {
 			session.setAttribute("servlet", "Inscription");
 			session.setAttribute("methode", "POST");
@@ -54,8 +71,7 @@ public class ServletNouvelleInscription2 extends HttpServlet {
 			nbAppel++;
 			session.setAttribute("nbAppel", Integer.valueOf(nbAppel));
 
-			File file = new File(
-					"C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/hautDePageActiv.html");
+			File file = new File("C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/hautDePageActiv.html");
 			BufferedReader bIn = null;
 			InputStreamReader inputStreamReader = null;
 			try {
@@ -80,8 +96,7 @@ public class ServletNouvelleInscription2 extends HttpServlet {
 				}
 			}
 
-			File file2 = new File(
-					"C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/NouvelleInscription.html");
+			File file2 = new File("C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/NouvelleInscription.html");
 			BufferedReader bIn2 = null;
 			InputStreamReader inputStreamReader2 = null;
 			try {
@@ -104,8 +119,7 @@ public class ServletNouvelleInscription2 extends HttpServlet {
 					e.printStackTrace();
 				}
 			}
-			File file3 = new File(
-					"C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/basDePageActiv.html");
+			File file3 = new File("C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/basDePageActiv.html");
 			BufferedReader bIn3 = null;
 			InputStreamReader inputStreamReader3 = null;
 			try
