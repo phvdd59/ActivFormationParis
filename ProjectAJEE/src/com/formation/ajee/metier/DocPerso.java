@@ -1,5 +1,7 @@
 package com.formation.ajee.metier;
 
+import com.formation.ajee.dao.DaoDocument;
+
 public class DocPerso {
 	
 	private int idDoc;
@@ -12,13 +14,15 @@ public class DocPerso {
 	public DocPerso() {
 	}
 	
-	public DocPerso(String nomDocUtil, String type, String nomDocFile, long time, String commentaire) {
+	public DocPerso(String nomDocUtil, String commentaire) {
 		super();
-		this.nomDocUtil = nomDocUtil;
-		this.type = type;
-		this.nomDocFile = nomDocFile;
-		this.time = time;
-		this.commentaire = commentaire;
+		this.nomDocUtil = nomDocUtil.substring(0, nomDocUtil.lastIndexOf(".")-1);
+		this.type = nomDocUtil.substring(nomDocUtil.lastIndexOf(".")+1);
+		this.time = (long)System.currentTimeMillis();
+		this.nomDocFile = Long.toString(time);
+		this.commentaire = commentaire;	
+		DaoDocument daoD = new DaoDocument();
+		daoD.insertTable(this);
 	}
 	
 	public int getIdDoc() {
