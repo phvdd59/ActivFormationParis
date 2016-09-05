@@ -1,4 +1,4 @@
-package com.formation.issa.beans;
+package com.formation.phva.beans;
 
 import java.io.IOException;
 import java.util.Set;

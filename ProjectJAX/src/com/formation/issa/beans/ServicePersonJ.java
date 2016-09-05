@@ -10,7 +10,7 @@ import javax.jws.WebService;
 import java.util.Set;
 
 @WebService(endpointInterface="com.formation.issa.beans.InterPersonJService")
-@HandlerChain(file="LogMesssageHandler.xml")
+@HandlerChain(file="LogMessageHandler.xml")
 public class ServicePersonJ implements InterPersonJService{
 	
 	private Map <Integer, PersonJ> listPersonJ=new HashMap<Integer, PersonJ>();

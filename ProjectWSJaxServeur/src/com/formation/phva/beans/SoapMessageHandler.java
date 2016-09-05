@@ -1,4 +1,4 @@
-package com.formation.issa.beans;
+package com.formation.phva.beans;
 
 import java.io.IOException;
 import java.util.Set;
@@ -28,7 +28,7 @@ public class SoapMessageHandler implements SOAPHandler<SOAPMessageContext> {
 		SOAPMessage msg = context.getMessage();
 		try {
 			msg.writeTo(System.out);
-			System.out.println("");
+			System.out.println("BONJOUR");
 			System.out.println("FIN");
 		} catch (SOAPException | IOException e) {
 			Logger.getLogger(SoapMessageHandler.class.getName()).log(Level.SEVERE, null, e);

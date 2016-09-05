@@ -2,10 +2,8 @@
 <handler-chains xmlns="http://java.sun.com/xml/ns/javaee">
 	<handler-chain>
 		<handler>
-			<handler-name>com.formation.issa.beans.SoapMessageHandler
-			</handler-name>
-			<handler-class>com.formation.issa.beans.SoapMessageHandler
-			</handler-class>
+			<handler-name>com.formation.issa.beans.SoapMessageHandler</handler-name>
+			<handler-class>com.formation.issa.beans.SoapMessageHandler</handler-class>
 		</handler>
 	</handler-chain>
 
