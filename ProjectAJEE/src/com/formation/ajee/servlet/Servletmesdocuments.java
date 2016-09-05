@@ -4,10 +4,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.time.LocalDateTime;
 
 import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -39,11 +37,11 @@ public class Servletmesdocuments extends HttpServlet {
 
 		HttpSession session = request.getSession();
 		Object oNoSerie = session.getAttribute("noSerie");
-//		Object oPseudo = session.getAttribute("pseudo");
+		//		Object oPseudo = session.getAttribute("pseudo");
 		Personne utilisateur = (Personne) session.getAttribute("utilisateur");
-		Personne personne = (Personne) session.getAttribute("personnne");
+		Personne personne = (Personne) session.getAttribute("personne");
 
-		if (oNoSerie != null && personne != null) {
+		if (oNoSerie != null && personne.getIdentifiant() != null) {
 			if (personne.getIdentifiant().equals("Admin")) {
 				if (utilisateur.equals(null)) {
 					RequestDispatcher rd = request.getRequestDispatcher("/Servletaccueilchargementprofil");
@@ -95,7 +93,8 @@ public class Servletmesdocuments extends HttpServlet {
 					String lineDoc1 = bufReadDoc1.readLine();
 					while (lineDoc1 != null) {
 						if (lineDoc1.contains("%%value%%")) {
-							if (listeDoc.size() ==0) {		
+							if (listeDoc == null) {
+								response.getWriter().println("<option value=\"%%value%%\">");
 							} else {
 								for (int i = 0; i < listeDoc.size(); i++) {
 									lineDoc1 = lineDoc1.replace("%%value%%", listeDoc.get(i).getNomDocUtil());
@@ -164,7 +163,7 @@ public class Servletmesdocuments extends HttpServlet {
 				String lineDoc1 = bufReadDoc1.readLine();
 				while (lineDoc1 != null) {
 					if (lineDoc1.contains("%%value%%")) {
-						if (listeDoc.size() ==0) {		
+						if (listeDoc.size() == 0) {
 						} else {
 							for (int i = 0; i < listeDoc.size(); i++) {
 								lineDoc1 = lineDoc1.replace("%%value%%", listeDoc.get(i).getNomDocUtil());
