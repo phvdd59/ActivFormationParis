@@ -71,7 +71,6 @@ public class ServletBDD extends HttpServlet {
 				 else{
 					 personne.setSituation(sAutre);
 				 }
-				personne.setSituation(sSituation);
 				bddPersonne.savePersonne(personne);
 			} else if (origine == "EtatCivil") {
 				 personne = (Personne) session.getAttribute("Personne");

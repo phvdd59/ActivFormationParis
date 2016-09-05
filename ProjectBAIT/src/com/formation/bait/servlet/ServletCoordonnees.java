@@ -70,27 +70,20 @@ public class ServletCoordonnees extends HttpServlet {
 				bIn = new BufferedReader(inputStreamReader);
 				String line = bIn.readLine();
 				while (line != null) {
-					if (line.contains("%%%adresse%%%")) {
 						line.replace("%%%adresse%%%", personne.getAdresse());
-					}
-					if (line.contains("%%%cp%%%")) {
+					
 						line.replace("%%%cp%%%", personne.getcP());
-					}
-					if (line.contains("%%%ville%%%")) {
+					
 						line.replace("%%%ville%%%", personne.getVille());
-					}
-					if (line.contains("%%%telfixe%%%")) {
+					
 						line.replace("%%%telfixe%%%", personne.getTelFixe());
-					}
-					if (line.contains("%%%telport%%%")) {
+					
 						line.replace("%%%telport%%%", personne.getTelPort());
-					}
-					if (line.contains("%%%email%%%")) {
+					
 						line.replace("%%%email%%%", personne.getEmail());
-					}
-					if (line.contains("%%%fax%%%")) {
+					
 						line.replace("%%%fax%%%", personne.getFax());
-					}
+					
 					response.getWriter().append(line + "\n");
 					line = bIn.readLine();
 				}
