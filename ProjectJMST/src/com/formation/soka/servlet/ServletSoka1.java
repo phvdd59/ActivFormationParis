@@ -107,7 +107,7 @@ public class ServletSoka1 extends HttpServlet {
 					line=line.replace("%%noSerie%%", noSerie);
 				}
 				if (line.contains("name=\"identifiant\"")){
-					line = line.replace("</th>", "<p style=\"color: red;\">login déja existant</p></th>");
+					line = line.replace("</th>", "<p style=\"color: red;\">login deja existant</p></th>");
 				}
 				response.getWriter().println(line);
 				line = bIn2.readLine();

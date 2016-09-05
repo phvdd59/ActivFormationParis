@@ -37,17 +37,17 @@ public class Servletmadeversmenu extends HttpServlet {
 
 		HttpSession session = request.getSession();
 		Object objNoSerieSession = session.getAttribute("noSerie");
-		Object objPersonne = session.getAttribute("personne");
+		Object objPersonne = session.getAttribute("Personne");
 		String noSeriePageAdmin = request.getParameter("noSerie");// ajouter le name noSerie dans l'html
-
-		if (objNoSerieSession instanceof String && objPersonne instanceof Personne) {
+		
+		if (objPersonne instanceof Personne) {
 			String strNoSerieSession = (String) objNoSerieSession;
 			Personne pPersonne = (Personne) objPersonne;
 			if (strNoSerieSession.equals(noSeriePageAdmin)) {
 				BufferedReader bIn = null;
 
 				if (pPersonne.isAdmin()) {
-					File file = new File("../GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/pagecompteadministrateur");
+					File file = new File("../GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/pagecompteadministrateur.html");
 					bIn = new BufferedReader(new FileReader(file));
 					String maLigne = bIn.readLine();
 					while (maLigne != null) {
@@ -58,7 +58,7 @@ public class Servletmadeversmenu extends HttpServlet {
 						maLigne = bIn.readLine();
 					}
 				} else if (!pPersonne.isAdmin()) {
-					File file = new File("../GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/pagecompteutilisateur");
+					File file = new File("../GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/pagecompteutilisateur.html");
 					bIn = new BufferedReader(new FileReader(file));
 					String maLigne = bIn.readLine();
 					while (maLigne != null) {

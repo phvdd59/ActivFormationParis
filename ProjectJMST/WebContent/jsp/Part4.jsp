@@ -135,10 +135,9 @@
 					//						FORWARD TO DECO
 					// 					}
 
-				//String situation = personne.getEnumSituation().getNom(); 
-				//String situation = (SITUATION.valueOf(personne.getSituation())).getNom();
-				String situation = personne.getSituation();
-				System.out.println(situation);
+					//String situation = personne.getEnumSituation().getNom(); 
+					//String situation = (SITUATION.valueOf(personne.getSituation())).getNom();
+					String situation = personne.getSituation();
 			%>
 			<form action="http://localhost:8080/ProjectJMST/jsp/Part5.jsp"
 				method='post'>
@@ -156,8 +155,7 @@
 							if (situation.equals("Salarie")) {
 						%>
 						<td><input type="radio" name="situation" value="Salarie"
-							checked="checked">
-						</td>
+							checked="checked"></td>
 						<%
 							} else {
 						%>
@@ -186,7 +184,7 @@
 						<%
 							if (situation.equals("freelance")) {
 						%>
-						<input type="radio" name="situation" value="freelance"
+						<td><input type="radio" name="situation" value="freelance"
 							checked="checked">
 						</td>
 						<%
@@ -217,7 +215,7 @@
 						<%
 							if (situation.equals("retraite")) {
 						%>
-						<input type="radio" name="situation" value="retraite"
+						<td><input type="radio" name="situation" value="retraite"
 							checked="checked">
 						</td>
 						<%
@@ -246,8 +244,8 @@
 
 				</table>
 
-				<input type="submit" value="Suivant"></input>
-				<input type="hidden" name="noSerie" value="<%=noSerie%>">
+				<input type="submit" value="Suivant"></input> <input type="hidden"
+					name="noSerie" value="<%=noSerie%>">
 			</form>
 			<form action="http://localhost:8080/ProjectJMST/jsp/Part3.jsp"
 				method='post'>
@@ -282,6 +280,9 @@
 			<div id="droit2">©1997-2012 - Tous droits de reproduction et de
 				représentation réservés | Mentions légales</div>
 		</div>
-		<%} %>
+		<%
+			}
+		%>
+	
 </body>
 </html>
