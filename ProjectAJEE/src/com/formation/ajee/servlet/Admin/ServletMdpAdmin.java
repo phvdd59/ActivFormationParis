@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.formation.ajee.metier.Personne;
+
 /**
  * Servlet implementation class ServletMdp
  */
@@ -29,28 +31,18 @@ public class ServletMdpAdmin extends HttpServlet {
 	}
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	// protected void doGet(HttpServletRequest request, HttpServletResponse
-	// response) throws ServletException, IOException {
-	// // TODO Auto-generated method stub
-	// response.getWriter().append("Served at:
-	// ").append(request.getContextPath());
-	// }
-
-	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		HttpSession session = request.getSession();
-		Object noSerie = session.getAttribute("noSerie");
-		String pseudo = (String) session.getAttribute("pseudo");
-		Object utilisateur =  session.getAttribute("utilisateur");
-				if (noSerie != null && pseudo != null) {
-			if (pseudo.equals("Admin")) {
+		Object oNoSerie = session.getAttribute("noSerie");
+		Personne utilisateur = (Personne) session.getAttribute("utilisateur");
+		Personne personne = (Personne) session.getAttribute("personne");
+		
+		if (oNoSerie != null && personne.getIdentifiant() != null) {
+			if (personne.getIdentifiant().equals("Admin")) {
 				/** Lecture Haut de page HTML */
 				File fileHaut = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/HautPage.html");
 				BufferedReader bufReadHaut = null;
@@ -103,7 +95,7 @@ public class ServletMdpAdmin extends HttpServlet {
 				String lineDoc = bufReadDoc.readLine();
 				while (lineDoc != null) {
 					if (lineDoc.contains("%pseudo%")) {
-						lineDoc = lineDoc.replace("%pseudo%", pseudo);
+						lineDoc = lineDoc.replace("%pseudo%", personne.getIdentifiant());
 					}if (lineDoc.contains("%utilisateur%")) {
 						lineDoc=lineDoc.replace("%utilisateur%", ((utilisateur == null)?"":utilisateur.toString()));
 					}
@@ -168,7 +160,7 @@ public class ServletMdpAdmin extends HttpServlet {
 				bufReadDoc = new BufferedReader(new FileReader(fileDoc));
 				String lineDoc = bufReadDoc.readLine();
 				while (lineDoc != null) {if (lineDoc.contains("%pseudo%")) {
-					lineDoc=lineDoc.replace("%pseudo%", pseudo);
+					lineDoc=lineDoc.replace("%pseudo%", personne.getIdentifiant());
 				}
 					response.getWriter().println(lineDoc);
 					lineDoc = bufReadDoc.readLine();
