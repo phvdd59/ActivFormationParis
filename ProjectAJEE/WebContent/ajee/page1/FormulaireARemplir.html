@@ -1,6 +1,7 @@
 <div align="center" > FORMULAIRE D'IDENTIFICATION </div>
 <div> 
 	<form method = "post" action = "http://localhost:8080/ProjectAJEE/ServletFormulaireB"> <!-- (En action, mettre l'URL de la page Acceuil -> la mettre plutot dans la servlet) -->
+		<!--  -->
 		<!-- http://127.0.0.1:8080/ProjectAJEE/src/com/formation/ajee/servlet/ServletFormulaireB.java -->
 		<table align = "center">
 			<caption><h1>DEMANDE D'INSCRIPTION</h1></caption>
@@ -8,85 +9,86 @@
 				<th colspan="2" align="center"><h4>COORDONNEES PERSONNELLES</h4></th>
 			</tr>
 			<tr>
-				<td>Nom : <input id="nom" onblur="ecritureTexteNom()" placeholder="ex : Nom" type="texte" name="nom" style="width: 358px; "/></td>
-				<td>Prenom : <input id="prenom" onblur="ecritureTextePrenom()" placeholder="ex : Prenom" type="texte" name="prenom" style="width: 317px; "/></td>
+				<td>Nom : <input name="nom" id="nom" onblur="ecritureTexteNom()" placeholder="ex : Nom" type="texte" style="width: 358px; "/></td>
+				<td>Prenom : <input name="prenom" id="prenom" onblur="ecritureTextePrenom()" placeholder="ex : Prenom" type="texte" style="width: 317px; "/></td>
 			</tr>
 			<tr>
-				<td colspan="2"">Adresse : <input id="adresse" onblur="ecritureTexteAdresse()" placeholder="ex : 9 Avenue de la Liberation" type="texte" name="adresse"
+				<td colspan="2"">Adresse : <input name="adresse" id="adresse" onblur="ecritureTexteAdresse()" placeholder="ex : 9 Avenue de la Liberation" type="texte"
 					; style="width: 751px; height: 60px" /></td>
 			</tr>
 			<tr>
-				<td>Code postal : <input id="cp" onblur="ecritureNombreCp()" placeholder="ex : 75001" type="texte" name="code postal" style="width: 296px; "/></td>
-				<td>Ville : <input id="ville" onblur="ecritureTexteVille()" placeholder="ex : Paris" type="texte" name="ville" style="width: 344px; "/></td>
+				<td>Code postal : <input name="cp" id="cp" onblur="ecritureNombreCp()" placeholder="ex : 75001" type="texte" style="width: 296px; "/></td>
+				<td>Ville : <input name="ville" id="ville" onblur="ecritureTexteVille()" placeholder="ex : Paris" type="texte" style="width: 344px; "/></td>
 			</tr>
 			<tr>
-				<td>Telephone fixe : <input id="telFixe" onblur="ecritureNumTelFixe()" placeholder="ex : 0241424344" type="tel" name="telFixe" style="width: 280px; "/></td>
-				<td>Telephone portable : <input id="telPort" onblur="ecritureNumTelPort()" placeholder="ex : 0611121314" type="tel" name="telPortable" style="width: 221px; "/></td>
+				<td>Telephone fixe : <input name="telFixe" id="telFixe" onblur="ecritureNumTelFixe()" placeholder="ex : 0241424344" type="tel" style="width: 280px; "/></td>
+				<td>Telephone portable : <input name="telPort" id="telPort" onblur="ecritureNumTelPort()" placeholder="ex : 0611121314" type="tel" style="width: 221px; "/></td>
 			</tr>
 			<tr>
-				<td>Fax : <input id="fax" onblur="ecritureFax()" placeholder="ex : 0122334455" type="tel" name="fax" style="width: 368px; "/></td>
-				<td>Email : <input id="email" onblur="ecritureEmail()" placeholder="ex : identifiant@domaine.(fr/com)" type="email" name="email" style="width: 334px; "/></td>
+				<td>Fax : <input name="fax" id="fax" onblur="ecritureFax()" placeholder="ex : 0122334455" type="tel" style="width: 368px; "/></td>
+				<td>Email : <input name="email" id="email" onblur="ecritureEmail()" placeholder="ex : identifiant@domaine.(fr/com)" type="email" style="width: 334px; "/></td>
 			</tr>
 			<tr>
 				<th colspan="2" align="center"><h4>ETAT CIVIL</h4></th>
 			</tr>
 			<tr>
-				<td>Date de naissance : <input id="dateNaissance" onblur="ecritureDateNaiss()" type="date" name="date de naissance" style="width: 248px; "/></td>
-				<td>Lieu : <input id="lieuNaissance" onblur="ecritureTexteLieu()" type="texte" name="lieu" style="width: 348px; "/></td>
+				<td>Date de naissance : <input name="dateNaissance" id="dateNaissance" onblur="ecritureDateNaiss()" type="text" style="width: 248px; "/></td>
+				<!-- class="JSFormulaireCalendrierListeDeroulante"  -->
+				<td>Lieu : <input name="lieuNaissance" id="lieuNaissance" onblur="ecritureTexteLieu()" type="texte" style="width: 348px; "/></td>
 			</tr>
 			<tr>
-				<td colspan="2">Numero de securite sociale (15 chiffres) : <input id="numSecu" onblur="ecritureNumSecu()" type="texte" name="numero de securite sociale" style="width: 505px; "/></td>
+				<td colspan="2">Numero de securite sociale (15 chiffres) : <input name="numSecu" id="numSecu" onblur="ecritureNumSecu()" type="texte" style="width: 505px; "/></td>
 			</tr>
 			<tr>
-				<td colspan="2">Nationalite : <input id="nationalite" onblur="ecritureNationalite()" type="texte" name="nationalite" style="width: 720px; "/></td>
+				<td colspan="2">Nationalite : <input name="nationalite" id="nationalite" onblur="ecritureNationalite()" type="texte" style="width: 720px; "/></td>
 			</tr>
 			<tr>
 				<th colspan="2" align="center"><h4>SITUATION ACTUELLE</h4></th>
 			</tr>
 			<tr>
-				<td colspan="2" align = "center"><input id="situation" type="radio" name="situation actuelle" value = "salarie">Salarie
-					<input id="situation" type="radio" name="situation actuelle" value = "auto entrepreneur"> Auto entrepreneur
-					<input id="situation" type="radio" name="situation actuelle" value = "freelance"> Freelance</td>
+				<td colspan="2" align = "center"><input name="situation" id="situation" type="radio" value = "salarie">Salarie
+					<input name="situation" id="situation" type="radio" value = "auto entrepreneur"> Auto entrepreneur
+					<input name="situation" id="situation" type="radio" value = "freelance"> Freelance</td>
 			</tr>
 			<tr>
-					<td colspan="2"><input type="radio" name="situation actuelle" value = "demandeur d'emploi"> Demandeur d'emploi
-					<input type="radio" name="situation actuelle" value = "retraite"> Retraite
-					<input type="radio" name="situation actuelle" value = "autre" checked> Autre <input id="autre" onblur="ecritureAutre()" type="texte" name="Autre" style="width: 450px; "/></td>
+					<td colspan="2"><input name="situation" type="radio" value = "demandeur d'emploi"> Demandeur d'emploi
+					<input name="situation" type="radio" value = "retraite"> Retraite
+					<input name="situation" type="radio" value = "autre" checked> Autre <input name="autre" id="autre" onblur="ecritureAutre()" type="texte" style="width: 450px; "/></td>
 			</tr>
 			<tr>
 				<th colspan="2" align="center"><h4>FONCTION / REMUNERATION</h4></th>
 			</tr>
 			<tr>
-				<td>Fonction occupee : <input id="fonction" onblur="ecritureFctionOccupee()" type="texte" name="fonction occupee" style="width: 252px; "/></td>
-				<td align = "center"><input type="radio" name="fonction occupee" value = "cadre" checked> Cadre
-					<input type="radio" name="fonction occupee" value = "non cadre"> Non cadre</td>
+				<td>Fonction occupee : <input name="fonction" id="fonction" onblur="ecritureFctionOccupee()" type="texte" style="width: 252px; "/></td>
+				<td align = "center"><input name="cadre" type="radio" value="cadre" checked> Cadre
+					<input name="cadre" type="radio" value="non cadre"> Non cadre</td>
 			</tr>
 			<tr>
-				<td>Position : <input id="positionEntreprise" onblur="ecriturePosition()" type="texte" name="position" style="width: 332px; "/></td>
-				<td>Coefficient : <input id="coeff" onblur="ecritureCoeff()" type="texte" name="coefficient" style="width: 285px; "/></td>
+				<td>Position : <input name="positionEntreprise" id="positionEntreprise" onblur="ecriturePosition()" type="texte" style="width: 332px; "/></td>
+				<td>Coefficient : <input name="coeff" id="coeff" onblur="ecritureCoeff()" type="texte" style="width: 285px; "/></td>
 			</tr>
 			<tr>
-				<td colspan="2">Salaire souhaite : <input id="salaire" onblur="ecritureSalSouhaite()" type="texte" name="salaire souhaite" style="width: 685px; "/></td>
+				<td colspan="2">Salaire souhaite : <input name="salaire" id="salaire" onblur="ecritureSalSouhaite()" type="texte" style="width: 685px; "/></td>
 			</tr>
 			<tr>
-				<td align = "center">Mutuelle souhaitee : <input id="mutuelle" type="radio" name="mutuelle souhaitee" value = "oui" checked> oui
-					<input type="radio" name="mutuelle souhaitee" value = "non"> non</td>
-					<td align = "center">Ticket resto : <input id="ticketResto" type="radio" name="ticket resto" value = "oui" checked> oui
-					<input type="radio" name="ticket resto" value = "non"> non</td>
+				<td align = "center">Mutuelle souhaitee : <input name="mutuelle" id="mutuelle" type="radio" value = "oui" checked> oui
+					<input name="mutuelle" type="radio" value = "non"> non</td>
+					<td align = "center">Ticket resto : <input name="ticketResto" id="ticketResto" type="radio" value = "oui" checked> oui
+					<input name="ticketResto" type="radio" value = "non"> non</td>
 			</tr>
 			<tr>
-				<td colspan="2">Date de votre derniere visite medicale : <input id="visiteMedicale" onblur="ecritureDateDerVisMed()" type="texte" name="date de votre derniere visite medicale" style="width: 503px; "/></td>
+				<td colspan="2">Date de votre derniere visite medicale : <input name="visiteMedicale" id="visiteMedicale" onblur="ecritureDateDerVisMed()" type="texte" style="width: 503px; "/></td>
 			</tr>
 			<tr>
-				<td colspan="2">Montant carte d'abonnement transport : <input id="montantTransport" onblur="ecritureMontCarteAbonTransp()" type="texte" name="montant carte d'abonnement transport" style="width: 486px; "/></td>
+				<td colspan="2">Montant carte d'abonnement transport : <input name="montantTransport" id="montantTransport" onblur="ecritureMontCarteAbonTransp()" type="texte" style="width: 486px; "/></td>
 			</tr>
 			<tr>
-				<td>Vehicule personnel : <input id="voiture" onblur="ecritureVehicPerso()" type="texte" name="vehicule personnel" style="width: 246px; "/></td>
-				<td>Km mensuel estime : <input id="nbKm" onblur="ecritureKmMensEstim()" type="texte" name="km mensuel estime" style="width: 226px; "/></td>
+				<td>Vehicule personnel : <input name="voiture" id="voiture" onblur="ecritureVehicPerso()" type="texte" style="width: 246px; "/></td>
+				<td>Km mensuel estime : <input name="nbKm" id="nbKm" onblur="ecritureKmMensEstim()" type="texte" style="width: 226px; "/></td>
 			</tr>	
 			<tr>
-				<td colspan="2"; align="center">	<h3><input id = "b0" type = "submit" value = "Enregister" style="width: 439px; "/></h3></td>
-				<!-- onclick = "boutonEnregistrer()" -->
+				<td colspan="2"; align="center">	<h3><input id = "b0" type = "submit" onclick = "return boutonEnregistrer()" value="Envoyer le formulaire" style="width: 439px; "/></h3></td>
+				<!--  value = "Enregister"  -->
 			</tr>	
 		</table>
 	</form>	

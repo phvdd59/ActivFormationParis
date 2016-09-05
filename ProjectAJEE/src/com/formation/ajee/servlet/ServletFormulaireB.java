@@ -43,7 +43,7 @@ public class ServletFormulaireB extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//doPost(request, response);
+		doPost(request, response);
 	}
 
 	/**
@@ -106,12 +106,12 @@ public class ServletFormulaireB extends HttpServlet {
 		Personne personne = new Personne();
 		
 		// Récupérer les données du formulaire et ranger dans objet personne
-		String pNom=request.getParameter("nom");
-		personne.setNom(pNom);
-		String pPrenom=request.getParameter("prenom");
-		personne.setPrenom(pPrenom);
-		String pAdresse=request.getParameter("adresse");
-		personne.setAdresse(pAdresse);
+		//String pNom=request.getParameter("nom");
+		personne.setNom(request.getParameter("nom"));
+		//String pPrenom=request.getParameter("prenom");
+		personne.setPrenom(request.getParameter("prenom"));
+		//String pAdresse=request.getParameter("adresse");
+		personne.setAdresse(request.getParameter("adresse"));
 		String pCp=request.getParameter("cp");
 		personne.setCp(pCp);
 		String pVille=request.getParameter("ville");
@@ -164,10 +164,12 @@ public class ServletFormulaireB extends HttpServlet {
 		
 		//ajout personne à la liste
 		lst.add(personne);
-		System.out.println(lst.get(0).toString());
+		response.getWriter().println(lst.get(0).toString());
 		
 		// print : formulaire bien enregistré
 		response.getWriter().println("Formulaire enregistre");
+		response.getWriter().println(personne.getNom());
+		response.getWriter().println(personne.getTelPort());
 		// retour page accueil en bas de page (bouton)
 		String html = "<html><form action='http://127.0.0.1:8080/ProjectAJEE/Servletidentification'><input type='submit' value='Retour page identification'></form></html>";
 		response.getWriter().println(html);

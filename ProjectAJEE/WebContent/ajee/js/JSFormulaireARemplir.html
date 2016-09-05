@@ -7,7 +7,22 @@ function boutonEnregistrer(){
 	// si admin accède au formulaire rempli -> il n'est pas modifiable
 	// si membre accède au formulaire rempli -> en bas du formulaire : un bouton "modifier" -> renvoie vers FormulaireARemplir
 	
-	location.href="http://127.0.0.1:8080/ProjectAJEE/ServletFormulaireB.java";
+	
+	//var X = document.forms["FormulaireARemplir"]["nom"].value;
+
+	var nom2 = document.getElementById("nom").value;
+	reg3=/^[a-zA-Z]+$/
+	if (nom2==null || nom2=="" || !nom2.match(reg3)) {
+		alert("Nom invalide");
+		return false;
+	}
+	var prenom2 = document.getElementById("prenom").value;
+	if (prenom2==null || prenom2=="" || !prenom2.match(reg3)) {
+		alert("Prenom invalide");
+		return false;
+	}
+	
+	//location.href="http://127.0.0.1:8080/ProjectAJEE/ServletFormulaireB.java";
 }
 
 function ecritureTexteNom() {
@@ -20,7 +35,6 @@ function ecritureTexteNom() {
 			nom.placeholder="Merci de saisir un nom valide";
 		} else {
 			nom.style.color="black";
-			// boolean X == true
 		}
 	}
 	
