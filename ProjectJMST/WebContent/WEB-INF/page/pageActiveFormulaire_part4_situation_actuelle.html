@@ -166,6 +166,9 @@
 			var pattAutre = new RegExp("^([a-zA-Z\-\'\\s]+)$");
 			var spanAutre = document.getElementById("spanAutre");
 			if (autre.value == "") {
+				autre.style.border = "inherit";
+				autre.style.backgroundColor = "#66ff99";
+				spanAutre.innerHTML = " OK";
 				return true;
 			}
 			if (pattAutre.test(autre.value) == false) {
