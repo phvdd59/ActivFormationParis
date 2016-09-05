@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 
 import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -33,10 +32,6 @@ public class ServletAjouter extends HttpServlet {
 		super();
 	}
 
-	public void init(ServletConfig config) throws ServletException {
-		listeDoc = new ListeDoc();
-	}
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
@@ -47,9 +42,8 @@ public class ServletAjouter extends HttpServlet {
 		Personne personne = (Personne) session.getAttribute("personnne");
 		Object oIdUtilisateur = utilisateur.getIdPersonne();
 		Object oIdPersonne = personne.getIdPersonne();
-		
 
-		if (oNoSerie != null && personne != null) {
+		if (oNoSerie != null && personne.getIdentifiant() != null) {
 			if (personne.getIdentifiant().equals("Admin")) {
 				if (utilisateur.equals(null)) {
 					RequestDispatcher rd = request.getRequestDispatcher("/Servletaccueilchargementprofil");
@@ -243,7 +237,7 @@ public class ServletAjouter extends HttpServlet {
 					}
 					bufReadDoc1.close();
 				}
-				
+
 				/** Lecture bas de page */
 				File fileBas = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/BasPage.html");
 				BufferedReader bufReadBas = null;
