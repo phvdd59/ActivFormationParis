@@ -64,21 +64,16 @@ public class Servletlisteutilisateurs extends HttpServlet {
 				String nomA = (String) oNomA;
 				String prenomA = (String) oPrenomA;
 
-				user = new Personne(nomA, prenomA);
-
-				if (lstUser.size() == 0) { // quand bdd fonctionne plus de liste nulle ->adnim a ajoute direct dans bdd
-					lstUser.add(user); // a supprimer
-				} else {
-					for (int i = 0; i < lstUser.size(); i++) {
-//						if (lstUser.get(i).getPrenom().contains(prenomA) && lstUser.get(i).getNom().contains(nomA))
-						if (lstUser.get(i).getIdentifiant().equals(nomA.substring(0,1)+"."+nomA.toLowerCase())) {
-							existe = true;
-							break;
-						}
+				for (int i = 0; i < lstUser.size(); i++) {
+					//		if (lstUser.get(i).getPrenom().contains(prenomA) && lstUser.get(i).getNom().contains(nomA))
+					if (lstUser.get(i).getIdentifiant().equals(prenomA.substring(0, 1) + "." + nomA.toLowerCase())) {
+						existe = true;
+						break;
 					}
-					if (existe == false) {
-						lstUser.add(user);
-					}
+				}
+				if (existe == false) {
+					user = new Personne(nomA, prenomA);
+					lstUser.add(user);
 				}
 
 				File file = new File("../GITActivFormationParis/ProjectAJEE/WebContent/WEB-INF/com/formation/ajee/page/ListeUtilisateurs2.html");
@@ -93,7 +88,6 @@ public class Servletlisteutilisateurs extends HttpServlet {
 							ligne = ligne.replace("%%value%%", lstUser.get(i).getNom() + lstUser.get(i).getPrenom());
 							ligne = ligne.replace("></", ">" + lstUser.get(i).getNom() + " " + lstUser.get(i).getPrenom() + "  -  Identifiant : " + lstUser.get(i).getIdentifiant() + " / Mot de passe : " + lstUser.get(i).getMdp() + "</");
 							response.getWriter().println(ligne);
-
 						}
 					} else if (line.contains("%%existe%%")) {
 						if (existe == true) {
@@ -118,16 +112,12 @@ public class Servletlisteutilisateurs extends HttpServlet {
 
 				while (line != null) {
 					if (line.contains("%%value%%")) {
-						if (lstUser.size() == 0) { // a supprimer quand bdd fonctionne
+						for (int i = 0; i < lstUser.size(); i++) {
+							String ligne = "<option value='%%value%%'></option>";
+							ligne = ligne.replace("%%value%%", lstUser.get(i).getNom() + lstUser.get(i).getPrenom());
+							ligne = ligne.replace("></", ">" + lstUser.get(i).getNom() + " " + lstUser.get(i).getPrenom() + "  -  Identifiant : " + lstUser.get(i).getIdentifiant() + " / Mot de passe : " + lstUser.get(i).getMdp() + "</");
+							response.getWriter().println(ligne);
 
-						} else {
-							for (int i = 0; i < lstUser.size(); i++) {
-								String ligne = "<option value='%%value%%'></option>";
-								ligne = ligne.replace("%%value%%", lstUser.get(i).getNom() + lstUser.get(i).getPrenom());
-								ligne = ligne.replace("></", ">" + lstUser.get(i).getNom() + " " + lstUser.get(i).getPrenom() + "  -  Identifiant : " + lstUser.get(i).getIdentifiant() + " / Mot de passe : " + lstUser.get(i).getMdp() + "</");
-								response.getWriter().println(ligne);
-
-							}
 						}
 					}
 					response.getWriter().println(line);
@@ -146,9 +136,11 @@ public class Servletlisteutilisateurs extends HttpServlet {
 				int indice = -1;
 
 				for (int i = 0; i < lstUser.size(); i++) {
-					if (lstUser.get(i).getPrenom().contains(prenomB) && lstUser.get(i).getNom().contains(nomB)) {
+
+					if (lstUser.get(i).getIdentifiant().equals(prenomB.substring(0, 1) + "." + nomB.toLowerCase())) {
 						lstUser.get(i).setBloque(true);
 						lstUser.get(i).setRaisonBlocage(commentaire);
+						lstUser.get(i).modifPersonne();
 						indice = 1;
 						break;
 					}
@@ -166,7 +158,7 @@ public class Servletlisteutilisateurs extends HttpServlet {
 					if (line.contains("%%value%%")) {
 						for (int i = 0; i < lstUser.size(); i++) {
 							String ligne = "";
-							if (lstUser.get(i).getPrenom().contains(prenomB) && lstUser.get(i).getNom().contains(nomB)) {
+							if (lstUser.get(i).getIdentifiant().equals(prenomB.substring(0, 1) + "." + nomB.toLowerCase())) {
 								ligne = "<option style=\"color:red;\" value='%%value%%'></option>";
 								ligne = ligne.replace("%%value%%", lstUser.get(i).getNom() + lstUser.get(i).getPrenom());
 								ligne = ligne.replace("></", ">" + lstUser.get(i).getNom() + " " + lstUser.get(i).getPrenom() + " " + "  -  Identifiant : " + lstUser.get(i).getIdentifiant() + " / Mot de passe : " + lstUser.get(i).getMdp() + " / BLOQUE :" + lstUser.get(i).getRaisonBlocage() + "</");
@@ -201,9 +193,6 @@ public class Servletlisteutilisateurs extends HttpServlet {
 
 				while (line != null) {
 					if (line.contains("%%value%%")) {
-						if (lstUser.size() == 0) {
-
-						} else {
 							for (int i = 0; i < lstUser.size(); i++) {
 								String ligne = "<option value='%%value%%'></option>";
 								ligne = ligne.replace("%%value%%", lstUser.get(i).getNom() + lstUser.get(i).getPrenom());
@@ -211,7 +200,6 @@ public class Servletlisteutilisateurs extends HttpServlet {
 								response.getWriter().println(ligne);
 
 							}
-						}
 					}
 					response.getWriter().println(line);
 					line = bIn.readLine();
@@ -228,18 +216,15 @@ public class Servletlisteutilisateurs extends HttpServlet {
 
 			while (line != null) {
 				if (line.contains("%%value%%")) {
-					if (lstUser.size() == 0) {
+					for (int i = 0; i < lstUser.size(); i++) {
+						String ligne = "<option value='%%value%%'></option>";
+						ligne = ligne.replace("%%value%%", lstUser.get(i).getNom() + lstUser.get(i).getPrenom());
+						ligne = ligne.replace("></", ">" + lstUser.get(i).getNom() + " " + lstUser.get(i).getPrenom() + "  -  Identifiant : " + lstUser.get(i).getIdentifiant() + " / Mot de passe : " + lstUser.get(i).getMdp() + "</");
+						response.getWriter().println(ligne);
 
-					} else {
-						for (int i = 0; i < lstUser.size(); i++) {
-							String ligne = "<option value='%%value%%'></option>";
-							ligne = ligne.replace("%%value%%", lstUser.get(i).getNom() + lstUser.get(i).getPrenom());
-							ligne = ligne.replace("></", ">" + lstUser.get(i).getNom() + " " + lstUser.get(i).getPrenom() + "  -  Identifiant : " + lstUser.get(i).getIdentifiant() + " / Mot de passe : " + lstUser.get(i).getMdp() + "</");
-							response.getWriter().println(ligne);
-
-						}
 					}
 				}
+
 				response.getWriter().println(line);
 				line = bIn.readLine();
 

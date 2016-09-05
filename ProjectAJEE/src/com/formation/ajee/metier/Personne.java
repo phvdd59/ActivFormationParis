@@ -57,11 +57,12 @@ public class Personne implements Serializable {
 	public Personne() {
 	}
 
-	public Personne(String Nom, String identifiant, String mdp) {
+	public Personne(String nom, String prenom, String identifiant, String mdp) {
 
 		this.identifiant = identifiant;
 		this.mdp = mdp;
-		this.nom = Nom;
+		this.nom = nom;
+		this.prenom = prenom;
 	}
 
 	public Personne(String nom, String prenom) {
@@ -73,7 +74,7 @@ public class Personne implements Serializable {
 		this.dateNaissance = new Date(2016 - 9 - 02);
 		this.dateCreation = new Date(2016 - 9 - 02);
 		DaoPersonne daoP = new DaoPersonne();
-		daoP.insertTable(this);
+		daoP.insertPersonne(this);
 	}
 
 	public Personne(int idPersonne, String nom, String prenom, SEXE sexe, String identifiant, String mdp, String email, String adresse, String cp, String ville, String telFixe, String telPort, String fax, Date dateNaissance, String lieuNaissance, String numSecu, String nationalite,
@@ -116,7 +117,12 @@ public class Personne implements Serializable {
 		this.raisonBlocage = raisonBlocage;
 		this.listeDoc = listeDoc;
 		DaoPersonne daoP = new DaoPersonne();
-		daoP.insertTable(this);
+		daoP.insertPersonne(this);
+	}
+	
+	public void modifPersonne(){
+		DaoPersonne daoP = new DaoPersonne();
+		daoP.updatePersonne(this);
 	}
 
 	public String epuration(String texte) {
@@ -155,6 +161,7 @@ public class Personne implements Serializable {
 		}
 		return mdp;
 	}
+	
 
 	public int getIdPersonne() {
 		return idPersonne;

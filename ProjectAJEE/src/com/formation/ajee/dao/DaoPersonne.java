@@ -18,7 +18,7 @@ public class DaoPersonne {
 	public ArrayList<Personne> listPersonne;
 	public Personne personne;
 
-	public void insertTable(Personne personne) {
+	public void insertPersonne(Personne personne) {
 		Connection connexion = null;
 		Statement statement = null;
 		try {
@@ -48,27 +48,29 @@ public class DaoPersonne {
 		}
 	}
 
-	public void updateTable() {
+	public void updatePersonne(Personne personne) {
 		Connection conn = null;
 		Statement stat = null;
 		try {
 			Class.forName(JDBC_DRIVER);
 			conn = DriverManager.getConnection(DB_URL, user, pass);
 			stat = conn.createStatement();
-			String sql = "update personne " + "set nom = " + personne.getNom() + " " + "where idPersonne = " + personne.getIdPersonne() + "','" + "set prenom = " + personne.getPrenom() + " " + "where idPersonne = " + personne.getIdPersonne() + "','" + "set sexe = " + personne.getSexe() + " "
-					+ "where idPersonne = " + personne.getIdPersonne() + "','" + "set identifiant = " + personne.getIdentifiant() + " " + "where idPersonne = " + personne.getIdPersonne() + "','" + "set mdp = " + personne.getMdp() + " " + "where idPersonne = " + personne.getIdPersonne() + "','"
-					+ "set email = " + personne.getEmail() + " " + "where idPersonne = " + personne.getIdPersonne() + "','" + "set adresse = " + personne.getAdresse() + " " + "where idPersonne = " + personne.getIdPersonne() + "','" + "set cp = " + personne.getCp() + " " + "where idPersonne = "
-					+ personne.getIdPersonne() + "','" + "set ville = " + personne.getVille() + " " + "where idPersonne = " + personne.getIdPersonne() + "','" + "set telFixe = " + personne.getTelFixe() + " " + "where idPersonne = " + personne.getIdPersonne() + "','" + "set telPort = "
-					+ personne.getTelPort() + " " + "where idPersonne = " + personne.getIdPersonne() + "','" + "set fax = " + personne.getFax() + " " + "where idPersonne = " + personne.getIdPersonne() + "','" + "set dateNaissance = " + personne.getDateNaissance() + " " + "where idPersonne = "
-					+ personne.getIdPersonne() + "','" + "set lieuNaissance = " + personne.getLieuNaissance() + " " + "where idPersonne = " + personne.getIdPersonne() + "','" + "set numSecu = " + personne.getNumSecu() + " " + "where idPersonne = " + personne.getIdPersonne() + "','"
-					+ "set nationalité = " + personne.getNationalite() + " " + "where idPersonne = " + personne.getIdPersonne() + "','" + "set situation = " + personne.getSituation() + " " + "where idPersonne = " + personne.getIdPersonne() + "','" + "set fonction = " + personne.getFonction() + " "
-					+ "where idPersonne = " + personne.getIdPersonne() + "','" + "set position = " + personne.getPositionEntreprise() + " " + "where idPersonne = " + personne.getIdPersonne() + "','" + "set cadre = " + personne.isCadre() + " " + "where idPersonne = " + personne.getIdPersonne() + "','"
-					+ "set coeff = " + personne.getCoeff() + " " + "where idPersonne = " + personne.getIdPersonne() + "','" + "set salaire = " + personne.getSalaire() + " " + "where idPersonne = " + personne.getIdPersonne() + "','" + "set visiteMedicale = " + personne.getVisiteMedicale() + " "
-					+ "where idPersonne = " + personne.getIdPersonne() + "','" + "set montantTransport = " + personne.getMontantTransport() + " " + "where idPersonne = " + personne.getIdPersonne() + "','" + "set voiture = " + personne.isVoiture() + " " + "where idPersonne = "
-					+ personne.getIdPersonne() + "','" + "set nbCV = " + personne.getNbCV() + " " + "where idPersonne = " + personne.getIdPersonne() + "','" + "set nbKm = " + personne.getNbKm() + " " + "where idPersonne = " + personne.getIdPersonne() + "','" + "set mutuelle = " + personne.isMutuelle()
-					+ " " + "where idPersonne = " + personne.getIdPersonne() + "','" + "set ticketResto = " + personne.isTicketResto() + " " + "where idPersonne = " + personne.getIdPersonne() + "','" + "set dateModification = " + personne.getDateModification() + " " + "where idPersonne = "
-					+ personne.getIdPersonne() + "','" + "set bloque = " + personne.isBloque() + " " + "where idPersonne = " + personne.getIdPersonne() + "','" + "set raisonBlocage = " + personne.getRaisonBlocage() + " " + "where idPersonne = " + personne.getIdPersonne() + "','" + "set listeDoc = "
-					+ personne.getListeDoc() + " " + "where idPersonne = " + personne.getIdPersonne() + ";";
+			String sql = "update personne " + "set nom = '" + personne.getNom() + "' " + "where idPersonne = '" + personne.getIdPersonne() + "','" + "set prenom = '" + personne.getPrenom() + "' " + "where idPersonne = '" + personne.getIdPersonne() + "','" + "set sexe = '" + personne.getSexe() + "' "
+					+ "where idPersonne = '" + personne.getIdPersonne() + "','" + "set identifiant = '" + personne.getIdentifiant() + "' " + "where idPersonne = '" + personne.getIdPersonne() + "','" + "set mdp = '" + personne.getMdp() + "' " + "where idPersonne = '" + personne.getIdPersonne() + "','"
+					+ "set email = '" + personne.getEmail() + "' " + "where idPersonne = '" + personne.getIdPersonne() + "','" + "set adresse = '" + personne.getAdresse() + "' " + "where idPersonne = '" + personne.getIdPersonne() + "','" + "set cp = '" + personne.getCp() + "' " + "where idPersonne = '"
+					+ personne.getIdPersonne() + "','" + "set ville = '" + personne.getVille() + "' " + "where idPersonne = '" + personne.getIdPersonne() + "','" + "set telFixe = '" + personne.getTelFixe() + "' " + "where idPersonne = '" + personne.getIdPersonne() + "','" + "set telPort = '"
+					+ personne.getTelPort() + "' " + "where idPersonne = '" + personne.getIdPersonne() + "','" + "set fax = '" + personne.getFax() + "' " + "where idPersonne = '" + personne.getIdPersonne() + "','" + "set dateNaissance = 'curdate()'" //+ personne.getDateNaissance() 
+					+ " " + "where idPersonne = '" + personne.getIdPersonne() + "','" + "set lieuNaissance = '" + personne.getLieuNaissance() + "' " + "where idPersonne = '" + personne.getIdPersonne() + "','" + "set numSecu = '" + personne.getNumSecu() + "' " + "where idPersonne = '" + personne.getIdPersonne() + "','"
+					+ "set nationalité = '" + personne.getNationalite() + "' " + "where idPersonne = '" + personne.getIdPersonne() + "','" + "set situation = 'null' " //+ personne.getSituation() 
+					+ " " + "where idPersonne = '" + personne.getIdPersonne() + "','" + "set fonction = '" + personne.getFonction() + "' "
+					+ "where idPersonne = '" + personne.getIdPersonne() + "','" + "set position = '" + personne.getPositionEntreprise() + "' " + "where idPersonne = '" + personne.getIdPersonne() + "','" + "set cadre = '" + personne.isCadre() + " " + "where idPersonne = '" + personne.getIdPersonne() + "','"
+					+ "set coeff = '" + personne.getCoeff() + "' " + "where idPersonne = '" + personne.getIdPersonne() + "','" + "set salaire = '" + personne.getSalaire() + "' " + "where idPersonne = '" + personne.getIdPersonne() + "','" + "set visiteMedicale = 'curdate()'" //+ personne.getVisiteMedicale() 
+					+ " " + "where idPersonne = '" + personne.getIdPersonne() + "','" + "set montantTransport = '" + personne.getMontantTransport() + "' " + "where idPersonne = '" + personne.getIdPersonne() + "','" + "set voiture = '" + personne.isVoiture() + "' " + "where idPersonne = '"
+					+ personne.getIdPersonne() + "','" + "set nbCV = '" + personne.getNbCV() + "' " + "where idPersonne = '" + personne.getIdPersonne() + "','" + "set nbKm = '" + personne.getNbKm() + "' " + "where idPersonne = '" + personne.getIdPersonne() + "','" + "set mutuelle = '" + personne.isMutuelle()
+					+ "' " + "where idPersonne = '" + personne.getIdPersonne() + "','" + "set ticketResto = '" + personne.isTicketResto() + "' " + "where idPersonne = '" + personne.getIdPersonne() + "','" + "set dateModification = 'curdate()' " + //personne.getDateModification() + 
+					" " + "where idPersonne = '"
+					+ personne.getIdPersonne() + "','" + "set bloque = '" + personne.isBloque() + "' " + "where idPersonne = '" + personne.getIdPersonne() + "','" + "set raisonBlocage = '" + personne.getRaisonBlocage() + "' " + "where idPersonne = '" + personne.getIdPersonne() + "','" + "set listeDoc = '"
+					+ personne.getListeDoc() + "' " + "where idPersonne = '" + personne.getIdPersonne() + "';";
 
 			stat.executeUpdate(sql);
 			System.out.println("Update terminer");
@@ -79,7 +81,7 @@ public class DaoPersonne {
 		}
 	}
 
-	public void deleteTable() {
+	public void deletePersonne(Personne personne) {
 		Connection conn = null;
 		Statement stat = null;
 		try {
@@ -113,10 +115,11 @@ public ArrayList<Personne> lectureTable() {
 		ResultSet resultat = stat.executeQuery(sql);
 		while (resultat.next()) {
 			String sNom = resultat.getString("nom");
+			String sPrenom  = resultat.getString("prenom");
 			String sIdentifiant = resultat.getString("identifiant");
 			String sMdp = resultat.getString("mdp");
 			System.out.println(sIdentifiant + " " + sNom+ " " + sMdp);
-			Personne pers=new Personne(sNom,sIdentifiant,sMdp);
+			Personne pers=new Personne(sNom,sPrenom,sIdentifiant,sMdp);
 			retour.add(pers);
 		}
 		;
