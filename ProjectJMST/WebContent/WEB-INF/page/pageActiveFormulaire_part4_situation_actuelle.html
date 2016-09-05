@@ -5,20 +5,7 @@
 <title>Formulaire</title>
 <link href="http://www.activconsult-ing.com/Home.css" rel="stylesheet"
 	type="text/css">
-<script type="text/javascript">
-function ctrSituationPro() {
-	var situationPro=document.getElementByName("situationPro");
-	alert(situationPro);
-	for (var i=0;situationPro.length;i++)){
-		if(!situationPro[i].checked){
-			getElementById("spanSituationPro").innerHTML="Veuillez choisir un champs.";
-			alert("ça marche pas)");
-		}
-	}
-	alert("ça marche");
-}
 
-</script>
 </head>
 <body>
 	<div id="background">
@@ -91,61 +78,59 @@ function ctrSituationPro() {
 		<div id="tlogo">CENTRE DE FORMATION</div>
 		<div id="info2">
 			<!-- zone disponible -->
-			
-<!-- 			<form= action:"http://www.souadkad.fr/soka/identification.html"></form> -->
-            <form action="http://localhost:8080/ProjectJMST/ServletSoka4" method='post'>
-			<table border="1">
 
-				<tr>
-					<th colspan="4">Situation Actuelle</th>
+			<!-- 			<form= action:"http://www.souadkad.fr/soka/identification.html"></form> -->
+			<form action="http://localhost:8080/ProjectJMST/ServletSoka4"
+				method='post' onsubmit="return ctrAll()">
+				<table border="1">
 
-				</tr>
-				<tr>
-					<td>Salarié</td>
-					<td style="width: 273px; height: 25px; color:;"><input
-						type="radio" name="situationPro" value="Salarie"></td>
-					<td style="width: 72px;">Auto-Entrepreneur</td>
-					<td style="width: 112px; height: 25px; color:;"><input
-						type="radio" name="situationPro" value="auto entrepreneur"></td>
-				</tr>
-				<tr>
-					<td>Freelance</td>
-					<td style="width: 273px; height: 25px; color:;"><input
-						type="radio" name="situationPro" value="freelance"></td>
-					<td style="width: 72px;">Demandeur d'emploi</td>
-					<td style="width: 112px; height: 25px; color:;"><input
-						type="radio" name="situationPro" value="demandeur d'emploi"></td>
-				</tr>
-				<tr>
-					<td>Retraité</td>
-					<td style="width: 273px; height: 25px; color:;"><input
-						type="radio" name="situationPro" value="retraite"></td>
-					<td style="width: 72px;">Autre</td>
-					<td style="width: 112px; height: 25px; color:;"><input
-						type="radio" name="situationPro" value="" checked="checked">
-						<input type="texte" name="situation"></td>
-				</tr>
-				
-			</table>
-			
-				<input type="submit" value="Suivant" ></input>
-                <input type="hidden" name="noSerie" value="%%noSerie%%">
-				</form>
-			<form action="http://localhost:8080/ProjectJMST/ServletSoka2" method='post'>
-				<input type="submit" value="Precedent" ></input>
-                <input type="hidden" name="noSerie" value="%%noSerie%%">
-            </form>
-			<form action="http://localhost:8080/ProjectJMST/ServletDeco" method='get'>
-				<input type="submit" value="Deconnexion" ></input>
-                <input type="hidden" name="noSerie" value="%%noSerie%%">
-				</form>
-				<form>
-				<input type="button" value="check" onclick="ctrSituationPro()"></input>
-               
-				</form>
-				
-				<span style="text-align: center;" id="spanSituationPro"></span>
-				
+					<tr>
+						<th colspan="4">Situation Actuelle</th>
+
+					</tr>
+					<tr>
+						<td>Salarié</td>
+						<td style="width: 273px; height: 25px; color:;"><input
+							type="radio" name="situationPro" value="Salarie"></td>
+						<td style="width: 72px;">Auto-Entrepreneur</td>
+						<td style="width: 112px; height: 25px; color:;"><input
+							type="radio" name="situationPro" value="auto entrepreneur"></td>
+					</tr>
+					<tr>
+						<td>Freelance</td>
+						<td style="width: 273px; height: 25px; color:;"><input
+							type="radio" name="situationPro" value="freelance"></td>
+						<td style="width: 72px;">Demandeur d'emploi</td>
+						<td style="width: 112px; height: 25px; color:;"><input
+							type="radio" name="situationPro" value="demandeur d'emploi"></td>
+					</tr>
+					<tr>
+						<td>Retraité</td>
+						<td style="width: 273px; height: 25px; color:;"><input
+							type="radio" name="situationPro" value="retraite"></td>
+						<td style="width: 72px;">Autre</td>
+						<td style="width: 112px; height: 25px; color:;"><input
+							type="radio" name="situationPro" value="" checked="checked">
+							<input id="autre" type="text" name="situation"
+							onblur="ctrAutre()"><span id="spanAutre"></span></td>
+					</tr>
+
+				</table>
+
+				<input type="submit" value="Suivant"></input> <input type="hidden"
+					name="noSerie" value="%%noSerie%%">
+			</form>
+			<form action="http://localhost:8080/ProjectJMST/ServletSoka2"
+				method='post'>
+				<input type="submit" value="Precedent"></input> <input
+					type="hidden" name="noSerie" value="%%noSerie%%">
+			</form>
+			<form action="http://localhost:8080/ProjectJMST/ServletDeco"
+				method='get'>
+				<input type="submit" value="Deconnexion"></input> <input
+					type="hidden" name="noSerie" value="%%noSerie%%">
+			</form>
+
 		</div>
 		<div id="fpage2">
 			<img
@@ -162,5 +147,40 @@ function ctrSituationPro() {
 			<div id="droit2">©1997-2012 - Tous droits de reproduction et de
 				représentation réservés | Mentions légales</div>
 		</div>
+	</div>
+	<script type="text/javascript">
+		function ctrAll() {
+			var autreOk = ctrAutre();
+
+			if (autreOk) {
+				return true;
+			} else {
+				alert("Veuillez remplir les champs obligatoires");
+				return false;
+			}
+
+		}
+
+		function ctrAutre() {
+			var autre = document.getElementById("autre");
+			var pattAutre = new RegExp("^([a-zA-Z\-\'\\s]+)$");
+			var spanAutre = document.getElementById("spanAutre");
+			if (autre.value == "") {
+				return true;
+			}
+			if (pattAutre.test(autre.value) == false) {
+				//spanNom.className = "messageErreur";
+				spanAutre.innerHTML = "Veuillez verifier les caractères utilisés('- acceptés)";
+				autre.style.border = "1px solid #f00";
+				autre.style.backgroundColor = "#fba";
+				return false;
+			} else {
+				autre.style.border = "inherit";
+				autre.style.backgroundColor = "#66ff99";
+				spanAutre.innerHTML = " OK";
+				return true;
+			}
+		}
+	</script>
 </body>
 </html>

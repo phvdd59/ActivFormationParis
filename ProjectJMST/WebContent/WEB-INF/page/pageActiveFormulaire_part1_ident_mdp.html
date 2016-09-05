@@ -95,17 +95,21 @@
 					<tr>
 						<th colspan="4" style="width: 627px;">Identifiant</th>
 						<th style="width: 273px; height: 25px; color:;"><input
-							type="text" name="identifiant" value='' style="width: 270px;"></th>
+							id="identifiant" type="text" name="identifiant" value=''
+							style="width: 270px;" onblur="verif_ident()"><span
+							id="erreur2"></span></th>
 					</tr>
 					<tr>
 						<th colspan="4" style="width: 627px;">Mot de passe</th>
 						<th style="width: 273px; height: 25px; color:;"><input
-							type="password" name="mdp1" value='' style="width: 270px;"></th>
+							type="password" name="mdp1" value='' style="width: 270px;"
+							onblur="verif_mdp(this)"><span id="erreur"></span></th>
 					</tr>
 					<tr>
 						<th colspan="4" style="width: 627px;">Mot de passe</th>
 						<th style="width: 273px; height: 25px; color:;"><input
-							type="password" name="mdp2" value='' style="width: 270px;"></th>
+							type="password" name="mdp2" value='' style="width: 270px;"
+							onblur="verif_mdp2(this)"><span id="erreur3"></span></th>
 					</tr>
 				</table>
 
@@ -134,5 +138,64 @@
 			<div id="droit2">©1997-2012 - Tous droits de reproduction et de
 				représentation réservés | Mentions légales</div>
 		</div>
+		<script>
+			function verif_ident() {
+				var ident = document.getElementById("identifiant");
+				if (ident.value.length == 0 || ident.value.length > 16) {
+					document.getElementById('erreur2').innerHTML = ' saisir un texte entre 1 et 15 caracteres';
+					ident.style.border = "1px solid #f00";
+					ident.style.backgroundColor = "#fba";
+					return false;
+				} else {
+					document.getElementById('erreur2').innerHTML = ' OK';
+					ident.style.border = "inherit";
+					ident.style.backgroundColor = "#66ff99";
+					return true
+				}
+			}
+
+			function verif_mdp(champ) {
+
+				if (champ.value.length == 0 || champ.value.length > 16) {
+					document.getElementById('erreur').innerHTML = ' saisir un texte entre 1 et 15 caracteres';
+					champ.style.border = "1px solid #f00";
+					champ.style.backgroundColor = "#fba";
+					return false;
+				} else {
+					document.getElementById('erreur').innerHTML = ' OK';
+					champ.style.border = "inherit";
+					champ.style.backgroundColor = "#66ff99";
+					return true
+				}
+			}
+
+			function verif_mdp2(champ) {
+
+				if (champ.value.length == 0 || champ.value.length > 16) {
+					document.getElementById('erreur3').innerHTML = ' saisir un texte entre 1 et 15 caracteres';
+					champ.style.border = "1px solid #f00";
+					champ.style.backgroundColor = "#fba";
+					return false;
+				} else {
+					document.getElementById('erreur3').innerHTML = ' OK';
+					champ.style.border = "inherit";
+					champ.style.backgroundColor = "#66ff99";
+					return true
+				}
+			}
+
+			function verifForm(f) {
+				var identOk = verif_ident(f.identifiant);
+				var mdpOk = verif_mdp(f.mdp1);
+				var mdp2Ok = verif_mdp2(f.mdp2);
+
+				if (identOk && mdpOk)
+					return true;
+				else {
+					alert("Veuillez remplir correctement tous les champs");
+					return false;
+				}
+			}
+		</script>
 </body>
 </html>

@@ -392,7 +392,7 @@
 			var mail = document.getElementById("mail");
 			var no = mail.value.length;
 			var pattMail = new RegExp(
-					"^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$");
+					"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$");
 			var spanMail = document.getElementById("spanMail");
 			if (pattMail.test(mail.value) == false) {
 				//spanMail.className = "messageErreur";
