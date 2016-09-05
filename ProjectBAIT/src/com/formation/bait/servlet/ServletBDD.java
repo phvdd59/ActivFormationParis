@@ -50,10 +50,8 @@ public class ServletBDD extends HttpServlet {
 		if (oNoSuivi != null) {
 			String origine = (String) session.getAttribute("servlet");
 			if (origine == "login") {
-				session.setAttribute("idPersonne", "28");
 				personne = bddPersonne.getPersonne(session.getAttribute("idPersonne").toString());
 				session.setAttribute("Personne", personne);
-
 			} else if (origine == "situation") {
 				 personne = (Personne) session.getAttribute("Personne");
 			//	personne = bddPersonne.getPersonne("28");

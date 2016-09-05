@@ -150,13 +150,15 @@ public class ServletPageLogin3 extends HttpServlet {
 			String MdpPersonne = request.getParameter("mdp");
 
 			AccesBDDPersonne acces = new AccesBDDPersonne();
-			String test2 =acces.findPersonne(IdPersonne)[0];
-			if (acces.findPersonne(IdPersonne)[0] != null) {
+			String[] test2 =acces.findPersonne(IdPersonne);
+			if (test2[0] != null) {
 				// la personne existe
-				String test=acces.findPersonne(IdPersonne)[1];
-				if (acces.findPersonne(IdPersonne)[1] == MdpPersonne) {
+				if (test2[1].equals(MdpPersonne)) {
 					// mot de passe correct
 					session.setAttribute("personne", acces.getPersonne(IdPersonne));
+					session.setAttribute("idPersonne", test2[0]);
+					RequestDispatcher rd = request.getRequestDispatcher("//ServletBDD");
+					rd.forward(request, response);
 				}else{
 					//mot de passe incorrect
 					String echecID = "true";
