@@ -35,17 +35,9 @@ public class ServletSoka4 extends HttpServlet {
 	 *      response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-
+		
 		String noSerieHtml = request.getParameter("noSerie");
 		String noSerie = (String) session.getAttribute("noSerie");
 
@@ -65,32 +57,59 @@ public class ServletSoka4 extends HttpServlet {
 		 * CONTROLE ET CONVERSION
 		 */
 		CtrlPersonne ctrl = new CtrlPersonne();
-		//if (ctrl.ctrlSituation(situationPro)){
-		//if(.....){
+		if (ctrl.ctrlSituation(sSituationPro)){
 		perso.setSituation(sSituationPro);
-		//} else {
 		//perso.setSituation(sSituation);
-		//}
-		//}
 
-		File file = new File("C:/DevFormation/GITActivFormationParis/" + //
-				"ProjectJMST/WebContent/WEB-INF/" + //
-				"page/pageActiveFormulaire_part5_fonction_remuneration.html");
-		BufferedReader bIn = null;
-		bIn = new BufferedReader(new FileReader(file));
+			File file = new File("C:/DevFormation/GITActivFormationParis/" + //
+					"ProjectJMST/WebContent/WEB-INF/" + //
+					"page/pageActiveFormulaire_part5_fonction_remuneration.html");
+			BufferedReader bIn = null;
+			bIn = new BufferedReader(new FileReader(file));
 
-		if (noSerieHtml.equals(noSerie)) {
-			noSerie = "24_" + noSerie;
-			session.setAttribute("noSerie", noSerie);
-			String line = bIn.readLine();
-			while (line != null) {
-				if (line.contains("%%noSerie%%")) {
-					line = line.replace("%%noSerie%%", noSerie);
+			if (noSerieHtml.equals(noSerie)) {
+				noSerie = "24_" + noSerie;
+				session.setAttribute("noSerie", noSerie);
+				String line = bIn.readLine();
+				while (line != null) {
+					if (line.contains("%%noSerie%%")) {
+						line = line.replace("%%noSerie%%", noSerie);
+					}
+					response.getWriter().println(line);
+					line = bIn.readLine();
 				}
-				response.getWriter().println(line);
-				line = bIn.readLine();
+				bIn.close();
 			}
-			bIn.close();
+		} else {
+			File file = new File("C:/DevFormation/GITActivFormationParis/" + //
+					"ProjectJMST/WebContent/WEB-INF/" + //
+					"page/pageActiveFormulaire_part4_situation_actuelle.html");
+			BufferedReader bIn = null;
+			bIn = new BufferedReader(new FileReader(file));
+
+			if (noSerieHtml.equals(noSerie)) {
+				noSerie = "24_" + noSerie;
+				session.setAttribute("noSerie", noSerie);
+				String line = bIn.readLine();
+				while (line != null) {
+					if (line.contains("%%noSerie%%")) {
+						line = line.replace("%%noSerie%%", noSerie);
+					}
+					response.getWriter().println(line);
+					line = bIn.readLine();
+				}
+				bIn.close();
+			}
 		}
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
+
+		
 	}
 }

@@ -36,16 +36,8 @@ public class ServletSoka2 extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		
+
 		String noSerieHtml = request.getParameter("noSerie");
 		String noSerie = (String) session.getAttribute("noSerie");
 
@@ -71,41 +63,69 @@ public class ServletSoka2 extends HttpServlet {
 		 * CONTROLE ET CONVERSION
 		 */
 		CtrlPersonne ctrl = new CtrlPersonne();
-		//		if (ctrl.ctrlNom(sNom) && ctrl.ctrlPrenom(sPrenom) && ctrl.ctrlAdresse(sAdresse) && ctrl.ctrlTelFixe(sTelFixe) && ctrl.ctrlTelPort(sTelPort)
-		//				&& ctrl.ctrlCp(sCp) && ctrl.ctrlVille(sVille) && ctrl.ctrlFax(sFax) && ctrl.ctrlEmail(sEmail)) {
-		perso.setNom(sNom);
-		perso.setPrenom(sPrenom);
-		perso.setAdresse(sAdresse);
-		perso.setTelFixe(sTelFixe);
-		perso.setTelPort(sTelPort);
-		perso.setFax(sFax);
-		perso.setCp(sCp);
-		perso.setVille(sVille);
-		perso.setEmail(sEmail);
-		//		}
-		
-		File file = new File("C:/DevFormation/" + //
-				"GITActivFormationParis/ProjectJMST/" + //
-				"WebContent/WEB-INF/" + //
-				"page/pageActiveFormulaire_part3_etat_civil.html");
-		BufferedReader bIn = null;
-		bIn = new BufferedReader(new FileReader(file));
+		if (ctrl.ctrlNom(sNom) && ctrl.ctrlPrenom(sPrenom) && ctrl.ctrlAdresse(sAdresse) && ctrl.ctrlTelFixe(sTelFixe) && ctrl.ctrlTelPort(sTelPort)
+				&& ctrl.ctrlCp(sCp) && ctrl.ctrlVille(sVille) && ctrl.ctrlFax(sFax) && ctrl.ctrlEmail(sEmail)) {
+			perso.setNom(sNom);
+			perso.setPrenom(sPrenom);
+			perso.setAdresse(sAdresse);
+			perso.setTelFixe(sTelFixe);
+			perso.setTelPort(sTelPort);
+			perso.setFax(sFax);
+			perso.setCp(sCp);
+			perso.setVille(sVille);
+			perso.setEmail(sEmail);
 
-		if (noSerieHtml.equals(noSerie)) {
-			noSerie = "22_" + noSerie;
-			session.setAttribute("noSerie", noSerie);
-			String line = bIn.readLine();
-			while (line != null) {
-				if (line.contains("%%noSerie%%")) {
-					line = line.replace("%%noSerie%%", noSerie);
+			File file = new File("C:/DevFormation/" + //
+					"GITActivFormationParis/ProjectJMST/" + //
+					"WebContent/WEB-INF/" + //
+					"page/pageActiveFormulaire_part3_etat_civil.html");
+			BufferedReader bIn = null;
+			bIn = new BufferedReader(new FileReader(file));
+
+			if (noSerieHtml.equals(noSerie)) {
+				noSerie = "22_" + noSerie;
+				session.setAttribute("noSerie", noSerie);
+				String line = bIn.readLine();
+				while (line != null) {
+					if (line.contains("%%noSerie%%")) {
+						line = line.replace("%%noSerie%%", noSerie);
+					}
+					response.getWriter().println(line);
+					line = bIn.readLine();
 				}
-				response.getWriter().println(line);
-				line = bIn.readLine();
+				bIn.close();
 			}
-			bIn.close();
+		} else {
+			File file = new File("C:/DevFormation/" + //
+					"GITActivFormationParis/ProjectJMST/" + //
+					"WebContent/WEB-INF/" + //
+					"page/pageActiveFormulaire_part2_coordonnees_personnelles.html");
+			BufferedReader bIn = null;
+			bIn = new BufferedReader(new FileReader(file));
+			if (noSerieHtml.equals(noSerie)) {
+				noSerie = "22_" + noSerie;
+				session.setAttribute("noSerie", noSerie);
+				String line = bIn.readLine();
+				while (line != null) {
+					if (line.contains("%%noSerie%%")) {
+						line = line.replace("%%noSerie%%", noSerie);
+					}
+					response.getWriter().println(line);
+					line = bIn.readLine();
+				}
+				bIn.close();
+			}
 		}
-		
+
 		//controle + set Personne
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
 	}
 
 }
