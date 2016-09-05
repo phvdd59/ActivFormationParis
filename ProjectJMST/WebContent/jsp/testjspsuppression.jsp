@@ -10,9 +10,25 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
 <title>Insert title here</title>
 </head>
 <body>
+
+	<script type="text/javascript">
+		function afficher() {
+			var select=document.getElementById("idSelect");
+			alert("je suis la");
+			var string=select.value;
+			alert(select.value);
+			var span=document.getElementById("spanNom");
+			alert("le span est" +span.innerHTML);
+			var xx=document.getElementById("spanNom");
+			alert("après le span");
+			xx.innerHTML=select.value;
+			alert("fin");
+		}
+	</script>
 	<%
 		session = request.getSession();
 		String noSerie = (String) session.getAttribute("noSerie");
@@ -23,65 +39,72 @@
 		listePersonne = dao.read();
 		if (true) { //(noSerie.equals(noSerieHtml)){ ne marche pas pour l'instant a voir donc(made)
 	%>
-
-
+	
 	<p>Utilisateur</p>
-	<form action="">
-		<select>
+	<form action="servletblocage">
+		<select id="idSelect" name="personneBloquee">
 			<%
 				for (Personne perso : listePersonne) {
 			%>
-			<option><%=perso.getNom()%></option>
+			<option name="optionNom"><%=perso.getIdentifiant()%></option>
+
+			<p id="test">test</p>
+			<p id="pNom" hidden><%=perso.getNom()%>bonjour
+			</p>
+			<p><%=perso.getPrenom()%></p>
 			<%
 				}
 			%>
 		</select>
-	</form>
-	
-	<form action="servletblocage">
-	<input type="button" value="bloquer l'utilisateur">
-	</form>
 
-	<p>Motif</p>
-	<form>
-		<input id="inputMotif" type="text">
+
+
+
+		<p>Vous avez selectionnez la personne suivante:</p>
+<span id="spanNom">allo</span>
+	<input type="button" onclick="afficher()">
+	<input type="text" value=" " readonly="readonly">
+		<input type="submit" value=" bloquer personne" >
+	
+	
+		<input id="inputMotif" type="text" name="raisonBlocage">
 		<%
 			Personne personneBloquee = new Personne();
 				// personneBloquee.setRaisonBlocage(document.getElementById(inputMotif));
 		%>
-	</form>
 
-	<table>
-		<th colspan="5">Historiques des utilisateurs bloques </th>
+</form>
+		<table>
+			<th colspan="5">Historiques des utilisateurs bloques</th>
 
-		<tr>
-			<td>Nom</td>
-			<td>Prenom</td>
-			<td>Date d'inscription</td>
-			<td>Date de blocage</td>
-			<td>Motif</td>
-		</tr>
-		<%for(Personne perso : listePersonne) {
-			//if(perso.isBloque()){
-		
-		%>
-		<tr>
-			<td><%=perso.getNom()%></td>
-			<td><%=perso.getPrenom()%></td>
-			<td><%=perso.getDateCreation()%></td>
-			<td>Date de blocage</td>
-			<td><%=perso.getRaisonBlocage()%></td>
-		</tr>
+			<tr>
+				<td>Nom</td>
+				<td>Prenom</td>
+				<td>Date d'inscription</td>
+				<td>Date de blocage</td>
+				<td>Motif</td>
+			</tr>
+			<%
+				for (Personne perso : listePersonne) {
+						//if(perso.isBloque()){
+			%>
+			<tr>
+				<td><%=perso.getNom()%></td>
+				<td><%=perso.getPrenom()%></td>
+				<td><%=perso.getDateCreation()%></td>
+				<td>Date de blocage</td>
+				<td><%=perso.getRaisonBlocage()%></td>
+			</tr>
+			<%
+				//}
+					}
+			%>
+		</table>
 		<%
-		//}
-			}%>
-	</table>
-	<%
-		} else {
-			response.sendRedirect("http://localhost:8080/ProjectJMST/ServletJOCA1");
-		}
-	%>
-
-
+			} else {
+				response.sendRedirect("http://localhost:8080/ProjectJMST/ServletJOCA1");
+			}
+		%>
+	
 </body>
 </html>
