@@ -22,6 +22,7 @@ public class AccesBDDPersonne {
 		Connection conn = null;
 		Statement stat = null;
 		boolean result = false;
+		int resultInt =0;
 		try {
 			Class.forName(JDBC_DRIVER);
 			String url = DB_URL + "bait";
@@ -54,7 +55,8 @@ public class AccesBDDPersonne {
 					+ personne.getDateModification() + //
 					"', bloque='" + booleanConverter(personne.isBloque()) + "', raisonBlocage='"
 					+ personne.getRaisonBlocage() + "' WHERE IDPersonne=" + personne.getIdPersonne() + ";";
-			stat.executeUpdate(sql);
+			resultInt = stat.executeUpdate(sql);
+			System.out.println(sql);
 			result = true;
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();

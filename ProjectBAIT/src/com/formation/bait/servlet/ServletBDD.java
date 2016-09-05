@@ -46,6 +46,7 @@ public class ServletBDD extends HttpServlet {
 		String sNbAppelClient = request.getParameter("nbAppelClient");
 		AccesBDDPersonne bddPersonne = new AccesBDDPersonne();
 		Personne personne = new Personne();
+		boolean retour = true;
 		Object oNoSuivi = session.getAttribute("suivi");
 		if (oNoSuivi != null) {
 			String origine = (String) session.getAttribute("servlet");
@@ -70,7 +71,7 @@ public class ServletBDD extends HttpServlet {
 				 else{
 					 personne.setSituation(sAutre);
 				 }
-				bddPersonne.savePersonne(personne);
+				retour = bddPersonne.savePersonne(personne);
 			} else if (origine == "EtatCivil") {
 				 personne = (Personne) session.getAttribute("Personne");
 				String sNom = request.getParameter("nom");
@@ -85,15 +86,14 @@ public class ServletBDD extends HttpServlet {
 				personne.setLieuNaissance(sLieuNaiss);
 				personne.setNationalite(sNati);
 				personne.setNumSecu(sSecu);
-				bddPersonne.savePersonne(personne);
+				retour = bddPersonne.savePersonne(personne);
 			} else if (origine == "Coordonees") {
 				 personne = (Personne) session.getAttribute("Personne");
-				personne = bddPersonne.getPersonne("28");
 				String sAdresse = request.getParameter("adresse");
 				String sCp = request.getParameter("cp");
 				String sVille = request.getParameter("ville");
-				String sTelFixe = request.getParameter("telfixe");
-				String sTelPort = request.getParameter("telport");
+				String sTelFixe = request.getParameter("telFixe");
+				String sTelPort = request.getParameter("telPort");
 				String sFax = request.getParameter("fax");
 				String sEmail = request.getParameter("email");
 				personne.setAdresse(sAdresse);
@@ -103,12 +103,11 @@ public class ServletBDD extends HttpServlet {
 				personne.setTelPort(sTelPort);
 				personne.setFax(sFax);
 				personne.setEmail(sEmail);
-				bddPersonne.savePersonne(personne);
+				retour = bddPersonne.savePersonne(personne);
 
 			} else if (origine == "Remuneration") {
 				 personne = (Personne) session.getAttribute("Personne");
-				personne = bddPersonne.getPersonne("28");
-				String sFonction = request.getParameter("fonction");
+				 String sFonction = request.getParameter("fonction");
 				String sCadre = request.getParameter("cadre");
 				String sPosition = request.getParameter("position");
 				String sCoeff = request.getParameter("Coefficient");
@@ -128,7 +127,10 @@ public class ServletBDD extends HttpServlet {
 				} else{
 					personne.setTicket(false);
 				}
-				bddPersonne.savePersonne(personne);
+				retour = bddPersonne.savePersonne(personne);
+			}
+			if (retour == false){
+				System.out.println("erreur sauvegarde ratée!");
 			}
 			session.setAttribute("servlet", "Compte");
 			session.setAttribute("methode", "POST");

@@ -70,19 +70,24 @@ public class ServletCoordonnees extends HttpServlet {
 				bIn = new BufferedReader(inputStreamReader);
 				String line = bIn.readLine();
 				while (line != null) {
+					line=line.replace("%%nom%%", personne.getNom());
+
+					line=line.replace("%%prenom%%", personne.getPrenom());
+
+					
 						line=line.replace("%%adresse%%", personne.getAdresse());
 					
-						line=line.replace("%%%cp%%%", personne.getcP());
+						line=line.replace("%%cp%%", personne.getcP());
 					
-						line=line.replace("%%%ville%%%", personne.getVille());
+						line=line.replace("%%ville%%", personne.getVille());
 					
-						line=line.replace("%%%telfixe%%%", personne.getTelFixe());
+						line=line.replace("%%telFixe%%", personne.getTelFixe());
 					
-						line=line.replace("%%%telport%%%", personne.getTelPort());
+						line=line.replace("%%telPort%%", personne.getTelPort());
 					
-						line=line.replace("%%%email%%%", personne.getEmail());
+						line=line.replace("%%email%%", personne.getEmail());
 					
-						line=line.replace("%%%fax%%%", personne.getFax());
+						line=line.replace("%%fax%%", personne.getFax());
 					
 					response.getWriter().append(line + "\n");
 					line = bIn.readLine();
