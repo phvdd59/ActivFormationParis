@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data-sources>
+	<data-source id="mysql3-156e1f042e0-38014861ddebb6e9" provider="generic" driver="mysql3" name="MySQL 3.x - localhost" create-date="1472669448486" save-password="true" show-system-objects="true" read-only="false">
+		<connection host="localhost" port="3306" server="" database="" url="jdbc:mysql://localhost:3306/" user="root" type="dev">
+			<network-handler type="TUNNEL" id="ssh_tunnel" enabled="false" user="" save-password="false">
+				<property name="port" value="22"/>
+				<property name="keyPath" value=""/>
+				<property name="host" value=""/>
+				<property name="authType" value="PASSWORD"/>
+			</network-handler>
+			<network-handler type="PROXY" id="socks_proxy" enabled="false" user="" save-password="false">
+				<property name="socks-host" value=""/>
+				<property name="socks-port" value="1080"/>
+			</network-handler>
+			<bootstrap/>
+		</connection>
+	</data-source>
+	<data-source id="mysql3-156e479913f-7a29d88ac0d6d34f" provider="generic" driver="mysql3" name="MySQL 3.x - localhost" create-date="1472712033245" save-password="true" show-system-objects="true" read-only="false">
+		<connection host="localhost" port="3306" server="" database="" url="jdbc:mysql://localhost:3306/" user="root" type="dev">
+			<network-handler type="TUNNEL" id="ssh_tunnel" enabled="false" user="" save-password="false">
+				<property name="port" value="22"/>
+				<property name="keyPath" value=""/>
+				<property name="host" value=""/>
+				<property name="authType" value="PASSWORD"/>
+			</network-handler>
+			<network-handler type="PROXY" id="socks_proxy" enabled="false" user="" save-password="false">
+				<property name="socks-host" value=""/>
+				<property name="socks-port" value="1080"/>
+			</network-handler>
+			<bootstrap/>
+		</connection>
+	</data-source>
+</data-sources>

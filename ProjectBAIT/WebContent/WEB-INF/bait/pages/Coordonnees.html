@@ -1,5 +1,5 @@
 
-<form method="post" action="http://localhost:8080/ProjectBAIT/ServletBDD"
+<!--form method="post" action="http://localhost:8080/ProjectBAIT/ServletBDD"
 	onsubmit="return verifCoordonnees(this)">
 	<H2>Coordonn&eacute;es</H2>
 
@@ -30,5 +30,42 @@
 		<input type="submit" name="subm" value="Enregister les informations"
 			style="width: 250px; margin-left: 20px" /><br> <br>
 	</div>
+</form-->
+
+<form method="post" action="/PageCompte2"
+	onsubmit="return verifCoordonnees(this)">
+	<H2>Coordonnees</H2>
+	<p><div>
+		Nom :<input type="text" onblur="verfNom(this)"
+			name="nom" style="width: 150px; margin-left: 6px" value="%%nom%%"/><label style="margin-left: 25px; margin-right: 5px">
+		Prénom :</label><input type="text" name="prenom" onblur="verifNom(this)" value="%%prenom%%">
+	</div></p>
+	<p><div ID="formu7">
+		Adresse : <input type="text" onblur="verifAdresse(this)" value="%%adresse%%"
+			name="adresse" style="width: 250px; height: 50px; margin-left: 30px" />
+	</div></p>
+
+	<p><div ID="formu8">
+		Code postal : <input type="text" name="cp"
+			onblur="verifCodePostal(this)" style="width: 150px; margin-left: 6px" value="%%CP%%"/>
+		<label style="margin-left: 15px"> Ville : </label><input type="text"
+			name="ville" onblur="verifNom(this)" style="width: 150px;" />
+	</div></p>
+	<p><div ID="formu9">
+		Téléphone fixe : <input type="tel" name="telFixe" onblur="verifTel(this)"
+			style="margin-left: 25px" value="%%telFixe%%"/> <label style="margin-left: 25px">
+		Téléphone portable : <input type="telPort" onblur="verifTel(this)"/>	
+	</div></p>
+	
+	<p><div>
+		Fax : <input type="tel" name="telPort" onblur="verifTel(this)"
+			style="margin-left: 25px" value="%%telPort%%"/> <label style="margin-left: 25px">
+		Email : <input type="email" name="mail" onblur="verifEmail(this)"/>
+	</div></p>
+	
+	<p><div ID="formu11">
+		<input type="submit" name="subm" value="Enregister les informations"
+			style="width: 250px; margin-left: 20px" /><br> <br>
+	</div></p>
 </form>
 
