@@ -1,8 +1,5 @@
 package com.formation.beans;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import javax.jws.HandlerChain;
 import javax.jws.WebService;
 
