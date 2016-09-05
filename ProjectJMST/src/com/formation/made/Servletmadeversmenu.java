@@ -40,7 +40,7 @@ public class Servletmadeversmenu extends HttpServlet {
 		Object objPersonne = session.getAttribute("Personne");
 		String noSeriePageAdmin = request.getParameter("noSerie");// ajouter le name noSerie dans l'html
 		
-		if (objPersonne instanceof Personne) {
+		if (objPersonne instanceof Personne && objNoSerieSession instanceof String) {
 			String strNoSerieSession = (String) objNoSerieSession;
 			Personne pPersonne = (Personne) objPersonne;
 			if (strNoSerieSession.equals(noSeriePageAdmin)) {

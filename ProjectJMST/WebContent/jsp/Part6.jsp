@@ -84,49 +84,48 @@
 				width="71" height="71" alt="" />
 		</div>
 	</div>
-		<div id="tlogo">CENTRE DE FORMATION</div>
-		<div id="info2">
-			<!-- zone disponible -->
-			<%
-				Personne personne = null;
-				Object p = session.getAttribute("Personne");
-				String noSerieHtml = request.getParameter("noSerie");
-				String noSerie = (String) session.getAttribute("noSerie");
+	<div id="tlogo">CENTRE DE FORMATION</div>
+	<div id="info2">
+		<!-- zone disponible -->
+		<%
+			Personne personne = null;
+			Object p = session.getAttribute("Personne");
+			String noSerieHtml = request.getParameter("noSerie");
+			String noSerie = (String) session.getAttribute("noSerie");
 
-				if (p instanceof Personne) {
-					personne = (Personne) p;
-				}
+			if (p instanceof Personne) {
+				personne = (Personne) p;
+			}
 
-				CtrlPersonne ctrl = new CtrlPersonne();
-				String sSituation = request.getParameter("situation");
-				if (noSerie.equals(noSerieHtml)) {
-					// 					if (ctrl.ctrlSituation(sSituation)) {
-					personne.setSituation(sSituation);
-					// 					} else {
-					// 						FORWARD TO DECO
-					// 					}
+			CtrlPersonne ctrl = new CtrlPersonne();
+			String sSituation = request.getParameter("situation");
+			if (noSerie.equals(noSerieHtml)) {
+				// 					if (ctrl.ctrlSituation(sSituation)) {
+				personne.setSituation(sSituation);
+				// 					} else {
+				// 						FORWARD TO DECO
+				// 					}
 
+				String sCadre = request.getParameter("Cadre");
+				String sFonction = request.getParameter("fonction");
+				String sPosition = request.getParameter("position");
+				String sCoefficient = request.getParameter("coefficient");
+				String sSalaire = request.getParameter("salaire souhaite");
+				String sMutuelle = request.getParameter("mutuelle");
+				String sTicketResto = request.getParameter("ticket resto");
+				String sVisiteMedicale = request.getParameter("date visite medicale");
+				String sTransport = request.getParameter("carte de transport");
+				String sVehicule = request.getParameter("vehicule perso");
+				String sNbCv = request.getParameter("nb de CV");
+				String sKmEstime = request.getParameter("km mensuel");
 
-					String sCadre = request.getParameter("Cadre");
-					String sFonction = request.getParameter("fonction");
-					String sPosition = request.getParameter("position");
-					String sCoefficient = request.getParameter("coefficient");
-					String sSalaire = request.getParameter("salaire souhaite");
-					String sMutuelle = request.getParameter("mutuelle");
-					String sTicketResto = request.getParameter("ticket resto");
-					String sVisiteMedicale = request.getParameter("date visite medicale");
-					String sTransport = request.getParameter("carte de transport");
-					String sVehicule = request.getParameter("vehicule perso");
-					String sNbCv = request.getParameter("nb de CV");
-					String sKmEstime = request.getParameter("km mensuel");
+				DAOPersonne dao = new DAOPersonne();
+				ConversionPersonne conv = new ConversionPersonne();
 
-					DAOPersonne dao = new DAOPersonne();
-					ConversionPersonne conv = new ConversionPersonne();
-
-					if (ctrl.ctrlCadre(sCadre) && ctrl.ctrlFonction(sFonction) && ctrl.ctrlPosition(sPosition) && ctrl.ctrlCoeff(sCoefficient)
-					&& ctrl.ctrlSalaire(sSalaire) && ctrl.ctrlMutuelle(sMutuelle) && ctrl.ctrlTicketResto(sTicketResto)
-					&& ctrl.ctrlVisiteMedicale(sVisiteMedicale) && ctrl.ctrlMontantTransport(sTransport) && ctrl.ctrlVoiture(sVehicule)
-					&& ctrl.ctrlNbCV(sNbCv) && ctrl.ctrlNbKm(sKmEstime)) {
+				if (ctrl.ctrlCadre(sCadre) && ctrl.ctrlFonction(sFonction) && ctrl.ctrlPosition(sPosition) && ctrl.ctrlCoeff(sCoefficient)
+						&& ctrl.ctrlSalaire(sSalaire) && ctrl.ctrlMutuelle(sMutuelle) && ctrl.ctrlTicketResto(sTicketResto)
+						&& ctrl.ctrlVisiteMedicale(sVisiteMedicale) && ctrl.ctrlMontantTransport(sTransport) && ctrl.ctrlVoiture(sVehicule)
+						&& ctrl.ctrlNbCV(sNbCv) && ctrl.ctrlNbKm(sKmEstime)) {
 					personne.setCadre(conv.conversionBoolean(sCadre));
 					personne.setFonction(sFonction);
 					personne.setPosition(sPosition);
@@ -146,29 +145,31 @@
 					dao.update(personne);
 					RequestDispatcher rd = getServletContext().getRequestDispatcher("/Servletmadeversmenu");
 					rd.forward(request, response);
-					}
-			%>
-			</div>
-			<!--	<form= action:"http://www.souadkad.fr/soka/identification.html"></form>-->
+				} else {
 
-			<div id="fpage2">
-				<img
-					src="http://www.activconsult-ing.com/img/Article_fond_blanc_double_copie.png" />
-				<div id="Facebook2">
-					<img src="http://www.activconsult-ing.com/img/Facebook.png" />
-				</div>
-				<div id="linkedin2">
-					<img src="http://www.activconsult-ing.com/img/Linkedin.png" />
-				</div>
-				<div id="viadeo2">
-					<img src="http://www.activconsult-ing.com/img/Viadeo.png" />
-				</div>
-				<div id="droit2">©1997-2012 - Tous droits de reproduction et
-					de représentation réservés | Mentions légales</div>
-			</div>
-			<%
 				}
-			%>
-		
+		%>
+	</div>
+	<!--	<form= action:"http://www.souadkad.fr/soka/identification.html"></form>-->
+
+	<div id="fpage2">
+		<img
+			src="http://www.activconsult-ing.com/img/Article_fond_blanc_double_copie.png" />
+		<div id="Facebook2">
+			<img src="http://www.activconsult-ing.com/img/Facebook.png" />
+		</div>
+		<div id="linkedin2">
+			<img src="http://www.activconsult-ing.com/img/Linkedin.png" />
+		</div>
+		<div id="viadeo2">
+			<img src="http://www.activconsult-ing.com/img/Viadeo.png" />
+		</div>
+		<div id="droit2">©1997-2012 - Tous droits de reproduction et de
+			représentation réservés | Mentions légales</div>
+	</div>
+	<%
+		}
+	%>
+
 </body>
 </html>

@@ -35,6 +35,14 @@ public class ConversionPersonne {
 		return timestamp;
 	}
 
+	public String conversionSQLToUtil(Date date){
+		java.util.Date dateConvertiUtil = new java.util.Date();
+		SimpleDateFormat formater = null;
+		dateConvertiUtil.setTime(date.getTime());
+		formater = new SimpleDateFormat("dd-MM-yyyy");
+		return formater.format(dateConvertiUtil);
+	}
+	
 	public boolean conversionBoolean(String bool){
 		boolean b = false;
 		if(bool.equals("oui")){
