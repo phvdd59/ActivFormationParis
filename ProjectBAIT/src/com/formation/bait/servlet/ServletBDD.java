@@ -49,12 +49,11 @@ public class ServletBDD extends HttpServlet {
 		Object oNoSuivi = session.getAttribute("suivi");
 		if (oNoSuivi != null) {
 			String origine = (String) session.getAttribute("servlet");
-			if (origine == "login") {
+			if (origine == "Login") {
 				personne = bddPersonne.getPersonne(session.getAttribute("idPersonne").toString());
 				session.setAttribute("Personne", personne);
-			} else if (origine == "situation") {
-				 personne = (Personne) session.getAttribute("Personne");
-			//	personne = bddPersonne.getPersonne("28");
+			} else if (origine == "Situation") {
+				personne = (Personne) session.getAttribute("Personne");
 				String sSituation = request.getParameter("sit");
 				String sAutre = request.getParameter("aut");
 				if (sSituation.equals("salarie")){
@@ -74,7 +73,6 @@ public class ServletBDD extends HttpServlet {
 				bddPersonne.savePersonne(personne);
 			} else if (origine == "EtatCivil") {
 				 personne = (Personne) session.getAttribute("Personne");
-				personne = bddPersonne.getPersonne("28");
 				String sNom = request.getParameter("nom");
 				String sPrenom = request.getParameter("prenom");
 				String sDateNaiss = request.getParameter("datenaiss");

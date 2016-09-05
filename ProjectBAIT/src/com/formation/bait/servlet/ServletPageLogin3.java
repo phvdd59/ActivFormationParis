@@ -52,7 +52,7 @@ public class ServletPageLogin3 extends HttpServlet {
 		}
 		session.setAttribute("suivi", noSuivi);
 		session.setAttribute("nbAppel", new Integer(0));
-		session.setAttribute("servlet", "login");
+		session.setAttribute("servlet", "Login");
 		session.setAttribute("methode", "GET");
 
 		File file = new File("C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/hautDePageActiv.html");
