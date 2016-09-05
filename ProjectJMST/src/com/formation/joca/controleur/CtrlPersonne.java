@@ -252,7 +252,7 @@ public class CtrlPersonne implements InterCtrlPersonne {
 	public boolean ctrlMontantTransport(String montantTransport) {
 		if (montantTransport == null) {
 			return false;
-		} else if (Pattern.matches("[1-9][0-9]+(\\.[0-9]{1,2})?", montantTransport)||montantTransport.equals("")) {
+		} else if (Pattern.matches("[1-9][0-9]+", montantTransport)||montantTransport.equals("")) {
 			return true;
 		} else {
 			return false;

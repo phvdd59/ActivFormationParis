@@ -112,35 +112,43 @@
 		</div>
 	</div>
 	<script>
-		function verif_mdp(champ) {
+	function verif_ident(champ) {
+		var pattIdent = new RegExp("^[a-zA-Z0-9\\-\\.\\_]{4,25}$");
+		if (champ.value.length < 4 || champ.value.length > 25) {
+			document.getElementById('erreur2').innerHTML = ' saisir un texte entre 4 et 25 caracteres';
+			champ.style.border = "1px solid #f00";
+			champ.style.backgroundColor = "#fba";
+			return false;
 
-			if (champ.value.length == 0 || champ.value.length > 16) {
-				document.getElementById('erreur').innerHTML = ' saisir un texte entre 1 et 15 caracteres';
-				champ.style.border = "1px solid #f00",
-						champ.style.backgroundColor = "#fba";
-				return false;
-			} else {
-				document.getElementById('erreur').innerHTML = ' OK';
-				champ.style.border = "inherit",
-						champ.style.backgroundColor = "#66ff99";
-				return true
-			}
-		}
-
-		function verif_ident(champ) {
-
-			if (champ.value.length == 0 || champ.value.length > 16) {
-				document.getElementById('erreur2').innerHTML = ' saisir un texte entre 1 et 15 caracteres';
-				champ.style.border = "1px solid #f00",
-						champ.style.backgroundColor = "#fba";
+		} else {
+			if (pattIdent.test(champ.value) == false) {
+				document.getElementById('erreur2').innerHTML = ' pas de caractere speciaux autre que -._';
+				champ.style.border = "1px solid #f00";
+				champ.style.backgroundColor = "#fba";
 				return false;
 			} else {
 				document.getElementById('erreur2').innerHTML = ' OK';
-				champ.style.border = "inherit",
-						champ.style.backgroundColor = "#66ff99";
+				champ.style.border = "inherit";
+				champ.style.backgroundColor = "#66ff99";
 				return true
 			}
 		}
+	}
+
+	function verif_mdp(champ) {
+
+		if (champ.value.length < 6) {
+			document.getElementById('erreur').innerHTML = ' saisir un texte de 6 caracteres ou plus';
+			champ.style.border = "1px solid #f00";
+			champ.style.backgroundColor = "#fba";
+			return false;
+		} else {
+			document.getElementById('erreur').innerHTML = ' OK';
+			champ.style.border = "inherit";
+			champ.style.backgroundColor = "#66ff99";
+			return true
+		}
+	}
 
 		function verifForm(f) {
 			var identOk = verif_ident(f.identifiant);
