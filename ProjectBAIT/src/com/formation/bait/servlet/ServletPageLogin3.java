@@ -155,7 +155,7 @@ public class ServletPageLogin3 extends HttpServlet {
 				// la personne existe
 				if (test2[1].equals(MdpPersonne)) {
 					// mot de passe correct
-					session.setAttribute("personne", acces.getPersonne(IdPersonne));
+					session.setAttribute("personne", acces.getPersonne(test2[0]));
 					session.setAttribute("idPersonne", test2[0]);
 					RequestDispatcher rd = request.getRequestDispatcher("//ServletBDD");
 					rd.forward(request, response);
