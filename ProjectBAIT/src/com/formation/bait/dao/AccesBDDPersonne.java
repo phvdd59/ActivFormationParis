@@ -101,7 +101,7 @@ public class AccesBDDPersonne {
 			stat = conn.createStatement();
 
 			String sql = "insert into listeUser (identifiant,mdp,email,nom,prenom,adresse,cp,ville," + //
-					"telFixe,telPort,fax,dateNaissance,lieuNaissance,numSecu,situation,fonction,positionEntreprise," + //
+					"telFixe,telPort,fax,dateNaissance,lieuNaissance,numSecu,Nationalite,situation,fonction,positionEntreprise," + //
 					"cadre,coeff,salaire,visiteMedicale,montantTransport,voiture,nbCV,nbKm,mutuelle,ticketResto,admin,"
 					+ //
 					"dateCreation,dateModification,bloque,raisonBlocage) values ('" + personne.getIdentifiant() + "','"
@@ -111,7 +111,7 @@ public class AccesBDDPersonne {
 					personne.getAdresse() + "','" + personne.getcP() + "','" + personne.getVille() + "','"
 					+ personne.getTelFixe() + "','" + //
 					personne.getTelPort() + "','" + personne.getFax() + "','" + personne.getDateNaissance() + "','" + //
-					personne.getLieuNaissance() + "','" + personne.getNumSecu() + "','" + personne.getSituation()
+					personne.getLieuNaissance() + "','" + personne.getNumSecu() + "','" + personne.getNationalite() + "','" + personne.getSituation()
 					+ "','" + //
 					personne.getFonction() + "','" + personne.getPosition() + "','"
 					+ booleanConverter(personne.isCadre()) + "','" + personne.getCoeff() + "','" + //
@@ -212,6 +212,7 @@ public class AccesBDDPersonne {
 			personne.setDateNaissance(resultat.getString("dateNaissance"));
 			personne.setLieuNaissance(resultat.getString("lieuNaissance"));
 			personne.setNumSecu(resultat.getString("numSecu"));
+			personne.setNationalite(resultat.getString("nationalite"));
 			personne.setSituation(resultat.getString("situation"));
 			personne.setFonction(resultat.getString("fonction"));
 			personne.setPosition(resultat.getString("positionEntreprise"));
