@@ -57,8 +57,8 @@ public class Personne implements Serializable {
 	public Personne() {
 	}
 
-	public Personne(String nom, String prenom, String identifiant, String mdp) {
-
+	public Personne(int idPersonne, String nom, String prenom, String identifiant, String mdp) {
+		this.idPersonne = idPersonne;
 		this.identifiant = identifiant;
 		this.mdp = mdp;
 		this.nom = nom;
@@ -68,13 +68,48 @@ public class Personne implements Serializable {
 	public Personne(String nom, String prenom) {
 		this.nom = nom;
 		this.prenom = prenom;
-		this.identifiant = creationId(nom, prenom);
-		this.mdp = creationMdp();
-		this.visiteMedicale = new Date(2016 - 9 - 02);
-		this.dateNaissance = new Date(2016 - 9 - 02);
-		this.dateCreation = new Date(2016 - 9 - 02);
-		DaoPersonne daoP = new DaoPersonne();
-		daoP.insertPersonne(this);
+//		this.visiteMedicale = new Date(2016 - 9 - 02); 		//mettre une valeur par default
+//		this.dateNaissance = new Date(2016 - 9 - 02);
+//		this.dateCreation = new Date(2016 - 9 - 02);
+//		this.situation=SITUATION.AUTRE;
+	}
+	
+	public Personne(int idPersonne, String nom, String prenom, String identifiant, String mdp, String email, String adresse, String cp, String ville, String telFixe, String telPort, String fax, Date dateNaissance, String lieuNaissance, String numSecu, String nationalite,
+			String fonction, String positionEntreprise, boolean cadre, String coeff, String salaire, Date visiteMedicale, String montantTransport, boolean voiture, int nbCV, String nbKm, boolean mutuelle, boolean ticketResto, Date dateCreation, Timestamp dateModification,
+			boolean bloque, String raisonBlocage) {
+		super();
+		this.idPersonne = idPersonne;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.identifiant = identifiant;
+		this.mdp = mdp;
+		this.email = email;
+		this.adresse = adresse;
+		this.cp = cp;
+		this.ville = ville;
+		this.telFixe = telFixe;
+		this.telPort = telPort;
+		this.fax = fax;
+		this.dateNaissance = dateNaissance;
+		this.lieuNaissance = lieuNaissance;
+		this.numSecu = numSecu;
+		this.nationalite = nationalite;
+		this.fonction = fonction;
+		this.positionEntreprise = positionEntreprise;
+		this.cadre = cadre;
+		this.coeff = coeff;
+		this.salaire = salaire;
+		this.visiteMedicale = visiteMedicale;
+		this.montantTransport = montantTransport;
+		this.voiture = voiture;
+		this.nbCV = nbCV;
+		this.nbKm = nbKm;
+		this.mutuelle = mutuelle;
+		this.ticketResto = ticketResto;
+		this.dateCreation = Date.from(Instant.now());
+		this.dateModification = dateModification;
+		this.bloque = bloque;
+		this.raisonBlocage = raisonBlocage;
 	}
 
 	public Personne(int idPersonne, String nom, String prenom, SEXE sexe, String identifiant, String mdp, String email, String adresse, String cp, String ville, String telFixe, String telPort, String fax, Date dateNaissance, String lieuNaissance, String numSecu, String nationalite,
@@ -85,8 +120,8 @@ public class Personne implements Serializable {
 		this.nom = nom;
 		this.prenom = prenom;
 		this.sexe = sexe;
-		this.identifiant = creationId(nom, prenom);
-		this.mdp = creationMdp();
+		this.identifiant = identifiant;
+		this.mdp = mdp;
 		this.email = email;
 		this.adresse = adresse;
 		this.cp = cp;
@@ -116,11 +151,14 @@ public class Personne implements Serializable {
 		this.bloque = bloque;
 		this.raisonBlocage = raisonBlocage;
 		this.listeDoc = listeDoc;
-		DaoPersonne daoP = new DaoPersonne();
+	}
+	
+	public void ajoutPersonne(int idPersonne){
+	DaoPersonne daoP = new DaoPersonne();
 		daoP.insertPersonne(this);
 	}
 	
-	public void modifPersonne(){
+	public void modifPersonne(int idPersonne){
 		DaoPersonne daoP = new DaoPersonne();
 		daoP.updatePersonne(this);
 	}
@@ -145,7 +183,7 @@ public class Personne implements Serializable {
 
 		return identifiant;
 	}
-
+	
 	public String creationMdp() {
 		String mdp = " ";
 		while (mdp.length() != 8) {
