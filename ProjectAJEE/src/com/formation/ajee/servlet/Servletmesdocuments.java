@@ -33,10 +33,6 @@ public class Servletmesdocuments extends HttpServlet {
 		super();
 	}
 
-	public void init(ServletConfig config) throws ServletException {
-		listeDoc = new ListeDoc();
-	}
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
@@ -99,10 +95,13 @@ public class Servletmesdocuments extends HttpServlet {
 					String lineDoc1 = bufReadDoc1.readLine();
 					while (lineDoc1 != null) {
 						if (lineDoc1.contains("%%value%%")) {
-							for (int i = 0; i < listeDoc.size(); i++) {
-								lineDoc1 = lineDoc1.replace("%%value%%", listeDoc.get(i).getNomDocUtil());
-								lineDoc1 = lineDoc1.replace("></", ">" + listeDoc.get(i).getNomDocUtil() + "</");
-								response.getWriter().println("<option value=\"%%value%%\">");
+							if (listeDoc.size() ==0) {		
+							} else {
+								for (int i = 0; i < listeDoc.size(); i++) {
+									lineDoc1 = lineDoc1.replace("%%value%%", listeDoc.get(i).getNomDocUtil());
+									lineDoc1 = lineDoc1.replace("></", ">" + listeDoc.get(i).getNomDocUtil() + "</");
+									response.getWriter().println("<option value=\"%%value%%\">");
+								}
 							}
 						}
 						response.getWriter().println(lineDoc1);
@@ -165,10 +164,13 @@ public class Servletmesdocuments extends HttpServlet {
 				String lineDoc1 = bufReadDoc1.readLine();
 				while (lineDoc1 != null) {
 					if (lineDoc1.contains("%%value%%")) {
-						for (int i = 0; i < listeDoc.size(); i++) {
-							lineDoc1 = lineDoc1.replace("%%value%%", listeDoc.get(i).getNomDocUtil());
-							lineDoc1 = lineDoc1.replace("></", ">" + listeDoc.get(i).getNomDocUtil() + "</");
-							response.getWriter().println("<option value=\"%%value%%\">");
+						if (listeDoc.size() ==0) {		
+						} else {
+							for (int i = 0; i < listeDoc.size(); i++) {
+								lineDoc1 = lineDoc1.replace("%%value%%", listeDoc.get(i).getNomDocUtil());
+								lineDoc1 = lineDoc1.replace("></", ">" + listeDoc.get(i).getNomDocUtil() + "</");
+								response.getWriter().println("<option value=\"%%value%%\">");
+							}
 						}
 					}
 					response.getWriter().println(lineDoc1);
