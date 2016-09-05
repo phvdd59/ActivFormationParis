@@ -1,3 +1,4 @@
+/*drop table marchandsoka.produit; */
 
 
 create table marchandsoka.produit (
