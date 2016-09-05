@@ -33,10 +33,6 @@ public class ServletSupprimer extends HttpServlet {
 		super();
 	}
 
-	public void init(ServletConfig config) throws ServletException {
-		listeDoc = new ListeDoc();
-	}
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
@@ -47,7 +43,7 @@ public class ServletSupprimer extends HttpServlet {
 		Personne personne = (Personne) session.getAttribute("personnne");
 		Object oIdPersonne = utilisateur.getIdPersonne();
 
-		if (oNoSerie != null && personne != null) {
+		if (oNoSerie != null && personne.getIdentifiant() != null) {
 			if (personne.getIdentifiant().equals("Admin")) {
 				if (utilisateur.equals(null)) {
 					RequestDispatcher rd = request.getRequestDispatcher("/Servletaccueilchargementprofil");
