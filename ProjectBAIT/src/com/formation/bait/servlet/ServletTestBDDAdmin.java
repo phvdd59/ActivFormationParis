@@ -21,7 +21,7 @@ import com.formation.bait.metier.Personne;
 /**
  * Servlet implementation class Servlet1
  */
-@WebServlet(value = "/ServletCoordonnees2", name = "ServletCoordonnees2")
+@WebServlet(value = "/ServletTestBDDadmin", name = "ServletTestBDDadmin")
 public class ServletTestBDDAdmin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static int VALEUR = 0;
