@@ -39,40 +39,46 @@ public class ServletSoka1 extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		
+
 		Object personne = session.getAttribute("Personne");
 		Personne perso = null;
 		if (personne instanceof Personne) {
 			perso = (Personne) personne;
 		}
+		String sIdentifiant = null;
+		String sMdp1 = null;
+		String sMdp2 = null;
 
-		/***************************
-		 * RECUP DONNEE FORMULAIRE
-		 */
-		String sIdentifiant = request.getParameter("identifiant");
-		String sMdp1 = request.getParameter("mdp1");
-		String sMdp2 = request.getParameter("mdp2");
-		/***************************
-		 * CONTROLE ET CONVERSION
-		 */
-		CtrlPersonne ctrl = new CtrlPersonne();
-//		if(ctrl.ctrlIdentifiant(sIdentifiant) && ctrl.ctrlMdp(sMdp)){
-		if(sMdp1.equals(sMdp2))
-			perso.setIdentifiant(sIdentifiant);
-			perso.setMdp(sMdp1);
-//		}
-		
+		if (perso.getIdentifiant() == null) { //utile au cas où on appelle cette servlet par "precedent"
+
+			/***************************
+			 * RECUP DONNEE FORMULAIRE
+			 */
+			sIdentifiant = request.getParameter("identifiant");
+			sMdp1 = request.getParameter("mdp1");
+			sMdp2 = request.getParameter("mdp2");
+			/***************************
+			 * CONTROLE ET CONVERSION
+			 */
+			CtrlPersonne ctrl = new CtrlPersonne();
+			// if(ctrl.ctrlIdentifiant(sIdentifiant) && ctrl.ctrlMdp(sMdp)){
+			if (sMdp1.equals(sMdp2)) {
+				perso.setIdentifiant(sIdentifiant);
+				perso.setMdp(sMdp1);
+			}
+			// }
+		} 
 		DAOPersonne dao = new DAOPersonne();
 		ListPersonne list = dao.read();
-		
+
 		boolean idExist = false;
-		
+
 		for (Personne p : list) {
-			if(p.getIdentifiant().equals(perso.getIdentifiant())){
+			if (p.getIdentifiant().equals(perso.getIdentifiant())) {
 				idExist = true;
 			}
 		}
-			
+
 		File file = new File("C:/DevFormation/" + //
 				"GITActivFormationParis/ProjectJMST/" + //
 				"WebContent/WEB-INF/" + //
@@ -88,13 +94,13 @@ public class ServletSoka1 extends HttpServlet {
 			String line = bIn.readLine();
 			while (line != null) {
 				if (line.contains("%%noSerie%%")) {
-					line=line.replace("%%noSerie%%", noSerie);
+					line = line.replace("%%noSerie%%", noSerie);
 				}
 				response.getWriter().println(line);
 				line = bIn.readLine();
 			}
 			bIn.close();
-		} else if (noSerieHtml.equals(noSerie) && idExist){
+		} else if (noSerieHtml.equals(noSerie) && idExist) {
 			File file2 = new File("C:/DevFormation/" + //
 					"GITActivFormationParis/ProjectJMST/" + //
 					"WebContent/WEB-INF/" + //
@@ -104,9 +110,9 @@ public class ServletSoka1 extends HttpServlet {
 			String line = bIn2.readLine();
 			while (line != null) {
 				if (line.contains("%%noSerie%%")) {
-					line=line.replace("%%noSerie%%", noSerie);
+					line = line.replace("%%noSerie%%", noSerie);
 				}
-				if (line.contains("name=\"identifiant\"")){
+				if (line.contains("name=\"identifiant\"")) {
 					line = line.replace("</th>", "<p style=\"color: red;\">login deja existant</p></th>");
 				}
 				response.getWriter().println(line);
@@ -114,7 +120,7 @@ public class ServletSoka1 extends HttpServlet {
 			}
 			bIn2.close();
 		}
-		
+
 	}
 
 	/**
