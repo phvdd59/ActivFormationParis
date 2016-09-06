@@ -78,6 +78,7 @@
 		<div id="ogol1">
 			<img src="http://www.activconsult-ing.com/img/Menu_pagaies2.png"
 				width="71" height="71" alt="" />
+				
 		</div>
 		<div id="tlogo">CHANGEMENT MOT DE PASSE </div>
 		<div id="info2">
