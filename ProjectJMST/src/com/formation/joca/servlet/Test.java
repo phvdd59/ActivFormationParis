@@ -158,7 +158,7 @@ public class Test extends HttpServlet {
 				String line = lecture.readLine();
 				while (line != null) {
 					if (line.contains("<p id=\"erreurLog\" style=\"visibility:hidden\"></p>") && utilisateur.isBloque()) {
-						line = line.replace("hidden\"></p>", "visible; color:red;\">utilisateur bloquee</p>");
+						line = line.replace("hidden\"></p>", "visible; color:red;\">utilisateur bloque</p>");
 					}else if (line.contains("<p id=\"erreurLog\" style=\"visibility:hidden\"></p>") && !utilisateur.getMdp().equals(motdepasse)) {
 						line = line.replace("hidden\"></p>", "visible; color:red;\">mauvais mot de passe</p>");
 					} else {
