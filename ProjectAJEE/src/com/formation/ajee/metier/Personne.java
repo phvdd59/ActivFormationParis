@@ -204,6 +204,10 @@ public class Personne implements Serializable {
 	public int getIdPersonne() {
 		return idPersonne;
 	}
+	
+	public String getIdPersonneString() {
+		return Integer.toString(idPersonne);
+	}
 
 	public void setIdPersonne(int idPersonne) {
 		this.idPersonne = idPersonne;

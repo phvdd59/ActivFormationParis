@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 
 import com.formation.ajee.metier.ListPersonne;
 import com.formation.ajee.metier.Personne;
+import com.formation.ajee.veriffom.Vue;
 
 /**
  * Servlet implementation class Servlet1
@@ -73,6 +74,7 @@ public class Servletidentification extends HttpServlet {
 		// String sS=request.getParameter("JSESSIONID");
 		System.out.println(session.getId());
 		Object oNoSerie = session.getAttribute("noSerie");
+		Vue vue = new Vue();
 		if (oNoSerie != null) {
 
 			// recuperer les parametres
@@ -102,18 +104,7 @@ public class Servletidentification extends HttpServlet {
 							// constituer la nouvelle page
 
 							/** Lecture Haut de page HTML */
-							File fileHaut = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/HautPage.html");
-							BufferedReader bufReadHaut = null;
-							bufReadHaut = new BufferedReader(new FileReader(fileHaut));
-							String lineHaut = bufReadHaut.readLine();
-							while (lineHaut != null) {
-								if (lineHaut.contains("<title>Espace Personnel ActivConsulting</title>")) {
-									lineHaut = lineHaut.replace("<title>Espace Personnel ActivConsulting</title>", "<title>Accueil</title>");
-								}
-								resp.getWriter().println(lineHaut);
-								lineHaut = bufReadHaut.readLine();
-							}
-							bufReadHaut.close();
+							vue.lecturePage(resp, "HautPage");
 
 							/**
 							 * A modifier seulement si notre page contient du
@@ -175,14 +166,15 @@ public class Servletidentification extends HttpServlet {
 							bufReadDoc1 = new BufferedReader(new FileReader(fileDoc1));
 							String lineDoc1 = bufReadDoc1.readLine();
 							while (lineDoc1 != null) {
-								if (lineDoc1.contains("%listepersonne%")){
-									for (int i = 0; i <lstpersonne.size(); i++) {
-										if (lineDoc1.contains("%listepersonne%")&&i<lstpersonne.size()-1) {
-											lineDoc1 = lineDoc1.replace("%listepersonne%", lstpersonne.get(i).getIdentifiant())+"<option value=\"%listepersonne%\">";
-										}else if (lineDoc1.contains("%listepersonne%")&&i==lstpersonne.size()-1) {
+								if (lineDoc1.contains("%listepersonne%")) {
+									for (int i = 0; i < lstpersonne.size(); i++) {
+										if (lineDoc1.contains("%listepersonne%") && i < lstpersonne.size() - 1) {
+											lineDoc1 = lineDoc1.replace("%listepersonne%", lstpersonne.get(i).getIdentifiant()) + "<option value=\"%listepersonne%\">";
+										} else if (lineDoc1.contains("%listepersonne%") && i == lstpersonne.size() - 1) {
 											lineDoc1 = lineDoc1.replace("%listepersonne%", lstpersonne.get(i).getIdentifiant());
 										}
-									}}
+									}
+								}
 								resp.getWriter().println(lineDoc1);
 								lineDoc1 = bufReadDoc1.readLine();
 							}
@@ -340,5 +332,4 @@ public class Servletidentification extends HttpServlet {
 		}
 	}
 
-	
 }
