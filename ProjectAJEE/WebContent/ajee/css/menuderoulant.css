@@ -16,7 +16,6 @@
 #menu-deroulant li {
 /* on place les liens du menu horizontalement */
     display: inline-block;
-    border-left:1px solid black;
    
 }
 #menu-deroulant input {
@@ -24,8 +23,7 @@
     
     display: inline-block;
     border-style:none;
-    border-left:1px solid black;
-   background:url('../img/static.png')-150px 0px;
+   background:url('../img/200x20f.png');
    color : #fff;
    width: 120px;
    height: 20px;
@@ -49,7 +47,7 @@
     text-decoration: none;
     
     display: block;
-	background:url('../img/static.png')-150px 0px; /* couleur de fond */        
+	 background:url('../img/200x20f.png'); /* couleur de fond */        
 
         color : #fff; /* couleur du texte */
 
@@ -70,7 +68,7 @@
     text-decoration: none;
     
     display: block;
-	background:url('../img/static.png')-150px 0px; /* couleur de fond */        
+	 background:url('../img/200x20f.png'); /* couleur de fond */        
 
         color : #fff; /* couleur du texte */
 
