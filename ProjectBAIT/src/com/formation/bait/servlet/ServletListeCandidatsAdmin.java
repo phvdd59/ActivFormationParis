@@ -43,6 +43,13 @@ public class ServletListeCandidatsAdmin extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+//		RequestDispatcher rd = request.getRequestDispatcher("//ServletLogin3");
+//		rd.forward(request, response);
+		
+		
+		
+		
+	
 		HttpSession session = request.getSession(true);
 		String noSuivi = "";
 		for (int i = 0; i < 2; i++) {
