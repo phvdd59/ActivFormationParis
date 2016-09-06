@@ -101,26 +101,22 @@
 
 	if (noSerie.equals(noSerieHtml)) {
 	%>	
-					<tr>
-						<th colspan="4" style="width: 627px;">Identifiant</th>
-						<th style="width: 273px; height: 25px; color:;">
-						<input type="text" name="identifiant" value='<%=personne.getIdentifiant() %>' style="width: 270px;"></th>
-					</tr>
+					
 					<tr>
 						<th colspan="4" style="width: 627px;"> Ancien Mot de passe</th>
 						<th style="width: 273px; height: 25px; color:;">
-						<input type="password" name="ancien mdp" value='' style="width: 270px;"></th>
+						<input type="password" name="ancienMdp" value='' style="width: 270px;"></th>
 					</tr>
 					<tr>
 						<th colspan="4" style="width: 627px;">Nouveau Mot de passe</th>
 						<th style="width: 273px; height: 25px; color:;">
-						<input id="new mdp 1" onblur="ctrMdp1()" type="password" name="new mdp 1" value='' style="width: 270px;"><br> <span
+						<input id="newMdp1" onblur="ctrMdp1()" type="password" name="newMdp1" value='' style="width: 270px;"><br> <span
 							id="spanMdp1"></span></th>
 					</tr>
 					<tr>
 						<th colspan="4" style="width: 627px;">Nouveau Mot de passe</th>
 						<th style="width: 273px; height: 25px; color:;">
-						<input id="new mdp 2"  onblur="ctrMdp2()" type="password" name="new mdp 2" value='' style="width: 270px;"><br> <span
+						<input id="newMdp2"  onblur="ctrMdp2()" type="password" name="newMdp2" value='' style="width: 270px;"><br> <span
 							id="spanMdp2"></span></th>
 					</tr>
 				</table>

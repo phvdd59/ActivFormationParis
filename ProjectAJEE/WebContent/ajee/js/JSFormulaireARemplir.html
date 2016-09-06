@@ -10,19 +10,19 @@ function boutonEnregistrer(){
 	
 	//var X = document.forms["FormulaireARemplir"]["nom"].value;
 
-	regTexte="[A-Za-zאבגהחטיךכלםמןסעףפצשתûü\\-\\']*"
-	<!-- /^[a-zA-Z]+$/ --> 
+	regTexte=/^[a-zA-Z]+$/
+	<!-- "[A-Za-zאבגהחטיךכלםמןסעףפצשתûü\\-\\']*" --> 
 	regNombre=/^[0-9]+$/
 	regEmail=/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/ // email
 	regDateNaissance = /^[0-3]?[0-9]\/[01]?[0-9]\/[12][90][0-9][0-9]$/  // date de naissance
 	//
 	var nom2 = document.getElementById("nom").value;
-	if (nom2==null || nom2=="" || !nom2.match(regTexte)) {
+	if (!nom2.match(regTexte)) {
 		alert("Nom invalide");
 		return false;
 	}
 	var prenom2 = document.getElementById("prenom").value;
-	if (prenom2==null || prenom2=="" || !prenom2.match(regTexte)) {
+	if (!prenom2.match(regTexte)) {
 		alert("Prenom invalide");
 		return false;
 	}
@@ -42,31 +42,31 @@ function boutonEnregistrer(){
 // 		alert("Champ(s) invalide(s)");
 // 		return false;
 // 	}
-// 	var telFixe2 = document.getElementById("telFixe").value;
-// 	if (telFixe2==null || telFixe2=="" || !telFixe2.match(regNombre)) {
-// 		alert("");
-// 		return false;
-// 	}
+	var telFixe2 = document.getElementById("telFixe").value;
+	if (!telFixe2.match(regNombre)) {
+		alert("Numero de telephone invalide");
+		return false;
+	}
 // 	var telPort2 = document.getElementById("telPort").value;
 // 	if (telPort2==null || telPort2=="" || !telPort2.match(regNombre)) {
-// 		alert("");
+// 		alert("Champ(s) invalide(s)");
 // 		return false;
 // 	}
 // 	var fax2 = document.getElementById("fax").value;
 // 	if (fax2==null || fax2=="" || !fax2.match(regNombre)) {
-// 		alert("");
+// 		alert("Champ(s) invalide(s)");
 // 		return false;
 // 	}
-// 	var email2 = document.getElementById("email").value;
-// 	if (email2==null || email2=="" || !email2.match(regEmail)) {
-// 		alert("");
-// 		return false;
-// 	}
-// 	dateNaiss2 = document.getElementById("dateNaissance").value;
-// 	if (dateNaiss2==null || dateNaiss2=="" || !dateNaiss2.match(regDateNaissance)) {
-// 		alert("");
-// 		return false;
-// 	}
+	var email2 = document.getElementById("email").value;
+	if (!email2.match(regEmail)) {
+		alert("Adresse email invalide");
+		return false;
+	}
+	dateNaiss2 = document.getElementById("dateNaissance").value;
+	if (!dateNaiss2.match(regDateNaissance)) {
+		alert("Date de naissance invalide");
+		return false;
+	}
 // 	var lieu2 = document.getElementById("lieuNaissance").value;
 // 	if (lieu2==null || lieu2=="" || !lieu2.match(regTexte)) {
 // 		alert("");
