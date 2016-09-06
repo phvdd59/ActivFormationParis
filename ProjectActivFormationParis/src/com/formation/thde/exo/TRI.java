@@ -1,5 +1,5 @@
 package com.formation.thde.exo;
 
-public enum Tri{
+public enum TRI{
 	ALPHA,REF,VOLUME;
 }
