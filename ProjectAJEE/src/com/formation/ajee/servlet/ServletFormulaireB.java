@@ -172,53 +172,50 @@ public class ServletFormulaireB extends HttpServlet {
 		String pSituation=request.getParameter("situation");
 		SITUATION pSituationV = verif.situationVerif(pSituation);
 		personne.setSituation(pSituationV);
-		//String a = personne.getSituation();
-		//System.out.println(a);
 		
 		String pFonction=request.getParameter("fonction");
-		verif.fonctionVerif(pFonction);
-		personne.setFonction(pFonction);
+		String pFonctionV = verif.fonctionVerif(pFonction);
+		personne.setFonction(pFonctionV);
 		
 		String pPositionEntreprise=request.getParameter("positionEntreprise");
-		verif.nomVerif(pPositionEntreprise); // nomVerif car pas de méthode "positionEntrepriseVerif" dans "VerifForm.java"
-		personne.setPositionEntreprise(pPositionEntreprise);
+		String pPositionEntrepriseV = verif.nomVerif(pPositionEntreprise); // nomVerif car pas de méthode "positionEntrepriseVerif" dans "VerifForm.java"
+		personne.setPositionEntreprise(pPositionEntrepriseV);
 		
 		String pCoeff=request.getParameter("coeff");
-		verif.coeffVerif(pCoeff);
-		personne.setCoeff(pCoeff);
+		String pCoeffV = verif.coeffVerif(pCoeff);
+		personne.setCoeff(pCoeffV);
 		
 		String pSalaire=request.getParameter("salaire");
-		verif.salaireVerif(pSalaire);
-		personne.setSalaire(pSalaire);
+		String pSalaireV = verif.salaireVerif(pSalaire);
+		personne.setSalaire(pSalaireV);
 		
 		String pMutuelle=request.getParameter("mutuelle");
-		verif.mutuelleVerif(pMutuelle);
-		//personne.setMutuelle(pMutuelle);
+		boolean pMutuelleV = verif.mutuelleVerif(pMutuelle);
+		personne.setMutuelle(pMutuelleV);
 		
 		String pTicketResto=request.getParameter("ticketResto");
-		verif.ticketRestoVerif(pTicketResto);
-		//personne.setTicketResto(pTicketResto);
+		boolean pTicketRestoV = verif.ticketRestoVerif(pTicketResto);
+		personne.setTicketResto(pTicketRestoV);
 		
 		String pVisiteMedicale=request.getParameter("visiteMedicale");
-		verif.visiteMedicaleVerif(pVisiteMedicale);
-		//personne.setVisiteMedicale(pVisiteMedicale);
+		Date pVisiteMedicaleV = verif.visiteMedicaleVerif(pVisiteMedicale);
+		personne.setVisiteMedicale(pVisiteMedicaleV);
 		
 		String pMontantTransport=request.getParameter("montantTransport");
-		verif.montantTransportVerif(pMontantTransport);
-		personne.setMontantTransport(pMontantTransport);
+		String pMontantTransportV = verif.montantTransportVerif(pMontantTransport);
+		personne.setMontantTransport(pMontantTransportV);
 		
 		String pVoiture=request.getParameter("voiture");
-		verif.voitureVerif(pVoiture);
-		//personne.setVoiture(pVoiture);
+		boolean pVoitureV = verif.voitureVerif(pVoiture);
+		personne.setVoiture(pVoitureV);
 		
 		String pNbCV=request.getParameter("nbCV");
-		verif.nbCVVerif(pNbCV);
-		//personne.setNbCV(pNbCV);
+		int pNbCVV = verif.nbCVVerif(pNbCV);
+		personne.setNbCV(pNbCVV);
 		
 		String pNbKm=request.getParameter("nbKm");
-		verif.nbKm(pNbKm);
-		personne.setNbKm(pNbKm);
-		//String pSituation=request.getParameter(""); // cf. ForCalLisDer.html de Jérémy // edit : on a fait un enum
+		String pNbKmV = verif.nbKm(pNbKm);
+		personne.setNbKm(pNbKmV);
 		
 		// creation identifiant + mdp
 		personne.setIdentifiant(personne.creationId(pNom, pPrenom));
@@ -234,14 +231,11 @@ public class ServletFormulaireB extends HttpServlet {
 		
 		// print : formulaire bien enregistré
 		response.getWriter().println("Merci "+personne.getPrenom()+" "+personne.getNom()+".");
-		//response.getWriter().println();
-		//response.getWriter().println();
 		response.getWriter().println("Votre formulaire a bien ete enregistre.");
 		
 		// retour page accueil en bas de page (bouton)
 		String html = "<html><form action='http://127.0.0.1:8080/ProjectAJEE/Servletidentification'><input type='submit' value='Retour page identification'></form></html>";
 		response.getWriter().println(html);
-		
 		
 		/** Lecture bas de page */
 		File fileBas = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/BasPage.html");
