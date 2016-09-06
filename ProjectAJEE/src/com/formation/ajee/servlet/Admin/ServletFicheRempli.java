@@ -217,7 +217,7 @@ public class ServletFicheRempli extends HttpServlet {
 				bufReadDoc.close();
 				
 
-				File fileDoc1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/FormulaireARemplirJeci.html");
+				File fileDoc1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/FormulaireARemplirJECIAdmin.html");
 				BufferedReader bufReadDoc1 = null;
 				bufReadDoc1 = new BufferedReader(new FileReader(fileDoc1));
 				String lineDoc1 = bufReadDoc1.readLine();
@@ -297,6 +297,7 @@ public class ServletFicheRempli extends HttpServlet {
 					if (lineDoc1.contains("%km%")) {
 						lineDoc1 = lineDoc1.replace("%km%", unbKm);
 					}
+					
 
 					response.getWriter().println(lineDoc1);
 					lineDoc1 = bufReadDoc1.readLine();
