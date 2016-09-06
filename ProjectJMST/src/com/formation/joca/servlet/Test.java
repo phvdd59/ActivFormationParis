@@ -111,7 +111,7 @@ public class Test extends HttpServlet {
 			//		}
 			//		
 
-			if (utilisateur != null && utilisateur.isAdmin() && utilisateur.getMdp().equals(motdepasse)) {
+			if (utilisateur != null && utilisateur.isAdmin() && utilisateur.getMdp().equals(motdepasse) && !utilisateur.isBloque()) {
 				session = request.getSession(true);
 				session.setAttribute("Personne", utilisateur);
 
@@ -131,7 +131,7 @@ public class Test extends HttpServlet {
 					line = lecture.readLine();
 				}
 				lecture.close();
-			} else if (utilisateur != null && !utilisateur.isAdmin() && utilisateur.getMdp().equals(motdepasse)) {
+			} else if (utilisateur != null && !utilisateur.isBloque() && utilisateur.getMdp().equals(motdepasse)) {
 				session = request.getSession(true);
 				session.setAttribute("Personne", utilisateur);
 				BufferedReader lecture = null;
@@ -157,8 +157,12 @@ public class Test extends HttpServlet {
 				lecture = new BufferedReader(input);
 				String line = lecture.readLine();
 				while (line != null) {
-					if (line.equals("value=\"%%noSerie%%\">")) {
-						line = line.replace("value=\"%%noSerie%%\">", "value=\"%%noSerie%%\">" + "erreur login");
+					if (line.contains("onblur=\"verif_ident(this)\" /><span") && utilisateur.isBloque()) {
+						line = line.replace("/><span", "/><p style=\"color:red;\" >personne bloquee</p><span");
+					}else if (line.contains("onblur=\"verif_mdp(this)\" /><span") && !utilisateur.getMdp().equals(motdepasse)) {
+						line = line.replace("><span", "/><p style=\"color:red;\" >mauvais mot de passe</p><span");
+					} else {
+						line = line.replace("/><span", "/><p style=\"color:red;\" >erreur login</p><span");
 					}
 					response.getWriter().println(line);
 					line = lecture.readLine();
@@ -166,8 +170,19 @@ public class Test extends HttpServlet {
 				lecture.close();
 			}
 		} else {
-			RequestDispatcher requestDispacher = getServletContext().getRequestDispatcher("/ServletDeco");
-			requestDispacher.forward(request, response);
+			BufferedReader lecture = null;
+			File page = new File("../GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/Login.html");
+			InputStreamReader input = new InputStreamReader(new FileInputStream(page));
+			lecture = new BufferedReader(input);
+			String line = lecture.readLine();
+			while (line != null) {
+				if (line.contains("onblur=\"verif_ident(this)\" /><span")) {
+					line = line.replace("/><span", "/><p style=\"color:red;\" >login inexistant</p><span");
+				}
+				response.getWriter().println(line);
+				line = lecture.readLine();
+			}
+			lecture.close();
 		}
 
 		// BufferedReader lecture = null;
