@@ -293,6 +293,8 @@ public class Servletidentification extends HttpServlet {
 				}
 				bufReadJS1.close();
 				
+				resp.getWriter().println("<link href=\"http://localhost:8080/ProjectAJEE/ajee/css/StyleFormulaire.css\" rel=\"stylesheet\" type=\"text/css\">");
+				
 				File fileJS2 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/js/JSFormulaireCalendrierListeDeroulante.html");
 				BufferedReader bufReadJS2 = null;
 				bufReadJS2 = new BufferedReader(new FileReader(fileJS2));
