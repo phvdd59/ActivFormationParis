@@ -43,61 +43,60 @@ public class ServletModificationFormulaire extends HttpServlet {
 		Vue vue = new Vue();
 	
 
-		String nom = personne.getNom();
-
-		String prenom = personne.getPrenom();
-
-		String adresse = personne.getAdresse();
-
-		String cp = personne.getCp();
-
-		String ville = personne.getVille();
-
-		String telfixe = personne.getTelFixe();
-		if (telfixe == null) {
-			telfixe = "";
-		}
-		String telport = personne.getTelPort();
-
-		String fax = personne.getFax();
-
-		String email = personne.getEmail();
-
-		String datenaissance = personne.getDateNaissanceString();
-
-		String lieunaissance = personne.getLieuNaissance();
-
-		String numSecu = personne.getNumSecu();
-
-		String nationalite = personne.getNationalite();
-
-		String situation = personne.getSituationString();
-
-		String fonction = personne.getFonction();
-
-		String positionEntreprise = personne.getPositionEntreprise();
-
-		String coeff = personne.getCoeff();
-
-		String salaire = personne.getSalaire();
-
-		String mutuelle = personne.getMutuelle();
-
-		String ticketResto = personne.getTicketResto();
-
-		String visiteMedicale = personne.getVisiteMedicaleString();
-
-		String montantTransport = personne.getMontantTransport();
-
-		String voiture = personne.getVoiture();
-
-		String nbcv = personne.getNbCVString();
-
-		String nbKm = personne.getNbKm();
+		
 
 		if (oNoSerie != null) {
 
 			if (personne != null && !personne.getIdentifiant().equals("Admin")) {
+				String nom = personne.getNom();
+
+				String prenom = personne.getPrenom();
+
+				String adresse = personne.getAdresse();
+
+				String cp = personne.getCp();
+
+				String ville = personne.getVille();
+
+				String telfixe = personne.getTelFixe();
+				
+				String telport = personne.getTelPort();
+
+				String fax = personne.getFax();
+
+				String email = personne.getEmail();
+
+				String datenaissance = personne.getDateNaissanceString();
+
+				String lieunaissance = personne.getLieuNaissance();
+
+				String numSecu = personne.getNumSecu();
+
+				String nationalite = personne.getNationalite();
+
+				String situation = personne.getSituationString();
+
+				String fonction = personne.getFonction();
+
+				String positionEntreprise = personne.getPositionEntreprise();
+
+				String coeff = personne.getCoeff();
+
+				String salaire = personne.getSalaire();
+
+				String mutuelle = personne.getMutuelle();
+
+				String ticketResto = personne.getTicketResto();
+
+				String visiteMedicale = personne.getVisiteMedicaleString();
+
+				String montantTransport = personne.getMontantTransport();
+
+				String voiture = personne.getVoiture();
+
+				String nbcv = personne.getNbCVString();
+
+				String nbKm = personne.getNbKm();
 				// utiliser le pseudo pour avoir la personne
 				/** Lecture Haut de page HTML */
 				vue.lecturePage(response, "HautPage");

@@ -382,8 +382,8 @@ public class Personne implements Serializable {
 	}
 	public String getSituationString() {
 		String retour="";
-		if (situation.getNom()!=null) {
-			retour=situation.getNom();
+		if (situation!=null&&situation.getNom()!=null&&situation.getNom().toString()!=null) {
+			retour=situation.getNom().toString();
 		}
 		return retour;
 	}
