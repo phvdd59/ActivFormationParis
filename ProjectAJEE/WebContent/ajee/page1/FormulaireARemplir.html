@@ -36,7 +36,8 @@
 				<th colspan="2" align="center"><h4>ETAT CIVIL</h4></th>
 			</tr>
 			<tr>
-				<td>Date de naissance : <input name="dateNaissance" id="dateNaissance" onblur="ecritureDateNaiss()" type="text" style="width: 248px; "/></td>
+				<td>Date de naissance : <input name="dateNaissance" id="dateNaissance" onclick="var toto = new calendar(this);" type="text" /></td>
+				<!-- onblur="ecritureDateNaiss()"  -->
 				<!-- class="JSFormulaireCalendrierListeDeroulante"  -->
 				<td>Lieu : <input name="lieuNaissance" id="lieuNaissance" onblur="ecritureTexteLieu()" type="texte" style="width: 348px; "/></td>
 			</tr>

@@ -68,7 +68,8 @@ public class Servletidentification extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse resp) throws ServletException, IOException {
-		// request.logout();
+		request.setCharacterEncoding("UTF-8");
+		resp.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
 
 		// String sS=request.getParameter("JSESSIONID");
@@ -282,7 +283,35 @@ public class Servletidentification extends HttpServlet {
 					lineHaut = bufReadHaut.readLine();
 				}
 				bufReadHaut.close();
-
+				File fileJS1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/css/FormulaireCalendrierListeDeroulante.html");
+				BufferedReader bufReadJS1 = null;
+				bufReadJS1 = new BufferedReader(new FileReader(fileJS1));
+				String lineJS1 = bufReadJS1.readLine();
+				while (lineJS1 != null) {
+				resp.getWriter().println(lineJS1);
+				lineJS1 = bufReadJS1.readLine();
+				}
+				bufReadJS1.close();
+				
+				File fileJS2 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/js/JSFormulaireCalendrierListeDeroulante.html");
+				BufferedReader bufReadJS2 = null;
+				bufReadJS2 = new BufferedReader(new FileReader(fileJS2));
+				String lineJS2 = bufReadJS2.readLine();
+				while (lineJS2 != null) {
+				resp.getWriter().println(lineJS2);
+				lineJS2 = bufReadJS2.readLine();
+				}
+				bufReadJS2.close();
+			
+				File fileDoc1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/js/JSFormulaireARemplir.html");
+				BufferedReader bufReadDoc1 = null;
+				bufReadDoc1 = new BufferedReader(new FileReader(fileDoc1));
+				String lineDoc1 = bufReadDoc1.readLine();
+				while (lineDoc1 != null) {
+					resp.getWriter().println(lineDoc1);
+					lineDoc1 = bufReadDoc1.readLine();
+				}
+				bufReadDoc1.close();
 				/** Lecture page ActivConsulting */
 				File fileActiv = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/MenuActiv.html");
 				BufferedReader bufReadActiv = null;
@@ -295,15 +324,6 @@ public class Servletidentification extends HttpServlet {
 				bufReadActiv.close();
 
 				/** Lecture formulaire */
-				File fileDoc1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/js/JSFormulaireARemplir.html");
-				BufferedReader bufReadDoc1 = null;
-				bufReadDoc1 = new BufferedReader(new FileReader(fileDoc1));
-				String lineDoc1 = bufReadDoc1.readLine();
-				while (lineDoc1 != null) {
-					resp.getWriter().println(lineDoc1);
-					lineDoc1 = bufReadDoc1.readLine();
-				}
-				bufReadDoc1.close();
 
 				File fileDoc2 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/FormulaireARemplir.html");
 				BufferedReader bufReadDoc2 = null;

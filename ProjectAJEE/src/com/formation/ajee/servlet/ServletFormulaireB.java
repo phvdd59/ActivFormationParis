@@ -80,6 +80,8 @@ public class ServletFormulaireB extends HttpServlet {
 			lineJS=bufReadJS.readLine();
 		}
 		bufReadJS.close();
+		
+	
 				
 		/** Lecture page ActivConsulting */
 		
