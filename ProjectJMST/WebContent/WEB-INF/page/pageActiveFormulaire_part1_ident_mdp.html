@@ -102,13 +102,13 @@
 					<tr>
 						<th colspan="4" style="width: 627px;">Mot de passe</th>
 						<th style="width: 273px; height: 25px; color:;"><input
-							type="password" name="mdp1" value='' style="width: 270px;"
+							id="mdp1" type="password" name="mdp1" value='' style="width: 270px;"
 							onblur="verif_mdp(this)"><span id="erreur"></span></th>
 					</tr>
 					<tr>
 						<th colspan="4" style="width: 627px;">Mot de passe</th>
 						<th style="width: 273px; height: 25px; color:;"><input
-							type="password" name="mdp2" value='' style="width: 270px;"
+							id="mdp2" type="password" name="mdp2" value='' style="width: 270px;"
 							onblur="verif_mdp2(this)"><span id="erreur3"></span></th>
 					</tr>
 				</table>
@@ -162,6 +162,17 @@
 				}
 			}
 		}
+		
+		function mdp_egal(){
+			var mdp1= document.getElementById("mdp1");
+			var mdp2= document.getElementById("mdp2");
+			if (mdp1.value == mdp2.value){
+				return true;
+			} else {
+				return false;
+			}
+			
+		}
 
 		function verif_mdp(champ) {
 
@@ -197,12 +208,18 @@
 			var identOk = verif_ident(f.identifiant);
 			var mdpOk = verif_mdp(f.mdp1);
 			var mdp2Ok = verif_mdp2(f.mdp2);
+			var mdpEgal = mdp_egal();
 
-			if (identOk && mdpOk && mdp2Ok)
-				return true;
-			else {
+			if (!(identOk && mdpOk && mdp2Ok)){
 				alert("Veuillez remplir correctement tous les champs");
 				return false;
+			} else {
+				if (mdpEgal){
+					return true;
+				} else {
+					alert("mots de passe differents");
+					return false;
+				}
 			}
 		}
 	</script>
