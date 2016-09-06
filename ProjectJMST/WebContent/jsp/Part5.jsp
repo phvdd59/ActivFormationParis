@@ -1,3 +1,4 @@
+<%@page import="com.formation.thcr.conversion.ConversionPersonne"%>
 <%@page import="com.formation.joca.controleur.CtrlPersonne"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -224,6 +225,8 @@
 					personne = (Personne) p;			
 				}
 
+				ConversionPersonne conv = new ConversionPersonne();
+				
 				CtrlPersonne ctrl = new CtrlPersonne();
 				String sSituation = request.getParameter("situation");
 				if (noSerie.equals(noSerieHtml)) {
@@ -329,7 +332,7 @@
 						<td>Date de la dernière visite médicale</td>
 						<td colspan="3" style="width: 229px; height: 25px; color:;"><input
 							id="dateVisiteMedicale" type="date" name="date visite medicale"
-							value='<%=personne.getVisiteMedicale()%>' style="width: 615px;"><br>
+							value='<%=conv.conversionSQLToUtil(new java.sql.Date(personne.getVisiteMedicale().getTime()))%>' style="width: 615px;"><br>
 							<span id="spanDateVisiteMedicale"></span></td>
 					</tr>
 					<tr>

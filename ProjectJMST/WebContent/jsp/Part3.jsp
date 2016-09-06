@@ -1,3 +1,4 @@
+<%@page import="com.formation.thcr.conversion.ConversionPersonne"%>
 <%@page import="com.formation.joca.controleur.CtrlPersonne"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -99,6 +100,7 @@
 					personne = (Personne) p;
 				}
 				
+				ConversionPersonne conv = new ConversionPersonne();
 				
 				String sNom = request.getParameter("nom");
 				String sPrenom = request.getParameter("prenom");
@@ -145,7 +147,7 @@
 						<td>Date de naissance</td>
 						<td style="width: 273px; height: 25px; color:;"><input
 							id="dateDeNaissance" type="date" name="date de naissance"
-							value='<%=personne.getDateNaissance()%>' style="width: 270px;"><br>
+							value='<%=conv.conversionSQLToUtil(new java.sql.Date(personne.getDateNaissance().getTime()))%>' style="width: 270px;"><br>
 							<span id="spanDateDeNaissance"></span></td>
 						<td style="width: 72px;">Lieu de naissance</td>
 						<td style="width: 112px; height: 25px; color:;"><input
