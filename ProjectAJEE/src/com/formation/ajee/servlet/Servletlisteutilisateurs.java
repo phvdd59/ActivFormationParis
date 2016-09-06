@@ -78,7 +78,7 @@ public class Servletlisteutilisateurs extends HttpServlet {
 					lstUser.add(user);
 				}
 
-				File file = new File("../GITActivFormationParis/ProjectAJEE/WebContent/WEB-INF/com/formation/ajee/page/ListeUtilisateurs.html");
+				File file =  new File("../GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/ListeUtilisateurs.html");
 				BufferedReader bIn = new BufferedReader(new FileReader(file));
 				String line = bIn.readLine();
 
@@ -116,7 +116,7 @@ public class Servletlisteutilisateurs extends HttpServlet {
 				bIn.close();
 
 			} else {
-				File file = new File("../GITActivFormationParis/ProjectAJEE/WebContent/WEB-INF/com/formation/ajee/page/ListeUtilisateurs.html");
+				File file =  new File("../GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/ListeUtilisateurs.html");
 				BufferedReader bIn = new BufferedReader(new FileReader(file));
 				String line = bIn.readLine();
 
@@ -170,7 +170,7 @@ public class Servletlisteutilisateurs extends HttpServlet {
 					existe = true;
 				}
 
-				File file = new File("../GITActivFormationParis/ProjectAJEE/WebContent/WEB-INF/com/formation/ajee/page/ListeUtilisateurs.html");
+				File file = new File("../GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/ListeUtilisateurs.html");
 				BufferedReader bIn = new BufferedReader(new FileReader(file));
 				String line = bIn.readLine();
 
@@ -208,7 +208,7 @@ public class Servletlisteutilisateurs extends HttpServlet {
 				bIn.close();
 
 			} else {
-				File file = new File("../GITActivFormationParis/ProjectAJEE/WebContent/WEB-INF/com/formation/ajee/page/ListeUtilisateurs.html");
+				File file =  new File("../GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/ListeUtilisateurs.html");
 				BufferedReader bIn = new BufferedReader(new FileReader(file));
 				String line = bIn.readLine();
 
@@ -239,7 +239,7 @@ public class Servletlisteutilisateurs extends HttpServlet {
 			}
 
 		} else {
-			File file = new File("../GITActivFormationParis/ProjectAJEE/WebContent/WEB-INF/com/formation/ajee/page/ListeUtilisateurs.html");
+			File file =  new File("../GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/ListeUtilisateurs.html");
 			BufferedReader bIn = new BufferedReader(new FileReader(file));
 			String line = bIn.readLine();
 
