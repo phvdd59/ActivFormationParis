@@ -80,7 +80,7 @@ public class ServletPageRemuneration2 extends HttpServlet {
 					if (!personne.isMutuelle()) {
 						line2=line2.replace("name=\"mutuelle\" value=\"oui\" type=\"radio\" checked","name=\"mutuelle\" value=\"oui\" type=\"radio\"");
 						
-						line2=line2.replace("name=\"resto\" value=\"non\" type=\"radio\" ","name=\"resto\" value=\"non\" type=\"radio\" checked");
+						line2=line2.replace("name=\"mutuelle\" value=\"non\" type=\"radio\" ","name=\"mutuelle\" value=\"non\" type=\"radio\" checked");
 					
 					}
 					
