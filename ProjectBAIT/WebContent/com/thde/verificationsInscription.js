@@ -126,7 +126,7 @@ function verifNom(champ) {
 	}
 }
 
-function verifDateNaissance(champ) {
+function verifDate(champ) {
 	if (verifTaille(champ, 10, 10)) {
 		surligne(champ, false);
 		return true;
@@ -155,6 +155,17 @@ function verifSalaire(champ) {
 		return false;
 	}
 }
+//function verifPosition(champ){
+//	var re=/^[a-zA-ZÀ-ÿ\\-'\s]*[a-zA-Z]+$/;
+//	if(re.test(champ.value)) {
+//		surligne(champ, false);
+//		return true;
+//	}else{
+//		surligne(champ, true);
+//		return false;
+//	}
+		
+//	 }
 
 function verifCoefficient(champ) {
 	if (verifVide(champ)) {
@@ -164,6 +175,26 @@ function verifCoefficient(champ) {
 		surligne(champ, true);
 		return false;
 	}
+}
+function verifMontantTransport(champ){
+	if(champ.value.match(".*\\d+.*")){
+		surligne(champ, false);
+		return true;
+	}else{
+		surligne(champ, true);
+		return false;
+	}
+	
+}
+function verifNbCV(champ){
+	if(champ.value.match(".*\\d+.*")){
+		surligne(champ, false);
+		return true;
+	}else{
+		surligne(champ, true);
+		return false;
+	}
+	
 }
 
 // ____ Dernière verifs au submit ____
@@ -203,6 +234,11 @@ function verifCoordonnees(f) {
 	if (verifEmail(f.mail) == false) {
 		alerttotal = alerttotal + "Probleme email \n";
 	}
+	if(verifDate(f.DateVisteMedicale)==false){
+		alert("5");
+		alerttotal=alerttotal + "Probleme date visite \n";
+	}
+
 	if (verifAdresse(f.adresse) == false || verifCodePostal(f.cp) == false
 			|| verifNom(f.ville) == false || verifTel(f.tel) == false
 			|| verifEmail(f.email) == false) {
@@ -221,7 +257,7 @@ function verifEtatCivil(f) {
 	if (verifNom(f.prenom) == false) {
 		alerttotal = alerttotal + "Probleme prenom \n";
 	}
-	if (verifDateNaissance(f.date) == false) {
+	if (verifDate(f.date) == false) {
 		alerttotal = alerttotal + "Probleme date naissance \n";
 	}
 	if (verifNom(f.lieu) == false) {
@@ -234,7 +270,7 @@ function verifEtatCivil(f) {
 		alerttotal = alerttotal + "Probleme secu \n";
 	}
 	if (verifNom(f.nom) == false || verifNom(f.prenom) == false
-			|| verifDateNaissance(f.date) == false || verifNom(f.lieu) == false
+			|| verifDate(f.date) == false || verifNom(f.lieu) == false
 			|| verifNom(f.nati) == false || verifSecu(f.secu) == false) {
 		alert(alerttotal);
 		return false;
@@ -253,6 +289,11 @@ function verifRemuneration(f) {
 		alert("2");
 		alerttotal = alerttotal + "Probleme position \n";
 	}
+//	if (verifPosition(f.Position) == false) {
+//		alert("2");
+//		alerttotal = alerttotal + "Probleme position \n";
+//	}
+
 	if (verifSalaire(f.SalaireS) == false) {
 		alert("3");
 		alerttotal = alerttotal + "Probleme salaire \n";
@@ -261,9 +302,19 @@ function verifRemuneration(f) {
 		alert("4");
 		alerttotal = alerttotal + "Probleme coef \n";
 	}
+	if(verifMontantTransport(f.MontantTransport)==false){
+		alert("6");
+		alerttotal=alerttotal + "Probleme montant \n";
+	}
+	if(verifNbCV(f.NbCV)==false){
+		alert("7");
+		alerttotal=alerttotal + "Probleme nbCV \n";
+	}
+	
 	if (verifNom(f.Fonction) == false || verifNom(f.Position) == false
 			|| verifSalaire(f.SalaireS) == false
-			|| verifCoefficient(f.Coefficient) == false) {
+			|| verifCoefficient(f.Coefficient) == false ||  verifDate(f.DateVisiteMedicale) == false 
+			|| verifMontantTransport(f.MontantTransport)==false || verifNbCV(f.NbCV)==false) {
 		alert(alerttotal);
 		return false;
 	} else {
