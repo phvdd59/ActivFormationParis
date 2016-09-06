@@ -205,8 +205,10 @@ public class Personne implements Serializable {
 		return Integer.toString(idPersonne);
 	}
 
+
+
 	public String getNom() {
-		if (nom == null) {
+		if (nom == null || nom.equals("null")) {
 			nom = "";
 		}
 		return nom;
@@ -217,7 +219,7 @@ public class Personne implements Serializable {
 	}
 
 	public String getPrenom() {
-		if (prenom == null) {
+		if (prenom == null|| prenom.equals("null")) {
 			prenom = "";
 		}
 		return prenom;
@@ -252,7 +254,7 @@ public class Personne implements Serializable {
 	}
 
 	public String getEmail() {
-		if (email == null) {
+		if (email == null|| email.equals("null")) {
 			email = "";
 		}
 		return email;
@@ -263,7 +265,7 @@ public class Personne implements Serializable {
 	}
 
 	public String getAdresse() {
-		if (adresse == null) {
+		if (adresse == null|| adresse.equals("null")) {
 			adresse = "";}
 		return adresse;
 		}
@@ -273,7 +275,7 @@ public class Personne implements Serializable {
 	}
 
 	public String getCp() {
-		if (cp == null) {
+		if (cp == null|| cp.equals("null")) {
 			cp = "";
 		}
 		return cp;
@@ -284,7 +286,7 @@ public class Personne implements Serializable {
 	}
 
 	public String getVille() {
-		if (ville == null) {
+		if (ville == null|| ville.equals("null")) {
 			ville = "";
 		}return ville;
 	}
@@ -294,7 +296,7 @@ public class Personne implements Serializable {
 	}
 
 	public String getTelFixe() {
-		if (telFixe == null) {
+		if (telFixe == null|| telFixe.equals("null")) {
 			telFixe = "";
 		}return telFixe;
 	}
@@ -304,7 +306,7 @@ public class Personne implements Serializable {
 	}
 
 	public String getTelPort() {
-		if (telPort == null) {
+		if (telPort == null|| telPort.equals("null")) {
 			telPort = "";
 		}return telPort;
 	}
@@ -314,7 +316,7 @@ public class Personne implements Serializable {
 	}
 
 	public String getFax() {
-		if (fax == null) {
+		if (fax == null|| fax.equals("null")) {
 			fax = "";
 		}return fax;
 	}
@@ -341,7 +343,7 @@ public class Personne implements Serializable {
 	}
 
 	public String getLieuNaissance() {
-		if (lieuNaissance == null) {
+		if (lieuNaissance == null || lieuNaissance.equals("null")) {
 			lieuNaissance = "";
 		}return lieuNaissance;
 	}
@@ -351,7 +353,7 @@ public class Personne implements Serializable {
 	}
 
 	public String getNumSecu() {
-		if (numSecu == null) {
+		if (numSecu == null|| numSecu.equals("null")) {
 			numSecu = "";
 		}return numSecu;
 	}
@@ -361,7 +363,7 @@ public class Personne implements Serializable {
 	}
 
 	public String getNationalite() {
-		if (nationalite == null) {
+		if (nationalite == null|| nationalite.equals("null")) {
 			nationalite = "";
 		}return nationalite;
 	}
@@ -379,7 +381,7 @@ public class Personne implements Serializable {
 	}
 
 	public String getFonction() {
-		if (fonction == null) {
+		if (fonction == null|| fonction.equals("null")) {
 			fonction = "";
 		}return fonction;
 	}
@@ -389,7 +391,7 @@ public class Personne implements Serializable {
 	}
 
 	public String getPositionEntreprise() {
-		if (positionEntreprise == null) {
+		if (positionEntreprise == null|| positionEntreprise.equals("null")) {
 			positionEntreprise = "";
 		}return positionEntreprise;
 	}
@@ -407,7 +409,7 @@ public class Personne implements Serializable {
 	}
 
 	public String getCoeff() {
-		if (coeff == null) {
+		if (coeff == null|| coeff.equals("null")) {
 			coeff = "";
 		}return coeff;
 	}
@@ -417,7 +419,7 @@ public class Personne implements Serializable {
 	}
 
 	public String getSalaire() {
-		if (salaire == null) {
+		if (salaire == null|| salaire.equals("null")) {
 			salaire = "";
 		}return salaire;
 	}
@@ -442,7 +444,7 @@ public class Personne implements Serializable {
 	}
 
 	public String getMontantTransport() {
-		if (montantTransport == null) {
+		if (montantTransport == null|| montantTransport.equals("null")) {
 			montantTransport = "";
 		}return montantTransport;
 	}
@@ -480,7 +482,7 @@ public class Personne implements Serializable {
 	}
 
 	public String getNbKm() {
-		if (nbKm == null) {
+		if (nbKm == null|| nbKm.equals("null")) {
 			nbKm = "";
 		}return nbKm;
 	}
