@@ -41,13 +41,13 @@ public class ServletRechercheProfil extends HttpServlet {
 		Object noSerie = session.getAttribute("noSerie");
 
 		Personne personne = (Personne) session.getAttribute("personne");
-
+		Personne utilisateur = null;
 		// Constituer la nouvelle page
 		if (noSerie != null && personne.getIdentifiant() != null) {
 
 			if (personne.getIdentifiant().equals("Admin")) {
 				String sUtilisateur = request.getParameter("utilisateur");
-				Personne utilisateur = null;
+				
 				ListPersonne lstpersonne = new ListPersonne();
 				for (int i = 0; i < lstpersonne.size(); i++) {
 					if (lstpersonne.get(i).getIdentifiant().equals(sUtilisateur)) {
@@ -56,7 +56,11 @@ public class ServletRechercheProfil extends HttpServlet {
 						break;
 					}
 				}
-				session.setAttribute("utilisateur", utilisateur);
+				utilisateur=(Personne)session.getAttribute("utilisateur");
+				if (utilisateur==null) {
+					RequestDispatcher rd = request.getRequestDispatcher("//Servletaccueilchargementprofil");
+					rd.forward(request, response);
+				}
 				/** Lecture Haut de page HTML */
 				File fileHaut = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/HautPage.html");
 				BufferedReader bufReadHaut = null;
