@@ -10,9 +10,15 @@ public class MainDate {
 
 	public static void main(String[] args) {
 		MainDate main = new MainDate();
-		main.init();
+		main.init2();
 	}
 	
+	private void init2() {
+Personne perso = new Personne();
+perso.setMdp("lol");
+System.out.println(perso.getMdp());
+	}
+
 	public void init(){
 		
 		java.util.Date dateUtil = new java.util.Date();

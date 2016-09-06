@@ -52,9 +52,9 @@ public class ServletSoka3 extends HttpServlet {
 		/***************************
 		 * RECUP DONNEE FORMULAIRE
 		 */
-		String sDateNaissance = request.getParameter("date de naissance");
-		String sLieuNaissance = request.getParameter("lieu de naissance");
-		String sNumSecu = request.getParameter("num secu");
+		String sDateNaissance = request.getParameter("datedenaissance");
+		String sLieuNaissance = request.getParameter("lieudenaissance");
+		String sNumSecu = request.getParameter("numsecu");
 		String sNationalite = request.getParameter("nationalite");
 		/***************************
 		 * CONTROLE ET CONVERSION
