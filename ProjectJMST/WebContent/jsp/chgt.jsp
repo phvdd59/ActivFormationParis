@@ -43,7 +43,7 @@
 			personne.setDateModification(new Timestamp(dateModif.getTime()));
 			if (dao.update(personne)) {
 	
-			out.write("mis à jour réussi, cliquer sur retour login");
+			out.write("mise à jour réussie, cliquer sur retour login");
 		%>
 	</p>
 	<br/><form action="http://localhost:8080/ProjectJMST/ServletJOCA1"
@@ -52,7 +52,7 @@
 	</form>
 	<%
 		} else {
-				out.write("échec mis à jour réussi, cliquer sur retour login");
+				out.write("échec mise à jour, cliquer sur retour login");
 	%>
 	</p>
 	<br/><form action="http://localhost:8080/ProjectJMST/Servletmadecversmenu"
