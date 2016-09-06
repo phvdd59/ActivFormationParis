@@ -37,7 +37,7 @@
 		ListPersonne listePersonne = new ListPersonne();
 		DAOPersonne dao = new DAOPersonne();
 		listePersonne = dao.read();
-		if (true){//noSerie.equals(noSerieHtml)){ //ne marche pas pour l'instant a voir donc(made)
+		if (true) {//ne marche pas pour l'instant a voir donc(made)
 	%>
 
 	<p>Utilisateur</p>
@@ -47,23 +47,26 @@
 			<%
 			
 				for (Personne perso : listePersonne) {
+					
+				if (!perso.isBloque()){
 			%>
 			<option name="optionNom"><%=perso.getIdentifiant()%></option>
 
 			
 			<%
 				}
+				}
 			%>
 		</select>
 		<%
-			;
+			
 		%>
 
 
 		<input id="raisonBlocage"type="text" name="raisonBlocage">
 		<input type="submit" value=" bloquer personne"> 
 		<%
-			Personne personneBloquee = new Personne();
+			//Personne personneBloquee = new Personne();
 				// personneBloquee.setRaisonBlocage(document.getElementById(inputMotif));
 		%>
 					<input	type="hidden" name="noSerie" value="%%noSerie%%">
@@ -93,6 +96,43 @@
 				}
 		%>
 	</table>
+	
+	
+	<p>Utilisateur bloque</p>
+	<form action="http://localhost:8080/ProjectJMST/ServletMadeDeblocage">
+		<select id="idSelectaDebloquer" name="personneADebloquer">
+			<option name="optionDescription">Identifiant  Nom Prenom</option>
+			<%
+			
+				for (Personne perso : listePersonne) {
+					
+				if (perso.isBloque()){
+			%>
+			<option name="optionNom"><%=perso.getIdentifiant()%></option>
+
+			
+			<%
+				}
+				}
+			%>
+		</select>
+		<%
+			
+		%>
+
+
+		
+		<input type="submit" value=" Débloquer personne"> 
+		<%
+			//Personne personneaDebloquer = new Personne();
+				// personneBloquee.setRaisonBlocage(document.getElementById(inputMotif));
+		%>
+					<input	type="hidden" name="noSerie" value="%%noSerie%%">
+	</form>
+	
+	
+	
+	
 	<form action="http://localhost:8080/ProjectJMST/ServletDeco"
 					method="post">
 					<input type="submit" value="deconnexion"
