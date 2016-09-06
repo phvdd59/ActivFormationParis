@@ -1,51 +1,25 @@
 <script type="text/javascript">
-boolean b1= false;
-boolean b2= false;
-boolean b3= false;
-function ValideMdpActuel() {
-	var mdpUser = request.getParameter("mdp");
-	var mdpA = document.getElementById("mdpA");
-	var VmdpA = document.getElementById("mdpA").value;
-	if (VmdpA != "") {
-			mdpA.style.color="red";
-			mdpA.placeholder="Merci de saisir VOTRE mot de passe";
-		} else {
-			b1= true;
-			mdpA.style.color="black";
+	function boutonValider() {
+		val = false;
+		var b1 = false;
+		var b2 = false;
+		var mdpN = document.getElementById("mdpN");
+		var mdpC = document.getElementById("mdpC");
+		var VmdpN = mdpN.value;
+		var VmdpC = mdpC.value;
+		reg = /^[a-zA-Z0-9]+$/
+		if (VmdpN != null && VmdpN != "" && VmdpN.match(reg)) {
+			b1 = true;
 		}
-}
-function ValideMdp() {
-	var mdpN = document.getElementById("mdpN");
-	var VmdpN = document.getElementById("mpdN").value;
-	reg=/^[a-zA-Z0-9]+$/
-	if (VmdpN != "") {
-		if(!VmdpN.match(reg)) {
-			mdpN.style.color="red";
-			mdpN.placeholder="Merci de saisir un mot de passe valide";
-		} else {
+		if (VmdpC != null && VmdpC != "" && VmdpC.match(VmdpN)) {
 			b2 = true;
-			mdpN.style.color="black";
 		}
-	}	
-}
-function ValideMdpConfirme() {
-	var VmdpN = document.getElementById("mdpN").value;
-	var mdpC = document.getElementById("mdpC");
-	var VmdpC = document.getElementById("mdpC").value;
-	if (VmdpC != "") {
-		if(VmdpC.localeCompare(VmdpN) != 0){
-			mdpC.style.color="red";
-			mdpC.placeholder="Merci de saisir le même mot de passeque ci dessus";
+		if ((b1 == true) && (b2 == true)) {
+			val = true;
+			personne.setMdp(VmpdN);
 		} else {
-			b3= true;
-			mdpC.style.color="black";
+			alert("Veuillez saisir 2 fois le même mot de passe et sans caractères spéciaux");
 		}
-	}	
-}
-function BoutonValider() {
-	if ((b1 == true) && (b2 == true) && (b3 == true)) {
-		document.valider.action = "http://127.0.0.1:8080/ProjectAJEE/Servletaccueilchargementprofil";
-		document.valider.submit();
-	} 
-}
+		return val;
+	}
 </script>

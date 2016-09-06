@@ -1,14 +1,15 @@
 <script type="text/javascript">
 
 function ajouter() {
-	Documents.form.doc.liste.option[Documents.form.doc.liste.options.length] = new Option("", <option value="%%value%%"></option>);
-	document.location.href = "http://127.0.0.1:8080/ProjectAJEE/MesDocuments";
+	document.formAjouter.action = "http://127.0.0.1:8080/ProjectAJEE/ServletAjouter";
+	document.formAjouter.submit();
 }
-
 function supprimer() {
-	document.location.href = "http://127.0.0.1:8080/ProjectAJEE/ServletSupprimer";
+	document.formAjouter.action = "http://127.0.0.1:8080/ProjectAJEE/ServletSupprimer";
+	document.formAjouter.submit();
 }
 function telecharger() {
-	document.location.href = "http://127.0.0.1:8080/ProjectAJEE/ServletTelecharger";
+	document.formAjouter.action = "http://127.0.0.1:8080/ProjectAJEE/ServletTelecharger";
+	document.formAjouter.submit();
 }
 </script>

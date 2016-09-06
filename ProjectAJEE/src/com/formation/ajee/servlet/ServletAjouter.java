@@ -59,6 +59,18 @@ public class ServletAjouter extends HttpServlet {
 						lineHaut = bufReadHaut.readLine();
 					}
 					bufReadHaut.close();
+					
+					/** Lecture JS documents */
+					bufReadHaut.close();
+					File fileJS = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/js/JSDocuments.html");
+					BufferedReader bufReadJS = null;
+					bufReadJS = new BufferedReader(new FileReader(fileJS));
+					String lineJS = bufReadJS.readLine();
+					while (lineJS != null) {
+						response.getWriter().println(lineJS);
+						lineJS = bufReadJS.readLine();
+					}
+					bufReadJS.close();
 
 					/** Lecture page ActivConsulting */
 					File fileActiv = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/MenuActiv.html");
@@ -161,6 +173,18 @@ public class ServletAjouter extends HttpServlet {
 					lineHaut = bufReadHaut.readLine();
 				}
 				bufReadHaut.close();
+				
+				/** Lecture JS documents */
+				bufReadHaut.close();
+				File fileJS = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/js/JSDocuments.html");
+				BufferedReader bufReadJS = null;
+				bufReadJS = new BufferedReader(new FileReader(fileJS));
+				String lineJS = bufReadJS.readLine();
+				while (lineJS != null) {
+					response.getWriter().println(lineJS);
+					lineJS = bufReadJS.readLine();
+				}
+				bufReadJS.close();
 
 				/** Lecture page ActivConsulting */
 				File fileActiv = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/MenuActiv.html");

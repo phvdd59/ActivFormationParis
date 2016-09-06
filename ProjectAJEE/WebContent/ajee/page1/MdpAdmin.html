@@ -1,18 +1,20 @@
 <div>
-<table>
+<form name="Valider" action="http://127.0.0.1:8080/ProjectAJEE/Servletaccueilchargementprofil" method="POST" onsubmit=" return boutonValider()">
+<table style="margin-left: 130px; margin-top: 100px;">
 <tr>
-<td>Mot de passe actuel : <input id="mdpA" onblur="ValideMdpActuel()" placeholder="Saisissez votre mot de passe" type="password" name="mdpA" style="width: 358px; "/></td>
+<td><h2 align="center">CHANGEMENT DE MOT DE PASSE</h2></td>
+</tr>
+<tr><td height="15"></td></tr>	
+<tr>
+<td align = "right">Nouveau mot de passe : <input id="mdpN" required="required" placeholder="ex : Mot2Pass" type="password" name="mdpN" style="width: 150px; "/></td>
 </tr>
 <tr>
-<td>Nouveau mot de passe : <input id="mdpN" onblur="ValideMdp()" placeholder="ex : Mot2Pass" type="password" name="mdpN" style="width: 358px; "/></td>
+<td align = "right">Confirmation du nouveau mot de passe : <input id="mdpC" required="required" placeholder="ex : Mot2Pass" type="password" name="mdpC" style="width: 150px; "/></td>
 </tr>
+<tr><td height="20px"></td></tr>
 <tr>
-<td>Confirmation du nouveau mot de passe : <input id="mdpC" onblur="ValideMdpConfirme()" placeholder="ex : Mot2Pass" type="password" name="mdpC" style="width: 358px; "/></td>
+<td align = "center"><input value= "valider" type="submit" name="Valider"></td>
 </tr>
-<tr><td>
-<form id="valider" name="valider" action="http://127.0.0.1:8080/ProjectAJEE/Servletaccueilchargementprofil" method="POST">
-	<input type="submit" value="Valider">
-</form>
-</td></tr>
 </table>
+</form>
 </div>
