@@ -312,6 +312,7 @@ public class Servletidentification extends HttpServlet {
 					lineDoc1 = bufReadDoc1.readLine();
 				}
 				bufReadDoc1.close();
+				
 				/** Lecture page ActivConsulting */
 				File fileActiv = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/MenuActiv.html");
 				BufferedReader bufReadActiv = null;
