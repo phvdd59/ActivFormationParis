@@ -41,7 +41,7 @@ public class Servletaccueilvalidemdp extends HttpServlet {
 		ListPersonne lstPersonne=new ListPersonne();
 		Personne utilisateur =(Personne) session.getAttribute("utilisateur");
 		Personne personne = (Personne) session.getAttribute("personne");
-		String sMdp=request.getParameter("VmdpN");
+		String sMdp=request.getParameter("mdpN");
 		personne.setMdp(sMdp);
 		personne.modifPersonne(personne.getIdPersonne());
 		
@@ -114,7 +114,7 @@ public class Servletaccueilvalidemdp extends HttpServlet {
 				}
 				bufReadDoc.close();
 
-				File fileDoc1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/AccueilAdmin.html");
+				File fileDoc1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/MdpEnregistrer.html");
 				BufferedReader bufReadDoc1 = null;
 				bufReadDoc1 = new BufferedReader(new FileReader(fileDoc1));
 				String lineDoc1 = bufReadDoc1.readLine();
@@ -186,7 +186,7 @@ public class Servletaccueilvalidemdp extends HttpServlet {
 				}
 				bufReadDoc.close();
 
-				File fileDoc1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/Accueil.html");
+				File fileDoc1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/MdpEnregistrer.html");
 				BufferedReader bufReadDoc1 = null;
 				bufReadDoc1 = new BufferedReader(new FileReader(fileDoc1));
 				String lineDoc1 = bufReadDoc1.readLine();
