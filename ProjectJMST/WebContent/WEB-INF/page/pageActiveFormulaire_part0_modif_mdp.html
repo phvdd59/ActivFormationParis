@@ -79,7 +79,7 @@
 			<!-- zone disponible -->
 
 			<form action="http://localhost:8080/ProjectJMST/ServletJOCA1"
-				method='post' onsubmit="verifForm(this)">
+				method='post' onsubmit="return verifForm(this)">
 				<table border="1">
 					<caption>
 						<h1>Changement mot de passe</h1>
@@ -88,22 +88,22 @@
 					<tr>
 						<th colspan="4" style="width: 627px;">Identifiant</th>
 						<th style="width: 273px; height: 25px; color:;">
-						<input type="text" name="identifiant" value='' style="width: 270px;" onblur="verif_ident(this)"><span id="erreur2"></span></th>
+						<input id="identifiant" type="text" name="identifiant" value='' style="width: 270px;" onblur="verif_ident(this)"><span id="erreur2"></span></th>
 					</tr>
 					<tr>
 						<th colspan="4" style="width: 627px;"> Ancien Mot de passe</th>
 						<th style="width: 273px; height: 25px; color:;">
-						<input type="password" name="ancien mdp" value='' style="width: 270px;" onblur="verif_mdpOld(this)"><span id="erreur4"></span></th>
+						<input id="ancienMdp" type="password" name="ancienMdp" value='' style="width: 270px;" onblur="verif_mdpOld(this)"><span id="erreur4"></span></th>
 					</tr>
 					<tr>
 						<th colspan="4" style="width: 627px;">Nouveau Mot de passe</th>
 						<th style="width: 273px; height: 25px; color:;">
-						<input type="password" name="new mdp 1" value='' style="width: 270px;" onblur="verif_mdp(this)"><span id="erreur"></span></th>
+						<input id="newMdp1" type="password" name="newMdp1" value='' style="width: 270px;" onblur="verif_mdp(this)"><span id="erreur"></span></th>
 					</tr>
 					<tr>
 						<th colspan="4" style="width: 627px;">Nouveau Mot de passe</th>
 						<th style="width: 273px; height: 25px; color:;">
-						<input type="password" name="new mdp 2" value='' style="width: 270px;" onblur="verif_mdp2(this)"><span id="erreur3"></span></th>
+						<input id="newMdp2" type="password" name="newMdp2" value='' style="width: 270px;" onblur="verif_mdp2(this)"><span id="erreur3"></span></th>
 					</tr>
 				</table>
 
@@ -155,6 +155,8 @@
 				}
 			}
 		}
+		
+		
 
 		function verif_mdp(champ) {
 
@@ -200,17 +202,34 @@
 				return true
 			}
 		}
+		
+		function mdp_egal(){
+			var mdp1= document.getElementById("newMdp1");
+			var mdp2= document.getElementById("newMdp2");
+			if (mdp1.value == mdp2.value){
+				return true;
+			} else {
+				return false;
+			}	
+		}
 
 		function verifForm(f) {
 			var identOk = verif_ident(f.identifiant);
-			var mdpOk = verif_mdp(f.mdp1);
-			var mdp2Ok = verif_mdp2(f.mdp2);
+			var mdpOk = verif_mdp(f.newMdp1);
+			var mdp2Ok = verif_mdp2(f.newMdp2);
+			var mdpOldOk = verif_mdpOld(f.ancienMdp);
+			var mdpEgalOk = mdp_egal();
 
-			if (identOk && mdpOk && mdp2Ok)
-				return true;
-			else {
+			if (!(identOk && mdpOk && mdp2Ok && mdppOldOk)){
 				alert("Veuillez remplir correctement tous les champs");
 				return false;
+			} else {
+				if (mdpEgalOk){
+					return true;
+				} else {
+					alert("mots de passe differents");
+					return false;
+				}		
 			}
 		}
 	</script>
