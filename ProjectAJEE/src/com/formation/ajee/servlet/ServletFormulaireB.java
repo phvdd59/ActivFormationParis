@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.formation.ajee.metier.ListPersonne;
 import com.formation.ajee.metier.Personne;
+import com.formation.ajee.metier.SEXE;
 import com.formation.ajee.veriffom.VerifForm;
 
 /**
@@ -107,16 +108,18 @@ public class ServletFormulaireB extends HttpServlet {
 		Personne personne = new Personne(); // à ce moment y'a création de l'idpersonne
 		VerifForm verif = new VerifForm();
 		
-		// Récupérer les données du formulaire et ranger dans objet personne
+		// Récupérer les données du formulaire, vérifier, et ranger dans objet personne
 		String pNom=request.getParameter("nom");
-		verif.nomVerif(pNom);
-		personne.setNom(pNom);
+		String pNomV=verif.nomVerif(pNom);
+		personne.setNom(pNomV);
 		
 		String pPrenom=request.getParameter("prenom");
-		verif.prenomVerif(pPrenom);
-		personne.setPrenom(pPrenom);
+		String pPrenomV=verif.prenomVerif(pPrenom);
+		personne.setPrenom(pPrenomV);
 		
-		// enum sexe
+		String pSexe=request.getParameter("sexe");
+		SEXE pSexeV = verif.sexeVerif(pSexe);
+		personne.setSexe(pSexeV);
 		
 		String pAdresse=request.getParameter("adresse");
 		verif.adresseVerif(pAdresse);
@@ -143,8 +146,8 @@ public class ServletFormulaireB extends HttpServlet {
 		personne.setFax(pFax);
 		
 		String pEmail=request.getParameter("email");
-		verif.emailVerif(pEmail);
-		personne.setEmail(pEmail);
+		String pEmailV = verif.emailVerif(pEmail);
+		personne.setEmail(pEmailV);
 		
 		String pDateNaissance=request.getParameter("dateNaissance");
 		verif.dateNaissanceVerif(pDateNaissance);
