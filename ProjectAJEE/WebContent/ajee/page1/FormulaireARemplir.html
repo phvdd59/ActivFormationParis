@@ -1,7 +1,7 @@
 <div style="position: absolute;width: 700px;height:750px;top:-130px;left:0px;overflow: auto;">
 <div align="center" > FORMULAIRE D'IDENTIFICATION </div>
 <div> 
-	<form method = "post" action = "http://localhost:8080/ProjectAJEE/ServletFormulaireB"> <!-- (En action, mettre l'URL de la page Acceuil -> la mettre plutot dans la servlet) -->
+	<form method = "post" action = "http://127.0.0.1:8080/ProjectAJEE/ServletFormulaireB"> <!-- (En action, mettre l'URL de la page Acceuil -> la mettre plutot dans la servlet) -->
 		<!--  -->
 		<!-- http://127.0.0.1:8080/ProjectAJEE/src/com/formation/ajee/servlet/ServletFormulaireB.java -->
 		<table align = "center">
@@ -82,7 +82,7 @@
 					<input name="ticketResto" type="radio" value = "non"> Non</td>
 			</tr>
 			<tr>
-				<td colspan="2">Date de votre derniere visite medicale : <input name="visiteMedicale" id="visiteMedicale" onblur="ecritureDateDerVisMed()" type="texte" style="width: 503px; "/></td>
+				<td colspan="2">Date de votre derniere visite medicale : <input name="visiteMedicale" id="visiteMedicale" onclick="var toto = new calendar(this);" onblur="ecritureDateDerVisMed()" type="texte" style="width: 503px; "/></td>
 			</tr>
 			<tr>
 				<td colspan="2">Montant carte d'abonnement transport : <input name="montantTransport" id="montantTransport" onblur="ecritureMontCarteAbonTransp()" type="texte" style="width: 486px; "/></td>

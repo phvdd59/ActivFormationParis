@@ -53,88 +53,69 @@ public class ServletSoka3 extends HttpServlet {
 		/***************************
 		 * RECUP DONNEE FORMULAIRE
 		 */
-		String sDateNaissance = request.getParameter("datedenaissance");
-		String sLieuNaissance = request.getParameter("lieudenaissance");
-		String sNumSecu = request.getParameter("numsecu");
-		String sNationalite = request.getParameter("nationalite");
-		/***************************
-		 * CONTROLE ET CONVERSION
-		 */
-		CtrlPersonne ctrl = new CtrlPersonne();
-		if (ctrl.ctrlDateNaissance(sDateNaissance) && ctrl.ctrlLieuNaissance(sLieuNaissance)
-				&& ctrl.ctrlNumSecu(sNumSecu) && ctrl.ctrlNationalite(sNationalite)) {
-			ConversionPersonne conv = new ConversionPersonne();
-			perso.setDateNaissance(conv.conversionDate(sDateNaissance));
-			perso.setLieuNaissance(sLieuNaissance);
-			perso.setNumSecu(sNumSecu);
-			if (perso.getNumSecu().charAt(0) == '1') {
-				perso.setSexe(new Sexe(Sexe.MASCULIN));
-			} else {
-				perso.setSexe(new Sexe(Sexe.FEMININ));
-			}
-			perso.setNationalite(sNationalite);
-
-			File file = new File("C:/DevFormation/GITActivFormationParis/" + //
-					"ProjectJMST/WebContent/WEB-INF/" + //
-					"page/pageActiveFormulaire_part4_situation_actuelle.html");
-			BufferedReader bIn = null;
-			bIn = new BufferedReader(new FileReader(file));
-
-			if (noSerieHtml.equals(noSerie)) {
-				noSerie = "23_" + noSerie;
-				session.setAttribute("noSerie", noSerie);
-				String line = bIn.readLine();
-				while (line != null) {
-					line = line.replace("%%noSerie%%", noSerie);
-					if (perso.getSituation().equals("Salarie")) {
-						line = line.replace("<input type=\"radio\" name=\"situationPro\" value=\"Salarie\">",
-								"<input type=\"radio\" name=\"situationPro\" value=\"Salarie\" checked=\"checked\">");
-					} else if (perso.getSituation().equals("auto entrepreneur")) {
-						line = line.replace("<input type=\"radio\" name=\"situationPro\" value=\"auto entrepreneur\">",
-								"<input type=\"radio\" name=\"situationPro\" value=\"auto entrepreneur\" checked=\"checked\">");
-					} else if (perso.getSituation().equals("freelance")) {
-						line = line.replace("<input type=\"radio\" name=\"situationPro\" value=\"freelance\">",
-								"<input type=\"radio\" name=\"situationPro\" value=\"freelance\" checked=\"checked\">");
-					} else if (perso.getSituation().equals("demandeur d'emploi")) {
-						line = line.replace("<input type=\"radio\" name=\"situationPro\" value=\"demandeur d'emploi\">",
-								"<input type=\"radio\" name=\"situationPro\" value=\"demandeur d'emploi\" checked=\"checked\">");
-					} else if (perso.getSituation().equals("retraite")) {
-						line = line.replace("<input type=\"radio\" name=\"situationPro\" value=\"retraite\">",
-								"<input type=\"radio\" name=\"situationPro\" value=\"retraite\" checked=\"checked\">");
-					} else {
-						line = line.replace("<input type=\"radio\" name=\"situationPro\" value=\"\">",
-								"<input type=\"radio\" name=\"situationPro\" value=\"\" checked=\"checked\">");
-						line = line.replace("%%autre%%", perso.getSituation());
-					}
-					response.getWriter().println(line);
-					line = bIn.readLine();
+		if (perso.getNationalite().equals("")) {
+			String sDateNaissance = request.getParameter("datedenaissance");
+			String sLieuNaissance = request.getParameter("lieudenaissance");
+			String sNumSecu = request.getParameter("numsecu");
+			String sNationalite = request.getParameter("nationalite");
+			/***************************
+			 * CONTROLE ET CONVERSION
+			 */
+			CtrlPersonne ctrl = new CtrlPersonne();
+			if (ctrl.ctrlDateNaissance(sDateNaissance) && ctrl.ctrlLieuNaissance(sLieuNaissance)
+					&& ctrl.ctrlNumSecu(sNumSecu) && ctrl.ctrlNationalite(sNationalite)) {
+				ConversionPersonne conv = new ConversionPersonne();
+				perso.setDateNaissance(conv.conversionDate(sDateNaissance));
+				perso.setLieuNaissance(sLieuNaissance);
+				perso.setNumSecu(sNumSecu);
+				if (perso.getNumSecu().charAt(0) == '1') {
+					perso.setSexe(new Sexe(Sexe.MASCULIN));
+				} else {
+					perso.setSexe(new Sexe(Sexe.FEMININ));
 				}
-				bIn.close();
+				perso.setNationalite(sNationalite);
 			} else {
-				request.getRequestDispatcher("/ServletDeco").forward(request, response);
-			}
-
-		} else {
-			File file = new File("C:/DevFormation/GITActivFormationParis/" + //
-					"ProjectJMST/WebContent/WEB-INF/" + //
-					"page/pageActiveFormulaire_part3_etat_civil.html");
-			BufferedReader bIn = null;
-			bIn = new BufferedReader(new FileReader(file));
-
-			if (noSerieHtml.equals(noSerie)) {
-				noSerie = "23_" + noSerie;
-				session.setAttribute("noSerie", noSerie);
-				String line = bIn.readLine();
-				while (line != null) {
-					if (line.contains("%%noSerie%%")) {
-						line = line.replace("%%noSerie%%", noSerie);
-					}
-					response.getWriter().println(line);
-					line = bIn.readLine();
-				}
-				bIn.close();
+				// JSP DECO
 			}
 		}
+		File file = new File("C:/DevFormation/GITActivFormationParis/" + //
+				"ProjectJMST/WebContent/WEB-INF/" + //
+				"page/pageActiveFormulaire_part4_situation_actuelle.html");
+		BufferedReader bIn = null;
+		bIn = new BufferedReader(new FileReader(file));
+
+		if (noSerieHtml.equals(noSerie)) {
+			String line = bIn.readLine();
+			while (line != null) {
+				line = line.replace("%%noSerie%%", noSerie);
+				if (perso.getSituation().equals("Salarie")) {
+					line = line.replace("type=\"radio\" name=\"situationPro\" value=\"Salarie\">",
+							"type=\"radio\" name=\"situationPro\" value=\"Salarie\" checked=\"checked\">");
+				} else if (perso.getSituation().equals("auto entrepreneur")) {
+					line = line.replace("type=\"radio\" name=\"situationPro\" value=\"auto entrepreneur\">",
+							"type=\"radio\" name=\"situationPro\" value=\"auto entrepreneur\" checked=\"checked\">");
+				} else if (perso.getSituation().equals("freelance")) {
+					line = line.replace("type=\"radio\" name=\"situationPro\" value=\"freelance\">",
+							"type=\"radio\" name=\"situationPro\" value=\"freelance\" checked=\"checked\">");
+				} else if (perso.getSituation().equals("demandeur d'emploi")) {
+					line = line.replace("type=\"radio\" name=\"situationPro\" value=\"demandeur d'emploi\">",
+							"type=\"radio\" name=\"situationPro\" value=\"demandeur d'emploi\" checked=\"checked\">");
+				} else if (perso.getSituation().equals("retraite")) {
+					line = line.replace("type=\"radio\" name=\"situationPro\" value=\"retraite\">",
+							"type=\"radio\" name=\"situationPro\" value=\"retraite\" checked=\"checked\">");
+				} else {
+					line = line.replace("type=\"radio\" name=\"situationPro\" value=\"\">",
+							"type=\"radio\" name=\"situationPro\" value=\"\" checked=\"checked\">");
+					line = line.replace("%%autre%%", perso.getSituation());
+				}
+				response.getWriter().println(line);
+				line = bIn.readLine();
+			}
+			bIn.close();
+		} else {
+			request.getRequestDispatcher("/ServletDeco").forward(request, response);
+		}
+
 	}
 
 	/**

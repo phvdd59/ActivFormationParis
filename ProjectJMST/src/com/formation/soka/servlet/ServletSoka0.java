@@ -38,7 +38,7 @@ public class ServletSoka0 extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		HttpSession session = request.getSession(true);
+		HttpSession session = request.getSession();
 		Enumeration<String> a = session.getAttributeNames();
 		Personne perso = null;
 		if (a.hasMoreElements()) {
@@ -47,8 +47,8 @@ public class ServletSoka0 extends HttpServlet {
 					Object personne = session.getAttribute("Personne");
 					if (personne instanceof Personne) {
 						perso = (Personne) personne;
+						break;
 					}
-
 				}
 			}
 		} else {
