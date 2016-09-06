@@ -96,8 +96,6 @@
 
 				CtrlPersonne ctrl = new CtrlPersonne();
 
-				String sIdentifiant = request.getParameter("identifiant");
-				String sMdp = request.getParameter("mdp1");
 				if (noSerie.equals(noSerieHtml)) {
 					//if (ctrl.ctrlIdentifiant(sIdentifiant) && ctrl.ctrlMdp(sMdp)) {
 					//} else {

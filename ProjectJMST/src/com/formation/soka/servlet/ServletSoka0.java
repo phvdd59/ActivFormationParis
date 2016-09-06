@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Enumeration;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,24 +21,40 @@ import com.formation.thcr.metier.Personne;
 @WebServlet("/ServletSoka0")
 public class ServletSoka0 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ServletSoka0() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public ServletSoka0() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
 		HttpSession session = request.getSession(true);
-		Personne personne=new Personne();
-		session.setAttribute("Personne", personne);
-		
+		Enumeration<String> a = session.getAttributeNames();
+		Personne perso = null;
+		if (a.hasMoreElements()) {
+			while (a.hasMoreElements()) {
+				if (a.nextElement().equals("Personne")) {
+					Object personne = session.getAttribute("Personne");
+					if (personne instanceof Personne) {
+						perso = (Personne) personne;
+					}
+
+				}
+			}
+		} else {
+			perso = new Personne();
+			session.setAttribute("Personne", perso);
+			perso.setIdentifiant("");
+		}
 
 		File file = new File("C:/DevFormation/GITActivFormationParis/" + //
 				"ProjectJMST/WebContent/WEB-INF/" + //
@@ -49,9 +66,10 @@ public class ServletSoka0 extends HttpServlet {
 		session.setAttribute("noSerie", noSerie);
 		String line = bIn.readLine();
 		while (line != null) {
-			if (line.contains("%%noSerie%%")) {
-				line=line.replace("%%noSerie%%", noSerie);
-			}
+			line = line.replace("%%noSerie%%", noSerie);
+			line = line.replace("%%identifiant%%", perso.getIdentifiant());
+			line = line.replace("%%motdepasse1%%", perso.getMdp());
+			line = line.replace("%%motdepasse2%%", perso.getMdp());
 			response.getWriter().println(line);
 			line = bIn.readLine();
 		}
@@ -59,10 +77,12 @@ public class ServletSoka0 extends HttpServlet {
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		doGet(request, response);
 	}
 

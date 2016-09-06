@@ -149,7 +149,16 @@ function verifSecu(champ) {
 		return false;
 	}
 }
-
+function verifPosition(champ) {
+	var re=/^[0-9]+\.[0-9]+\.?[0-9]?$/;
+	if(re.test(champ.value) && verifVide(champ)){
+		surligne(champ, false);
+		return true;
+	}else{
+		surligne(champ, true);
+		return false;
+	}
+}
 function verifSalaire(champ) {
 	if ((verifVide(champ)) && (!verifLettres(champ))) {
 		surligne(champ, false);
@@ -168,6 +177,47 @@ function verifCoefficient(champ) {
 		surligne(champ, true);
 		return false;
 	}
+}
+function verifDate(champ){
+	if(champ.value.match(/^[0-3][0-9]\/[0-1][0-9]\/[1-2][0-9]{3}$/)) {
+		surligne(champ, false);
+		return true;
+	}else{
+		surligne(champ, true);
+		return false;
+	}
+	
+}
+function verifMontantTransport(champ){
+	var re=/^\d+.*\d*$/;
+	if(re.test(champ.value)){
+		surligne(champ, false);
+		return true;
+	}else{
+		surligne(champ, true);
+		return false;
+	}
+	
+}
+function verifNbCV(champ){
+	var re=/^[0-9]+$/;
+	if(re.test(champ.value)){
+		surligne(champ, false);
+		return true;
+	}else{
+		surligne(champ, true);
+		return false;
+	}
+}
+function verifKmMensuel(champ){
+	var re=/^\d+.*\d*$/
+		if(re.test(champ.value)){
+			surligne(champ, false);
+			return true;
+		}else{
+			surligne(champ, true);
+			return false;
+		}
 }
 
 function verifSitAutre(champ) {
@@ -281,9 +331,9 @@ function verifRemuneration(f) {
 		alerttotal = alerttotal
 				+ "La fonction ? n'est pas indiqu\351e ou elle contient un chiffre \n";
 	}
-	if (verifNom(f.Position) == false) {
+	if (verifPosition(f.Position) == false) {
 		alerttotal = alerttotal
-				+ "La position souhait\351e n'est pas indiqu\351e ou elle contient un chiffre \n";
+				+ "La position souhait\351e n'est pas indiqu\351e ou elle n'est pas dans le format requis \n";
 	}
 	if (verifSalaire(f.SalaireS) == false) {
 		alerttotal = alerttotal
@@ -292,10 +342,27 @@ function verifRemuneration(f) {
 	if (verifCoefficient(f.Coefficient) == false) {
 		alerttotal = alerttotal + "Le coefficient n'est pas indiqu\351 \n";
 	}
+	if(verifDate(f.visiteMedicale)== false){
+		alerttotal=alerttottal + "La visite médicale n'est pas une date \n";
+	}
+	if(verifMontantTransport(f.montantTransport)== false) {
+		alerttotal = alerttotal + "Le montant ne doit pas contenir de lettres \n";
+	}
+	
+	if(verifNbCV(f.nbCV)==false) {
+		alerttotal = alerttotal + "Le nombre de cv doit etre un nombre \n";
+	}
+	if (verifKmMensuel(f.nbKm)==false){
+		alerttotal = alerttotal + "Le nombre de km doit etre un nombre \n";
+	}
 
-	if (verifNom(f.Fonction) == false || verifNom(f.Position) == false
+	if (verifNom(f.Fonction) == false || verifPosition(f.Position) == false
 			|| verifSalaire(f.SalaireS) == false
-			|| verifCoefficient(f.Coefficient) == false) {
+			|| verifCoefficient(f.Coefficient) == false
+			|| verifDate(f.visteMedicale)== false
+			|| verifMontantTransport(f.montantTransport)== false
+			|| verifNbCV(f.nbCV)== false
+			|| verifKmMensuel(f.nbKm)==false) {
 		alert(alerttotal);
 		return false;
 	} else {

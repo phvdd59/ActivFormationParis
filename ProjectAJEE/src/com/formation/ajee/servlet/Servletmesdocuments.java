@@ -16,6 +16,7 @@ import javax.servlet.http.HttpSession;
 import com.formation.ajee.metier.DocPerso;
 import com.formation.ajee.metier.ListeDoc;
 import com.formation.ajee.metier.Personne;
+import com.formation.ajee.veriffom.Vue;
 
 /**
  * Servlet implementation class ServletDocuments
@@ -40,33 +41,21 @@ public class Servletmesdocuments extends HttpServlet {
 		//		Object oPseudo = session.getAttribute("pseudo");
 		Personne utilisateur = (Personne) session.getAttribute("utilisateur");
 		Personne personne = (Personne) session.getAttribute("personne");
+		Vue vue = new Vue();
 
 		if (oNoSerie != null && personne.getIdentifiant() != null) {
 			if (personne.getIdentifiant().equals("Admin")) {
 				if (utilisateur.equals(null)) {
-					RequestDispatcher rd = request.getRequestDispatcher("/Servletaccueilchargementprofil");
+					RequestDispatcher rd = request.getRequestDispatcher("//Servletaccueilchargementprofil");
 					rd.forward(request, response);
 				} else {
+					
 					/** Lecture Haut de page HTML */
-					File fileHaut = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/HautPage.html");
-					BufferedReader bufReadHaut = null;
-					bufReadHaut = new BufferedReader(new FileReader(fileHaut));
-					String lineHaut = bufReadHaut.readLine();
-					while (lineHaut != null) {
-						response.getWriter().println(lineHaut);
-						lineHaut = bufReadHaut.readLine();
-					}
+					vue.lecturePage(response, "HautPage");
+					
 				
 					/** Lecture page ActivConsulting */
-					File fileActiv = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/MenuActiv.html");
-					BufferedReader bufReadActiv = null;
-					bufReadActiv = new BufferedReader(new FileReader(fileActiv));
-					String lineActiv = bufReadActiv.readLine();
-					while (lineActiv != null) {
-						response.getWriter().println(lineActiv);
-						lineActiv = bufReadActiv.readLine();
-					}
-					bufReadActiv.close();
+					vue.lecturePage(response, "MenuActiv");
 
 					/** lecture du bandeau */
 					File fileDoc = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/BandeauAdmin.html");
@@ -108,38 +97,14 @@ public class Servletmesdocuments extends HttpServlet {
 					bufReadDoc1.close();
 
 					/** Lecture bas de page */
-					File fileBas = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/BasPage.html");
-					BufferedReader bufReadBas = null;
-					bufReadBas = new BufferedReader(new FileReader(fileBas));
-					String lineBas = bufReadBas.readLine();
-					while (lineBas != null) {
-						response.getWriter().println(lineBas);
-						lineBas = bufReadBas.readLine();
-					}
-					bufReadBas.close();
+					vue.lecturePage(response, "BasPage");
 				}
 			} else {
 				/** Lecture Haut de page HTML */
-				File fileHaut = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/HautPage.html");
-				BufferedReader bufReadHaut = null;
-				bufReadHaut = new BufferedReader(new FileReader(fileHaut));
-				String lineHaut = bufReadHaut.readLine();
-				while (lineHaut != null) {
-					response.getWriter().println(lineHaut);
-					lineHaut = bufReadHaut.readLine();
-				}
-				bufReadHaut.close();
+				vue.lecturePage(response, "HautPage");
 		
 				/** Lecture page ActivConsulting */
-				File fileActiv = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/MenuActiv.html");
-				BufferedReader bufReadActiv = null;
-				bufReadActiv = new BufferedReader(new FileReader(fileActiv));
-				String lineActiv = bufReadActiv.readLine();
-				while (lineActiv != null) {
-					response.getWriter().println(lineActiv);
-					lineActiv = bufReadActiv.readLine();
-				}
-				bufReadActiv.close();
+				vue.lecturePage(response, "MenuActiv");
 
 				/** lecture du bandeau */
 				File fileDoc = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/Bandeau.html");
@@ -178,17 +143,8 @@ public class Servletmesdocuments extends HttpServlet {
 				bufReadDoc1.close();
 
 				/** Lecture bas de page */
-				File fileBas = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/BasPage.html");
-				BufferedReader bufReadBas = null;
-				bufReadBas = new BufferedReader(new FileReader(fileBas));
-				String lineBas = bufReadBas.readLine();
-				while (lineBas != null) {
-					response.getWriter().println(lineBas);
-					lineBas = bufReadBas.readLine();
-				}
-				bufReadBas.close();
+				vue.lecturePage(response, "BasPage");
 			}
-
 		} else {
 			session.invalidate();
 			RequestDispatcher rd = request.getRequestDispatcher("//Servletidentification");
