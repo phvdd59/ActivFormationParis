@@ -74,7 +74,7 @@
 		<div id="menu3">
 			<img
 				src="http://www.activconsult-ing.com/img/Objet_dynamique_vectoriel.png"
-				width="342" height="57" alt="" />
+				width="382" height="57" alt="" />
 		</div>
 		<div id="ogol1">
 			<img src="http://www.activconsult-ing.com/img/Menu_pagaies2.png"
@@ -184,17 +184,17 @@
 							if (personne.isTicketResto()) {
 						%>
 						<td style="width: 273px; height: 25px; color:;"><input
-							type="radio" name="ticket resto" value="oui" checked="checked">
+							type="radio" name="ticketResto" value="oui" checked="checked">
 							oui</td>
 						<td colspan="2" style="width: 116px;"><input type="radio"
-							name="ticket resto" value="non"> non</td>
+							name="ticketResto" value="non"> non</td>
 						<%
 							} else {
 						%>
 						<td style="width: 273px; height: 25px; color:;"><input
-							type="radio" name="ticket resto" value="oui"> oui</td>
+							type="radio" name="ticketResto" value="oui"> oui</td>
 						<td colspan="2" style="width: 116px;"><input type="radio"
-							name="ticket resto" value="non" checked="checked"> non</td>
+							name="ticketResto" value="non" checked="checked"> non</td>
 						<%
 							}
 						%>
@@ -224,14 +224,14 @@
 							type="radio" name="vehiculePerso" value="oui" checked="checked">
 							oui</td>
 						<td colspan="2" style="width: 116px;"><input type="radio"
-							name="vehicule perso" value="non"> non</td>
+							name="vehiculePerso" value="non"> non</td>
 						<%
 							} else {
 						%>
 						<td style="width: 273px; height: 25px; color:;"><input
 							type="radio" name="vehiculePerso" value="oui"> oui</td>
 						<td colspan="2" style="width: 116px;"><input type="radio"
-							name="vehicule perso" value="non" checked="checked"> non</td>
+							name="vehiculePerso" value="non" checked="checked"> non</td>
 						<%
 							}
 						%>
