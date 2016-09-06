@@ -111,9 +111,6 @@
 				method='POST'>
 				<table border="1">
 					<tr>
-						<th colspan="4" style="width: 627px;"></th>
-					</tr>
-					<tr>
 						<td>Nom</td>
 						<td style="width: 273px; height: 25px; color:;"><input
 							id="nom" type="text" name="nom" value='<%=personne.getNom()%>' 
@@ -175,11 +172,11 @@
 				<input type="submit" value="Suivant" onclick="ctrAll()"></input> <input name="noSerie"
 					type="hidden" value="<%=noSerie%>">
 			</form>
-			<form action="http://localhost:8080/ProjectJMST/RetourMenu"
-				method='post'>
-				<input type="submit" value="Precedent"></input> <input type="hidden"
-					name="noSerie" value="<%=noSerie%>">
-			</form>
+<!-- 			<form action="http://localhost:8080/ProjectJMST/RetourMenu" -->
+<!-- 				method='post'> -->
+<!-- 				<input type="submit" value="Precedent"></input> <input type="hidden" -->
+<%-- 					name="noSerie" value="<%=noSerie%>"> --%>
+<!-- 			</form> -->
 			<form action="http://localhost:8080/ProjectJMST/ServletDeco"
 				method='get'>
 				<input type="submit" value="Deconnexion"></input> <input

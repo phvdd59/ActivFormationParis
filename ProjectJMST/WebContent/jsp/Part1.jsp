@@ -84,9 +84,9 @@
 			<form action="http://localhost:8080/ProjectJMST/Test"
 				method='post' onsubmit="return verifForm(this)">
 				<table border="1">
-					<caption>
-						<h1></h1>
-					</caption>
+<!-- 					<caption> -->
+<!-- 						<h1></h1> -->
+<!-- 					</caption> -->
 
 					<tr>
 						<th colspan="4" style="width: 627px;">Identifiant</th>

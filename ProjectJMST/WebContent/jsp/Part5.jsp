@@ -110,10 +110,6 @@
 				<table border="1">
 
 					<tr>
-						<th colspan="4">Fonction/Remuneration</th>
-
-					</tr>
-					<tr>
 						<td>Fonction occupée:</td>
 						<%
 							if (personne.isCadre()) {
@@ -139,7 +135,6 @@
 						<%
 							}
 						%>
-						<td colspan="2"><input type="text" name="fonction"></td>
 					</tr>
 					<tr>
 						<td>Position</td>
@@ -257,11 +252,11 @@
 				<input type="submit" value="Terminer"></input> <input type="hidden"
 					name="noSerie" value="<%=noSerie%>">
 			</form>
-			<form action="http://localhost:8080/ProjectJMST/jsp/Part4.jsp"
-				method='post'>
-				<input type="submit" value="Precedent"></input> <input type="hidden"
-					name="noSerie" value="<%=noSerie%>">
-			</form>
+<!-- 			<form action="http://localhost:8080/ProjectJMST/jsp/Part4.jsp" -->
+<!-- 				method='post'> -->
+<!-- 				<input type="submit" value="Precedent"></input> <input type="hidden" -->
+<%-- 					name="noSerie" value="<%=noSerie%>"> --%>
+<!-- 			</form> -->
 			<form action="http://localhost:8080/ProjectJMST/ServletDeco"
 				method='get'>
 				<input type="submit" value="Deconnexion"></input> <input

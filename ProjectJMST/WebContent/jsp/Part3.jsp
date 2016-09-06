@@ -140,10 +140,6 @@
 				<table border="1">
 
 					<tr>
-						<th colspan="4"></th>
-
-					</tr>
-					<tr>
 						<td>Date de naissance</td>
 						<td style="width: 273px; height: 25px; color:;"><input
 							id="dateDeNaissance" type="date" name="dateDeNaissance"
@@ -175,11 +171,11 @@
 				<input type="submit" value="Suivant"></input> <input type="hidden"
 					name="noSerie" value="<%=noSerie%>">
 			</form>
-			<form action="http://localhost:8080/ProjectJMST/jsp/Part2.jsp"
-				method='post'>
-				<input type="submit" value="Precedent"></input> <input type="hidden"
-					name="noSerie" value="<%=noSerie%>">
-			</form>
+<!-- 			<form action="http://localhost:8080/ProjectJMST/jsp/Part2.jsp" -->
+<!-- 				method='post'> -->
+<!-- 				<input type="submit" value="Precedent"></input> <input type="hidden" -->
+<%-- 					name="noSerie" value="<%=noSerie%>"> --%>
+<!-- 			</form> -->
 			<form action="http://localhost:8080/ProjectJMST/ServletDeco"
 				method='get'>
 				<input type="submit" value="Deconnexion"></input> <input

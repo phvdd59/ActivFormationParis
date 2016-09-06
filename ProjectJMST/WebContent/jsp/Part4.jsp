@@ -142,12 +142,6 @@
 			<form action="http://localhost:8080/ProjectJMST/jsp/Part5.jsp"
 				method='post'>
 				<table border="1">
-
-					<tr>
-						<th colspan="4"></th>
-
-					</tr>
-
 					<tr>
 						<td style="width: 272px; height: 25px;">Salarié</td>
 
@@ -247,11 +241,11 @@
 				<input type="submit" value="Suivant"></input> <input type="hidden"
 					name="noSerie" value="<%=noSerie%>">
 			</form>
-			<form action="http://localhost:8080/ProjectJMST/jsp/Part3.jsp"
-				method='post'>
-				<input type="submit" value="Precedent"></input> <input type="hidden"
-					name="noSerie" value="<%=noSerie%>">
-			</form>
+<!-- 			<form action="http://localhost:8080/ProjectJMST/jsp/Part3.jsp" -->
+<!-- 				method='post'> -->
+<!-- 				<input type="submit" value="Precedent"></input> <input type="hidden" -->
+<%-- 					name="noSerie" value="<%=noSerie%>"> --%>
+<!-- 			</form> -->
 			<form action="http://localhost:8080/ProjectJMST/ServletDeco"
 				method='get'>
 				<input type="submit" value="Deconnexion"></input> <input

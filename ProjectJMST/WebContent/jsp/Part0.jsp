@@ -86,9 +86,9 @@
 			<form action="http://localhost:8080/ProjectJMST/jsp/chgt.jsp"
 				method='post'>
 				<table border="1">
-					<caption>
-						<h1>Changement mot de passe</h1>
-					</caption>
+<!-- 					<caption> -->
+<!-- 						<h1>Changement mot de passe</h1> -->
+<!-- 					</caption> -->
  	<% 
  	String noSerieHtml = request.getParameter("noSerie");
 	String noSerie = (String) session.getAttribute("noSerie");
