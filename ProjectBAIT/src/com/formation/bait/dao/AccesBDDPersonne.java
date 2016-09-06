@@ -1,11 +1,14 @@
 package com.formation.bait.dao;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+
+import javax.servlet.http.HttpServletResponse;
 
 import com.formation.bait.metier.DocPerso;
 import com.formation.bait.metier.ListeDoc;
@@ -256,6 +259,41 @@ public class AccesBDDPersonne {
 		return personne;
 	}
 
+	
+	public void afficherListeCandidats(HttpServletResponse response) throws IOException{
+		
+		Connection conn = null;
+		Statement stat = null;
+		try {
+			Class.forName(JDBC_DRIVER);
+			String url = DB_URL + "bait";
+			conn = DriverManager.getConnection(url, user, pass);
+			stat = conn.createStatement();
+
+			response.getWriter().append("<div style=\"text-align: center; width:350px; max-height:420px; overflow:auto\">");
+			String sql = "SELECT * FROM listeUser Where admin=0 order by nom;";
+			ResultSet resultat = stat.executeQuery(sql);
+			char lettre = 'Z';
+			while (resultat.next()) {
+				if (!resultat.getString("nom").startsWith(Character.toString(lettre))) {
+					lettre = resultat.getString("nom").charAt(0);
+					response.getWriter().append("<div style=\"margin-top: 12px; font-size:150%;\">");
+					response.getWriter().append(lettre);
+					response.getWriter().append("</div>");
+				}
+				response.getWriter().append("<form method=\"post\" action=\"http://localhost:8080/ProjectBAIT/ServletPageExamCandidat2\">");
+				response.getWriter().append("<input type=\"hidden\" value=\"" + resultat.getString("IDPersonne") + "\" name=\"IDcandidat\" />");
+				response.getWriter().append("<input type=\"submit\" style=\"width: 250px;\" value=\"" + resultat.getString("nom") + " " + resultat.getString("prenom") + "\" name=\"" + resultat.getString("nom") + "\" /><br>");
+				response.getWriter().append("</form>");
+			}
+			response.getWriter().append("</div>");
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	
 	public void creTables() {
 		Connection conn = null;
 		Statement stat = null;

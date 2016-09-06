@@ -6,11 +6,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -19,6 +14,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import com.formation.bait.dao.AccesBDDPersonne;
 
 /**
  * Servlet implementation class Servlet1
@@ -90,35 +87,38 @@ public class ServletListeCandidatsAdmin extends HttpServlet {
 
 		//____________________________
 
-		Connection conn = null;
-		Statement stat = null;
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			String url = "jdbc:mysql://www.psyeval.fr/" + "bait";
-			conn = DriverManager.getConnection(url, "bait", "erreurthde");
-			stat = conn.createStatement();
+//		Connection conn = null;
+//		Statement stat = null;
+//		try {
+//			Class.forName("com.mysql.jdbc.Driver");
+//			String url = "jdbc:mysql://www.psyeval.fr/" + "bait";
+//			conn = DriverManager.getConnection(url, "bait", "erreurthde");
+//			stat = conn.createStatement();
+//
+//			response.getWriter().append("<div style=\"text-align: center; width:350px; max-height:380px; overflow:auto\">");
+//			String sql = "SELECT * FROM listeUser Where admin=0 order by nom;";
+//			ResultSet resultat = stat.executeQuery(sql);
+//			char lettre = 'Z';
+//			while (resultat.next()) {
+//				if (!resultat.getString("nom").startsWith(Character.toString(lettre))) {
+//					lettre = resultat.getString("nom").charAt(0);
+//					response.getWriter().append("<div style=\"margin-top: 12px; font-size:150%;\">");
+//					response.getWriter().append(lettre);
+//					response.getWriter().append("</div>");
+//				}
+//				response.getWriter().append("<form method=\"post\" action=\"http://localhost:8080/ProjectBAIT/ServletPageExamCandidat2\">");
+//				response.getWriter().append("<input type=\"hidden\" value=\"" + resultat.getString("IDPersonne") + "\" name=\"IDcandidat\" />");
+//				response.getWriter().append("<input type=\"submit\" style=\"width: 250px;\" value=\"" + resultat.getString("nom") + " " + resultat.getString("prenom") + "\" name=\"" + resultat.getString("nom") + "\" /><br>");
+//				response.getWriter().append("</form>");
+//			}
+//			response.getWriter().append("</div>");
+//		} catch (ClassNotFoundException | SQLException e) {
+//			e.printStackTrace();
+//		}
 
-			response.getWriter().append("<div style=\"text-align: center; width:350px; max-height:380px; overflow:auto\">");
-			String sql = "SELECT * FROM listeUser Where admin=0 order by nom;";
-			ResultSet resultat = stat.executeQuery(sql);
-			char lettre = 'Z';
-			while (resultat.next()) {
-				if (!resultat.getString("nom").startsWith(Character.toString(lettre))) {
-					lettre = resultat.getString("nom").charAt(0);
-					response.getWriter().append("<div style=\"margin-top: 12px; font-size:150%;\">");
-					response.getWriter().append(lettre);
-					response.getWriter().append("</div>");
-				}
-				response.getWriter().append("<form method=\"post\" action=\"http://localhost:8080/ProjectBAIT/ServletPageExamCandidat2\">");
-				response.getWriter().append("<input type=\"hidden\" value=\"" + resultat.getString("IDPersonne") + "\" name=\"IDcandidat\" />");
-				response.getWriter().append("<input type=\"submit\" style=\"width: 250px;\" value=\"" + resultat.getString("nom") + " " + resultat.getString("prenom") + "\" name=\"" + resultat.getString("nom") + "\" /><br>");
-				response.getWriter().append("</form>");
-			}
-			response.getWriter().append("</div>");
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-		}
-
+		AccesBDDPersonne acces = new AccesBDDPersonne();
+		acces.afficherListeCandidats(response);
+		
 		//_________________________________________
 
 		File file3 = new File("C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/basDePageActiv.html");
