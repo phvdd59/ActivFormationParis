@@ -46,6 +46,12 @@ public class Servletaccueilvalidemdp extends HttpServlet {
 		personne.setMdp(sMdp);
 		personne.modifPersonne(personne.getIdPersonne());
 		Vue vue = new Vue();
+		String mdp1=(String) request.getParameter("mdpN");
+		String mdp2=(String) request.getParameter("mdpV");
+		if (mdp1==null ||mdp2 == null || !mdp1.equals(mdp2)) {
+			RequestDispatcher rd = request.getRequestDispatcher("//ServletMdpAdmin");
+			rd.forward(request, response);
+		}
 		
 		if (noSerie != null && personne.getIdentifiant() != null) {
 			if (personne.getIdentifiant().equals("Admin")) {

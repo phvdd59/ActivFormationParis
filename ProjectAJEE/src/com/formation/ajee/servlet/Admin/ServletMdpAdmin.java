@@ -45,7 +45,7 @@ public class ServletMdpAdmin extends HttpServlet {
 		Personne utilisateur = (Personne) session.getAttribute("utilisateur");
 		Personne personne = (Personne) session.getAttribute("personne");
 		Vue vue = new Vue();
-
+		
 		if (oNoSerie != null && personne.getIdentifiant() != null) {
 			if (personne.getIdentifiant().equals("Admin")) {
 				
@@ -107,7 +107,7 @@ public class ServletMdpAdmin extends HttpServlet {
 			}
 		} else {
 			session.invalidate();
-			RequestDispatcher rd = request.getRequestDispatcher("/Servletidentification");
+			RequestDispatcher rd = request.getRequestDispatcher("//Servletidentification");
 			rd.forward(request, response);
 		}
 	}
