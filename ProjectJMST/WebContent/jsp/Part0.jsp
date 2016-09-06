@@ -79,7 +79,7 @@
 			<img src="http://www.activconsult-ing.com/img/Menu_pagaies2.png"
 				width="71" height="71" alt="" />
 		</div>
-		<div id="tlogo">CENTRE DE FORMATION</div>
+		<div id="tlogo">CHANGEMENT MOT DE PASSE</div>
 		<div id="info2">
 			<!-- zone disponible -->
 
@@ -105,19 +105,21 @@
 					<tr>
 						<th colspan="4" style="width: 627px;"> Ancien Mot de passe</th>
 						<th style="width: 273px; height: 25px; color:;">
-						<input type="password" name="ancienMdp" value='' style="width: 270px;"></th>
+						<input id="ancienMdp" type="password" name="ancienMdp" value='' 
+						style="width: 270px;" onblur="verif_mdpOld(this)"><span id="erreur4"></span></th>
 					</tr>
 					<tr>
 						<th colspan="4" style="width: 627px;">Nouveau Mot de passe</th>
 						<th style="width: 273px; height: 25px; color:;">
-						<input id="newMdp1" onblur="ctrMdp1()" type="password" name="newMdp1" value='' style="width: 270px;"><br> <span
-							id="spanMdp1"></span></th>
+						<input id="newMdp1" type="password" name="newMdp1" value='' 
+						style="width: 270px;" onblur="verif_mdp(this)"><span id="erreur"></span></th>
 					</tr>
 					<tr>
 						<th colspan="4" style="width: 627px;">Nouveau Mot de passe</th>
 						<th style="width: 273px; height: 25px; color:;">
-						<input id="newMdp2"  onblur="ctrMdp2()" type="password" name="newMdp2" value='' style="width: 270px;"><br> <span
-							id="spanMdp2"></span></th>
+						<input id="newMdp2" type="password" name="newMdp2" value='' 
+						style="width: 270px;" onblur="verif_mdp2(this)"><span id="erreur3"></span></th>
+
 					</tr>
 				</table>
 
@@ -128,44 +130,6 @@
 				<input type="submit" value="Deconnexion"></input> 
 				<input type="hidden" name="noSerie" value="<%=noSerie%>">
 			</form>
-
-<script type="text/javascript">
-function ctrMdp1() {
-	var mdp= document.getElementById("new mdp 1");
-	var no = mdp.value.length;
-
-	var spanMdp1 = document.getElementById("spanMdp1");
-	if (no<6) {
-		spanMdp1.innerHTML = "Le mot de passe doit contenir au moins 6 caracteres.";
-		mdp.style.border = "1px solid #ff0000";
-
-		return false;
-	} else {
-		mdp.style.border = "inherit";
-		spanMdp1.innerHTML = "";
-		return true;
-	}
-}
-
-function ctrMdp2() {
-	var mdp1= document.getElementById("new mdp 1");
-	var mdp2= document.getElementById("new mdp 2");
-	
-	var spanMdp2 = document.getElementById("spanMdp2");
-	if (mdp2.value!=mdp1.value) {
-		spanMdp2.innerHTML = "Les mots de passe doivent être identiques.";
-		mdp2.style.border = "1px solid #ff0000";
-		return false;
-	} else {
-		mdp2.style.border = "inherit";
-		spanMdp2.innerHTML = "";
-		return true;
-	}
-}
-
-</script>
-
-
 		</div>
 		<div id="fpage2">
 			<img
@@ -182,14 +146,112 @@ function ctrMdp2() {
 			<div id="droit2">©1997-2012 - Tous droits de reproduction et de
 				représentation réservés | Mentions légales</div>
 		</div>
-		
-<% 
-	
-	
+<% 	
 	}else{
 // 		forward();
 	}%>
 		<script type="text/javascript" src="Test.js"></script>
+</div>
+<script>
+		function verif_ident(champ) {
+			var pattIdent = new RegExp("^[a-zA-Z0-9\\-\\.\\_]{4,25}$");
+			if (champ.value.length < 4 || champ.value.length > 25) {
+				document.getElementById('erreur2').innerHTML = ' saisir un texte entre 4 et 25 caracteres';
+				champ.style.border = "1px solid #f00";
+				champ.style.backgroundColor = "#fba";
+				return false;
 
+			} else {
+				if (pattIdent.test(champ.value) == false) {
+					document.getElementById('erreur2').innerHTML = ' pas de caractere speciaux autre que -._';
+					champ.style.border = "1px solid #f00";
+					champ.style.backgroundColor = "#fba";
+					return false;
+				} else {
+					document.getElementById('erreur2').innerHTML = ' OK';
+					champ.style.border = "inherit";
+					champ.style.backgroundColor = "#66ff99";
+					return true
+				}
+			}
+		}
+		
+		
+
+		function verif_mdp(champ) {
+
+			if (champ.value.length < 6) {
+				document.getElementById('erreur').innerHTML = ' saisir un texte de 6 caracteres ou plus';
+				champ.style.border = "1px solid #f00";
+				champ.style.backgroundColor = "#fba";
+				return false;
+			} else {
+				document.getElementById('erreur').innerHTML = ' OK';
+				champ.style.border = "inherit";
+				champ.style.backgroundColor = "#66ff99";
+				return true
+			}
+		}
+
+		function verif_mdp2(champ) {
+
+			if (champ.value.length < 6) {
+				document.getElementById('erreur3').innerHTML = ' saisir un texte de 6 caracteres ou plus';
+				champ.style.border = "1px solid #f00";
+				champ.style.backgroundColor = "#fba";
+				return false;
+			} else {
+				document.getElementById('erreur3').innerHTML = ' OK';
+				champ.style.border = "inherit";
+				champ.style.backgroundColor = "#66ff99";
+				return true
+			}
+		}
+		
+		function verif_mdpOld(champ) {
+
+			if (champ.value.length < 6) {
+				document.getElementById('erreur4').innerHTML = ' saisir un texte de 6 caracteres ou plus';
+				champ.style.border = "1px solid #f00";
+				champ.style.backgroundColor = "#fba";
+				return false;
+			} else {
+				document.getElementById('erreur4').innerHTML = ' OK';
+				champ.style.border = "inherit";
+				champ.style.backgroundColor = "#66ff99";
+				return true
+			}
+		}
+		
+		function mdp_egal(){
+			var mdp1= document.getElementById("newMdp1");
+			var mdp2= document.getElementById("newMdp2");
+			if (mdp1.value == mdp2.value){
+				return true;
+			} else {
+				return false;
+			}	
+		}
+
+		function verifForm(f) {
+			//var identOk = verif_ident(f.identifiant);
+			var mdpOk = verif_mdp(f.newMdp1);
+			var mdp2Ok = verif_mdp2(f.newMdp2);
+			var mdpOldOk = verif_mdpOld(f.ancienMdp);
+			var mdpEgalOk = mdp_egal();
+
+			if (!(mdpOk && mdp2Ok && mdpOldOk)){
+				alert("Veuillez remplir correctement tous les champs");
+				return false;
+			} else {
+				if (mdpEgalOk){
+					return true;
+				} else {
+					alert("mots de passe differents");
+					return false;
+				}		
+			}
+		}
+	</script>
 </body>
 </html>

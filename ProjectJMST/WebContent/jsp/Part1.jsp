@@ -77,26 +77,35 @@
 			<img src="http://www.activconsult-ing.com/img/Menu_pagaies2.png"
 				width="71" height="71" alt="" />
 		</div>
-		<div id="tlogo">CENTRE DE FORMATION</div>
+		<div id="tlogo">LOGIN</div>
 		<div id="info2">
 			<!-- zone disponible -->
 		
 			<form action="http://localhost:8080/ProjectJMST/Test"
-				method='post'>
+				method='post' onsubmit="return verifForm(this)">
 				<table border="1">
 					<caption>
-						<h1>Login</h1>
+						<h1></h1>
 					</caption>
 
 					<tr>
 						<th colspan="4" style="width: 627px;">Identifiant</th>
 						<th style="width: 273px; height: 25px; color:;"><input
-							type="text" name="identifiant" style="width: 270px;"></th>
+							id="identifiant" type="text" name="identifiant" value=''
+							style="width: 270px;" onblur="verif_ident(this)"><span
+							id="erreur2"></span></th>
 					</tr>
 					<tr>
 						<th colspan="4" style="width: 627px;">Mot de passe</th>
 						<th style="width: 273px; height: 25px; color:;"><input
-							type="password" name="motdepasse" value='' style="width: 270px;"></th>
+							id="mdp1" type="password" name="mdp1" value='' style="width: 270px;"
+							onblur="verif_mdp(this)"><span id="erreur"></span></th>
+					</tr>
+					<tr>
+						<th colspan="4" style="width: 627px;">Mot de passe</th>
+						<th style="width: 273px; height: 25px; color:;"><input
+							id="mdp2" type="password" name="mdp2" value='' style="width: 270px;"
+							onblur="verif_mdp2(this)"><span id="erreur3"></span></th>
 					</tr>
 				</table>
 
@@ -120,6 +129,90 @@
 			<div id="droit2">©1997-2012 - Tous droits de reproduction et de
 				représentation réservés | Mentions légales</div>
 		</div>
+	</div>
+<script>
+		function verif_ident(champ) {
+			var pattIdent = new RegExp("^[a-zA-Z0-9\\-\\.\\_]{4,25}$");
+			if (champ.value.length < 4 || champ.value.length > 25) {
+				document.getElementById('erreur2').innerHTML = ' saisir un texte entre 4 et 25 caracteres';
+				champ.style.border = "1px solid #f00";
+				champ.style.backgroundColor = "#fba";
+				return false;
 
+			} else {
+				if (pattIdent.test(champ.value) == false) {
+					document.getElementById('erreur2').innerHTML = ' pas de caractere speciaux autre que -._';
+					champ.style.border = "1px solid #f00";
+					champ.style.backgroundColor = "#fba";
+					return false;
+				} else {
+					document.getElementById('erreur2').innerHTML = ' OK';
+					champ.style.border = "inherit";
+					champ.style.backgroundColor = "#66ff99";
+					return true
+				}
+			}
+		}
+		
+		function mdp_egal(){
+			var mdp1= document.getElementById("mdp1");
+			var mdp2= document.getElementById("mdp2");
+			if (mdp1.value == mdp2.value){
+				return true;
+			} else {
+				return false;
+			}
+			
+		}
+
+		function verif_mdp(champ) {
+
+			if (champ.value.length < 6) {
+				document.getElementById('erreur').innerHTML = ' saisir un texte de 6 caracteres ou plus';
+				champ.style.border = "1px solid #f00";
+				champ.style.backgroundColor = "#fba";
+				return false;
+			} else {
+				document.getElementById('erreur').innerHTML = ' OK';
+				champ.style.border = "inherit";
+				champ.style.backgroundColor = "#66ff99";
+				return true
+			}
+		}
+
+		function verif_mdp2(champ) {
+
+			if (champ.value.length < 6) {
+				document.getElementById('erreur3').innerHTML = ' saisir un texte de 6 caracteres ou plus';
+				champ.style.border = "1px solid #f00";
+				champ.style.backgroundColor = "#fba";
+				return false;
+			} else {
+				document.getElementById('erreur3').innerHTML = ' OK';
+				champ.style.border = "inherit";
+				champ.style.backgroundColor = "#66ff99";
+				return true
+			}
+		}
+
+		function verifForm(f) {
+			var identOk = verif_ident(f.identifiant);
+			var mdpOk = verif_mdp(f.mdp1);
+			var mdp2Ok = verif_mdp2(f.mdp2);
+			var mdpEgal = mdp_egal();
+
+			if (!(identOk && mdpOk && mdp2Ok)){
+				alert("Veuillez remplir correctement tous les champs");
+				return false;
+			} else {
+				if (mdpEgal){
+					return true;
+				} else {
+					alert("mots de passe differents");
+					return false;
+				}
+			}
+		}
+	</script>
 </body>
 </html>

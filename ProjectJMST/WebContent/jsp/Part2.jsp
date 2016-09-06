@@ -80,7 +80,7 @@
 			<img src="http://www.activconsult-ing.com/img/Menu_pagaies2.png"
 				width="71" height="71" alt="" />
 		</div>
-		<div id="tlogo">CENTRE DE FORMATION</div>
+		<div id="tlogo">COORDONNÉES PERSONNELLES</div>
 		<div id="info2">
 			<!-- zone disponible -->
 			<!-- 			<form= action:"http://www.souadkad.fr/soka/identification.html"></form> -->
@@ -97,7 +97,7 @@
 				CtrlPersonne ctrl = new CtrlPersonne();
 
 				String sIdentifiant = request.getParameter("identifiant");
-				String sMdp = request.getParameter("mdp");
+				String sMdp = request.getParameter("mdp1");
 				if (noSerie.equals(noSerieHtml)) {
 					//if (ctrl.ctrlIdentifiant(sIdentifiant) && ctrl.ctrlMdp(sMdp)) {
 					//} else {
@@ -111,27 +111,26 @@
 				method='POST'>
 				<table border="1">
 					<tr>
-						<th colspan="4" style="width: 627px;">Coordonnées
-							Personnelles</th>
+						<th colspan="4" style="width: 627px;"></th>
 					</tr>
 					<tr>
 						<td>Nom</td>
 						<td style="width: 273px; height: 25px; color:;"><input
-							id="ident" type="text" name="nom" value='<%=personne.getNom()%>'
-							style="width: 270px;" onblur=""><br> <span class=""
+							id="nom" type="text" name="nom" value='<%=personne.getNom()%>' 
+							style="width: 270px;" onblur="ctrNom(this)"><br> <span class=""
 							id="spanNom"></span></td>
 
 						<td style="width: 72px;">Prenom</td>
 						<td style="width: 112px; height: 25px; color:;"><input
 							id="prenom" type="text" name="prenom"
-							value='<%=personne.getPrenom()%>'> <br>
+							value='<%=personne.getPrenom()%>' onblur="ctrPrenom()" > <br>
 						<span id="spanPrenom"></span></td>
 					</tr>
 					<tr>
 						<td>Adresse</td>
 						<td colspan="3" style="width: 229px; height: 25px; color:;"><input
 							id="adresse" type="text" name="adresse"
-							value='<%=personne.getAdresse()%>' style="width: 615px;">
+							value='<%=personne.getAdresse()%>' onblur="ctrAdresse()" style="width: 615px;">
 							<br>
 						<span id="spanAdresse"></span></td>
 					</tr>
@@ -139,37 +138,37 @@
 						<td>Code Postale</td>
 
 						<td style="width: 273px; height: 25px; color:;"><input
-							id="codePostal" type="text" name="code postale"
-							value='<%=personne.getCp()%>' style="width: 270px;"><br>
+							id="codePostal" type="text" name="codePostale"
+							value='<%=personne.getCp()%>' onblur="ctrCodePostal()" style="width: 270px;"><br>
 						<span id="spanCodePostal"></span></td>
 						<td style="width: 72px;">Ville</td>
 						<td style="width: 112px; height: 25px; color:;"><input
 							id="ville" type="text" name="ville"
-							value='<%=personne.getVille()%>'><br>
+							value='<%=personne.getVille()%>' onblur="ctrVille()"><br>
 						<span id="spanVille"></span></td>
 					</tr>
 					<tr>
 						<td>Telephone Fixe</td>
 						<td style="width: 273px; height: 25px; color:;"><input
-							id="telephoneFixe" type="text" name="tel fixe"
-							value='<%=personne.getTelFixe()%>' style="width: 270px;"><br>
+							id="telephoneFixe" type="text" name="telFixe"
+							value='<%=personne.getTelFixe()%>' onblur="ctrTelephoneFixe()" style="width: 270px;"><br>
 						<span id="spanTelephoneFixe"></span></td>
 						<td style="width: 72px;">Telephone Portable</td>
 						<td style="width: 112px; height: 25px; color:;"><input
-							id="telephonePortable" type="text" name="tel portable"
-							value='<%=personne.getTelPort()%>'><br>
+							id="telephonePortable" type="text" name="telPortable"
+							value='<%=personne.getTelPort()%>' onblur="ctrTelephonePortable()"><br>
 						<span id="spanTelephonePortable"></span></td>
 					</tr>
 					<tr>
 						<td>Fax</td>
 						<td style="width: 273px; height: 25px; color:;"><input
-							id="fax" type="text" name="fax" value='<%=personne.getFax()%>'
+							id="fax" type="text" name="fax" value='<%=personne.getFax()%>' onblur="ctrFax()"
 							style="width: 270px;"><br>
 						<span id="spanFax"></span></td>
 						<td style="width: 72px;">Mail</td>
 						<td style="width: 112px; height: 25px; color:;"><input
 							id="mail" type="text" name="mail"
-							value='<%=personne.getEmail()%>'><br> <span
+							value='<%=personne.getEmail()%>' onblur="ctrMail()"><br> <span
 							id="spanMail"></span></td>
 					</tr>
 				</table>
@@ -210,177 +209,244 @@
 			
 		}%>
 	
+	</div>
+		<script type="text/javascript">
+		function ctrAll() {
+			var nomOk = ctrNom();
+			var prenomOk = ctrPrenom();
+			var adresseOk = ctrAdresse();
+			var codePostalOk = ctrCodePostal();
+			var villeOk = ctrVille();
+			var telephoneFixeOk = ctrTelephoneFixe();
+			var telephonePortableOk = ctrTelephonePortable();
+			var faxOk = ctrFax();
+			var mailOk = ctrMail();
+
+			if (nomOk && prenomOk && adresseOk && codePostalOk && villeOk
+					&& telephoneFixeOk && telephonePortableOk && faxOk
+					&& mailOk) {
+				return true;
+			} else {
+				alert("Veuillez remplir les champs obligatoires");
+				return false;
+			}
+
+		}
+
+		function ctrNom() {
+			var nom = document.getElementById("nom");
+			var no = nom.value.length;
+			var pattNom = new RegExp("^([a-zA-Z\-\'\\s]+)$");
+			var spanNom = document.getElementById("spanNom");
+			if (pattNom.test(nom.value) == false) {
+				//spanNom.className = "messageErreur";
+				spanNom.innerHTML = "Veuillez verifier les caractères utilisés('- acceptés)";
+				nom.style.border = "1px solid #f00";
+				nom.style.backgroundColor = "#fba";
+				return false;
+			} else {
+				nom.style.border = "inherit";
+				nom.style.backgroundColor = "#66ff99";
+				spanNom.innerHTML = " OK";
+				return true;
+			}
+		}
+
+		function ctrPrenom() {
+			var prenom = document.getElementById("prenom");
+			var no = prenom.value.length;
+			var pattPrenom = new RegExp("^([a-zA-Z\-\'\\s]+)$");
+			var spanPrenom = document.getElementById("spanPrenom");
+			if (pattPrenom.test(prenom.value) == false) {
+				//spanPrenom.className = "messageErreur";
+				spanPrenom.innerHTML = "Veuillez verifier les caractères utilisés('- acceptés)";
+				prenom.style.border = "1px solid #f00";
+				prenom.style.backgroundColor = "#fba";
+				return false;
+			} else {
+				prenom.style.border = "inherit";
+				prenom.style.backgroundColor = "#66ff99";
+				spanPrenom.innerHTML = " OK";
+				return true;
+			}
+		}
+
+		function ctrAdresse() {
+			var adresse = document.getElementById("adresse");
+			var no = adresse.value.length;
+			var spanAdresse = document.getElementById("spanAdresse");
+			var pattAdresse = new RegExp("^[a-zA-Z0-9\\s\(\)\.\'\-]+$");
+			if (adresse.value == "") {
+				adresse.style.border = "inherit";
+				adresse.style.backgroundColor = "#66ff99";
+				spanAdresse.innerHTML = " OK";
+				return true;
+			} else if (pattAdresse.test(adresse.value) == false
+					&& adresse.value != "") {
+				//spanAdresse.className = "messageErreur";
+				spanAdresse.innerHTML = "Veuillez verifier les caractères utilisés('- ()acceptés).";
+				adresse.style.border = "1px solid #f00";
+				adresse.style.backgroundColor = "#fba";
+				return false;
+			} else {
+				adresse.style.border = "inherit";
+				adresse.style.backgroundColor = "#66ff99";
+				spanAdresse.innerHTML = " OK";
+				return true;
+			}
+		}
+
+		function ctrCodePostal() {
+			var codePostalOK = false;
+			var codePostal = document.getElementById("codePostal");
+			var no = codePostal.value.length;
+			var pattCodePostal = new RegExp("^[0-9]{5}$");
+			var spanCodePostal = document.getElementById("spanCodePostal");
+			if (codePostal.value == "") {
+				codePostal.style.border = "inherit";
+				codePostal.style.backgroundColor = "#66ff99";
+				spanCodePostal.innerHTML = " OK";
+				return true;
+			} else if (pattCodePostal.test(codePostal.value) == false
+					&& codePostal.value != "") {
+				//spanCodePostal.className = "messageErreur";
+				spanCodePostal.innerHTML = "Le code postal doit contenir 5 chiffres.";
+				codePostal.style.border = "1px solid #f00";
+				codePostal.style.backgroundColor = "#fba";
+				return false;
+			} else {
+				codePostal.style.border = "inherit";
+				codePostal.style.backgroundColor = "#66ff99";
+				spanCodePostal.innerHTML = " OK";
+				return true;
+			}
+		}
+
+		function ctrVille() {
+			var ville = document.getElementById("ville");
+			var no = ville.value.length;
+			var pattVille = new RegExp("^([a-zA-Z\-\'\\s]+)$");
+			var spanVille = document.getElementById("spanVille");
+			if (ville.value == "") {
+				ville.style.border = "inherit";
+				ville.style.backgroundColor = "#66ff99";
+				spanVille.innerHTML = " OK";
+				return true;
+			} else if (pattVille.test(ville.value) == false
+					&& ville.value != "") {
+				//spanVille.className = "messageErreur";
+				spanVille.innerHTML = "Veuillez verifier les caractères utilisés('- acceptés).";
+				ville.style.border = "1px solid #f00";
+				ville.style.backgroundColor = "#fba";
+				return false;
+			} else {
+				ville.style.border = "inherit";
+				ville.style.backgroundColor = "#66ff99";
+				spanVille.innerHTML = " OK";
+				return true;
+			}
+		}
+
+		function ctrTelephoneFixe() {
+			var telephoneFixe = document.getElementById("telephoneFixe");
+			var no = telephoneFixe.value.length;
+			var pattTelephoneFixe = new RegExp(
+					"^(1|2|3|4|5|6|7|8|9)[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}");
+			var spanTelephoneFixe = document
+					.getElementById("spanTelephoneFixe");
+			if (telephoneFixe.value == "") {
+				telephoneFixe.style.border = "inherit";
+				telephoneFixe.style.backgroundColor = "#66ff99";
+				spanTelephoneFixe.innerHTML = " OK";
+				return true;
+			} else if (pattTelephoneFixe.test(telephoneFixe.value) == false
+					&& telephoneFixe.value != "") {
+				//spanTelephoneFixe.className = "messageErreur";
+				spanTelephoneFixe.innerHTML = "Veuillez entrez les 9 chiffres de votre numero de telephone (0 exclus)";
+				telephoneFixe.style.border = "1px solid #f00";
+				telephoneFixe.style.backgroundColor = "#fba";
+				return false;
+			} else {
+				telephoneFixe.style.border = "inherit";
+				telephoneFixe.style.backgroundColor = "#66ff99";
+				spanTelephoneFixe.innerHTML = " OK";
+				return true;
+			}
+		}
+
+		function ctrTelephonePortable() {
+			var telephonePortable = document
+					.getElementById("telephonePortable");
+			var no = telephonePortable.value.length;
+			var pattTelephonePortable = new RegExp(
+					"^(1|2|3|4|5|6|7|8|9)[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}");
+			var spanTelephonePortable = document
+					.getElementById("spanTelephonePortable");
+			if (telephonePortable.value == "") {
+				telephonePortable.style.border = "inherit";
+				telephonePortable.style.backgroundColor = "#66ff99";
+				spanTelephonePortable.innerHTML = " OK";
+				return true;
+			} else if (pattTelephonePortable.test(telephonePortable.value) == false
+					&& telephonePortable.value != "") {
+				//spanTelephonePortable.className = "messageErreur";
+				spanTelephonePortable.innerHTML = "Veuillez entrer les 9 chiffres de votre numero de telephone (0 exclus).";
+				telephonePortable.style.border = "1px solid #f00";
+				telephonePortable.style.backgroundColor = "#fba";
+				return false;
+			} else {
+				telephonePortable.style.border = "inherit";
+				telephonePortable.style.backgroundColor = "#66ff99";
+				spanTelephonePortable.innerHTML = " OK";
+				return true;
+			}
+		}
+
+		function ctrFax() {
+			var fax = document.getElementById("fax");
+			var no = fax.value.length;
+			var pattFax = new RegExp(
+					"^(1|2|3|4|5|6|7|8|9)[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}");
+			var spanFax = document.getElementById("spanFax");
+			if (fax.value == "") {
+				fax.style.border = "inherit";
+				fax.style.backgroundColor = "#66ff99";
+				spanFax.innerHTML = " OK";
+				return true;
+			} else if (pattFax.test(fax.value) == false && fax.value != "") {
+				//spanFax.className = "messageErreur";
+				spanFax.innerHTML = "Veuillez entrer les 9 chiffres de votre numero de telephone (0 exclus).";
+				fax.style.border = "1px solid #f00";
+				fax.style.backgroundColor = "#fba";
+				return false;
+			} else {
+				fax.style.border = "inherit";
+				fax.style.backgroundColor = "#66ff99";
+				spanFax.innerHTML = " OK";
+				return true;
+			}
+		}
+
+		function ctrMail() {
+			var mail = document.getElementById("mail");
+			var no = mail.value.length;
+			var pattMail = new RegExp(
+					"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$");
+			var spanMail = document.getElementById("spanMail");
+			if (pattMail.test(mail.value) == false) {
+				//spanMail.className = "messageErreur";
+				spanMail.innerHTML = "Ecrire l'adresse mail sous la forme nom@fournisseur.com";
+				mail.style.border = "1px solid #f00";
+				mail.style.backgroundColor = "#fba";
+				return false;
+			} else {
+				mail.style.border = "inherit";
+				mail.style.backgroundColor = "#66ff99";
+				spanMail.innerHTML = " OK";
+				return true;
+			}
+		}
+	</script>
 </body>
-<script type="text/javascript">
-	function ctrAll() {
-		ctrIdent();
-		ctrPrenom();
-		ctrAdresse();
-		ctrCodePostal();
-		ctrVille();
-		ctrTelephoneFixe();
-		ctrTelephonePortable();
-		ctrFax();
-		ctrMail();
 
-	}
-
-	function ctrIdent() {
-		//nom
-		var ident = document.getElementById("ident");//pour recuperer la balise pour l' id ident.
-		var no = ident.value.length;
-		var pattNom = new RegExp("^([a-zA-Z\-\'\s]+)$");
-		var spanNom = document.getElementById("spanNom");
-		if (pattNom.test(ident.value)==false) {
-			spanNom.className = "messageErreur";
-			spanNom.innerHTML = "Veuillez verifier les caractères utilisés('- acceptés)";
-			ident.style.border = "1px solid #ff0000";
-			return false;
-		} else {
-			ident.style.border = "inherit";
-			spanNom.innerHTML = "";
-			return true;
-		}
-	}
-
-	function ctrPrenom() {
-		var prenom = document.getElementById("prenom");
-		var no = prenom.value.length;
-		var pattPrenom = new RegExp("^([a-zA-Z\-\'\s]+)$");
-		var spanPrenom = document.getElementById("spanPrenom");
-		if (pattPrenom.test(prenom.value)==false) {
-			spanPrenom.className = "messageErreur";
-			spanPrenom.innerHTML = "Veuillez verifier les caractères utilisés('- acceptés)";
-			prenom.style.border = "1px solid #ff0000";
-			return false;
-		} else {
-			prenom.style.border = "inherit";
-			spanPrenom.innerHTML = "";
-			return true;
-		}
-	}
-
-	function ctrAdresse() {
-		var adresse = document.getElementById("adresse");
-		var no = adresse.value.length;
-		var spanAdresse = document.getElementById("spanAdresse");
-		var pattAdresse = new RegExp("^[a-zA-Z0-9\s\(\)\.\']+$");
-		if (pattAdresse.test(adresse.value)==false) {
-			spanAdresse.className = "messageErreur";
-			spanAdresse.innerHTML = "Veuillez verifier les caractères utilisés('- ()acceptés).";
-			adresse.style.border = "1px solid #ff0000";
-			return false;
-		} else {
-			adresse.style.border = "inherit";
-			spanAdresse.innerHTML = "";
-			return true;
-		}
-	}
-
-	function ctrCodePostal() {
-		var codePostalOK = false;
-		var codePostal = document.getElementById("codePostal");
-		var no = codePostal.value.length;
-		var pattCodePostal = new RegExp("^[0-9]{5}$");
-		var spanCodePostal = document.getElementById("spanCodePostal");
-		if (pattCodePostal.test(codePostal.value) == false) {
-			spanCodePostal.className = "messageErreur";
-			spanCodePostal.innerHTML = "Le code postal doit contenir 5 chiffres.";
-			codePostal.style.border = "1px solid #ff0000";
-			return false;
-		} else {
-			codePostal.style.border = "inherit";
-			spanCodePostal.innerHTML = "";
-			return true;
-		}
-	}
-
-	function ctrVille() {
-		var ville = document.getElementById("ville");
-		var no = ville.value.length;
-		var pattVille = new RegExp("^([a-zA-Z\-\'\s]+)$");
-		var spanVille = document.getElementById("spanVille");
-		if (pattVille.test(ville.value)==false) {
-			spanVille.className = "messageErreur";
-			spanVille.innerHTML = "Veuillez verifier les caractères utilisés('- acceptés).";
-			ville.style.border = "1px solid #ff0000";
-			return false;
-		} else {
-			ville.style.border = "inherit";
-			spanVille.innerHTML = "";
-			return true;
-		}
-	}
-
-	function ctrTelephoneFixe() {
-		var telephoneFixe = document.getElementById("telephoneFixe");
-		var no = telephoneFixe.value.length;
-		var pattTelephoneFixe = new RegExp(
-				"^(1|2|3|4|5|6|7|8|9)[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}");
-		var spanTelephoneFixe = document.getElementById("spanTelephoneFixe");
-		if (pattTelephoneFixe.test(telephoneFixe.value) == false) {
-			spanTelephoneFixe.className = "messageErreur";
-			spanTelephoneFixe.innerHTML = "Veuillez entrez les 9 chiffres de votre numero de telephone (0 exclus).";
-			telephoneFixe.style.border = "1px solid #ff0000";
-			return false;
-		} else {
-			telephoneFixe.style.border = "inherit";
-			spanTelephoneFixe.innerHTML = "";
-			return true;
-		}
-	}
-	function ctrTelephonePortable() {
-		var telephonePortable = document.getElementById("telephonePortable");
-		var no = telephonePortable.value.length;
-		var pattTelephonePortable = new RegExp(
-				"^(1|2|3|4|5|6|7|8|9)[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}");
-		var spanTelephonePortable = document
-				.getElementById("spanTelephonePortable");
-		if (pattTelephonePortable.test(telephonePortable.value) == false) {
-			spanTelephonePortable.className = "messageErreur";
-			spanTelephonePortable.innerHTML = "Veuillez entrer les 9 chiffres de votre numero de telephone (0 exclus).";
-			telephonePortable.style.border = "1px solid #ff0000";
-			return false;
-		} else {
-			telephonePortable.style.border = "inherit";
-			spanTelephonePortable.innerHTML = "";
-			return true;
-		}
-	}
-
-	function ctrFax() {
-		var fax = document.getElementById("fax");
-		var no = fax.value.length;
-		var pattFax = new RegExp(
-				"^(1|2|3|4|5|6|7|8|9)[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}");
-		var spanFax = document.getElementById("spanFax");
-		if (pattFax.test(fax.value) == false) {
-			spanFax.className = "messageErreur";
-			spanFax.innerHTML = "Veuillez entrer les 9 chiffres de votre numero de fax (0 exclus).";
-			fax.style.border = "1px solid #ff0000";
-			return false;
-		} else {
-			fax.style.border = "inherit";
-			spanFax.innerHTML = "";
-			return true;
-		}
-	}
-
-	function ctrMail() {
-		var mail = document.getElementById("mail");
-		var no = mail.value.length;
-		var pattMail = new RegExp("^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$");
-		var spanMail = document.getElementById("spanMail");
-		if (pattMail.test(mail.value) == false) {
-			spanMail.className = "messageErreur";
-			spanMail.innerHTML = "Ecrire l'adresse mail sous la forme nom@fournisseur.com";
-			mail.style.border = "1px solid #ff0000";
-			return false;
-		} else {
-			mail.style.border = "inherit";
-			spanMail.innerHTML = "";
-			return true;
-		}
-	}
-</script>
 </html>

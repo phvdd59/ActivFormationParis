@@ -10,139 +10,7 @@
 <title>Formulaire</title>
 <link href="http://www.activconsult-ing.com/Home.css" rel="stylesheet"
 	type="text/css">
-<script type="text/javascript">
-	function ctrAll() {
-		ctrPosition();
-		ctrCoefficient();
-		ctrSalaireSouhaite();
-		ctrDateVisiteMedicale();
-		ctrMontantTransport();
-		ctrNbChevaux();
-		ctrKmMensuel();
-	}
 
-	function ctrPosition() {
-		var position = document.getElementById("position");
-		var no = position.value.length;
-		var pattPosition = new RegExp("^([a-zA-Z\-\'\s]+)$");
-		var spanPosition = document.getElementById("spanPosition");
-		if (pattPosition.test(position.value)) {
-			spanPosition.className = "messageErreur";
-			spanPosition.innerHTML = "Veuillez verifier les caractères utilisés('- acceptés).";
-			position.style.border = "1px solid #ff0000";
-			return false;
-		} else {
-			position.style.border = "inherit";
-			spanPosition.innerHTML = "";
-			return true;
-		}
-	}
-
-	function ctrCoefficient() {
-		var coefficient = document.getElementById("coefficient");
-		var no = coefficient.value.length;
-		var pattCoefficient = new RegExp("^[0-9]{3}$");
-		var spanCoefficient = document.getElementById("spanCoefficient");
-		if (pattCoefficient.test(coefficient.value) == false) {
-			spanCoefficient.className = "messageErreur";
-			spanCoefficient.innerHTML = "Veuillez entrer 3 chiffres.";
-			coefficient.style.border = "1px solid #ff0000";
-			return false;
-		} else {
-			coefficient.style.border = "inherit";
-			spanCoefficient.innerHTML = "";
-			return true;
-		}
-	}
-
-	function ctrSalaireSouhaite() {
-		var salaireSouhaite = document.getElementById("salaireSouhaite");
-		var no = salaireSouhaite.value.length;
-		var pattSalaireSouhaite = new RegExp("^[0-9]+\.?[0-9]{1,2}?$");
-		var spanSalaireSouhaite = document
-				.getElementById("spanSalaireSouhaite");
-		if (pattSalaireSouhaite.test(salaireSouhaite.value) == false) {
-			spanSalaireSouhaite.className = "messageErreur";
-			spanSalaireSouhaite.innerHTML = "Veuillez entrer un nombre.";
-			salaireSouhaite.style.border = "1px solid #ff0000";
-			return false;
-		} else {
-			salaireSouhaite.style.border = "inherit";
-			spanSalaireSouhaite.innerHTML = "";
-			return true;
-		}
-	}
-	function ctrDateVisiteMedicale() {
-		var dateVisiteMedicale = document.getElementById("dateVisiteMedicale");
-		var no = dateVisiteMedicale.value.length;
-		var pattDateVisiteMedicale = new RegExp(
-				"(0[1-9]|[12][0-9]|3[01])(\/)(0[1-9]|1[0-2])(\/)(19|20)[0-9]{2}$");
-		var spanDateVisiteMedicale = document
-				.getElementById("spanDateVisiteMedicale");
-		if (pattDateVisiteMedicale.test(dateVisiteMedicale.value) == false) {
-			spanDateVisiteMedicale.className = "messageErreur";
-			spanDateVisiteMedicale.innerHTML = "la date s'écrit suivant le format \"jj/mm/aaaa\"";
-			dateVisiteMedicale.style.border = "1px solid #ff0000";
-			return false;
-		} else {
-			dateVisiteMedicale.style.border = "inherit";
-			spanDateVisiteMedicale.innerHTML = "";
-			return true;
-		}
-	}
-
-	function ctrMontantTransport() {
-		var montantTransport = document.getElementById("montantTransport");
-		var no = montantTransport.value.length;
-		var pattMontantTransport = new RegExp("^[0-9]+\.?[0-9]{1,2}?$");
-		var spanMontantTransport = document
-				.getElementById("spanMontantTransport");
-		if (pattMontantTransport.test(montantTransport.value) == false) {
-			spanMontantTransport.className = "messageErreur";
-			spanMontantTransport.innerHTML = "Veuillez entrer un nombre.";
-			montantTransport.style.border = "1px solid #ff0000";
-			return false;
-		} else {
-			montantTransport.style.border = "inherit";
-			spanMontantTransport.innerHTML = "";
-			return true;
-		}
-	}
-
-	function ctrNbChevaux() {
-		var nbChevaux = document.getElementById("nbChevaux");
-		var no = nbChevaux.value.length;
-		var pattNbChevaux = new RegExp("^[0-9]{1,3}$");
-		var spanNbChevaux = document.getElementById("spanNbChevaux");
-		if (pattNbChevaux.test(nbChevaux.value) == false) {
-			spanNbChevaux.className = "messageErreur";
-			spanNbChevaux.innerHTML = "Entrez le nombre chevaux fiscaux du vehicule.";
-			nbChevaux.style.border = "1px solid #ff0000";
-			return false;
-		} else {
-			nbChevaux.style.border = "inherit";
-			spanNbChevaux.innerHTML = "";
-			return true;
-		}
-	}
-
-	function ctrKmMensuel() {
-		var kmMensuel = document.getElementById("kmMensuel");
-		var no = kmMensuel.value.length;
-		var pattKmMensuel = new RegExp("(^[0-9]*$)");
-		var spanKmMensuel = document.getElementById("spanKmMensuel");
-		if (pattKmMensuel.test(kmMensuel.value) == false) {
-			spanKmMensuel.className = "messageErreur";
-			spanKmMensuel.innerHTML = "Entrez le nombre de kilomètres.";
-			kmMensuel.style.border = "1px solid #ff0000";
-			return false;
-		} else {
-			kmMensuel.style.border = "inherit";
-			spanKmMensuel.innerHTML = "";
-			return true;
-		}
-	}
-</script>
 </head>
 <body>
 	<div id="background">
@@ -212,7 +80,7 @@
 			<img src="http://www.activconsult-ing.com/img/Menu_pagaies2.png"
 				width="71" height="71" alt="" />
 		</div>
-		<div id="tlogo">CENTRE DE FORMATION</div>
+		<div id="tlogo">FONCTION/REMUNERATION</div>
 		<div id="info2">
 			<!-- zone disponible -->
 			<%
@@ -251,6 +119,9 @@
 							if (personne.isCadre()) {
 						%>
 						<td style="width: 273px; height: 25px; color:;"><input
+							id="fonction" type="text" name="fonction"
+							onblur="ctrFonction()"><br> <span id="spanFonction"></span></td>
+						<td style="width: 273px; height: 25px; color:;"><input
 							type="radio" name="Cadre" value="oui" checked="checked">
 							Cadre</td>
 						<td style="width: 116px;"><input type="radio" name="Cadre"
@@ -258,6 +129,9 @@
 						<%
 							} else {
 						%>
+						<td style="width: 273px; height: 25px; color:;"><input
+							id="fonction" type="text" name="fonctionOccupee"
+							onblur="ctrFonction()"><br> <span id="spanFonction"></span></td>
 						<td style="width: 273px; height: 25px; color:;"><input
 							type="radio" name="Cadre" value="oui"> Cadre</td>
 						<td style="width: 116px;"><input type="radio" name="Cadre"
@@ -271,19 +145,21 @@
 						<td>Position</td>
 						<td style="width: 273px; height: 25px; color:;"><input
 							id="position" type="text" name="position"
-							value='<%=personne.getPosition()%>' style="width: 270px;"><br>
+							value='<%=personne.getPosition()%>' style="width: 270px;"
+							onblur="ctrPosition()"><br>
 							<span id="spanPosition"></span></td>
 						<td style="width: 72px;">Coefficient</td>
 						<td style="width: 112px; height: 25px; color:;"><input
 							id="coefficient" type="text" name="coefficient"
-							value='<%=personne.getCoeff()%>'><br> <span
+							value='<%=personne.getCoeff()%>' onblur="ctrCoefficient()"><br> <span
 							id="spanCoefficient"></span></td>
 					</tr>
 					<tr>
 						<td>Salaire souhaité</td>
 						<td colspan="3" style="width: 229px; height: 25px; color:;"><input
-							id="salaireSouhaite" type="text" name="salaire souhaite"
-							value='<%=personne.getSalaire()%>' style="width: 615px;"><br>
+							id="salaireSouhaite" type="text" name="salaireSouhaite"
+							value='<%=personne.getSalaire()%>' onblur="ctrSalaireSouhaite()"
+							style="width: 615px;"><br>
 							<span id="spanSalaireSouhaite"></span></td>
 					</tr>
 					<tr>
@@ -331,15 +207,17 @@
 					<tr>
 						<td>Date de la dernière visite médicale</td>
 						<td colspan="3" style="width: 229px; height: 25px; color:;"><input
-							id="dateVisiteMedicale" type="date" name="date visite medicale"
-							value='<%=conv.conversionSQLToUtil(new java.sql.Date(personne.getVisiteMedicale().getTime()))%>' style="width: 615px;"><br>
+							id="dateVisiteMedicale" type="date" name="dateVisiteMedicale"
+							value='<%=conv.conversionSQLToUtil(new java.sql.Date(personne.getVisiteMedicale().getTime()))%>' 
+							onblur="ctrDateVisiteMedicale()" style="width: 615px;"><br>
 							<span id="spanDateVisiteMedicale"></span></td>
 					</tr>
 					<tr>
 						<td>Montant carte d'abonnement Transports</td>
 						<td colspan="3" style="width: 229px; height: 25px; color:;"><input
-							id="montantTransport" type="text" name="carte de transport"
-							value='<%=personne.getMontantTransport()%>' style="width: 615px;"><br>
+							id="montantTransport" type="text" name="carteDeTransport"
+							value='<%=personne.getMontantTransport()%>' 
+							onblur="ctrMontantTransport()" style="width: 615px;"><br>
 							<span id="spanMontantTransport"></span></td>
 					</tr>
 					<tr>
@@ -348,7 +226,7 @@
 							if (personne.isVoiture()) {
 						%>
 						<td style="width: 273px; height: 25px; color:;"><input
-							type="radio" name="vehicule perso" value="oui" checked="checked">
+							type="radio" name="vehiculePerso" value="oui" checked="checked">
 							oui</td>
 						<td colspan="2" style="width: 116px;"><input type="radio"
 							name="vehicule perso" value="non"> non</td>
@@ -356,7 +234,7 @@
 							} else {
 						%>
 						<td style="width: 273px; height: 25px; color:;"><input
-							type="radio" name="vehicule perso" value="oui"> oui</td>
+							type="radio" name="vehiculePerso" value="oui"> oui</td>
 						<td colspan="2" style="width: 116px;"><input type="radio"
 							name="vehicule perso" value="non" checked="checked"> non</td>
 						<%
@@ -366,13 +244,13 @@
 					<tr>
 						<td>Nombre de CV</td>
 						<td style="width: 273px; height: 25px; color:;"><input
-							id="nbChevaux" type="text" name="nb de CV"
-							value='<%=personne.getNbCV()%>' style="width: 270px;"><br>
+							id="nbChevaux" type="text" name="nbDeCV"
+							value='<%=personne.getNbCV()%>' onblur="ctrNbChevaux()" style="width: 270px;"><br>
 							<span id="spanNbChevaux"></span></td>
 						<td style="width: 116px;">Km mensuel estimé</td>
 						<td style="width: 112px; height: 25px; color:;"><input
-							id="kmMensuel" type="text" name="km mensuel "
-							value='<%=personne.getNbKm()%>'><br> <span
+							id="kmMensuel" type="text" name="kmMensuel "
+							value='<%=personne.getNbKm()%>' onblur="ctrKmMensuel()"><br> <span
 							id=spanKmMensuel></span></td>
 					</tr>
 				</table>
@@ -413,6 +291,215 @@
 		<%
 			}
 		%>
+	</div>
 	
+	<script type="text/javascript">
+		function ctrAll() {
+			var fonctionOk = ctrFonction();
+			var posOk = ctrPosition();
+			var coeffOk = ctrCoefficient();
+			var salaireOk = ctrSalaireSouhaite();
+			var dateOk = ctrDateVisiteMedicale();
+			var montantOk = ctrMontantTransport();
+			var nbChevauxOk = ctrNbChevaux();
+			var kmOk = ctrKmMensuel();
+
+			if (fonctionOk && posOk && coeffOk && salaireOk && dateOk
+					&& montantOk && nbChevauxOk && kmOk) {
+				return true
+			} else {
+				alert("Veuillez remplir les champs obligatoires");
+				return false;
+			}
+
+		}
+
+		function ctrFonction() {
+			var fonction = document.getElementById("fonction");
+			//var no = position.value.length;
+			var pattFonction = new RegExp("^[a-zA-Z\\-\\'\\s]+$");
+			var spanFonction = document.getElementById("spanFonction");
+			if (fonction.value == "") {
+				fonction.style.border = "inherit";
+				fonction.style.backgroundColor = "#66ff99";
+				spanFonction.innerHTML = "OK";
+				return true;
+			} else if (pattFonction.test(fonction.value) == false) {
+				//spanPosition.className = "messageErreur";
+				spanFonction.innerHTML = "Veuillez verifier les caractères utilisés('- acceptés).";
+				fonction.style.border = "1px solid #f00";
+				fonction.style.backgroundColor = "#fba";
+				return false;
+			} else {
+				fonction.style.border = "inherit";
+				fonction.style.backgroundColor = "#66ff99";
+				spanFonction.innerHTML = "OK";
+				return true;
+			}
+		}
+
+		function ctrPosition() {
+			var position = document.getElementById("position");
+			var no = position.value.length;
+			var pattPosition = new RegExp("^[1-9][0-9]+$");
+			var spanPosition = document.getElementById("spanPosition");
+			if (position.value == "") {
+				position.style.border = "inherit";
+				position.style.backgroundColor = "#66ff99";
+				spanPosition.innerHTML = "OK";
+				return true;
+			} else if (pattPosition.test(position.value) == false) {
+				//spanPosition.className = "messageErreur";
+				spanPosition.innerHTML = "Veuillez verifier les caractères utilisés('- acceptés).";
+				position.style.border = "1px solid #f00";
+				position.style.backgroundColor = "#fba";
+				return false;
+			} else {
+				position.style.border = "inherit";
+				position.style.backgroundColor = "#66ff99";
+				spanPosition.innerHTML = "OK";
+				return true;
+			}
+		}
+
+		function ctrCoefficient() {
+			var coefficient = document.getElementById("coefficient");
+			var no = coefficient.value.length;
+			var pattCoefficient = new RegExp("^[0-9]{3}$");
+			var spanCoefficient = document.getElementById("spanCoefficient");
+			if (coefficient.value == "") {
+				coefficient.style.border = "inherit";
+				coefficient.style.backgroundColor = "#66ff99";
+				spanCoefficient.innerHTML = "Ok";
+				return true;
+			} else if (pattCoefficient.test(coefficient.value) == false) {
+				//spanCoefficient.className = "messageErreur";
+				spanCoefficient.innerHTML = "Veuillez entrer 3 chiffres.";
+				coefficient.style.border = "1px solid #f00";
+				coefficient.style.backgroundColor = "#fba";
+				return false;
+			} else {
+				coefficient.style.border = "inherit";
+				coefficient.style.backgroundColor = "#66ff99";
+				spanCoefficient.innerHTML = "Ok";
+				return true;
+			}
+		}
+
+		function ctrSalaireSouhaite() {
+			var salaireSouhaite = document.getElementById("salaireSouhaite");
+			var no = salaireSouhaite.value.length;
+			var pattSalaireSouhaite = new RegExp("^[1-9][0-9]+$");
+			var spanSalaireSouhaite = document
+					.getElementById("spanSalaireSouhaite");
+			if (pattSalaireSouhaite.test(salaireSouhaite.value) == false) {
+				//spanSalaireSouhaite.className = "messageErreur";
+				spanSalaireSouhaite.innerHTML = "Veuillez entrer un nombre.";
+				salaireSouhaite.style.border = "1px solid #f00";
+				salaireSouhaite.style.backgroundColor = "#fba";
+				return false;
+			} else {
+				salaireSouhaite.style.border = "inherit";
+				salaireSouhaite.style.backgroundColor = "#66ff99";
+				spanSalaireSouhaite.innerHTML = "OK";
+				return true;
+			}
+		}
+		function ctrDateVisiteMedicale() {
+			var dateVisiteMedicale = document
+					.getElementById("dateVisiteMedicale");
+			var no = dateVisiteMedicale.value.length;
+			var pattDateVisiteMedicale = new RegExp(
+					"(0?[1-9]|[12][0-9]|3[01])-(0?[1-9]|1[012])-((19|20)\\d\\d)$");
+			var spanDateVisiteMedicale = document
+					.getElementById("spanDateVisiteMedicale");
+			if (pattDateVisiteMedicale.test(dateVisiteMedicale.value) == false) {
+				//spanDateVisiteMedicale.className = "messageErreur";
+				spanDateVisiteMedicale.innerHTML = "la date s'écrit suivant le format \"jj-mm-aaaa\"";
+				dateVisiteMedicale.style.border = "1px solid #f00";
+				dateVisiteMedicale.style.backgroundColor = "#fba";
+				return false;
+			} else {
+				dateVisiteMedicale.style.border = "inherit";
+				dateVisiteMedicale.style.backgroundColor = "#66ff99";
+				spanDateVisiteMedicale.innerHTML = "OK";
+				return true;
+			}
+		}
+
+		function ctrMontantTransport() {
+			var montantTransport = document.getElementById("montantTransport");
+			var no = montantTransport.value.length;
+			var pattMontantTransport = new RegExp(
+					"[1-9][0-9]+");
+			var spanMontantTransport = document
+					.getElementById("spanMontantTransport");
+			if (montantTransport.value == "") {
+				montantTransport.style.border = "inherit";
+				montantTransport.style.backgroundColor = "#66ff99";
+				spanMontantTransport.innerHTML = "OK";
+				return true;
+			} else if (pattMontantTransport.test(montantTransport.value) == false) {
+				//spanMontantTransport.className = "messageErreur";
+				spanMontantTransport.innerHTML = "Veuillez entrer un nombre.";
+				montantTransport.style.border = "1px solid #f00";
+				montantTransport.style.backgroundColor = "#fba";
+				return false;
+			} else {
+				montantTransport.style.border = "inherit";
+				montantTransport.style.backgroundColor = "#66ff99";
+				spanMontantTransport.innerHTML = "OK";
+				return true;
+			}
+		}
+
+		function ctrNbChevaux() {
+			var nbChevaux = document.getElementById("nbChevaux");
+			var no = nbChevaux.value.length;
+			var pattNbChevaux = new RegExp("^[1-9][0-9]+$");
+			var spanNbChevaux = document.getElementById("spanNbChevaux");
+			if (nbChevaux.value==""){
+				nbChevaux.style.border = "inherit";
+				nbChevaux.style.backgroundColor = "#66ff99";
+				spanNbChevaux.innerHTML = "OK";
+				return true;
+			} else if (pattNbChevaux.test(nbChevaux.value) == false) {
+				//spanNbChevaux.className = "messageErreur";
+				spanNbChevaux.innerHTML = "Entrez le nombre fiscaux du vehicule.";
+				nbChevaux.style.border = "1px solid #f00";
+				nbChevaux.style.backgroundColor = "#fba";
+				return false;
+			} else {
+				nbChevaux.style.border = "inherit";
+				nbChevaux.style.backgroundColor = "#66ff99";
+				spanNbChevaux.innerHTML = "OK";
+				return true;
+			}
+		}
+
+		function ctrKmMensuel() {
+			var kmMensuel = document.getElementById("kmMensuel");
+			var no = kmMensuel.value.length;
+			var pattKmMensuel = new RegExp("^[1-9][0-9]+$");
+			var spanKmMensuel = document.getElementById("spanKmMensuel");
+			if (kmMensuel.value==""){
+				kmMensuel.style.border = "inherit";
+				kmMensuel.style.backgroundColor = "#66ff99";
+				spanKmMensuel.innerHTML = "OK";
+				return true;
+			} else if (pattKmMensuel.test(kmMensuel.value) == false) {
+				//spanKmMensuel.className = "messageErreur";
+				spanKmMensuel.innerHTML = "Entrez le nombre de kilomètres.";
+				kmMensuel.style.border = "1px solid #f00";
+				kmMensuel.style.backgroundColor = "#fba";
+				return false;
+			} else {
+				kmMensuel.style.border = "inherit";
+				kmMensuel.style.backgroundColor = "#66ff99";
+				spanKmMensuel.innerHTML = "OK";
+				return true;
+			}
+		}
+	</script>
 </body>
 </html>

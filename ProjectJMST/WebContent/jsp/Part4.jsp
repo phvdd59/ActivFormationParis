@@ -93,7 +93,7 @@
 			<img src="http://www.activconsult-ing.com/img/Menu_pagaies2.png"
 				width="71" height="71" alt="" />
 		</div>
-		<div id="tlogo">CENTRE DE FORMATION</div>
+		<div id="tlogo">SITUATION ACTUELLE</div>
 		<div id="info2">
 			<!-- zone disponible -->
 
@@ -112,9 +112,9 @@
 				CtrlPersonne ctrl = new CtrlPersonne();
 				ConversionPersonne conv = new ConversionPersonne();
 
-				String sDateNaissance = request.getParameter("date de naissance");
-				String sLieuNaissance = request.getParameter("lieu de naissance");
-				String sNumSecu = request.getParameter("num secu");
+				String sDateNaissance = request.getParameter("dateDeNaissance");
+				String sLieuNaissance = request.getParameter("lieuDeNaissance");
+				String sNumSecu = request.getParameter("numSecu");
 				String sNationalite = request.getParameter("nationalite");
 
 				if (noSerie.equals(noSerieHtml)) {
@@ -144,7 +144,7 @@
 				<table border="1">
 
 					<tr>
-						<th colspan="4">Situation Actuelle</th>
+						<th colspan="4"></th>
 
 					</tr>
 
@@ -231,8 +231,8 @@
 						%>
 						<td><input type="radio" name="situation" value=""
 							checked="checked"></td>
-						<td><input type="text" name="situationVal"
-							value="<%=personne.getSituation()%>"></td>
+						<td><input id="autre" type="text" name="situationVal"
+							value="<%=personne.getSituation()%>" onblur="ctrAutre()"><span id="spanAutre"></span></td>
 						<%
 							} else {
 						%>
@@ -283,6 +283,43 @@
 		<%
 			}
 		%>
-	
+	</div>
+	<script type="text/javascript">
+		function ctrAll() {
+			var autreOk = ctrAutre();
+
+			if (autreOk) {
+				return true;
+			} else {
+				alert("Veuillez remplir les champs obligatoires");
+				return false;
+			}
+
+		}
+
+		function ctrAutre() {
+			var autre = document.getElementById("autre");
+			var pattAutre = new RegExp("^([a-zA-Z\-\'\\s]+)$");
+			var spanAutre = document.getElementById("spanAutre");
+			if (autre.value == "") {
+				autre.style.border = "inherit";
+				autre.style.backgroundColor = "#66ff99";
+				spanAutre.innerHTML = " OK";
+				return true;
+			}
+			if (pattAutre.test(autre.value) == false) {
+				//spanNom.className = "messageErreur";
+				spanAutre.innerHTML = "Veuillez verifier les caractères utilisés('- acceptés)";
+				autre.style.border = "1px solid #f00";
+				autre.style.backgroundColor = "#fba";
+				return false;
+			} else {
+				autre.style.border = "inherit";
+				autre.style.backgroundColor = "#66ff99";
+				spanAutre.innerHTML = " OK";
+				return true;
+			}
+		}
+	</script>
 </body>
 </html>

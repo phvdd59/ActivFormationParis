@@ -51,14 +51,14 @@ public class ServletUpdate extends HttpServlet {
 		String sFonction = request.getParameter("fonction");
 		String sPosition = request.getParameter("position");
 		String sCoefficient = request.getParameter("coefficient");
-		String sSalaire = request.getParameter("salaire souhaite");
+		String sSalaire = request.getParameter("salaireSouhaite");
 		String sMutuelle = request.getParameter("mutuelle");
-		String sTicketResto = request.getParameter("ticket resto");
-		String sVisiteMedicale = request.getParameter("date visite medicale");
-		String sTransport = request.getParameter("carte de transport");
-		String sVehicule = request.getParameter("vehicule perso");
-		String sNbCv = request.getParameter("nb de CV");
-		String sKmEstime = request.getParameter("km mensuel");
+		String sTicketResto = request.getParameter("ticketResto");
+		String sVisiteMedicale = request.getParameter("dateVisiteMedicale");
+		String sTransport = request.getParameter("carteDeTransport");
+		String sVehicule = request.getParameter("vehiculePerso");
+		String sNbCv = request.getParameter("nbDeCV");
+		String sKmEstime = request.getParameter("kmMensuel");
 
 		CtrlPersonne ctrl = new CtrlPersonne();
 		DAOPersonne dao = new DAOPersonne();

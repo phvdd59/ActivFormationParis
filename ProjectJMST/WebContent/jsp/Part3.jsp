@@ -79,7 +79,7 @@
 			<img src="http://www.activconsult-ing.com/img/Menu_pagaies2.png"
 				width="71" height="71" alt="" />
 		</div>
-		<div id="tlogo">CENTRE DE FORMATION</div>
+		<div id="tlogo">ETAT CIVIL</div>
 		<div id="info2">
 			<!-- zone disponible -->
 			<!-- 			<form= action:"http://www.souadkad.fr/soka/identification.html"></form> -->
@@ -105,10 +105,10 @@
 				String sNom = request.getParameter("nom");
 				String sPrenom = request.getParameter("prenom");
 				String sAdresse = request.getParameter("adresse");
-				String sTelFixe = request.getParameter("tel fixe");
-				String sTelPort = request.getParameter("tel portable");
+				String sTelFixe = request.getParameter("telFixe");
+				String sTelPort = request.getParameter("telPortable");
 				String sFax = request.getParameter("fax");
-				String sCp = request.getParameter("code postale");
+				String sCp = request.getParameter("codePostale");
 				String sVille = request.getParameter("ville");
 				String sEmail = request.getParameter("mail");
 				
@@ -140,33 +140,34 @@
 				<table border="1">
 
 					<tr>
-						<th colspan="4">Etat Civil</th>
+						<th colspan="4"></th>
 
 					</tr>
 					<tr>
 						<td>Date de naissance</td>
 						<td style="width: 273px; height: 25px; color:;"><input
-							id="dateDeNaissance" type="date" name="date de naissance"
-							value='<%=conv.conversionSQLToUtil(new java.sql.Date(personne.getDateNaissance().getTime()))%>' style="width: 270px;"><br>
+							id="dateDeNaissance" type="date" name="dateDeNaissance"
+							value='<%=conv.conversionSQLToUtil(new java.sql.Date(personne.getDateNaissance().getTime()))%>'  
+							onblur="ctrDateDeNaissance()" style="width: 270px;"><br>
 							<span id="spanDateDeNaissance"></span></td>
 						<td style="width: 72px;">Lieu de naissance</td>
 						<td style="width: 112px; height: 25px; color:;"><input
-							id="lieuDeNaissance" type="text" name="lieu de naissance"
-							value='<%=personne.getLieuNaissance()%>'><br> <span
+							id="lieuDeNaissance" type="text" name="lieuDeNaissance"
+							value='<%=personne.getLieuNaissance()%>' onblur="ctrLieuDeNaissance()"><br> <span
 							id="spanLieuDeNaissance"></span></td>
 					</tr>
 					<tr>
 						<td>N° sécurité Social</td>
 						<td colspan="3" style="width: 229px; height: 25px; color:;"><input
-							id="noSecuriteSociale" type="text" name="num secu"
-							value='<%=personne.getNumSecu()%>' style="width: 615px;"><br>
+							id="noSecuriteSociale" type="text" name="numSecu"
+							value='<%=personne.getNumSecu()%>' onblur="ctrNoSecuriteSociale()" style="width: 615px;"><br>
 							<span id="spanNoSecuriteSociale"></span></td>
 					</tr>
 					<tr>
 						<td>Nationalité</td>
-						<td colspan="3" style="width: 229px; height: 25px; color:;"><input
+						<td colspan="3" style="width: 229px; height: 25px; color: ;"><input
 							id="nationalite" type="text" name="nationalite"
-							value='<%=personne.getNationalite()%>' style="width: 615px;"><br>
+							value='<%=personne.getNationalite()%>' onblur="ctrNationalite()" style="width: 615px;"><br>
 							<span id="spanNationalite"></span></td>
 					</tr>
 				</table>
@@ -207,85 +208,102 @@
 		<%
 			}
 		%>
+	</div>
 	
+	<script type="text/javascript">
+		function ctrAll() {
+			var dateOk=ctrDateDeNaissance();
+			var lieuOk=ctrLieuDeNaissance();
+			var secuOk=ctrNoSecuriteSociale();
+			var natioOk=ctrNationalite();
+			
+			if (dateOk && lieuOk && secuOk && natioOk){
+				return true;
+			} else {
+				alert("Veuillez remplir les champs obligatoires");
+				return false;
+			}
+		}
+
+		function ctrDateDeNaissance() {
+			var dateDeNaissance = document.getElementById("dateDeNaissance");
+			var no = dateDeNaissance.value.length;
+			var pattDateDeNaissance = new RegExp(
+					"^(0?[1-9]|[12][0-9]|3[01])-(0?[1-9]|1[012])-((19|20)\\d\\d)$");
+			var spanDateDeNaissance = document
+					.getElementById("spanDateDeNaissance");
+			if (pattDateDeNaissance.test(dateDeNaissance.value) == false) {
+				//spanDateDeNaissance.className = "messageErreur";
+				spanDateDeNaissance.innerHTML = "la date s'écrit suivant le format \"jj-mm-aaaa\"";
+				dateDeNaissance.style.border = "1px solid #f00";
+				dateDeNaissance.style.backgroundColor = "#fba";
+				return false;
+			} else {
+				dateDeNaissance.style.border = "inherit";
+				dateDeNaissance.style.backgroundColor = "#66ff99";
+				spanDateDeNaissance.innerHTML = "OK";
+				return true;
+			}
+		}
+		function ctrLieuDeNaissance() {
+			var lieuDeNaissance = document.getElementById("lieuDeNaissance");
+			var no = lieuDeNaissance.value.length;
+			var pattLieuDeNaissance = new RegExp("^([a-zA-Z\-\'\\s]+)$");
+			var spanLieuDeNaissance = document
+					.getElementById("spanLieuDeNaissance");
+			if (pattLieuDeNaissance.test(lieuDeNaissance.value) == false) {
+				//spanLieuDeNaissance.className = "messageErreur";
+				spanLieuDeNaissance.innerHTML = "Veuillez verifier les caractères utilisés('- acceptés).";
+				lieuDeNaissance.style.border = "1px solid #f00";
+				lieuDeNaissance.style.backgroundColor = "#fba";
+				return false;
+			} else {
+				lieuDeNaissance.style.border = "inherit";
+				lieuDeNaissance.style.backgroundColor = "#66ff99";
+				spanLieuDeNaissance.innerHTML = "OK";
+				return true;
+			}
+		}
+
+		function ctrNoSecuriteSociale() {
+			var noSecuriteSociale = document
+					.getElementById("noSecuriteSociale");
+			var no = noSecuriteSociale.value.length;
+			var pattNoSecuriteSociale = new RegExp("^(1|2)([0-9]{14})$");
+			var spanNoSecuriteSociale = document
+					.getElementById("spanNoSecuriteSociale");
+			if (pattNoSecuriteSociale.test(noSecuriteSociale.value) == false) {
+				//spanNoSecuriteSociale.className = "messageErreur";
+				spanNoSecuriteSociale.innerHTML = "Le numéro de sécurité sociale commence par 1 ou 2 et comporte 15 chiffres.";
+				noSecuriteSociale.style.border = "1px solid #f00";
+				noSecuriteSociale.style.backgroundColor = "#fba";
+				return false;
+			} else {
+				noSecuriteSociale.style.border = "inherit";
+				noSecuriteSociale.style.backgroundColor = "#66ff99";
+				spanNoSecuriteSociale.innerHTML = "OK";
+				return true;
+			}
+		}
+		function ctrNationalite() {
+			var nationalite = document.getElementById("nationalite");
+			var no = nationalite.value.length;
+			var pattNationalite = new RegExp("^([a-zA-Z\-\'\s]+)$");
+			var spanNationalite = document.getElementById("spanNationalite");
+			if (pattNationalite.test(nationalite.value) == false) {
+				//spanNationalite.className = "messageErreur";
+				spanNationalite.innerHTML = "Veuillez verifier les caractères utilisés('- acceptés).";
+				nationalite.style.border = "1px solid #f00";
+				nationalite.style.backgroundColor = "#fba";
+				return false;
+			} else {
+				nationalite.style.border = "inherit";
+				nationalite.style.backgroundColor = "#66ff99";
+				spanNationalite.innerHTML = "OK";
+				return true;
+			}
+		}
+	</script>
 </body>
-<script type="text/javascript">
-	function ctrAll() {
-		ctrDateDeNaissance();
-		ctrLieuDeNaissance();
-		ctrNoSecuriteSociale();
-		ctrNationalite();
 
-	}
-
-	function ctrDateDeNaissance() {
-		var dateDeNaissance = document.getElementById("dateDeNaissance");
-		var no = dateDeNaissance.value.length;
-		var pattDateDeNaissance = new RegExp(
-				"(0[1-9]|[12][0-9]|3[01])(\/)(0[1-9]|1[0-2])(\/)(19|20)[0-9]{2}$");
-		var spanDateDeNaissance = document
-				.getElementById("spanDateDeNaissance");
-		if (pattDateDeNaissance.test(dateDeNaissance.value) == false) {
-			spanDateDeNaissance.className = "messageErreur";
-			spanDateDeNaissance.innerHTML = "la date s'écrit suivant le format \"jj/mm/aaaa\"";
-			dateDeNaissance.style.border = "1px solid #ff0000";
-			return false;
-		} else {
-			dateDeNaissance.style.border = "inherit";
-			spanDateDeNaissance.innerHTML = "";
-			return true;
-		}
-	}
-	function ctrLieuDeNaissance() {
-		var lieuDeNaissance = document.getElementById("lieuDeNaissance");
-		var no = lieuDeNaissance.value.length;
-		var pattLieuDeNaissance = new RegExp("^([a-zA-Z\-\'\s]+)$");
-		var spanLieuDeNaissance = document
-				.getElementById("spanLieuDeNaissance");
-		if (pattLieuDeNaissance.test(lieuDeNaissance.value)==false) {
-			spanLieuDeNaissance.className = "messageErreur";
-			spanLieuDeNaissance.innerHTML = "Veuillez verifier les caractères utilisés('- acceptés).";
-			lieuDeNaissance.style.border = "1px solid #ff0000";
-			return false;
-		} else {
-			lieuDeNaissance.style.border = "inherit";
-			spanLieuDeNaissance.innerHTML = "";
-			return true;
-		}
-	}
-
-	function ctrNoSecuriteSociale() {
-		var noSecuriteSociale = document.getElementById("noSecuriteSociale");
-		var no = noSecuriteSociale.value.length;
-		var pattNoSecuriteSociale = new RegExp("^(1|2)([0-9]{14})$");
-		var spanNoSecuriteSociale = document
-				.getElementById("spanNoSecuriteSociale");
-		if (pattNoSecuriteSociale.test(noSecuriteSociale.value) == false) {
-			spanNoSecuriteSociale.className = "messageErreur";
-			spanNoSecuriteSociale.innerHTML = "Le numéro de sécurité sociale commence par 1 ou 2 et comporte 15 chiffres.";
-			noSecuriteSociale.style.border = "1px solid #ff0000";
-			return false;
-		} else {
-			noSecuriteSociale.style.border = "inherit";
-			spanNoSecuriteSociale.innerHTML = "";
-			return true;
-		}
-	}
-	function ctrNationalite() {
-		var nationalite = document.getElementById("nationalite");
-		var no = nationalite.value.length;
-		var pattNationalite = new RegExp("^([a-zA-Z\-\'\s]+)$");
-		var spanNationalite = document.getElementById("spanNationalite");
-		if (pattNationalite.test(nationalite.value)==false) {
-			spanNationalite.className = "messageErreur";
-			spanNationalite.innerHTML = "Veuillez verifier les caractères utilisés('- acceptés).";
-			nationalite.style.border = "1px solid #ff0000";
-			return false;
-		} else {
-			nationalite.style.border = "inherit";
-			spanNationalite.innerHTML = "";
-			return true;
-		}
-	}
-</script>
 </html>
