@@ -128,7 +128,6 @@ public class ServletSoka1 extends HttpServlet {
 				String line = bIn2.readLine();
 				while (line != null) {
 					if (line.contains("%%noSerie%%")) {
-						String noSerieHtml = request.getParameter("noSerie");
 						String noSerie = (String) session.getAttribute("noSerie");
 						line = line.replace("%%noSerie%%", noSerie);
 					}
