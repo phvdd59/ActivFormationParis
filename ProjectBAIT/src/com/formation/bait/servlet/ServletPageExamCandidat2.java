@@ -51,9 +51,9 @@ public class ServletPageExamCandidat2 extends HttpServlet {
 			session.setAttribute("methode", "POST");
 			personne = (Personne) session.getAttribute("Personne");
 			AccesBDDPersonne acces=new AccesBDDPersonne();
-			Personne personne2 = (Personne) session.getAttribute("Candidat");
+//			personne2 = (Personne) session.getAttribute("Candidat");
 			
-			personne2= (Personne) acces.getPersonne(request.getParameter("IDcandidat"));
+			Personne personne2= (Personne) acces.getPersonne(request.getParameter("IDcandidat"));
 //					getAttribute("IDcandidat").toString());
 			session.setAttribute("candidat", personne2);
 			
@@ -63,7 +63,28 @@ public class ServletPageExamCandidat2 extends HttpServlet {
 			session.setAttribute("prenomCandidat", personne2.getPrenom());
 			session.setAttribute("emailCandidat", personne2.getEmail());
 			session.setAttribute("adresseCandidat", personne2.getAdresse());
-//			session.setAttribute("Candidat", personne2.get);
+			session.setAttribute("cPCandidat", personne2.getcP());
+			session.setAttribute("villeCandidat", personne2.getVille());
+			session.setAttribute("telFixeCandidat", personne2.getTelFixe());
+			session.setAttribute("telPortCandidat", personne2.getTelPort());
+			session.setAttribute("faxCandidat", personne2.getFax());
+			session.setAttribute("dateNaissCandidat", personne2.getDateNaissance());
+			session.setAttribute("lieuNaissCandidat", personne2.getLieuNaissance());
+			session.setAttribute("numSecuCandidat", personne2.getNumSecu());
+			session.setAttribute("nationaliteCandidat", personne2.getNationalite());
+			session.setAttribute("situationCandidat", personne2.getSituation());
+			session.setAttribute("fonctionCandidat", personne2.getFonction());
+			session.setAttribute("positionCandidat", personne2.getPosition());
+			session.setAttribute("cadreCandidat", personne2.isCadre());
+			session.setAttribute("coeffCandidat", personne2.getCoeff());
+			session.setAttribute("salaireCandidat", personne2.getSalaire());
+			session.setAttribute("vivisteMedicaleCandidat", personne2.getVisiteMedicale());
+			session.setAttribute("montantTransportCandidat", personne2.getMontantTransport());
+			session.setAttribute("voitureCandidat", personne2.isVoiture());
+			session.setAttribute("nbCVCandidat", personne2.getNbCV());
+			session.setAttribute("nbKmCandidat", personne2.getNdKm());
+			session.setAttribute("mutuelleCandidat", personne2.isMutuelle());
+			
 			
 			
 			this.getServletContext().getRequestDispatcher( "/WEB-INF/test.jsp" ).forward( request, response );
