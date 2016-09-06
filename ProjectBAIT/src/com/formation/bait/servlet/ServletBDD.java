@@ -137,43 +137,43 @@ public class ServletBDD extends HttpServlet {
 				rd.forward(request, response);
 			}
 
-			File file2 = new File(
-					"C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/Sauvegarde.html");
-			BufferedReader bIn = null;
-			InputStreamReader inputStreamReader = null;
-			try {
-				inputStreamReader = new InputStreamReader(new FileInputStream(file2), "UTF-8");
-				bIn = new BufferedReader(inputStreamReader);
-				String line = bIn.readLine();
-				while (line != null) {
-
-					response.getWriter().append(line + "\n");
-					line = bIn.readLine();
-				}
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			} finally {
-				try {
-					bIn.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-
+//			File file2 = new File(
+//					"C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/Sauvegarde.html");
+//			BufferedReader bIn = null;
+//			InputStreamReader inputStreamReader = null;
+//			try {
+//				inputStreamReader = new InputStreamReader(new FileInputStream(file2), "UTF-8");
+//				bIn = new BufferedReader(inputStreamReader);
+//				String line = bIn.readLine();
+//				while (line != null) {
+//
+//					response.getWriter().append(line + "\n");
+//					line = bIn.readLine();
+//				}
+//			} catch (FileNotFoundException e) {
+//				e.printStackTrace();
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//			} finally {
+//				try {
+//					bIn.close();
+//				} catch (IOException e) {
+//					e.printStackTrace();
+//				}
+//			}
+			 session.setAttribute("Personne", personne);
+			 session.setAttribute("servlet", "Compte");
+			 session.setAttribute("methode", "POST");
+			 RequestDispatcher rd =
+			 request.getRequestDispatcher("/ServletPageCompte2");
+			 rd.forward(request, response);
 		} else {
 			session.invalidate();
 			RequestDispatcher rd = request.getRequestDispatcher("//ServletLogin3");
 			rd.forward(request, response);
 		}
 
-		// session.setAttribute("Personne", personne);
-		// session.setAttribute("servlet", "Compte");
-		// session.setAttribute("methode", "POST");
-		// RequestDispatcher rd =
-		// request.getRequestDispatcher("/ServletPageCompte2");
-		// rd.forward(request, response);
+
 
 	}
 }
