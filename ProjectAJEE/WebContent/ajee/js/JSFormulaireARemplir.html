@@ -139,7 +139,7 @@ function boutonEnregistrer(){
 function ecritureTexteNom() {
 	var nom = document.getElementById("nom");
 	var nom2 = document.getElementById("nom").value;
-	reg3=/^[a-zA-Z\350-\353]+$/
+	reg3=/^[a-zA-Z\300-\304\307\310-\317\322-\326\331-\335\340-\344\347\350-\357\362-\366\371-\375]+$/
 		<!--/^[A-Za-zàáâäçèéêëìíîïñòóôöùúûü]+$/ -->
 	if (nom2 != "") {
 		if(!nom2.match(reg3)){
