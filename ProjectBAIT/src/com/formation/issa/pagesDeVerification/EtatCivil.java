@@ -100,13 +100,19 @@ public class EtatCivil {
 
 	}
 
-	public boolean validationDateDeNaissance(String dateDeNaissance) throws ParseException {
+//	public boolean validationDateDeNaissance(String dateDeNaissance) throws ParseException {
+	public boolean validationDateDeNaissance(String dateDeNaissance) {
 		boolean retour = false;
-		final DateFormat df = new SimpleDateFormat("DD/MM/YYYY");
-		final Date date = df.parse(dateDeNaissance);
 		if (dateDeNaissance != null) {
-			if (dateDeNaissance.length() == 10) {
-				retour = true;
+			final DateFormat df = new SimpleDateFormat("DD/MM/YYYY");
+			try {
+				final Date date = df.parse(dateDeNaissance);
+				if (dateDeNaissance.length() == 10) {
+					retour = true;
+				}
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				//e.printStackTrace();
 			}
 		}
 		return retour;

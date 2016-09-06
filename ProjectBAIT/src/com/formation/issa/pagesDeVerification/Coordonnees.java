@@ -93,7 +93,7 @@ public class Coordonnees {
 	public boolean validationAdresse(String adresse){
 		boolean retour=false;
 		if (adresse != null) {
-			if (adresse.matches("^[a-zA-ZÀ-ÿ0-9//-' ]*[a-zA-Z]+$")) {
+			if (adresse.matches("^[a-zA-ZÀ-ÿ0-9\\-' ]*[a-zA-Z]+$")) {
 				retour=true;
 			}
 		}

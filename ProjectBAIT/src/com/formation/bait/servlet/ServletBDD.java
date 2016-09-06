@@ -13,6 +13,9 @@ import javax.servlet.http.HttpSession;
 import com.formation.bait.dao.AccesBDDPersonne;
 import com.formation.bait.metier.Personne;
 import com.formation.bait.metier.SITUATION;
+import com.formation.issa.pagesDeVerification.Coordonnees;
+import com.formation.issa.pagesDeVerification.EtatCivil;
+import com.formation.issa.pagesDeVerification.SituationRemuneration;
 
 /**
  * Servlet implementation class ServletSauvegarde
@@ -33,16 +36,19 @@ public class ServletBDD extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		RequestDispatcher rd = request.getRequestDispatcher("//ServletLogin3");
 		rd.forward(request, response);
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		String sNoSuiviClient = request.getParameter("suiviClient");
 		String sNbAppelClient = request.getParameter("nbAppelClient");
 		AccesBDDPersonne bddPersonne = new AccesBDDPersonne();
+
 		Personne personne = new Personne();
 		boolean retour = true;
 		Object oNoSuivi = session.getAttribute("suivi");
@@ -67,6 +73,7 @@ public class ServletBDD extends HttpServlet {
 				}
 				retour = bddPersonne.savePersonne(personne);
 			} else if (origine == "EtatCivil") {
+				EtatCivil verifEtat = new EtatCivil();
 				personne = (Personne) session.getAttribute("Personne");
 				String sNom = request.getParameter("nom");
 				String sPrenom = request.getParameter("prenom");
@@ -74,14 +81,27 @@ public class ServletBDD extends HttpServlet {
 				String sNati = request.getParameter("nati");
 				String sLieuNaiss = request.getParameter("lieunaiss");
 				String sSecu = request.getParameter("secu");
-				personne.setNom(sNom);
-				personne.setPrenom(sPrenom);
-				personne.setDateNaissance(sDateNaiss);
-				personne.setLieuNaissance(sLieuNaiss);
-				personne.setNationalite(sNati);
-				personne.setNumSecu(sSecu);
+				if (verifEtat.validationNom(sNom)) {
+					personne.setNom(sNom);
+				}
+				if (verifEtat.validationPrenom(sPrenom)) {
+					personne.setPrenom(sPrenom);
+				}
+				if (verifEtat.validationDateDeNaissance(sDateNaiss)) {
+					personne.setDateNaissance(sDateNaiss);
+				}
+				if (verifEtat.validationLieu(sLieuNaiss)) {
+					personne.setLieuNaissance(sLieuNaiss);
+				}
+				if (verifEtat.validationNationalite(sNati)) {
+					personne.setNationalite(sNati);
+				}
+				if (verifEtat.validationNumeroDeSecuriteSociale(sSecu)) {
+					personne.setNumSecu(sSecu);
+				}
 				retour = bddPersonne.savePersonne(personne);
 			} else if (origine == "Coordonees") {
+				Coordonnees verfiCoord = new Coordonnees();
 				personne = (Personne) session.getAttribute("Personne");
 				String sAdresse = request.getParameter("adresse");
 				String sCp = request.getParameter("cp");
@@ -90,16 +110,31 @@ public class ServletBDD extends HttpServlet {
 				String sTelPort = request.getParameter("telPort");
 				String sFax = request.getParameter("fax");
 				String sEmail = request.getParameter("email");
-				personne.setAdresse(sAdresse);
-				personne.setcP(sCp);
-				personne.setVille(sVille);
-				personne.setTelFixe(sTelFixe);
-				personne.setTelPort(sTelPort);
-				personne.setFax(sFax);
-				personne.setEmail(sEmail);
+				if (verfiCoord.validationAdresse(sAdresse)) {
+					personne.setAdresse(sAdresse);
+				}
+				if (verfiCoord.validationCodePostal(sCp)) {
+					personne.setcP(sCp);
+				}
+				if (verfiCoord.validationAdresse(sVille)) {
+					personne.setVille(sVille);
+				}
+				if (verfiCoord.validationTelFixe(sTelFixe)) {
+					personne.setTelFixe(sTelFixe);
+				}
+				if (verfiCoord.validationTelPort(sTelPort)) {
+					personne.setTelPort(sTelPort);
+				}
+				if (verfiCoord.validationFax(sFax)) {
+					personne.setFax(sFax);
+				}
+				if (verfiCoord.validationEmail(sEmail)) {
+					personne.setEmail(sEmail);
+				}
 				retour = bddPersonne.savePersonne(personne);
 
 			} else if (origine == "Remuneration") {
+				SituationRemuneration verifRemun = new SituationRemuneration();
 				personne = (Personne) session.getAttribute("Personne");
 				String sFonction = request.getParameter("fonction");
 				String sCadre = request.getParameter("cadre");
@@ -107,10 +142,14 @@ public class ServletBDD extends HttpServlet {
 				String sCoeff = request.getParameter("Coefficient");
 				String sSalaire = request.getParameter("salaire");
 				String sTicket = request.getParameter("resto");
-				personne.setFonction(sFonction);
-				personne.setPosition(sPosition);
-				personne.setCoeff(sCoeff);
-				personne.setSalaire(sSalaire);
+				if (verifRemun.validationFonction(sFonction)){
+				personne.setFonction(sFonction);}
+				if (verifRemun.validationPosition(sPosition)){
+				personne.setPosition(sPosition);}
+				if (verifRemun.validationCoeff(sCoeff)){
+				personne.setCoeff(sCoeff);}
+				if (verifRemun.validationSalaire(sSalaire)){
+				personne.setSalaire(sSalaire);}
 				if (sCadre.equals("Cadre")) {
 					personne.setCadre(true);
 				} else {
@@ -130,30 +169,31 @@ public class ServletBDD extends HttpServlet {
 				rd.forward(request, response);
 			}
 
-			//			File file2 = new File(
-			//					"C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/Sauvegarde.html");
-			//			BufferedReader bIn = null;
-			//			InputStreamReader inputStreamReader = null;
-			//			try {
-			//				inputStreamReader = new InputStreamReader(new FileInputStream(file2), "UTF-8");
-			//				bIn = new BufferedReader(inputStreamReader);
-			//				String line = bIn.readLine();
-			//				while (line != null) {
+			// File file2 = new File(
+			// "C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/Sauvegarde.html");
+			// BufferedReader bIn = null;
+			// InputStreamReader inputStreamReader = null;
+			// try {
+			// inputStreamReader = new InputStreamReader(new
+			// FileInputStream(file2), "UTF-8");
+			// bIn = new BufferedReader(inputStreamReader);
+			// String line = bIn.readLine();
+			// while (line != null) {
 			//
-			//					response.getWriter().append(line + "\n");
-			//					line = bIn.readLine();
-			//				}
-			//			} catch (FileNotFoundException e) {
-			//				e.printStackTrace();
-			//			} catch (IOException e) {
-			//				e.printStackTrace();
-			//			} finally {
-			//				try {
-			//					bIn.close();
-			//				} catch (IOException e) {
-			//					e.printStackTrace();
-			//				}
-			//			}
+			// response.getWriter().append(line + "\n");
+			// line = bIn.readLine();
+			// }
+			// } catch (FileNotFoundException e) {
+			// e.printStackTrace();
+			// } catch (IOException e) {
+			// e.printStackTrace();
+			// } finally {
+			// try {
+			// bIn.close();
+			// } catch (IOException e) {
+			// e.printStackTrace();
+			// }
+			// }
 			session.setAttribute("Personne", personne);
 			session.setAttribute("servlet", "Compte");
 			session.setAttribute("methode", "POST");
