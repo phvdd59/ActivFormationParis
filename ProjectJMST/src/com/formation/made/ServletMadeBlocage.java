@@ -20,52 +20,55 @@ import com.formation.thcr.metier.Personne;
 @WebServlet("/ServletMadeBlocage")
 public class ServletMadeBlocage extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ServletMadeBlocage() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public ServletMadeBlocage() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session= request.getSession();
-		String personneBloquee=request.getParameter("personneBloquee");
-		String noSerieSession=(String) session.getAttribute("noSerie");
-		String noSerie=request.getParameter("noSerie");
-		System.out.println("personne bloquee" +personneBloquee);
-		DAOPersonne dao=new DAOPersonne();
-		ListPersonne listePersonne=dao.read();
-		//if(noSerieSession.equals(noSerie)){
-		for (Personne personne : listePersonne) {
-			System.out.println("le nom de la personne est "+personne.getNom());
-			if(personne.getIdentifiant().equals(personneBloquee)){
-				System.out.println("la liste de personne est bonne");
-				if(personne.isBloque()==false){
-					System.out.println("");
-					personne.setBloque(true);
-					personne.setRaisonBlocage(request.getParameter("raisonBlocage"));
-					dao.update(personne);
-					
+		HttpSession session = request.getSession();
+		String personneBloquee = request.getParameter("personneBloquee");
+		String noSerieSession = (String) session.getAttribute("noSerie");
+		System.out.println("nosession" +noSerieSession);
+		String noSerie = request.getParameter("noSerie");
+		System.out.println("no"+noSerie);
+		System.out.println("personne bloquee" + personneBloquee);
+		DAOPersonne dao = new DAOPersonne();
+		ListPersonne listePersonne = dao.read();
+		//if (noSerieSession.equals(noSerie)) {
+			for (Personne personne : listePersonne) {
+				System.out.println("le nom de la personne est " + personne.getNom());
+				System.out.println();
+				if (personne.getIdentifiant().equals(personneBloquee)) {
+					System.out.println("la liste de personne est bonne");
+					if (personne.isBloque() == false) {
+						System.out.println("");
+						personne.setBloque(true);
+						personne.setRaisonBlocage(request.getParameter("raisonBlocage"));
+						dao.update(personne);
+						System.out.println("la personne est elle bloquee?" + personne.isBloque());
+
+					}
+
 				}
 
-				
-				//RequestDispatcher dispatcher = request.getRequestDispatcher("/testjspsuppression.jsp");
-				//dispatcher.forward(request, response);
 			}
-			
+			System.out.println("je forward");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("jsp/testjspsuppression.jsp");
+			dispatcher.forward(request, response);
+		//}else{
+		System.out.println("je redirige");
+		RequestDispatcher dispatcher1 = request.getRequestDispatcher("/ServletJOCA1");
+		dispatcher1.forward(request, response);
 		}
-	//	}
-		System.out.println("je forward");
-		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("jsp/testjspsuppression.jsp");
-		dispatcher.forward(request, response);
-		//response.sendRedirect("http://localhost:8080/ProjectJMST/jsp/Part5.jsp");
-	}
+	//}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
