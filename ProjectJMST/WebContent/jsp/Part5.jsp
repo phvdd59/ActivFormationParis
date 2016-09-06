@@ -115,7 +115,7 @@
 							if (personne.isCadre()) {
 						%>
 						<td style="width: 273px; height: 25px; color:;"><input
-							id="fonction" type="text" name="fonction"
+							id="fonction" type="text" name="fonction" value='<%=personne.getFonction() %>'
 							onblur="ctrFonction()"><br> <span id="spanFonction"></span></td>
 						<td style="width: 273px; height: 25px; color:;"><input
 							type="radio" name="Cadre" value="oui" checked="checked">
@@ -126,7 +126,7 @@
 							} else {
 						%>
 						<td style="width: 273px; height: 25px; color:;"><input
-							id="fonction" type="text" name="fonctionOccupee"
+							id="fonction" type="text" name="fonction" value='<%=personne.getFonction() %>'
 							onblur="ctrFonction()"><br> <span id="spanFonction"></span></td>
 						<td style="width: 273px; height: 25px; color:;"><input
 							type="radio" name="Cadre" value="oui"> Cadre</td>

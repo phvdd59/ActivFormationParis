@@ -71,6 +71,7 @@ public class ServletUpdate extends HttpServlet {
 		if (noSerieHtml.equals(noSerie)) {
 			personne.setCadre(conv.conversionBoolean(sCadre));
 			personne.setFonction(sFonction);
+			personne.setPosition(sPosition);
 			personne.setCoeff(sCoefficient);
 			personne.setSalaire(sSalaire);
 			personne.setMutuelle(conv.conversionBoolean(sMutuelle));
