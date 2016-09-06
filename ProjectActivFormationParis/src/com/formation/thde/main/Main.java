@@ -2,6 +2,8 @@ package com.formation.thde.main;
 
 import java.io.File;
 
+import com.formation.thde.exo.ListeMeuble;
+
 public class Main {
 
 	public static void main(String[] args) {
