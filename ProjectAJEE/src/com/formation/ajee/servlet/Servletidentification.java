@@ -37,12 +37,12 @@ public class Servletidentification extends HttpServlet {
 	 *      response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		// ListPersonne lstPersonne = new ListPersonne();
-		// Personne personne = new Personne();
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		
 
 		File file = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/WEB-INF/com/formation/ajee/page/Identification.html");
-		// System.out.println(file.getCanonicalPath());
+	
 
 		HttpSession session = request.getSession(true); // true pour garder le
 														// meme numero de
