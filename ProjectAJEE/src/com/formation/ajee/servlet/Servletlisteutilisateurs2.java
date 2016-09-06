@@ -90,15 +90,7 @@ public class Servletlisteutilisateurs2 extends HttpServlet {
 				/** Lecture Haut de page HTML */
 				vue.lecturePage(response, "HautPage");
 
-				File fileJS1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/js/JSBandeauAdmin.html");
-				BufferedReader bufReadJS1 = null;
-				bufReadJS1 = new BufferedReader(new FileReader(fileJS1));
-				String lineJS1 = bufReadJS1.readLine();
-				while (lineJS1 != null) {
-					response.getWriter().println(lineJS1);
-					lineJS1 = bufReadJS1.readLine();
-				}
-				bufReadJS1.close();
+				vue.lecturePage(response, "JSBandeauAdmin");
 
 				/** Lecture page ActivConsulting */
 				File fileActiv = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/MenuActiv.html");
@@ -164,32 +156,19 @@ public class Servletlisteutilisateurs2 extends HttpServlet {
 				}
 
 				bIn.close();
+				
+				/** Lecture bas de page */
+				vue.lecturePage(response, "BasPage");
 
 			} else {
 
 				/** Lecture Haut de page HTML */
 				vue.lecturePage(response, "HautPage");
-
-				File fileJS1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/js/JSBandeauAdmin.html");
-				BufferedReader bufReadJS1 = null;
-				bufReadJS1 = new BufferedReader(new FileReader(fileJS1));
-				String lineJS1 = bufReadJS1.readLine();
-				while (lineJS1 != null) {
-					response.getWriter().println(lineJS1);
-					lineJS1 = bufReadJS1.readLine();
-				}
-				bufReadJS1.close();
+				
+				vue.lecturePage(response, "JSBandeauAdmin");
 
 				/** Lecture page ActivConsulting */
-				File fileActiv = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/MenuActiv.html");
-				BufferedReader bufReadActiv = null;
-				bufReadActiv = new BufferedReader(new FileReader(fileActiv));
-				String lineActiv = bufReadActiv.readLine();
-				while (lineActiv != null) {
-					response.getWriter().println(lineActiv);
-					lineActiv = bufReadActiv.readLine();
-				}
-				bufReadActiv.close();
+				vue.lecturePage(response, "MenuActiv");
 
 				/** Lecture bandeau */
 				File fileDoc = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/BandeauAdmin.html");
@@ -234,6 +213,9 @@ public class Servletlisteutilisateurs2 extends HttpServlet {
 					line = bIn.readLine();
 				}
 				bIn.close();
+				
+				/** Lecture bas de page */
+				vue.lecturePage(response, "BasPage");
 
 			}
 		} else if (boutonSupp != null) {
@@ -264,16 +246,8 @@ public class Servletlisteutilisateurs2 extends HttpServlet {
 
 				/** Lecture Haut de page HTML */
 				vue.lecturePage(response, "HautPage");
-
-				File fileJS1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/js/JSBandeauAdmin.html");
-				BufferedReader bufReadJS1 = null;
-				bufReadJS1 = new BufferedReader(new FileReader(fileJS1));
-				String lineJS1 = bufReadJS1.readLine();
-				while (lineJS1 != null) {
-					response.getWriter().println(lineJS1);
-					lineJS1 = bufReadJS1.readLine();
-				}
-				bufReadJS1.close();
+				
+				vue.lecturePage(response, "JSBandeauAdmin");
 
 				/** Lecture page ActivConsulting */
 				File fileActiv = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/MenuActiv.html");
@@ -337,31 +311,18 @@ public class Servletlisteutilisateurs2 extends HttpServlet {
 				}
 
 				bIn.close();
+				
+				/** Lecture bas de page */
+				vue.lecturePage(response, "BasPage");
 
 			} else {
 				/** Lecture Haut de page HTML */
 				vue.lecturePage(response, "HautPage");
 
-				File fileJS1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/js/JSBandeauAdmin.html");
-				BufferedReader bufReadJS1 = null;
-				bufReadJS1 = new BufferedReader(new FileReader(fileJS1));
-				String lineJS1 = bufReadJS1.readLine();
-				while (lineJS1 != null) {
-					response.getWriter().println(lineJS1);
-					lineJS1 = bufReadJS1.readLine();
-				}
-				bufReadJS1.close();
+				vue.lecturePage(response, "JSBandeauAdmin");
 
 				/** Lecture page ActivConsulting */
-				File fileActiv = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/MenuActiv.html");
-				BufferedReader bufReadActiv = null;
-				bufReadActiv = new BufferedReader(new FileReader(fileActiv));
-				String lineActiv = bufReadActiv.readLine();
-				while (lineActiv != null) {
-					response.getWriter().println(lineActiv);
-					lineActiv = bufReadActiv.readLine();
-				}
-				bufReadActiv.close();
+				vue.lecturePage(response, "MenuActiv");
 
 				/** Lecture bandeau */
 				File fileDoc = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/BandeauAdmin.html");
@@ -407,32 +368,17 @@ public class Servletlisteutilisateurs2 extends HttpServlet {
 				}
 				bIn.close();
 
+			/** Lecture bas de page */
+			vue.lecturePage(response, "BasPage");
 			}
-
 		} else {
 			/** Lecture Haut de page HTML */
 			vue.lecturePage(response, "HautPage");
-
-			File fileJS1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/js/JSBandeauAdmin.html");
-			BufferedReader bufReadJS1 = null;
-			bufReadJS1 = new BufferedReader(new FileReader(fileJS1));
-			String lineJS1 = bufReadJS1.readLine();
-			while (lineJS1 != null) {
-				response.getWriter().println(lineJS1);
-				lineJS1 = bufReadJS1.readLine();
-			}
-			bufReadJS1.close();
+			
+			vue.lecturePage(response, "JSBandeauAdmin");
 
 			/** Lecture page ActivConsulting */
-			File fileActiv = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/MenuActiv.html");
-			BufferedReader bufReadActiv = null;
-			bufReadActiv = new BufferedReader(new FileReader(fileActiv));
-			String lineActiv = bufReadActiv.readLine();
-			while (lineActiv != null) {
-				response.getWriter().println(lineActiv);
-				lineActiv = bufReadActiv.readLine();
-			}
-			bufReadActiv.close();
+			vue.lecturePage(response, "MenuActiv");
 
 			/** Lecture bandeau */
 			File fileDoc = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/BandeauAdmin.html");
@@ -477,6 +423,9 @@ public class Servletlisteutilisateurs2 extends HttpServlet {
 				line = bIn.readLine();
 			}
 			bIn.close();
+			
+			/** Lecture bas de page */
+			vue.lecturePage(response, "BasPage");
 		}
 	}
 }
