@@ -10,7 +10,10 @@
 			</tr>
 			<tr>
 				<td>Nom : <input name="nom" id="nom" onblur="ecritureTexteNom()" placeholder="ex : Nom" type="texte" style="width: 358px; "/></td>
-				<td>Prenom : <input name="prenom" id="prenom" onblur="ecritureTextePrenom()" placeholder="ex : Prenom" type="texte" style="width: 317px; "/></td>
+				<td>Prenom : <input name="prenom" id="prenom" onblur="ecritureTextePrenom()" placeholder="ex : Prenom" type="texte" style="width: 317px; "/> </td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center">Sexe : <input name="sexe" type="radio" value="f" checked />F<input name="sexe" type="radio" value="m" />M</td>
 			</tr>
 			<tr>
 				<td colspan="2"">Adresse : <input name="adresse" id="adresse" onblur="ecritureTexteAdresse()" placeholder="ex : 9 Avenue de la Liberation" type="texte"
@@ -47,13 +50,13 @@
 			</tr>
 			<tr>
 				<td colspan="2" align = "center"><input name="situation" id="situation" type="radio" value = "salarie">Salarie
-					<input name="situation" id="situation" type="radio" value = "auto entrepreneur"> Auto entrepreneur
+					<input name="situation" id="situation" type="radio" value = "autoEntrepreneur"> Auto entrepreneur
 					<input name="situation" id="situation" type="radio" value = "freelance"> Freelance</td>
 			</tr>
 			<tr>
-					<td colspan="2"><input name="situation" type="radio" value = "demandeur d'emploi"> Demandeur d'emploi
-					<input name="situation" type="radio" value = "retraite"> Retraite
-					<input name="situation" type="radio" value = "autre" checked> Autre <input name="autre" id="autre" onblur="ecritureAutre()" type="texte" style="width: 450px; "/></td>
+					<td colspan="2"><input name="situation" id="situation" type="radio" value = "demandeurDEmploi"> Demandeur d'emploi
+					<input name="situation" id="situation" type="radio" value = "retraite"> Retraite
+					<input name="situation" id="situation" type="radio" value = "autre" checked> Autre <input name="autre" id="autre" onblur="ecritureAutre()" type="texte" style="width: 450px; "/></td>
 			</tr>
 			<tr>
 				<th colspan="2" align="center"><h4>FONCTION / REMUNERATION</h4></th>
@@ -71,10 +74,10 @@
 				<td colspan="2">Salaire souhaite : <input name="salaire" id="salaire" onblur="ecritureSalSouhaite()" type="texte" style="width: 685px; "/></td>
 			</tr>
 			<tr>
-				<td align = "center">Mutuelle souhaitee : <input name="mutuelle" id="mutuelle" type="radio" value = "oui" checked> oui
-					<input name="mutuelle" type="radio" value = "non"> non</td>
-					<td align = "center">Ticket resto : <input name="ticketResto" id="ticketResto" type="radio" value = "oui" checked> oui
-					<input name="ticketResto" type="radio" value = "non"> non</td>
+				<td align = "center">Mutuelle souhaitee : <input name="mutuelle" id="mutuelle" type="radio" value = "oui" checked> Oui
+					<input name="mutuelle" type="radio" value = "non"> Non</td>
+					<td align = "center">Ticket resto : <input name="ticketResto" id="ticketResto" type="radio" value = "oui" checked> Oui
+					<input name="ticketResto" type="radio" value = "non"> Non</td>
 			</tr>
 			<tr>
 				<td colspan="2">Date de votre derniere visite medicale : <input name="visiteMedicale" id="visiteMedicale" onblur="ecritureDateDerVisMed()" type="texte" style="width: 503px; "/></td>
@@ -83,7 +86,7 @@
 				<td colspan="2">Montant carte d'abonnement transport : <input name="montantTransport" id="montantTransport" onblur="ecritureMontCarteAbonTransp()" type="texte" style="width: 486px; "/></td>
 			</tr>
 			<tr>
-				<td>Vehicule personnel : <input name="voiture" id="voiture" onblur="ecritureVehicPerso()" type="texte" style="width: 246px; "/></td>
+				<td align="center">Vehicule personnel : <input name="voiture" id="voiture" onblur="ecritureVehicPerso()" type="radio" value="oui" checked /> Oui<input name="voiture" type="radio" value="non"/> Non</td>
 				<td>Km mensuel estime : <input name="nbKm" id="nbKm" onblur="ecritureKmMensEstim()" type="texte" style="width: 226px; "/></td>
 			</tr>	
 			<tr>

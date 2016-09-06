@@ -1,7 +1,7 @@
 <script type="text/javascript">
 
 function boutonEnregistrer(){
-	// vérification protections: if pas tout ok (pas tous booleens == true) -> alerte
+	// (vérification protections: if pas tout ok (pas tous booleens == true) -> alerte) -> edit : non
 	
 	// si  ok -> enregistrement d'une version remplie et non-modifiable du formulaire
 	// si admin accède au formulaire rempli -> il n'est pas modifiable
@@ -10,17 +10,128 @@ function boutonEnregistrer(){
 	
 	//var X = document.forms["FormulaireARemplir"]["nom"].value;
 
+	regTexte="[A-Za-zàáâäçèéêëìíîïñòóôöùúûü\\-\\']*"
+	<!-- /^[a-zA-Z]+$/ --> 
+	regNombre=/^[0-9]+$/
+	regEmail=/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/ // email
+	regDateNaissance = /^[0-3]?[0-9]\/[01]?[0-9]\/[12][90][0-9][0-9]$/  // date de naissance
+	//
 	var nom2 = document.getElementById("nom").value;
-	reg3=/^[a-zA-Z]+$/
-	if (nom2==null || nom2=="" || !nom2.match(reg3)) {
+	if (nom2==null || nom2=="" || !nom2.match(regTexte)) {
 		alert("Nom invalide");
 		return false;
 	}
 	var prenom2 = document.getElementById("prenom").value;
-	if (prenom2==null || prenom2=="" || !prenom2.match(reg3)) {
+	if (prenom2==null || prenom2=="" || !prenom2.match(regTexte)) {
 		alert("Prenom invalide");
 		return false;
 	}
+	// enum sexe
+// 	var adresse2 = document.getElementById("adresse").value;
+// 	if (adresse2==null || adresse2=="") {
+// 		alert("Champ(s) invalide(s)");
+// 		return false;
+// 	}
+// 	var cp2 = document.getElementById("cp").value;
+// 	if (cp2==null || cp2=="" || !cp2.match(regNombre)) {
+// 		alert("Champ(s) invalide(s)");
+// 		return false;
+// 	}
+// 	var ville2 = document.getElementById("ville").value;
+// 	if (ville2==null || ville2=="" || !ville2.match(regTexte)) {
+// 		alert("Champ(s) invalide(s)");
+// 		return false;
+// 	}
+// 	var telFixe2 = document.getElementById("telFixe").value;
+// 	if (telFixe2==null || telFixe2=="" || !telFixe2.match(regNombre)) {
+// 		alert("");
+// 		return false;
+// 	}
+// 	var telPort2 = document.getElementById("telPort").value;
+// 	if (telPort2==null || telPort2=="" || !telPort2.match(regNombre)) {
+// 		alert("");
+// 		return false;
+// 	}
+// 	var fax2 = document.getElementById("fax").value;
+// 	if (fax2==null || fax2=="" || !fax2.match(regNombre)) {
+// 		alert("");
+// 		return false;
+// 	}
+// 	var email2 = document.getElementById("email").value;
+// 	if (email2==null || email2=="" || !email2.match(regEmail)) {
+// 		alert("");
+// 		return false;
+// 	}
+// 	dateNaiss2 = document.getElementById("dateNaissance").value;
+// 	if (dateNaiss2==null || dateNaiss2=="" || !dateNaiss2.match(regDateNaissance)) {
+// 		alert("");
+// 		return false;
+// 	}
+// 	var lieu2 = document.getElementById("lieuNaissance").value;
+// 	if (lieu2==null || lieu2=="" || !lieu2.match(regTexte)) {
+// 		alert("");
+// 		return false;
+// 	}
+// 	var numSecu2 = document.getElementById("numSecu").value;
+// 	if (numSecu2==null || numSecu2=="" || !numSecu2.match(regNombre)) {
+// 		alert("");
+// 		return false;
+// 	}
+// 	var nat2 = document.getElementById("nationalite").value;
+// 	if (nat2==null || nat2=="" || !nat2.match(regTexte)) {
+// 		alert("");
+// 		return false;
+// 	}
+	// SITUATION
+// 	var sit = document.getParameter("situation").value;
+// 	if (!sit.match("salarie") && !sit.match("autoEntrepreneur") && !sit.match("freelance") && !sit.match("demandeurDEmploi") && !sit.match("retraite")) && !sit.match("autre")) {
+// 		alert("");
+// 		return false;
+// 	}
+// 	var autre2 = document.getElementById("autre").value;
+// 	if (!autre2.match(regTexte)) {
+// 		alert("");
+// 		return false;
+// 	}
+// 	var fctnOccupee2 = document.getElementById("fonction").value;
+// 	if (fctnOccupee2==null || fctnOccupee2=="" || !fctnOccupee2.match(regTexte)) {
+// 		alert("");
+// 		return false;
+// 	}
+// 	// boolean cadre
+// 	var pos2 = document.getElementById("positionEntreprise").value;
+// 	if (pos2==null || pos2=="" || !pos2.match(regTexte)) {
+// 		alert("");
+// 		return false;
+// 	}
+// 	var coeff2 = document.getElementById("coeff").value;
+// 	if (coeff2==null || coeff2=="" || !coeff2.match(regTexte)) {
+// 		alert("");
+// 		return false;
+// 	}
+// 	var salaireSouhaite2 = document.getElementById("salaire").value;
+// 	if (salaireSouhaite2==null || salaireSouhaite2=="" || !salaireSouhaite2.match(regTexte)) {
+// 		alert("");
+// 		return false;
+// 	}
+// 	// boolean mutuelle
+// 	// boolean ticket resto
+// 	dateDerVisMed2 = document.getElementById("visiteMedicale").value;
+// 	if (dateDerVisMed2==null || dateDerVisMed2=="" || !dateDerVisMed2.match(regTexte)) {
+// 		alert("");
+// 		return false;
+// 	}
+// 	var montCarteAbonTransp2 = document.getElementById("montantTransport").value;
+// 	if (montCarteAbonTransp2==null || montCarteAbonTransp2=="" || !montCarteAbonTransp2.match(regNombre)) {
+// 		alert("");
+// 		return false;
+// 	}
+// 	// boolean voiture
+// 	var kmMensEstim2 = document.getElementById("nbKm").value;
+// 	if (kmMensEstim2==null || kmMensEstim2=="" || !kmMensEstim2.match(regNombre)) {
+// 		alert("");
+// 		return false;
+// 	}
 	
 	//location.href="http://127.0.0.1:8080/ProjectAJEE/ServletFormulaireB.java";
 }
@@ -29,6 +140,7 @@ function ecritureTexteNom() {
 	var nom = document.getElementById("nom");
 	var nom2 = document.getElementById("nom").value;
 	reg3=/^[a-zA-Z]+$/
+		<!--/^[A-Za-zàáâäçèéêëìíîïñòóôöùúûü]+$/ -->
 	if (nom2 != "") {
 		if(!nom2.match(reg3)){
 			nom.style.color="red";
@@ -156,9 +268,9 @@ function ecritureEmail(){
 }
 
 function ecritureDateNaiss(){
-	var dateNaiss = document.getElementById("dateNaiss");
+	var dateNaiss = document.getElementById("dateNaissance");
 	var dateNaiss2 = new Date();
-	dateNaiss2 = document.getElementById("dateNaiss").value;
+	dateNaiss2 = document.getElementById("dateNaissance").value;
 	//alert(dateNaiss.value + dateNaiss2);
 	reg = /^[0-3]?[0-9]\/[01]?[0-9]\/[12][90][0-9][0-9]$/
 	if (dateNaiss2 != "") {
@@ -172,8 +284,8 @@ function ecritureDateNaiss(){
 }
 
 function ecritureTexteLieu(){
-	var lieu = document.getElementById("lieu");
-	var lieu2 = document.getElementById("lieu").value;
+	var lieu = document.getElementById("lieuNaissance");
+	var lieu2 = document.getElementById("lieuNaissance").value;
 	reg2=/^[a-zA-Z]+$/
 	if (lieu2 != "") {
 		if(!lieu2.match(reg2)){
@@ -200,13 +312,13 @@ function ecritureNumSecu(){
 }
 
 function ecritureNationalite(){
-	var nat = document.getElementById("nat");
-	var nat2 = document.getElementById("nat").value;
+	var nat = document.getElementById("nationalite");
+	var nat2 = document.getElementById("nationalite").value;
 	reg2=/^[a-zA-Z]+$/
 	if (nat2 != "") {
 		if(!nat2.match(reg2)){
 			nat.style.color="red";
-			nat.placeholder="Merci de saisir une nationalité valide";
+			nat.placeholder="Merci de saisir une nationalite valide";
 		} else {
 			nat.style.color="black";
 		}
@@ -228,12 +340,13 @@ function ecritureAutre(){
 }
 
 function sitActuelle(){
+	//situation
 	
 }
 
 function ecritureFctionOccupee(){
-	var fctnOccupee = document.getElementById("fctnOccupee");
-	var fctnOccupee2 = document.getElementById("fctnOccupee").value;
+	var fctnOccupee = document.getElementById("fonction");
+	var fctnOccupee2 = document.getElementById("fonction").value;
 	reg2=/^[a-zA-Z]+$/
 	if (fctnOccupee2 != "") {
 		if(!fctnOccupee2.match(reg2)){
@@ -246,12 +359,13 @@ function ecritureFctionOccupee(){
 }
 
 function cadre(){
+	//"cadre"
 	
 }
 
 function ecriturePosition(){
-	var pos = document.getElementById("pos");
-	var pos2 = document.getElementById("pos").value;
+	var pos = document.getElementById("positionEntreprise");
+	var pos2 = document.getElementById("positionEntreprise").value;
 	reg2=/^[a-zA-Z]+$/
 	if (pos2 != "") {
 		if(!pos2.match(reg2)){
@@ -278,8 +392,8 @@ function ecritureCoeff(){
 }
 
 function ecritureSalSouhaite(){
-	var salaireSouhaite = document.getElementById("salaireSouhaite");
-	var salaireSouhaite2 = document.getElementById("salaireSouhaite").value;
+	var salaireSouhaite = document.getElementById("salaire");
+	var salaireSouhaite2 = document.getElementById("salaire").value;
 	reg2=/^[0-9]+$/
 	if (salaireSouhaite2 != "") {
 		if(!salaireSouhaite2.match(reg2)){
@@ -300,9 +414,9 @@ function tickResto(){
 }
 
 function ecritureDateDerVisMed(){
-	var dateDerVisMed = document.getElementById("dateDerVisMed");
+	var dateDerVisMed = document.getElementById("visiteMedicale");
 	var dateDerVisMed2 = new Date();
-	dateDerVisMed2 = document.getElementById("dateDerVisMed").value;
+	dateDerVisMed2 = document.getElementById("visiteMedicale").value;
 	reg = /^[0-3]?[0-9]\/[01]?[0-9]\/[12][90][0-9][0-9]$/
 	if (dateDerVisMed2 != "") {
 		if(!dateDerVisMed2.match(reg)){
@@ -315,8 +429,8 @@ function ecritureDateDerVisMed(){
 }
 
 function ecritureMontCarteAbonTransp(){
-	var montCarteAbonTransp = document.getElementById("montCarteAbonTransp");
-	var montCarteAbonTransp2 = document.getElementById("montCarteAbonTransp").value;
+	var montCarteAbonTransp = document.getElementById("montantTransport");
+	var montCarteAbonTransp2 = document.getElementById("montantTransport").value;
 	reg2=/^[0-9]+$/
 	if (montCarteAbonTransp2) {
 		if(!montCarteAbonTransp2.match(reg2)){
@@ -329,8 +443,8 @@ function ecritureMontCarteAbonTransp(){
 }
 
 function ecritureVehicPerso(){
-	var vehicPerso = document.getElementById("vehicPerso");
-	var vehicPerso2 = document.getElementById("vehicPerso").value;
+	var vehicPerso = document.getElementById("voiture");
+	var vehicPerso2 = document.getElementById("voiture").value;
 	reg2=/^[a-zA-Z]+$/
 	if (vehicPerso2) {
 		if(!vehicPerso2.match(reg2)){
@@ -343,8 +457,8 @@ function ecritureVehicPerso(){
 }
 
 function ecritureKmMensEstim(){
-	var kmMensEstim = document.getElementById("kmMensEstim");
-	var kmMensEstim2 = document.getElementById("kmMensEstim").value;
+	var kmMensEstim = document.getElementById("nbKm");
+	var kmMensEstim2 = document.getElementById("nbKm").value;
 	reg2=/^[0-9]+$/
 	if (kmMensEstim2 != "") {
 		if(!kmMensEstim2.match(reg2)){
