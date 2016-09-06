@@ -48,6 +48,7 @@ public class Servletaccueilvalidemdp extends HttpServlet {
 		Vue vue = new Vue();
 		String mdp1=(String) request.getParameter("mdpN");
 		String mdp2=(String) request.getParameter("mdpV");
+		
 		if (mdp1==null ||mdp2 == null || !mdp1.equals(mdp2)) {
 			RequestDispatcher rd = request.getRequestDispatcher("//ServletMdpAdmin");
 			rd.forward(request, response);

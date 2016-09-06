@@ -1,9 +1,10 @@
-<div align="center" > FORMULAIRE D'IDENTIFICATION </div>
+<div style="position: absolute;width: 700px;height:680px;top:-65px;left:0px;overflow: auto;">
+<div align="center" ><h3> FORMULAIRE D'IDENTIFICATION </h3></div>
 <div> 
 	<form method = "post" action = "http://127.0.0.1:8080/ProjectAJEE/ServletModificationFormulaire"> <!-- (En action, mettre l'URL de la page Acceuil -> la mettre plutot dans la servlet) -->
 		<!--  -->
 		<!-- http://127.0.0.1:8080/ProjectAJEE/src/com/formation/ajee/servlet/ServletFormulaireB.java -->
-		<table align = "center">
+		<table style="width: 680px; align : center;">
 			<tr>
 				<th colspan="2" align="center"><h4>COORDONNEES PERSONNELLES</h4></th>
 			</tr>
@@ -62,7 +63,7 @@
 			</tr>
 			<tr>
 				<td align = "center">Mutuelle souhaitee : %mutuelle%</td>
-					<td align = "center">Ticket resto : %ticketresto%/td>
+				<td align = "center">Ticket resto : %ticketresto%</td>
 			</tr>
 			<tr>
 				<td colspan="2">Date de votre derniere visite medicale : %datevisite%</td>
@@ -73,11 +74,14 @@
 			<tr>
 				<td>Vehicule personnel : %voiture%</td>
 					<td>Nombre de chevaux : %nbcv%</td>
-				<td>Km mensuel estime : %km%</td>
 			</tr>	
+			<tr>				
+				<td>Km mensuel estime : %km%</td>
+			</tr>
 			<tr>
 				<!--  value = "Enregister"  -->
 			</tr>	
 		</table>
 	</form>	
+</div>
 </div>
