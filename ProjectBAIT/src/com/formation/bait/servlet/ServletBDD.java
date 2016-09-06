@@ -46,13 +46,12 @@ public class ServletBDD extends HttpServlet {
 		String sNbAppelClient = request.getParameter("nbAppelClient");
 		AccesBDDPersonne bddPersonne = new AccesBDDPersonne();
 		Personne personne = new Personne();
-		boolean retour = true;
+		boolean retour = false;
 		Object oNoSuivi = session.getAttribute("suivi");
 		if (oNoSuivi != null) {
 			String origine = (String) session.getAttribute("servlet");
 			if (origine == "Login") {
 				personne = bddPersonne.getPersonne(session.getAttribute("idPersonne").toString());
-				session.setAttribute("Personne", personne);
 			} else if (origine == "Situation") {
 				personne = (Personne) session.getAttribute("Personne");
 				String sSituation = request.getParameter("sit");
@@ -129,10 +128,10 @@ public class ServletBDD extends HttpServlet {
 			}
 			if (retour == false) {
 				System.out.println("erreur sauvegarde ratée!");
-				RequestDispatcher rd = request.getRequestDispatcher("/ServletPageErreurSauv");
+				RequestDispatcher rd = request.getRequestDispatcher("/ServletErreurSave");
 				rd.forward(request, response);
 			}
-			session.setAttribute("personne", personne);
+			session.setAttribute("Personne", personne);
 			session.setAttribute("servlet", "Compte");
 			session.setAttribute("methode", "POST");
 			RequestDispatcher rd = request.getRequestDispatcher("/ServletPageCompte2");
