@@ -111,8 +111,8 @@ public class ServletListeCandidatsAdmin extends HttpServlet {
 					response.getWriter().append(lettre);
 					response.getWriter().append("</div>");
 				}
-				response.getWriter().append("<form>");
-				response.getWriter().append("<input type=\"submit\" style=\"width: 250px;\" value=\"" + resultat.getString("nom") + " " + resultat.getString("prenom") + "\" onblur=\"\" name=\"" + resultat.getString("nom") + "\" /><br>");
+				response.getWriter().append("<form method=\"post\" action=\"http://localhost:8080/ProjectBAIT/ServletPageExamCandidat2\">");
+				response.getWriter().append("<input type=\"submit\" style=\"width: 250px;\" value=\"" + resultat.getString("nom") + " " + resultat.getString("prenom") + "\" name=\"" + resultat.getString("nom") + "\" /><br>");
 				response.getWriter().append("</form>");			
 			}
 			response.getWriter().append("</div>");
