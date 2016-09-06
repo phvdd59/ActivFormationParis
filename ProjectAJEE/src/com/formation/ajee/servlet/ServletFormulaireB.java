@@ -103,15 +103,16 @@ public class ServletFormulaireB extends HttpServlet {
 //		}
 //		bufReadDoc.close();
 		
-		Personne personne = new Personne();
+		Personne personne = new Personne(); // à ce moment y'a création de l'idpersonne
 		
 		// Récupérer les données du formulaire et ranger dans objet personne
-		//String pNom=request.getParameter("nom");
-		personne.setNom(request.getParameter("nom"));
-		//String pPrenom=request.getParameter("prenom");
-		personne.setPrenom(request.getParameter("prenom"));
-		//String pAdresse=request.getParameter("adresse");
-		personne.setAdresse(request.getParameter("adresse"));
+		String pNom=request.getParameter("nom");
+		personne.setNom(pNom);
+		String pPrenom=request.getParameter("prenom");
+		personne.setPrenom(pPrenom);
+		// enum sexe
+		String pAdresse=request.getParameter("adresse");
+		personne.setAdresse(pAdresse);
 		String pCp=request.getParameter("cp");
 		personne.setCp(pCp);
 		String pVille=request.getParameter("ville");
@@ -127,7 +128,7 @@ public class ServletFormulaireB extends HttpServlet {
 		String pDateNaissance=request.getParameter("dateNaissance");
 		//personne.setDateNaissance(pDateNaissance);
 		String pLieuNaissance=request.getParameter("lieuNaissance");
-		personne.setPrenom(pLieuNaissance);
+		personne.setLieuNaissance(pLieuNaissance);
 		String pNumSecu=request.getParameter("numSecu");
 		personne.setNumSecu(pNumSecu);
 		String pNationalite=request.getParameter("nationalite");
@@ -162,14 +163,24 @@ public class ServletFormulaireB extends HttpServlet {
 		//String pPrenom=request.getParameter("prenom");
 		//String pPrenom=request.getParameter("prenom");
 		
+		// creation identifiant + mdp
+		personne.setIdentifiant(personne.creationId(pNom, pPrenom));
+		personne.setMdp(personne.creationMdp());
+		
+		// ajout à la bdd
+		int idPersonne = personne.getIdPersonne();
+		personne.ajoutPersonne(idPersonne);
+		
 		//ajout personne à la liste
-		lst.add(personne);
-		response.getWriter().println(lst.get(0).toString());
+//		lst.add(personne);
+//		response.getWriter().println(lst.get(0).toString());
 		
 		// print : formulaire bien enregistré
-		response.getWriter().println("Formulaire enregistre");
-		response.getWriter().println(personne.getNom());
-		response.getWriter().println(personne.getTelPort());
+		response.getWriter().println("Merci "+personne.getPrenom()+" "+personne.getNom()+".");
+		response.getWriter().println();
+		response.getWriter().println();
+		response.getWriter().println("Votre formulaire a bien ete enregistre.");
+		
 		// retour page accueil en bas de page (bouton)
 		String html = "<html><form action='http://127.0.0.1:8080/ProjectAJEE/Servletidentification'><input type='submit' value='Retour page identification'></form></html>";
 		response.getWriter().println(html);
