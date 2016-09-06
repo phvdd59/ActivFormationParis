@@ -73,7 +73,7 @@
 		<div id="menu3">
 			<img
 				src="http://www.activconsult-ing.com/img/Objet_dynamique_vectoriel.png"
-				width="492" height="57" alt="" />
+				width="432" height="57" alt="" />
 		</div>
 		<div id="ogol1">
 			<img src="http://www.activconsult-ing.com/img/Menu_pagaies2.png"
