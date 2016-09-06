@@ -1,4 +1,4 @@
-package com.formation.ajee.servlet.Admin;
+package com.formation.ajee.servlet;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -13,49 +13,66 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.formation.ajee.metier.ListPersonne;
 import com.formation.ajee.metier.Personne;
 
 /**
- * Servlet implementation class ServletMdp
+ * Servlet implementation class Servletjeci1
  */
-@WebServlet("/ServletMdpAdmin")
-public class ServletMdpAdmin extends HttpServlet {
+@WebServlet("/Servletaccueilchargementprofil")
+public class Servletaccueilvalidemdp extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public ServletMdpAdmin() {
+	public Servletaccueilvalidemdp() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request,
-	 *      HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
-
+		
 		HttpSession session = request.getSession();
-		Object oNoSerie = session.getAttribute("noSerie");
-		Object mdp = session.getAttribute("mdp");
-		Personne utilisateur = (Personne) session.getAttribute("utilisateur");
+		Object noSerie = session.getAttribute("noSerie");
+		ListPersonne lstPersonne=new ListPersonne();
+		Personne utilisateur =(Personne) session.getAttribute("utilisateur");
 		Personne personne = (Personne) session.getAttribute("personne");
-
-		if (oNoSerie != null && personne.getIdentifiant() != null) {
+		String sMdp=request.getParameter("VmdpN");
+		personne.setMdp(sMdp);
+		
+		if (noSerie != null && personne.getIdentifiant() != null) {
 			if (personne.getIdentifiant().equals("Admin")) {
+				
 				/** Lecture Haut de page HTML */
 				File fileHaut = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/HautPage.html");
 				BufferedReader bufReadHaut = null;
 				bufReadHaut = new BufferedReader(new FileReader(fileHaut));
 				String lineHaut = bufReadHaut.readLine();
 				while (lineHaut != null) {
+					if (lineHaut.contains("<title>Espace Personnel ActivConsulting</title>")) {
+						lineHaut = lineHaut.replace("<title>Espace Personnel ActivConsulting</title>", "<title>Chargement</title>");
+					}
 					response.getWriter().println(lineHaut);
 					lineHaut = bufReadHaut.readLine();
 				}
 				bufReadHaut.close();
+
+				/** A modifier seulement si notre page contient du JavaScript */
+				File fileJS = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/js/JSAccueilAdmin.html");
+				BufferedReader bufReadJS = null;
+				bufReadJS = new BufferedReader(new FileReader(fileJS));
+				String lineJS = bufReadJS.readLine();
+				while (lineJS != null) {
+					response.getWriter().println(lineJS);
+					lineJS = bufReadJS.readLine();
+				}
+				bufReadJS.close();
 
 				File fileJS1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/js/JSBandeauAdmin.html");
 				BufferedReader bufReadJS1 = null;
@@ -66,16 +83,6 @@ public class ServletMdpAdmin extends HttpServlet {
 					lineJS1 = bufReadJS1.readLine();
 				}
 				bufReadJS1.close();
-
-				File fileJS2 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/js/JSMotDePasse.html");
-				BufferedReader bufReadJS2 = null;
-				bufReadJS2 = new BufferedReader(new FileReader(fileJS2));
-				String lineJS2 = bufReadJS2.readLine();
-				while (lineJS2 != null) {
-					response.getWriter().println(lineJS2);
-					lineJS2 = bufReadJS2.readLine();
-				}
-				bufReadJS2.close();
 
 				/** Lecture page ActivConsulting */
 				File fileActiv = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/MenuActiv.html");
@@ -89,9 +96,8 @@ public class ServletMdpAdmin extends HttpServlet {
 				bufReadActiv.close();
 
 				/**
-				 * Seule Partie qui va vraiment changer selon
-				 * les pages (penser aux controles si
-				 * necessaire)
+				 * Seule Partie qui va vraiment changer selon les pages (penser
+				 * aux controles si necessaire)
 				 */
 				File fileDoc = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/BandeauAdmin.html");
 				BufferedReader bufReadDoc = null;
@@ -102,18 +108,26 @@ public class ServletMdpAdmin extends HttpServlet {
 						lineDoc = lineDoc.replace("%pseudo%", personne.getIdentifiant());
 					}
 					if (lineDoc.contains("%utilisateur%")) {
-						lineDoc = lineDoc.replace("%utilisateur%", ((utilisateur == null) ? "" : utilisateur.toString()));
+						lineDoc = lineDoc.replace("%utilisateur%", ((utilisateur == null) ? "" : utilisateur.getIdentifiant()));
 					}
 					response.getWriter().println(lineDoc);
 					lineDoc = bufReadDoc.readLine();
 				}
 				bufReadDoc.close();
 
-				File fileDoc1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/MdpAdmin.html");
+				File fileDoc1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/AccueilAdmin.html");
 				BufferedReader bufReadDoc1 = null;
 				bufReadDoc1 = new BufferedReader(new FileReader(fileDoc1));
 				String lineDoc1 = bufReadDoc1.readLine();
 				while (lineDoc1 != null) {
+					if (lineDoc1.contains("%listepersonne%")){
+					for (int i = 0; i <lstPersonne.size(); i++) {
+						if (lineDoc1.contains("%listepersonne%")&&i<lstPersonne.size()-1) {
+							lineDoc1 = lineDoc1.replace("%listepersonne%", lstPersonne.get(i).getIdentifiant())+"<option value=\"%listepersonne%\">";
+						}else if (lineDoc1.contains("%listepersonne%")&&i==lstPersonne.size()-1) {
+							lineDoc1 = lineDoc1.replace("%listepersonne%", lstPersonne.get(i).getIdentifiant());
+						}
+					}}
 					response.getWriter().println(lineDoc1);
 					lineDoc1 = bufReadDoc1.readLine();
 				}
@@ -129,7 +143,9 @@ public class ServletMdpAdmin extends HttpServlet {
 					lineBas = bufReadBas.readLine();
 				}
 				bufReadBas.close();
-			} else {
+			}
+
+			else if (personne.getIdentifiant().isEmpty()==false) {
 				/** Lecture Haut de page HTML */
 				File fileHaut = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/HautPage.html");
 				BufferedReader bufReadHaut = null;
@@ -141,25 +157,7 @@ public class ServletMdpAdmin extends HttpServlet {
 				}
 				bufReadHaut.close();
 
-				File fileJS1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/js/JSBandeau.html");
-				BufferedReader bufReadJS1 = null;
-				bufReadJS1 = new BufferedReader(new FileReader(fileJS1));
-				String lineJS1 = bufReadJS1.readLine();
-				while (lineJS1 != null) {
-					response.getWriter().println(lineJS1);
-					lineJS1 = bufReadJS1.readLine();
-				}
-				bufReadJS1.close();
-
-				File fileJS2 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/js/JSMotDePasse.html");
-				BufferedReader bufReadJS2 = null;
-				bufReadJS2 = new BufferedReader(new FileReader(fileJS2));
-				String lineJS2 = bufReadJS2.readLine();
-				while (lineJS2 != null) {
-					response.getWriter().println(lineJS2);
-					lineJS2 = bufReadJS2.readLine();
-				}
-				bufReadJS2.close();
+				/** A modifier seulement si notre page contient du JavaScript */
 
 				/** Lecture page ActivConsulting */
 				File fileActiv = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/MenuActiv.html");
@@ -173,9 +171,8 @@ public class ServletMdpAdmin extends HttpServlet {
 				bufReadActiv.close();
 
 				/**
-				 * Seule Partie qui va vraiment changer selon
-				 * les pages (penser aux controles si
-				 * necessaire)
+				 * Seule Partie qui va vraiment changer selon les pages (penser
+				 * aux controles si necessaire)
 				 */
 				File fileDoc = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/Bandeau.html");
 				BufferedReader bufReadDoc = null;
@@ -185,15 +182,12 @@ public class ServletMdpAdmin extends HttpServlet {
 					if (lineDoc.contains("%pseudo%")) {
 						lineDoc = lineDoc.replace("%pseudo%", personne.getIdentifiant());
 					}
-					if (lineDoc.contains("%utilisateur%")) {
-						lineDoc = lineDoc.replace("%utilisateur%", ((utilisateur == null) ? "" : utilisateur.toString()));
-					}
 					response.getWriter().println(lineDoc);
 					lineDoc = bufReadDoc.readLine();
 				}
 				bufReadDoc.close();
 
-				File fileDoc1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/MdpAdmin.html");
+				File fileDoc1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/Accueil.html");
 				BufferedReader bufReadDoc1 = null;
 				bufReadDoc1 = new BufferedReader(new FileReader(fileDoc1));
 				String lineDoc1 = bufReadDoc1.readLine();
@@ -214,10 +208,13 @@ public class ServletMdpAdmin extends HttpServlet {
 				}
 				bufReadBas.close();
 			}
+
 		} else {
 			session.invalidate();
-			RequestDispatcher rd = request.getRequestDispatcher("/Servletidentification");
+			RequestDispatcher rd = request.getRequestDispatcher("//Servletidentification");
 			rd.forward(request, response);
 		}
+
 	}
+
 }
