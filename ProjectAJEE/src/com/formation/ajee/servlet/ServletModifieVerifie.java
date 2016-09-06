@@ -209,7 +209,7 @@ public class ServletModifieVerifie extends HttpServlet {
 
 				String ticketResto = personne.getTicketResto();
 
-//				String visiteMedicale = personne.getVisiteMedicaleString();
+				String visiteMedicale = personne.getVisiteMedicaleString();
 
 				String montantTransport = personne.getMontantTransport();
 
@@ -345,9 +345,9 @@ public class ServletModifieVerifie extends HttpServlet {
 							lineDoc1 = lineDoc1.replace("%salaire%", salaire);
 						}
 
-//						if (lineDoc1.contains("%datevisite%")) {
-//							lineDoc1 = lineDoc1.replace("%datevisite%", visiteMedicale);
-//						}
+						if (lineDoc1.contains("%datevisite%")) {
+							lineDoc1 = lineDoc1.replace("%datevisite%", visiteMedicale);
+						}
 						if (lineDoc1.contains("%montanttransport%")) {
 							lineDoc1 = lineDoc1.replace("%montanttransport%", montantTransport);
 						}

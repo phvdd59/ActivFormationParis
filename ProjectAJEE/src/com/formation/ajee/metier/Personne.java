@@ -442,8 +442,12 @@ public class Personne implements Serializable {
 	}
 
 	public String getVisiteMedicaleString() {
-			SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-			return df.format(visiteMedicale);
+		String visitemedicale = "";
+		if (visiteMedicale != null) {
+			SimpleDateFormat formatDateJour = new SimpleDateFormat("yyyy-MM-dd");
+			visitemedicale = formatDateJour.format(dateNaissance);
+		}
+			return visitemedicale;
 	}
 
 	public void setVisiteMedicale(Date visiteMedicale) {
