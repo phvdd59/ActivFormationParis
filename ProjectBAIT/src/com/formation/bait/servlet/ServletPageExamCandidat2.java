@@ -85,7 +85,7 @@ public class ServletPageExamCandidat2 extends HttpServlet {
 			session.setAttribute("nbKmCandidat", personne2.getNdKm());
 			session.setAttribute("mutuelleCandidat", personne2.isMutuelle());
 
-			this.getServletContext().getRequestDispatcher("/grosTest.jsp").forward(request, response);
+			this.getServletContext().getRequestDispatcher("/com/bait/jsp/grosTest.jsp").forward(request, response);
 
 		} else {
 			session.invalidate();
