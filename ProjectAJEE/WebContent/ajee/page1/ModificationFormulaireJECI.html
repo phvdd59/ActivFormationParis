@@ -1,11 +1,12 @@
-<div align="center">FORMULAIRE D'IDENTIFICATION</div>
+<div style="position: absolute;width: 700px;height:680px;top:-65px;left:0px;overflow: auto;">
+<div align="center"><h3>FORMULAIRE D'IDENTIFICATION</h3></div>
 <div>
 	<form method="post"
-		action="http://localhost:8080/ProjectAJEE/ServletFormulaireB">
+		action="http://127.0.0.1:8080/ProjectAJEE/ServletFormulaireB">
 		<!-- (En action, mettre l'URL de la page Acceuil -> la mettre plutot dans la servlet) -->
 		<!--  -->
 		<!-- http://127.0.0.1:8080/ProjectAJEE/src/com/formation/ajee/servlet/ServletFormulaireB.java -->
-		<table align="center">
+		<table style="width: 680px; align : center;">
 			<tr>
 				<th colspan="2" align="center"><h4>COORDONNEES
 						PERSONNELLES</h4></th>
@@ -135,7 +136,9 @@
 					style="width: 246px;" /></td>
 				<td>Nombre de chevaux : <input name="nbCv" id="nbCv"
 					value="%nbcv%" onblur="" type="text" style="width: 226px;" /></td>
-				<td>Km mensuel estime : <input name="nbKm" id="nbKm"
+			</tr>
+			<tr>
+			<td>Km mensuel estime : <input name="nbKm" id="nbKm"
 					value="%km%" onblur="ecritureKmMensEstim()" type="text"
 					style="width: 226px;" /></td>
 			</tr>
@@ -150,4 +153,5 @@
 			</tr>
 		</table>
 	</form>
+</div>
 </div>

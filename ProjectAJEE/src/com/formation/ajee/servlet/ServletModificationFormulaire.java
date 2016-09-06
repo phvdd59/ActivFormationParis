@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.formation.ajee.metier.Personne;
+import com.formation.ajee.veriffom.Vue;
 
 /**
  * Servlet implementation class ServletModificationFormulaire
@@ -41,6 +42,7 @@ public class ServletModificationFormulaire extends HttpServlet {
 		HttpSession session = request.getSession();
 		Object oNoSerie = session.getAttribute("noSerie");
 		Personne personne = (Personne) session.getAttribute("personne");
+		Vue vue = new Vue();
 		//personne.getClass().
 		// Récupérer les données du formulaire et ranger dans objet personne
 
@@ -131,15 +133,7 @@ public class ServletModificationFormulaire extends HttpServlet {
 			if (personne != null && !personne.getIdentifiant().equals("Admin")) {
 				// utiliser le pseudo pour avoir la personne
 				/** Lecture Haut de page HTML */
-				File fileHaut = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/HautPage.html");
-				BufferedReader bufReadHaut = null;
-				bufReadHaut = new BufferedReader(new FileReader(fileHaut));
-				String lineHaut = bufReadHaut.readLine();
-				while (lineHaut != null) {
-					response.getWriter().println(lineHaut);
-					lineHaut = bufReadHaut.readLine();
-				}
-				bufReadHaut.close();
+				vue.lecturePage(response, "HautPage");
 
 				/** A modifier seulement si notre page contient du JavaScript */
 				 File fileJS = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/css/FormulaireCalendrierListeDeroulante.html");
@@ -151,27 +145,12 @@ public class ServletModificationFormulaire extends HttpServlet {
 				 lineJS = bufReadJS.readLine();
 				 }
 				 bufReadJS.close();
-				
-				File fileJS1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/js/JSFormulaireCalendrierListeDeroulante.html");
-				 BufferedReader bufReadJS1 = null;
-				 bufReadJS1 = new BufferedReader(new FileReader(fileJS1));
-				 String lineJS1 = bufReadJS1.readLine();
-				 while (lineJS1 != null) {
-				 response.getWriter().println(lineJS1);
-				 lineJS1 = bufReadJS1.readLine();
-				 }
-				 bufReadJS1.close();
+				 response.getWriter().println("<link href=\"http://localhost:8080/ProjectAJEE/ajee/css/StyleFormulaire.css\" rel=\"stylesheet\" type=\"text/css\">");
+				 
+				 vue.lectureJS(response, "JSFormulaireCalendrierListeDeroulante");
 				 
 				/** Lecture page ActivConsulting */
-				File fileActiv = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/MenuActiv.html");
-				BufferedReader bufReadActiv = null;
-				bufReadActiv = new BufferedReader(new FileReader(fileActiv));
-				String lineActiv = bufReadActiv.readLine();
-				while (lineActiv != null) {
-					response.getWriter().println(lineActiv);
-					lineActiv = bufReadActiv.readLine();
-				}
-				bufReadActiv.close();
+				vue.lecturePage(response, "MenuActiv"); 
 
 				/**
 				 * Seule Partie qui va vraiment changer selon les pages (penser
@@ -266,18 +245,12 @@ public class ServletModificationFormulaire extends HttpServlet {
 					lineDoc1 = bufReadDoc1.readLine();
 				}
 				bufReadDoc1.close();
-
+					
 				/** Lecture bas de page */
-				File fileBas = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/BasPage.html");
-				BufferedReader bufReadBas = null;
-				bufReadBas = new BufferedReader(new FileReader(fileBas));
-				String lineBas = bufReadBas.readLine();
-				while (lineBas != null) {
-					response.getWriter().println(lineBas);
-					lineBas = bufReadBas.readLine();
-				}
-				bufReadBas.close();
-			} else {session.invalidate();
+				vue.lecturePage(response, "BasPage"); 
+				
+			} else {
+			session.invalidate();
 			RequestDispatcher rd = request.getRequestDispatcher("//Servletidentification");
 			rd.forward(request, response);}
 		} else {
