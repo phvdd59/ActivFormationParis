@@ -14,6 +14,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<p>
 	<%
 		session.getAttribute("Personne");
 		String noSerieHtml = request.getParameter("noSerie");
@@ -23,10 +24,9 @@
 		DAOPersonne dao = new DAOPersonne();
 		CtrlPersonne ctrl = new CtrlPersonne();
 
-		String ancienMdp = request.getParameter("ancien mdp");
-		String mdp1 = request.getParameter("new mdp 1");
-		String mdp2 = request.getParameter("new mdp 2");
-		String identifiant = request.getParameter("identifiant");
+		String ancienMdp = request.getParameter("ancienMdp");
+		String mdp1 = request.getParameter("newMdp1");
+		String mdp2 = request.getParameter("newMdp2");
 		//ATTENTION IDENTIFIANT PEUT CHANGER, PLUS SUR DE RECUPERER DE 
 		//LA BDD
 
@@ -35,27 +35,46 @@
 		}
 
 		//identifiant = personne.getIdentifiant();
-		
-		if (noSerie.equals(noSerieHtml)) {
-			personne.setIdentifiant(identifiant);
-			if (dao.read(personne)) {
-				if (personne.getMdp().equals(ancienMdp) && mdp1.equals(mdp2)) {
-					personne.setMdp(mdp1);
-					Date dateModif = new Date();
-					personne.setDateModification(new Timestamp(dateModif.getTime()));
-					if(dao.update(personne)){
-						out.write("mis à jour réussi, cliquer sur retour login");
-					}
-				}
-			}
-		}
-		
-	%>
-	<p></p>
-	<form action="http://localhost:8080/ProjectJMST/ServletJOCA1" method="post">
-	<input type="submit" value="retour login">
+
+		if (noSerie.equals(noSerieHtml) && dao.read(personne) && personne.getMdp().equals(ancienMdp) && mdp1.equals(mdp2)) {
+			personne.setIdentifiant(personne.getIdentifiant());
+			personne.setMdp(mdp1);
+			Date dateModif = new Date();
+			personne.setDateModification(new Timestamp(dateModif.getTime()));
+			if (dao.update(personne)) {
+	
+			out.write("mis à jour réussi, cliquer sur retour login");
+		%>
+	</p>
+	<br/><form action="http://localhost:8080/ProjectJMST/ServletJOCA1"
+		method="post">
+		<input type="submit" value="retour login">
 	</form>
-	
-	
+	<%
+		} else {
+				out.write("échec mis à jour réussi, cliquer sur retour login");
+	%>
+	</p>
+	<br/><form action="http://localhost:8080/ProjectJMST/Servletmadecversmenu"
+		method="post">
+		<input type="submit" value="retour menu">
+	</form>
+	<%
+		}
+
+		} else {
+			out.write("erreur mot de passe ou  session expiré");
+	%>
+	<form action="http://localhost:8080/ProjectJMST/ServletJOCA1"
+		method="post">
+		<input type="submit" value="retour menu">
+	</form>
+	<%
+		}
+	%>
+
+
+
+
 </body>
 </html>
