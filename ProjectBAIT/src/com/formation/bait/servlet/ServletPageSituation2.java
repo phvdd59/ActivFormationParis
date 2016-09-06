@@ -74,23 +74,24 @@ public class ServletPageSituation2 extends HttpServlet {
 				while (line2 != null) {
 					if (line2.contains("value=\"salarie\"")){
 						if (!sSit.equals(SITUATION.SALARIE)){
-						line2 = line2.replace("checked=\"checked\"", "checked=\"unchecked\"");
+						line2 = line2.replace("checked", "");
 					}}
 					else if (line2.contains("value=\"demandeur\"")){
 						if (sSit.equals(SITUATION.DEMANDEUR)){
-							line2 = line2.replace("checked=\"checked\"", "checked=\"unchecked\"");
+							line2 = line2.replace("value=\"demandeur\"", "value=\"demandeur\" checked");
 					}}
 					else if (line2.contains("value=\"freelance\"")){
 						if (sSit.equals(SITUATION.FREELANCE)){
-							line2 = line2.replace("checked=\"checked\"", "checked=\"unchecked\"");
+							line2 = line2.replace("value=\"freelance\"", "value=\"freelance\" checked");
 					}}
 					else if (line2.contains("value=\"retraite\"")){
 						if (sSit.equals(SITUATION.RETRAITE)){
-							line2 = line2.replace("checked=\"checked\"", "checked=\"unchecked\"");
+							line2 = line2.replace("value=\"retraite\"", "value=\"retraite\" checked");
 					}}
 					else if (line2.contains("value=\"autre\"")){
-						if ((!sSit.equals(SITUATION.SALARIE))&&(!sSit.equals(SITUATION.DEMANDEUR))&&(!sSit.equals(SITUATION.FREELANCE))&&(!sSit.equals(SITUATION.RETRAITE))){
-							line2 = line2.replace("checked=\"checked\"", "checked=\"unchecked\"");
+						if ((sSit.equals(SITUATION.SALARIE))||(sSit.equals(SITUATION.DEMANDEUR))||(sSit.equals(SITUATION.FREELANCE))||(sSit.equals(SITUATION.RETRAITE))){}
+						else {
+							line2 = line2.replace("value=\"autre\"", "value=\"autre\" checked");
 						}
 						
 					}
@@ -119,7 +120,7 @@ public class ServletPageSituation2 extends HttpServlet {
 			fonctions.AfficherBasDePage(response);
 		} else {
 			session.invalidate();
-			RequestDispatcher rd = request.getRequestDispatcher("//ServletLoginTest");
+			RequestDispatcher rd = request.getRequestDispatcher("//ServletLogin3");
 			rd.forward(request, response);
 		}
 	}

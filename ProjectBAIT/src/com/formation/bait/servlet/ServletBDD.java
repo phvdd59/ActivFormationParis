@@ -125,10 +125,14 @@ public class ServletBDD extends HttpServlet {
 					personne.setTicket(false);
 				}
 				retour = bddPersonne.savePersonne(personne);
+
 			}
 			if (retour == false) {
 				System.out.println("erreur sauvegarde ratée!");
+				RequestDispatcher rd = request.getRequestDispatcher("/ServletPageErreurSauv");
+				rd.forward(request, response);
 			}
+			session.setAttribute("personne", personne);
 			session.setAttribute("servlet", "Compte");
 			session.setAttribute("methode", "POST");
 			RequestDispatcher rd = request.getRequestDispatcher("/ServletPageCompte2");
