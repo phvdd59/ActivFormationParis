@@ -46,7 +46,7 @@ public class ServletBDD extends HttpServlet {
 		String sNbAppelClient = request.getParameter("nbAppelClient");
 		AccesBDDPersonne bddPersonne = new AccesBDDPersonne();
 		Personne personne = new Personne();
-		boolean retour = false;
+		boolean retour = true;
 		Object oNoSuivi = session.getAttribute("suivi");
 		if (oNoSuivi != null) {
 			String origine = (String) session.getAttribute("servlet");

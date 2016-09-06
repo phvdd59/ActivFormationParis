@@ -39,7 +39,7 @@ public class AccesBDDPersonne {
 					+ personne.getFax() + //
 					"', dateNaissance='" + personne.getDateNaissance() + "', lieuNaissance='"
 					+ personne.getLieuNaissance() + //
-					"', numSecu='" + personne.getNumSecu() + "', situation='" + personne.getSituation()
+					"', numSecu='" + personne.getNumSecu()+ "', Nationalite='" +personne.getNationalite() + "', situation='" + personne.getSituation()
 					+ "', fonction='" + //
 					personne.getFonction() + "', positionEntreprise='" + personne.getPosition() + "', cadre='"
 					+ booleanConverter(personne.isCadre()) + //

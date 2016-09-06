@@ -58,7 +58,7 @@ public class ServletPageSituation2 extends HttpServlet {
 			int nbAppel = ((Integer) session.getAttribute("nbAppel")).intValue();
 			nbAppel++;
 			session.setAttribute("nbAppel", Integer.valueOf(nbAppel));
-			Personne personne = (Personne) session.getAttribute("personne");
+			Personne personne = (Personne) session.getAttribute("Personne");
 			fonctions.AfficherHautDePage(response);
 
 			File file2 = new File(
