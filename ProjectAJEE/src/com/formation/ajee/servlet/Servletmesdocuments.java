@@ -56,19 +56,7 @@ public class Servletmesdocuments extends HttpServlet {
 						response.getWriter().println(lineHaut);
 						lineHaut = bufReadHaut.readLine();
 					}
-					
-					/** Lecture JS documents */
-					bufReadHaut.close();
-					File fileJS = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/js/JSDocuments.html");
-					BufferedReader bufReadJS = null;
-					bufReadJS = new BufferedReader(new FileReader(fileJS));
-					String lineJS = bufReadJS.readLine();
-					while (lineJS != null) {
-						response.getWriter().println(lineJS);
-						lineJS = bufReadJS.readLine();
-					}
-					bufReadJS.close();
-
+				
 					/** Lecture page ActivConsulting */
 					File fileActiv = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/MenuActiv.html");
 					BufferedReader bufReadActiv = null;
@@ -141,19 +129,7 @@ public class Servletmesdocuments extends HttpServlet {
 					lineHaut = bufReadHaut.readLine();
 				}
 				bufReadHaut.close();
-				
-				/** Lecture JS documents */
-				bufReadHaut.close();
-				File fileJS = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/js/JSDocuments.html");
-				BufferedReader bufReadJS = null;
-				bufReadJS = new BufferedReader(new FileReader(fileJS));
-				String lineJS = bufReadJS.readLine();
-				while (lineJS != null) {
-					response.getWriter().println(lineJS);
-					lineJS = bufReadJS.readLine();
-				}
-				bufReadJS.close();
-
+		
 				/** Lecture page ActivConsulting */
 				File fileActiv = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/MenuActiv.html");
 				BufferedReader bufReadActiv = null;
@@ -186,7 +162,8 @@ public class Servletmesdocuments extends HttpServlet {
 				String lineDoc1 = bufReadDoc1.readLine();
 				while (lineDoc1 != null) {
 					if (lineDoc1.contains("%%value%%")) {
-						if (listeDoc.size() == 0) {
+						if (listeDoc == null) {
+							response.getWriter().println("<option value=\"%%value%%\">");
 						} else {
 							for (int i = 0; i < listeDoc.size(); i++) {
 								lineDoc1 = lineDoc1.replace("%%value%%", listeDoc.get(i).getNomDocUtil());
