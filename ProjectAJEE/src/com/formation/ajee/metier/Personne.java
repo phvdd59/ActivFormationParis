@@ -181,7 +181,7 @@ public class Personne implements Serializable {
 	}
 	
 	public String creationMdp() {
-		String mdp = " ";
+		String mdp = "";
 		while (mdp.length() != 8) {
 			int a = (int) (Math.random() * 123);
 			char lettre = (char) a;
