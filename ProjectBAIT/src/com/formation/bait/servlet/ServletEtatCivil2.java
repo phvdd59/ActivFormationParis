@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.formation.bait.metier.Personne;
+
 /**
  * Servlet implementation class Servlet1
  */
@@ -63,6 +65,7 @@ public class ServletEtatCivil2 extends HttpServlet {
 				bIn = new BufferedReader(inputStreamReader);
 				String line = bIn.readLine();
 				while (line != null) {
+					
 					// System.out.println(line);
 					response.getWriter().append(line + "\n");
 					line = bIn.readLine();
@@ -82,6 +85,7 @@ public class ServletEtatCivil2 extends HttpServlet {
 			File file2 = new File(
 					"C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/EtatCivil.html");
 			BufferedReader bIn2 = null;
+			Personne personne = (Personne) session.getAttribute("Personne");
 			InputStreamReader inputStreamReader2 = null;
 			try {
 				inputStreamReader2 = new InputStreamReader(new FileInputStream(file2), "UTF-8");
@@ -89,6 +93,12 @@ public class ServletEtatCivil2 extends HttpServlet {
 				String line2 = bIn2.readLine();
 				while (line2 != null) {
 					// System.out.println(line);
+					line2=line2.replace("%%nom%%", personne.getNom());
+					line2=line2.replace("%%naiss%%", personne.getDateNaissance());
+					line2=line2.replace("%%nationalite%%", personne.getNationalite());
+					line2=line2.replace("%%prenom%%", personne.getPrenom());
+					line2=line2.replace("%%lieu%%", personne.getLieuNaissance());
+					line2=line2.replace("%%numSecu%%", personne.getNumSecu());
 					response.getWriter().append(line2 + "\n");
 					line2 = bIn2.readLine();
 				}
