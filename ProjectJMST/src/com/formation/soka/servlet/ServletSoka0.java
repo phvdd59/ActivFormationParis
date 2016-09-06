@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Date;
 import java.util.Enumeration;
 
 import javax.servlet.ServletException;
@@ -52,8 +53,25 @@ public class ServletSoka0 extends HttpServlet {
 			}
 		} else {
 			perso = new Personne();
-			session.setAttribute("Personne", perso);
+			
 			perso.setIdentifiant("");
+			perso.setMdp("");
+			perso.setNom("");
+			perso.setPrenom("");
+			perso.setAdresse("");
+			perso.setVille("");
+			perso.setCp("");
+			perso.setTelFixe("");
+			perso.setTelPort("");
+			perso.setFax("");
+			perso.setEmail("");
+			perso.setDateNaissance(new Date());
+			perso.setLieuNaissance("");
+			perso.setNationalite("");
+			perso.setNumSecu("");
+			
+			session.setAttribute("Personne", perso);
+			
 		}
 
 		File file = new File("C:/DevFormation/GITActivFormationParis/" + //
@@ -68,6 +86,7 @@ public class ServletSoka0 extends HttpServlet {
 		while (line != null) {
 			line = line.replace("%%noSerie%%", noSerie);
 			line = line.replace("%%identifiant%%", perso.getIdentifiant());
+			System.out.println(perso.getMdp());
 			line = line.replace("%%motdepasse1%%", perso.getMdp());
 			line = line.replace("%%motdepasse2%%", perso.getMdp());
 			response.getWriter().println(line);

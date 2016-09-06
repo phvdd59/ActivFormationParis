@@ -56,6 +56,7 @@ public class ServletSoka1 extends HttpServlet {
 			sIdentifiant = request.getParameter("identifiant");
 			sMdp1 = request.getParameter("mdp1");
 			sMdp2 = request.getParameter("mdp2");
+			System.out.println(sMdp1+sMdp2+sIdentifiant);
 			/***************************
 			 * CONTROLE ET CONVERSION
 			 */
@@ -91,9 +92,16 @@ public class ServletSoka1 extends HttpServlet {
 					session.setAttribute("noSerie", noSerie);
 					String line = bIn.readLine();
 					while (line != null) {
-						if (line.contains("%%noSerie%%")) {
 							line = line.replace("%%noSerie%%", noSerie);
-						}
+							line = line.replace("%%nom%%", perso.getNom());
+							line = line.replace("%%prenom%%", perso.getPrenom());
+							line = line.replace("%%adresse%%", perso.getAdresse());
+							line = line.replace("%%codepostale%%", perso.getCp());
+							line = line.replace("%%ville%%", perso.getVille());
+							line = line.replace("%%telfixe%%", perso.getTelFixe());
+							line = line.replace("%%telportable%%", perso.getTelPort());
+							line = line.replace("%%fax%%", perso.getFax());
+							line = line.replace("%%mail%%", perso.getEmail());
 						response.getWriter().println(line);
 						line = bIn.readLine();
 					}

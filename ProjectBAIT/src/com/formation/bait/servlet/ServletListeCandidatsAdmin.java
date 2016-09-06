@@ -20,8 +20,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.formation.bait.dao.AccesBDDPersonne;
-
 /**
  * Servlet implementation class Servlet1
  */
@@ -89,7 +87,7 @@ public class ServletListeCandidatsAdmin extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		
+
 		//____________________________
 
 		Connection conn = null;
@@ -99,7 +97,7 @@ public class ServletListeCandidatsAdmin extends HttpServlet {
 			String url = "jdbc:mysql://www.psyeval.fr/" + "bait";
 			conn = DriverManager.getConnection(url, "bait", "erreurthde");
 			stat = conn.createStatement();
-			
+
 			response.getWriter().append("<div style=\"text-align: center; width:350px; max-height:380px; overflow:auto\">");
 			String sql = "SELECT * FROM listeUser Where admin=0 order by nom;";
 			ResultSet resultat = stat.executeQuery(sql);
@@ -112,8 +110,9 @@ public class ServletListeCandidatsAdmin extends HttpServlet {
 					response.getWriter().append("</div>");
 				}
 				response.getWriter().append("<form method=\"post\" action=\"http://localhost:8080/ProjectBAIT/ServletPageExamCandidat2\">");
+				response.getWriter().append("<input type=\"hidden\" value=\"" + resultat.getString("IDPersonne") + "\" name=\"IDcandidat\" />");
 				response.getWriter().append("<input type=\"submit\" style=\"width: 250px;\" value=\"" + resultat.getString("nom") + " " + resultat.getString("prenom") + "\" name=\"" + resultat.getString("nom") + "\" /><br>");
-				response.getWriter().append("</form>");			
+				response.getWriter().append("</form>");
 			}
 			response.getWriter().append("</div>");
 		} catch (ClassNotFoundException | SQLException e) {

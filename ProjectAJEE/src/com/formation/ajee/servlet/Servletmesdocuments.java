@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.formation.ajee.metier.DocPerso;
+import com.formation.ajee.metier.ListPersonne;
 import com.formation.ajee.metier.ListeDoc;
 import com.formation.ajee.metier.Personne;
 import com.formation.ajee.veriffom.Vue;
@@ -35,7 +36,7 @@ public class Servletmesdocuments extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
-
+		
 		HttpSession session = request.getSession();
 		Object oNoSerie = session.getAttribute("noSerie");
 		//		Object oPseudo = session.getAttribute("pseudo");
@@ -45,14 +46,13 @@ public class Servletmesdocuments extends HttpServlet {
 
 		if (oNoSerie != null && personne.getIdentifiant() != null) {
 			if (personne.getIdentifiant().equals("Admin")) {
-				if (utilisateur.equals(null)) {
+				if (utilisateur == null) {
 					RequestDispatcher rd = request.getRequestDispatcher("//Servletaccueilchargementprofil");
 					rd.forward(request, response);
 				} else {
 					
 					/** Lecture Haut de page HTML */
 					vue.lecturePage(response, "HautPage");
-					
 				
 					/** Lecture page ActivConsulting */
 					vue.lecturePage(response, "MenuActiv");

@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.formation.joca.controleur.CtrlPersonne;
+import com.formation.thcr.conversion.ConversionPersonne;
 import com.formation.thcr.metier.Personne;
 
 /**
@@ -37,6 +38,7 @@ public class ServletSoka2 extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
+		ConversionPersonne convPers = new ConversionPersonne();
 
 		String noSerieHtml = request.getParameter("noSerie");
 		String noSerie = (String) session.getAttribute("noSerie");
@@ -53,10 +55,10 @@ public class ServletSoka2 extends HttpServlet {
 		String sNom = request.getParameter("nom");
 		String sPrenom = request.getParameter("prenom");
 		String sAdresse = request.getParameter("adresse");
-		String sTelFixe = request.getParameter("tel fixe");
-		String sTelPort = request.getParameter("tel portable");
+		String sTelFixe = request.getParameter("telfixe");
+		String sTelPort = request.getParameter("telportable");
 		String sFax = request.getParameter("fax");
-		String sCp = request.getParameter("code postale");
+		String sCp = request.getParameter("codepostale");
 		String sVille = request.getParameter("ville");
 		String sEmail = request.getParameter("mail");
 		/***************************
@@ -87,9 +89,11 @@ public class ServletSoka2 extends HttpServlet {
 				session.setAttribute("noSerie", noSerie);
 				String line = bIn.readLine();
 				while (line != null) {
-					if (line.contains("%%noSerie%%")) {
-						line = line.replace("%%noSerie%%", noSerie);
-					}
+					line = line.replace("%%noSerie%%", noSerie);
+					line = line.replace("%%datenaissance%%", convPers.conversionSQLToUtil(new java.sql.Date(perso.getDateNaissance().getTime())));
+					line = line.replace("%%lieunaissance%%", perso.getLieuNaissance());
+					line = line.replace("%%numsecu%%", perso.getNumSecu());
+					line = line.replace("%%nationalite%%", perso.getNationalite());
 					response.getWriter().println(line);
 					line = bIn.readLine();
 				}
