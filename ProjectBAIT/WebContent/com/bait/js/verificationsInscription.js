@@ -130,6 +130,19 @@ function verifNom(champ) {
 	}
 }
 
+function verifNomOptionnel(champ) {
+	if (!verifVide(champ)){
+		surligne(champ, false);
+		return true;
+	}else if (verifLettres(champ)) {
+		surligne(champ, false);
+		return true;
+	} else {
+		surligne(champ, true);
+		return false;
+	}
+}
+
 function verifDateNaissance(champ) {
 	if ((champ.value.match(/^[0-3][0-9]\/[0-1][0-9]\/[1-2][0-9]{3}$/))) {
 		surligne(champ, false);
@@ -141,7 +154,11 @@ function verifDateNaissance(champ) {
 }
 
 function verifSecu(champ) {
-	if ((verifTaille(champ, 15, 15)) && (!verifLettres(champ))) {
+	
+	if (!verifVide(champ)){
+		surligne(champ, false);
+		return true;
+	}else if (verifTaille(champ, 15, 15) && (!verifLettres(champ))) {
 		surligne(champ, false);
 		return true;
 	} else {
@@ -151,18 +168,24 @@ function verifSecu(champ) {
 }
 
 function verifPosition(champ) {
-	// var re=/^[0-9]+\.[0-9]+\.?[0-9]?$/;
-	// if(re.test(champ.value) && verifVide(champ)){
-	// surligne(champ, false);
-	// return true;
-	// }else{
+	 var re=/^[0-9]+\.[0-9]+\.?[0-9]?$/;
+	 if (!verifVide(champ)){
+			surligne(champ, false);
+			return true;
+	 }else if(re.test(champ.value)){
+	 surligne(champ, false);
+	 return true;
+	 }else{
 	surligne(champ, true);
 	return false;
-	// }
+	 }
 }
 
 function verifSalaire(champ) {
-	if ((verifVide(champ)) && (!verifLettres(champ))) {
+	 if (!verifVide(champ)){
+			surligne(champ, false);
+			return true;
+	 }else if (!verifLettres(champ)) {
 		surligne(champ, false);
 		return true;
 	} else {
@@ -172,16 +195,19 @@ function verifSalaire(champ) {
 }
 
 function verifCoefficient(champ) {
-	if (verifVide(champ)) {
-		surligne(champ, false);
+//	if (verifVide(champ)) {
+//		surligne(champ, false);
 		return true;
-	} else {
-		surligne(champ, true);
-		return false;
-	}
+//	} else {
+//		surligne(champ, true);
+//		return false;
+//	}
 }
 function verifDate(champ) {
-	if ((champ.value.match(/^[0-3][0-9]\/[0-1][0-9]\/[1-2][0-9]{3}$/))) {
+	 if (!verifVide(champ)){
+			surligne(champ, false);
+			return true;
+	 }else if (champ.value.match(/^[0-3][0-9]\/[0-1][0-9]\/[1-2][0-9]{3}$/)) {
 		surligne(champ, false);
 		return true;
 	} else {
@@ -191,36 +217,44 @@ function verifDate(champ) {
 
 }
 function verifMontantTransport(champ) {
-	// var re=/^\d+.*\d*$/;
-	// if(re.test(champ.value)){
-	// surligne(champ, false);
-	// return true;
-	// }else{
+	 var re=/^\d+.*\d*$/;
+	 if (!verifVide(champ)){
+			surligne(champ, false);
+			return true;
+	 }else if(re.test(champ.value)){
+	 surligne(champ, false);
+	 return true;
+	 }else{
 	surligne(champ, true);
 	return false;
-	// }
+	 }
 }
 
 function verifNbCV(champ) {
-	// var re=/^[0-9]+$/;
-	// if(re.test(champ.value)){
-	// surligne(champ, false);
-	// return true;
-	// }else{
+	 if (!verifVide(champ)){
+			surligne(champ, false);
+			return true;
+	 }else if(!verifLettres(champ)){
+	 surligne(champ, false);
+	 return true;
+	 }else{
 	surligne(champ, true);
 	return false;
-	// }
+	 }
 }
 
 function verifKmMensuel(champ) {
-	// var re=/^\d+.*\d*$/
-	// if(re.test(champ.value)){
-	// surligne(champ, false);
-	// return true;
-	// }else{
+	 var re=/^\d+.*\d*$/;
+	 if (!verifVide(champ)){
+			surligne(champ, false);
+			return true;
+	 }else if(re.test(champ.value)){
+	 surligne(champ, false);
+	 return true;
+	 }else{
 	surligne(champ, true);
 	return false;
-	// }
+	 }
 }
 
 function verifSitAutre(champ) {
@@ -304,11 +338,11 @@ function verifEtatCivil(f) {
 		alerttotal = alerttotal
 				+ "La date de naissance n'est pas indiqu\351e ou est invalide \n";
 	}
-	if (verifNom(f.lieunaiss) == false) {
+	if (verifNomOptionnel(f.lieunaiss) == false) {
 		alerttotal = alerttotal
 				+ "Le lieu de naissance n'est pas indiqu\351 ou contient un chiffre \n";
 	}
-	if (verifNom(f.nati) == false) {
+	if (verifNomOptionnel(f.nati) == false) {
 		alerttotal = alerttotal
 				+ "La nationalit\351 n'est pas indiqu\351e ou elle contient un chiffre \n";
 	}
@@ -317,8 +351,8 @@ function verifEtatCivil(f) {
 				+ "Le num\351ro de s\351curit\351 sociale est invalide \n";
 	}
 	if (verifNom(f.nom) == false || verifNom(f.prenom) == false
-			|| verifDateNaissance(f.datenaiss) == false || verifNom(f.lieunaiss) == false
-			|| verifNom(f.nati) == false || verifSecu(f.secu) == false) {
+			|| verifDateNaissance(f.datenaiss) == false || verifNomOptionnel(f.lieunaiss) == false
+			|| verifNomOptionnel(f.nati) == false || verifSecu(f.secu) == false) {
 		alert(alerttotal);
 		return false;
 	} else {
