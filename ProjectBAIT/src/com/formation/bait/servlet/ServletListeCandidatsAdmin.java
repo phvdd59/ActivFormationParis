@@ -26,13 +26,13 @@ import com.formation.bait.dao.AccesBDDPersonne;
  * Servlet implementation class Servlet1
  */
 @WebServlet(value = "/ServletLoginTestBDD", name = "ServletLoginTestBDD")
-public class ServletTestBDDAdmin extends HttpServlet {
+public class ServletListeCandidatsAdmin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public ServletTestBDDAdmin() {
+	public ServletListeCandidatsAdmin() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
