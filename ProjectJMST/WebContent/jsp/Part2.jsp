@@ -222,7 +222,6 @@
 					&& mailOk) {
 				return true;
 			} else {
-				alert("Veuillez remplir les champs obligatoires");
 				return false;
 			}
 
