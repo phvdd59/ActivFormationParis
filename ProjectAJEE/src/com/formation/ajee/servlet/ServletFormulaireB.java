@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.formation.ajee.metier.ListPersonne;
 import com.formation.ajee.metier.Personne;
+import com.formation.ajee.veriffom.VerifForm;
 
 /**
  * Servlet implementation class ServletFormulaire
@@ -104,64 +105,113 @@ public class ServletFormulaireB extends HttpServlet {
 //		bufReadDoc.close();
 		
 		Personne personne = new Personne(); // à ce moment y'a création de l'idpersonne
+		VerifForm verif = new VerifForm();
 		
 		// Récupérer les données du formulaire et ranger dans objet personne
 		String pNom=request.getParameter("nom");
+		verif.nomVerif(pNom);
 		personne.setNom(pNom);
+		
 		String pPrenom=request.getParameter("prenom");
+		verif.prenomVerif(pPrenom);
 		personne.setPrenom(pPrenom);
+		
 		// enum sexe
+		
 		String pAdresse=request.getParameter("adresse");
+		verif.adresseVerif(pAdresse);
 		personne.setAdresse(pAdresse);
+		
 		String pCp=request.getParameter("cp");
+		verif.cpVerif(pCp);
 		personne.setCp(pCp);
+		
 		String pVille=request.getParameter("ville");
+		verif.villeVerif(pVille);
 		personne.setVille(pVille);
+		
 		String pTelFixe=request.getParameter("telFixe");
+		verif.telFixVerif(pTelFixe);
 		personne.setTelFixe(pTelFixe);
+		
 		String pTelPort=request.getParameter("telPort");
+		verif.telPortVerif(pTelPort);
 		personne.setTelPort(pTelPort);
+		
 		String pFax=request.getParameter("fax");
+		verif.faxVerif(pFax);
 		personne.setFax(pFax);
+		
 		String pEmail=request.getParameter("email");
+		verif.emailVerif(pEmail);
 		personne.setEmail(pEmail);
+		
 		String pDateNaissance=request.getParameter("dateNaissance");
+		verif.dateNaissanceVerif(pDateNaissance);
 		//personne.setDateNaissance(pDateNaissance);
+		
 		String pLieuNaissance=request.getParameter("lieuNaissance");
+		verif.lieuNaissanceVerif(pLieuNaissance);
 		personne.setLieuNaissance(pLieuNaissance);
+		
 		String pNumSecu=request.getParameter("numSecu");
+		verif.numSecuVerif(pNumSecu);
 		personne.setNumSecu(pNumSecu);
+		
 		String pNationalite=request.getParameter("nationalite");
+		verif.nationaliteVerif(pNationalite);
 		personne.setNationalite(pNationalite);
+		
 		String pSituation=request.getParameter("situation");
+		verif.situationVerif(pSituation);
 		//personne.setSituation(pSituation);
 		//String a = personne.getSituation();
 		//System.out.println(a);
+		
 		String pFonction=request.getParameter("fonction");
+		verif.fonctionVerif(pFonction);
 		personne.setFonction(pFonction);
+		
 		String pPositionEntreprise=request.getParameter("positionEntreprise");
+		verif.nomVerif(pPositionEntreprise); // nomVerif car pas de méthode "positionEntrepriseVerif" dans "VerifForm.java"
 		personne.setPositionEntreprise(pPositionEntreprise);
+		
 		String pCoeff=request.getParameter("coeff");
+		verif.coeffVerif(pCoeff);
 		personne.setCoeff(pCoeff);
+		
 		String pSalaire=request.getParameter("salaire");
+		verif.salaireVerif(pSalaire);
 		personne.setSalaire(pSalaire);
+		
 		String pMutuelle=request.getParameter("mutuelle");
+		verif.mutuelleVerif(pMutuelle);
 		//personne.setMutuelle(pMutuelle);
+		
 		String pTicketResto=request.getParameter("ticketResto");
+		verif.ticketRestoVerif(pTicketResto);
 		//personne.setTicketResto(pTicketResto);
+		
 		String pVisiteMedicale=request.getParameter("visiteMedicale");
+		verif.visiteMedicaleVerif(pVisiteMedicale);
 		//personne.setVisiteMedicale(pVisiteMedicale);
+		
 		String pMontantTransport=request.getParameter("montantTransport");
+		verif.montantTransportVerif(pMontantTransport);
 		personne.setMontantTransport(pMontantTransport);
+		
 		String pVoiture=request.getParameter("voiture");
+		verif.voitureVerif(pVoiture);
 		//personne.setVoiture(pVoiture);
+		
 		String pNbCV=request.getParameter("nbCV");
+		verif.nbCVVerif(pNbCV);
 		//personne.setNbCV(pNbCV);
+		
 		String pNbKm=request.getParameter("nbKm");
+		verif.nbKm(pNbKm);
 		personne.setNbKm(pNbKm);
 		//String pSituation=request.getParameter(""); // cf. ForCalLisDer.html de Jérémy // edit : on a fait un enum
-		//String pPrenom=request.getParameter("prenom");
-		//String pPrenom=request.getParameter("prenom");
 		
 		// creation identifiant + mdp
 		personne.setIdentifiant(personne.creationId(pNom, pPrenom));
@@ -177,8 +227,8 @@ public class ServletFormulaireB extends HttpServlet {
 		
 		// print : formulaire bien enregistré
 		response.getWriter().println("Merci "+personne.getPrenom()+" "+personne.getNom()+".");
-		response.getWriter().println();
-		response.getWriter().println();
+		//response.getWriter().println();
+		//response.getWriter().println();
 		response.getWriter().println("Votre formulaire a bien ete enregistre.");
 		
 		// retour page accueil en bas de page (bouton)
