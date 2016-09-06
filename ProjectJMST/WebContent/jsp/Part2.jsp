@@ -80,7 +80,7 @@
 			<img src="http://www.activconsult-ing.com/img/Menu_pagaies2.png"
 				width="71" height="71" alt="" />
 		</div>
-		<div id="tlogo">COORDONNÉES PERSONNELLES</div>
+		<div id="tlogo">COORDONNÉES</div>
 		<div id="info2">
 			<!-- zone disponible -->
 			<!-- 			<form= action:"http://www.souadkad.fr/soka/identification.html"></form> -->
