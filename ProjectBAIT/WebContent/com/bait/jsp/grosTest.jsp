@@ -65,83 +65,80 @@
 
 			<div ID=formu37>
 
-				<label>Connect&eacute; en tant que :<%=session.getAttribute("NomAdmin")%></label>
+				<label>Connect&eacute; en tant que : <%=session.getAttribute("NomAdmin")%></label>
 
 			</div>
 
 			<div ID=formu38>
 
-				<label>Candidat :<%=session.getAttribute("NomCandidat")%> <%=session.getAttribute("prenomCandidat")%></label>
+				<label>Candidat : <%=session.getAttribute("NomCandidat")%> <%=session.getAttribute("prenomCandidat")%></label>
 
 			</div>
-			<div style="overflow: auto; height: 500px">
+			<div style="overflow : auto; width : 680px; height : 480px">
 				<form method="post" action="">
 
-					<input type="submit" name="retour" value="Retour">
+					<input type="submit" name="retour" value="Retour" style="margin-left : 300px">
 				</form>
-				<form method="post" action="">
-					<input type="text" name="raison" value="Entrer une raison"> <input type="submit" name="bloquer" value="Bloquer">
+				<form method="post" action="" style="margin-bottom : 50px">
+					<input style="margin-left : 180px" type="submit" name="bloquer" value="Bloquer"><input type="text" name="raison" value="Entrer une raison" style="height : 50px;width : 200px"> 
 				</form>
 
 				<table>
 					<caption>Etat civil</caption>
 					<tr>
-						<td>Nom : <%= personne.getNom()%>
-					</tr>
-					<td>Prenom : <%=session.getAttribute("PrenomCandidat")%>tr>
+						<td>Nom : <%= personne.getNom()%></td>
+					
+					<td>Prenom : <%= personne.getPrenom() %></td></tr>
+					<tr><td>Date de naissance : <%= personne.getDateNaissance()%></td>
+						<td>Lieu : <%=personne.getLieuNaissance()%></td></tr>
 					<tr>
-						<td>Date de naissance : <%=session.getAttribute("dateNaissCandidat")%>
-						<td>Lieu : <%=session.getAttribute("lieuNaissCandidat")%>
+						<td COLSPAN=2>Nationalit&eacute; : <%=personne.getNationalite()%></td></tr>
 					<tr>
-						<td>Nationalit&eacute; : <%=session.getAttribute("nationaliteCandidat")%>
-					<tr>
-						<td ROWSPAN=2>email : <%=session.getAttribute("emailCandidat")%>
+						<td COLSPAN=2>email : <%=personne.getEmail()%></td></tr>
 				</table>
 
 				<table>
 					<caption>Coordonn&eacute;e</caption>
 					<tr>
-						<td COLSPAN=2>Adresse : <%=session.getAttribute("adresseCandidat")%>
+						<td COLSPAN=2>Adresse : <%=personne.getAdresse()%>
 					<tr>
-						<td>Code Postal : <%=session.getAttribute("cPCandidat")%>
-						<td>Ville : <%=session.getAttribute("villeCandidat")%>
+						<td>Code Postal : <%=personne.getcP()%>
+						<td>Ville : <%=personne.getVille()%>
 					<tr>
-						<td>T&eacute;l&eacute;phone fixe : <%=session.getAttribute("telFixeCandidat")%>
-						<td>T&eacute;l&eacute;phone portable : <%=session.getAttribute("telPortCandidat")%>
+						<td>T&eacute;l&eacute;phone fixe : <%= personne.getTelFixe()%>
+						<td>T&eacute;l&eacute;phone portable : <%= personne.getTelPort()%> 
 					<tr>
-						<td>Fax : <%=session.getAttribute("faxCandidat")%>
-						<td>email : <%=session.getAttribute("emailCandidat")%>
+						<td>Fax : <%=personne.getFax()%>
+						<td>email : <%=personne.getEmail()%>
 				</table>
 
 				<table>
 					<caption>Situation Actuelle</caption>
-					<tr>
-						Situation :
-						<%=session.getAttribute("situationCandidat")%>
+					<tr><td style="width : 500px">Situation : <%=personne.getSituation()%>
 				</table>
 
 				<table>
 					<caption>Rémunération souhaitée</caption>
 					<tr>
-						<td>Fonction occupée <%=session.getAttribute("fonctionCandidat")%>
-						<td>Cadre : <%=session.getAttribute("cadreCandidat")%>
+						<td>Fonction occupée <%=personne.getFonction()%>
+						<td>Cadre : <%=personne.isCadre()%>
 					<tr>
-						<td>Position : <%=session.getAttribute("positionCandidat")%>
-						<td>Coefficient : <%=session.getAttribute("coeffCandidat")%>
+						<td>Position : <%=personne.getPosition()%>
+						<td>Coefficient : <%=personne.getCoeff()%>
 					<tr>
-						<td>Salaire souhaité : <%=session.getAttribute("salaireCandidat")%>
+						<td colspan=2>Salaire souhaité : <%=personne.getSalaire()%>
 					<tr>
-						<td>Mutuelle souhaitée : <%=session.getAttribute("mutuelleCandidat")%>
-						<td>Ticket resto : <%=session.getAttribute("ticketCandidat")%>
+						<td>Mutuelle souhaitée : <%=personne.isMutuelle()%>
+						<td>Ticket resto : <%=personne.isTicket()%>
 					<tr>
-						<td COLSPAN=2>Date de la dernière visite médicale : <%=session.getAttribute("visiteMedicaleCandidat")%>
+						<td COLSPAN=2>Date de la dernière visite médicale : <%=personne.getVisiteMedicale()%>
 					<tr>
-						<td COLSPAN=2>Montant carte d'abonnement transport : <%=session.getAttribute("montantTransportCandidat")%>
+						<td COLSPAN=2>Montant carte d'abonnement transport : <%=personne.getMontantTransport()%>
 					<tr>
-						<td>Véhicule personnel : <%=session.getAttribute("voitureCandidat")%>
-						<td>Nombre de CV : <%=session.getAttribute("nbCVCandidat")%>
+						<td>Véhicule personnel : <%=personne.isVoiture()%>
+						<td>Nombre de CV : <%=personne.getNbCV()%>
 					<tr>
-						<td COLSPAN=2>Mensuel estimé : <%=session.getAttribute("nbKmCandidat")%>
+						<td COLSPAN=2>Mensuel estimé : <%=personne.getNdKm()%>
 				</table>
 
 			
