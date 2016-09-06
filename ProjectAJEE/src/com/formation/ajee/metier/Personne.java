@@ -58,17 +58,10 @@ public class Personne implements Serializable {
 	public Personne() {
 	}
 
-	public Personne(int idPersonne, String nom, String prenom, String identifiant, String mdp) {
-		this.idPersonne = idPersonne;
-		this.identifiant = identifiant;
-		this.mdp = mdp;
-		this.nom = nom;
-		this.prenom = prenom;
-	}
-
 	public Personne(String nom, String prenom) {
 		this.nom = nom;
 		this.prenom = prenom;
+		this.situation=SITUATION.AUTRE;
 //		this.visiteMedicale = new Date(2016 - 9 - 02); 		//mettre une valeur par default
 //		this.dateNaissance = new Date(2016 - 9 - 02);
 //		this.dateCreation = new Date(2016 - 9 - 02);
@@ -107,7 +100,7 @@ public class Personne implements Serializable {
 		this.nbKm = nbKm;
 		this.mutuelle = mutuelle;
 		this.ticketResto = ticketResto;
-		this.dateCreation = Date.from(Instant.now());
+		this.dateCreation = dateCreation;
 		this.dateModification = dateModification;
 		this.bloque = bloque;
 		this.raisonBlocage = raisonBlocage;
@@ -147,7 +140,7 @@ public class Personne implements Serializable {
 		this.nbKm = nbKm;
 		this.mutuelle = mutuelle;
 		this.ticketResto = ticketResto;
-		this.dateCreation = Date.from(Instant.now());
+		this.dateCreation = dateCreation;
 		this.dateModification = dateModification;
 		this.bloque = bloque;
 		this.raisonBlocage = raisonBlocage;
@@ -157,11 +150,13 @@ public class Personne implements Serializable {
 	public void ajoutPersonne(int idPersonne){
 	DaoPersonne daoP = new DaoPersonne();
 		daoP.insertPersonne(this);
+		this.dateCreation = Date.from(Instant.now());
 	}
 	
 	public void modifPersonne(int idPersonne){
 		DaoPersonne daoP = new DaoPersonne();
 		daoP.updatePersonne(this);
+		this.dateModification = Timestamp.from(Instant.now());
 	}
 
 	public String epuration(String texte) {
@@ -208,10 +203,6 @@ public class Personne implements Serializable {
 	
 	public String getIdPersonneString() {
 		return Integer.toString(idPersonne);
-	}
-
-	public void setIdPersonne(int idPersonne) {
-		this.idPersonne = idPersonne;
 	}
 
 	public String getNom() {
