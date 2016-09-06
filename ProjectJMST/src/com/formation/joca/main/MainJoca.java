@@ -11,8 +11,8 @@ public class MainJoca {
 
 	private void test() {
 		CtrlPersonne ctrlPerso = new CtrlPersonne();
-		String test = "150 avenue Olvier d'Ormesson (paris)";
-		System.out.println(ctrlPerso.ctrlAdresse(test));
+		String test = "logintest";
+		System.out.println(ctrlPerso.ctrlIdentifiant(test));
 
 	}
 

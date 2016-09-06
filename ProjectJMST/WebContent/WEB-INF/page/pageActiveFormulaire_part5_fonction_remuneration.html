@@ -245,7 +245,7 @@
 		function ctrPosition() {
 			var position = document.getElementById("position");
 			var no = position.value.length;
-			var pattPosition = new RegExp("^[a-zA-Z\-\'\\s]+$");
+			var pattPosition = new RegExp("^[1-9][0-9]+$");
 			var spanPosition = document.getElementById("spanPosition");
 			if (position.value == "") {
 				position.style.border = "inherit";
