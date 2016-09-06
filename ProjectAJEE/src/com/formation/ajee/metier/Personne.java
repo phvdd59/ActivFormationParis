@@ -50,7 +50,7 @@ public class Personne implements Serializable {
 	private boolean mutuelle;
 	private boolean ticketResto;
 	private Date dateCreation;
-	private Timestamp dateModification;
+	private Date dateModification;
 	private boolean bloque;
 	private String raisonBlocage;
 	private ListeDoc listeDoc;
@@ -61,16 +61,13 @@ public class Personne implements Serializable {
 	public Personne(String nom, String prenom) {
 		this.nom = nom;
 		this.prenom = prenom;
-		this.situation=SITUATION.AUTRE;
-//		this.visiteMedicale = new Date(2016 - 9 - 02); 		//mettre une valeur par default
-//		this.dateNaissance = new Date(2016 - 9 - 02);
-//		this.dateCreation = new Date(2016 - 9 - 02);
-//		this.situation=SITUATION.AUTRE;
-	}
+		this.situation = null;
+		this.visiteMedicale = new Date(); 		
 	
-	public Personne(int idPersonne, String nom, String prenom, String identifiant, String mdp, String email, String adresse, String cp, String ville, String telFixe, String telPort, String fax, Date dateNaissance, String lieuNaissance, String numSecu, String nationalite,
-			String fonction, String positionEntreprise, boolean cadre, String coeff, String salaire, Date visiteMedicale, String montantTransport, boolean voiture, int nbCV, String nbKm, boolean mutuelle, boolean ticketResto, Date dateCreation, Timestamp dateModification,
-			boolean bloque, String raisonBlocage) {
+	}
+
+	public Personne(int idPersonne, String nom, String prenom, String identifiant, String mdp, String email, String adresse, String cp, String ville, String telFixe, String telPort, String fax, Date dateNaissance, String lieuNaissance, String numSecu, String nationalite, String fonction,
+			String positionEntreprise, boolean cadre, String coeff, String salaire, Date visiteMedicale, String montantTransport, boolean voiture, int nbCV, String nbKm, boolean mutuelle, boolean ticketResto, Date dateCreation, Date dateModification, boolean bloque, String raisonBlocage) {
 		super();
 		this.idPersonne = idPersonne;
 		this.nom = nom;
@@ -107,7 +104,7 @@ public class Personne implements Serializable {
 	}
 
 	public Personne(int idPersonne, String nom, String prenom, SEXE sexe, String identifiant, String mdp, String email, String adresse, String cp, String ville, String telFixe, String telPort, String fax, Date dateNaissance, String lieuNaissance, String numSecu, String nationalite,
-			SITUATION situation, String fonction, String positionEntreprise, boolean cadre, String coeff, String salaire, Date visiteMedicale, String montantTransport, boolean voiture, int nbCV, String nbKm, boolean mutuelle, boolean ticketResto, Date dateCreation, Timestamp dateModification,
+			SITUATION situation, String fonction, String positionEntreprise, boolean cadre, String coeff, String salaire, Date visiteMedicale, String montantTransport, boolean voiture, int nbCV, String nbKm, boolean mutuelle, boolean ticketResto, Date dateCreation, Date dateModification,
 			boolean bloque, String raisonBlocage, ListeDoc listeDoc) {
 		super();
 		this.idPersonne = idPersonne;
@@ -146,17 +143,20 @@ public class Personne implements Serializable {
 		this.raisonBlocage = raisonBlocage;
 		this.listeDoc = listeDoc;
 	}
-	
-	public void ajoutPersonne(int idPersonne){
-	DaoPersonne daoP = new DaoPersonne();
+
+	public void ajoutPersonne(int idPersonne) {
+		SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+		this.dateCreation = new Date();
+		this.dateModification = new Date();
+		DaoPersonne daoP = new DaoPersonne();
 		daoP.insertPersonne(this);
-		this.dateCreation = Date.from(Instant.now());
+
 	}
-	
-	public void modifPersonne(int idPersonne){
+
+	public void modifPersonne(int idPersonne) {
+		this.dateModification = new Date();
 		DaoPersonne daoP = new DaoPersonne();
 		daoP.updatePersonne(this);
-		this.dateModification = Timestamp.from(Instant.now());
 	}
 
 	public String epuration(String texte) {
@@ -179,7 +179,7 @@ public class Personne implements Serializable {
 
 		return identifiant;
 	}
-	
+
 	public String creationMdp() {
 		String mdp = "";
 		while (mdp.length() != 8) {
@@ -195,17 +195,14 @@ public class Personne implements Serializable {
 		}
 		return mdp;
 	}
-	
 
 	public int getIdPersonne() {
 		return idPersonne;
 	}
-	
+
 	public String getIdPersonneString() {
 		return Integer.toString(idPersonne);
 	}
-
-
 
 	public String getNom() {
 		if (nom == null || nom.equals("null")) {
@@ -219,7 +216,7 @@ public class Personne implements Serializable {
 	}
 
 	public String getPrenom() {
-		if (prenom == null|| prenom.equals("null")) {
+		if (prenom == null || prenom.equals("null")) {
 			prenom = "";
 		}
 		return prenom;
@@ -254,7 +251,7 @@ public class Personne implements Serializable {
 	}
 
 	public String getEmail() {
-		if (email == null|| email.equals("null")) {
+		if (email == null || email.equals("null")) {
 			email = "";
 		}
 		return email;
@@ -265,17 +262,18 @@ public class Personne implements Serializable {
 	}
 
 	public String getAdresse() {
-		if (adresse == null|| adresse.equals("null")) {
-			adresse = "";}
-		return adresse;
+		if (adresse == null || adresse.equals("null")) {
+			adresse = "";
 		}
+		return adresse;
+	}
 
 	public void setAdresse(String adresse) {
 		this.adresse = adresse;
 	}
 
 	public String getCp() {
-		if (cp == null|| cp.equals("null")) {
+		if (cp == null || cp.equals("null")) {
 			cp = "";
 		}
 		return cp;
@@ -286,9 +284,10 @@ public class Personne implements Serializable {
 	}
 
 	public String getVille() {
-		if (ville == null|| ville.equals("null")) {
+		if (ville == null || ville.equals("null")) {
 			ville = "";
-		}return ville;
+		}
+		return ville;
 	}
 
 	public void setVille(String ville) {
@@ -296,9 +295,10 @@ public class Personne implements Serializable {
 	}
 
 	public String getTelFixe() {
-		if (telFixe == null|| telFixe.equals("null")) {
+		if (telFixe == null || telFixe.equals("null")) {
 			telFixe = "";
-		}return telFixe;
+		}
+		return telFixe;
 	}
 
 	public void setTelFixe(String telFixe) {
@@ -306,9 +306,10 @@ public class Personne implements Serializable {
 	}
 
 	public String getTelPort() {
-		if (telPort == null|| telPort.equals("null")) {
+		if (telPort == null || telPort.equals("null")) {
 			telPort = "";
-		}return telPort;
+		}
+		return telPort;
 	}
 
 	public void setTelPort(String telPort) {
@@ -316,9 +317,10 @@ public class Personne implements Serializable {
 	}
 
 	public String getFax() {
-		if (fax == null|| fax.equals("null")) {
+		if (fax == null || fax.equals("null")) {
 			fax = "";
-		}return fax;
+		}
+		return fax;
 	}
 
 	public void setFax(String fax) {
@@ -328,12 +330,12 @@ public class Personne implements Serializable {
 	public Date getDateNaissance() {
 		return dateNaissance;
 	}
+
 	public String getDateNaissanceString() {
 		String datenaissance = "";
 		if (dateNaissance != null) {
-			Date maintenant = dateNaissance;
-			SimpleDateFormat formatDateJour = new SimpleDateFormat("dd/MM/yyyy ");
-			datenaissance = formatDateJour.format(maintenant);
+			SimpleDateFormat formatDateJour = new SimpleDateFormat("yyyy-MM-dd");
+			datenaissance = formatDateJour.format(dateNaissance);
 		}
 		return datenaissance;
 	}
@@ -345,7 +347,8 @@ public class Personne implements Serializable {
 	public String getLieuNaissance() {
 		if (lieuNaissance == null || lieuNaissance.equals("null")) {
 			lieuNaissance = "";
-		}return lieuNaissance;
+		}
+		return lieuNaissance;
 	}
 
 	public void setLieuNaissance(String lieuNaissance) {
@@ -353,9 +356,10 @@ public class Personne implements Serializable {
 	}
 
 	public String getNumSecu() {
-		if (numSecu == null|| numSecu.equals("null")) {
+		if (numSecu == null || numSecu.equals("null")) {
 			numSecu = "";
-		}return numSecu;
+		}
+		return numSecu;
 	}
 
 	public void setNumSecu(String numSecu) {
@@ -363,17 +367,18 @@ public class Personne implements Serializable {
 	}
 
 	public String getNationalite() {
-		if (nationalite == null|| nationalite.equals("null")) {
+		if (nationalite == null || nationalite.equals("null")) {
 			nationalite = "";
-		}return nationalite;
+		}
+		return nationalite;
 	}
 
 	public void setNationalite(String nationalite) {
 		this.nationalite = nationalite;
 	}
 
-	public String getSituation() {
-		return situation.getNom();
+	public SITUATION getSituation() {
+		return situation;
 	}
 
 	public void setSituation(SITUATION situation) {
@@ -381,9 +386,10 @@ public class Personne implements Serializable {
 	}
 
 	public String getFonction() {
-		if (fonction == null|| fonction.equals("null")) {
+		if (fonction == null || fonction.equals("null")) {
 			fonction = "";
-		}return fonction;
+		}
+		return fonction;
 	}
 
 	public void setFonction(String fonction) {
@@ -391,9 +397,10 @@ public class Personne implements Serializable {
 	}
 
 	public String getPositionEntreprise() {
-		if (positionEntreprise == null|| positionEntreprise.equals("null")) {
+		if (positionEntreprise == null || positionEntreprise.equals("null")) {
 			positionEntreprise = "";
-		}return positionEntreprise;
+		}
+		return positionEntreprise;
 	}
 
 	public void setPositionEntreprise(String positionEntreprise) {
@@ -409,9 +416,10 @@ public class Personne implements Serializable {
 	}
 
 	public String getCoeff() {
-		if (coeff == null|| coeff.equals("null")) {
+		if (coeff == null || coeff.equals("null")) {
 			coeff = "";
-		}return coeff;
+		}
+		return coeff;
 	}
 
 	public void setCoeff(String coeff) {
@@ -419,9 +427,10 @@ public class Personne implements Serializable {
 	}
 
 	public String getSalaire() {
-		if (salaire == null|| salaire.equals("null")) {
+		if (salaire == null || salaire.equals("null")) {
 			salaire = "";
-		}return salaire;
+		}
+		return salaire;
 	}
 
 	public void setSalaire(String salaire) {
@@ -431,22 +440,21 @@ public class Personne implements Serializable {
 	public Date getVisiteMedicale() {
 		return visiteMedicale;
 	}
+
 	public String getVisiteMedicaleString() {
-		String sVisiteMedicale = "";
-		if (visiteMedicale != null) {
-			Date maintenant = visiteMedicale;
-			SimpleDateFormat formatDateJour = new SimpleDateFormat("dd/MM/yyyy ");
-			sVisiteMedicale = formatDateJour.format(maintenant);
-		}return sVisiteMedicale;
+			SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+			return df.format(visiteMedicale);
 	}
+
 	public void setVisiteMedicale(Date visiteMedicale) {
 		this.visiteMedicale = visiteMedicale;
 	}
 
 	public String getMontantTransport() {
-		if (montantTransport == null|| montantTransport.equals("null")) {
+		if (montantTransport == null || montantTransport.equals("null")) {
 			montantTransport = "";
-		}return montantTransport;
+		}
+		return montantTransport;
 	}
 
 	public void setMontantTransport(String montantTransport) {
@@ -456,8 +464,9 @@ public class Personne implements Serializable {
 	public boolean isVoiture() {
 		return voiture;
 	}
+
 	public String getVoiture() {
-		String voiture="";
+		String voiture = "";
 		if (isMutuelle() == false) {
 			voiture = "non";
 		} else {
@@ -473,8 +482,9 @@ public class Personne implements Serializable {
 	public int getNbCV() {
 		return nbCV;
 	}
+
 	public String getNbCVString() {
-		return  Integer.toString(nbCV);
+		return Integer.toString(nbCV);
 	}
 
 	public void setNbCV(int nbCV) {
@@ -482,9 +492,10 @@ public class Personne implements Serializable {
 	}
 
 	public String getNbKm() {
-		if (nbKm == null|| nbKm.equals("null")) {
+		if (nbKm == null || nbKm.equals("null")) {
 			nbKm = "";
-		}return nbKm;
+		}
+		return nbKm;
 	}
 
 	public void setNbKm(String nbKm) {
@@ -494,8 +505,9 @@ public class Personne implements Serializable {
 	public boolean isMutuelle() {
 		return mutuelle;
 	}
+
 	public String getMutuelle() {
-		String mutuelle="";
+		String mutuelle = "";
 		if (isMutuelle() == false) {
 			mutuelle = "non";
 		} else {
@@ -503,6 +515,7 @@ public class Personne implements Serializable {
 		}
 		return mutuelle;
 	}
+
 	public void setMutuelle(boolean mutuelle) {
 		this.mutuelle = mutuelle;
 	}
@@ -510,14 +523,17 @@ public class Personne implements Serializable {
 	public boolean isTicketResto() {
 		return ticketResto;
 	}
+
 	public String getTicketResto() {
-		String ticketResto="";
+		String ticketResto = "";
 		if (isMutuelle() == false) {
 			ticketResto = "non";
 		} else {
 			ticketResto = "oui";
-		}return ticketResto;
+		}
+		return ticketResto;
 	}
+
 	public void setTicketResto(boolean ticketResto) {
 		this.ticketResto = ticketResto;
 	}
@@ -526,15 +542,33 @@ public class Personne implements Serializable {
 		return dateCreation;
 	}
 
+	public String getDateCreationString() {
+		String sDateCreation = "";
+		if (dateCreation != null) {
+			SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+			sDateCreation = df.format(dateCreation);
+		}
+		return sDateCreation;
+	}
+
 	public void setDateCreation(Date dateCreation) {
 		this.dateCreation = dateCreation;
 	}
 
-	public Timestamp getDateModification() {
+	public Date getDateModification() {
 		return dateModification;
 	}
 
-	public void setDateModification(Timestamp dateModification) {
+	public String getDateModificationString() {
+		String sDateModification = "";
+		if (dateModification != null) {
+			SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+			sDateModification = df.format(dateModification);
+		}
+		return sDateModification;
+	}
+
+	public void setDateModification(Date dateModification) {
 		this.dateModification = dateModification;
 	}
 
