@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public class Vue {
 	public static final String rep = "C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/";
+	public static final String rep1 = "C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/js/";
 
 	public void lecturePage(HttpServletResponse resp, String sPage) {
 		File file = new File(rep + sPage + ".html");
@@ -39,7 +40,7 @@ public class Vue {
 	}
 
 	public void lectureJS(HttpServletResponse resp, String sPage) {
-		File file = new File(rep + sPage + ".js");
+		File file = new File(rep1 + sPage + ".html");
 		if (file.exists()) {
 			BufferedReader bufRead = null;
 			try {
