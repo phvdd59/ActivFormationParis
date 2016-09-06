@@ -58,7 +58,7 @@ public class ServletPageCompte2 extends HttpServlet {
 			session.setAttribute("servlet", "Compte");
 			session.setAttribute("methode", "POST");
 			personne = (Personne) session.getAttribute("Personne");
-
+			
 			int nbAppel = ((Integer) session.getAttribute("nbAppel")).intValue();
 			nbAppel++;
 			session.setAttribute("nbAppel", Integer.valueOf(nbAppel));
@@ -92,6 +92,7 @@ public class ServletPageCompte2 extends HttpServlet {
 					"C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/PageCompte.html");
 			BufferedReader bIn2 = null;
 			InputStreamReader inputStreamReader2 = null;
+			
 			try {
 				VerifComplet verif=new VerifComplet();
 				inputStreamReader2 = new InputStreamReader(new FileInputStream(file2), "UTF-8");
@@ -100,9 +101,10 @@ public class ServletPageCompte2 extends HttpServlet {
 				while (line2 != null) {
 					// System.out.println(line);
 					response.getWriter().append(line2 + "\n");
+					line2=line2.replace("en tant que :", "en tant que : ......"+personne.getPrenom()+personne.getNom());
 
 					if (verif.validTotal(session) && line2.contains("disabled")) {
-						line2.replace("disabled=\"disabled\"", "");
+						line2= line2.replace("disabled=\"disabled\"", "");
 					}
 					line2 = bIn2.readLine();
 				}
