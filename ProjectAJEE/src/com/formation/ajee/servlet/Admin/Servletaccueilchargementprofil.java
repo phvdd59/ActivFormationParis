@@ -58,9 +58,7 @@ public class Servletaccueilchargementprofil extends HttpServlet {
 
 				/** A modifier seulement si notre page contient du JavaScript */
 
-				vue.lecturePage(response, "JSAccueilAdmin");
-
-				vue.lecturePage(response, "JSBandeauAdmin");
+				
 
 				/** Lecture page ActivConsulting */
 				vue.lecturePage(response, "MenuActiv");

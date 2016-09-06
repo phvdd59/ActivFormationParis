@@ -37,10 +37,10 @@ public class ServletDecoAdmin extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
+		session.invalidate();
 		Vue vue = new Vue();
-		String sS = request.getParameter("JSESSIONID");
-		System.out.println(sS);
-		System.out.println(session.getId());
+	
+		
 
 		/** Lecture Haut de page HTML */
 
