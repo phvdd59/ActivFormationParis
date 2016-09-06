@@ -72,30 +72,29 @@ public class ServletPageRemuneration2 extends HttpServlet {
 				while (line2 != null) {
 					// System.out.println(line);
 					if (!personne.isCadre()) {
-						line2=line2.replace("value=\"Cadre\" type=\"radio\" checked=\"checked\"", "type=\"radio\" checked=\"unchecked\"");
-						
-						line2=line2.replace("name=\"Cadre\" checked=\"unchecked\" type=\"radio\"", "name=\"Cadre\" checked=\"checked\" type=\"radio\"");
+						line2=line2.replace("name=\"cadre\" value=\"Cadre\" type=\"radio\" checked","name=\"cadre\" value=\"Cadre\" type=\"radio\"");
+						line2=line2.replace("name=\"Cadre\" value=\"NCadre\" type=\"radio\"", "name=\"Cadre\" value=\"NCadre\" type=\"radio\" checked");
 					
 					}
 					
 					if (!personne.isMutuelle()) {
-						line2=line2.replace("name=\"mutuelle\" checked=\"unchecked\" type=\"radio\" ", "name=\"mutuelle\" checked=\"checked\" type=\"radio\" ");
+						line2=line2.replace("name=\"mutuelle\" value=\"oui\" type=\"radio\" checked","name=\"mutuelle\" value=\"oui\" type=\"radio\"");
 						
-						line2=line2.replace("name=\"mutuelle\" type=\"radio\" checked=\"checked\"", "name=\"mutuelle\" type=\"radio\" checked=\"unchecked\"");
+						line2=line2.replace("name=\"resto\" value=\"non\" type=\"radio\" ","name=\"resto\" value=\"non\" type=\"radio\" checked");
 					
 					}
 					
 					if (!personne.isTicket()) {
-						line2=line2.replace("name=\"resto\" checked=\"unchecked\" type=\"radio\" ", "name=\"resto\" checked=\"checked\" type=\"radio\" ");
+						line2=line2.replace("value=\"oui\" name=\"resto\" type=\"radio\" checked", "value=\"oui\" name=\"resto\" type=\"radio\" ");
 						
-						line2=line2.replace("name=\"resto\" type=\"radio\" checked=\"checked\"", "name=\"resto\" type=\"radio\" checked=\"unchecked\"");
+						line2=line2.replace("name=\"resto\" value=\"non\" type=\"radio\"","name=\"resto\" value=\"non\" type=\"radio\" checked");
 					
 					}
 					
 					if (!personne.isVoiture()) {
-						line2=line2.replace("name=\"voiture\" checked=\"unchecked\" type=\"radio\" ", "name=\"voiture\" checked=\"checked\" type=\"radio\" ");
+						line2=line2.replace("name=\"voiture\" value=\"oui\" type=\"radio\" checked","name=\"voiture\" value=\"oui\" type=\"radio\" ");
 						
-						line2=line2.replace("name=\"voiture\" type=\"radio\" checked=\"checked\"", "name=\"voiture\" type=\"radio\" checked=\"unchecked\"");
+						line2=line2.replace("name=\"voiture\" value=\"non\" type=\"radio\"","name=\"voiture\" value=\"non\" type=\"radio\" checked");
 					
 					}
 					
