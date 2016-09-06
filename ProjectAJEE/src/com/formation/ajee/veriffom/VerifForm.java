@@ -243,19 +243,19 @@ public class VerifForm {
 			situation = situation.toLowerCase();
 
 			switch (situation) {
-			case "salarié":
+			case "salarie":
 				retour = SITUATION.SALARIE;
 				break;
-			case "auto entrepreneur":
+			case "autoEntrepreneur":
 				retour = SITUATION.AUTO_ENTREPRENEUR;
 				break;
 			case "freelance":
 				retour = SITUATION.FREELANCE;
 				break;
-			case "demandeur d'emplois":
+			case "demandeurDEmploi":
 				retour = SITUATION.DEMANDEUR;
 				break;
-			case "retraité":
+			case "retraite":
 				retour = SITUATION.RETRAITE;
 				break;
 			case "autre":

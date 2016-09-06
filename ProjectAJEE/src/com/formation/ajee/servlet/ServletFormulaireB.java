@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Date;
+
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.formation.ajee.metier.ListPersonne;
 import com.formation.ajee.metier.Personne;
 import com.formation.ajee.metier.SEXE;
+import com.formation.ajee.metier.SITUATION;
 import com.formation.ajee.veriffom.VerifForm;
 
 /**
@@ -122,52 +125,53 @@ public class ServletFormulaireB extends HttpServlet {
 		personne.setSexe(pSexeV);
 		
 		String pAdresse=request.getParameter("adresse");
-		verif.adresseVerif(pAdresse);
-		personne.setAdresse(pAdresse);
+		String pAdresseV = verif.adresseVerif(pAdresse);
+		personne.setAdresse(pAdresseV);
 		
 		String pCp=request.getParameter("cp");
-		verif.cpVerif(pCp);
-		personne.setCp(pCp);
+		String pCpV = verif.cpVerif(pCp);
+		personne.setCp(pCpV);
 		
 		String pVille=request.getParameter("ville");
-		verif.villeVerif(pVille);
-		personne.setVille(pVille);
+		String pVilleV = verif.villeVerif(pVille);
+		personne.setVille(pVilleV);
 		
 		String pTelFixe=request.getParameter("telFixe");
-		verif.telFixVerif(pTelFixe);
-		personne.setTelFixe(pTelFixe);
+		String pTelFixeV =verif.telFixVerif(pTelFixe);
+		personne.setTelFixe(pTelFixeV);
 		
 		String pTelPort=request.getParameter("telPort");
-		verif.telPortVerif(pTelPort);
-		personne.setTelPort(pTelPort);
+		String pTelPortV = verif.telPortVerif(pTelPort);
+		personne.setTelPort(pTelPortV);
 		
 		String pFax=request.getParameter("fax");
-		verif.faxVerif(pFax);
-		personne.setFax(pFax);
+		String pFaxV = verif.faxVerif(pFax);
+		personne.setFax(pFaxV);
 		
 		String pEmail=request.getParameter("email");
 		String pEmailV = verif.emailVerif(pEmail);
 		personne.setEmail(pEmailV);
 		
+		//
 		String pDateNaissance=request.getParameter("dateNaissance");
-		verif.dateNaissanceVerif(pDateNaissance);
-		//personne.setDateNaissance(pDateNaissance);
+		Date pDateNaissanceV = verif.dateNaissanceVerif(pDateNaissance);
+		personne.setDateNaissance(pDateNaissanceV);
 		
 		String pLieuNaissance=request.getParameter("lieuNaissance");
-		verif.lieuNaissanceVerif(pLieuNaissance);
-		personne.setLieuNaissance(pLieuNaissance);
+		String pLieuNaissanceV = verif.lieuNaissanceVerif(pLieuNaissance);
+		personne.setLieuNaissance(pLieuNaissanceV);
 		
 		String pNumSecu=request.getParameter("numSecu");
-		verif.numSecuVerif(pNumSecu);
-		personne.setNumSecu(pNumSecu);
+		String pNumSecuV = verif.numSecuVerif(pNumSecu);
+		personne.setNumSecu(pNumSecuV);
 		
 		String pNationalite=request.getParameter("nationalite");
-		verif.nationaliteVerif(pNationalite);
-		personne.setNationalite(pNationalite);
+		String pNationaliteV = verif.nationaliteVerif(pNationalite);
+		personne.setNationalite(pNationaliteV);
 		
 		String pSituation=request.getParameter("situation");
-		verif.situationVerif(pSituation);
-		//personne.setSituation(pSituation);
+		SITUATION pSituationV = verif.situationVerif(pSituation);
+		personne.setSituation(pSituationV);
 		//String a = personne.getSituation();
 		//System.out.println(a);
 		
