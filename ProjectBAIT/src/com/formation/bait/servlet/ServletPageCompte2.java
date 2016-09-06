@@ -39,14 +39,12 @@ public class ServletPageCompte2 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher rd = request.getRequestDispatcher("//ServletLogin3");
 		rd.forward(request, response);
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		String sNoSuiviClient = request.getParameter("suiviClient");
 		String sNbAppelClient = request.getParameter("nbAppelClient");
@@ -58,12 +56,11 @@ public class ServletPageCompte2 extends HttpServlet {
 			session.setAttribute("servlet", "Compte");
 			session.setAttribute("methode", "POST");
 			personne = (Personne) session.getAttribute("Personne");
-			
+
 			int nbAppel = ((Integer) session.getAttribute("nbAppel")).intValue();
 			nbAppel++;
 			session.setAttribute("nbAppel", Integer.valueOf(nbAppel));
-			File file = new File(
-					"C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/hautDePageActiv.html");
+			File file = new File("C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/hautDePageActiv.html");
 			BufferedReader bIn = null;
 			InputStreamReader inputStreamReader = null;
 			try {
@@ -88,24 +85,27 @@ public class ServletPageCompte2 extends HttpServlet {
 				}
 			}
 
-			File file2 = new File(
-					"C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/PageCompte.html");
+			File file2 = new File("C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/PageCompte.html");
 			BufferedReader bIn2 = null;
 			InputStreamReader inputStreamReader2 = null;
-			
+
 			try {
-				VerifComplet verif=new VerifComplet();
+				VerifComplet verif = new VerifComplet();
 				inputStreamReader2 = new InputStreamReader(new FileInputStream(file2), "UTF-8");
 				bIn2 = new BufferedReader(inputStreamReader2);
 				String line2 = bIn2.readLine();
 				while (line2 != null) {
 					// System.out.println(line);
-					response.getWriter().append(line2 + "\n");
-					line2=line2.replace("en tant que :", "en tant que : ......"+personne.getPrenom()+personne.getNom());
 
-					if (verif.validTotal(session) && line2.contains("disabled")) {
-						line2= line2.replace("disabled=\"disabled\"", "");
+					line2 = line2.replace("en tant que :", "en tant que :      " + personne.getPrenom() +" "+ personne.getNom());
+					boolean test = verif.validTotal(session);
+					if (line2.contains("disabled")) {
+						if (verif.validTotal(session)) {
+							line2 = line2.replace("disabled=\"disabled\"", "");
+						}
+						
 					}
+					response.getWriter().append(line2 + "\n");
 					line2 = bIn2.readLine();
 				}
 			} catch (FileNotFoundException e) {
@@ -119,8 +119,7 @@ public class ServletPageCompte2 extends HttpServlet {
 					e.printStackTrace();
 				}
 			}
-			File file3 = new File(
-					"C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/basDePageActiv.html");
+			File file3 = new File("C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/basDePageActiv.html");
 			BufferedReader bIn3 = null;
 			InputStreamReader inputStreamReader3 = null;
 			try
