@@ -61,46 +61,64 @@ public class ServletSoka1 extends HttpServlet {
 			 */
 			CtrlPersonne ctrl = new CtrlPersonne();
 			System.out.println();
-			if (ctrl.ctrlIdentifiant(sIdentifiant) && ctrl.ctrlMdp(sMdp1) && ctrl.ctrlMdp(sMdp2)) {
-				if (sMdp1.equals(sMdp2)) {
-					perso.setIdentifiant(sIdentifiant);
-					perso.setMdp(sMdp1);
-				}
+			if (ctrl.ctrlIdentifiant(sIdentifiant) && ctrl.ctrlMdp(sMdp1) && ctrl.ctrlMdp(sMdp2) && sMdp1.equals(sMdp2)) {
 
-			}
-			DAOPersonne dao = new DAOPersonne();
-			ListPersonne list = dao.read();
+				perso.setIdentifiant(sIdentifiant);
+				perso.setMdp(sMdp1);
 
-			boolean idExist = false;
+				DAOPersonne dao = new DAOPersonne();
+				ListPersonne list = dao.read();
 
-			for (Personne p : list) {
-				if (p.getIdentifiant().equals(perso.getIdentifiant())) {
-					idExist = true;
-				}
-			}
+				boolean idExist = false;
 
-			File file = new File("C:/DevFormation/" + //
-					"GITActivFormationParis/ProjectJMST/" + //
-					"WebContent/WEB-INF/" + //
-					"page/pageActiveFormulaire_part2_coordonnees_personnelles.html");
-			BufferedReader bIn = null;
-			bIn = new BufferedReader(new FileReader(file));
-			String noSerieHtml = request.getParameter("noSerie");
-			String noSerie = (String) session.getAttribute("noSerie");
-
-			if (noSerieHtml.equals(noSerie) && !idExist) {
-				noSerie = "21_" + noSerie;
-				session.setAttribute("noSerie", noSerie);
-				String line = bIn.readLine();
-				while (line != null) {
-					if (line.contains("%%noSerie%%")) {
-						line = line.replace("%%noSerie%%", noSerie);
+				for (Personne p : list) {
+					if (p.getIdentifiant().equals(perso.getIdentifiant())) {
+						idExist = true;
 					}
-					response.getWriter().println(line);
-					line = bIn.readLine();
 				}
-				bIn.close();
-			} else if (noSerieHtml.equals(noSerie) && idExist) {
+
+				File file = new File("C:/DevFormation/" + //
+						"GITActivFormationParis/ProjectJMST/" + //
+						"WebContent/WEB-INF/" + //
+						"page/pageActiveFormulaire_part2_coordonnees_personnelles.html");
+				BufferedReader bIn = null;
+				bIn = new BufferedReader(new FileReader(file));
+				String noSerieHtml = request.getParameter("noSerie");
+				String noSerie = (String) session.getAttribute("noSerie");
+
+				if (noSerieHtml.equals(noSerie) && !idExist) {
+					noSerie = "21_" + noSerie;
+					session.setAttribute("noSerie", noSerie);
+					String line = bIn.readLine();
+					while (line != null) {
+						if (line.contains("%%noSerie%%")) {
+							line = line.replace("%%noSerie%%", noSerie);
+						}
+						response.getWriter().println(line);
+						line = bIn.readLine();
+					}
+					bIn.close();
+				} else if (noSerieHtml.equals(noSerie) && idExist) {
+					File file2 = new File("C:/DevFormation/" + //
+							"GITActivFormationParis/ProjectJMST/" + //
+							"WebContent/WEB-INF/" + //
+							"page/pageActiveFormulaire_part1_ident_mdp.html");
+					BufferedReader bIn2 = null;
+					bIn2 = new BufferedReader(new FileReader(file2));
+					String line = bIn2.readLine();
+					while (line != null) {
+						if (line.contains("%%noSerie%%")) {
+							line = line.replace("%%noSerie%%", noSerie);
+						}
+						if (line.contains("name=\"identifiant\"")) {
+							line = line.replace("</th>", "<p style=\"color: red;\">login deja existant</p></th>");
+						}
+						response.getWriter().println(line);
+						line = bIn2.readLine();
+					}
+					bIn2.close();
+				}
+			} else {
 				File file2 = new File("C:/DevFormation/" + //
 						"GITActivFormationParis/ProjectJMST/" + //
 						"WebContent/WEB-INF/" + //
@@ -110,10 +128,9 @@ public class ServletSoka1 extends HttpServlet {
 				String line = bIn2.readLine();
 				while (line != null) {
 					if (line.contains("%%noSerie%%")) {
+						String noSerieHtml = request.getParameter("noSerie");
+						String noSerie = (String) session.getAttribute("noSerie");
 						line = line.replace("%%noSerie%%", noSerie);
-					}
-					if (line.contains("name=\"identifiant\"")) {
-						line = line.replace("</th>", "<p style=\"color: red;\">login deja existant</p></th>");
 					}
 					response.getWriter().println(line);
 					line = bIn2.readLine();
