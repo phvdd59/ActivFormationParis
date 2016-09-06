@@ -11,8 +11,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-//Servlet utilisé pour générer la page login par la methode doPost
+//Servlet utilisï¿½ pour gï¿½nï¿½rer la page login par la methode doPost
 /**
  * Servlet implementation class ServletJOCA1
  */
@@ -34,7 +35,8 @@ public class ServletJOCA1 extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		HttpSession session=request.getSession();
+		session.invalidate();
 		BufferedReader lecture = null;
 		File page = new File("../GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/Login.html");
 		InputStreamReader input = new InputStreamReader(new FileInputStream(page));

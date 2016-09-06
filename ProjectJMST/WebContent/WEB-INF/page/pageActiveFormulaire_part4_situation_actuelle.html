@@ -69,13 +69,13 @@
 		<div id="menu3">
 			<img
 				src="http://www.activconsult-ing.com/img/Objet_dynamique_vectoriel.png"
-				width="382" height="57" alt="" />
+				width="342" height="57" alt="" />
 		</div>
 		<div id="ogol1">
 			<img src="http://www.activconsult-ing.com/img/Menu_pagaies2.png"
 				width="71" height="71" alt="" />
 		</div>
-		<div id="tlogo">SITUATION ACTUELLE</div>
+		<div id="tlogo">CENTRE DE FORMATION</div>
 		<div id="info2">
 			<!-- zone disponible -->
 
@@ -83,6 +83,11 @@
 			<form action="http://localhost:8080/ProjectJMST/ServletSoka4"
 				method='post' onsubmit="return ctrAll()">
 				<table border="1">
+
+					<tr>
+						<th colspan="4">Situation Actuelle</th>
+
+					</tr>
 					<tr>
 						<td>Salarié</td>
 						<td style="width: 273px; height: 25px; color:;"><input
@@ -105,7 +110,7 @@
 							type="radio" name="situationPro" value="retraite"></td>
 						<td style="width: 72px;">Autre</td>
 						<td style="width: 112px; height: 25px; color:;"><input
-							type="radio" name="situationPro" value="" checked="checked">
+							type="radio" name="situationPro" value="">
 							<input id="autre" type="text" name="situation"
 							onblur="ctrAutre()" value="%%autre%%"><span id="spanAutre"></span></td>
 					</tr>
@@ -115,14 +120,15 @@
 				<input type="submit" value="Suivant"></input> <input type="hidden"
 					name="noSerie" value="%%noSerie%%">
 			</form>
-<!-- 			<form action="http://localhost:8080/ProjectJMST/ServletSoka2" -->
-<!-- 				method='post'> -->
-<!-- 				<input type="submit" value="Precedent"></input> <input -->
-<!-- 					type="hidden" name="noSerie" value="%%noSerie%%"> -->
-<!-- 			</form> -->
+			<form action="http://localhost:8080/ProjectJMST/ServletSoka2"
+				method='post'>
+				<input type="submit" value="Precedent"></input> <input
+					type="hidden" name="noSerie" value="%%noSerie%%">
+			</form>
 			<form action="http://localhost:8080/ProjectJMST/ServletDeco"
 				method='get'>
-				<input type="submit" value="Deconnexion"></input> 
+				<input type="submit" value="Deconnexion"></input> <input
+					type="hidden" name="noSerie" value="%%noSerie%%">
 			</form>
 
 		</div>

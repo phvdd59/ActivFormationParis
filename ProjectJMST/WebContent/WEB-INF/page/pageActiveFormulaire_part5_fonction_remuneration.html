@@ -69,13 +69,13 @@
 		<div id="menu3">
 			<img
 				src="http://www.activconsult-ing.com/img/Objet_dynamique_vectoriel.png"
-				width="382" height="57" alt="" />
+				width="342" height="57" alt="" />
 		</div>
 		<div id="ogol1">
 			<img src="http://www.activconsult-ing.com/img/Menu_pagaies2.png"
 				width="71" height="71" alt="" />
 		</div>
-		<div id="tlogo">FONCTION/REMUNERATION</div>
+		<div id="tlogo">CENTRE DE FORMATION</div>
 		<div id="info2">
 			<!-- zone disponible -->
 
@@ -86,35 +86,35 @@
 				<table border="1">
 
 					<tr>
-						<th colspan="4"></th>
+						<th colspan="4">Fonction/Remuneration</th>
 
 					</tr>
 					<tr>
 						<td>Fonction occupée:</td>
 						<td style="width: 273px; height: 25px; color:;"><input
-							id="fonction" type="text" name="fonction occupee"
+							id="fonction" type="text" value="%%fonction%%" name="fonctionoccupee"
 							onblur="ctrFonction()"><br> <span id="spanFonction"></span></td>
 						<td style="width: 273px; height: 25px; color:;"><input
 							type="radio" name="cadre" value="oui"> Cadre</td>
 						<td colspan="2" style="width: 116px;"><input type="radio"
-							name="cadre" value="non" checked="checked"> Non cadre</td>
+							name="cadre" value="non"> Non cadre</td>
 					</tr>
 					<tr>
 						<td>Position</td>
 						<td style="width: 273px; height: 25px; color:;"><input
-							id="position" type="text" name="position" value=''
+							id="position" type="text" name="position" value="%%position%%"
 							style="width: 270px;" onblur="ctrPosition()"><br> <span
 							id="spanPosition"></span></td>
 						<td style="width: 72px;">Coefficient</td>
 						<td style="width: 112px; height: 25px; color:;"><input
-							id="coefficient" type="text" name="coefficient" value=''
+							id="coefficient" type="text" name="coefficient" value="%%coefficient%%"
 							onblur="ctrCoefficient()"><br> <span
 							id="spanCoefficient"></span></td>
 					</tr>
 					<tr>
 						<td>Salaire souhaité *</td>
 						<td colspan="3" style="width: 229px; height: 25px; color:;"><input
-							id="salaireSouhaite" type="text" name="salaire" value=''
+							id="salaireSouhaite" type="text" name="salaire" value="%%salaire%%"
 							style="width: 615px;" onblur="ctrSalaireSouhaite()"><br>
 							<span id="spanSalaireSouhaite"></span></td>
 					</tr>
@@ -123,27 +123,27 @@
 						<td style="width: 273px; height: 25px; color:;"><input
 							type="radio" name="mutuelle" value="oui"> oui</td>
 						<td colspan="2" style="width: 116px;"><input type="radio"
-							name="mutuelle" value="non" checked="checked"> non</td>
+							name="mutuelle" value="non"> non</td>
 					</tr>
 					<tr>
 						<td>Ticket resto:</td>
 						<td style="width: 273px; height: 25px; color:;"><input
 							type="radio" name="ticketResto" value="oui"> oui</td>
 						<td colspan="2" style="width: 116px;"><input type="radio"
-							name="ticketResto" value="non" checked="checked"> non</td>
+							name="ticketResto" value="non"> non</td>
 					</tr>
 					<tr>
 						<td>Date de la dernière visite médicale *</td>
 						<td colspan="3" style="width: 229px; height: 25px; color:;"><input
 							id="dateVisiteMedicale" type="text" name="dateVisiteMedicale"
-							value='' style="width: 615px;" onblur="ctrDateVisiteMedicale()"><br>
+							value="%%visite%%" style="width: 615px;" onblur="ctrDateVisiteMedicale()"><br>
 							<span id="spanDateVisiteMedicale"></span></td>
 					</tr>
 					<tr>
 						<td>Montant carte d'abonnement Transports</td>
 						<td colspan="3" style="width: 229px; height: 25px; color:;"><input
 							id="montantTransport" type="text" name="montantTransport"
-							value='' style="width: 615px;" onblur="ctrMontantTransport()"><br>
+							value="%%montantTransport%%" style="width: 615px;" onblur="ctrMontantTransport()"><br>
 							<span id="spanMontantTransport"></span></td>
 					</tr>
 					<tr>
@@ -151,31 +151,32 @@
 						<td style="width: 273px; height: 25px; color:;"><input
 							type="radio" name="vehicule" value="oui"> oui</td>
 						<td colspan="2" style="width: 116px;"><input type="radio"
-							name="vehicule" value="non" checked="checked"> non</td>
+							name="vehicule" value="non"> non</td>
 					</tr>
 					<tr>
 						<td>Nombre de CV</td>
 						<td style="width: 273px; height: 25px; color:;"><input
-							id="nbChevaux" type="text" name="nbCv" value=''
+							id="nbChevaux" type="text" name="nbCv" value="%%nbCV%%"
 							style="width: 270px;" onblur="ctrNbChevaux()"><br> <span
 							id="spanNbChevaux"></span></td>
 						<td style="width: 116px;">Km mensuel estimé</td>
 						<td style="width: 112px; height: 25px; color:;"><input
-							id="kmMensuel" type="text" name="nbKm" value=''
+							id="kmMensuel" type="text" name="nbKm" value="%%nbKM%%"
 							onblur="ctrKmMensuel()"><br> <span id=spanKmMensuel></span></td>
 					</tr>
 				</table>
 				<input type="submit" value="Terminer"></input> <input type="hidden"
 					name="noSerie" value="%%noSerie%%">
 			</form>
-<!-- 			<form action="http://localhost:8080/ProjectJMST/ServletSoka3" -->
-<!-- 				method='post'> -->
-<!-- 				<input type="submit" value="Precedent"></input> <input type="hidden" -->
-<!-- 					name="noSerie" value="%%noSerie%%"> -->
-<!-- 			</form> -->
+			<form action="http://localhost:8080/ProjectJMST/ServletSoka3"
+				method='post'>
+				<input type="submit" value="Precedent"></input> <input type="hidden"
+					name="noSerie" value="%%noSerie%%">
+			</form>
 			<form action="http://localhost:8080/ProjectJMST/ServletDeco"
 				method='get'>
-				<input type="submit" value="Deconnexion"></input> 
+				<input type="submit" value="Deconnexion"></input> <input
+					type="hidden" name="noSerie" value="%%noSerie%%">
 			</form>
 
 

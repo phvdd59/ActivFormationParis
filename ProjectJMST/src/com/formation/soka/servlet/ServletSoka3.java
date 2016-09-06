@@ -36,8 +36,9 @@ public class ServletSoka3 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		HttpSession session = request.getSession();
 
 		String noSerieHtml = request.getParameter("noSerie");
@@ -60,8 +61,8 @@ public class ServletSoka3 extends HttpServlet {
 		 * CONTROLE ET CONVERSION
 		 */
 		CtrlPersonne ctrl = new CtrlPersonne();
-		if (ctrl.ctrlDateNaissance(sDateNaissance) && ctrl.ctrlLieuNaissance(sLieuNaissance) && ctrl.ctrlNumSecu(sNumSecu)
-				&& ctrl.ctrlNationalite(sNationalite)) {
+		if (ctrl.ctrlDateNaissance(sDateNaissance) && ctrl.ctrlLieuNaissance(sLieuNaissance)
+				&& ctrl.ctrlNumSecu(sNumSecu) && ctrl.ctrlNationalite(sNationalite)) {
 			ConversionPersonne conv = new ConversionPersonne();
 			perso.setDateNaissance(conv.conversionDate(sDateNaissance));
 			perso.setLieuNaissance(sLieuNaissance);
@@ -84,8 +85,26 @@ public class ServletSoka3 extends HttpServlet {
 				session.setAttribute("noSerie", noSerie);
 				String line = bIn.readLine();
 				while (line != null) {
-					if (line.contains("%%noSerie%%")) {
-						line = line.replace("%%noSerie%%", noSerie);
+					line = line.replace("%%noSerie%%", noSerie);
+					if (perso.getSituation().equals("Salarie")) {
+						line = line.replace("<input type=\"radio\" name=\"situationPro\" value=\"Salarie\">",
+								"<input type=\"radio\" name=\"situationPro\" value=\"Salarie\" checked=\"checked\">");
+					} else if (perso.getSituation().equals("auto entrepreneur")) {
+						line = line.replace("<input type=\"radio\" name=\"situationPro\" value=\"auto entrepreneur\">",
+								"<input type=\"radio\" name=\"situationPro\" value=\"auto entrepreneur\" checked=\"checked\">");
+					} else if (perso.getSituation().equals("freelance")) {
+						line = line.replace("<input type=\"radio\" name=\"situationPro\" value=\"freelance\">",
+								"<input type=\"radio\" name=\"situationPro\" value=\"freelance\" checked=\"checked\">");
+					} else if (perso.getSituation().equals("demandeur d'emploi")) {
+						line = line.replace("<input type=\"radio\" name=\"situationPro\" value=\"demandeur d'emploi\">",
+								"<input type=\"radio\" name=\"situationPro\" value=\"demandeur d'emploi\" checked=\"checked\">");
+					} else if (perso.getSituation().equals("retraite")) {
+						line = line.replace("<input type=\"radio\" name=\"situationPro\" value=\"retraite\">",
+								"<input type=\"radio\" name=\"situationPro\" value=\"retraite\" checked=\"checked\">");
+					} else {
+						line = line.replace("<input type=\"radio\" name=\"situationPro\" value=\"\">",
+								"<input type=\"radio\" name=\"situationPro\" value=\"\" checked=\"checked\">");
+						line = line.replace("%%autre%%", perso.getSituation());
 					}
 					response.getWriter().println(line);
 					line = bIn.readLine();
@@ -122,7 +141,8 @@ public class ServletSoka3 extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doGet(request, response);
 	}
 

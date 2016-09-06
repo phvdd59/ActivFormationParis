@@ -54,7 +54,7 @@ public class Inscription extends HttpServlet {
 		/***************************
 		 * RECUP DONNEE FORMULAIRE
 		 */
-		String sFonctionOccupe = request.getParameter("fonction occupee");
+		String sFonctionOccupe = request.getParameter("fonctionoccupee");
 		String sCadre = request.getParameter("cadre");
 		String sPosition = request.getParameter("position");
 		String sCoefficient = request.getParameter("coefficient");

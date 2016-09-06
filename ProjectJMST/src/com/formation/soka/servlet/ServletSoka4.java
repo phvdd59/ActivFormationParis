@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.formation.joca.controleur.CtrlPersonne;
+import com.formation.thcr.conversion.ConversionPersonne;
 import com.formation.thcr.metier.Personne;
 
 /**
@@ -34,9 +35,11 @@ public class ServletSoka4 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
 		HttpSession session = request.getSession();
+		ConversionPersonne convPers = new ConversionPersonne();
 
 		String noSerieHtml = request.getParameter("noSerie");
 		String noSerie = (String) session.getAttribute("noSerie");
@@ -59,7 +62,7 @@ public class ServletSoka4 extends HttpServlet {
 		CtrlPersonne ctrl = new CtrlPersonne();
 		if (ctrl.ctrlSituation(sSituationPro)) {
 			perso.setSituation(sSituationPro);
-			//perso.setSituation(sSituation);
+			// perso.setSituation(sSituation);
 
 			File file = new File("C:/DevFormation/GITActivFormationParis/" + //
 					"ProjectJMST/WebContent/WEB-INF/" + //
@@ -72,9 +75,41 @@ public class ServletSoka4 extends HttpServlet {
 				session.setAttribute("noSerie", noSerie);
 				String line = bIn.readLine();
 				while (line != null) {
-					if (line.contains("%%noSerie%%")) {
-						line = line.replace("%%noSerie%%", noSerie);
+					line = line.replace("%%noSerie%%", noSerie);
+					line = line.replace("%%fonction%%", perso.getFonction());
+					line = line.replace("%%position%%", perso.getPosition());
+					line = line.replace("%%coefficient%%", perso.getCoeff());
+					line = line.replace("%%salaire%%", perso.getSalaire());
+					line = line.replace("%%visite%%",
+							convPers.conversionSQLToUtil(new java.sql.Date(perso.getVisiteMedicale().getTime())));
+					line = line.replace("%%montantTransport%%", perso.getMontantTransport());
+					line = line.replace("%%nbCV%%", Integer.valueOf(perso.getNbCV()).toString());
+					line = line.replace("%%nbKM%%", perso.getNbKm());
+					
+					if (perso.isCadre()){
+						line = line.replace("<input type=\"radio\" name=\"cadre\" value=\"oui\">", "<input type=\"radio\" name=\"cadre\" value=\"oui\" checked=\"checked\">");
+					} else {
+						line = line.replace("<input type=\"radio\" name=\"cadre\" value=\"non\">", "<input type=\"radio\" name=\"cadre\" value=\"non\" checked=\"checked\">");
 					}
+					
+					if (perso.isMutuelle()){
+						line = line.replace("<input type=\"radio\" name=\"mutuelle\" value=\"oui\">", "<input type=\"radio\" name=\"mutuelle\" value=\"oui\" checked=\"checked\">");
+					} else {
+						line = line.replace("<input type=\"radio\" name=\"mutuelle\" value=\"non\">", "<input type=\"radio\" name=\"mutuelle\" value=\"non\" checked=\"checked\">");
+					}
+					
+					if (perso.isTicketResto()){
+						line = line.replace("<input type=\"radio\" name=\"ticketResto\" value=\"oui\">", "<input type=\"radio\" name=\"ticketResto\" value=\"oui\" checked=\"checked\">");
+					} else {
+						line = line.replace("<input type=\"radio\" name=\"ticketResto\" value=\"non\">", "<input type=\"radio\" name=\"ticketResto\" value=\"non\" checked=\"checked\">");
+					}
+					
+					if (perso.isVoiture()){
+						line = line.replace("<input type=\"radio\" name=\"voiture\" value=\"oui\">", "<input type=\"radio\" name=\"voiture\" value=\"oui\" checked=\"checked\">");
+					} else {
+						line = line.replace("<input type=\"radio\" name=\"voiture\" value=\"non\">", "<input type=\"radio\" name=\"voiture\" value=\"non\" checked=\"checked\">");
+					}
+					
 					response.getWriter().println(line);
 					line = bIn.readLine();
 				}
@@ -109,7 +144,8 @@ public class ServletSoka4 extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doGet(request, response);
 
 	}

@@ -38,7 +38,6 @@ public class ServletSoka0 extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		
 		HttpSession session = request.getSession(true);
 		Enumeration<String> a = session.getAttributeNames();
 		Personne perso = null;
@@ -70,7 +69,19 @@ public class ServletSoka0 extends HttpServlet {
 			perso.setLieuNaissance("");
 			perso.setNationalite("");
 			perso.setNumSecu("");
-			
+			perso.setSituation("");
+			perso.setFonction("");
+			perso.setPosition("");
+			perso.setCoeff("");
+			perso.setCadre(false);
+			perso.setSalaire("");
+			perso.setMutuelle(false);
+			perso.setTicketResto(false);
+			perso.setVisiteMedicale(new Date());
+			perso.setMontantTransport("");
+			perso.setVoiture(false);
+			perso.setNbCV(0);
+			perso.setNbKm("");
 			session.setAttribute("Personne", perso);
 			
 		}
