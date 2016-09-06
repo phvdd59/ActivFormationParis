@@ -91,6 +91,8 @@ public class ServletSoka3 extends HttpServlet {
 					line = bIn.readLine();
 				}
 				bIn.close();
+			} else {
+				request.getRequestDispatcher("/ServletDeco").forward(request, response);
 			}
 
 		} else {

@@ -98,6 +98,8 @@ public class ServletSoka2 extends HttpServlet {
 					line = bIn.readLine();
 				}
 				bIn.close();
+			} else {
+				request.getRequestDispatcher("/ServletDeco").forward(request, response);
 			}
 		} else {
 			File file = new File("C:/DevFormation/" + //

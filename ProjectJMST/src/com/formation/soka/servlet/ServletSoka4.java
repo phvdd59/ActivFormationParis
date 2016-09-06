@@ -37,7 +37,7 @@ public class ServletSoka4 extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		HttpSession session = request.getSession();
-		
+
 		String noSerieHtml = request.getParameter("noSerie");
 		String noSerie = (String) session.getAttribute("noSerie");
 
@@ -57,9 +57,9 @@ public class ServletSoka4 extends HttpServlet {
 		 * CONTROLE ET CONVERSION
 		 */
 		CtrlPersonne ctrl = new CtrlPersonne();
-		if (ctrl.ctrlSituation(sSituationPro)){
-		perso.setSituation(sSituationPro);
-		//perso.setSituation(sSituation);
+		if (ctrl.ctrlSituation(sSituationPro)) {
+			perso.setSituation(sSituationPro);
+			//perso.setSituation(sSituation);
 
 			File file = new File("C:/DevFormation/GITActivFormationParis/" + //
 					"ProjectJMST/WebContent/WEB-INF/" + //
@@ -79,6 +79,8 @@ public class ServletSoka4 extends HttpServlet {
 					line = bIn.readLine();
 				}
 				bIn.close();
+			} else {
+				request.getRequestDispatcher("/ServletDeco").forward(request, response);
 			}
 		} else {
 			File file = new File("C:/DevFormation/GITActivFormationParis/" + //
@@ -110,6 +112,5 @@ public class ServletSoka4 extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 
-		
 	}
 }

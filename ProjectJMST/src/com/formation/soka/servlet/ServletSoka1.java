@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -56,7 +57,7 @@ public class ServletSoka1 extends HttpServlet {
 			sIdentifiant = request.getParameter("identifiant");
 			sMdp1 = request.getParameter("mdp1");
 			sMdp2 = request.getParameter("mdp2");
-			System.out.println(sMdp1+sMdp2+sIdentifiant);
+			System.out.println(sMdp1 + sMdp2 + sIdentifiant);
 			/***************************
 			 * CONTROLE ET CONVERSION
 			 */
@@ -92,16 +93,16 @@ public class ServletSoka1 extends HttpServlet {
 					session.setAttribute("noSerie", noSerie);
 					String line = bIn.readLine();
 					while (line != null) {
-							line = line.replace("%%noSerie%%", noSerie);
-							line = line.replace("%%nom%%", perso.getNom());
-							line = line.replace("%%prenom%%", perso.getPrenom());
-							line = line.replace("%%adresse%%", perso.getAdresse());
-							line = line.replace("%%codepostale%%", perso.getCp());
-							line = line.replace("%%ville%%", perso.getVille());
-							line = line.replace("%%telfixe%%", perso.getTelFixe());
-							line = line.replace("%%telportable%%", perso.getTelPort());
-							line = line.replace("%%fax%%", perso.getFax());
-							line = line.replace("%%mail%%", perso.getEmail());
+						line = line.replace("%%noSerie%%", noSerie);
+						line = line.replace("%%nom%%", perso.getNom());
+						line = line.replace("%%prenom%%", perso.getPrenom());
+						line = line.replace("%%adresse%%", perso.getAdresse());
+						line = line.replace("%%codepostale%%", perso.getCp());
+						line = line.replace("%%ville%%", perso.getVille());
+						line = line.replace("%%telfixe%%", perso.getTelFixe());
+						line = line.replace("%%telportable%%", perso.getTelPort());
+						line = line.replace("%%fax%%", perso.getFax());
+						line = line.replace("%%mail%%", perso.getEmail());
 						response.getWriter().println(line);
 						line = bIn.readLine();
 					}
@@ -115,54 +116,21 @@ public class ServletSoka1 extends HttpServlet {
 					bIn2 = new BufferedReader(new FileReader(file2));
 					String line = bIn2.readLine();
 					while (line != null) {
-						if (line.contains("%%noSerie%%")) {
-							line = line.replace("%%noSerie%%", noSerie);
-						}
-						if (line.contains("name=\"identifiant\"")) {
-							line = line.replace("</th>", "<p style=\"color: red;\">login deja existant</p></th>");
-						}
+						line = line.replace("%%noSerie%%", noSerie);
+						line = line.replace("<p id=\"erreurLog\" style=\"visibility:hidden\"></p>",
+								"<p id=\"erreurLog\" style=\"visibility:visible\">login existant</p>");
+						line = line.replace("%%identifiant%%", perso.getIdentifiant());
+						System.out.println(perso.getMdp());
+						line = line.replace("%%motdepasse1%%", perso.getMdp());
+						line = line.replace("%%motdepasse2%%", perso.getMdp());
 						response.getWriter().println(line);
 						line = bIn2.readLine();
 					}
 					bIn2.close();
 				}
 			} else {
-				File file2 = new File("C:/DevFormation/" + //
-						"GITActivFormationParis/ProjectJMST/" + //
-						"WebContent/WEB-INF/" + //
-						"page/pageActiveFormulaire_part1_ident_mdp.html");
-				BufferedReader bIn2 = null;
-				bIn2 = new BufferedReader(new FileReader(file2));
-				String line = bIn2.readLine();
-				while (line != null) {
-					if (line.contains("%%noSerie%%")) {
-						String noSerie = (String) session.getAttribute("noSerie");
-						line = line.replace("%%noSerie%%", noSerie);
-					}
-					response.getWriter().println(line);
-					line = bIn2.readLine();
-				}
-				bIn2.close();
+				request.getRequestDispatcher("/ServletDeco").forward(request, response);
 			}
-		} else {
-			//Retour page précédente
-			File file2 = new File("C:/DevFormation/" + //
-					"GITActivFormationParis/ProjectJMST/" + //
-					"WebContent/WEB-INF/" + //
-					"page/pageActiveFormulaire_part1_ident_mdp.html");
-			BufferedReader bIn2 = null;
-			bIn2 = new BufferedReader(new FileReader(file2));
-			String line = bIn2.readLine();
-			while (line != null) {
-				if (line.contains("%%noSerie%%")) {
-					String noSerieHtml = request.getParameter("noSerie");
-					String noSerie = (String) session.getAttribute("noSerie");
-					line = line.replace("%%noSerie%%", noSerie);
-				}
-				response.getWriter().println(line);
-				line = bIn2.readLine();
-			}
-			bIn2.close();
 		}
 	}
 

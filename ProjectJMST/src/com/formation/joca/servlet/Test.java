@@ -157,12 +157,12 @@ public class Test extends HttpServlet {
 				lecture = new BufferedReader(input);
 				String line = lecture.readLine();
 				while (line != null) {
-					if (line.contains("onblur=\"verif_ident(this)\" /><span") && utilisateur.isBloque()) {
-						line = line.replace("/><span", "/><p style=\"color:red;\" >personne bloquee</p><span");
-					}else if (line.contains("onblur=\"verif_mdp(this)\" /><span") && !utilisateur.getMdp().equals(motdepasse)) {
-						line = line.replace("><span", "/><p style=\"color:red;\" >mauvais mot de passe</p><span");
+					if (line.contains("<p id=\"erreurLog\" style=\"visibility:hidden\"></p>") && utilisateur.isBloque()) {
+						line = line.replace("hidden\"></p>", "visible; color:red;\">utilisateur bloquee</p>");
+					}else if (line.contains("<p id=\"erreurLog\" style=\"visibility:hidden\"></p>") && !utilisateur.getMdp().equals(motdepasse)) {
+						line = line.replace("hidden\"></p>", "visible; color:red;\">mauvais mot de passe</p>");
 					} else {
-						line = line.replace("/><span", "/><p style=\"color:red;\" >erreur login</p><span");
+						line = line.replace("hidden\"></p>", "visible; color:red;\">erreur de login</p>");
 					}
 					response.getWriter().println(line);
 					line = lecture.readLine();
@@ -176,8 +176,8 @@ public class Test extends HttpServlet {
 			lecture = new BufferedReader(input);
 			String line = lecture.readLine();
 			while (line != null) {
-				if (line.contains("onblur=\"verif_ident(this)\" /><span")) {
-					line = line.replace("/><span", "/><p style=\"color:red;\" >login inexistant</p><span");
+				if (line.contains("<p id=\"erreurLog\" style=\"visibility:hidden\"></p>")) {
+					line = line.replace("hidden\"></p>", "visible; color:red;\">login inexistant</p>");
 				}
 				response.getWriter().println(line);
 				line = lecture.readLine();
