@@ -15,13 +15,15 @@
 			name="resto" checked="unchecked" type="radio" ID="checkNON">
 	</div>
 	<div ID="formu21">
-		Date de votre derni&egrave;re visite m&eacute;dicale: <input name="visiteMedicale" type="text" style="margin-left: 15px" value="%%visiteMedicale%%">
+		Date de votre derni&egrave;re visite m&eacute;dicale: <input name="visiteMedicale" type="text" onblur="verifDate(this)" style="margin-left: 15px" value="%%visiteMedicale%%">
 	</div>
 	<div ID="formu21">
-		Montant Carte d'abonnement transport: <input name="montantTransport" type="text" style="margin-left: 15px" value="%%montantTransport%%">
+		Montant Carte d'abonnement transport: <input name="montantTransport" type="text" onblur="verifMontantTransport(this)" style="margin-left: 15px" value="%%montantTransport%%">
 	</div>
 	<div>
-		V&eacute;hicule personnel: <label style="margin-left: 25px">oui</label> <input value="oui" ID="checkOUI" name="voiture" type="radio" checked="checked"> <label style="margin-left: 25px">non</label><input name="voiture" checked="unchecked" type="radio" value="non" ID="checkNON"> <label style="margin-left: 30px; margin-right: 10px"> Nombre de CV: </label><input name="nbCV" type="number" value="%%nbCV%%"><label style="margin-left: 30px; margin-right: 10px">km mensuel estim&eacute;: </label> <input
+		V&eacute;hicule personnel: <label style="margin-left: 25px">oui</label> <input value="oui" ID="checkOUI" name="voiture" type="radio" checked="checked"> <label style="margin-left: 25px">non</label><input name="voiture" checked="unchecked" type="radio" value="non" ID="checkNON"> 
+		<label style="margin-left: 30px; margin-right: 10px"> Nombre de CV: </label><input name="nbCV" type="number" onblur="verifNbCV(this)">
+		<label style="margin-left: 30px; margin-right: 10px">km mensuel estim&eacute;: </label> <input
 			name="nbKm" type="number" value="%%nbKm%%">
 	</div>
 
