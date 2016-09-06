@@ -43,6 +43,7 @@ public class Servletaccueilvalidemdp extends HttpServlet {
 		Personne personne = (Personne) session.getAttribute("personne");
 		String sMdp=request.getParameter("VmdpN");
 		personne.setMdp(sMdp);
+		personne.modifPersonne(personne.getIdPersonne());
 		
 		if (noSerie != null && personne.getIdentifiant() != null) {
 			if (personne.getIdentifiant().equals("Admin")) {
