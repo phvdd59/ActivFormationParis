@@ -164,6 +164,7 @@ public class Test extends HttpServlet {
 					} else {
 						line = line.replace("hidden\"></p>", "visible; color:red;\">erreur de login</p>");
 					}
+					
 					response.getWriter().println(line);
 					line = lecture.readLine();
 				}
