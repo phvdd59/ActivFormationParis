@@ -2,6 +2,7 @@ package com.formation.ajee.metier;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.util.Date;
 
@@ -214,6 +215,9 @@ public class Personne implements Serializable {
 	}
 
 	public String getNom() {
+		if (nom == null) {
+			nom = "";
+		}
 		return nom;
 	}
 
@@ -222,6 +226,9 @@ public class Personne implements Serializable {
 	}
 
 	public String getPrenom() {
+		if (prenom == null) {
+			prenom = "";
+		}
 		return prenom;
 	}
 
@@ -254,6 +261,9 @@ public class Personne implements Serializable {
 	}
 
 	public String getEmail() {
+		if (email == null) {
+			email = "";
+		}
 		return email;
 	}
 
@@ -262,14 +272,19 @@ public class Personne implements Serializable {
 	}
 
 	public String getAdresse() {
+		if (adresse == null) {
+			adresse = "";}
 		return adresse;
-	}
+		}
 
 	public void setAdresse(String adresse) {
 		this.adresse = adresse;
 	}
 
 	public String getCp() {
+		if (cp == null) {
+			cp = "";
+		}
 		return cp;
 	}
 
@@ -278,7 +293,9 @@ public class Personne implements Serializable {
 	}
 
 	public String getVille() {
-		return ville;
+		if (ville == null) {
+			ville = "";
+		}return ville;
 	}
 
 	public void setVille(String ville) {
@@ -286,7 +303,9 @@ public class Personne implements Serializable {
 	}
 
 	public String getTelFixe() {
-		return telFixe;
+		if (telFixe == null) {
+			telFixe = "";
+		}return telFixe;
 	}
 
 	public void setTelFixe(String telFixe) {
@@ -294,7 +313,9 @@ public class Personne implements Serializable {
 	}
 
 	public String getTelPort() {
-		return telPort;
+		if (telPort == null) {
+			telPort = "";
+		}return telPort;
 	}
 
 	public void setTelPort(String telPort) {
@@ -302,7 +323,9 @@ public class Personne implements Serializable {
 	}
 
 	public String getFax() {
-		return fax;
+		if (fax == null) {
+			fax = "";
+		}return fax;
 	}
 
 	public void setFax(String fax) {
@@ -312,13 +335,24 @@ public class Personne implements Serializable {
 	public Date getDateNaissance() {
 		return dateNaissance;
 	}
+	public String getDateNaissanceString() {
+		String datenaissance = "";
+		if (dateNaissance != null) {
+			Date maintenant = dateNaissance;
+			SimpleDateFormat formatDateJour = new SimpleDateFormat("dd/MM/yyyy ");
+			datenaissance = formatDateJour.format(maintenant);
+		}
+		return datenaissance;
+	}
 
 	public void setDateNaissance(Date dateNaissance) {
 		this.dateNaissance = dateNaissance;
 	}
 
 	public String getLieuNaissance() {
-		return lieuNaissance;
+		if (lieuNaissance == null) {
+			lieuNaissance = "";
+		}return lieuNaissance;
 	}
 
 	public void setLieuNaissance(String lieuNaissance) {
@@ -326,7 +360,9 @@ public class Personne implements Serializable {
 	}
 
 	public String getNumSecu() {
-		return numSecu;
+		if (numSecu == null) {
+			numSecu = "";
+		}return numSecu;
 	}
 
 	public void setNumSecu(String numSecu) {
@@ -334,7 +370,9 @@ public class Personne implements Serializable {
 	}
 
 	public String getNationalite() {
-		return nationalite;
+		if (nationalite == null) {
+			nationalite = "";
+		}return nationalite;
 	}
 
 	public void setNationalite(String nationalite) {
@@ -350,7 +388,9 @@ public class Personne implements Serializable {
 	}
 
 	public String getFonction() {
-		return fonction;
+		if (fonction == null) {
+			fonction = "";
+		}return fonction;
 	}
 
 	public void setFonction(String fonction) {
@@ -358,7 +398,9 @@ public class Personne implements Serializable {
 	}
 
 	public String getPositionEntreprise() {
-		return positionEntreprise;
+		if (positionEntreprise == null) {
+			positionEntreprise = "";
+		}return positionEntreprise;
 	}
 
 	public void setPositionEntreprise(String positionEntreprise) {
@@ -374,7 +416,9 @@ public class Personne implements Serializable {
 	}
 
 	public String getCoeff() {
-		return coeff;
+		if (coeff == null) {
+			coeff = "";
+		}return coeff;
 	}
 
 	public void setCoeff(String coeff) {
@@ -382,7 +426,9 @@ public class Personne implements Serializable {
 	}
 
 	public String getSalaire() {
-		return salaire;
+		if (salaire == null) {
+			salaire = "";
+		}return salaire;
 	}
 
 	public void setSalaire(String salaire) {
@@ -392,13 +438,22 @@ public class Personne implements Serializable {
 	public Date getVisiteMedicale() {
 		return visiteMedicale;
 	}
-
+	public String getVisiteMedicaleString() {
+		String sVisiteMedicale = "";
+		if (visiteMedicale != null) {
+			Date maintenant = visiteMedicale;
+			SimpleDateFormat formatDateJour = new SimpleDateFormat("dd/MM/yyyy ");
+			sVisiteMedicale = formatDateJour.format(maintenant);
+		}return sVisiteMedicale;
+	}
 	public void setVisiteMedicale(Date visiteMedicale) {
 		this.visiteMedicale = visiteMedicale;
 	}
 
 	public String getMontantTransport() {
-		return montantTransport;
+		if (montantTransport == null) {
+			montantTransport = "";
+		}return montantTransport;
 	}
 
 	public void setMontantTransport(String montantTransport) {
@@ -406,6 +461,15 @@ public class Personne implements Serializable {
 	}
 
 	public boolean isVoiture() {
+		return voiture;
+	}
+	public String getVoiture() {
+		String voiture="";
+		if (isMutuelle() == false) {
+			voiture = "non";
+		} else {
+			voiture = "oui";
+		}
 		return voiture;
 	}
 
@@ -416,13 +480,18 @@ public class Personne implements Serializable {
 	public int getNbCV() {
 		return nbCV;
 	}
+	public String getNbCVString() {
+		return  Integer.toString(nbCV);
+	}
 
 	public void setNbCV(int nbCV) {
 		this.nbCV = nbCV;
 	}
 
 	public String getNbKm() {
-		return nbKm;
+		if (nbKm == null) {
+			nbKm = "";
+		}return nbKm;
 	}
 
 	public void setNbKm(String nbKm) {
@@ -432,7 +501,15 @@ public class Personne implements Serializable {
 	public boolean isMutuelle() {
 		return mutuelle;
 	}
-
+	public String getMutuelle() {
+		String mutuelle="";
+		if (isMutuelle() == false) {
+			mutuelle = "non";
+		} else {
+			mutuelle = "oui";
+		}
+		return mutuelle;
+	}
 	public void setMutuelle(boolean mutuelle) {
 		this.mutuelle = mutuelle;
 	}
@@ -440,7 +517,14 @@ public class Personne implements Serializable {
 	public boolean isTicketResto() {
 		return ticketResto;
 	}
-
+	public String getTicketResto() {
+		String ticketResto="";
+		if (isMutuelle() == false) {
+			ticketResto = "non";
+		} else {
+			ticketResto = "oui";
+		}return ticketResto;
+	}
 	public void setTicketResto(boolean ticketResto) {
 		this.ticketResto = ticketResto;
 	}

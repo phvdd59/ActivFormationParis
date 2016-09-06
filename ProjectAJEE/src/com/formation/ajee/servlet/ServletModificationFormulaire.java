@@ -68,72 +68,33 @@ public class ServletModificationFormulaire extends HttpServlet {
 		//
 
 		String nom = personne.getNom();
-		if (nom == null) {
-			nom = "";
-		}
-
+	
 		String prenom = personne.getPrenom();
-		if (prenom == null) {
-			prenom = "";
-		}
-
+		
 		String adresse = personne.getAdresse();
-		if (adresse == null) {
-			adresse = "";
-		}
-
+	
 		String cp = personne.getCp();
-		if (cp == null) {
-			cp = "";
-		}
-
+	
 		String ville = personne.getVille();
-		if (ville == null) {
-			ville = "";
-		}
-
+	
 		String telfixe = personne.getTelFixe();
 		if (telfixe == null) {
 			telfixe = "";
 		}
-
 		String telport = personne.getTelPort();
-		if (telport == null) {
-			telport = "";
-		}
-
+		
 		String fax = personne.getFax();
-		if (fax == null) {
-			fax = "";
-		}
-
+	
 		String email = personne.getEmail();
-		if (email == null) {
-			email = "";
-		}
-
-		Date Ddatenaissance = personne.getDateNaissance();
-		String datenaissance = "";
-		if (Ddatenaissance != null) {
-			Date maintenant = Ddatenaissance;
-			SimpleDateFormat formatDateJour = new SimpleDateFormat("dd/MM/yyyy ");
-			datenaissance = formatDateJour.format(maintenant);
-		}
-
+		
+		String datenaissance = personne.getDateNaissanceString();
+	
 		String lieunaissance = personne.getLieuNaissance();
-		if (lieunaissance == null) {
-			lieunaissance = "";
-		}
-
+		
 		String numSecu = personne.getNumSecu();
-		if (numSecu == null) {
-			numSecu = "";
-		}
-
+		
 		String nationalite = personne.getNationalite();
-		if (nationalite == null) {
-			nationalite = "";
-		}
+		
 
 		// String situation = personne.getSituation();
 		// if (situation == null) {
@@ -141,65 +102,27 @@ public class ServletModificationFormulaire extends HttpServlet {
 		// }
 
 		String fonction = personne.getFonction();
-		if (fonction == null) {
-			fonction = "";
-		}
-
+		
 		String positionEntreprise = personne.getPositionEntreprise();
-		if (positionEntreprise == null) {
-			positionEntreprise = "";
-		}
-
+	
 		String coeff = personne.getCoeff();
-		if (coeff == null) {
-			coeff = "";
-		}
-
+	
 		String salaire = personne.getSalaire();
-		if (salaire == null) {
-			salaire = "";
-		}
-
-		String mutuelle;
-		if (personne.isMutuelle() == false) {
-			mutuelle = "false";
-		} else {
-			mutuelle = "true";
-		}
-
-		String ticketResto;
-		if (personne.isTicketResto() == false) {
-			ticketResto = "false";
-		} else {
-			ticketResto = "true";
-		}
-
-		Date DvisiteMedicale = personne.getVisiteMedicale();
-		String visiteMedicale = "";
-		if (DvisiteMedicale != null) {
-			Date maintenant = DvisiteMedicale;
-			SimpleDateFormat formatDateJour = new SimpleDateFormat("dd/MM/yyyy ");
-			visiteMedicale = formatDateJour.format(maintenant);
-		}
-
+	
+		String mutuelle=personne.getMutuelle();
+	
+		String ticketResto=personne.getTicketResto();
+	
+		String visiteMedicale = personne.getVisiteMedicaleString();
+	
 		String montantTransport = personne.getMontantTransport();
-		if (montantTransport == null) {
-			montantTransport = "";
-		}
+	
+		String voiture=personne.getVoiture();
+		
+		String nbcv =personne.getNbCVString();
 
-		String voiture;
-		if (personne.isVoiture() == false) {
-			voiture = "false";
-		} else {
-			voiture = "true";
-		}
-
-		String nbcv = Integer.toString(personne.getNbCV());
-
-		String nbKm = (personne.getNbKm());
-		if (personne.getNbKm() == null) {
-			nbKm = "";
-		}
+		String nbKm = personne.getNbKm();
+		
 
 		
 

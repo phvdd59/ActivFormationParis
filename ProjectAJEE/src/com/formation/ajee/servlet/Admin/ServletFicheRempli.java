@@ -4,8 +4,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.formation.ajee.metier.Personne;
+import com.formation.ajee.veriffom.Vue;
 
 /**
  * Servlet implementation class ServletFiche
@@ -52,6 +51,7 @@ public class ServletFicheRempli extends HttpServlet {
 		Object oNoSerie = session.getAttribute("noSerie");
 		Personne personne = (Personne) session.getAttribute("personne");
 		Personne utilisateur = (Personne) session.getAttribute("utilisateur");
+		Vue vue=new Vue();
 		// Récupérer les données du formulaire et ranger dans objet personne
 
 		// ArrayList<String> lstparam= new ArrayList<String>();
@@ -76,305 +76,126 @@ public class ServletFicheRempli extends HttpServlet {
 		// lstparam.add("montantTransport");
 		// lstparam.add("nbKm");
 		//
-		if (oNoSerie != null&& personne!=null) {
-		String nom = personne.getNom();
-		if (nom == null) {
-			nom = "";
-		}
+		if (oNoSerie != null && personne != null) {
+			String nom = personne.getNom();
 
-		String prenom = personne.getPrenom();
-		if (prenom == null) {
-			prenom = "";
-		}
+			String prenom = personne.getPrenom();
 
-		String adresse = personne.getAdresse();
-		if (adresse == null) {
-			adresse = "";
-		}
+			String adresse = personne.getAdresse();
 
-		String cp = personne.getCp();
-		if (cp == null) {
-			cp = "";
-		}
+			String cp = personne.getCp();
 
-		String ville = personne.getVille();
-		if (ville == null) {
-			ville = "";
-		}
+			String ville = personne.getVille();
 
-		String telfixe = personne.getTelFixe();
-		if (telfixe == null) {
-			telfixe = "";
-		}
+			String telfixe = personne.getTelFixe();
+			if (telfixe == null) {
+				telfixe = "";
+			}
+			String telport = personne.getTelPort();
 
-		String telport = personne.getTelPort();
-		if (telport == null) {
-			telport = "";
-		}
+			String fax = personne.getFax();
 
-		String fax = personne.getFax();
-		if (fax == null) {
-			fax = "";
-		}
+			String email = personne.getEmail();
 
-		String email = personne.getEmail();
-		if (email == null) {
-			email = "";
-		}
+			String datenaissance = personne.getDateNaissanceString();
 
-		Date Ddatenaissance = personne.getDateNaissance();
-		String datenaissance = "";
-		if (Ddatenaissance != null) {
-			Date maintenant = Ddatenaissance;
-			SimpleDateFormat formatDateJour = new SimpleDateFormat("dd/MM/yyyy ");
-			datenaissance = formatDateJour.format(maintenant);
-		}
+			String lieunaissance = personne.getLieuNaissance();
 
-		String lieunaissance = personne.getLieuNaissance();
-		if (lieunaissance == null) {
-			lieunaissance = "";
-		}
+			String numSecu = personne.getNumSecu();
 
-		String numSecu = personne.getNumSecu();
-		if (numSecu == null) {
-			numSecu = "";
-		}
+			String nationalite = personne.getNationalite();
 
-		String nationalite = personne.getNationalite();
-		if (nationalite == null) {
-			nationalite = "";
-		}
+			// String situation = personne.getSituation();
+			// if (situation == null) {
+			// situation = "";
+			// }
 
-//		String situation = personne.getSituation();
-//		if (situation == null) {
-//			situation = "";
-//		}
+			String fonction = personne.getFonction();
 
-		String fonction = personne.getFonction();
-		if (fonction == null) {
-			fonction = "";
-		}
+			String positionEntreprise = personne.getPositionEntreprise();
 
-		String positionEntreprise = personne.getPositionEntreprise();
-		if (positionEntreprise == null) {
-			positionEntreprise = "";
-		}
+			String coeff = personne.getCoeff();
 
-		String coeff = personne.getCoeff();
-		if (coeff == null) {
-			coeff = "";
-		}
+			String salaire = personne.getSalaire();
 
-		String salaire = personne.getSalaire();
-		if (salaire == null) {
-			salaire = "";
-		}
+			String mutuelle = personne.getMutuelle();
 
-		String mutuelle;
-		if (personne.isMutuelle() == false) {
-			mutuelle = "non";
-		} else {
-			mutuelle = "oui";
-		}
+			String ticketResto = personne.getTicketResto();
 
-		String ticketResto;
-		if (personne.isTicketResto() == false) {
-			ticketResto = "non";
-		} else {
-			ticketResto = "oui";
-		}
+			String visiteMedicale = personne.getVisiteMedicaleString();
 
-		Date DvisiteMedicale = personne.getVisiteMedicale();
-		String visiteMedicale = "";
-		if (DvisiteMedicale != null) {
-			Date maintenant = DvisiteMedicale;
-			SimpleDateFormat formatDateJour = new SimpleDateFormat("dd/MM/yyyy ");
-			visiteMedicale = formatDateJour.format(maintenant);
-		}
+			String montantTransport = personne.getMontantTransport();
 
-		String montantTransport = personne.getMontantTransport();
-		if (montantTransport == null) {
-			montantTransport = "";
-		}
+			String voiture = personne.getVoiture();
 
-		String voiture;
-		if (personne.isVoiture() == false) {
-			voiture = "non";
-		} else {
-			voiture = "oui";
-		}
+			String nbcv = personne.getNbCVString();
 
-		String nbcv = Integer.toString(personne.getNbCV());
-
-		String nbKm = (personne.getNbKm());
-		if (personne.getNbKm() == null) {
-			nbKm = "";
-		}
-
-	
-
-		
-
-		
+			String nbKm = personne.getNbKm();
 
 			if (utilisateur != null && personne.getIdentifiant().equals("Admin")) {
+
 				String unom = utilisateur.getNom();
-				if (unom == null) {
-					unom = "";
-				}
 
 				String uprenom = utilisateur.getPrenom();
-				if (uprenom == null) {
-					uprenom = "";
-				}
 
 				String uadresse = utilisateur.getAdresse();
-				if (uadresse == null) {
-					uadresse = "";
-				}
 
 				String ucp = utilisateur.getCp();
-				if (ucp == null) {
-					ucp = "";
-				}
 
 				String uville = utilisateur.getVille();
-				if (uville == null) {
-					uville = "";
-				}
 
 				String utelfixe = utilisateur.getTelFixe();
-				if (utelfixe == null) {
-					utelfixe = "";
-				}
 
 				String utelport = utilisateur.getTelPort();
-				if (utelport == null) {
-					utelport = "";
-				}
 
 				String ufax = utilisateur.getFax();
-				if (ufax == null) {
-					ufax = "";
-				}
 
 				String uemail = utilisateur.getEmail();
-				if (uemail == null) {
-					uemail = "";
-				}
 
-				Date uDdatenaissance = utilisateur.getDateNaissance();
-				String udatenaissance = "";
-				if (uDdatenaissance != null) {
-					Date maintenant = uDdatenaissance;
-					SimpleDateFormat formatDateJour = new SimpleDateFormat("dd/MM/yyyy ");
-					udatenaissance = formatDateJour.format(maintenant);
-				}
+				String udatenaissance = utilisateur.getDateNaissanceString();
 
 				String ulieunaissance = utilisateur.getLieuNaissance();
-				if (ulieunaissance == null) {
-					ulieunaissance = "";
-				}
 
 				String unumSecu = utilisateur.getNumSecu();
-				if (unumSecu == null) {
-					unumSecu = "";
-				}
 
 				String unationalite = utilisateur.getNationalite();
-				if (unationalite == null) {
-					unationalite = "";
-				}
 
-//				String usituation = utilisateur.getSituation();
-//				if (usituation == null) {
-//					usituation = "";
-//				}
+				// String situation = utilisateur.getSituation();
+				// if (situation == null) {
+				// situation = "";
+				// }
 
 				String ufonction = utilisateur.getFonction();
-				if (ufonction == null) {
-					ufonction = "";
-				}
 
 				String upositionEntreprise = utilisateur.getPositionEntreprise();
-				if (upositionEntreprise == null) {
-					upositionEntreprise = "";
-				}
 
 				String ucoeff = utilisateur.getCoeff();
-				if (ucoeff == null) {
-					ucoeff = "";
-				}
 
 				String usalaire = utilisateur.getSalaire();
-				if (usalaire == null) {
-					usalaire = "";
-				}
 
-				String umutuelle;
-				if (utilisateur.isMutuelle() == false) {
-					umutuelle = "non";
-				} else {
-					umutuelle = "oui";
-				}
+				String umutuelle = utilisateur.getMutuelle();
 
-				String uticketResto;
-				if (utilisateur.isTicketResto() == false) {
-					uticketResto = "non";
-				} else {
-					uticketResto = "oui";
-				}
+				String uticketResto = utilisateur.getTicketResto();
 
-				Date uDvisiteMedicale = utilisateur.getVisiteMedicale();
-				String uvisiteMedicale = "";
-				if (uDvisiteMedicale != null) {
-					Date maintenant = uDvisiteMedicale;
-					SimpleDateFormat formatDateJour = new SimpleDateFormat("dd/MM/yyyy ");
-					uvisiteMedicale = formatDateJour.format(maintenant);
-				}
+				String uvisiteMedicale = utilisateur.getVisiteMedicaleString();
 
 				String umontantTransport = utilisateur.getMontantTransport();
-				if (umontantTransport == null) {
-					umontantTransport = "";
-				}
 
-				String uvoiture;
-				if (utilisateur.isVoiture() == false) {
-					uvoiture = "non";
-				} else {
-					uvoiture = "oui";
-				}
+				String uvoiture = utilisateur.getVoiture();
 
-				String unbcv = Integer.toString(utilisateur.getNbCV());
+				String unbcv = utilisateur.getNbCVString();
 
-				String unbKm = (utilisateur.getNbKm());
-				if (unbKm == null) {
-					unbKm = "";
-				}
+				String unbKm = utilisateur.getNbKm();
+
 				/** Lecture Haut de page HTML */
-				File fileHaut = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/HautPage.html");
-				BufferedReader bufReadHaut = null;
-				bufReadHaut = new BufferedReader(new FileReader(fileHaut));
-				String lineHaut = bufReadHaut.readLine();
-				while (lineHaut != null) {
-					response.getWriter().println(lineHaut);
-					lineHaut = bufReadHaut.readLine();
-				}
-				bufReadHaut.close();
+				
+				vue.lecturePage(response, "HautPage");
 
 				/** A modifier seulement si notre page contient du JavaScript */
 
 				/** Lecture page ActivConsulting */
-				File fileActiv = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/MenuActiv.html");
-				BufferedReader bufReadActiv = null;
-				bufReadActiv = new BufferedReader(new FileReader(fileActiv));
-				String lineActiv = bufReadActiv.readLine();
-				while (lineActiv != null) {
-					response.getWriter().println(lineActiv);
-					lineActiv = bufReadActiv.readLine();
-				}
-				bufReadActiv.close();
-
+				
+				vue.lecturePage(response, "MenuActiv");
 				/**
 				 * Seule Partie qui va vraiment changer selon les pages (penser
 				 * aux controles si necessaire)
@@ -394,6 +215,7 @@ public class ServletFicheRempli extends HttpServlet {
 					lineDoc = bufReadDoc.readLine();
 				}
 				bufReadDoc.close();
+				
 
 				File fileDoc1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/FormulaireARemplirJeci.html");
 				BufferedReader bufReadDoc1 = null;
@@ -439,9 +261,9 @@ public class ServletFicheRempli extends HttpServlet {
 					if (lineDoc1.contains("%nationalite%")) {
 						lineDoc1 = lineDoc1.replace("%nationalite%", unationalite);
 					}
-//					if (lineDoc1.contains("%situation%")) {
-//						lineDoc1 = lineDoc1.replace("%situation%", usituation);
-//					}
+					// if (lineDoc1.contains("%situation%")) {
+					// lineDoc1 = lineDoc1.replace("%situation%", usituation);
+					// }
 					if (lineDoc1.contains("%fonction%")) {
 						lineDoc1 = lineDoc1.replace("%fonction%", ufonction);
 					}
@@ -482,40 +304,16 @@ public class ServletFicheRempli extends HttpServlet {
 				bufReadDoc1.close();
 
 				/** Lecture bas de page */
-				File fileBas = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/BasPage.html");
-				BufferedReader bufReadBas = null;
-				bufReadBas = new BufferedReader(new FileReader(fileBas));
-				String lineBas = bufReadBas.readLine();
-				while (lineBas != null) {
-					response.getWriter().println(lineBas);
-					lineBas = bufReadBas.readLine();
-				}
-				bufReadBas.close();
+				
+				vue.lecturePage(response, "BasPage");
 			} else {
 				// utiliser le pseudo pour avoir la personne
 				/** Lecture Haut de page HTML */
-				File fileHaut = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/HautPage.html");
-				BufferedReader bufReadHaut = null;
-				bufReadHaut = new BufferedReader(new FileReader(fileHaut));
-				String lineHaut = bufReadHaut.readLine();
-				while (lineHaut != null) {
-					response.getWriter().println(lineHaut);
-					lineHaut = bufReadHaut.readLine();
-				}
-				bufReadHaut.close();
-
+				vue.lecturePage(response, "HautPage");
 				/** A modifier seulement si notre page contient du JavaScript */
 
 				/** Lecture page ActivConsulting */
-				File fileActiv = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/MenuActiv.html");
-				BufferedReader bufReadActiv = null;
-				bufReadActiv = new BufferedReader(new FileReader(fileActiv));
-				String lineActiv = bufReadActiv.readLine();
-				while (lineActiv != null) {
-					response.getWriter().println(lineActiv);
-					lineActiv = bufReadActiv.readLine();
-				}
-				bufReadActiv.close();
+				vue.lecturePage(response, "MenuActiv");
 
 				/**
 				 * Seule Partie qui va vraiment changer selon les pages (penser
@@ -578,9 +376,9 @@ public class ServletFicheRempli extends HttpServlet {
 					if (lineDoc1.contains("%nationalite%")) {
 						lineDoc1 = lineDoc1.replace("%nationalite%", nationalite);
 					}
-//					if (lineDoc1.contains("%situation%")) {
-//						lineDoc1 = lineDoc1.replace("%situation%", situation);
-//					}
+					// if (lineDoc1.contains("%situation%")) {
+					// lineDoc1 = lineDoc1.replace("%situation%", situation);
+					// }
 					if (lineDoc1.contains("%fonction%")) {
 						lineDoc1 = lineDoc1.replace("%fonction%", fonction);
 					}
@@ -620,15 +418,7 @@ public class ServletFicheRempli extends HttpServlet {
 				bufReadDoc1.close();
 
 				/** Lecture bas de page */
-				File fileBas = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/BasPage.html");
-				BufferedReader bufReadBas = null;
-				bufReadBas = new BufferedReader(new FileReader(fileBas));
-				String lineBas = bufReadBas.readLine();
-				while (lineBas != null) {
-					response.getWriter().println(lineBas);
-					lineBas = bufReadBas.readLine();
-				}
-				bufReadBas.close();
+				vue.lecturePage(response, "BasPage");
 			}
 		} else {
 			session.invalidate();
