@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.formation.issa.pages.SituationRemuneration;
+import com.formation.issa.pagesDeVerification.SituationRemuneration;
 
 public class TestSituationRemuneration {
 	

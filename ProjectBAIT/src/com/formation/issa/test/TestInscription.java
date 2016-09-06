@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.formation.issa.pages.Inscription;
+import com.formation.issa.pagesDeVerification.Inscription;
 
 public class TestInscription {
 	Inscription inscription=new Inscription();
@@ -14,6 +14,13 @@ public class TestInscription {
 	public void testValidationMotsDePasseTropCourt() {
 	String motDePasse="Ab/785";
 	String verifMotDePasse="Ab/785";
+	Assert.assertFalse("Mots de passe vides", inscription.validationMotsdePasse(motDePasse, verifMotDePasse));
+	}
+	
+	@Test
+	public void testValidationMotsDePasseTropLong() {
+	String motDePasse="Ab/785545ghfgdfgdrserseses";
+	String verifMotDePasse="Ab/785545ghfgdfgdrserseses";
 	Assert.assertFalse("Mots de passe vides", inscription.validationMotsdePasse(motDePasse, verifMotDePasse));
 	}
 	
@@ -63,6 +70,11 @@ public class TestInscription {
 	@Test
 	public void testValidationIdentifiantTropCourt() {
 	String identifiant="Jo";
+	Assert.assertFalse("Identifiant incorrect", inscription.validationIdentifiant(identifiant));
+	}
+	@Test
+	public void testValidationIdentifiantTropLong() {
+	String identifiant="Jolmgftcvbvvbvbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb";
 	Assert.assertFalse("Identifiant incorrect", inscription.validationIdentifiant(identifiant));
 	}
 	@Test

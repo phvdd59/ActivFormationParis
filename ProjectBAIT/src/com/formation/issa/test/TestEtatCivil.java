@@ -5,7 +5,7 @@ import java.text.ParseException;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.formation.issa.pages.EtatCivil;
+import com.formation.issa.pagesDeVerification.EtatCivil;
 
 public class TestEtatCivil {
 

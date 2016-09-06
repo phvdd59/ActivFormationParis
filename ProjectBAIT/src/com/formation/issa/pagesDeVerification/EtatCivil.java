@@ -1,4 +1,4 @@
-package com.formation.issa.pages;
+package com.formation.issa.pagesDeVerification;
 
 import java.text.DateFormat;
 import java.text.ParseException;

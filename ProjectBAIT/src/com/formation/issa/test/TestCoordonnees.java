@@ -3,7 +3,7 @@ package com.formation.issa.test;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.formation.issa.pages.Coordonnees;
+import com.formation.issa.pagesDeVerification.Coordonnees;
 
 public class TestCoordonnees {
 	Coordonnees coordonnees = new Coordonnees();

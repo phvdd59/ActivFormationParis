@@ -1,4 +1,4 @@
-package com.formation.issa.pages;
+package com.formation.issa.pagesDeVerification;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -51,7 +51,7 @@ public final class Inscription {
 
 	public boolean validationMotsdePasse(String motDePasse, String verifMotDePasse) {
 		boolean retour=false;
-		if (motDePasse != null && verifMotDePasse != null && motDePasse.length()>=8){
+		if (motDePasse != null && verifMotDePasse != null && motDePasse.length()>6 && motDePasse.length()<20){
 			if (motDePasse.matches("^(.*[A-Z]+.*)(.*[a-z]+.*)(.*[0-9]+.*)(.*[\\@#$%^&+=/-_]+.*)$")&& motDePasse.equals(verifMotDePasse)){
 				retour=true;
 			} 
@@ -62,7 +62,7 @@ public final class Inscription {
 
 	public boolean validationIdentifiant(String identifiant){
 		boolean retour=false;
-		if (identifiant != null && identifiant.length()>3) {
+		if (identifiant != null && identifiant.length()>4 && identifiant.length()<30) {
 			if (identifiant.matches("^[0-9]*[A-Za-z]+[0-9]*[a-z]*$")) {
 				retour=true;;
 			} 
