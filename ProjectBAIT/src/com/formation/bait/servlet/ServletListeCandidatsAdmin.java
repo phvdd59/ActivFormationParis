@@ -25,7 +25,7 @@ import com.formation.bait.dao.AccesBDDPersonne;
 /**
  * Servlet implementation class Servlet1
  */
-@WebServlet(value = "/ServletLoginTestBDD", name = "ServletLoginTestBDD")
+@WebServlet(value = "/ServletListeCandidatsAdmin", name = "ServletListeCandidatsAdmin")
 public class ServletListeCandidatsAdmin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -43,13 +43,12 @@ public class ServletListeCandidatsAdmin extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-//		RequestDispatcher rd = request.getRequestDispatcher("//ServletLogin3");
-//		rd.forward(request, response);
-		
-		
-		
-		
-	
+		RequestDispatcher rd = request.getRequestDispatcher("//ServletLogin3");
+		rd.forward(request, response);
+
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(true);
 		String noSuivi = "";
 		for (int i = 0; i < 2; i++) {
@@ -158,51 +157,6 @@ public class ServletListeCandidatsAdmin extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		String sNoSuiviClient = request.getParameter("suiviClient");
-		String sNbAppelClient = request.getParameter("nbAppelClient");
-		Object oNoSuivi = session.getAttribute("suivi");
-		if (oNoSuivi != null) {
-			String IdPersonne = request.getParameter("nom");
-			String MdpPersonne = request.getParameter("mdp");
-
-			AccesBDDPersonne acces = new AccesBDDPersonne();
-			String[] test2 = acces.findPersonne(IdPersonne);
-			if (test2[0] != null) {
-				// la personne existe
-				if (test2[1].equals(MdpPersonne)) {
-					// mot de passe correct
-					session.setAttribute("personne", acces.getPersonne(test2[0]));
-					session.setAttribute("idPersonne", test2[0]);
-					RequestDispatcher rd = request.getRequestDispatcher("//ServletBDD");
-					rd.forward(request, response);
-				} else {
-					//mot de passe incorrect
-					String echecID = "true";
-					session.setAttribute("echecID", echecID);
-					RequestDispatcher rd = request.getRequestDispatcher("//ServletLoginFalse");
-					rd.forward(request, response);
-				}
-			} else {
-				//id n'existe pas
-				String echecID = "true";
-				session.setAttribute("echecID", echecID);
-				RequestDispatcher rd = request.getRequestDispatcher("//ServletLoginFalse");
-				rd.forward(request, response);
-			}
-
-			//			ServletContext context = this.getServletContext();
-			//			RequestDispatcher dispatcher = context.getRequestDispatcher("/ServletBDD");
-			//			dispatcher.forward(request, response);
-		} else {
-			session.invalidate();
-			RequestDispatcher rd = request.getRequestDispatcher("//ServletLoginPageLogin3");
-			rd.forward(request, response);
-		}
-
 	}
 
 }
