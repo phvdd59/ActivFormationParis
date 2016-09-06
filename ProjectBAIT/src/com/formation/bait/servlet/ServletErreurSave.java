@@ -17,19 +17,20 @@ import javax.servlet.http.HttpSession;
 
 import com.formation.bait.metier.FonctionsCommune;
 import com.formation.bait.metier.Personne;
+import com.formation.bait.metier.SITUATION;
 
 /**
  * Servlet implementation class Servlet1
  */
-@WebServlet(value = "/ServletCoordonnees2", name = "ServletCoordonnees2")
-public class ServletCoordonnees extends HttpServlet {
+@WebServlet(value = "/ServletErreurSave", name = "ServletErreurSave")
+public class ServletErreurSave extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static int VALEUR = 0;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public ServletCoordonnees() {
+	public ServletErreurSave() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -51,46 +52,50 @@ public class ServletCoordonnees extends HttpServlet {
 		String sNoSuiviClient = request.getParameter("suiviClient");
 		String sNbAppelClient = request.getParameter("nbAppelClient");
 		Object oNoSuivi = session.getAttribute("suivi");
+
 		if (oNoSuivi != null) {
-			session.setAttribute("servlet", "Coordonees");
-			session.setAttribute("methode", "POST");
 			int nbAppel = ((Integer) session.getAttribute("nbAppel")).intValue();
 			nbAppel++;
 			session.setAttribute("nbAppel", Integer.valueOf(nbAppel));
-			Personne personne = (Personne) session.getAttribute("Personne");
-
 			fonctions.AfficherHautDePage(response);
-
+			String sProvenance = (String) session.getAttribute("servlet");
 			File file2 = new File(
-					"C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/Coordonnees.html");
-			BufferedReader bIn = null;
-			InputStreamReader inputStreamReader = null;
+					"C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/redirection.html");
+			BufferedReader bIn2 = null;
+			InputStreamReader inputStreamReader2 = null;
 			try {
-				inputStreamReader = new InputStreamReader(new FileInputStream(file2), "UTF-8");
-				bIn = new BufferedReader(inputStreamReader);
-				String line = bIn.readLine();
-				while (line != null) {
-					line=line.replace("%%nom%%", personne.getNom());
+				inputStreamReader2 = new InputStreamReader(new FileInputStream(file2), "UTF-8");
+				bIn2 = new BufferedReader(inputStreamReader2);
+				String line2 = bIn2.readLine();
 
-					line=line.replace("%%prenom%%", personne.getPrenom());
+				while (line2 != null) {
 
-					
-						line=line.replace("%%adresse%%", personne.getAdresse());
-					
-						line=line.replace("%%cp%%", personne.getcP());
-					
-						line=line.replace("%%ville%%", personne.getVille());
-					
-						line=line.replace("%%telFixe%%", personne.getTelFixe());
-					
-						line=line.replace("%%telPort%%", personne.getTelPort());
-					
-						line=line.replace("%%email%%", personne.getEmail());
-					
-						line=line.replace("%%fax%%", personne.getFax());
-					
-					response.getWriter().append(line + "\n");
-					line = bIn.readLine();
+					if (line2.contains("%%redirection%%")) {
+						if (sProvenance.equals("EtatCivil")) {
+							line2 = line2.replace("%%redirection%%",
+									"http://localhost:8080/ProjectBAIT/ServletEtatCivil2");
+
+						}
+
+						else if (sProvenance == "Coordonees") {
+							line2 = line2.replace("%%redirection%%",
+									"http://localhost:8080/ProjectBAIT/ServletCoordonnees2");
+
+						}
+
+						else if (sProvenance.equals("Situation")) {
+							line2 = line2.replace("%%redirection%%",
+									"http://localhost:8080/ProjectBAIT/ServletSituation2");
+						}
+
+						else if (sProvenance.equals("Remuneration")) {
+							line2 = line2.replace("%%redirection%%",
+									"http://localhost:8080/ProjectBAIT/ServletRemuneration2");
+
+						}
+					}
+					response.getWriter().append(line2 + "\n");
+					line2 = bIn2.readLine();
 				}
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
@@ -98,18 +103,18 @@ public class ServletCoordonnees extends HttpServlet {
 				e.printStackTrace();
 			} finally {
 				try {
-					bIn.close();
+					bIn2.close();
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
 			}
 
 			fonctions.AfficherBasDePage(response);
-
 		} else {
 			session.invalidate();
 			RequestDispatcher rd = request.getRequestDispatcher("//ServletLogin3");
 			rd.forward(request, response);
 		}
 	}
+
 }
