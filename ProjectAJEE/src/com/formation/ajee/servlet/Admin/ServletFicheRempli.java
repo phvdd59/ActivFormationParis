@@ -88,9 +88,7 @@ public class ServletFicheRempli extends HttpServlet {
 			String ville = personne.getVille();
 
 			String telfixe = personne.getTelFixe();
-			if (telfixe == null) {
-				telfixe = "";
-			}
+			
 			String telport = personne.getTelPort();
 
 			String fax = personne.getFax();
