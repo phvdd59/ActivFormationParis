@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.formation.bait.dao.AccesBDDPersonne;
+import com.formation.bait.metier.Personne;
 import com.formation.bait.metier.VerifComplet;
 
 /**
@@ -50,10 +51,14 @@ public class ServletPageCompte2 extends HttpServlet {
 		String sNoSuiviClient = request.getParameter("suiviClient");
 		String sNbAppelClient = request.getParameter("nbAppelClient");
 		AccesBDDPersonne bddPersonne = new AccesBDDPersonne();
+		Personne personne = new Personne();
+
 		Object oNoSuivi = session.getAttribute("suivi");
 		if (oNoSuivi != null) {
 			session.setAttribute("servlet", "Compte");
 			session.setAttribute("methode", "POST");
+			personne = (Personne) session.getAttribute("Personne");
+
 			int nbAppel = ((Integer) session.getAttribute("nbAppel")).intValue();
 			nbAppel++;
 			session.setAttribute("nbAppel", Integer.valueOf(nbAppel));

@@ -57,23 +57,20 @@ public class ServletBDD extends HttpServlet {
 				personne = (Personne) session.getAttribute("Personne");
 				String sSituation = request.getParameter("sit");
 				String sAutre = request.getParameter("aut");
-				if (sSituation.equals("salarie")){
+				if (sSituation.equals("salarie")) {
 					personne.setSituation(SITUATION.SALARIE);
 				} else if (sSituation.equals("demandeur")) {
 					personne.setSituation(SITUATION.DEMANDEUR);
+				} else if (sSituation.equals("freelance")) {
+					personne.setSituation(SITUATION.FREELANCE);
+				} else if (sSituation.equals("retraite")) {
+					personne.setSituation(SITUATION.RETRAITE);
+				} else {
+					personne.setSituation(sAutre);
 				}
-				 else if (sSituation.equals("freelance")) {
-						personne.setSituation(SITUATION.FREELANCE);
-					}
-				 else if (sSituation.equals("retraite")) {
-						personne.setSituation(SITUATION.RETRAITE);
-					}
-				 else{
-					 personne.setSituation(sAutre);
-				 }
 				retour = bddPersonne.savePersonne(personne);
 			} else if (origine == "EtatCivil") {
-				 personne = (Personne) session.getAttribute("Personne");
+				personne = (Personne) session.getAttribute("Personne");
 				String sNom = request.getParameter("nom");
 				String sPrenom = request.getParameter("prenom");
 				String sDateNaiss = request.getParameter("datenaiss");
@@ -88,7 +85,7 @@ public class ServletBDD extends HttpServlet {
 				personne.setNumSecu(sSecu);
 				retour = bddPersonne.savePersonne(personne);
 			} else if (origine == "Coordonees") {
-				 personne = (Personne) session.getAttribute("Personne");
+				personne = (Personne) session.getAttribute("Personne");
 				String sAdresse = request.getParameter("adresse");
 				String sCp = request.getParameter("cp");
 				String sVille = request.getParameter("ville");
@@ -106,8 +103,8 @@ public class ServletBDD extends HttpServlet {
 				retour = bddPersonne.savePersonne(personne);
 
 			} else if (origine == "Remuneration") {
-				 personne = (Personne) session.getAttribute("Personne");
-				 String sFonction = request.getParameter("fonction");
+				personne = (Personne) session.getAttribute("Personne");
+				String sFonction = request.getParameter("fonction");
 				String sCadre = request.getParameter("cadre");
 				String sPosition = request.getParameter("position");
 				String sCoeff = request.getParameter("Coefficient");
@@ -117,19 +114,19 @@ public class ServletBDD extends HttpServlet {
 				personne.setPosition(sPosition);
 				personne.setCoeff(sCoeff);
 				personne.setSalaire(sSalaire);
-				if (sCadre.equals("Cadre")){
+				if (sCadre.equals("Cadre")) {
 					personne.setCadre(true);
-				}else{
+				} else {
 					personne.setCadre(false);
 				}
-				if (sTicket.equals("oui")){
+				if (sTicket.equals("oui")) {
 					personne.setTicket(true);
-				} else{
+				} else {
 					personne.setTicket(false);
 				}
 				retour = bddPersonne.savePersonne(personne);
 			}
-			if (retour == false){
+			if (retour == false) {
 				System.out.println("erreur sauvegarde ratée!");
 			}
 			session.setAttribute("servlet", "Compte");

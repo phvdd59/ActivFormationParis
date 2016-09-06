@@ -1,28 +1,28 @@
 
-<form method="post" action="/PageCompte2" onsubmit="return verifSit(this)">
+<form method="post" action="http://localhost:8080/ProjectBAIT/ServletBDD" onsubmit="return verifSit(this)">
 	<H2>Situation Actuelle</H2>
 
 	<div ID="formu14">
 		<div ID="formu12">
 
-			<input type="radio" name="sit" value="emploi"
-				style="margin-left: 20px" checked="checked"> Employ&eacute;
+			<input type="radio" name="sit" value="salarie" checked="checked"
+				style="margin-left: 20px" > Employ&eacute;
 		</div>
 		<div ID="formu13">
-			<input type="radio" name="sit" value="recherche"
+			<input type="radio" name="sit" value="demandeur" checked="unchecked"
 				style="margin-left: 20px"> En recherche d'emploi
 		</div>
 		<div ID="formu14">
-			<input type="radio" name="sit" value="forma"
-				style="margin-left: 20px"> En formation
+			<input type="radio" name="sit" value="freelance" checked="unchecked"
+				style="margin-left: 20px"> Freelance
 		</div>
 
 		<div ID="formu15">
-			<input type="radio" name="sit" value="retrai"
+			<input type="radio" name="sit" value="retraite" checked="unchecked"
 				style="margin-left: 20px">Retrait&eacute;
 		</div>
 		<div ID="formu16">
-			<input type="radio" name="sit" value="autre" ID="autreSit"
+			<input type="radio" name="sit" value="autre" checked="unchecked" ID="autreSit"
 				style="margin-left: 20px"> Autre <input type="text"
 				name="aut" value="%%aut%%"onblur="verifSitAutre(this)" style="width: 150px;" />
 		</div>

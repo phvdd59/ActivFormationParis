@@ -16,6 +16,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.formation.bait.metier.FonctionsCommune;
+import com.formation.bait.metier.Personne;
+import com.formation.bait.metier.SITUATION;
 
 /**
  * Servlet implementation class Servlet1
@@ -56,6 +58,7 @@ public class ServletPageSituation2 extends HttpServlet {
 			int nbAppel = ((Integer) session.getAttribute("nbAppel")).intValue();
 			nbAppel++;
 			session.setAttribute("nbAppel", Integer.valueOf(nbAppel));
+			Personne personne = (Personne) session.getAttribute("personne");
 			fonctions.AfficherHautDePage(response);
 
 			File file2 = new File(
@@ -66,8 +69,38 @@ public class ServletPageSituation2 extends HttpServlet {
 				inputStreamReader2 = new InputStreamReader(new FileInputStream(file2), "UTF-8");
 				bIn2 = new BufferedReader(inputStreamReader2);
 				String line2 = bIn2.readLine();
+				String sSit = personne.getSituation();
+
 				while (line2 != null) {
-					// System.out.println(line);
+					if (line2.contains("value=\"salarie\"")){
+						if (!sSit.equals(SITUATION.SALARIE)){
+						line2 = line2.replace("checked=\"checked\"", "checked=\"unchecked\"");
+					}}
+					else if (line2.contains("value=\"demandeur\"")){
+						if (sSit.equals(SITUATION.DEMANDEUR)){
+							line2 = line2.replace("checked=\"checked\"", "checked=\"unchecked\"");
+					}}
+					else if (line2.contains("value=\"freelance\"")){
+						if (sSit.equals(SITUATION.FREELANCE)){
+							line2 = line2.replace("checked=\"checked\"", "checked=\"unchecked\"");
+					}}
+					else if (line2.contains("value=\"retraite\"")){
+						if (sSit.equals(SITUATION.RETRAITE)){
+							line2 = line2.replace("checked=\"checked\"", "checked=\"unchecked\"");
+					}}
+					else if (line2.contains("value=\"autre\"")){
+						if ((!sSit.equals(SITUATION.SALARIE))&&(!sSit.equals(SITUATION.DEMANDEUR))&&(!sSit.equals(SITUATION.FREELANCE))&&(!sSit.equals(SITUATION.RETRAITE))){
+							line2 = line2.replace("checked=\"checked\"", "checked=\"unchecked\"");
+						}
+						
+					}
+					else if (line2.contains("value=\"%%aut%%\"")){
+						if ((sSit.equals(SITUATION.SALARIE))||(sSit.equals(SITUATION.DEMANDEUR))||(sSit.equals(SITUATION.FREELANCE))||(sSit.equals(SITUATION.RETRAITE))){
+							line2 = line2.replace("%%aut%%", "");
+						}else {
+							line2 = line2.replace("%%aut%%", sSit);
+						}
+					}
 					response.getWriter().append(line2 + "\n");
 					line2 = bIn2.readLine();
 				}
