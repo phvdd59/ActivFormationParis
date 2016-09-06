@@ -230,7 +230,7 @@ public class CtrlPersonne implements InterCtrlPersonne {
 	public boolean ctrlSalaire(String salaire) {
 		if (salaire == null) {
 			return false;
-		} else if (Pattern.matches("[1-9][0-9]+", salaire)) {
+		} else if (Pattern.matches("[1-9][0-9]{0,}", salaire)) {
 			return true;
 		} else {
 			return false;
@@ -274,7 +274,7 @@ public class CtrlPersonne implements InterCtrlPersonne {
 	public boolean ctrlNbCV(String nbCV) {
 		if (nbCV == null) {
 			return false;
-		} else if (Pattern.matches("[1-9][0-9]+", nbCV)||nbCV.equals("")) {
+		} else if (Pattern.matches("[1-9][0-9]{0,}", nbCV)||nbCV.equals("0")) {
 			return true;
 		} else {
 			return false;
@@ -285,7 +285,7 @@ public class CtrlPersonne implements InterCtrlPersonne {
 	public boolean ctrlNbKm(String nbKm) {
 		if (nbKm == null) {
 			return false;
-		} else if (Pattern.matches("[1-9][0-9]+", nbKm)||nbKm.equals("")) {
+		} else if (Pattern.matches("[1-9][0-9]{0,}", nbKm)||nbKm.equals("")) {
 			return true;
 		} else {
 			return false;

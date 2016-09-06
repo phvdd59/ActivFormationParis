@@ -53,91 +53,88 @@ public class ServletSoka4 extends HttpServlet {
 		/***************************
 		 * RECUP DONNEE FORMULAIRE
 		 */
-		String sSituationPro = request.getParameter("situationPro");
-		String sSituation = request.getParameter("situation");
+		if (perso.getSituation().equals("")) {
+			String sSituationPro = request.getParameter("situationPro");
+			String sSituation = request.getParameter("situation");
 
-		/***************************
-		 * CONTROLE ET CONVERSION
-		 */
-		CtrlPersonne ctrl = new CtrlPersonne();
-		if (ctrl.ctrlSituation(sSituationPro)) {
-			perso.setSituation(sSituationPro);
-			// perso.setSituation(sSituation);
-
-			File file = new File("C:/DevFormation/GITActivFormationParis/" + //
-					"ProjectJMST/WebContent/WEB-INF/" + //
-					"page/pageActiveFormulaire_part5_fonction_remuneration.html");
-			BufferedReader bIn = null;
-			bIn = new BufferedReader(new FileReader(file));
-
-			if (noSerieHtml.equals(noSerie)) {
-				noSerie = "24_" + noSerie;
-				session.setAttribute("noSerie", noSerie);
-				String line = bIn.readLine();
-				while (line != null) {
-					line = line.replace("%%noSerie%%", noSerie);
-					line = line.replace("%%fonction%%", perso.getFonction());
-					line = line.replace("%%position%%", perso.getPosition());
-					line = line.replace("%%coefficient%%", perso.getCoeff());
-					line = line.replace("%%salaire%%", perso.getSalaire());
-					line = line.replace("%%visite%%",
-							convPers.conversionSQLToUtil(new java.sql.Date(perso.getVisiteMedicale().getTime())));
-					line = line.replace("%%montantTransport%%", perso.getMontantTransport());
-					line = line.replace("%%nbCV%%", Integer.valueOf(perso.getNbCV()).toString());
-					line = line.replace("%%nbKM%%", perso.getNbKm());
-					
-					if (perso.isCadre()){
-						line = line.replace("<input type=\"radio\" name=\"cadre\" value=\"oui\">", "<input type=\"radio\" name=\"cadre\" value=\"oui\" checked=\"checked\">");
-					} else {
-						line = line.replace("<input type=\"radio\" name=\"cadre\" value=\"non\">", "<input type=\"radio\" name=\"cadre\" value=\"non\" checked=\"checked\">");
-					}
-					
-					if (perso.isMutuelle()){
-						line = line.replace("<input type=\"radio\" name=\"mutuelle\" value=\"oui\">", "<input type=\"radio\" name=\"mutuelle\" value=\"oui\" checked=\"checked\">");
-					} else {
-						line = line.replace("<input type=\"radio\" name=\"mutuelle\" value=\"non\">", "<input type=\"radio\" name=\"mutuelle\" value=\"non\" checked=\"checked\">");
-					}
-					
-					if (perso.isTicketResto()){
-						line = line.replace("<input type=\"radio\" name=\"ticketResto\" value=\"oui\">", "<input type=\"radio\" name=\"ticketResto\" value=\"oui\" checked=\"checked\">");
-					} else {
-						line = line.replace("<input type=\"radio\" name=\"ticketResto\" value=\"non\">", "<input type=\"radio\" name=\"ticketResto\" value=\"non\" checked=\"checked\">");
-					}
-					
-					if (perso.isVoiture()){
-						line = line.replace("<input type=\"radio\" name=\"voiture\" value=\"oui\">", "<input type=\"radio\" name=\"voiture\" value=\"oui\" checked=\"checked\">");
-					} else {
-						line = line.replace("<input type=\"radio\" name=\"voiture\" value=\"non\">", "<input type=\"radio\" name=\"voiture\" value=\"non\" checked=\"checked\">");
-					}
-					
-					response.getWriter().println(line);
-					line = bIn.readLine();
+			/***************************
+			 * CONTROLE ET CONVERSION
+			 */
+			CtrlPersonne ctrl = new CtrlPersonne();
+			if (ctrl.ctrlSituation(sSituationPro)) {
+				if (!sSituation.equals("")) {
+					perso.setSituation(sSituationPro);
+				} else {
+					perso.setSituation(sSituation);
 				}
-				bIn.close();
+				// perso.setSituation(sSituation);
 			} else {
-				request.getRequestDispatcher("/ServletDeco").forward(request, response);
-			}
-		} else {
-			File file = new File("C:/DevFormation/GITActivFormationParis/" + //
-					"ProjectJMST/WebContent/WEB-INF/" + //
-					"page/pageActiveFormulaire_part4_situation_actuelle.html");
-			BufferedReader bIn = null;
-			bIn = new BufferedReader(new FileReader(file));
-
-			if (noSerieHtml.equals(noSerie)) {
-				noSerie = "24_" + noSerie;
-				session.setAttribute("noSerie", noSerie);
-				String line = bIn.readLine();
-				while (line != null) {
-					if (line.contains("%%noSerie%%")) {
-						line = line.replace("%%noSerie%%", noSerie);
-					}
-					response.getWriter().println(line);
-					line = bIn.readLine();
-				}
-				bIn.close();
+				//JSP to deco
 			}
 		}
+
+		File file = new File("C:/DevFormation/GITActivFormationParis/" + //
+				"ProjectJMST/WebContent/WEB-INF/" + //
+				"page/pageActiveFormulaire_part5_fonction_remuneration.html");
+		BufferedReader bIn = null;
+		bIn = new BufferedReader(new FileReader(file));
+
+		if (noSerieHtml.equals(noSerie)) {
+			noSerie = "24_" + noSerie;
+			session.setAttribute("noSerie", noSerie);
+			String line = bIn.readLine();
+			while (line != null) {
+				line = line.replace("%%noSerie%%", noSerie);
+				line = line.replace("%%fonction%%", perso.getFonction());
+				line = line.replace("%%position%%", perso.getPosition());
+				line = line.replace("%%coefficient%%", perso.getCoeff());
+				line = line.replace("%%salaire%%", perso.getSalaire());
+				line = line.replace("%%visite%%",
+						convPers.conversionSQLToUtil(new java.sql.Date(perso.getVisiteMedicale().getTime())));
+				line = line.replace("%%montantTransport%%", perso.getMontantTransport());
+				line = line.replace("%%nbCV%%", Integer.valueOf(perso.getNbCV()).toString());
+				line = line.replace("%%nbKM%%", perso.getNbKm());
+
+				if (perso.isCadre()) {
+					line = line.replace("type=\"radio\" name=\"cadre\" value=\"oui\">",
+							"type=\"radio\" name=\"cadre\" value=\"oui\" checked=\"checked\">");
+				} else {
+					line = line.replace("name=\"cadre\" value=\"non\">",
+							"name=\"cadre\" value=\"non\" checked=\"checked\">");
+				}
+
+				if (perso.isMutuelle()) {
+					line = line.replace("type=\"radio\" name=\"mutuelle\" value=\"oui\">",
+							"type=\"radio\" name=\"mutuelle\" value=\"oui\" checked=\"checked\">");
+				} else {
+					line = line.replace("name=\"mutuelle\" value=\"non\">",
+							"name=\"mutuelle\" value=\"non\" checked=\"checked\">");
+				}
+
+				if (perso.isTicketResto()) {
+					line = line.replace("type=\"radio\" name=\"ticketResto\" value=\"oui\">",
+							"type=\"radio\" name=\"ticketResto\" value=\"oui\" checked=\"checked\">");
+				} else {
+					line = line.replace("name=\"ticketResto\" value=\"non\">",
+							"name=\"ticketResto\" value=\"non\" checked=\"checked\">");
+				}
+
+				if (perso.isVoiture()) {
+					line = line.replace("type=\"radio\" name=\"vehicule\" value=\"oui\">",
+							"type=\"radio\" name=\"vehicule\" value=\"oui\" checked=\"checked\">");
+				} else {
+					line = line.replace("name=\"vehicule\" value=\"non\">",
+							"name=\"vehicule\" value=\"non\" checked=\"checked\">");
+				}
+
+				response.getWriter().println(line);
+				line = bIn.readLine();
+			}
+			bIn.close();
+		} else {
+			request.getRequestDispatcher("/ServletDeco").forward(request, response);
+		}
+
 	}
 
 	/**
