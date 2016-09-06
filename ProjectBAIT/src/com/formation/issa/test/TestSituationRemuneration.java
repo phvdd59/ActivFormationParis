@@ -2,6 +2,8 @@ package com.formation.issa.test;
 
 import static org.junit.Assert.*;
 
+import java.text.ParseException;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -136,7 +138,71 @@ public class TestSituationRemuneration {
 		Assert.assertFalse("fonction incorrecte", situationRem.validationFonction(fonction));
 	
 	}
+	@Test
+	public void testValidationDateDeVisiteMedicaleFormatNonOK() throws ParseException{
+		String dateVisiteMedicale="25/05/91";
+		Assert.assertFalse("Format incorrect", situationRem.validationDateVisiteMedicale(dateVisiteMedicale));
+	}
 	
+	@Test
+	public void testValidationDateDeVisiteMedicaleOK() throws ParseException{
+		String dateVisiteMedicale="14/03/1989";
+		Assert.assertTrue("Date de visite correcte", situationRem.validationDateVisiteMedicale(dateVisiteMedicale));
+	}
+	@Test
+	public void testValidationMontantTransportAvecCaracteresSpeciaux(){
+		String montantTransport="454212022/%@_-!";
+		Assert.assertFalse("montant de carte de transport incorrect", situationRem.validationMontantCarteTransport(montantTransport));
+		
+	}
+	@Test
+	public void testValidationMontantTransportNull() {
+		String montantTransport=" ";
+		Assert.assertFalse("montant de carte de transport vide", situationRem.validationMontantCarteTransport(montantTransport));
+	
+	}
+	@Test
+	public void testValidationMontantTransportAvecLettres() {
+		String montantTransport="ADV4545454geTEE";
+		Assert.assertFalse("montant de carte de transport incorrect", situationRem.validationMontantCarteTransport(montantTransport));
+	
+	}
+	@Test
+	public void testValidationMontantTransportOK() {
+		String montantTransport="72,5";
+		Assert.assertTrue("montant de carte de transport correct", situationRem.validationMontantCarteTransport(montantTransport));
+	
+	}
+	@Test
+	public void testNbCVOK(){
+		String nbCV="5";
+		Assert.assertTrue("nombre de CV correct", situationRem.validationNbCV(nbCV));
+	}
+	@Test
+	public void testNbCVAvecLettres(){
+		String nbCV="5ASDGlkj";
+		Assert.assertFalse("nombre de CV incorrect", situationRem.validationNbCV(nbCV));
+	}
+	@Test
+	public void testNbCVNull(){
+		String nbCV=" ";
+		Assert.assertFalse("nombre de CV vide", situationRem.validationNbCV(nbCV));
+	}
+	@Test
+	public void testNbKmOK(){
+		String nbKm="300,5";
+		Assert.assertTrue("nombre de km correct", situationRem.validationNbKm(nbKm));
+	}
+	@Test
+	public void testNbKmAvecLettres(){
+		String nbKm="5ASDGlkj";
+		Assert.assertFalse("nombre de km incorrect", situationRem.validationNbKm(nbKm));
+	}
+	@Test
+	public void testNbKmNull(){
+		String nbKm=" ";
+		Assert.assertFalse("nombre de km vide", situationRem.validationNbKm(nbKm));
+	}
 	
 
 }
