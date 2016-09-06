@@ -53,8 +53,18 @@ public class ServletPageExamCandidat2 extends HttpServlet {
 			AccesBDDPersonne acces=new AccesBDDPersonne();
 			Personne personne2 = (Personne) session.getAttribute("Candidat");
 			
-			personne2= (Personne) acces.getPersonne(session.getAttribute("IDcandidat").toString());
+			personne2= (Personne) acces.getPersonne(request.getParameter("IDcandidat"));
+//					getAttribute("IDcandidat").toString());
 			session.setAttribute("candidat", personne2);
+			
+			session.setAttribute("NomAdmin", personne.getPrenom()+" "+personne.getNom());
+			
+			session.setAttribute("nomCandidat", personne2.getNom());
+			session.setAttribute("prenomCandidat", personne2.getPrenom());
+			session.setAttribute("emailCandidat", personne2.getEmail());
+			session.setAttribute("adresseCandidat", personne2.getAdresse());
+//			session.setAttribute("Candidat", personne2.get);
+			
 			
 			this.getServletContext().getRequestDispatcher( "/WEB-INF/test.jsp" ).forward( request, response );
 			

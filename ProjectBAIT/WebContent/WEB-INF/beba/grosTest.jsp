@@ -85,7 +85,33 @@
 		
 		
 		
-		
+	
+
+
+	<h2>Informations personnelles du candidat</h2>
+
+	<div ID=formu37>
+
+		<label>Connect&eacute; en tant que :<%= session.getAttribute("NomAdmin") %></label>
+	
+	</div>
+
+	<div ID=formu38>
+
+		<label>Candidat :</label>
+		<!-- 					Ajouter un script d'affichage de variable -->
+	</div>
+
+
+	<div ID=formu39>
+		<input type="submit" name="modify" value="Modifier les informations">
+		<input type="submit" name="document" value="Documents">
+	</div>
+
+
+	<div ID=formu40>
+		<input type="submit" name="disconnect" value="Deconnexion">
+	</div>
 		
 		
 		
