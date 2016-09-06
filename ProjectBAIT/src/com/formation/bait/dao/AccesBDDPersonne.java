@@ -139,22 +139,26 @@ public class AccesBDDPersonne {
 	public String[] findPersonne(String Identifiant) {
 		Connection conn = null;
 		Statement stat = null;
-		String[] parameters = new String[2];
+		String[] parameters = new String[4];
 		parameters[0] = null;
 		parameters[1] = null;
+		parameters[2] = null;
+		parameters[3] = null;
 		try {
 			Class.forName(JDBC_DRIVER);
 			String url = DB_URL + "bait";
 			conn = DriverManager.getConnection(url, user, pass);
 			stat = conn.createStatement();
 
-			String sql = "SELECT IDPersonne,mdp FROM listeUser WHERE identifiant='" + Identifiant//
+			String sql = "SELECT IDPersonne,mdp,bloque,raisonBlocage FROM listeUser WHERE identifiant='" + Identifiant//
 					+ "';";
 
 			ResultSet resultat = stat.executeQuery(sql);
 			while (resultat.next()) {
 				parameters[0] = resultat.getString("IDPersonne");
 				parameters[1] = resultat.getString("mdp");
+				parameters[2] = resultat.getString("bloque");
+				parameters[3] = resultat.getString("raisonBlocage");
 			}
 
 		} catch (ClassNotFoundException | SQLException e) {

@@ -37,8 +37,9 @@ public class ServletPageLogin3 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		HttpSession session = request.getSession(true);
 		String noSuivi = "";
 		for (int i = 0; i < 2; i++) {
@@ -55,7 +56,8 @@ public class ServletPageLogin3 extends HttpServlet {
 		session.setAttribute("servlet", "Login");
 		session.setAttribute("methode", "GET");
 
-		File file = new File("C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/hautDePageActiv.html");
+		File file = new File(
+				"C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/hautDePageActiv.html");
 		BufferedReader bIn = null;
 		InputStreamReader inputStreamReader = null;
 		try {
@@ -79,7 +81,8 @@ public class ServletPageLogin3 extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		File file2 = new File("C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/Login.html");
+		File file2 = new File(
+				"C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/Login.html");
 		BufferedReader bIn2 = null;
 		InputStreamReader inputStreamReader2 = null;
 		try {
@@ -103,7 +106,8 @@ public class ServletPageLogin3 extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		File file3 = new File("C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/basDePageActiv.html");
+		File file3 = new File(
+				"C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/basDePageActiv.html");
 		BufferedReader bIn3 = null;
 		InputStreamReader inputStreamReader3 = null;
 		try
@@ -140,7 +144,8 @@ public class ServletPageLogin3 extends HttpServlet {
 		}
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		Object oNoSuivi = session.getAttribute("suivi");
 		if (oNoSuivi != null) {
@@ -148,36 +153,53 @@ public class ServletPageLogin3 extends HttpServlet {
 			String MdpPersonne = request.getParameter("mdp");
 			session.setAttribute("servlet", "Login");
 			AccesBDDPersonne acces = new AccesBDDPersonne();
-			String[] test2 =acces.findPersonne(IdPersonne);
+			String[] test2 = acces.findPersonne(IdPersonne);
 			if (test2[0] != null) {
 				// la personne existe
-				if (test2[1].equals(MdpPersonne)) {
+				if (test2[2].equals("True")) {
+					// la personne estbloquée
+					String msg = "Erreur : cet identifiant est bloqué. Raison : \n " + test2[3];
+					session.setAttribute("message", msg);
+					RequestDispatcher rd = request.getRequestDispatcher("/ServletLoginFalse");
+					rd.forward(request, response);
+				} else if (test2[1].equals(MdpPersonne)) {
 					// mot de passe correct
 					session.setAttribute("Personne", acces.getPersonne(test2[0]));
 					session.setAttribute("idPersonne", test2[0]);
-					RequestDispatcher rd = request.getRequestDispatcher("//ServletBDD");
+					RequestDispatcher rd = request.getRequestDispatcher("/ServletBDD");
 					rd.forward(request, response);
-				}else{
-					//mot de passe incorrect
+				} else {
+					// mot de passe incorrect
 					String echecID = "true";
 					session.setAttribute("echecID", echecID);
-					RequestDispatcher rd = request.getRequestDispatcher("//ServletLoginFalse");
+					String msg = "Erreur : le mot de passe est incorrect!";
+					session.setAttribute("message", msg);
+					RequestDispatcher rd = request.getRequestDispatcher("/ServletLoginFalse");
 					rd.forward(request, response);
+
 				}
-			}else{
-				//id n'existe pas
+			} else {
+				// id n'existe pas
 				String echecID = "true";
 				session.setAttribute("echecID", echecID);
-				RequestDispatcher rd = request.getRequestDispatcher("//ServletLoginFalse");
+				String msg = "Erreur : l'identifiant n'existe pas!";
+				session.setAttribute("message", msg);
+				RequestDispatcher rd = request.getRequestDispatcher("/ServletLoginFalse");
 				rd.forward(request, response);
 			}
 
-//			ServletContext context = this.getServletContext();
-//			RequestDispatcher dispatcher = context.getRequestDispatcher("/ServletBDD");
-//			dispatcher.forward(request, response);
+			// ServletContext context = this.getServletContext();
+			// RequestDispatcher dispatcher =
+			// context.getRequestDispatcher("/ServletBDD");
+			// dispatcher.forward(request, response);
 		} else {
 			session.invalidate();
-			doGet(request,response);
+			request.getSession();
+			String msg = "Erreur : session invalide!";
+			session.setAttribute("message", msg);
+			RequestDispatcher rd = request.getRequestDispatcher("/ServletLoginFalse");
+			rd.forward(request, response);
+			// doGet(request,response);
 		}
 
 	}
