@@ -380,7 +380,13 @@ public class Personne implements Serializable {
 	public SITUATION getSituation() {
 		return situation;
 	}
-
+	public String getSituationString() {
+		String retour="";
+		if (situation.getNom()!=null) {
+			retour=situation.getNom();
+		}
+		return retour;
+	}
 	public void setSituation(SITUATION situation) {
 		this.situation = situation;
 	}

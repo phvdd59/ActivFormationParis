@@ -192,10 +192,8 @@ public class ServletModifieVerifie extends HttpServlet {
 
 				String nationalite = personne.getNationalite();
 
-				// String situation = personne.getSituation();
-				// if (situation == null) {
-				// situation = "";
-				// }
+				 String situation = personne.getSituationString();
+				
 
 				String fonction = personne.getFonction();
 
@@ -330,10 +328,9 @@ public class ServletModifieVerifie extends HttpServlet {
 						if (lineDoc1.contains("%nationalite%")) {
 							lineDoc1 = lineDoc1.replace("%nationalite%", nationalite);
 						}
-						// if (lineDoc1.contains("%situation%")) {
-						// lineDoc1 = lineDoc1.replace("%situation%",
-						// situation);
-						// }
+						 if (lineDoc1.contains("%situation%")) {
+						 lineDoc1 = lineDoc1.replace("%situation%",situation);
+						 }
 
 						if (lineDoc1.contains("%position%")) {
 							lineDoc1 = lineDoc1.replace("%position%", positionEntreprise);
@@ -359,6 +356,18 @@ public class ServletModifieVerifie extends HttpServlet {
 						}
 						if (lineDoc1.contains("%km%")) {
 							lineDoc1 = lineDoc1.replace("%km%", nbKm);
+						}
+						if (lineDoc1.contains("%mutuelle%")) {
+							lineDoc1 = lineDoc1.replace("%mutuelle%", mutuelle);
+						}
+						if (lineDoc1.contains("%ticketResto%")) {
+							lineDoc1 = lineDoc1.replace("%ticketResto%", ticketResto);
+						}
+						if (lineDoc1.contains("%datenaissance%")) {
+							lineDoc1 = lineDoc1.replace("%datenaissance%", datenaissance);
+						}
+						if (lineDoc1.contains("%fonction%")) {
+							lineDoc1 = lineDoc1.replace("%fonction%", fonction);
 						}
 						response.getWriter().println(lineDoc1);
 						lineDoc1 = bufReadDoc1.readLine();
