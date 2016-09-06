@@ -142,20 +142,18 @@ public class ServletPageLogin3 extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		String sNoSuiviClient = request.getParameter("suiviClient");
-		String sNbAppelClient = request.getParameter("nbAppelClient");
 		Object oNoSuivi = session.getAttribute("suivi");
 		if (oNoSuivi != null) {
 			String IdPersonne = request.getParameter("nom");
 			String MdpPersonne = request.getParameter("mdp");
-
+			session.setAttribute("servlet", "Login");
 			AccesBDDPersonne acces = new AccesBDDPersonne();
 			String[] test2 =acces.findPersonne(IdPersonne);
 			if (test2[0] != null) {
 				// la personne existe
 				if (test2[1].equals(MdpPersonne)) {
 					// mot de passe correct
-					session.setAttribute("personne", acces.getPersonne(test2[0]));
+					session.setAttribute("Personne", acces.getPersonne(test2[0]));
 					session.setAttribute("idPersonne", test2[0]);
 					RequestDispatcher rd = request.getRequestDispatcher("//ServletBDD");
 					rd.forward(request, response);
@@ -179,8 +177,7 @@ public class ServletPageLogin3 extends HttpServlet {
 //			dispatcher.forward(request, response);
 		} else {
 			session.invalidate();
-			RequestDispatcher rd = request.getRequestDispatcher("//ServletLoginPageLogin3");
-			rd.forward(request, response);
+			doGet(request,response);
 		}
 
 	}

@@ -52,7 +52,7 @@ public class ServletPageRemuneration2 extends HttpServlet {
 		String sNbAppelClient = request.getParameter("nbAppelClient");
 		Object oNoSuivi = session.getAttribute("suivi");
 		if (oNoSuivi != null) {
-			session.setAttribute("servlet", "Remunaeration");
+			session.setAttribute("servlet", "Remuneration");
 			session.setAttribute("methode", "POST");
 			int nbAppel = ((Integer) session.getAttribute("nbAppel")).intValue();
 			nbAppel++;

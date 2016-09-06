@@ -46,19 +46,17 @@ public class ServletPageCompte2 extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		String sNoSuiviClient = request.getParameter("suiviClient");
-		String sNbAppelClient = request.getParameter("nbAppelClient");
-		AccesBDDPersonne bddPersonne = new AccesBDDPersonne();
+		HttpSession session = request.getSession(false);
+
 		Personne personne = new Personne();
 		FonctionsCommune fonctions = new FonctionsCommune();
 
 		Object oNoSuivi = session.getAttribute("suivi");
-		if (oNoSuivi != null) {
+		if (session!= null && oNoSuivi != null) {
 			session.setAttribute("servlet", "Compte");
 			session.setAttribute("methode", "POST");
 			personne = (Personne) session.getAttribute("Personne");
-
+			//System.out.println("Personne : " +personne.getIdPersonne());
 			int nbAppel = ((Integer) session.getAttribute("nbAppel")).intValue();
 			nbAppel++;
 			session.setAttribute("nbAppel", Integer.valueOf(nbAppel));
@@ -74,7 +72,7 @@ public class ServletPageCompte2 extends HttpServlet {
 				bIn2 = new BufferedReader(inputStreamReader2);
 				String line2 = bIn2.readLine();
 				while (line2 != null) {
-					// System.out.println(line);
+					// System.out.println(line2);
 
 					line2 = line2.replace("en tant que :", "en tant que :      " + personne.getPrenom() +" "+ personne.getNom());
 					boolean test = verif.validTotal(session);

@@ -49,7 +49,7 @@ public class ServletEtatCivil2 extends HttpServlet {
 		String sNoSuiviClient = request.getParameter("suiviClient");
 		String sNbAppelClient = request.getParameter("nbAppelClient");
 		Object oNoSuivi = session.getAttribute("suivi");
-		if (oNoSuivi != null) {
+		if (session!= null && oNoSuivi != null) {
 			session.setAttribute("servlet", "EtatCivil");
 			session.setAttribute("methode", "POST");
 			int nbAppel = ((Integer) session.getAttribute("nbAppel")).intValue();
@@ -152,7 +152,7 @@ public class ServletEtatCivil2 extends HttpServlet {
 			}
 		} else {
 			session.invalidate();
-			RequestDispatcher rd = request.getRequestDispatcher("//ServletLoginTest");
+			RequestDispatcher rd = request.getRequestDispatcher("/ServletLogin3");
 			rd.forward(request, response);
 		}
 	}

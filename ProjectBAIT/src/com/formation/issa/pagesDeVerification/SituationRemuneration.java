@@ -120,15 +120,21 @@ public class SituationRemuneration {
 		return retour; 
 
 	}
-	public boolean validationDateVisiteMedicale(String dateVisiteMedicale) throws ParseException {
+	public boolean validationDateVisiteMedicale(String dateVisiteMedicale) {
 		boolean retour=false;
 		final DateFormat df = new SimpleDateFormat("DD/MM/YYYY");
-		final Date date = df.parse(dateVisiteMedicale);
-		if(dateVisiteMedicale!=null){
-			if (dateVisiteMedicale.length() == 10) {
-				retour = true;
+		try {
+			final Date date = df.parse(dateVisiteMedicale);
+			if(dateVisiteMedicale!=null){
+				if (dateVisiteMedicale.length() == 10) {
+					retour = true;
+				}
 			}
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+
 		return retour;
 		
 	}

@@ -45,21 +45,19 @@ public class ServletBDD extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		String sNoSuiviClient = request.getParameter("suiviClient");
-		String sNbAppelClient = request.getParameter("nbAppelClient");
-		AccesBDDPersonne bddPersonne = new AccesBDDPersonne();
 
-		Personne personne = new Personne();
+		AccesBDDPersonne bddPersonne = new AccesBDDPersonne();
+		Personne personne = (Personne) session.getAttribute("Personne");
 		boolean retour = true;
 		Object oNoSuivi = session.getAttribute("suivi");
-		if (oNoSuivi != null) {
+		if (oNoSuivi != null || personne!=null) {
 			String origine = (String) session.getAttribute("servlet");
-			if (origine == "Login") {
+			if (origine.equals("Login") || origine.equals("Compte")) {
 				personne = bddPersonne.getPersonne(session.getAttribute("idPersonne").toString());
-			} else if (origine == "Situation") {
-				personne = (Personne) session.getAttribute("Personne");
+			} else if (origine.equals("Situation")) {
 				String sSituation = request.getParameter("sit");
 				String sAutre = request.getParameter("aut");
+				if (sSituation != null){
 				if (sSituation.equals("salarie")) {
 					personne.setSituation(SITUATION.SALARIE);
 				} else if (sSituation.equals("demandeur")) {
@@ -70,11 +68,10 @@ public class ServletBDD extends HttpServlet {
 					personne.setSituation(SITUATION.RETRAITE);
 				} else {
 					personne.setSituation(sAutre);
-				}
+				}}
 				retour = bddPersonne.savePersonne(personne);
-			} else if (origine == "EtatCivil") {
+			} else if (origine.equals("EtatCivil")) {
 				EtatCivil verifEtat = new EtatCivil();
-				personne = (Personne) session.getAttribute("Personne");
 				String sNom = request.getParameter("nom");
 				String sPrenom = request.getParameter("prenom");
 				String sDateNaiss = request.getParameter("datenaiss");
@@ -100,9 +97,8 @@ public class ServletBDD extends HttpServlet {
 					personne.setNumSecu(sSecu);
 				}
 				retour = bddPersonne.savePersonne(personne);
-			} else if (origine == "Coordonees") {
+			} else if (origine.equals( "Coordonees")) {
 				Coordonnees verfiCoord = new Coordonnees();
-				personne = (Personne) session.getAttribute("Personne");
 				String sAdresse = request.getParameter("adresse");
 				String sCp = request.getParameter("cp");
 				String sVille = request.getParameter("ville");
@@ -133,15 +129,19 @@ public class ServletBDD extends HttpServlet {
 				}
 				retour = bddPersonne.savePersonne(personne);
 
-			} else if (origine == "Remuneration") {
+			} else if (origine.equals( "Remuneration")) {
 				SituationRemuneration verifRemun = new SituationRemuneration();
-				personne = (Personne) session.getAttribute("Personne");
 				String sFonction = request.getParameter("fonction");
 				String sCadre = request.getParameter("cadre");
 				String sPosition = request.getParameter("position");
 				String sCoeff = request.getParameter("Coefficient");
 				String sSalaire = request.getParameter("salaire");
 				String sTicket = request.getParameter("resto");
+				String sMutuelle = request.getParameter("mutuelle");
+				String sVisiteMed = request.getParameter("visiteMedicale");
+				String sMontant = request.getParameter("montantTransport");
+				String sNbCv = request.getParameter("nbCV");
+				String sNbKm = request.getParameter("nbKm");
 				if (verifRemun.validationFonction(sFonction)){
 				personne.setFonction(sFonction);}
 				if (verifRemun.validationPosition(sPosition)){
@@ -150,15 +150,36 @@ public class ServletBDD extends HttpServlet {
 				personne.setCoeff(sCoeff);}
 				if (verifRemun.validationSalaire(sSalaire)){
 				personne.setSalaire(sSalaire);}
+				if (verifRemun.validationDateVisiteMedicale(sVisiteMed)){
+					personne.setVisiteMedicale(sVisiteMed);
+				}
+				if (verifRemun.validationMontantCarteTransport(sMontant)){
+					personne.setMontantTransport(sMontant);
+				}
+				if (verifRemun.validationNbCV(sNbCv)){
+					personne.setNbCV(sNbCv);
+				}
+				if (verifRemun.validationNbKm(sNbKm)){
+					personne.setNdKm(sNbKm);
+				}
+				if (sCadre != null){
 				if (sCadre.equals("Cadre")) {
 					personne.setCadre(true);
 				} else {
 					personne.setCadre(false);
-				}
+				}}
+				if (sTicket !=null){
 				if (sTicket.equals("oui")) {
 					personne.setTicket(true);
 				} else {
 					personne.setTicket(false);
+				}}
+				if (sMutuelle != null){
+					if (sMutuelle.equals("oui")){
+						personne.setMutuelle(true);
+					}else {
+						personne.setMutuelle(false);
+					}
 				}
 				retour = bddPersonne.savePersonne(personne);
 

@@ -8,44 +8,44 @@ public class VerifComplet {
 		Personne personne = (Personne) session.getAttribute("Personne");
 		int somme=0;
 		boolean ok=false;
-		if (personne.getAdresse()!=""&& personne.getAdresse()!= null) {
+		if (!personne.getAdresse().equals("") && personne.getAdresse()!= null) {
 			somme+=1;
 		}
-		if (personne.getCoeff() !="" && personne.getCoeff()!=null) {
+		if (!personne.getCoeff().equals("") && personne.getCoeff()!=null) {
 			somme+=1;
 		}
-		if (personne.getDateNaissance() !=""&& personne.getDateNaissance()!=null) {
+		if (personne.getDateNaissance().equals("")&& personne.getDateNaissance()!=null) {
 			somme+=1;
 		}
-		if (personne.getEmail() !="" && personne.getEmail()!=null) {
+		if (personne.getEmail().equals("") && personne.getEmail()!=null) {
 			somme+=1;
 		}
-		if (personne.getFonction() !="" && personne.getFonction()!= null) {
+		if (personne.getFonction().equals("") && personne.getFonction()!= null) {
 			somme+=1;
 		}
-		if (personne.getLieuNaissance() !="" && personne.getLieuNaissance()!= null) {
+		if (personne.getLieuNaissance().equals("") && personne.getLieuNaissance()!= null) {
 			somme+=1;
 		}
-		if (personne.getNationalite() !="" && personne.getNationalite()!=null) {
+		if (personne.getNationalite().equals("") && personne.getNationalite()!=null) {
 			somme+=1;
 		}
-		if (personne.getNumSecu() !="" && personne.getNumSecu()!=null) {
+		if (personne.getNumSecu().equals("") && personne.getNumSecu()!=null) {
 			somme+=1;
 		}
 
-		if (personne.getPosition() !="" && personne.getPosition()!=null) {
+		if (personne.getPosition().equals("") && personne.getPosition()!=null) {
 			somme+=1;
 		}
-		if (personne.getSalaire() !="" && personne.getSalaire()!=null) {
+		if (personne.getSalaire().equals("") && personne.getSalaire()!=null) {
 			somme+=1;
 		}
-		if (personne.getSituation() !="" && personne.getSituation()!=null) {
+		if (personne.getSituation().equals("") && personne.getSituation()!=null) {
 			somme+=1;
 		}
-		if ((personne.getTelFixe() !="" || personne.getTelPort()!="")&&personne.getTelFixe() !=null && personne.getTelPort()!=null) {
+		if ((personne.getTelFixe().equals("") || personne.getTelPort().equals(""))&&personne.getTelFixe() !=null && personne.getTelPort()!=null) {
 			somme+=1;
 		}
-		if (personne.getVille() !="" && personne.getVille()!=null) {
+		if (personne.getVille().equals("") && personne.getVille()!=null) {
 			somme+=1;
 		}
 		
