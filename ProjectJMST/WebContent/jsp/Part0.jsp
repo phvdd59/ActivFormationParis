@@ -80,7 +80,7 @@
 				width="71" height="71" alt="" />
 				
 		</div>
-		<div id="tlogo">CHANGEMENT MOT DE PASSE </div>
+		<div id="tlogo">CHANGEMENT MDP </div>
 		<div id="info2">
 			<!-- zone disponible -->
 
