@@ -15,16 +15,16 @@ import com.formation.thcr.metier.ListPersonne;
 import com.formation.thcr.metier.Personne;
 
 /**
- * Servlet implementation class ServletMadeBlocage
+ * Servlet implementation class ServletMadeADebloquer
  */
-@WebServlet("/ServletMadeBlocage")
-public class ServletMadeBlocage extends HttpServlet {
+@WebServlet("/ServletMadeDeblocage")
+public class ServletMadeDeblocage extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ServletMadeBlocage() {
+    public ServletMadeDeblocage() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,21 +34,21 @@ public class ServletMadeBlocage extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session= request.getSession();
-		String personneBloquee=request.getParameter("personneBloquee");
+		String personneADebloquer=request.getParameter("personneADebloquer");
 		String noSerieSession=(String) session.getAttribute("noSerie");
 		String noSerie=request.getParameter("noSerie");
-		System.out.println("personne bloquee" +personneBloquee);
+		System.out.println("personne a  debloquer" +personneADebloquer);
 		DAOPersonne dao=new DAOPersonne();
 		ListPersonne listePersonne=dao.read();
 		//if(noSerieSession.equals(noSerie)){
 		for (Personne personne : listePersonne) {
 			System.out.println("le nom de la personne est "+personne.getNom());
-			if(personne.getIdentifiant().equals(personneBloquee)){
+			if(personne.getIdentifiant().equals(personneADebloquer)){
 				System.out.println("la liste de personne est bonne");
-				if(personne.isBloque()==false){
+				if(personne.isBloque()==true){
 					System.out.println("");
-					personne.setBloque(true);
-					personne.setRaisonBlocage(request.getParameter("raisonBlocage"));
+					personne.setBloque(false);
+					personne.setRaisonBlocage("Personne debloquee");
 					dao.update(personne);
 					
 				}
@@ -66,6 +66,7 @@ public class ServletMadeBlocage extends HttpServlet {
 		dispatcher.forward(request, response);
 		//response.sendRedirect("http://localhost:8080/ProjectJMST/jsp/Part5.jsp");
 	}
+
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
