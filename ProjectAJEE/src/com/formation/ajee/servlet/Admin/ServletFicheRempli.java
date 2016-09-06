@@ -31,51 +31,22 @@ public class ServletFicheRempli extends HttpServlet {
 		// TODO Auto-generated constructor stub
 	}
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	// protected void doGet(HttpServletRequest request, HttpServletResponse
-	// response) throws ServletException, IOException {
-	// // TODO Auto-generated method stub
-	// response.getWriter().append("Served at:
-	// ").append(request.getContextPath());
-	// }
+
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		
 		HttpSession session = request.getSession();
 		Object oNoSerie = session.getAttribute("noSerie");
 		Personne personne = (Personne) session.getAttribute("personne");
 		Personne utilisateur = (Personne) session.getAttribute("utilisateur");
 		Vue vue=new Vue();
-		// Récupérer les données du formulaire et ranger dans objet personne
-
-		// ArrayList<String> lstparam= new ArrayList<String>();
-		// lstparam.add("nom");
-		// lstparam.add("prenom");
-		// lstparam.add("adresse");
-		// lstparam.add("cp");
-		// lstparam.add("ville");
-		// lstparam.add("telFixe");
-		// lstparam.add("telPort");
-		// lstparam.add("fax");
-		// lstparam.add("email");
-		// lstparam.add("dateNaissance");
-		// lstparam.add("lieuNaissance");
-		// lstparam.add("numSecu");
-		// lstparam.add("nationalite");
-		// lstparam.add("situation");
-		// lstparam.add("fonction");
-		// lstparam.add("positionEntreprise");
-		// lstparam.add("coeff");
-		// lstparam.add("salaire");
-		// lstparam.add("montantTransport");
-		// lstparam.add("nbKm");
-		//
+		
 		if (oNoSerie != null && personne != null) {
 			String nom = personne.getNom();
 
