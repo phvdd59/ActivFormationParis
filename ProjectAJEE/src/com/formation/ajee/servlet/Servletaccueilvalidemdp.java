@@ -16,10 +16,8 @@ import javax.servlet.http.HttpSession;
 import com.formation.ajee.metier.ListPersonne;
 import com.formation.ajee.metier.Personne;
 
-/**
- * Servlet implementation class Servletjeci1
- */
-@WebServlet("/Servletaccueilchargementprofil")
+
+@WebServlet("/Servletaccueilvalidemdp")
 public class Servletaccueilvalidemdp extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
