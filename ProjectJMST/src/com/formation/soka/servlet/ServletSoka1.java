@@ -48,7 +48,7 @@ public class ServletSoka1 extends HttpServlet {
 		String sMdp1 = null;
 		String sMdp2 = null;
 
-		if (perso.getIdentifiant() == null) { //utile au cas où on appelle cette servlet par "precedent"
+		if (perso.getIdentifiant() == null || perso.getIdentifiant().equals("")) { //utile au cas où on appelle cette servlet par "precedent"
 
 			/***************************
 			 * RECUP DONNEE FORMULAIRE
@@ -60,6 +60,7 @@ public class ServletSoka1 extends HttpServlet {
 			 * CONTROLE ET CONVERSION
 			 */
 			CtrlPersonne ctrl = new CtrlPersonne();
+			System.out.println();
 			if (ctrl.ctrlIdentifiant(sIdentifiant) && ctrl.ctrlMdp(sMdp1) && ctrl.ctrlMdp(sMdp2)) {
 				if (sMdp1.equals(sMdp2)) {
 					perso.setIdentifiant(sIdentifiant);

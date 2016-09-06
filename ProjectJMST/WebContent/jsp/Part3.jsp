@@ -109,6 +109,8 @@
 				String sCp = request.getParameter("code postale");
 				String sVille = request.getParameter("ville");
 				String sEmail = request.getParameter("mail");
+				
+				
 
 				if (noSerie.equals(noSerieHtml)) {
 					// 					if (ctrl.ctrlNom(sNom) && ctrl.ctrlPrenom(sPrenom) && ctrl.ctrlAdresse(sAdresse)

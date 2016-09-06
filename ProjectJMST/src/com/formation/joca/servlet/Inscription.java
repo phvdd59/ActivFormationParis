@@ -87,7 +87,11 @@ public class Inscription extends HttpServlet {
 			perso.setVisiteMedicale(conv.conversionDate(sDateVisiteMedicale));
 			perso.setMontantTransport(sMontantTransport);
 			perso.setVoiture(conv.conversionBoolean(sVehicule));
-			perso.setNbCV(Integer.valueOf(sNbCv));
+			if(sNbCv.equals("")){
+				perso.setNbCV(0);
+			} else {
+				perso.setNbCV(Integer.valueOf(sNbCv));
+			}
 			perso.setNbKm(sNbKm);
 			java.util.Date dateCreationUtil = new java.util.Date();
 			Date dateCreation = new Date(dateCreationUtil.getTime());

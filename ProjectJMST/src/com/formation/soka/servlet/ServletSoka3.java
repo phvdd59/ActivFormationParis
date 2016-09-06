@@ -37,6 +37,7 @@ public class ServletSoka3 extends HttpServlet {
 	 *      response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		HttpSession session = request.getSession();
 
 		String noSerieHtml = request.getParameter("noSerie");
@@ -120,7 +121,7 @@ public class ServletSoka3 extends HttpServlet {
 	 *      response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doPost(request, response);
+		doGet(request, response);
 	}
 
 }

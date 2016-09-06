@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.sql.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.formation.thcr.conversion.ConversionPersonne;
 import com.formation.thcr.metier.ListPersonne;
 import com.formation.thcr.metier.Personne;
 
@@ -74,6 +76,8 @@ public class ServletThcr1 extends HttpServlet {
 			String nbCv = "nombre de cv";
 			String kmestime = "nombre de kilometre estime";
 
+			ConversionPersonne conv = new ConversionPersonne();
+
 			for (Personne personne : listPersonne) {
 				if (personne.getIdentifiant().equals(login)) {
 					nom = personne.getNom();
@@ -81,6 +85,39 @@ public class ServletThcr1 extends HttpServlet {
 					mail = personne.getEmail();
 					nationalite = personne.getNationalite();
 					prenom = personne.getPrenom();
+					codePostal = personne.getCp();
+					ville = personne.getVille();
+					telFixe = personne.getTelFixe();
+					telPort = personne.getTelPort();
+					fax = personne.getFax();
+					dateNaissance = conv.conversionSQLToUtil(new Date(personne.getDateNaissance().getTime()));
+					lieuNaissance = personne.getLieuNaissance();
+					numSecu = personne.getNumSecu();
+					situation = personne.getSituation();
+					fonction = personne.getFonction();
+					position = personne.getPosition();
+					coefficient = personne.getCoeff();
+					salaire = personne.getSalaire();
+					if (personne.isMutuelle()) {
+						mutuelle = "oui";
+					} else {
+						mutuelle = "non";
+					}
+					if (personne.isTicketResto()) {
+						ticketresto = "oui";
+					} else {
+						ticketresto = "non";
+					}
+					visiteMedicale = conv.conversionSQLToUtil(new Date(personne.getVisiteMedicale().getTime()));
+					aboTransport = personne.getMontantTransport();
+					if (personne.isVoiture()) {
+						vehicule = "oui";
+					} else {
+						vehicule = "non";
+					}
+					nbCv = String.valueOf(personne.getNbCV()).toString();
+					kmestime = personne.getNbKm();
+
 				}
 			}
 

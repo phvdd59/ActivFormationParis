@@ -74,6 +74,7 @@ public class DAOPersonne {
 					+ "', LP_NATIONALITE='" + personne.getNationalite()//
 					+ "', LP_SITUATION='" + personne.getSituation()//
 					+ "', LP_FONCTION='" + personne.getFonction()//
+					+ "', LP_POSITION='" + personne.getPosition()//
 					+ "', LP_CADRE='" + personne.isCadre()//
 					+ "', LP_COEFF='" + personne.getCoeff()//
 					+ "', LP_SALAIRE='" + personne.getSalaire()//
@@ -129,7 +130,7 @@ public class DAOPersonne {
 			String sql = "INSERT INTO jmst.personne"//
 					+ "(LP_NOM, LP_PRENOM, LP_SEXE, LP_IDENTIFIANT, LP_MDP, LP_EMAIL, LP_ADRESSE, LP_CP, LP_VILLE, LP_TELFIXE, "
 					+ "LP_TELPORT, LP_FAX, LP_DATENAISSANCE, LP_LIEUNAISSANCE, LP_NUMSECU, LP_NATIONALITE, "
-					+ "LP_SITUATION, LP_FONCTION, LP_CADRE, LP_COEFF, LP_SALAIRE, LP_VISITEMEDICALE, "
+					+ "LP_SITUATION, LP_FONCTION, LP_POSITION,LP_CADRE, LP_COEFF, LP_SALAIRE, LP_VISITEMEDICALE, "
 					+ "LP_MONTANTTRANSPORT, LP_VOITURE, LP_NBCV, LP_NBKM, LP_MUTUELLE, LP_TICKETRESTO, LP_ADMIN, "
 					+ "LP_DATECREATION, LP_DATEMODIFICATION, LP_BLOQUE, LP_RAISONBLOCAGE)" + "VALUES('"
 					+ personne.getNom() + "','" + personne.getPrenom() + "','" + personne.getSexe().getSexe() + "','"
@@ -138,7 +139,7 @@ public class DAOPersonne {
 					+ personne.getTelFixe() + "'," + "'" + personne.getTelPort() + "','" + personne.getFax() + "','"
 					+ personne.getDateNaissance() + "'," + "'" + personne.getLieuNaissance() + "','"
 					+ personne.getNumSecu() + "','" + personne.getNationalite() + "'," + "'" + personne.getSituation()
-					+ "','" + personne.getFonction() + "','" + personne.isCadre() + "'," + "'" + personne.getCoeff()
+					+ "','" + personne.getFonction() + "','" + personne.getPosition() + "','" + personne.isCadre() + "'," + "'" + personne.getCoeff()
 					+ "','" + personne.getSalaire() + "','" + personne.getVisiteMedicale() + "'," + "'"
 					+ personne.getMontantTransport() + "','" + personne.isVoiture() + "','" + personne.getNbCV() + "',"
 					+ "'" + personne.getNbKm() + "','" + personne.isMutuelle() + "','" + personne.isTicketResto() + "',"
@@ -205,6 +206,7 @@ public class DAOPersonne {
 					personne.setNationalite(result.getString("LP_NATIONALITE"));
 					personne.setSituation(result.getString("LP_SITUATION"));
 					personne.setFonction(result.getString("LP_FONCTION"));
+					personne.setPosition(result.getString("LP_POSITION"));
 					personne.setCadre(Boolean.valueOf(result.getString("LP_NOM")).booleanValue());
 					personne.setCoeff(result.getString("LP_COEFF"));
 					personne.setSalaire(result.getString("LP_SALAIRE"));
@@ -289,6 +291,7 @@ public class DAOPersonne {
 				personne.setNationalite(result.getString("LP_NATIONALITE"));
 				personne.setSituation(result.getString("LP_SITUATION"));
 				personne.setFonction(result.getString("LP_FONCTION"));
+				personne.setPosition(result.getString("LP_POSITION"));;
 				personne.setCadre(Boolean.valueOf(result.getString("LP_NOM")).booleanValue());
 				personne.setCoeff(result.getString("LP_COEFF"));
 				personne.setSalaire(result.getString("LP_SALAIRE"));
