@@ -74,10 +74,8 @@ public class ServletFicheRempli extends HttpServlet {
 
 			String nationalite = personne.getNationalite();
 
-			// String situation = personne.getSituation();
-			// if (situation == null) {
-			// situation = "";
-			// }
+			 String situation = personne.getSituationString();
+			
 
 			String fonction = personne.getFonction();
 
@@ -129,10 +127,8 @@ public class ServletFicheRempli extends HttpServlet {
 
 				String unationalite = utilisateur.getNationalite();
 
-				// String situation = utilisateur.getSituation();
-				// if (situation == null) {
-				// situation = "";
-				// }
+				 String usituation = utilisateur.getSituationString();
+				
 
 				String ufonction = utilisateur.getFonction();
 
@@ -231,9 +227,9 @@ public class ServletFicheRempli extends HttpServlet {
 					if (lineDoc1.contains("%nationalite%")) {
 						lineDoc1 = lineDoc1.replace("%nationalite%", unationalite);
 					}
-					// if (lineDoc1.contains("%situation%")) {
-					// lineDoc1 = lineDoc1.replace("%situation%", usituation);
-					// }
+					 if (lineDoc1.contains("%situation%")) {
+					 lineDoc1 = lineDoc1.replace("%situation%", usituation);
+					 }
 					if (lineDoc1.contains("%fonction%")) {
 						lineDoc1 = lineDoc1.replace("%fonction%", ufonction);
 					}
@@ -348,9 +344,9 @@ public class ServletFicheRempli extends HttpServlet {
 					if (lineDoc1.contains("%nationalite%")) {
 						lineDoc1 = lineDoc1.replace("%nationalite%", nationalite);
 					}
-					// if (lineDoc1.contains("%situation%")) {
-					// lineDoc1 = lineDoc1.replace("%situation%", situation);
-					// }
+					 if (lineDoc1.contains("%situation%")) {
+					 lineDoc1 = lineDoc1.replace("%situation%", situation);
+					 }
 					if (lineDoc1.contains("%fonction%")) {
 						lineDoc1 = lineDoc1.replace("%fonction%", fonction);
 					}
