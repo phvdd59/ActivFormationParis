@@ -52,8 +52,8 @@ public class Servletaccueilvalidemdp extends HttpServlet {
 				
 				/** Lecture Haut de page HTML */
 				vue.lecturePage(response, "HautPage");
-				vue.lecturePage(response, "JSAccueilAdmin");
-				vue.lecturePage(response, "JSBandeauAdmin");
+				vue.lectureJS(response, "JSAccueilAdmin");
+				vue.lectureJS(response, "JSBandeauAdmin");
 				vue.lecturePage(response, "MenuActiv");
 
 				/**Lecture corp de page */

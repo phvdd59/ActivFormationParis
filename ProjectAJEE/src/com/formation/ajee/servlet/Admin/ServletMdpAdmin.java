@@ -51,8 +51,8 @@ public class ServletMdpAdmin extends HttpServlet {
 				
 				/** Lecture Haut de page HTML */
 				vue.lecturePage(response, "HautPage");
-				vue.lecturePage(response, "JSMotDePasse");
-				vue.lecturePage(response, "JSBandeauAdmin");
+				vue.lectureJS(response, "JSMotDePasse");
+				vue.lectureJS(response, "JSBandeauAdmin");
 				vue.lecturePage(response, "MenuActiv");
 				
 				/** Lecture Haut de page HTML */
@@ -81,8 +81,8 @@ public class ServletMdpAdmin extends HttpServlet {
 			} else {
 				/** Lecture Haut de page HTML */
 				vue.lecturePage(response, "HautPage");
-				vue.lecturePage(response, "JSBandeauAdmin");
-				vue.lecturePage(response, "JSMotDePasse");
+				vue.lectureJS(response, "JSBandeauAdmin");
+				vue.lectureJS(response, "JSMotDePasse");
 				vue.lecturePage(response, "MenuActiv");
 				
 				/** Lecture Haut de page HTML */
