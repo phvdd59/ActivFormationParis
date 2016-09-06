@@ -50,15 +50,15 @@ public class ServletPageExamCandidat2 extends HttpServlet {
 			session.setAttribute("servlet", "Envoi");
 			session.setAttribute("methode", "POST");
 			personne = (Personne) session.getAttribute("Personne");
-			AccesBDDPersonne acces=new AccesBDDPersonne();
-//			personne2 = (Personne) session.getAttribute("Candidat");
-			
-			Personne personne2= (Personne) acces.getPersonne(request.getParameter("IDcandidat"));
-//					getAttribute("IDcandidat").toString());
+			AccesBDDPersonne acces = new AccesBDDPersonne();
+			// personne2 = (Personne) session.getAttribute("Candidat");
+
+			Personne personne2 = (Personne) acces.getPersonne(request.getParameter("IDcandidat"));
+			// getAttribute("IDcandidat").toString());
 			session.setAttribute("candidat", personne2);
-			
-			session.setAttribute("NomAdmin", personne.getPrenom()+" "+personne.getNom());
-			
+
+			session.setAttribute("NomAdmin", personne.getPrenom() + " " + personne.getNom());
+
 			session.setAttribute("nomCandidat", personne2.getNom());
 			session.setAttribute("prenomCandidat", personne2.getPrenom());
 			session.setAttribute("emailCandidat", personne2.getEmail());
@@ -84,12 +84,9 @@ public class ServletPageExamCandidat2 extends HttpServlet {
 			session.setAttribute("nbCVCandidat", personne2.getNbCV());
 			session.setAttribute("nbKmCandidat", personne2.getNdKm());
 			session.setAttribute("mutuelleCandidat", personne2.isMutuelle());
-			
-			
-			
-			this.getServletContext().getRequestDispatcher( "/WEB-INF/test.jsp" ).forward( request, response );
-			
-			
+
+			this.getServletContext().getRequestDispatcher("/grosTest.jsp").forward(request, response);
+
 		} else {
 			session.invalidate();
 			RequestDispatcher rd = request.getRequestDispatcher("C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/grosTest.jsp");
