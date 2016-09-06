@@ -214,13 +214,13 @@
 		}
 
 		function verifForm(f) {
-			var identOk = verif_ident(f.identifiant);
+			//var identOk = verif_ident(f.identifiant);
 			var mdpOk = verif_mdp(f.newMdp1);
 			var mdp2Ok = verif_mdp2(f.newMdp2);
 			var mdpOldOk = verif_mdpOld(f.ancienMdp);
 			var mdpEgalOk = mdp_egal();
 
-			if (!(identOk && mdpOk && mdp2Ok && mdppOldOk)){
+			if (!(mdpOk && mdp2Ok && mdpOldOk)){
 				alert("Veuillez remplir correctement tous les champs");
 				return false;
 			} else {
