@@ -1,5 +1,9 @@
 package com.formation.issa.pagesDeVerification;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -31,6 +35,7 @@ public class SituationRemuneration {
 		String position = getValeurChamp(request, CHAMP_POSITION);
 		String coeff = getValeurChamp(request, CHAMP_COEFF);
 		String salaire = getValeurChamp(request, CHAMP_SALAIRE);
+		
 		Candidat candidat = new Candidat();
 		try {
 			validationSituation(situation);
@@ -65,7 +70,7 @@ public class SituationRemuneration {
 	public boolean validationSalaire(String salaire) {
 		boolean retour=false;
 		if (salaire!=null){
-			if(salaire.matches("^[0-9]+[0-9\\,]*$")){
+			if(salaire.matches("^[0-9]+[0-9\\,.]*$")){
 				retour=true;
 			}
 		}
@@ -114,6 +119,46 @@ public class SituationRemuneration {
 		}
 		return retour; 
 
+	}
+	public boolean validationDateVisiteMedicale(String dateVisiteMedicale) throws ParseException {
+		boolean retour=false;
+		final DateFormat df = new SimpleDateFormat("DD/MM/YYYY");
+		final Date date = df.parse(dateVisiteMedicale);
+		if(dateVisiteMedicale!=null){
+			if (dateVisiteMedicale.length() == 10) {
+				retour = true;
+			}
+		}
+		return retour;
+		
+	}
+	public boolean validationMontantCarteTransport(String montantTransport) {
+		boolean retour=false;
+		if (montantTransport!=null){
+			if(montantTransport.matches("^[0-9]+[0-9\\,.]*$")){
+				retour=true;
+			}
+		}
+		return retour;
+	}
+	public boolean validationNbCV(String nbCV) {
+		boolean retour=false;
+		if(nbCV!=null){
+			if(nbCV.matches("^[0-9]+$")){
+				retour=true;
+			}
+		}
+		return retour;
+		
+	}
+	public boolean validationNbKm(String nbKm) {
+		boolean retour=false;
+		if (nbKm!=null){
+			if(nbKm.matches("^[0-9]+[0-9\\,.]*$")){
+				retour=true;
+			}
+		}
+		return retour;
 	}
 
 	private void setErreur(String champ, String message) {
