@@ -131,10 +131,10 @@ function verifNom(champ) {
 }
 
 function verifNomOptionnel(champ) {
-	if (!verifVide(champ)){
+	if (!verifVide(champ)) {
 		surligne(champ, false);
 		return true;
-	}else if (verifLettres(champ)) {
+	} else if (verifLettres(champ)) {
 		surligne(champ, false);
 		return true;
 	} else {
@@ -154,11 +154,11 @@ function verifDateNaissance(champ) {
 }
 
 function verifSecu(champ) {
-	
-	if (!verifVide(champ)){
+
+	if (!verifVide(champ)) {
 		surligne(champ, false);
 		return true;
-	}else if (verifTaille(champ, 15, 15) && (!verifLettres(champ))) {
+	} else if (verifTaille(champ, 15, 15) && (!verifLettres(champ))) {
 		surligne(champ, false);
 		return true;
 	} else {
@@ -168,24 +168,24 @@ function verifSecu(champ) {
 }
 
 function verifPosition(champ) {
-	 var re=/^[0-9]+\.[0-9]+\.?[0-9]?$/;
-	 if (!verifVide(champ)){
-			surligne(champ, false);
-			return true;
-	 }else if(re.test(champ.value)){
-	 surligne(champ, false);
-	 return true;
-	 }else{
-	surligne(champ, true);
-	return false;
-	 }
+	var re = /^[0-9]+\.[0-9]+\.?[0-9]?$/;
+	if (!verifVide(champ)) {
+		surligne(champ, false);
+		return true;
+	} else if (re.test(champ.value)) {
+		surligne(champ, false);
+		return true;
+	} else {
+		surligne(champ, true);
+		return false;
+	}
 }
 
 function verifSalaire(champ) {
-	 if (!verifVide(champ)){
-			surligne(champ, false);
-			return true;
-	 }else if (!verifLettres(champ)) {
+	if (!verifVide(champ)) {
+		surligne(champ, false);
+		return true;
+	} else if (!verifLettres(champ)) {
 		surligne(champ, false);
 		return true;
 	} else {
@@ -195,19 +195,19 @@ function verifSalaire(champ) {
 }
 
 function verifCoefficient(champ) {
-//	if (verifVide(champ)) {
-//		surligne(champ, false);
-		return true;
-//	} else {
-//		surligne(champ, true);
-//		return false;
-//	}
+	// if (verifVide(champ)) {
+	// surligne(champ, false);
+	return true;
+	// } else {
+	// surligne(champ, true);
+	// return false;
+	// }
 }
 function verifDate(champ) {
-	 if (!verifVide(champ)){
-			surligne(champ, false);
-			return true;
-	 }else if (champ.value.match(/^[0-3][0-9]\/[0-1][0-9]\/[1-2][0-9]{3}$/)) {
+	if (!verifVide(champ)) {
+		surligne(champ, false);
+		return true;
+	} else if (champ.value.match(/^[0-3][0-9]\/[0-1][0-9]\/[1-2][0-9]{3}$/)) {
 		surligne(champ, false);
 		return true;
 	} else {
@@ -217,44 +217,44 @@ function verifDate(champ) {
 
 }
 function verifMontantTransport(champ) {
-	 var re=/^\d+.*\d*$/;
-	 if (!verifVide(champ)){
-			surligne(champ, false);
-			return true;
-	 }else if(re.test(champ.value)){
-	 surligne(champ, false);
-	 return true;
-	 }else{
-	surligne(champ, true);
-	return false;
-	 }
+	var re = /^\d+.*\d*$/;
+	if (!verifVide(champ)) {
+		surligne(champ, false);
+		return true;
+	} else if (re.test(champ.value)) {
+		surligne(champ, false);
+		return true;
+	} else {
+		surligne(champ, true);
+		return false;
+	}
 }
 
 function verifNbCV(champ) {
-	 if (!verifVide(champ)){
-			surligne(champ, false);
-			return true;
-	 }else if(!verifLettres(champ)){
-	 surligne(champ, false);
-	 return true;
-	 }else{
-	surligne(champ, true);
-	return false;
-	 }
+	if (!verifVide(champ)) {
+		surligne(champ, false);
+		return true;
+	} else if (!verifLettres(champ)) {
+		surligne(champ, false);
+		return true;
+	} else {
+		surligne(champ, true);
+		return false;
+	}
 }
 
 function verifKmMensuel(champ) {
-	 var re=/^\d+.*\d*$/;
-	 if (!verifVide(champ)){
-			surligne(champ, false);
-			return true;
-	 }else if(re.test(champ.value)){
-	 surligne(champ, false);
-	 return true;
-	 }else{
-	surligne(champ, true);
-	return false;
-	 }
+	var re = /^\d+.*\d*$/;
+	if (!verifVide(champ)) {
+		surligne(champ, false);
+		return true;
+	} else if (re.test(champ.value)) {
+		surligne(champ, false);
+		return true;
+	} else {
+		surligne(champ, true);
+		return false;
+	}
 }
 
 function verifSitAutre(champ) {
@@ -277,11 +277,11 @@ function verifInscription1(f) {
 	var alerttotal = "";
 	if (verifIdentifiant(f.identifiant) == false) {
 		alerttotal = alerttotal
-				+ "L'identifiant doit \352tre compos\351 de 4 à 30 caractères \n";
+				+ "L'identifiant doit \352tre compos\351 de 4 \340 30 caractères \n";
 	}
 	if (verifMdp1(f.mdp1) == false) {
 		alerttotal = alerttotal
-				+ "Le mot de passe doit \352tre compos\351 de 6 à 30 caractères dont une lettre et un chiffre \n";
+				+ "Le mot de passe doit \352tre compos\351 de 6 \340 30 caractères dont une lettre et un chiffre \n";
 	}
 	if (verifMdp2(f.mdp2) == false) {
 		alerttotal = alerttotal + "Les mots de passe ne sont pas identiques \n";
@@ -298,13 +298,10 @@ function verifInscription1(f) {
 		alerttotal = alerttotal
 				+ "Le pr\351nom n'est pas indiqu\351 ou il contient un chiffre \n";
 	}
-	
-	if (verifIdentifiant(f.identifiant) == false || 
-			verifMdp1(f.mdp1) == false ||
-			verifMdp2(f.mdp2) == false ||
-			verifNom(f.nom) == false ||
-			verifNom(f.prenom) == false		
-	) {
+
+	if (verifIdentifiant(f.identifiant) == false || verifMdp1(f.mdp1) == false
+			|| verifMdp2(f.mdp2) == false || verifNom(f.nom) == false
+			|| verifNom(f.prenom) == false) {
 		alert(alerttotal);
 		return false;
 	} else {
@@ -325,16 +322,23 @@ function verifCoordonnees(f) {
 		alerttotal = alerttotal
 				+ "La ville n'est pas indiqu\351e ou elle contient un chiffre \n";
 	}
-	if (verifTel(f.telFixe) == false) {
+	if ((verifTel(f.telFixe) == false) && (verifTel(f.telPort) == false)) {
 		alerttotal = alerttotal
-				+ "Le num\351ro de t\351l\351phone fixe n'est pas indiqu\351 ou est invalide \n";
+				+ "Au moins un num\351ro de t\351l\351phone valide est n\351cessaire \n";
+		f.telFixe.style.backgroundColor = "#F0E68C";
+		f.telPort.style.backgroundColor = "#F0E68C";
+	} else {
+		f.telFixe.style.backgroundColor = "";
+		f.telPort.style.backgroundColor = "";
 	}
 	if (verifEmail(f.email) == false) {
 		alerttotal = alerttotal
 				+ "L'email n'est pas indiqu\351 ou est invalide \n";
 	}
-	
-	if (verifAdresse(f.adresse) == false || verifCodePostal(f.cp) == false || verifNom(f.ville) == false || verifTel(f.telFixe) == false || verifEmail(f.email) == false) {
+
+	if (verifAdresse(f.adresse) == false || verifCodePostal(f.cp) == false
+			|| verifNom(f.ville) == false || verifTel(f.telFixe) == false
+			|| verifEmail(f.email) == false) {
 		alert(alerttotal);
 		return false;
 	} else {
@@ -357,19 +361,18 @@ function verifEtatCivil(f) {
 				+ "La date de naissance n'est pas indiqu\351e ou est invalide \n";
 	}
 	if (verifNomOptionnel(f.lieunaiss) == false) {
-		alerttotal = alerttotal
-				+ "Le lieu de naissance contient un chiffre \n";
+		alerttotal = alerttotal + "Le lieu de naissance contient un chiffre \n";
 	}
 	if (verifNomOptionnel(f.nati) == false) {
-		alerttotal = alerttotal
-				+ "La nationalit\351 contient un chiffre \n";
+		alerttotal = alerttotal + "La nationalit\351 contient un chiffre \n";
 	}
 	if (verifSecu(f.secu) == false) {
 		alerttotal = alerttotal
 				+ "Le num\351ro de s\351curit\351 sociale est invalide \n";
 	}
 	if (verifNom(f.nom) == false || verifNom(f.prenom) == false
-			|| verifDateNaissance(f.datenaiss) == false || verifNomOptionnel(f.lieunaiss) == false
+			|| verifDateNaissance(f.datenaiss) == false
+			|| verifNomOptionnel(f.lieunaiss) == false
 			|| verifNomOptionnel(f.nati) == false || verifSecu(f.secu) == false) {
 		alert(alerttotal);
 		return false;
@@ -390,15 +393,15 @@ function verifRemuneration(f) {
 				+ "La position souhait\351e est invalide (format ?) \n";
 	}
 	if (verifSalaire(f.salaire) == false) {
-		alerttotal = alerttotal
-				+ "Le salaire est invalide \n";
+		alerttotal = alerttotal + "Le salaire est invalide \n";
 	}
 	if (verifCoefficient(f.Coefficient) == false) {
 		alerttotal = alerttotal + "Le coefficient est invalide \n";
 	}
-//	if (verifDateNaissance(f.visiteMedicale) == false) {
-//		alerttotal = alerttottal + "La visite médicale n'est pas une date \n";
-//	}
+	if (verifDate(f.visiteMedicale) == false) {
+		alerttotal = alerttotal
+				+ "La date de visite m\351dicale est invalide \n";
+	}
 	if (verifMontantTransport(f.montantTransport) == false) {
 		alerttotal = alerttotal
 				+ "Le montant transports indiqué est invalide \n";
@@ -408,16 +411,16 @@ function verifRemuneration(f) {
 		alerttotal = alerttotal + "Le nombre de cv indiqué est invalide \n";
 	}
 	if (verifKmMensuel(f.nbKm) == false) {
-		alerttotal = alerttotal + "Le nombre de km mensuel indiqué est invalide \n";
+		alerttotal = alerttotal
+				+ "Le nombre de km mensuel indiqué est invalide \n";
 	}
 
 	if (verifNom(f.fonction) == false || verifPosition(f.position) == false
 			|| verifSalaire(f.salaire) == false
 			|| verifCoefficient(f.Coefficient) == false
-//			|| verifDateNaissance(f.visiteMedicale) == false
+			|| verifDate(f.visiteMedicale) == false
 			|| verifMontantTransport(f.montantTransport) == false
-			|| verifNbCV(f.nbCV) == false || verifKmMensuel(f.nbKm) == false
-			) {
+			|| verifNbCV(f.nbCV) == false || verifKmMensuel(f.nbKm) == false) {
 		alert(alerttotal);
 		return false;
 	} else {
