@@ -38,6 +38,7 @@ public class ServletSoka0 extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		
 		HttpSession session = request.getSession(true);
 		Enumeration<String> a = session.getAttributeNames();
 		Personne perso = null;
