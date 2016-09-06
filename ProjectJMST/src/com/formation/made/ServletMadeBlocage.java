@@ -1,6 +1,8 @@
 package com.formation.made;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -33,15 +35,33 @@ public class ServletMadeBlocage extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session= request.getSession();
 		String personneBloquee=request.getParameter("personneBloquee");
-		ListPersonne listePersonne=(ListPersonne) session.getAttribute("listPersonne");
+		String noSerieSession=(String) session.getAttribute("noSerie");
+		String noSerie=request.getParameter("noSerie");
+		System.out.println("personne bloquee" +personneBloquee);
+		DAOPersonne dao=new DAOPersonne();
+		ListPersonne listePersonne=dao.read();
+		if(noSerieSession.equals(noSerie)){
 		for (Personne personne : listePersonne) {
-			if(personne.getNom().equals(personneBloquee)){
-				personne.setBloque(true);
-				personne.setRaisonBlocage(request.getParameter("raisonBlocage"));
+			if(personne.getIdentifiant().equals(personneBloquee)){
+				System.out.println("la liste de personne est bonne");
+				if(personne.isBloque()==false){
+					System.out.println("");
+					personne.setBloque(true);
+					personne.setRaisonBlocage(request.getParameter("raisonBlocage"));
+					dao.update(personne);
+				}
+
+				
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/testjspsuppression.jsp");
+				dispatcher.forward(request, response);
 			}
+			
 		}
-		
-		
+		}
+		System.out.println("je forward");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("jsp/testjspsuppression.jsp");
+		dispatcher.forward(request, response);
+		//response.sendRedirect("http://localhost:8080/ProjectJMST/jsp/Part5.jsp");
 	}
 
 	/**

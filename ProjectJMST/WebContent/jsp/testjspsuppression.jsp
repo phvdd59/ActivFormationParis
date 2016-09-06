@@ -17,15 +17,15 @@
 
 	<script type="text/javascript">
 		function afficher() {
-			var select=document.getElementById("idSelect");
-			alert("je suis la");
-			var string=select.value;
-			alert(select.value);
-			var span=document.getElementById("spanNom");
-			alert("le span est" +span.innerHTML);
-			var xx=document.getElementById("spanNom");
+			var select = document.getElementById("idSelect");
+			alert("je suis la id select");
+			var string = select.value;
+			alert(select.value + "la value de select");
+			var span = document.getElementById("spanNom");
+			alert("le span est" + span.innerHTML);
+			var xx = document.getElementById("spanNom");
 			alert("après le span");
-			xx.innerHTML=select.value;
+			xx.innerHTML = select.value;
 			alert("fin");
 		}
 	</script>
@@ -37,74 +37,78 @@
 		ListPersonne listePersonne = new ListPersonne();
 		DAOPersonne dao = new DAOPersonne();
 		listePersonne = dao.read();
-		if (true) { //(noSerie.equals(noSerieHtml)){ ne marche pas pour l'instant a voir donc(made)
+		if (true){//noSerie.equals(noSerieHtml)){ //ne marche pas pour l'instant a voir donc(made)
 	%>
-	
+
 	<p>Utilisateur</p>
-	<form action="servletblocage">
+	<form action="http://localhost:8080/ProjectJMST/ServletMadeBlocage">
 		<select id="idSelect" name="personneBloquee">
+			<option name="optionDescription">Identifiant  Nom Prenom</option>
 			<%
+			
 				for (Personne perso : listePersonne) {
 			%>
 			<option name="optionNom"><%=perso.getIdentifiant()%></option>
 
-			<p id="test">test</p>
-			<p id="pNom" hidden><%=perso.getNom()%>bonjour
-			</p>
-			<p><%=perso.getPrenom()%></p>
+			
 			<%
 				}
 			%>
 		</select>
+		<%
+			;
+		%>
 
 
-
-
-		<p>Vous avez selectionnez la personne suivante:</p>
-<span id="spanNom">allo</span>
-	<input type="button" onclick="afficher()">
-	<input type="text" value=" " readonly="readonly">
-		<input type="submit" value=" bloquer personne" >
-	
-	
-		<input id="inputMotif" type="text" name="raisonBlocage">
+		<input id="raisonBlocage"type="text" name="raisonBlocage">
+		<input type="submit" value=" bloquer personne"> 
 		<%
 			Personne personneBloquee = new Personne();
 				// personneBloquee.setRaisonBlocage(document.getElementById(inputMotif));
 		%>
+					<input	type="hidden" name="noSerie" value="%%noSerie%%">
+	</form>
+	<table>
+		<th colspan="4">Historiques des utilisateurs bloques</th>
 
-</form>
-		<table>
-			<th colspan="5">Historiques des utilisateurs bloques</th>
-
-			<tr>
-				<td>Nom</td>
-				<td>Prenom</td>
-				<td>Date d'inscription</td>
-				<td>Date de blocage</td>
-				<td>Motif</td>
-			</tr>
-			<%
-				for (Personne perso : listePersonne) {
-						//if(perso.isBloque()){
-			%>
-			<tr>
-				<td><%=perso.getNom()%></td>
-				<td><%=perso.getPrenom()%></td>
-				<td><%=perso.getDateCreation()%></td>
-				<td>Date de blocage</td>
-				<td><%=perso.getRaisonBlocage()%></td>
-			</tr>
-			<%
-				//}
-					}
-			%>
-		</table>
+		<tr>
+			<td>Nom</td>
+			<td>Prenom</td>
+			<td>Date d'inscription</td>
+			
+			<td>Motif</td>
+		</tr>
 		<%
-			} else {
-				response.sendRedirect("http://localhost:8080/ProjectJMST/ServletJOCA1");
-			}
+			for (Personne perso : listePersonne) {
+					if(perso.isBloque()){
 		%>
+		<tr>
+			<td><%=perso.getNom()%></td>
+			<td><%=perso.getPrenom()%></td>
+			<td><%=perso.getDateCreation()%></td>
+			<td><%=perso.getRaisonBlocage()%></td>
+		</tr>
+		<%
+			}
+				}
+		%>
+	</table>
+	<form action="http://localhost:8080/ProjectJMST/ServletDeco"
+					method="post">
+					<input type="submit" value="deconnexion"
+						title="deconnexion session"><input type="hidden"
+						name="noSerie" value="<%=noSerie%>">
+				</form>
+				<form action=http://localhost:8080/ProjectJMST/RetourMenu method="post">
+                    <input type="submit" value="retour">
+                    <input type="hidden" name="noSerie" value="<%=noSerie%>">
+                </form>
 	
+	<%
+		} else {
+			response.sendRedirect("http://localhost:8080/ProjectJMST/ServletJOCA1");
+		}
+	%>
+
 </body>
 </html>
