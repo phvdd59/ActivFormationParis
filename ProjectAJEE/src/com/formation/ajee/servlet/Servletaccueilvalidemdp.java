@@ -54,7 +54,7 @@ public class Servletaccueilvalidemdp extends HttpServlet {
 			rd.forward(request, response);
 		}
 		
-		if (noSerie != null && personne.getIdentifiant() != null) {
+		if (noSerie != null && personne != null&& personne.getIdentifiant() != null) {
 			if (personne.getIdentifiant().equals("Admin")) {
 				
 				/** Lecture Haut de page HTML */

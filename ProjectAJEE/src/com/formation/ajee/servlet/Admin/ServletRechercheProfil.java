@@ -46,7 +46,7 @@ public class ServletRechercheProfil extends HttpServlet {
 		Personne personne = (Personne) session.getAttribute("personne");
 		Personne utilisateur = null;
 		// Constituer la nouvelle page
-		if (noSerie != null && personne.getIdentifiant() != null) {
+		if (noSerie != null && personne != null&& personne.getIdentifiant() != null) {
 
 			if (personne.getIdentifiant().equals("Admin")) {
 				String sUtilisateur = request.getParameter("utilisateur");

@@ -43,7 +43,7 @@ public class ServletAjouter extends HttpServlet {
 		Object oIdUtilisateur = utilisateur.getIdPersonne();
 		Object oIdPersonne = personne.getIdPersonne();
 
-		if (oNoSerie != null && personne.getIdentifiant() != null) {
+		if (oNoSerie != null && personne != null&& personne.getIdentifiant() != null) {
 			if (personne.getIdentifiant().equals("Admin")) {
 				if (utilisateur.equals(null)) {
 					RequestDispatcher rd = request.getRequestDispatcher("/Servletaccueilchargementprofil");

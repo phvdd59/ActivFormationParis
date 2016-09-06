@@ -47,7 +47,7 @@ public class ServletFicheRempli extends HttpServlet {
 		Personne utilisateur = (Personne) session.getAttribute("utilisateur");
 		Vue vue=new Vue();
 		
-		if (oNoSerie != null && personne != null) {
+		if (oNoSerie != null && personne != null&& personne.getIdentifiant() != null) {
 			String nom = personne.getNom();
 
 			String prenom = personne.getPrenom();

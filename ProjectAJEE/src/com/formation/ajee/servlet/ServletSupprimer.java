@@ -43,7 +43,7 @@ public class ServletSupprimer extends HttpServlet {
 		Personne personne = (Personne) session.getAttribute("personnne");
 		Object oIdPersonne = utilisateur.getIdPersonne();
 
-		if (oNoSerie != null && personne.getIdentifiant() != null) {
+		if (oNoSerie != null && personne != null&& personne.getIdentifiant() != null) {
 			if (personne.getIdentifiant().equals("Admin")) {
 				if (utilisateur.equals(null)) {
 					RequestDispatcher rd = request.getRequestDispatcher("/Servletaccueilchargementprofil");

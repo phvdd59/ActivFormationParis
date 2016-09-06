@@ -4,8 +4,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -43,90 +41,59 @@ public class ServletModificationFormulaire extends HttpServlet {
 		Object oNoSerie = session.getAttribute("noSerie");
 		Personne personne = (Personne) session.getAttribute("personne");
 		Vue vue = new Vue();
-		//personne.getClass().
-		// Récupérer les données du formulaire et ranger dans objet personne
-
-		// ArrayList<String> lstparam= new ArrayList<String>();
-		// lstparam.add("nom");
-		// lstparam.add("prenom");
-		// lstparam.add("adresse");
-		// lstparam.add("cp");
-		// lstparam.add("ville");
-		// lstparam.add("telFixe");
-		// lstparam.add("telPort");
-		// lstparam.add("fax");
-		// lstparam.add("email");
-		// lstparam.add("dateNaissance");
-		// lstparam.add("lieuNaissance");
-		// lstparam.add("numSecu");
-		// lstparam.add("nationalite");
-		// lstparam.add("situation");
-		// lstparam.add("fonction");
-		// lstparam.add("positionEntreprise");
-		// lstparam.add("coeff");
-		// lstparam.add("salaire");
-		// lstparam.add("montantTransport");
-		// lstparam.add("nbKm");
-		//
+	
 
 		String nom = personne.getNom();
-	
+
 		String prenom = personne.getPrenom();
-		
+
 		String adresse = personne.getAdresse();
-	
+
 		String cp = personne.getCp();
-	
+
 		String ville = personne.getVille();
-	
+
 		String telfixe = personne.getTelFixe();
 		if (telfixe == null) {
 			telfixe = "";
 		}
 		String telport = personne.getTelPort();
-		
-		String fax = personne.getFax();
-	
-		String email = personne.getEmail();
-		
-		String datenaissance = personne.getDateNaissanceString();
-	
-		String lieunaissance = personne.getLieuNaissance();
-		
-		String numSecu = personne.getNumSecu();
-		
-		String nationalite = personne.getNationalite();
-		
 
-		// String situation = personne.getSituation();
-		// if (situation == null) {
-		// situation = "";
-		// }
+		String fax = personne.getFax();
+
+		String email = personne.getEmail();
+
+		String datenaissance = personne.getDateNaissanceString();
+
+		String lieunaissance = personne.getLieuNaissance();
+
+		String numSecu = personne.getNumSecu();
+
+		String nationalite = personne.getNationalite();
+
+		String situation = personne.getSituationString();
 
 		String fonction = personne.getFonction();
-		
+
 		String positionEntreprise = personne.getPositionEntreprise();
-	
+
 		String coeff = personne.getCoeff();
-	
+
 		String salaire = personne.getSalaire();
-	
-		String mutuelle=personne.getMutuelle();
-	
-		String ticketResto=personne.getTicketResto();
-	
+
+		String mutuelle = personne.getMutuelle();
+
+		String ticketResto = personne.getTicketResto();
+
 		String visiteMedicale = personne.getVisiteMedicaleString();
-	
+
 		String montantTransport = personne.getMontantTransport();
-	
-		String voiture=personne.getVoiture();
-		
-		String nbcv =personne.getNbCVString();
+
+		String voiture = personne.getVoiture();
+
+		String nbcv = personne.getNbCVString();
 
 		String nbKm = personne.getNbKm();
-		
-
-		
 
 		if (oNoSerie != null) {
 
@@ -136,21 +103,21 @@ public class ServletModificationFormulaire extends HttpServlet {
 				vue.lecturePage(response, "HautPage");
 
 				/** A modifier seulement si notre page contient du JavaScript */
-				 File fileJS = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/css/FormulaireCalendrierListeDeroulante.html");
-				 BufferedReader bufReadJS = null;
-				 bufReadJS = new BufferedReader(new FileReader(fileJS));
-				 String lineJS = bufReadJS.readLine();
-				 while (lineJS != null) {
-				 response.getWriter().println(lineJS);
-				 lineJS = bufReadJS.readLine();
-				 }
-				 bufReadJS.close();
-				 response.getWriter().println("<link href=\"http://localhost:8080/ProjectAJEE/ajee/css/StyleFormulaire.css\" rel=\"stylesheet\" type=\"text/css\">");
-				 
-				 vue.lectureJS(response, "JSFormulaireCalendrierListeDeroulante");
-				 
+				File fileJS = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/css/FormulaireCalendrierListeDeroulante.html");
+				BufferedReader bufReadJS = null;
+				bufReadJS = new BufferedReader(new FileReader(fileJS));
+				String lineJS = bufReadJS.readLine();
+				while (lineJS != null) {
+					response.getWriter().println(lineJS);
+					lineJS = bufReadJS.readLine();
+				}
+				bufReadJS.close();
+				response.getWriter().println("<link href=\"http://localhost:8080/ProjectAJEE/ajee/css/StyleFormulaire.css\" rel=\"stylesheet\" type=\"text/css\">");
+
+				vue.lectureJS(response, "JSFormulaireCalendrierListeDeroulante");
+
 				/** Lecture page ActivConsulting */
-				vue.lecturePage(response, "MenuActiv"); 
+				vue.lecturePage(response, "MenuActiv");
 
 				/**
 				 * Seule Partie qui va vraiment changer selon les pages (penser
@@ -201,7 +168,7 @@ public class ServletModificationFormulaire extends HttpServlet {
 					if (lineDoc1.contains("%email%")) {
 						lineDoc1 = lineDoc1.replace("%email%", email);
 					}
-					
+
 					if (lineDoc1.contains("%lieu%")) {
 						lineDoc1 = lineDoc1.replace("%lieu%", lieunaissance);
 					}
@@ -211,10 +178,10 @@ public class ServletModificationFormulaire extends HttpServlet {
 					if (lineDoc1.contains("%nationalite%")) {
 						lineDoc1 = lineDoc1.replace("%nationalite%", nationalite);
 					}
-					// if (lineDoc1.contains("%situation%")) {
-					// lineDoc1 = lineDoc1.replace("%situation%", situation);
-					// }
-					
+					if (lineDoc1.contains("%situation%")) {
+						lineDoc1 = lineDoc1.replace("%situation%", situation);
+					}
+
 					if (lineDoc1.contains("%position%")) {
 						lineDoc1 = lineDoc1.replace("%position%", positionEntreprise);
 					}
@@ -224,8 +191,7 @@ public class ServletModificationFormulaire extends HttpServlet {
 					if (lineDoc1.contains("%salaire%")) {
 						lineDoc1 = lineDoc1.replace("%salaire%", salaire);
 					}
-					
-					
+
 					if (lineDoc1.contains("%datevisite%")) {
 						lineDoc1 = lineDoc1.replace("%datevisite%", visiteMedicale);
 					}
@@ -241,18 +207,31 @@ public class ServletModificationFormulaire extends HttpServlet {
 					if (lineDoc1.contains("%km%")) {
 						lineDoc1 = lineDoc1.replace("%km%", nbKm);
 					}
+					if (lineDoc1.contains("%mutuelle%")) {
+						lineDoc1 = lineDoc1.replace("%mutuelle%", mutuelle);
+					}
+					if (lineDoc1.contains("%ticketResto%")) {
+						lineDoc1 = lineDoc1.replace("%ticketResto%", ticketResto);
+					}
+					if (lineDoc1.contains("%datenaissance%")) {
+						lineDoc1 = lineDoc1.replace("%datenaissance%", datenaissance);
+					}
+					if (lineDoc1.contains("%fonction%")) {
+						lineDoc1 = lineDoc1.replace("%fonction%", fonction);
+					}
 					response.getWriter().println(lineDoc1);
 					lineDoc1 = bufReadDoc1.readLine();
 				}
 				bufReadDoc1.close();
-					
+
 				/** Lecture bas de page */
-				vue.lecturePage(response, "BasPage"); 
-				
+				vue.lecturePage(response, "BasPage");
+
 			} else {
-			session.invalidate();
-			RequestDispatcher rd = request.getRequestDispatcher("//Servletidentification");
-			rd.forward(request, response);}
+				session.invalidate();
+				RequestDispatcher rd = request.getRequestDispatcher("//Servletidentification");
+				rd.forward(request, response);
+			}
 		} else {
 			session.invalidate();
 			RequestDispatcher rd = request.getRequestDispatcher("//Servletidentification");

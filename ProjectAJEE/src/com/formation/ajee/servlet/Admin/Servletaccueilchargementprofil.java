@@ -49,7 +49,7 @@ public class Servletaccueilchargementprofil extends HttpServlet {
 		Personne personne = (Personne) session.getAttribute("personne");
 		Vue vue = new Vue();
 
-		if (noSerie != null && personne.getIdentifiant() != null) {
+		if (noSerie != null && personne != null&& personne.getIdentifiant() != null) {
 
 			if (personne.getIdentifiant().equals("Admin")) {
 

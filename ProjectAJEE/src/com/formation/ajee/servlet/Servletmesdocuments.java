@@ -44,7 +44,7 @@ public class Servletmesdocuments extends HttpServlet {
 		Personne personne = (Personne) session.getAttribute("personne");
 		Vue vue = new Vue();
 
-		if (oNoSerie != null && personne.getIdentifiant() != null) {
+		if (oNoSerie != null && personne != null&& personne.getIdentifiant() != null) {
 			if (personne.getIdentifiant().equals("Admin")) {
 				if (utilisateur == null) {
 					RequestDispatcher rd = request.getRequestDispatcher("//Servletaccueilchargementprofil");
