@@ -49,7 +49,7 @@ public class Servletaccueilvalidemdp extends HttpServlet {
 		String sMdpV=(String) request.getParameter("mdpV");
 		String mdpVerif = v.mdpVerif(sMdpN);
 		
-		if (sMdpN==null ||sMdpV == null || !sMdpN.equals(sMdpV)) {
+		if (sMdpN == null ||sMdpV == null || !sMdpN.equals(sMdpV)) {
 			RequestDispatcher rd = request.getRequestDispatcher("//ServletMdpAdmin");
 			rd.forward(request, response);
 		} else {
