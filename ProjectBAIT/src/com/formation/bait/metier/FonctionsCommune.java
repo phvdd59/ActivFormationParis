@@ -12,8 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 public class FonctionsCommune {
 
 	public void AfficherHautDePage(HttpServletResponse response) {
-		File file = new File(
-				"C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/hautDePageActiv.html");
+		File file = new File("C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/hautDePageActiv.html");
 		BufferedReader bIn = null;
 		InputStreamReader inputStreamReader = null;
 		try {
@@ -38,10 +37,9 @@ public class FonctionsCommune {
 			}
 		}
 	}
-	
-	public void AfficherBasDePage (HttpServletResponse response){
-		File file3 = new File(
-				"C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/basDePageActiv.html");
+
+	public void AfficherBasDePage(HttpServletResponse response) {
+		File file3 = new File("C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/basDePageActiv.html");
 		BufferedReader bIn3 = null;
 		InputStreamReader inputStreamReader3 = null;
 		try
@@ -76,5 +74,54 @@ public class FonctionsCommune {
 				e.printStackTrace();
 			}
 		}
+	}
+
+	public Personne[] PersoVersPerso(Perso[] tabPerso) {
+
+		Personne[] tabPersonne = new Personne[tabPerso.length];
+		for (int i = 0; i < tabPerso.length; i++) {
+			Personne personne = new Personne();
+			Perso perso = tabPerso[i];
+			personne.setIdPersonne(perso.getIdPersonne());
+			personne.setNom(perso.getNom());
+			personne.setPrenom(perso.getPrenom());
+			personne.setIdentifiant(perso.getIdentifiant());
+			personne.setMdp(perso.getMdp());
+			personne.setEmail(perso.getEmail());
+			personne.setAdresse(perso.getAdresse());
+			personne.setcP(perso.getCp());
+			personne.setVille(perso.getVille());
+			personne.setTelFixe(perso.getTelFixe());
+			personne.setTelPort(perso.getTelPort());
+			personne.setFax(perso.getFax());
+			personne.setDateNaissance(perso.getDateNaissance().toString());
+			personne.setLieuNaissance(perso.getLieuNaissance());
+			personne.setNumSecu(perso.getNumSecu());
+			personne.setNationalite(perso.getNationalite());
+			personne.setSituation(perso.getSituation());
+			personne.setFonction(perso.getFonction());
+			personne.setPosition(perso.getPos());
+			personne.setCadre(perso.isCadre());
+			personne.setCoeff(perso.getCoeff());
+			personne.setSalaire(perso.getSalaire());
+			personne.setVisiteMedicale(perso.getVisiteMedicale().toString());
+			personne.setMontantTransport(perso.getMontantTransport());
+			personne.setVoiture(perso.isVoiture());
+			personne.setNbCV(Integer.toString(perso.getNbCV()));
+			personne.setNdKm(perso.getNbKm());
+			personne.setMutuelle(perso.isMutuelle());
+			personne.setTicket(perso.isTicketResto());
+			personne.setAdmin(perso.isAdmin());
+			personne.setDateCreation(perso.getDateCreation().toString());
+			personne.setDateModification(perso.getDateModification().toString());
+			personne.setBloque(perso.isBloque());
+			personne.setRaisonBlocage(perso.getMontantTransport());
+
+			tabPersonne[i] = personne;
+
+		}
+
+		return tabPersonne;
+
 	}
 }

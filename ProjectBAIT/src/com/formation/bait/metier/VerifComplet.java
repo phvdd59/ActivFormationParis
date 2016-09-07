@@ -14,13 +14,13 @@ public class VerifComplet {
 //		if (!personne.getCoeff().equals("") && personne.getCoeff()!=null) {
 //			somme+=1;
 //		}
-		if (personne.getDateNaissance().equals("")&& personne.getDateNaissance()!=null) {
+		if (!personne.getDateNaissance().equals("")&& personne.getDateNaissance()!=null) {
 			somme+=1;
 		}
-		if (personne.getEmail().equals("") && personne.getEmail()!=null) {
+		if (!personne.getEmail().equals("") && personne.getEmail()!=null) {
 			somme+=1;
 		}
-		if (personne.getFonction().equals("") && personne.getFonction()!= null) {
+		if (!personne.getFonction().equals("") && personne.getFonction()!= null) {
 			somme+=1;
 		}
 //		if (personne.getLieuNaissance().equals("") && personne.getLieuNaissance()!= null) {
@@ -42,13 +42,13 @@ public class VerifComplet {
 //		if (personne.getSituation().equals("") && personne.getSituation()!=null) {
 //			somme+=1;
 //		}
-		if ((personne.getTelFixe().equals("") || personne.getTelPort().equals(""))&&personne.getTelFixe() !=null && personne.getTelPort()!=null) {
+		if ((!personne.getTelFixe().equals("") || !personne.getTelPort().equals(""))&&personne.getTelFixe() !=null && personne.getTelPort()!=null) {
 			somme+=1;
 		}
-		if (personne.getVille().equals("") && personne.getVille()!=null) {
+		if (!personne.getVille().equals("") && personne.getVille()!=null) {
 			somme+=1;
 		}
-		if (personne.getcP().equals("") && personne.getcP()!=null) {
+		if (!personne.getcP().equals("") && personne.getcP()!=null) {
 			somme+=1;
 		}
 		
