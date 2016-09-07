@@ -8,8 +8,9 @@ function boutonEnregistrer(){
 
 	regTexte=/^[a-zA-Z\300-\304\307\310-\317\322-\326\331-\335\340-\344\347\350-\357\362-\366\371-\375\-\s\'']+$/
 	<!-- "[A-Za-zàáâäçèéêëìíîïñòóôöùúûü\\-\\']*" --> 
-	regNombre=/^[0-9]+$/
-	regEmail=/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/ // email
+	//regNombre=/^[0-9]+$/
+	//regEmail=/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/
+	regEmail=/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/ // email
 	regDateNaissance = /^[0-3]?[0-9]\/[01]?[0-9]\/[12][90][0-9][0-9]$/  // date de naissance
 	regTelFixe = /^[0][1234589][0-9]{8}$/
 	//
