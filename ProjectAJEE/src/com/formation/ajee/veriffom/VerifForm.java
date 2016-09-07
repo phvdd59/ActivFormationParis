@@ -14,7 +14,7 @@ public class VerifForm {
 	public String nomVerif(String nom) {
 		String retour = "";
 		try {
-		if (nom.matches("[A-Za-zאבגהחטיךכלםמןסעףפצשתûü\\-\\']*") &&nom.length()<=100) {
+		if (nom.matches("[A-Za-zאבגהחטיךכלםמןסעףפצשתûü\\-\\'\\s]*") &&nom.length()<=100) {
 				retour = nom;
 			}
 		} catch (Exception e) {
@@ -27,7 +27,7 @@ public class VerifForm {
 	public String prenomVerif(String prenom) {
 		String retour = "";
 		try {
-			if (prenom.matches("[A-Za-zאבגהחטיךכלםמןסעףפצשתûü]*")&&prenom.length()<=100) {
+			if (prenom.matches("[A-Za-zאבגהחטיךכלםמןסעףפצשתûü\\-\\']*")&&prenom.length()<=100) {
 				retour = prenom;
 			}
 		} catch (Exception e) {

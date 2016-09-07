@@ -113,13 +113,16 @@ public class ServletFormulaireB extends HttpServlet {
 		Personne personne = new Personne(); // à ce moment y'a création de l'idpersonne
 		VerifForm verif = new VerifForm();
 		
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		
 		// Récupérer les données du formulaire, vérifier, et ranger dans objet personne
 		String pNom=request.getParameter("nom");
 		String pNomV=verif.nomVerif(pNom);
 		personne.setNom(pNomV);
 		
 		String pPrenom=request.getParameter("prenom");
-		String pPrenomV=verif.prenomVerif(pPrenom);
+		String pPrenomV=verif.nomVerif(pPrenom);
 		personne.setPrenom(pPrenomV);
 		
 		String pSexe=request.getParameter("sexe");
