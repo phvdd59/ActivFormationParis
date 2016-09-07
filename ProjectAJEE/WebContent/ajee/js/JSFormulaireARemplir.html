@@ -172,7 +172,7 @@ function ecritureTextePrenom() {
 function ecritureTexteAdresse() {
 	var adresse = document.getElementById("adresse");
 	var adresse2 = document.getElementById("adresse").value;
-	reg3=/^[a-zA-Z\300-\304\307\310-\317\322-\326\331-\335\340-\344\347\350-\357\362-\366\371-\375\-\s\''\,]+$/
+	reg3=/^[0-9a-zA-Z\300-\304\307\310-\317\322-\326\331-\335\340-\344\347\350-\357\362-\366\371-\375\-\s\''\,]+$/
 	if (adresse2 != "") {
 		if(!adresse2.match(reg3)){
 			adresse.style.color="red";
