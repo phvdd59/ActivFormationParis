@@ -36,9 +36,9 @@ public class Servletlisteutilisateurs2 extends HttpServlet {
 		super();
 	}
 
-	public void init(ServletConfig config) throws ServletException {
-		lstUser2 = new ListPersonne();
-	}
+//	public void init(ServletConfig config) throws ServletException {
+//		lstUser2 = new ListPersonne();
+//	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
@@ -69,7 +69,8 @@ public class Servletlisteutilisateurs2 extends HttpServlet {
 		Object boutonAjouter = request.getParameter("ajouter");
 		Object boutonSupp = request.getParameter("supprimer");
 		boolean existe = false;
-
+		lstUser2 = new ListPersonne();
+		
 		if (oNoSerie != null && personne != null&& personne.getIdentifiant() != null) {
 		if (boutonAjouter != null) {
 			if (oNomA != "" && oPrenomA != "") {
@@ -87,9 +88,10 @@ public class Servletlisteutilisateurs2 extends HttpServlet {
 				}
 				if (existe == false) {
 					user.ajoutPersonne(user.getIdPersonne());
-					lstUser = new ListPersonne();
+					
 				}
-
+				lstUser = new ListPersonne();
+				
 				/** Lecture Haut de page HTML */
 				vue.lecturePage(response, "HautPage");
 
