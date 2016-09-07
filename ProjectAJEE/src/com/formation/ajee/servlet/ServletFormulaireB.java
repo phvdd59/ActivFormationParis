@@ -18,7 +18,7 @@ import com.formation.ajee.metier.Personne;
 import com.formation.ajee.metier.SEXE;
 import com.formation.ajee.metier.SITUATION;
 import com.formation.ajee.veriffom.VerifForm;
-
+  
 /**
  * Servlet implementation class ServletFormulaire
  */
