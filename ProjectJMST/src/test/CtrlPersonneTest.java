@@ -16,7 +16,7 @@ public class CtrlPersonneTest {
 	@Before
 	public void init() {
 		ctrlPersonne = new CtrlPersonne();
-		iCtrlPersonne = (InterCtrlPersonne) ctrlPersonne;
+		iCtrlPersonne =  ctrlPersonne;
 	}
 
 	// ---------------------------------------------------NOM---------------------------------------------------------
