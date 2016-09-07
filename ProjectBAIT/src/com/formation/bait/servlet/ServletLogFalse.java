@@ -15,7 +15,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.formation.bait.dao.AccesBDDPersonne;
 import com.formation.bait.metier.FonctionsCommune;
 
 /**
@@ -38,17 +37,16 @@ public class ServletLogFalse extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher rd = request.getRequestDispatcher("//ServletLogin3");
 		rd.forward(request, response);
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		FonctionsCommune fctC= new FonctionsCommune();
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		FonctionsCommune fctC = new FonctionsCommune();
+		HttpSession session = request.getSession();
 		fctC.AfficherHautDePage(response);
-		
+
 		File file2 = new File("C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/Login.html");
 		BufferedReader bIn2 = null;
 		InputStreamReader inputStreamReader2 = null;
@@ -56,16 +54,18 @@ public class ServletLogFalse extends HttpServlet {
 			inputStreamReader2 = new InputStreamReader(new FileInputStream(file2), "UTF-8");
 			bIn2 = new BufferedReader(inputStreamReader2);
 			String line2 = bIn2.readLine();
+
+			String msg = (String) session.getAttribute("message");
 			while (line2 != null) {
 				// System.out.println(line);
 				response.getWriter().append(line2 + "\n");
-				if (line2.contains("Identification")){
-				
-				
-			response.getWriter().append("<div style=\" margin-left:180px; margin-bottom:15px;\" >Erreur: mot de passe ou identifiant incorrect"+"\n </div>");
-				
-			}
+				if (line2.contains("Identification")) {
+
+					response.getWriter().append("<div style=\" margin-left:180px; margin-bottom:15px;\" >" + msg + "\n </div>");
+
+				}
 				line2 = bIn2.readLine();
+
 			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -78,11 +78,10 @@ public class ServletLogFalse extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		
+
 		fctC.AfficherBasDePage(response);
-		
+
 		response.getWriter().append("un truc");
-		
 
 	}
 }
