@@ -36,7 +36,7 @@ public class ServletPageBloquer2 extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		RequestDispatcher rd = request.getRequestDispatcher("//ServletPageCompte2");
+		RequestDispatcher rd = request.getRequestDispatcher("//ServletLogin3");
 		rd.forward(request, response);
 	}
 
@@ -54,7 +54,7 @@ public class ServletPageBloquer2 extends HttpServlet {
 			nbAppel++;
 			session.setAttribute("nbAppel", Integer.valueOf(nbAppel));
 			Personne candidat=new Personne();
-			session.getAttribute("candidat");
+			candidat = (Personne) session.getAttribute("candidat");
 			candidat.setBloque(true);
 			candidat.setRaisonBlocage(request.getParameter("raison"));
 			AccesBDDPersonne bloq = new AccesBDDPersonne();
