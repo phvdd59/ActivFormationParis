@@ -155,6 +155,8 @@ function verifDateNaissance(champ) {
 
 function verifSecu(champ) {
 
+	var secu = champ.value.replace(/ /g, "");
+	champ.value = secu;
 	if (!verifVide(champ)) {
 		surligne(champ, false);
 		return true;
