@@ -38,11 +38,11 @@ public class DaoPersonne {
 						+ personne.getNom() + "','" + personne.getPrenom() + "','" + personne.getSexe() + "','" 
 						+ personne.getIdentifiant() + "','"	+ personne.getMdp() + "','" + personne.getEmail() + "','"
 						+ personne.getAdresse() + "','" + personne.getCp() + "','" + personne.getVille() + "','" + personne.getTelFixe() + "','" 
-						+ personne.getTelPort() + "','" + personne.getFax() + "','" +personne.getDateNaissanceString() + "','" 
+						+ personne.getTelPort() + "','" + personne.getFax() + "','" +personne.getDateNaissanceStringDAO() + "','" 
 						+ personne.getLieuNaissance() + "','" + personne.getNumSecu() + "','" + personne.getNationalite() + "','" 
 						+ personne.getSituation() + "','" + personne.getFonction() + "','" + personne.getPositionEntreprise() + "'," 
 						+ personne.isCadre() + ",'" + personne.getCoeff() + "','" + personne.getSalaire() + "','" 
-						+ personne.getVisiteMedicaleString() +"','" + personne.getMontantTransport() + "'," + personne.isVoiture() + ",'" 
+						+ personne.getVisiteMedicaleStringDAO() +"','" + personne.getMontantTransport() + "'," + personne.isVoiture() + ",'" 
 						+ personne.getNbCV() + "','" + personne.getNbKm() + "'," + personne.isMutuelle() + "," + personne.isTicketResto() + ",'" 
 						+ personne.getDateCreationString() + "','" + personne.getDateModificationString() + "'," + personne.isBloque() + ",'" 
 						+ personne.getRaisonBlocage() + "','" + personne.getListeDoc() + "');";
@@ -75,7 +75,7 @@ public class DaoPersonne {
 					String sql10 = " update ajee.personne set telFixe = '" + personne.getTelFixe() + "' where idPersonne = '" + personne.getIdPersonne() +"';";
 					String sql11 = " update ajee.personne set telPort = '"	+ personne.getTelPort() + "' where idPersonne = '" + personne.getIdPersonne() +"';";
 					String sql12 = " update ajee.personne set fax = '" + personne.getFax() + "' where idPersonne = '" + personne.getIdPersonne() +"';";
-					String sql13 = " update ajee.personne set dateNaissance = '" + personne.getDateNaissanceString() +"' where idPersonne = '" + personne.getIdPersonne() +"';";
+					String sql13 = " update ajee.personne set dateNaissance = '" + personne.getDateNaissanceStringDAO() +"' where idPersonne = '" + personne.getIdPersonne() +"';";
 					String sql15 = " update ajee.personne set lieuNaissance = '" + personne.getLieuNaissance() + "' where idPersonne = '" + personne.getIdPersonne() +"';";							
 					String sql16 = " update ajee.personne set numSecu = '" + personne.getNumSecu() + "' where idPersonne = '" + personne.getIdPersonne() + "';";
 					String sql17 = " update ajee.personne set nationalite = '" + personne.getNationalite() + "' where idPersonne = '" + personne.getIdPersonne() +"';";
@@ -85,7 +85,7 @@ public class DaoPersonne {
 					String sql22 = " update ajee.personne set cadre = " + personne.isCadre() + " where idPersonne = '" + personne.getIdPersonne() +"';";
 					String sql23 = " update ajee.personne set coeff = '" + personne.getCoeff() + "' where idPersonne = '" + personne.getIdPersonne() +"';";
 					String sql24 = " update ajee.personne set salaire = '" + personne.getSalaire() + "' where idPersonne = '" + personne.getIdPersonne() +"';";
-					String sql25 = " update ajee.personne set visiteMedicale = '" + personne.getVisiteMedicaleString() + "' where idPersonne = '" + personne.getIdPersonne() +"';";
+					String sql25 = " update ajee.personne set visiteMedicale = '" + personne.getVisiteMedicaleStringDAO() + "' where idPersonne = '" + personne.getIdPersonne() +"';";
 					String sql26 = " update ajee.personne set montantTransport = '" + personne.getMontantTransport() + "' where idPersonne = '" + personne.getIdPersonne() +"';";
 					String sql27 = " update ajee.personne set voiture = " + personne.isVoiture() + " where idPersonne = '" + personne.getIdPersonne() +"';";
 					String sql28 = " update ajee.personne set nbCV = '" + personne.getNbCV() + "' where idPersonne = '" + personne.getIdPersonne() +"';";

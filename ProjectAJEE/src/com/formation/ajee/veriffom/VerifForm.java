@@ -186,7 +186,7 @@ public class VerifForm {
 	}
 
 	public Date dateNaissanceVerif(String dateNaissance) {
-		Date retour = Date.from(Instant.MIN);
+		Date retour = new Date();
 		try {
 			String s = dateNaissance;
 			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
@@ -327,7 +327,7 @@ public class VerifForm {
 	}
 
 	public Date visiteMedicaleVerif(String visiteMedicale) {
-		Date retour = Date.from(Instant.MIN);
+		Date retour = new Date();
 		try {
 			String s = visiteMedicale;
 			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");

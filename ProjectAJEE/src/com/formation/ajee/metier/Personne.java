@@ -346,6 +346,15 @@ public class Personne implements Serializable {
 		}
 		return datenaissance;
 	}
+	
+	public String getDateNaissanceStringDAO() {
+		String datenaissance = "";
+		if (dateNaissance != null) {
+			SimpleDateFormat formatDateJour = new SimpleDateFormat("yyyy-MM-dd");
+			datenaissance = formatDateJour.format(dateNaissance);
+		}
+		return datenaissance;
+	}
 
 	public void setDateNaissance(Date dateNaissance) {
 		this.dateNaissance = dateNaissance;
@@ -468,6 +477,15 @@ public class Personne implements Serializable {
 		return visitemedicale;
 	}
 
+	public String getVisiteMedicaleStringDAO() {
+		String visitemedicale = "";
+		if (visiteMedicale != null) {
+			SimpleDateFormat formatDateJour = new SimpleDateFormat("yyyy-MM-dd");
+			visitemedicale = formatDateJour.format(visiteMedicale);
+		}
+		return visitemedicale;
+	}
+	
 	public void setVisiteMedicale(Date visiteMedicale) {
 		this.visiteMedicale = visiteMedicale;
 	}
