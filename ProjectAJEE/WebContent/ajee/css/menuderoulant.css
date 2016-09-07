@@ -1,6 +1,7 @@
 #menu-deroulant, #menu-deroulant ul {
     padding: 0;
-   
+    font-family : Arial; /* on utilise Arial, c'est plus beau ^^ */
+        font-size : 12px; /* hauteur du texte : 12 pixels */
     list-style: none;
 }
 #menu-deroulant {
@@ -16,7 +17,8 @@
 #menu-deroulant li {
 /* on place les liens du menu horizontalement */
     display: inline-block;
-   
+    font-family : Arial; /* on utilise Arial, c'est plus beau ^^ */
+        font-size : 12px; /* hauteur du texte : 12 pixels */
 }
 #menu-deroulant input {
 /* on place les liens du menu horizontalement */
@@ -29,6 +31,7 @@
    height: 20px;
    font-family : Arial;
    font-weight : bold;
+    font-size : 12px; 
 }
 #menu-deroulant input:hover /* Lorsque la souris passe sur un des liens */    
 
