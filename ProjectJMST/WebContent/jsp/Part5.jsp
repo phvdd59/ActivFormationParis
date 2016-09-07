@@ -10,6 +10,11 @@
 input[type="submit"]{
 width:25%;
 }
+input#inputDeco[type="submit"]{
+position: relative;
+left: 85%;
+
+}
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Formulaire</title>
@@ -269,11 +274,13 @@ width:25%;
 <!-- 				<input type="submit" value="Precedent"></input> <input type="hidden" -->
 <%-- 					name="noSerie" value="<%=noSerie%>"> --%>
 <!-- 			</form> -->
-			<form action="http://localhost:8080/ProjectJMST/ServletDeco"
-				method='get'>
-				<input type="submit" value="Deconnexion"></input> <input
-					type="hidden" name="noSerie" value="<%=noSerie%>">
-			</form>
+			<div id="deco">
+					<form action=http://localhost:8080/ProjectJMST/ServletDeco
+						method="post">
+						<input class="boutonRetourDeco" id="inputDeco" type="submit" value="Deconnexion"> <input
+							type="hidden" name="noSerie" value="%%noSerie%%">
+					</form>
+				</div>
 		</div>
 		<div id="fpage2">
 			<img
