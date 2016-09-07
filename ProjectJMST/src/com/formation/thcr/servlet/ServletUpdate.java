@@ -83,13 +83,14 @@ public class ServletUpdate extends HttpServlet {
 				personne.setVoiture(conv.conversionBoolean(sVehicule));
 				personne.setNbCV(Integer.valueOf(sNbCv).intValue());
 				personne.setNbKm(sKmEstime);
+				
+				java.util.Date dateModificationUtil = new java.util.Date();
+				Timestamp dateModification = new Timestamp(dateModificationUtil.getTime());
+				personne.setDateModification(dateModification);
+				dao.update(personne);
 			}
 		}
 		
-		java.util.Date dateModificationUtil = new java.util.Date();
-		Timestamp dateModification = new Timestamp(dateModificationUtil.getTime());
-		personne.setDateModification(dateModification);
-		dao.update(personne);
 		RequestDispatcher rd = getServletContext().getRequestDispatcher("/Servletmadeversmenu");
 		rd.forward(request, response);
 
