@@ -11,7 +11,9 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletResponse;
 
 import com.formation.bait.metier.DocPerso;
+import com.formation.bait.metier.FonctionsCommune;
 import com.formation.bait.metier.ListeDoc;
+import com.formation.bait.metier.Perso;
 import com.formation.bait.metier.Personne;
 
 public class AccesBDDPersonne {
@@ -123,7 +125,7 @@ public class AccesBDDPersonne {
 		return result;
 	}
 
-	public void remplirListeUserEmpruntee(Personne[] tabPersonne) {
+	public void remplirListeUserEmpruntee(Perso[] tabPerso) {
 		Connection conn = null;
 		Statement stat = null;
 		try {
@@ -134,8 +136,9 @@ public class AccesBDDPersonne {
 
 			String sql = "delete from listeUserEmpruntee";
 			stat.executeUpdate(sql);
-			for (Personne personne : tabPersonne) {
-				savePersonneEmpruntee(personne);
+			FonctionsCommune fc = new FonctionsCommune();
+			for (Perso perso : tabPerso) {
+				savePersonneEmpruntee(fc.PersoVersPerso(perso));
 			}
 
 		} catch (ClassNotFoundException | SQLException e) {
