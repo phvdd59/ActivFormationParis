@@ -143,6 +143,9 @@ input[type="submit"] {
 					//String situation = personne.getEnumSituation().getNom(); 
 					//String situation = (SITUATION.valueOf(personne.getSituation())).getNom();
 					String situation = personne.getSituation();
+					if (situation ==null){
+						situation="";
+					}
 			%>
 			<form action="http://localhost:8080/ProjectJMST/jsp/Part5.jsp"
 				method='post' onsubmit="return ctrAll()">
@@ -237,6 +240,9 @@ input[type="submit"] {
 							} else {
 						%>
 						<td><input type="radio" name="situation" value=""></td>
+						<td><input id="autre" type="text" name="situationVal"
+							value="" onblur="ctrAutre()"><span
+							id="spanAutre"></span></td>
 						<%
 							}
 						%>
