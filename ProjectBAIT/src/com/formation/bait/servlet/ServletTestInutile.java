@@ -221,6 +221,12 @@ public class ServletTestInutile extends HttpServlet {
 					e.printStackTrace();
 				}
 			}
+			
+			
+			response.getWriter().append("<script> var sec = 15 var timer = setInterval(function() { $('.auctiondiv .countdown').text(sec--); if (sec == -1) { $('.auctiondiv .countdown').fadeOut('slow'); clearInterval(timer); } }, 1000); </script>");
+
+			
+			
 			fonctions.AfficherBasDePage(response);
 		} else {
 			session.invalidate();
