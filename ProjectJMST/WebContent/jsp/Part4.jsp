@@ -8,8 +8,8 @@
 <html>
 <head>
 <style type="text/css">
-input[type="submit"]{
-width:25%;
+input[type="submit"] {
+	width: 25%;
 }
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -123,22 +123,22 @@ width:25%;
 				String sNationalite = request.getParameter("nationalite");
 
 				if (noSerie.equals(noSerieHtml)) {
-					// 					if (ctrl.ctrlDateNaissance(sDateNaissance) && ctrl.ctrlLieuNaissance(sLieuNaissance) && ctrl.ctrlNumSecu(sNumSecu)
-					// 							&& ctrl.ctrlNationalite(sNationalite)) {
-					personne.setDateNaissance(conv.conversionDate(sDateNaissance));
-					personne.setLieuNaissance(sLieuNaissance);
-					personne.setNumSecu(sNumSecu);
-					if (personne.getNumSecu().charAt(0) == '1') {
-						personne.setSexe(new Sexe(Sexe.MASCULIN));
+					if (ctrl.ctrlDateNaissance(sDateNaissance) && ctrl.ctrlLieuNaissance(sLieuNaissance)
+							&& ctrl.ctrlNumSecu(sNumSecu) && ctrl.ctrlNationalite(sNationalite)) {
+						personne.setDateNaissance(conv.conversionDate(sDateNaissance));
+						personne.setLieuNaissance(sLieuNaissance);
+						personne.setNumSecu(sNumSecu);
+						if (personne.getNumSecu().charAt(0) == '1') {
+							personne.setSexe(new Sexe(Sexe.MASCULIN));
+						} else {
+							personne.setSexe(new Sexe(Sexe.FEMININ));
+						}
+						personne.setNationalite(sNationalite);
 					} else {
-						personne.setSexe(new Sexe(Sexe.FEMININ));
-					}
-					personne.setNationalite(sNationalite);
-					// 					} else {
-					// 						out.write("Erreur");
-					// 						Thread.sleep(2000);
-					//						FORWARD TO DECO
-					// 					}
+			%>
+			<jsp:forward page="Deco.jsp"></jsp:forward>
+			<%
+				}
 
 					//String situation = personne.getEnumSituation().getNom(); 
 					//String situation = (SITUATION.valueOf(personne.getSituation())).getNom();
@@ -184,8 +184,7 @@ width:25%;
 							if (situation.equals("freelance")) {
 						%>
 						<td><input type="radio" name="situation" value="freelance"
-							checked="checked">
-						</td>
+							checked="checked"></td>
 						<%
 							} else {
 						%>
@@ -215,8 +214,7 @@ width:25%;
 							if (situation.equals("retraite")) {
 						%>
 						<td><input type="radio" name="situation" value="retraite"
-							checked="checked">
-						</td>
+							checked="checked"></td>
 						<%
 							} else {
 						%>
@@ -226,12 +224,15 @@ width:25%;
 						%>
 						<td style="width: 272px; height: 25px;">Autre</td>
 						<%
-							if (!situation.equals("retraite") && !situation.equals("Salarie") && !situation.equals("auto entrepreneur") && !situation.equals("demandeur d'emploi") && !situation.equals("freelance")) {
+							if (!situation.equals("retraite") && !situation.equals("Salarie")
+										&& !situation.equals("auto entrepreneur") && !situation.equals("demandeur d'emploi")
+										&& !situation.equals("freelance")) {
 						%>
 						<td><input type="radio" name="situation" value=""
 							checked="checked"></td>
 						<td><input id="autre" type="text" name="situationVal"
-							value="<%=situation%>" onblur="ctrAutre()"><span id="spanAutre"></span></td>
+							value="<%=situation%>" onblur="ctrAutre()"><span
+							id="spanAutre"></span></td>
 						<%
 							} else {
 						%>
@@ -246,11 +247,11 @@ width:25%;
 				<input type="submit" value="Suivant"></input> <input type="hidden"
 					name="noSerie" value="<%=noSerie%>">
 			</form>
-<!-- 			<form action="http://localhost:8080/ProjectJMST/jsp/Part3.jsp" -->
-<!-- 				method='post'> -->
-<!-- 				<input type="submit" value="Precedent"></input> <input type="hidden" -->
-<%-- 					name="noSerie" value="<%=noSerie%>"> --%>
-<!-- 			</form> -->
+			<!-- 			<form action="http://localhost:8080/ProjectJMST/jsp/Part3.jsp" -->
+			<!-- 				method='post'> -->
+			<!-- 				<input type="submit" value="Precedent"></input> <input type="hidden" -->
+			<%-- 					name="noSerie" value="<%=noSerie%>"> --%>
+			<!-- 			</form> -->
 			<form action="http://localhost:8080/ProjectJMST/ServletDeco"
 				method='get'>
 				<input type="submit" value="Deconnexion"></input> <input

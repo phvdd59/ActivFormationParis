@@ -7,8 +7,8 @@
 <html>
 <head>
 <style type="text/css">
-input[type="submit"]{
-width:25%;
+input[type="submit"] {
+	width: 25%;
 }
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -104,9 +104,9 @@ width:25%;
 				if (p instanceof Personne) {
 					personne = (Personne) p;
 				}
-				
+
 				ConversionPersonne conv = new ConversionPersonne();
-				
+
 				String sNom = request.getParameter("nom");
 				String sPrenom = request.getParameter("prenom");
 				String sAdresse = request.getParameter("adresse");
@@ -116,13 +116,10 @@ width:25%;
 				String sCp = request.getParameter("codePostale");
 				String sVille = request.getParameter("ville");
 				String sEmail = request.getParameter("mail");
-				
-				
 
-				if (noSerie.equals(noSerieHtml)) {
-					// 					if (ctrl.ctrlNom(sNom) && ctrl.ctrlPrenom(sPrenom) && ctrl.ctrlAdresse(sAdresse)
-					// 							&& ctrl.ctrlTelFixe(sTelFixe) && ctrl.ctrlTelPort(sTelPort) && ctrl.ctrlFax(sFax)
-					// 							&& ctrl.ctrlCp(sCp) && ctrl.ctrlVille(sVille) && ctrl.ctrlEmail(sEmail)) {
+				if (ctrl.ctrlNom(sNom) && ctrl.ctrlPrenom(sPrenom) && ctrl.ctrlAdresse(sAdresse)
+						&& ctrl.ctrlTelFixe(sTelFixe) && ctrl.ctrlTelPort(sTelPort) && ctrl.ctrlFax(sFax)
+						&& ctrl.ctrlCp(sCp) && ctrl.ctrlVille(sVille) && ctrl.ctrlEmail(sEmail)) {
 
 					personne.setNom(sNom);
 					personne.setPrenom(sPrenom);
@@ -133,11 +130,13 @@ width:25%;
 					personne.setCp(sCp);
 					personne.setVille(sVille);
 					personne.setEmail(sEmail);
-					//} 
-					// 					else {
-					// 						out.write("Erreur");
-					// 						Thread.sleep(2000);
-					// 					}
+					
+				} else {
+					%>
+					<jsp:forward page="Deco.jsp"></jsp:forward>
+					<%
+				}
+				if (noSerie.equals(noSerieHtml)) {
 			%>
 
 			<form action="http://localhost:8080/ProjectJMST/jsp/Part4.jsp"
@@ -148,39 +147,42 @@ width:25%;
 						<td>Date de naissance</td>
 						<td style="width: 273px; height: 25px; color:;"><input
 							id="dateDeNaissance" type="date" name="dateDeNaissance"
-							value='<%=conv.conversionSQLToUtil(new java.sql.Date(personne.getDateNaissance().getTime()))%>'  
+							value='<%=conv.conversionSQLToUtil(new java.sql.Date(personne.getDateNaissance().getTime()))%>'
 							onblur="ctrDateDeNaissance()" style="width: 270px;"><br>
 							<span id="spanDateDeNaissance"></span></td>
 						<td style="width: 72px;">Lieu de naissance</td>
 						<td style="width: 112px; height: 25px; color:;"><input
 							id="lieuDeNaissance" type="text" name="lieuDeNaissance"
-							value='<%=personne.getLieuNaissance()%>' onblur="ctrLieuDeNaissance()"><br> <span
+							value='<%=personne.getLieuNaissance()%>'
+							onblur="ctrLieuDeNaissance()"><br> <span
 							id="spanLieuDeNaissance"></span></td>
 					</tr>
 					<tr>
 						<td>N° sécurité Social</td>
 						<td colspan="3" style="width: 229px; height: 25px; color:;"><input
 							id="noSecuriteSociale" type="text" name="numSecu"
-							value='<%=personne.getNumSecu()%>' onblur="ctrNoSecuriteSociale()" style="width: 615px;"><br>
+							value='<%=personne.getNumSecu()%>'
+							onblur="ctrNoSecuriteSociale()" style="width: 615px;"><br>
 							<span id="spanNoSecuriteSociale"></span></td>
 					</tr>
 					<tr>
 						<td>Nationalité</td>
-						<td colspan="3" style="width: 229px; height: 25px; color: ;"><input
+						<td colspan="3" style="width: 229px; height: 25px; color:;"><input
 							id="nationalite" type="text" name="nationalite"
-							value='<%=personne.getNationalite()%>' onblur="ctrNationalite()" style="width: 615px;"><br>
-							<span id="spanNationalite"></span></td>
+							value='<%=personne.getNationalite()%>' onblur="ctrNationalite()"
+							style="width: 615px;"><br> <span
+							id="spanNationalite"></span></td>
 					</tr>
 				</table>
 
 				<input type="submit" value="Suivant"></input> <input type="hidden"
 					name="noSerie" value="<%=noSerie%>">
 			</form>
-<!-- 			<form action="http://localhost:8080/ProjectJMST/jsp/Part2.jsp" -->
-<!-- 				method='post'> -->
-<!-- 				<input type="submit" value="Precedent"></input> <input type="hidden" -->
-<%-- 					name="noSerie" value="<%=noSerie%>"> --%>
-<!-- 			</form> -->
+			<!-- 			<form action="http://localhost:8080/ProjectJMST/jsp/Part2.jsp" -->
+			<!-- 				method='post'> -->
+			<!-- 				<input type="submit" value="Precedent"></input> <input type="hidden" -->
+			<%-- 					name="noSerie" value="<%=noSerie%>"> --%>
+			<!-- 			</form> -->
 			<form action="http://localhost:8080/ProjectJMST/ServletDeco"
 				method='get'>
 				<input type="submit" value="Deconnexion"></input> <input
@@ -207,15 +209,15 @@ width:25%;
 			}
 		%>
 	</div>
-	
+
 	<script type="text/javascript">
 		function ctrAll() {
-			var dateOk=ctrDateDeNaissance();
-			var lieuOk=ctrLieuDeNaissance();
-			var secuOk=ctrNoSecuriteSociale();
-			var natioOk=ctrNationalite();
-			
-			if (dateOk && lieuOk && secuOk && natioOk){
+			var dateOk = ctrDateDeNaissance();
+			var lieuOk = ctrLieuDeNaissance();
+			var secuOk = ctrNoSecuriteSociale();
+			var natioOk = ctrNationalite();
+
+			if (dateOk && lieuOk && secuOk && natioOk) {
 				return true;
 			} else {
 				alert("Veuillez remplir les champs obligatoires");

@@ -102,12 +102,6 @@ width:25%;
 				CtrlPersonne ctrl = new CtrlPersonne();
 
 				if (noSerie.equals(noSerieHtml)) {
-					//if (ctrl.ctrlIdentifiant(sIdentifiant) && ctrl.ctrlMdp(sMdp)) {
-					//} else {
-					//forward to deco
-					//}
-
-					//personne.set
 			
 			%>
 			<form action="http://localhost:8080/ProjectJMST/jsp/Part3.jsp"
@@ -445,5 +439,4 @@ width:25%;
 		}
 	</script>
 </body>
-
 </html>

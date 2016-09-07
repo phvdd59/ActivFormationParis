@@ -101,13 +101,20 @@ width:25%;
 				ConversionPersonne conv = new ConversionPersonne();
 				
 				CtrlPersonne ctrl = new CtrlPersonne();
+				String sSituationVal = request.getParameter("situationVal");
 				String sSituation = request.getParameter("situation");
-				if (noSerie.equals(noSerieHtml)) {
-					// 					if (ctrl.ctrlSituation(sSituation)) {
-					personne.setSituation(sSituation);
-					// 					} else {
-					// 						FORWARD TO DECO
-					// 					}
+				if (ctrl.ctrlSituation(sSituation)) {
+					if (!sSituation.equals("")) {
+						personne.setSituation(sSituation);
+					} else {
+						personne.setSituation(sSituationVal);
+					}
+				} else {
+					%>
+					<jsp:forward page="Deco.jsp"></jsp:forward>
+					<%
+				}
+					if (noSerie.equals(noSerieHtml)) {
 			%>
 			<!--	<form= action:"http://www.souadkad.fr/soka/identification.html"></form>-->
 			<form action="http://localhost:8080/ProjectJMST/ServletUpdate"

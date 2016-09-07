@@ -64,31 +64,34 @@ public class ServletUpdate extends HttpServlet {
 		DAOPersonne dao = new DAOPersonne();
 		ConversionPersonne conv = new ConversionPersonne();
 
-		//		if (ctrl.ctrlCadre(sCadre) && ctrl.ctrlFonction(sFonction) && ctrl.ctrlPosition(sPosition) && ctrl.ctrlCoeff(sCoefficient)
-		//				&& ctrl.ctrlSalaire(sSalaire) && ctrl.ctrlMutuelle(sMutuelle) && ctrl.ctrlTicketResto(sTicketResto)
-		//				&& ctrl.ctrlVisiteMedicale(sVisiteMedicale) && ctrl.ctrlMontantTransport(sTransport) && ctrl.ctrlVoiture(sVehicule)
-		//				&& ctrl.ctrlNbCV(sNbCv) && ctrl.ctrlNbKm(sKmEstime)) {
-		if (noSerieHtml.equals(noSerie)) {
-			personne.setCadre(conv.conversionBoolean(sCadre));
-			personne.setFonction(sFonction);
-			personne.setPosition(sPosition);
-			personne.setCoeff(sCoefficient);
-			personne.setSalaire(sSalaire);
-			personne.setMutuelle(conv.conversionBoolean(sMutuelle));
-			personne.setTicketResto(conv.conversionBoolean(sTicketResto));
-			personne.setVisiteMedicale(conv.conversionDate(sVisiteMedicale));
-			personne.setMontantTransport(sTransport);
-			personne.setVoiture(conv.conversionBoolean(sVehicule));
-			personne.setNbCV(Integer.valueOf(sNbCv).intValue());
-			personne.setNbKm(sKmEstime);
-
-			java.util.Date dateModificationUtil = new java.util.Date();
-			Timestamp dateModification = new Timestamp(dateModificationUtil.getTime());
-			personne.setDateModification(dateModification);
-			dao.update(personne);
-			RequestDispatcher rd = getServletContext().getRequestDispatcher("/Servletmadeversmenu");
-			rd.forward(request, response);
+		if (ctrl.ctrlCadre(sCadre) && ctrl.ctrlFonction(sFonction) && ctrl.ctrlPosition(sPosition) && ctrl.ctrlCoeff(sCoefficient)
+				&& ctrl.ctrlSalaire(sSalaire) && ctrl.ctrlMutuelle(sMutuelle) && ctrl.ctrlTicketResto(sTicketResto)
+				&& ctrl.ctrlVisiteMedicale(sVisiteMedicale) && ctrl.ctrlMontantTransport(sTransport) && ctrl.ctrlVoiture(sVehicule)
+				&& ctrl.ctrlNbCV(sNbCv) && ctrl.ctrlNbKm(sKmEstime)) {
+			
+			if (noSerieHtml.equals(noSerie)) {
+				
+				personne.setCadre(conv.conversionBoolean(sCadre));
+				personne.setFonction(sFonction);
+				personne.setPosition(sPosition);
+				personne.setCoeff(sCoefficient);
+				personne.setSalaire(sSalaire);
+				personne.setMutuelle(conv.conversionBoolean(sMutuelle));
+				personne.setTicketResto(conv.conversionBoolean(sTicketResto));
+				personne.setVisiteMedicale(conv.conversionDate(sVisiteMedicale));
+				personne.setMontantTransport(sTransport);
+				personne.setVoiture(conv.conversionBoolean(sVehicule));
+				personne.setNbCV(Integer.valueOf(sNbCv).intValue());
+				personne.setNbKm(sKmEstime);
+			}
 		}
+		
+		java.util.Date dateModificationUtil = new java.util.Date();
+		Timestamp dateModification = new Timestamp(dateModificationUtil.getTime());
+		personne.setDateModification(dateModification);
+		dao.update(personne);
+		RequestDispatcher rd = getServletContext().getRequestDispatcher("/Servletmadeversmenu");
+		rd.forward(request, response);
 
 	}
 
