@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://comm.beans.phva.formation.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://comm.beans.phva.formation.com" xmlns:intf="http://comm.beans.phva.formation.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://comm.beans.phva.formation.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="wsPerso">
+    <complexType>
+     <sequence>
+      <element name="groupe" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="wsPersoResponse">
+    <complexType>
+     <sequence>
+      <element name="wsPersoReturn" type="impl:Perso"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="Perso">
+    <sequence>
+     <element name="adresse" nillable="true" type="xsd:string"/>
+     <element name="bloque" type="xsd:boolean"/>
+     <element name="cadre" type="xsd:boolean"/>
+     <element name="coeff" nillable="true" type="xsd:string"/>
+     <element name="cp" nillable="true" type="xsd:string"/>
+     <element name="dateCreation" nillable="true" type="xsd:dateTime"/>
+     <element name="dateModification" nillable="true" type="xsd:dateTime"/>
+     <element name="dateNaissance" nillable="true" type="xsd:dateTime"/>
+     <element name="email" nillable="true" type="xsd:string"/>
+     <element name="fax" nillable="true" type="xsd:string"/>
+     <element name="fonction" nillable="true" type="xsd:string"/>
+     <element name="idPersonne" type="xsd:int"/>
+     <element name="identifiant" nillable="true" type="xsd:string"/>
+     <element name="lieuNaissance" nillable="true" type="xsd:string"/>
+     <element name="mdp" nillable="true" type="xsd:string"/>
+     <element name="montantTransport" nillable="true" type="xsd:string"/>
+     <element name="mutuelle" type="xsd:boolean"/>
+     <element name="nationalite" nillable="true" type="xsd:string"/>
+     <element name="nbCV" type="xsd:int"/>
+     <element name="nbKm" nillable="true" type="xsd:string"/>
+     <element name="nom" nillable="true" type="xsd:string"/>
+     <element name="numSecu" nillable="true" type="xsd:string"/>
+     <element name="positionEntreprise" nillable="true" type="xsd:string"/>
+     <element name="prenom" nillable="true" type="xsd:string"/>
+     <element name="raisonBlocage" nillable="true" type="xsd:string"/>
+     <element name="salaire" nillable="true" type="xsd:string"/>
+     <element name="sexe" type="xsd:int"/>
+     <element name="situation" nillable="true" type="xsd:string"/>
+     <element name="telFixe" nillable="true" type="xsd:string"/>
+     <element name="telPort" nillable="true" type="xsd:string"/>
+     <element name="ticketResto" type="xsd:boolean"/>
+     <element name="ville" nillable="true" type="xsd:string"/>
+     <element name="visiteMedicale" nillable="true" type="xsd:dateTime"/>
+     <element name="voiture" type="xsd:boolean"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="wsPersoResponse">
+
+      <wsdl:part element="impl:wsPersoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="wsPersoRequest">
+
+      <wsdl:part element="impl:wsPerso" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="ServiceProject">
+
+      <wsdl:operation name="wsPerso">
+
+         <wsdl:input message="impl:wsPersoRequest" name="wsPersoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:wsPersoResponse" name="wsPersoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="ServiceProjectSoapBinding" type="impl:ServiceProject">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="wsPerso">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="wsPersoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="wsPersoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="ServiceProjectService">
+
+      <wsdl:port binding="impl:ServiceProjectSoapBinding" name="ServiceProject">
+
+         <wsdlsoap:address location="http://localhost:8080/ProjectTst/services/ServiceProject"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

@@ -9,8 +9,11 @@ public class PersoService implements InterPersoService {
 
 	@Override
 	public Perso getPerso(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Perso perso=new Perso();
+		perso.setIdPersonne(id);
+		perso.setNom("NomPH");
+		
+		return perso;
 	}
 
 	@Override

@@ -1,6 +1,7 @@
 package com.formation.phva.servlet;
 
 import java.io.IOException;
+import java.net.URL;
 
 import javax.servlet.Servlet;
 import javax.servlet.ServletConfig;
@@ -9,7 +10,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.namespace.QName;
+import javax.xml.ws.Service;
 
+import com.formation.beans.InterPersoService;
 import com.formation.phva.metier.ListePersonne;
 import com.formation.phva.metier.Personne;
 
@@ -81,6 +85,10 @@ public class ServletPersonne extends HttpServlet {
 		} else {
 			response.getWriter().println("Erreur");
 		}
+		URL wsdlURL = new URL("http://192.168.33.143:8888/ws/jax?wsdl");
+		QName qname = new QName("http://beans.formation.com/", "PersoServiceService");
+		Service service = Service.create(wsdlURL, qname);
+		InterPersoService ps = service.getPort(InterPersoService.class);
 	}
 
 	/**
