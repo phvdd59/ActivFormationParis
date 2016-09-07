@@ -151,7 +151,7 @@ public class ServletEtatCivil2 extends HttpServlet {
 				}
 			}
 		} else {
-			session.invalidate();
+			//session.invalidate();
 			RequestDispatcher rd = request.getRequestDispatcher("/ServletLogin3");
 			rd.forward(request, response);
 		}

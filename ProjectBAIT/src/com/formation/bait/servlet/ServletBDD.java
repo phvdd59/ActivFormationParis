@@ -228,7 +228,7 @@ public class ServletBDD extends HttpServlet {
 			}
 
 		} else {
-			session.invalidate();
+			//session.invalidate();
 			RequestDispatcher rd = request.getRequestDispatcher("//ServletLogin3");
 			rd.forward(request, response);
 		}

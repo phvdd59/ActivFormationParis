@@ -107,7 +107,7 @@ public class ServletCoordonnees extends HttpServlet {
 			fonctions.AfficherBasDePage(response);
 
 		} else {
-			session.invalidate();
+			//session.invalidate();
 			RequestDispatcher rd = request.getRequestDispatcher("//ServletLogin3");
 			rd.forward(request, response);
 		}

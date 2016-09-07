@@ -145,7 +145,7 @@ public class ServletPageEnvoi2 extends HttpServlet {
 				}
 			}
 		} else {
-			session.invalidate();
+			//session.invalidate();
 			RequestDispatcher rd = request.getRequestDispatcher("//ServletLoginTest");
 			rd.forward(request, response);
 		}

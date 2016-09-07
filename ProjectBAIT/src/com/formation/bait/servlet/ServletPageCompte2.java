@@ -98,7 +98,7 @@ public class ServletPageCompte2 extends HttpServlet {
 			}
 			fonctions.AfficherBasDePage(response);
 		} else {
-			session.invalidate();
+			//session.invalidate();
 			RequestDispatcher rd = request.getRequestDispatcher("//ServletPageLogin3");
 			rd.forward(request, response);
 		}

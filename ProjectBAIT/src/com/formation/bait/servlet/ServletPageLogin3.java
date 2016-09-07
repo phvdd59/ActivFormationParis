@@ -193,13 +193,13 @@ public class ServletPageLogin3 extends HttpServlet {
 			// context.getRequestDispatcher("/ServletBDD");
 			// dispatcher.forward(request, response);
 		} else {
-			//session.invalidate();
+			session.invalidate();
 			//request.getSession();
-			String msg = "Erreur : session invalide!";
-			session.setAttribute("message", msg);
+			//String msg = "Erreur : session invalide!";
+			//session.setAttribute("message", msg);
 			RequestDispatcher rd = request.getRequestDispatcher("/ServletLoginFalse");
 			rd.forward(request, response);
-			// doGet(request,response);
+			doGet(request,response);
 		}
 
 	}
