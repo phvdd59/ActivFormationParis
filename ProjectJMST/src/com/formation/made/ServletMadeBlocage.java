@@ -53,7 +53,6 @@ public class ServletMadeBlocage extends HttpServlet {
 						personne.setBloque(true);
 						personne.setRaisonBlocage(request.getParameter("raisonBlocage"));
 						dao.update(personne);
-						System.out.println("la personne est elle bloquee?" + personne.isBloque());
 
 					}
 
