@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 
 import com.formation.ajee.metier.ListPersonne;
 import com.formation.ajee.metier.Personne;
+import com.formation.ajee.veriffom.VerifForm;
 import com.formation.ajee.veriffom.Vue;
 
 
@@ -43,7 +44,9 @@ public class Servletaccueilvalidemdp extends HttpServlet {
 		Personne utilisateur =(Personne) session.getAttribute("utilisateur");
 		Personne personne = (Personne) session.getAttribute("personne");
 		String sMdp=request.getParameter("mdpN");
-		personne.setMdp(sMdp);
+		VerifForm v = new VerifForm(); 
+		String mdpVerif = v.mdpVerif(sMdp);
+		personne.setMdp(mdpVerif);
 		personne.modifPersonne(personne.getIdPersonne());
 		Vue vue = new Vue();
 		String mdp1=(String) request.getParameter("mdpN");
