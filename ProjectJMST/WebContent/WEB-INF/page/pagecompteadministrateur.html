@@ -7,6 +7,12 @@ input {
 
 
 }
+
+input#inputDeco[type="submit"]{
+position: relative;
+left: 40%;
+
+}
 div#idbouton{
 position:relative;
 	top:30%;
@@ -121,12 +127,13 @@ position:relative;
 					<input type="submit" value="Gestion des droits" title="blocage"><input
 						type="hidden" name="noSerie" value="%%noSerie%%">
 				</form>
-				<form action="http://localhost:8080/ProjectJMST/ServletDeco"
-					method="post">
-					<input type="submit" value="Deconnexion"
-						title="deconnexion session"><input type="hidden"
-						name="noSerie" value="%%noSerie%%">
-				</form>
+<div id="deco">
+					<form action=http://localhost:8080/ProjectJMST/ServletDeco
+						method="post">
+						<input class="boutonRetourDeco" id="inputDeco" type="submit" value="Deconnexion"> <input
+							type="hidden" name="noSerie" value="%%noSerie%%">
+					</form>
+				</div>
 			</div>
 		</div>
 		<div id="fpage2">
