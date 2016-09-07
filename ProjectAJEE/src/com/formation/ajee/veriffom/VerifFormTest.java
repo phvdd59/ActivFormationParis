@@ -6,6 +6,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.formation.ajee.metier.Personne;
 import com.formation.ajee.metier.SEXE;
 import com.formation.ajee.metier.SITUATION;
 
@@ -76,37 +77,37 @@ public class VerifFormTest {
 
 	@Test
 	public void testsexenok() {
-		SEXE sexe = test.sexeVerif("etga");
+		int sexe = test.sexeVerif("etga");
 
-		Assert.assertEquals(null, sexe);
+		Assert.assertEquals(0, sexe);
 	}
 
 	@Test
 	public void testsexemasculin() {
-		SEXE sexe = test.sexeVerif("masculin");
+		int sexe = test.sexeVerif("masculin");
 
-		Assert.assertEquals(SEXE.MASCULIN, sexe);
+		Assert.assertEquals(Personne.MASCULIN, sexe);
 	}
 
 	@Test
 	public void testsexefeminin() {
-		SEXE sexe = test.sexeVerif("feminin");
+		int sexe = test.sexeVerif("feminin");
 
-		Assert.assertEquals(SEXE.FEMINIM, sexe);
+		Assert.assertEquals(Personne.FEMINIM, sexe);
 	}
 
 	@Test
 	public void testsexeMASCULIN() {
-		SEXE sexe = test.sexeVerif("MASCULIN");
+		int sexe = test.sexeVerif("MASCULIN");
 
-		Assert.assertEquals(SEXE.MASCULIN, sexe);
+		Assert.assertEquals(Personne.MASCULIN, sexe);
 	}
 
 	@Test
 	public void testsexeFEMININ() {
-		SEXE sexe = test.sexeVerif("FEMININ");
+		int sexe = test.sexeVerif("FEMININ");
 
-		Assert.assertEquals(SEXE.FEMINIM, sexe);
+		Assert.assertEquals(Personne.FEMINIM, sexe);
 	}
 
 	@Test
@@ -380,7 +381,7 @@ if (a.equals("01")||a.equals("02")||a.equals("03")||a.equals("04")||a.equals("05
 	public void testdateNaissance() {
 		Date num = test.dateNaissanceVerif("29/06/1990");
 
-		Assert.assertEquals("1990/06/29", num);
+		Assert.assertEquals("29/06/1990", num);
 	}
 	
 	@Test
@@ -410,39 +411,39 @@ if (a.equals("01")||a.equals("02")||a.equals("03")||a.equals("04")||a.equals("05
 	}
 	@Test
 	public void testsituation() {
-		SITUATION situation = test.situationVerif("salarié");
+		String situation = test.situationVerif("salarie","bla");
 
-		Assert.assertEquals(SITUATION.SALARIE, situation);
+		Assert.assertEquals(Personne.SALARIE, situation);
 	}
 	@Test
 	public void testsituation1() {
-		SITUATION situation = test.situationVerif("auto entrepreneur");
+		String situation = test.situationVerif("autoEntrepreneur","bla");
 
-		Assert.assertEquals(SITUATION.AUTO_ENTREPRENEUR, situation);
+		Assert.assertEquals(Personne.AUTO_ENTREPRENEUR, situation);
 	}
 	@Test
 	public void testsituation2() {
-		SITUATION situation = test.situationVerif("freelance");
+		String situation = test.situationVerif("freelance","bla");
 
-		Assert.assertEquals(SITUATION.FREELANCE, situation);
+		Assert.assertEquals(Personne.FREELANCE, situation);
 	}
 	@Test
 	public void testsituation3() {
-		SITUATION situation = test.situationVerif("demandeur d'emplois");
+		String situation = test.situationVerif("demandeurDEmploi","bla");
 
-		Assert.assertEquals(SITUATION.DEMANDEUR, situation);
+		Assert.assertEquals(Personne.DEMANDEUR, situation);
 	}
 	@Test
 	public void testsituation4() {
-		SITUATION situation = test.situationVerif("autre");
+		String situation = test.situationVerif("autre","bla");
 
-		Assert.assertEquals(SITUATION.AUTRE, situation);
+		Assert.assertEquals(Personne.AUTRE+":bla", situation);
 	}
 	@Test
 	public void testsituation5() {
-		SITUATION situation = test.situationVerif("retraité");
+		String situation = test.situationVerif("retraite","bla");
 
-		Assert.assertEquals(SITUATION.RETRAITE, situation);
+		Assert.assertEquals(Personne.RETRAITE, situation);
 	}
 	
 	

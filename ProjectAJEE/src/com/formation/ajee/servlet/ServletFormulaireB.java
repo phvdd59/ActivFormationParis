@@ -18,7 +18,7 @@ import com.formation.ajee.metier.Personne;
 import com.formation.ajee.metier.SEXE;
 import com.formation.ajee.metier.SITUATION;
 import com.formation.ajee.veriffom.VerifForm;
-
+  
 /**
  * Servlet implementation class ServletFormulaire
  */
@@ -126,7 +126,7 @@ public class ServletFormulaireB extends HttpServlet {
 		personne.setPrenom(pPrenomV);
 		
 		String pSexe=request.getParameter("sexe");
-		SEXE pSexeV = verif.sexeVerif(pSexe);
+		int pSexeV = verif.sexeVerif(pSexe);
 		personne.setSexe(pSexeV);
 		
 		String pAdresse=request.getParameter("adresse");
@@ -175,7 +175,8 @@ public class ServletFormulaireB extends HttpServlet {
 		personne.setNationalite(pNationaliteV);
 		
 		String pSituation=request.getParameter("situation");
-		SITUATION pSituationV = verif.situationVerif(pSituation);
+		String champsAutre=request.getParameter("autre");
+		String pSituationV = verif.situationVerif(pSituation,champsAutre);
 		personne.setSituation(pSituationV);
 		
 		String pFonction=request.getParameter("fonction");
@@ -236,6 +237,8 @@ public class ServletFormulaireB extends HttpServlet {
 		
 		// print : formulaire bien enregistré
 		response.getWriter().println("Merci "+personne.getPrenom()+" "+personne.getNom()+".");
+		response.getWriter().println(pNomV);
+		response.getWriter().println("Merci "+pPrenomV+" "+pNomV+".");
 		response.getWriter().println("Votre formulaire a bien ete enregistre.");
 		
 		// retour page accueil en bas de page (bouton)

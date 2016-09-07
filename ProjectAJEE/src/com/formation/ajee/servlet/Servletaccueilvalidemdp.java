@@ -46,14 +46,14 @@ public class Servletaccueilvalidemdp extends HttpServlet {
 		Vue vue = new Vue();
 		VerifForm v = new VerifForm(); 
 		String sMdpN=(String) request.getParameter("mdpN");
-		String sMdpV=(String) request.getParameter("mdpV");
+		String sMdpC=(String) request.getParameter("mdpC");
 		String mdpVerif = v.mdpVerif(sMdpN);
 		
-		if (sMdpN == null ||sMdpV == null || !sMdpN.equals(sMdpV)) {
+		if (sMdpN == null ||sMdpC == null || !mdpVerif.equals(sMdpC)) {
 			RequestDispatcher rd = request.getRequestDispatcher("//ServletMdpAdmin");
 			rd.forward(request, response);
 		} else {
-			personne.setMdp(mdpVerif);
+			personne.setMdp(sMdpN);
 			personne.modifPersonne(personne.getIdPersonne());
 		}
 		
