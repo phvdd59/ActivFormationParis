@@ -172,7 +172,7 @@ width:25%;
 							id="spanMail"></span></td>
 					</tr>
 				</table>
-				<input type="submit" value="Suivant" onclick="ctrAll()"></input> <input name="noSerie"
+				<input type="submit" value="Suivant"></input> <input name="noSerie"
 					type="hidden" value="<%=noSerie%>">
 			</form>
 <!-- 			<form action="http://localhost:8080/ProjectJMST/RetourMenu" -->
