@@ -56,6 +56,9 @@ public class ServletFormulaireB extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		
 		/** Lecture Haut de page HTML */
 		File fileHaut = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/HautPage.html");
 		BufferedReader bufReadHaut = null;
@@ -113,8 +116,7 @@ public class ServletFormulaireB extends HttpServlet {
 		Personne personne = new Personne(); // à ce moment y'a création de l'idpersonne
 		VerifForm verif = new VerifForm();
 		
-		request.setCharacterEncoding("UTF-8");
-		response.setCharacterEncoding("UTF-8");
+		
 		
 		// Récupérer les données du formulaire, vérifier, et ranger dans objet personne
 		String pNom=request.getParameter("nom");
@@ -235,15 +237,35 @@ public class ServletFormulaireB extends HttpServlet {
 //		lst.add(personne);
 //		response.getWriter().println(lst.get(0).toString());
 		
-		// print : formulaire bien enregistré
-		//response.getWriter().println("Merci "+personne.getPrenom()+" "+personne.getNom()+".");
-		//response.getWriter().println(pNomV);
-		response.getWriter().println("Merci "+pPrenomV+" "+pNomV+".");
-		response.getWriter().println("Votre formulaire a bien ete enregistre.");
 		
 		// retour page accueil en bas de page (bouton)
-		String html = "<html><form action='http://127.0.0.1:8080/ProjectAJEE/Servletidentification'><input type='submit' value='Retour page identification'></form></html>";
-		response.getWriter().println(html);
+//		String html = "<form action='http://127.0.0.1:8080/ProjectAJEE/Servletidentification'>";
+//		response.getWriter().println(html);
+		
+		// print : formulaire bien enregistré
+				//response.getWriter().println("Merci "+personne.getPrenom()+" "+personne.getNom()+".");
+				//response.getWriter().println(pNomV);
+//				response.getWriter().println("Merci "+pPrenomV+" "+pNomV+".");
+//				response.getWriter().println("Votre formulaire a bien ete enregistre.");
+		
+//		String html2 = "<input type='submit' value='Retour page identification'></form>";
+//		response.getWriter().println(html2);
+		
+		
+		/** Lecture formulaire X */
+		File fileForm = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/FormulaireEnregistre.html");
+		BufferedReader bufReadForm = null;
+		bufReadForm = new BufferedReader(new FileReader(fileForm));
+		String lineForm = bufReadForm.readLine();
+		while (lineForm != null) {
+			if (lineForm.contains("%%Merci%%")) {
+				lineForm=lineForm.replace("%%Merci%%","Merci "+personne.getPrenom()+" "+personne.getNom()+".");
+			}
+			
+			response.getWriter().println(lineForm);
+			lineForm = bufReadForm.readLine();
+		}
+		bufReadForm.close();
 		
 		/** Lecture bas de page */
 		File fileBas = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/BasPage.html");
