@@ -120,4 +120,28 @@ public class FonctionsCommune {
 		return personne;
 
 	}
+//	public Perso[] recupBDDAJEE(){
+//		URL wsdlURL = new URL("http://192.168.33.145:8888/ws/jax?wsdl");
+//		QName qname = new QName("http://beans.formation.com/", "PersoServiceService");
+//		Service service = Service.create(wsdlURL, qname);
+//		InterPersoService ps = service.getPort(InterPersoService.class);
+//		
+//		Perso[] pA= ps.getPersos();
+//		
+//		
+//		return pA;
+//		
+//	}
+//	public Perso[] recupBDDJMST(){
+//		URL wsdlURL = new URL("http://192.168.33.145:8888/ws/jax?wsdl");
+//		QName qname = new QName("http://beans.formation.com/", "PersoServiceService");
+//		Service service = Service.create(wsdlURL, qname);
+//		InterPersoService ps = service.getPort(InterPersoService.class);
+//		
+//		Perso[] pA= ps.getPersos();
+//		
+//		
+//		return pA;
+//		
+//	}
 }
