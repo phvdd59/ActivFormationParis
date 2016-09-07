@@ -321,6 +321,7 @@ public class AccesBDDPersonne {
 			e.printStackTrace();
 		}
 	}
+	
 
 	private int booleanConverter(boolean bool) {
 		int res = 0;

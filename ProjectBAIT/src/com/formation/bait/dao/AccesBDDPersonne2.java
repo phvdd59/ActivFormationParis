@@ -21,90 +21,83 @@ public class AccesBDDPersonne2 {
 	public String user = "bait";
 	public String pass = "erreurthde";
 
-	public boolean savePersonneEmpruntee(Personne personne){
-	boolean result = false;
-	
-	Connection conn = null;
-	Statement stat = null;
-	try {
-		Class.forName(JDBC_DRIVER);
-		String url = DB_URL + "bait";
-		conn = DriverManager.getConnection(url, user, pass);
-		stat = conn.createStatement();
+	public boolean savePersonneEmpruntee(Personne personne) {
+		boolean result = false;
 
-		String sql = "insert into listeUserEmpruntee (identifiant,mdp,email,nom,prenom,adresse,cp,ville," + //
-				"telFixe,telPort,fax,dateNaissance,lieuNaissance,numSecu,Nationalite,situation,fonction,positionEntreprise," + //
-				"cadre,coeff,salaire,visiteMedicale,montantTransport,voiture,nbCV,nbKm,mutuelle,ticketResto,admin,"
-				+ //
-				"dateCreation,dateModification,bloque,raisonBlocage) values ('" + personne.getIdentifiant() + "','"
-				+ //
-				personne.getMdp() + "','" + personne.getEmail() + "','" + personne.getNom() + "','"
-				+ personne.getPrenom() + "','" + //
-				personne.getAdresse() + "','" + personne.getcP() + "','" + personne.getVille() + "','"
-				+ personne.getTelFixe() + "','" + //
-				personne.getTelPort() + "','" + personne.getFax() + "','" + personne.getDateNaissance() + "','" + //
-				personne.getLieuNaissance() + "','" + personne.getNumSecu() + "','" + personne.getNationalite() + "','" + personne.getSituation()
-				+ "','" + //
-				personne.getFonction() + "','" + personne.getPosition() + "','"
-				+ booleanConverter(personne.isCadre()) + "','" + personne.getCoeff() + "','" + //
-				personne.getSalaire() + "','" + personne.getVisiteMedicale() + "','"
-				+ personne.getMontantTransport() + "','" + //
-				booleanConverter(personne.isVoiture()) + "','" + personne.getNbCV() + "','" + personne.getNdKm()
-				+ "','" + booleanConverter(personne.isMutuelle()) + "','" + //
-				booleanConverter(personne.isTicket()) + "','" + booleanConverter(personne.isAdmin()) + "','"
-				+ personne.getDateCreation() + "','" + personne.getDateModification() + "','" + //
-				booleanConverter(personne.isBloque()) + "','" + personne.getRaisonBlocage() + "');";
-
-		stat.executeUpdate(sql);
-		result = true;
-	} catch (ClassNotFoundException | SQLException e) {
-		e.printStackTrace();
-	}
-	return result;
-	}
-	
-	
-	
-	
-	
-	
-	public boolean savePersonne(Personne personne) {
 		Connection conn = null;
 		Statement stat = null;
-		boolean result = false;
-		int resultInt =0;
 		try {
 			Class.forName(JDBC_DRIVER);
 			String url = DB_URL + "bait";
 			conn = DriverManager.getConnection(url, user, pass);
 			stat = conn.createStatement();
 
-			String sql = "UPDATE listeUser set identifiant='" + personne.getIdentifiant() + "', mdp='"
-					+ personne.getMdp() + //
-					"', email='" + personne.getEmail() + "', nom='" + personne.getNom() + "', prenom='"
-					+ personne.getPrenom() + //
-					"', adresse='" + personne.getAdresse() + "', cp='" + personne.getcP() + "', ville='"
-					+ personne.getVille() + //
-					"', telFixe='" + personne.getTelFixe() + "', telPort='" + personne.getTelPort() + "', fax='"
-					+ personne.getFax() + //
-					"', dateNaissance='" + personne.getDateNaissance() + "', lieuNaissance='"
-					+ personne.getLieuNaissance() + //
-					"', numSecu='" + personne.getNumSecu()+ "', Nationalite='" +personne.getNationalite() + "', situation='" + personne.getSituation()
-					+ "', fonction='" + //
-					personne.getFonction() + "', positionEntreprise='" + personne.getPosition() + "', cadre='"
-					+ booleanConverter(personne.isCadre()) + //
-					"', coeff='" + personne.getCoeff() + "', salaire='" + personne.getSalaire() + "', visiteMedicale='"
-					+ //
-					personne.getVisiteMedicale() + "', montantTransport='" + personne.getMontantTransport()
-					+ "', voiture='" + //
-					booleanConverter(personne.isVoiture()) + "', nbCV='" + personne.getNbCV() + "', nbKm='"
-					+ personne.getNdKm() + "', mutuelle='" + //
-					booleanConverter(personne.isMutuelle()) + "', ticketResto='" + booleanConverter(personne.isTicket())
-					+ "', admin='" + booleanConverter(personne.isAdmin()) + //
-					"', dateCreation='" + personne.getDateCreation() + "', dateModification='"
-					+ personne.getDateModification() + //
-					"', bloque='" + booleanConverter(personne.isBloque()) + "', raisonBlocage='"
-					+ personne.getRaisonBlocage() + "' WHERE IDPersonne=" + personne.getIdPersonne() + ";";
+			String sql = "insert into listeUserEmpruntee (identifiant,mdp,email,nom,prenom,adresse,cp,ville," + //
+					"telFixe,telPort,fax,dateNaissance,lieuNaissance,numSecu,Nationalite,situation,fonction,positionEntreprise," + //
+					"cadre,coeff,salaire,visiteMedicale,montantTransport,voiture,nbCV,nbKm,mutuelle,ticketResto,admin," + //
+					"dateCreation,dateModification,bloque,raisonBlocage) values ('" + personne.getIdentifiant() + "','" + //
+					personne.getMdp() + "','" + personne.getEmail() + "','" + personne.getNom() + "','" + personne.getPrenom() + "','" + //
+					personne.getAdresse() + "','" + personne.getcP() + "','" + personne.getVille() + "','" + personne.getTelFixe() + "','" + //
+					personne.getTelPort() + "','" + personne.getFax() + "','" + personne.getDateNaissance() + "','" + //
+					personne.getLieuNaissance() + "','" + personne.getNumSecu() + "','" + personne.getNationalite() + "','" + personne.getSituation() + "','" + //
+					personne.getFonction() + "','" + personne.getPosition() + "','" + booleanConverter(personne.isCadre()) + "','" + personne.getCoeff() + "','" + //
+					personne.getSalaire() + "','" + personne.getVisiteMedicale() + "','" + personne.getMontantTransport() + "','" + //
+					booleanConverter(personne.isVoiture()) + "','" + personne.getNbCV() + "','" + personne.getNdKm() + "','" + booleanConverter(personne.isMutuelle()) + "','" + //
+					booleanConverter(personne.isTicket()) + "','" + booleanConverter(personne.isAdmin()) + "','" + personne.getDateCreation() + "','" + personne.getDateModification() + "','" + //
+					booleanConverter(personne.isBloque()) + "','" + personne.getRaisonBlocage() + "');";
+
+			stat.executeUpdate(sql);
+			result = true;
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	public void remplirListeUserEmpruntee(Personne[] tabPersonne) {
+		Connection conn = null;
+		Statement stat = null;
+		try {
+			Class.forName(JDBC_DRIVER);
+			String url = DB_URL + "bait";
+			conn = DriverManager.getConnection(url, user, pass);
+			stat = conn.createStatement();
+
+			String sql = "delete * from listeUserEmpruntee";
+			stat.executeUpdate(sql);
+			for (Personne personne : tabPersonne) {
+				savePersonneEmpruntee(personne);
+			}
+
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public boolean savePersonne(Personne personne) {
+		Connection conn = null;
+		Statement stat = null;
+		boolean result = false;
+		int resultInt = 0;
+		try {
+			Class.forName(JDBC_DRIVER);
+			String url = DB_URL + "bait";
+			conn = DriverManager.getConnection(url, user, pass);
+			stat = conn.createStatement();
+
+			String sql = "UPDATE listeUser set identifiant='" + personne.getIdentifiant() + "', mdp='" + personne.getMdp() + //
+					"', email='" + personne.getEmail() + "', nom='" + personne.getNom() + "', prenom='" + personne.getPrenom() + //
+					"', adresse='" + personne.getAdresse() + "', cp='" + personne.getcP() + "', ville='" + personne.getVille() + //
+					"', telFixe='" + personne.getTelFixe() + "', telPort='" + personne.getTelPort() + "', fax='" + personne.getFax() + //
+					"', dateNaissance='" + personne.getDateNaissance() + "', lieuNaissance='" + personne.getLieuNaissance() + //
+					"', numSecu='" + personne.getNumSecu() + "', Nationalite='" + personne.getNationalite() + "', situation='" + personne.getSituation() + "', fonction='" + //
+					personne.getFonction() + "', positionEntreprise='" + personne.getPosition() + "', cadre='" + booleanConverter(personne.isCadre()) + //
+					"', coeff='" + personne.getCoeff() + "', salaire='" + personne.getSalaire() + "', visiteMedicale='" + //
+					personne.getVisiteMedicale() + "', montantTransport='" + personne.getMontantTransport() + "', voiture='" + //
+					booleanConverter(personne.isVoiture()) + "', nbCV='" + personne.getNbCV() + "', nbKm='" + personne.getNdKm() + "', mutuelle='" + //
+					booleanConverter(personne.isMutuelle()) + "', ticketResto='" + booleanConverter(personne.isTicket()) + "', admin='" + booleanConverter(personne.isAdmin()) + //
+					"', dateCreation='" + personne.getDateCreation() + "', dateModification='" + personne.getDateModification() + //
+					"', bloque='" + booleanConverter(personne.isBloque()) + "', raisonBlocage='" + personne.getRaisonBlocage() + "' WHERE IDPersonne=" + personne.getIdPersonne() + ";";
 			resultInt = stat.executeUpdate(sql);
 			System.out.println(sql);
 			result = true;
@@ -125,18 +118,17 @@ public class AccesBDDPersonne2 {
 			stat = conn.createStatement();
 			String sql = "SELECT IDPersonne FROM listeUser WHERE identifiant='" + identifiant//
 					+ "';";
-			
+
 			ResultSet resultat = stat.executeQuery(sql);
-			while (resultat.next()){
+			while (resultat.next()) {
 				result = true;
 			}
-				
+
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
 		return result;
 	}
-
 
 	public boolean createNewPersonne(String identifiant, String mdp, String email, String nom, String prenom) {
 		boolean result = false;
@@ -154,25 +146,16 @@ public class AccesBDDPersonne2 {
 
 			String sql = "insert into listeUser (identifiant,mdp,email,nom,prenom,adresse,cp,ville," + //
 					"telFixe,telPort,fax,dateNaissance,lieuNaissance,numSecu,Nationalite,situation,fonction,positionEntreprise," + //
-					"cadre,coeff,salaire,visiteMedicale,montantTransport,voiture,nbCV,nbKm,mutuelle,ticketResto,admin,"
-					+ //
-					"dateCreation,dateModification,bloque,raisonBlocage) values ('" + personne.getIdentifiant() + "','"
-					+ //
-					personne.getMdp() + "','" + personne.getEmail() + "','" + personne.getNom() + "','"
-					+ personne.getPrenom() + "','" + //
-					personne.getAdresse() + "','" + personne.getcP() + "','" + personne.getVille() + "','"
-					+ personne.getTelFixe() + "','" + //
+					"cadre,coeff,salaire,visiteMedicale,montantTransport,voiture,nbCV,nbKm,mutuelle,ticketResto,admin," + //
+					"dateCreation,dateModification,bloque,raisonBlocage) values ('" + personne.getIdentifiant() + "','" + //
+					personne.getMdp() + "','" + personne.getEmail() + "','" + personne.getNom() + "','" + personne.getPrenom() + "','" + //
+					personne.getAdresse() + "','" + personne.getcP() + "','" + personne.getVille() + "','" + personne.getTelFixe() + "','" + //
 					personne.getTelPort() + "','" + personne.getFax() + "','" + personne.getDateNaissance() + "','" + //
-					personne.getLieuNaissance() + "','" + personne.getNumSecu() + "','" + personne.getNationalite() + "','" + personne.getSituation()
-					+ "','" + //
-					personne.getFonction() + "','" + personne.getPosition() + "','"
-					+ booleanConverter(personne.isCadre()) + "','" + personne.getCoeff() + "','" + //
-					personne.getSalaire() + "','" + personne.getVisiteMedicale() + "','"
-					+ personne.getMontantTransport() + "','" + //
-					booleanConverter(personne.isVoiture()) + "','" + personne.getNbCV() + "','" + personne.getNdKm()
-					+ "','" + booleanConverter(personne.isMutuelle()) + "','" + //
-					booleanConverter(personne.isTicket()) + "','" + booleanConverter(personne.isAdmin()) + "','"
-					+ personne.getDateCreation() + "','" + personne.getDateModification() + "','" + //
+					personne.getLieuNaissance() + "','" + personne.getNumSecu() + "','" + personne.getNationalite() + "','" + personne.getSituation() + "','" + //
+					personne.getFonction() + "','" + personne.getPosition() + "','" + booleanConverter(personne.isCadre()) + "','" + personne.getCoeff() + "','" + //
+					personne.getSalaire() + "','" + personne.getVisiteMedicale() + "','" + personne.getMontantTransport() + "','" + //
+					booleanConverter(personne.isVoiture()) + "','" + personne.getNbCV() + "','" + personne.getNdKm() + "','" + booleanConverter(personne.isMutuelle()) + "','" + //
+					booleanConverter(personne.isTicket()) + "','" + booleanConverter(personne.isAdmin()) + "','" + personne.getDateCreation() + "','" + personne.getDateModification() + "','" + //
 					booleanConverter(personne.isBloque()) + "','" + personne.getRaisonBlocage() + "');";
 
 			stat.executeUpdate(sql);
@@ -206,9 +189,9 @@ public class AccesBDDPersonne2 {
 				parameters[1] = resultat.getString("mdp");
 				boolean blok = resultat.getBoolean("bloque");
 				if (blok) {
-					parameters[2]="True";
-				}else {
-					parameters[2]="False";
+					parameters[2] = "True";
+				} else {
+					parameters[2] = "False";
 				}
 				parameters[3] = resultat.getString("raisonBlocage");
 			}
@@ -315,9 +298,8 @@ public class AccesBDDPersonne2 {
 		return personne;
 	}
 
-	
-	public void afficherListeCandidats(HttpServletResponse response) throws IOException{
-		
+	public void afficherListeCandidats(HttpServletResponse response) throws IOException {
+
 		Connection conn = null;
 		Statement stat = null;
 		try {
@@ -346,10 +328,9 @@ public class AccesBDDPersonne2 {
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
-		
+
 	}
-	
-	
+
 	public void creTables() {
 		Connection conn = null;
 		Statement stat = null;
