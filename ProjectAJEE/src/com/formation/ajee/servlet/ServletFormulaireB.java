@@ -24,7 +24,7 @@ import com.formation.ajee.veriffom.VerifForm;
  */
 @WebServlet(description = "Servlet Creation Formulaire Rempli", urlPatterns = { "/ServletFormulaireB" })
 // Cette servlet part de "FormulaireARemplir" (le formulaire vide) qui a été rempli par l'user.
-public class ServletFormulaireB2 extends HttpServlet {
+public class ServletFormulaireB extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	ListPersonne lst = new ListPersonne();
@@ -32,7 +32,7 @@ public class ServletFormulaireB2 extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ServletFormulaireB2() {
+    public ServletFormulaireB() {
         super();
         // TODO Auto-generated constructor stub
     }
