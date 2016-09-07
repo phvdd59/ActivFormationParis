@@ -304,7 +304,8 @@ function ecritureTexteLieu(){
 function ecritureNumSecu(){
 	var numSecu = document.getElementById("numSecu");
 	var numSecu2 = document.getElementById("numSecu").value;
-	reg2=/^[0-9]+$/
+	reg2=/[12][0-9]{2}[0-1][0-9](2[AB]|[0-9]{2})[0-9]{3}[0-9]{3}[0-9]{2}/
+	//reg2=/^[0-9]+$/
 	if (numSecu2) {
 		if(!numSecu2.match(reg2)){
 			numSecu.style.color="red";
@@ -318,7 +319,8 @@ function ecritureNumSecu(){
 function ecritureNationalite(){
 	var nat = document.getElementById("nationalite");
 	var nat2 = document.getElementById("nationalite").value;
-	reg2=/^[a-zA-Z]+$/
+	reg2=/^[a-zA-Z\300-\304\307\310-\317\322-\326\331-\335\340-\344\347\350-\357\362-\366\371-\375\-\s\'']+$/
+	//reg2=/^[a-zA-Z]+$/
 	if (nat2 != "") {
 		if(!nat2.match(reg2)){
 			nat.style.color="red";
@@ -332,7 +334,7 @@ function ecritureNationalite(){
 function ecritureAutre(){
 	var autre = document.getElementById("autre");
 	var autre2 = document.getElementById("autre").value;
-	reg2=/^[a-zA-Z]+$/
+	reg2=/^[a-zA-Z\300-\304\307\310-\317\322-\326\331-\335\340-\344\347\350-\357\362-\366\371-\375\-\s\'']+$/
 	if (autre2 != "") {
 		if(!autre2.match(reg2)){
 			autre.style.color="red";
@@ -351,7 +353,8 @@ function sitActuelle(){
 function ecritureFctionOccupee(){
 	var fctnOccupee = document.getElementById("fonction");
 	var fctnOccupee2 = document.getElementById("fonction").value;
-	reg2=/^[a-zA-Z]+$/
+	reg2=/^[a-zA-Z\300-\304\307\310-\317\322-\326\331-\335\340-\344\347\350-\357\362-\366\371-\375\-\s\'']+$/
+	//reg2=/^[a-zA-Z]+$/
 	if (fctnOccupee2 != "") {
 		if(!fctnOccupee2.match(reg2)){
 			fctnOccupee.style.color="red";
@@ -363,14 +366,15 @@ function ecritureFctionOccupee(){
 }
 
 function cadre(){
-	//"cadre"
+	// boolean cadre
 	
 }
 
 function ecriturePosition(){
 	var pos = document.getElementById("positionEntreprise");
 	var pos2 = document.getElementById("positionEntreprise").value;
-	reg2=/^[a-zA-Z]+$/
+	reg2=/^[a-zA-Z\300-\304\307\310-\317\322-\326\331-\335\340-\344\347\350-\357\362-\366\371-\375\-\s\'']+$/
+	//reg2=/^[a-zA-Z]+$/
 	if (pos2 != "") {
 		if(!pos2.match(reg2)){
 			pos.style.color="red";
@@ -410,11 +414,11 @@ function ecritureSalSouhaite(){
 }
 
 function mutSouhait(){
-	
+	//boolean
 }
 
 function tickResto(){
-	
+	//boolean
 }
 
 function ecritureDateDerVisMed(){
@@ -447,17 +451,18 @@ function ecritureMontCarteAbonTransp(){
 }
 
 function ecritureVehicPerso(){
-	var vehicPerso = document.getElementById("voiture");
-	var vehicPerso2 = document.getElementById("voiture").value;
-	reg2=/^[a-zA-Z]+$/
-	if (vehicPerso2) {
-		if(!vehicPerso2.match(reg2)){
-			vehicPerso.style.color="red";
-			vehicPerso.placeholder="Merci de saisir un nom valide";
-		} else {
-			vehicPerso.style.color="black";
-		}
-	}	
+	//boolean
+// 	var vehicPerso = document.getElementById("voiture");
+// 	var vehicPerso2 = document.getElementById("voiture").value;
+// 	reg2=/^[a-zA-Z]+$/
+// 	if (vehicPerso2) {
+// 		if(!vehicPerso2.match(reg2)){
+// 			vehicPerso.style.color="red";
+// 			vehicPerso.placeholder="Merci de saisir un nom valide";
+// 		} else {
+// 			vehicPerso.style.color="black";
+// 		}
+// 	}	
 }
 
 function ecritureKmMensEstim(){
