@@ -75,7 +75,7 @@
 
 			</div>
 			<div style="overflow : auto; width : 680px; height : 480px">
-				<form method="post" action="">
+				<form method="post" action="http://localhost:8080/ProjectBAIT/ServletListeCandidatsAdmin">
 
 					<input type="submit" name="retour" value="Retour" style="margin-left : 300px">
 				</form>
@@ -98,7 +98,7 @@
 				</table>
 
 				<table>
-					<caption>Coordonn&eacute;e</caption>
+					<caption>Coordonn&eacute;es</caption>
 					<tr>
 						<td COLSPAN=2>Adresse : <%=personne.getAdresse()%>
 					<tr>
@@ -120,7 +120,7 @@
 				<table>
 					<caption>Rémunération souhaitée</caption>
 					<tr>
-						<td>Fonction occupée <%=personne.getFonction()%>
+						<td>Fonction occupée : <%=personne.getFonction()%>
 						<td>Cadre : <%=personne.isCadre()%>
 					<tr>
 						<td>Position : <%=personne.getPosition()%>
