@@ -251,7 +251,7 @@ public class ServletFormulaireB extends HttpServlet {
 //		response.getWriter().println(html2);
 		
 		
-		/** Lecture formulaire X */
+		/** Lecture FormulaireEnregistre */
 		File fileForm = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/FormulaireEnregistre.html");
 		BufferedReader bufReadForm = null;
 		bufReadForm = new BufferedReader(new FileReader(fileForm));
