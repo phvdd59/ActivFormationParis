@@ -231,10 +231,10 @@ function ecritureNumTelFixe(){
 function ecritureNumTelPort(){
 	var telPort = document.getElementById("telPort");
 	var telPort2 = document.getElementById("telPort").value;
-	regTelFixe = /^[0][67][0-9]{8}$/
+	regTelPort = /^[0][67][0-9]{8}$/
 	//reg2=/^[0-9]+$/
 	if (telPort2 != "") {
-		if(!telPort2.match(reg2)){
+		if(!telPort2.match(regTelPort)){
 			telPort.style.color="red";
 			telPort.placeholder="Merci de saisir un numéro valide";
 		} else {
