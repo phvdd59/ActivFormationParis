@@ -38,9 +38,9 @@ public class ServletMadeDeblocage extends HttpServlet {
 		String noSerieSession = (String) session.getAttribute("noSerie");
 		String noSerie = request.getParameter("noSerie");
 		System.out.println("personne a  debloquer" + personneADebloquer);
-		DAOPersonne dao = new DAOPersonne();
-		ListPersonne listePersonne = dao.read();
-		if (noSerieSession.equals(noSerie)) {
+		if (noSerieSession == null || noSerie == null || noSerieSession.equals(noSerie)) {
+			DAOPersonne dao = new DAOPersonne();
+			ListPersonne listePersonne = dao.read();
 			for (Personne personne : listePersonne) {
 				System.out.println("le nom de la personne est " + personne.getNom());
 				if (personne.getIdentifiant().equals(personneADebloquer)) {
@@ -56,9 +56,12 @@ public class ServletMadeDeblocage extends HttpServlet {
 				}
 
 			}
-			response.sendRedirect("/jsp/testjspsuppression.jsp");
+			System.out.println("je redirige vers la jsp");
+		//	response.sendRedirect("/jsp/testjspsuppression.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("jsp/testjspsuppression.jsp");
+			dispatcher.forward(request, response);
 		}else{
-			System.out.println("je redirige");
+			System.out.println("je forward");
 			RequestDispatcher dispatcher1 = request.getRequestDispatcher("/ServletJOCA1");
 			dispatcher1.forward(request, response);
 		}
