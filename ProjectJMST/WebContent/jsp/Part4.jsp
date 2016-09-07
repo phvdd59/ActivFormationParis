@@ -7,6 +7,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<style type="text/css">
+input[type="submit"]{
+width:25%;
+}
+</style>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Formulaire</title>
 <link href="http://www.activconsult-ing.com/Home.css" rel="stylesheet"
