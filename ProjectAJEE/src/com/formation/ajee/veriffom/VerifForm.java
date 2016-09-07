@@ -29,7 +29,7 @@ public class VerifForm {
 	public String prenomVerif(String prenom) {
 		String retour = "";
 		try {
-			if (prenom.matches("[A-Za-zאבגהחטיךכלםמןסעףפצשתûü\\-\\']*") && prenom.length() <= 100) {
+			if (prenom.matches("[A-Za-zאבגהחטיךכלםמןסעףפצשתûü\\-\\'\\s]*") && prenom.length() <= 100) {
 				retour = prenom;
 			}
 		} catch (Exception e) {
