@@ -259,7 +259,7 @@ public class ServletModifieVerifie extends HttpServlet {
 					String lineActiv = bufReadActiv.readLine();
 					while (lineActiv != null) {
 						if (lineActiv.contains("<body>")) {
-							lineActiv = lineActiv.replace("<body>", "<body onload='alert('Désolé (le ou les) champs nom, prénom, email, date de naissance, téléphone fixe ne sont pas correct')'>");
+							lineActiv = lineActiv.replace("<body>", "<body onload='alert(\"Désolé (le ou les) champs nom, prénom, email, date de naissance, téléphone fixe ne sont pas correct\")'>");
 						}
 						response.getWriter().println(lineActiv);
 						lineActiv = bufReadActiv.readLine();

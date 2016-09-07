@@ -188,7 +188,7 @@ public class VerifForm {
 		Date retour =null;
 		try {
 			String s = dateNaissance;
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 			retour = sdf.parse(s);
 		} catch (Exception e) {
 
@@ -329,7 +329,7 @@ public class VerifForm {
 		Date retour =null;
 		try {
 			String s = visiteMedicale;
-			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy");
+			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 			retour = sdf.parse(s);
 		} catch (Exception e) {
 
@@ -436,7 +436,7 @@ public class VerifForm {
 		Timestamp retour = null;
 		try {
 			String s = dateModification;
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 			retour = (Timestamp) sdf.parse(s);
 		} catch (Exception e) {
 

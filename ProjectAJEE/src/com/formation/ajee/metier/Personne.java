@@ -334,7 +334,7 @@ public class Personne implements Serializable {
 	public String getDateNaissanceString() {
 		String datenaissance = "";
 		if (dateNaissance != null) {
-			SimpleDateFormat formatDateJour = new SimpleDateFormat("yyyy-MM-dd");
+			SimpleDateFormat formatDateJour = new SimpleDateFormat("dd/MM/yyyy");
 			datenaissance = formatDateJour.format(dateNaissance);
 		}
 		return datenaissance;
@@ -450,7 +450,7 @@ public class Personne implements Serializable {
 	public String getVisiteMedicaleString() {
 		String visitemedicale = "";
 		if (visiteMedicale != null) {
-			SimpleDateFormat formatDateJour = new SimpleDateFormat("yyyy-MM-dd");
+			SimpleDateFormat formatDateJour = new SimpleDateFormat("dd/MM/yyyy");
 			visitemedicale = formatDateJour.format(dateNaissance);
 		}
 			return visitemedicale;
