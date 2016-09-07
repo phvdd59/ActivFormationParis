@@ -100,7 +100,7 @@ public class VerifForm {
 		String retour = "";
 		try {
 
-			if (adresse.matches("[0-9A-Za-zאבגהחטיךכלםמןסעףפצשתûü\\s\\-\\,]*") && adresse.length() <= 100) {
+			if (adresse.matches("[0-9A-Za-zאבגהחטיךכלםמןסעףפצשתûü\\s\\-\\'\\,]*") && adresse.length() <= 100) {
 				retour = adresse;
 			}
 
@@ -128,7 +128,7 @@ public class VerifForm {
 		String retour = "";
 		try {
 			ville = ville.toLowerCase();
-			if (ville.matches("[a-zאבגהחטיךכלםמןסעףפצשתûü\\-\\'\\s]*") && ville.length() < 100) {
+			if (ville.matches("[A-Za-zאבגהחטיךכלםמןסעףפצשתûü\\-\\'\\s]*") && ville.length() < 100) {
 				retour = ville;
 			}
 		} catch (Exception e) {
@@ -201,7 +201,7 @@ public class VerifForm {
 	public String lieuNaissanceVerif(String lieuNaissance) {
 		String retour = "";
 		try {
-			if (lieuNaissance.matches("[a-zאבגהחטיךכלםמןסעףפצשתûü\\-\\'\\s]*")) {
+			if (lieuNaissance.matches("[A-Za-zאבגהחטיךכלםמןסעףפצשתûü\\-\\'\\s]*")) {
 				retour = lieuNaissance;
 			}
 		} catch (Exception e) {

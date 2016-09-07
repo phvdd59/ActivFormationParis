@@ -84,7 +84,7 @@ public class ServletSoka3 extends HttpServlet {
 		BufferedReader bIn = null;
 		bIn = new BufferedReader(new FileReader(file));
 
-		if (noSerieHtml.equals(noSerie)) {
+		if (noSerieHtml == null || noSerie == null || noSerieHtml.equals(noSerie)) {
 			String line = bIn.readLine();
 			while (line != null) {
 				line = line.replace("%%noSerie%%", noSerie);

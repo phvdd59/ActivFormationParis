@@ -52,7 +52,7 @@ public final class Inscription {
 	public boolean validationMotsdePasse(String motDePasse, String verifMotDePasse) {
 		boolean retour=false;
 		if (motDePasse != null && verifMotDePasse != null && motDePasse.length()>6 && motDePasse.length()<20){
-			if (motDePasse.matches("^(.*[A-Z]+.*)(.*[a-z]+.*)(.*[0-9]+.*)(.*[\\@#$%^&+=/-_]+.*)$")&& motDePasse.equals(verifMotDePasse)){
+			if (motDePasse.matches("^[A-Za-z0-9]+[A-Za-z]*$")&& motDePasse.equals(verifMotDePasse)){
 				retour=true;
 			} 
 		}

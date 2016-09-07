@@ -25,6 +25,7 @@ import com.formation.ajee.veriffom.Vue;
 
 public class Servletlisteutilisateurs2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	public ListPersonne lstUser2;
 	public ListPersonne lstUser;
 	public Personne user;
 
@@ -36,7 +37,7 @@ public class Servletlisteutilisateurs2 extends HttpServlet {
 	}
 
 	public void init(ServletConfig config) throws ServletException {
-		lstUser = new ListPersonne();
+		lstUser2 = new ListPersonne();
 	}
 
 	/**
@@ -78,15 +79,15 @@ public class Servletlisteutilisateurs2 extends HttpServlet {
 				user.setMdp(user.creationMdp());
 				user.setIdentifiant(user.creationId(nomA, prenomA));
 
-				for (int i = 0; i < lstUser.size(); i++) {
-					if (lstUser.get(i).getIdentifiant().equals(user.getIdentifiant())) {
+				for (int i = 0; i < lstUser2.size(); i++) {
+					if (lstUser2.get(i).getIdentifiant().equals(user.getIdentifiant())) {
 						existe = true;
 						break;
 					}
 				}
 				if (existe == false) {
 					user.ajoutPersonne(user.getIdPersonne());
-					lstUser.add(user);
+					lstUser = new ListPersonne();
 				}
 
 				/** Lecture Haut de page HTML */
@@ -196,17 +197,17 @@ public class Servletlisteutilisateurs2 extends HttpServlet {
 
 				while (line != null) {
 					if (line.contains("%%value%%")) {
-						for (int i = 0; i < lstUser.size(); i++) {
+						for (int i = 0; i < lstUser2.size(); i++) {
 							String ligne = "";
-							if (lstUser.get(i).isBloque() == true) {
+							if (lstUser2.get(i).isBloque() == true) {
 								ligne = "<option style=\"color:red;\" value='%%value%%'></option>";
-								ligne = ligne.replace("%%value%%", lstUser.get(i).getNom() + lstUser.get(i).getPrenom());
-								ligne = ligne.replace("></", ">" + lstUser.get(i).getNom() + " " + lstUser.get(i).getPrenom() + " " + "  -  Identifiant : " + lstUser.get(i).getIdentifiant() + " / Mot de passe : " + lstUser.get(i).getMdp() + " / BLOQUE :" + lstUser.get(i).getRaisonBlocage() + "</");
+								ligne = ligne.replace("%%value%%", lstUser2.get(i).getNom() + lstUser2.get(i).getPrenom());
+								ligne = ligne.replace("></", ">" + lstUser2.get(i).getNom() + " " + lstUser2.get(i).getPrenom() + " " + "  -  Identifiant : " + lstUser2.get(i).getIdentifiant() + " / Mot de passe : " + lstUser2.get(i).getMdp() + " / BLOQUE :" + lstUser2.get(i).getRaisonBlocage() + "</");
 								response.getWriter().println(ligne);
 							} else {
 								ligne = "<option value='%%value%%'></option>";
-								ligne = ligne.replace("%%value%%", lstUser.get(i).getNom() + lstUser.get(i).getPrenom());
-								ligne = ligne.replace("></", ">" + lstUser.get(i).getNom() + " " + lstUser.get(i).getPrenom() + "  -  Identifiant : " + lstUser.get(i).getIdentifiant() + " / Mot de passe : " + lstUser.get(i).getMdp() + "</");
+								ligne = ligne.replace("%%value%%", lstUser2.get(i).getNom() + lstUser2.get(i).getPrenom());
+								ligne = ligne.replace("></", ">" + lstUser2.get(i).getNom() + " " + lstUser2.get(i).getPrenom() + "  -  Identifiant : " + lstUser2.get(i).getIdentifiant() + " / Mot de passe : " + lstUser2.get(i).getMdp() + "</");
 								response.getWriter().println(ligne);
 							}
 						}
@@ -232,12 +233,12 @@ public class Servletlisteutilisateurs2 extends HttpServlet {
 				user.setMdp(user.creationMdp());
 				user.setIdentifiant(user.creationId(nomB, prenomB));
 
-				for (int i = 0; i < lstUser.size(); i++) {
+				for (int i = 0; i < lstUser2.size(); i++) {
 
-					if (lstUser.get(i).getIdentifiant().equals(user.getIdentifiant())) {
-						lstUser.get(i).setBloque(true);
-						lstUser.get(i).setRaisonBlocage(commentaire);
-						lstUser.get(i).modifPersonne(lstUser.get(i).getIdPersonne());
+					if (lstUser2.get(i).getIdentifiant().equals(user.getIdentifiant())) {
+						lstUser2.get(i).setBloque(true);
+						lstUser2.get(i).setRaisonBlocage(commentaire);
+						lstUser2.get(i).modifPersonne(lstUser2.get(i).getIdPersonne());
 						indice = 1;
 						break;
 					}
@@ -293,17 +294,17 @@ public class Servletlisteutilisateurs2 extends HttpServlet {
 				while (line != null) {
 
 					if (line.contains("%%value%%")) {
-						for (int i = 0; i < lstUser.size(); i++) {
+						for (int i = 0; i < lstUser2.size(); i++) {
 							String ligne = "";
-							if (lstUser.get(i).isBloque() == true) {
+							if (lstUser2.get(i).isBloque() == true) {
 								ligne = "<option style=\"color:red;\" value='%%value%%'></option>";
-								ligne = ligne.replace("%%value%%", lstUser.get(i).getNom() + lstUser.get(i).getPrenom());
-								ligne = ligne.replace("></", ">" + lstUser.get(i).getNom() + " " + lstUser.get(i).getPrenom() + " " + "  -  Identifiant : " + lstUser.get(i).getIdentifiant() + " / Mot de passe : " + lstUser.get(i).getMdp() + " / BLOQUE :" + lstUser.get(i).getRaisonBlocage() + "</");
+								ligne = ligne.replace("%%value%%", lstUser2.get(i).getNom() + lstUser2.get(i).getPrenom());
+								ligne = ligne.replace("></", ">" + lstUser2.get(i).getNom() + " " + lstUser2.get(i).getPrenom() + " " + "  -  Identifiant : " + lstUser2.get(i).getIdentifiant() + " / Mot de passe : " + lstUser2.get(i).getMdp() + " / BLOQUE :" + lstUser2.get(i).getRaisonBlocage() + "</");
 								response.getWriter().println(ligne);
 							} else {
 								ligne = "<option value='%%value%%'></option>";
-								ligne = ligne.replace("%%value%%", lstUser.get(i).getNom() + lstUser.get(i).getPrenom());
-								ligne = ligne.replace("></", ">" + lstUser.get(i).getNom() + " " + lstUser.get(i).getPrenom() + "  -  Identifiant : " + lstUser.get(i).getIdentifiant() + " / Mot de passe : " + lstUser.get(i).getMdp() + "</");
+								ligne = ligne.replace("%%value%%", lstUser2.get(i).getNom() + lstUser2.get(i).getPrenom());
+								ligne = ligne.replace("></", ">" + lstUser2.get(i).getNom() + " " + lstUser2.get(i).getPrenom() + "  -  Identifiant : " + lstUser2.get(i).getIdentifiant() + " / Mot de passe : " + lstUser2.get(i).getMdp() + "</");
 								response.getWriter().println(ligne);
 							}
 						}
@@ -350,17 +351,17 @@ public class Servletlisteutilisateurs2 extends HttpServlet {
 
 				while (line != null) {
 					if (line.contains("%%value%%")) {
-						for (int i = 0; i < lstUser.size(); i++) {
+						for (int i = 0; i < lstUser2.size(); i++) {
 							String ligne = "";
-							if (lstUser.get(i).isBloque() == true) {
+							if (lstUser2.get(i).isBloque() == true) {
 								ligne = "<option style=\"color:red;\" value='%%value%%'></option>";
-								ligne = ligne.replace("%%value%%", lstUser.get(i).getNom() + lstUser.get(i).getPrenom());
-								ligne = ligne.replace("></", ">" + lstUser.get(i).getNom() + " " + lstUser.get(i).getPrenom() + " " + "  -  Identifiant : " + lstUser.get(i).getIdentifiant() + " / Mot de passe : " + lstUser.get(i).getMdp() + " / BLOQUE :" + lstUser.get(i).getRaisonBlocage() + "</");
+								ligne = ligne.replace("%%value%%", lstUser2.get(i).getNom() + lstUser2.get(i).getPrenom());
+								ligne = ligne.replace("></", ">" + lstUser2.get(i).getNom() + " " + lstUser2.get(i).getPrenom() + " " + "  -  Identifiant : " + lstUser2.get(i).getIdentifiant() + " / Mot de passe : " + lstUser2.get(i).getMdp() + " / BLOQUE :" + lstUser2.get(i).getRaisonBlocage() + "</");
 								response.getWriter().println(ligne);
 							} else {
 								ligne = "<option value='%%value%%'></option>";
-								ligne = ligne.replace("%%value%%", lstUser.get(i).getNom() + lstUser.get(i).getPrenom());
-								ligne = ligne.replace("></", ">" + lstUser.get(i).getNom() + " " + lstUser.get(i).getPrenom() + "  -  Identifiant : " + lstUser.get(i).getIdentifiant() + " / Mot de passe : " + lstUser.get(i).getMdp() + "</");
+								ligne = ligne.replace("%%value%%", lstUser2.get(i).getNom() + lstUser2.get(i).getPrenom());
+								ligne = ligne.replace("></", ">" + lstUser2.get(i).getNom() + " " + lstUser2.get(i).getPrenom() + "  -  Identifiant : " + lstUser2.get(i).getIdentifiant() + " / Mot de passe : " + lstUser2.get(i).getMdp() + "</");
 								response.getWriter().println(ligne);
 							}
 						}
@@ -406,17 +407,17 @@ public class Servletlisteutilisateurs2 extends HttpServlet {
 
 			while (line != null) {
 				if (line.contains("%%value%%")) {
-					for (int i = 0; i < lstUser.size(); i++) {
+					for (int i = 0; i < lstUser2.size(); i++) {
 						String ligne = "";
-						if (lstUser.get(i).isBloque() == true) {
+						if (lstUser2.get(i).isBloque() == true) {
 							ligne = "<option style=\"color:red;\" value='%%value%%'></option>";
-							ligne = ligne.replace("%%value%%", lstUser.get(i).getNom() + lstUser.get(i).getPrenom());
-							ligne = ligne.replace("></", ">" + lstUser.get(i).getNom() + " " + lstUser.get(i).getPrenom() + " " + "  -  Identifiant : " + lstUser.get(i).getIdentifiant() + " / Mot de passe : " + lstUser.get(i).getMdp() + " / BLOQUE :" + lstUser.get(i).getRaisonBlocage() + "</");
+							ligne = ligne.replace("%%value%%", lstUser2.get(i).getNom() + lstUser2.get(i).getPrenom());
+							ligne = ligne.replace("></", ">" + lstUser2.get(i).getNom() + " " + lstUser2.get(i).getPrenom() + " " + "  -  Identifiant : " + lstUser2.get(i).getIdentifiant() + " / Mot de passe : " + lstUser2.get(i).getMdp() + " / BLOQUE :" + lstUser2.get(i).getRaisonBlocage() + "</");
 							response.getWriter().println(ligne);
 						} else {
 							ligne = "<option value='%%value%%'></option>";
-							ligne = ligne.replace("%%value%%", lstUser.get(i).getNom() + lstUser.get(i).getPrenom());
-							ligne = ligne.replace("></", ">" + lstUser.get(i).getNom() + " " + lstUser.get(i).getPrenom() + "  -  Identifiant : " + lstUser.get(i).getIdentifiant() + " / Mot de passe : " + lstUser.get(i).getMdp() + "</");
+							ligne = ligne.replace("%%value%%", lstUser2.get(i).getNom() + lstUser2.get(i).getPrenom());
+							ligne = ligne.replace("></", ">" + lstUser2.get(i).getNom() + " " + lstUser2.get(i).getPrenom() + "  -  Identifiant : " + lstUser2.get(i).getIdentifiant() + " / Mot de passe : " + lstUser2.get(i).getMdp() + "</");
 							response.getWriter().println(ligne);
 						}
 					}

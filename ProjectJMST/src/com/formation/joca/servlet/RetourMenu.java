@@ -48,7 +48,7 @@ public class RetourMenu extends HttpServlet {
 		String noSerieHtml = request.getParameter("noSerie");
 		String noSerie = (String) session.getAttribute("noSerie");
 
-		if (noSerie.equals(noSerieHtml)) {
+		if (noSerieHtml == null || noSerie == null || noSerie.equals(noSerieHtml)) {
 
 			if (perso.isAdmin()) {
 				BufferedReader lecture = null;
@@ -83,6 +83,8 @@ public class RetourMenu extends HttpServlet {
 				}
 				lecture.close();
 			}
+		} else {
+			request.getRequestDispatcher("/ServletDeco").forward(request, response);
 		}
 
 	}

@@ -2,10 +2,14 @@
 <html>
 <head>
 <style type="text/css">
-input#monInput[type="submit"] {
+.boutonRetourDeco {
 	width: 25%;
 }
+input#monInput[type="submit"]{
+position: relative;
+left: 80%;
 
+}
 #liste {
 	overflow: auto;
 	height: 550px;
@@ -122,14 +126,14 @@ input#monInput[type="submit"] {
 				<div id="retour">
 					<form action=http://localhost:8080/ProjectJMST/RetourMenu
 						method="post">
-						<input id="monInput" type="submit" value="Retour"> <input
+						<input class="boutonRetourDeco"  type="submit" value="Retour"> <input
 							type="hidden" name="noSerie" value="%%noSerie%%">
 					</form>
 				</div>
 				<div id="deco">
 					<form action=http://localhost:8080/ProjectJMST/ServletDeco
 						method="post">
-						<input id="monInput" type="submit" value="Deconnexion"> <input
+						<input class="boutonRetourDeco" id="monInput" type="submit" value="Deconnexion"> <input
 							type="hidden" name="noSerie" value="%%noSerie%%">
 					</form>
 				</div>

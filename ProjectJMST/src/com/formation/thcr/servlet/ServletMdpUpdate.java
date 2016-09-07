@@ -36,9 +36,11 @@ public class ServletMdpUpdate extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		Object o = session.getAttribute("Personne");
+		
 		String sMdpOld = request.getParameter("ancien mdp");
 		String sMdpNew1 = request.getParameter("new mdp 1");
 		String sMdpNew2 = request.getParameter("new mdp 2");
+		
 		Personne personne = null;
 		if(o instanceof Personne){
 			personne = (Personne) o;

@@ -43,7 +43,7 @@ public class Servletmadeversmenu extends HttpServlet {
 		if (objPersonne instanceof Personne && objNoSerieSession instanceof String) {
 			String strNoSerieSession = (String) objNoSerieSession;
 			Personne pPersonne = (Personne) objPersonne;
-			if (strNoSerieSession.equals(noSeriePageAdmin)) {
+			if (strNoSerieSession == null || noSeriePageAdmin == null || strNoSerieSession.equals(noSeriePageAdmin)) {
 				BufferedReader bIn = null;
 
 				if (pPersonne.isAdmin()) {
@@ -70,6 +70,8 @@ public class Servletmadeversmenu extends HttpServlet {
 					}
 				}
 				bIn.close();
+			} else {
+				request.getRequestDispatcher("/ServletDeco").forward(request, response);
 			}
 		}
 

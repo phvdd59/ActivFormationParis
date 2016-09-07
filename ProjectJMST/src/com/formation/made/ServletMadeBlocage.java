@@ -40,35 +40,34 @@ public class ServletMadeBlocage extends HttpServlet {
 		String noSerie = request.getParameter("noSerie");
 		System.out.println("no"+noSerie);
 		System.out.println("personne bloquee" + personneBloquee);
-		DAOPersonne dao = new DAOPersonne();
-		ListPersonne listePersonne = dao.read();
-		//if (noSerieSession.equals(noSerie)) {
+		if (noSerieSession == null || noSerie == null || noSerieSession.equals(noSerie)) {
+			DAOPersonne dao = new DAOPersonne();
+			ListPersonne listePersonne = dao.read();
 			for (Personne personne : listePersonne) {
 				System.out.println("le nom de la personne est " + personne.getNom());
 				System.out.println();
 				if (personne.getIdentifiant().equals(personneBloquee)) {
-					System.out.println("la liste de personne est bonne");
 					if (personne.isBloque() == false) {
-						System.out.println("");
+						System.out.println("la personne est débloquée pour l'instant");
 						personne.setBloque(true);
 						personne.setRaisonBlocage(request.getParameter("raisonBlocage"));
 						dao.update(personne);
-						System.out.println("la personne est elle bloquee?" + personne.isBloque());
-
+						System.out.println("la personne a été bloquée");
 					}
 
 				}
 
 			}
+//			response.sendRedirect("/jsp/testjspsuppression.jsp");
 			System.out.println("je forward");
 			RequestDispatcher dispatcher = request.getRequestDispatcher("jsp/testjspsuppression.jsp");
 			dispatcher.forward(request, response);
-		//}else{
+		}else{
 		System.out.println("je redirige");
 		RequestDispatcher dispatcher1 = request.getRequestDispatcher("/ServletJOCA1");
 		dispatcher1.forward(request, response);
 		}
-	//}
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

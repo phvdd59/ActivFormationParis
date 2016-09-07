@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 
 import com.formation.thcr.metier.Personne;
 
-//Servlet utilisé pour generer la page gestion fichier par la methode doPost
+//Servlet utilisï¿½ pour generer la page gestion fichier par la methode doPost
 
 /**
  * Servlet implementation class ServletJOCA2
@@ -48,7 +48,7 @@ public class ServletJOCA2 extends HttpServlet {
 			perso = (Personne) personne;
 		}
 		
-		if (noSerieHtml.equals(noSerie)) {
+		if (noSerieHtml == null || noSerie == null || noSerieHtml.equals(noSerie)) {
 			BufferedReader lecture = null;
 			File page = new File(
 					"C:/DevFormation/GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/Gestiondocuments.html");
@@ -63,6 +63,8 @@ public class ServletJOCA2 extends HttpServlet {
 
 			}
 			lecture.close();
+		} else {
+			request.getRequestDispatcher("/ServletDeco").forward(request, response);
 		}
 
 	}
