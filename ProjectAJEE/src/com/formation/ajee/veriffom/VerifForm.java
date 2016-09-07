@@ -2,6 +2,7 @@ package com.formation.ajee.veriffom;
 
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.util.Date;
 import java.util.regex.Pattern;
 
@@ -14,11 +15,11 @@ public class VerifForm {
 	public String nomVerif(String nom) {
 		String retour = "";
 		try {
-		if (nom.matches("[A-Za-zאבגהחטיךכלםמןסעףפצשתûü\\-\\'\\s]*") &&nom.length()<=100) {
+			if (nom.matches("[A-Za-zאבגהחטיךכלםמןסעףפצשתûü\\-\\'\\s]*") && nom.length() <= 100) {
 				retour = nom;
 			}
 		} catch (Exception e) {
-			
+
 		}
 
 		return retour;
@@ -27,7 +28,7 @@ public class VerifForm {
 	public String prenomVerif(String prenom) {
 		String retour = "";
 		try {
-			if (prenom.matches("[A-Za-zאבגהחטיךכלםמןסעףפצשתûü\\-\\']*")&&prenom.length()<=100) {
+			if (prenom.matches("[A-Za-zאבגהחטיךכלםמןסעףפצשתûü\\-\\']*") && prenom.length() <= 100) {
 				retour = prenom;
 			}
 		} catch (Exception e) {
@@ -38,7 +39,7 @@ public class VerifForm {
 	}
 
 	public SEXE sexeVerif(String sexe) {
-		SEXE retour =null;
+		SEXE retour = null;
 		try {
 			sexe = sexe.toUpperCase();
 			if (sexe.equals("MASCULIN")) {
@@ -56,7 +57,7 @@ public class VerifForm {
 	public String identifiantVerif(String identifiant) {
 		String retour = "";
 		try {
-			if (identifiant.matches("[A-Za-zאבגהחטיךכלםמןסעףפצשתûü]*")&&identifiant.length()<=100 ) {
+			if (identifiant.matches("[A-Za-zאבגהחטיךכלםמןסעףפצשתûü]*") && identifiant.length() <= 100) {
 				retour = identifiant;
 			}
 		} catch (Exception e) {
@@ -69,7 +70,7 @@ public class VerifForm {
 	public String mdpVerif(String mdp) {
 		String retour = "";
 		try {
-			if (mdp.matches("[0-9A-Za-z]*")&&mdp.length()<=100) {
+			if (mdp.matches("[0-9A-Za-z]*") && mdp.length() <= 100) {
 				retour = mdp;
 			}
 		} catch (Exception e) {
@@ -97,8 +98,8 @@ public class VerifForm {
 	public String adresseVerif(String adresse) {
 		String retour = "";
 		try {
-		
-			if (adresse.matches("[0-9A-Za-zאבגהחטיךכלםמןסעףפצשתûü\\s\\-\\,]*")&&adresse.length()<=100) {
+
+			if (adresse.matches("[0-9A-Za-zאבגהחטיךכלםמןסעףפצשתûü\\s\\-\\,]*") && adresse.length() <= 100) {
 				retour = adresse;
 			}
 
@@ -126,7 +127,7 @@ public class VerifForm {
 		String retour = "";
 		try {
 			ville = ville.toLowerCase();
-			if (ville.matches("[a-zאבגהחטיךכלםמןסעףפצשתûü\\-\\'\\s]*")&&ville.length()<100) {
+			if (ville.matches("[a-zאבגהחטיךכלםמןסעףפצשתûü\\-\\'\\s]*") && ville.length() < 100) {
 				retour = ville;
 			}
 		} catch (Exception e) {
@@ -146,7 +147,7 @@ public class VerifForm {
 				retour = telFix;
 			}
 		} catch (Exception e) {
-	
+
 		}
 
 		return retour;
@@ -155,11 +156,10 @@ public class VerifForm {
 	public String telPortVerif(String telPort) {
 		String retour = "";
 		try {
-			if (telPort.matches("[0-9]{10}")&&(telPort.substring(0, 2).equals("06") || telPort.substring(0, 2).equals("07")))  {
-				
-					retour = telPort;	
-				
-				
+			if (telPort.matches("[0-9]{10}") && (telPort.substring(0, 2).equals("06") || telPort.substring(0, 2).equals("07"))) {
+
+				retour = telPort;
+
 			}
 		} catch (Exception e) {
 
@@ -169,7 +169,7 @@ public class VerifForm {
 	}
 
 	public String faxVerif(String fax) {
-		String retour =null;
+		String retour = null;
 		try {
 			char premierchiffre = fax.charAt(0);
 			char deuxiemechiffre = fax.charAt(1);
@@ -185,7 +185,7 @@ public class VerifForm {
 	}
 
 	public Date dateNaissanceVerif(String dateNaissance) {
-		Date retour =null;
+		Date retour = Date.from(Instant.MIN);
 		try {
 			String s = dateNaissance;
 			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
@@ -227,7 +227,7 @@ public class VerifForm {
 		String retour = "";
 		try {
 			nationalite = nationalite.toLowerCase();
-			if (nationalite.matches("[a-zאבגהחטיךכלםמןסעףפצשתûü\\-\\'\\s]*") ) {
+			if (nationalite.matches("[a-zאבגהחטיךכלםמןסעףפצשתûü\\-\\'\\s]*")) {
 				retour = nationalite;
 			}
 		} catch (Exception e) {
@@ -275,7 +275,7 @@ public class VerifForm {
 	public String fonctionVerif(String fonction) {
 		String retour = "";
 		try {
-			if (fonction.matches("[a-zאבגהחטיךכלםמןסעףפצשתûü\\-\\'\\s]*") ) {
+			if (fonction.matches("[a-zאבגהחטיךכלםמןסעףפצשתûü\\-\\'\\s]*")) {
 				retour = fonction;
 			}
 		} catch (Exception e) {
@@ -315,7 +315,7 @@ public class VerifForm {
 	public String salaireVerif(String salaire) {
 		String retour = "";
 		try {
-			if (salaire.matches("[0-9]*") ) {
+			if (salaire.matches("[0-9]*")) {
 				retour = salaire;
 			}
 		} catch (Exception e) {
@@ -326,7 +326,7 @@ public class VerifForm {
 	}
 
 	public Date visiteMedicaleVerif(String visiteMedicale) {
-		Date retour =null;
+		Date retour = Date.from(Instant.MIN);
 		try {
 			String s = visiteMedicale;
 			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
@@ -381,7 +381,7 @@ public class VerifForm {
 	public String nbKm(String nbKm) {
 		String retour = "";
 		try {
-			if (nbKm.matches("[0-9]+") ) {
+			if (nbKm.matches("[0-9]+")) {
 				retour = nbKm;
 			}
 		} catch (Exception e) {
@@ -462,7 +462,7 @@ public class VerifForm {
 	public String raisonBlocageVerif(String raisonBlocage) {
 		String retour = "";
 		if (raisonBlocage.matches("[a-zאבגהחטיךכלםמןסעףפצשתûü\\-\\'\\s]*")) {
-retour=raisonBlocage;
+			retour = raisonBlocage;
 		}
 
 		return retour;
