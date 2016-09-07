@@ -1,12 +1,8 @@
 <script type="text/javascript">
 
 function boutonEnregistrer(){
-	// (vérification protections: if pas tout ok (pas tous booleens == true) -> alerte) -> edit : non
 	
-	// si  ok -> enregistrement d'une version remplie et non-modifiable du formulaire
-	// si admin accède au formulaire rempli -> il n'est pas modifiable
-	// si membre accède au formulaire rempli -> en bas du formulaire : un bouton "modifier" -> renvoie vers FormulaireARemplir
-	
+	// pour valider l'envoi du formulaire. Si pas ok -> alerte
 	
 	//var X = document.forms["FormulaireARemplir"]["nom"].value;
 
@@ -137,6 +133,8 @@ function boutonEnregistrer(){
 	//location.href="http://127.0.0.1:8080/ProjectAJEE/ServletFormulaireB.java";
 }
 
+// fonctions pour le texte en rouge si pas ok
+
 function ecritureTexteNom() {
 	var nom = document.getElementById("nom");
 	var nom2 = document.getElementById("nom").value;
@@ -172,8 +170,9 @@ function ecritureTextePrenom() {
 function ecritureTexteAdresse() {
 	var adresse = document.getElementById("adresse");
 	var adresse2 = document.getElementById("adresse").value;
+	reg3=/^[a-zA-Z\300-\304\307\310-\317\322-\326\331-\335\340-\344\347\350-\357\362-\366\371-\375\-\s\''\,]+$/
 	if (adresse2 != "") {
-		if(adresse2 == null || adresse2 == ""){
+		if(!adresse2.match(reg3)){
 			adresse.style.color="red";
 			adresse.placeholder="Merci de saisir une adresse valide";
 		} else {
@@ -186,7 +185,7 @@ function ecritureTexteAdresse() {
 function ecritureNombreCp(){
 	var cp = document.getElementById("cp");
 	var cp2 = document.getElementById("cp").value;
-	reg2=/^[0-9]+$/
+	reg2=/^[0-9]{5}$/
 	if (cp2 != "") {
 		if(!cp2.match(reg2)){
 			cp.style.color="red";
@@ -201,7 +200,7 @@ function ecritureNombreCp(){
 function ecritureTexteVille() {
 	var ville = document.getElementById("ville");
 	var ville2 = document.getElementById("ville").value;
-	reg3=/^[a-zA-Z]+$/
+	reg3=/^[a-zA-Z\300-\304\307\310-\317\322-\326\331-\335\340-\344\347\350-\357\362-\366\371-\375\-\s\'']+$/
 	if (ville2 != "") {
 		if(!ville2.match(reg3)){
 			ville.style.color="red";
@@ -230,7 +229,8 @@ function ecritureNumTelFixe(){
 function ecritureNumTelPort(){
 	var telPort = document.getElementById("telPort");
 	var telPort2 = document.getElementById("telPort").value;
-	reg2=/^[0-9]+$/
+	regTelFixe = /^[0][67][0-9]{8}$/
+	//reg2=/^[0-9]+$/
 	if (telPort2 != "") {
 		if(!telPort2.match(reg2)){
 			telPort.style.color="red";
@@ -244,9 +244,9 @@ function ecritureNumTelPort(){
 function ecritureFax(){
 	var fax = document.getElementById("fax");
 	var fax2 = document.getElementById("fax").value;
-	reg2=/^[0-9]+$/
+	regFax = /^[0][1234589][0-9]{8}$/
 	if (fax2 != "") {
-		if(!fax2.match(reg2)){
+		if(!fax2.match(regFax)){
 			fax.style.color="red";
 			fax.placeholder="Merci de saisir un numéro valide";
 		} else {
@@ -258,7 +258,8 @@ function ecritureFax(){
 function ecritureEmail(){
 	var email = document.getElementById("email");
 	var email2 = document.getElementById("email").value;
-	reg=/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/
+	reg=/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/
+	//reg=/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/
 	//reg3=/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 	if (email2 != "") {
 		if(!email2.match(reg)){
@@ -289,7 +290,7 @@ function ecritureDateNaiss(){
 function ecritureTexteLieu(){
 	var lieu = document.getElementById("lieuNaissance");
 	var lieu2 = document.getElementById("lieuNaissance").value;
-	reg2=/^[a-zA-Z]+$/
+	reg2=/^[a-zA-Z\300-\304\307\310-\317\322-\326\331-\335\340-\344\347\350-\357\362-\366\371-\375\-\s\'']+$/
 	if (lieu2 != "") {
 		if(!lieu2.match(reg2)){
 			lieu.style.color="red";
