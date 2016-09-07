@@ -52,7 +52,7 @@ public class VerifComplet {
 			somme+=1;
 		}
 		
-		if (somme==7) {
+		if (somme>=1) {
 			ok=true;
 		}
 		
