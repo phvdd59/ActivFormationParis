@@ -370,6 +370,81 @@ public class AccesBDDPersonne {
 			e.printStackTrace();
 		}
 	}
+	public void creTablesSauv() {
+		Connection conn = null;
+		Statement stat = null;
+		try {
+			Class.forName(JDBC_DRIVER);
+			String url = DB_URL;
+
+			conn = DriverManager.getConnection(url, user, pass);
+			stat = conn.createStatement();
+			// String sql1 = "DROP DATABASE listeUserActiv;";
+			// String sql0 = "CREATE DATABASE listeUserActiv;";
+			// stat.executeUpdate(sql1);
+			// stat.executeUpdate(sql0);
+			url += "bait";
+			conn = DriverManager.getConnection(url, user, pass);
+			stat = conn.createStatement();
+			String sql = "CREATE TABLE listeUserEmpruntee (" + //
+					"IDPersonne INTEGER(11) NOT NULL PRIMARY KEY AUTO_INCREMENT," + //
+					"identifiant VARCHAR(255) NOT NULL UNIQUE, " + //
+					"mdp VARCHAR(255) NOT NULL, " + //
+					"email VARCHAR(255), " + //
+					"nom VARCHAR(255), " + //
+					"prenom VARCHAR(255), " + //
+					"adresse VARCHAR(255), " + //
+					"cp VARCHAR(50), " + //
+					"ville VARCHAR(255), " + //
+					"telFixe VARCHAR(255), " + //
+					"telPort VARCHAR(255), " + //
+					"fax VARCHAR(255), " + //
+					"dateNaissance VARCHAR(255), " + //
+					"lieuNaissance VARCHAR(255), " + //
+					"numSecu VARCHAR(255), " + //
+					"situation VARCHAR(255), " + //
+					"fonction VARCHAR(255), " + //
+					"positionEntreprise VARCHAR(255), " + //
+					"cadre BOOLEAN, " + //
+					"coeff VARCHAR(255), " + //
+					"salaire VARCHAR(255), " + //
+					"visiteMedicale VARCHAR(255), " + //
+					"montantTransport VARCHAR(255), " + //
+					"voiture BOOLEAN, " + //
+					"nbCV VARCHAR(50), " + //
+					"nbKm VARCHAR(50), " + //
+					"mutuelle BOOLEAN, " + //
+					"ticketResto BOOLEAN, " + //
+					"admin BOOLEAN, " + //
+					"dateCreation VARCHAR(255), " + //
+					"dateModification VARCHAR(255), " + //
+					"bloque BOOLEAN, " + //
+					"raisonBlocage VARCHAR(1000),"+ //
+					"Nationalite VARCHAR(255));";
+			System.out.println(sql);
+			stat.executeUpdate(sql);
+
+//			String sql2 = "CREATE TABLE listDocumentsSave (" + //
+//					"IDDocument INTEGER(11) NOT NULL PRIMARY KEY AUTO_INCREMENT," + //
+//					"IDPersonne INTEGER(11) NOT NULL," + //
+//					"nomDocUtil VARCHAR(255)," + //
+//					"type VARCHAR(50)," + //
+//					"nomDocFile VARCHAR(500)," + //
+//					"dateCreationDoc VARCHAR(255)," + //
+//					"commentaire VARCHAR(255)," + //
+//					"document BLOB);";
+//			stat.executeUpdate(sql2);
+//			
+//			String sql3 = "insert into listeUserSave select * from listeUser;";
+//			stat.executeUpdate(sql3);
+//			String sql4 = "insert into listDocumentsSave select * from listDocuments;";
+//			stat.executeUpdate(sql4);
+			
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
 
 	private int booleanConverter(boolean bool) {
 		int res = 0;
