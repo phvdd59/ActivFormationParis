@@ -141,7 +141,7 @@ width:25%;
 			%>
 
 			<form action="http://localhost:8080/ProjectJMST/jsp/Part4.jsp"
-				method='post'>
+				method='post' onsubmit="return ctrAll()">
 				<table border="1">
 
 					<tr>

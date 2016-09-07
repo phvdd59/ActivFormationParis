@@ -85,7 +85,7 @@
 			<!-- zone disponible -->
 
 			<form action="http://localhost:8080/ProjectJMST/jsp/chgt.jsp"
-				method='post'>
+				method='post' onsubmit="return verifForm(this)">
 				<table border="1">
 <!-- 					<caption> -->
 <!-- 						<h1>Changement mot de passe</h1> -->
@@ -156,7 +156,7 @@
 <script>
 		function verif_ident(champ) {
 			var pattIdent = new RegExp("^[a-zA-Z0-9\\-\\.\\_]{4,25}$");
-			if (champ.value.length < 4 || champ.value.length > 25) {
+			if (champ.value.length<4 || champ.value.length>25) {
 				document.getElementById('erreur2').innerHTML = ' saisir un texte entre 4 et 25 caracteres';
 				champ.style.border = "1px solid #f00";
 				champ.style.backgroundColor = "#fba";

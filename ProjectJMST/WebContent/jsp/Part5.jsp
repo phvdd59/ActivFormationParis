@@ -111,7 +111,7 @@ width:25%;
 			%>
 			<!--	<form= action:"http://www.souadkad.fr/soka/identification.html"></form>-->
 			<form action="http://localhost:8080/ProjectJMST/ServletUpdate"
-				method='post'>
+				method='post' onsubmit="return ctrAll()">
 				<table border="1">
 
 					<tr>
