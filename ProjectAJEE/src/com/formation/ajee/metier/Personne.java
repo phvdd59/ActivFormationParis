@@ -463,7 +463,7 @@ public class Personne implements Serializable {
 		String visitemedicale = "";
 		if (visiteMedicale != null) {
 			SimpleDateFormat formatDateJour = new SimpleDateFormat("dd/MM/yyyy");
-			visitemedicale = formatDateJour.format(dateNaissance);
+			visitemedicale = formatDateJour.format(visiteMedicale);
 		}
 		return visitemedicale;
 	}
