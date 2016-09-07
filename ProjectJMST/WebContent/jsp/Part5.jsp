@@ -267,11 +267,6 @@ width:25%;
 				<input type="submit" value="Deconnexion"></input> <input
 					type="hidden" name="noSerie" value="<%=noSerie%>">
 			</form>
-			<form action="">
-				<input type="button" name="check" value="check" onclick="ctrAll()" />
-			</form>
-
-
 		</div>
 		<div id="fpage2">
 			<img

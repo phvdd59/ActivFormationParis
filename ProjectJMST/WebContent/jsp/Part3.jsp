@@ -186,9 +186,6 @@ width:25%;
 				<input type="submit" value="Deconnexion"></input> <input
 					type="hidden" name="noSerie" value="<%=noSerie%>">
 			</form>
-			<form action="">
-				<input type="button" onclick="ctrAll()" value="check">
-			</form>
 
 		</div>
 		<div id="fpage2">

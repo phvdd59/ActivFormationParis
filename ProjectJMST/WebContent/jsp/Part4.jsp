@@ -256,10 +256,6 @@ width:25%;
 				<input type="submit" value="Deconnexion"></input> <input
 					type="hidden" name="noSerie" value="%<%=noSerie%>">
 			</form>
-			<form>
-				<input type="button" value="check" onclick="ctrSituationPro()"></input>
-
-			</form>
 
 			<span style="text-align: center;" id="spanSituationPro"></span>
 
