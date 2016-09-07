@@ -76,12 +76,12 @@ public class FonctionsCommune {
 		}
 	}
 
-	public Personne[] PersoVersPerso(Perso[] tabPerso) {
+	public Personne PersoVersPerso(Perso tabPerso) {
 
-		Personne[] tabPersonne = new Personne[tabPerso.length];
-		for (int i = 0; i < tabPerso.length; i++) {
+		;
+		
 			Personne personne = new Personne();
-			Perso perso = tabPerso[i];
+			Perso perso = tabPerso;
 			personne.setIdPersonne(perso.getIdPersonne());
 			personne.setNom(perso.getNom());
 			personne.setPrenom(perso.getPrenom());
@@ -117,11 +117,7 @@ public class FonctionsCommune {
 			personne.setBloque(perso.isBloque());
 			personne.setRaisonBlocage(perso.getMontantTransport());
 
-			tabPersonne[i] = personne;
-
-		}
-
-		return tabPersonne;
+		return personne;
 
 	}
 }
