@@ -59,31 +59,31 @@ public class ServletPageExamCandidat2 extends HttpServlet {
 
 			session.setAttribute("NomAdmin", personne.getPrenom() + " " + personne.getNom());
 
-			session.setAttribute("nomCandidat", personne2.getNom());
-			session.setAttribute("prenomCandidat", personne2.getPrenom());
-			session.setAttribute("emailCandidat", personne2.getEmail());
-			session.setAttribute("adresseCandidat", personne2.getAdresse());
-			session.setAttribute("cPCandidat", personne2.getcP());
-			session.setAttribute("villeCandidat", personne2.getVille());
-			session.setAttribute("telFixeCandidat", personne2.getTelFixe());
-			session.setAttribute("telPortCandidat", personne2.getTelPort());
-			session.setAttribute("faxCandidat", personne2.getFax());
-			session.setAttribute("dateNaissCandidat", personne2.getDateNaissance());
-			session.setAttribute("lieuNaissCandidat", personne2.getLieuNaissance());
-			session.setAttribute("numSecuCandidat", personne2.getNumSecu());
-			session.setAttribute("nationaliteCandidat", personne2.getNationalite());
-			session.setAttribute("situationCandidat", personne2.getSituation());
-			session.setAttribute("fonctionCandidat", personne2.getFonction());
-			session.setAttribute("positionCandidat", personne2.getPosition());
-			session.setAttribute("cadreCandidat", personne2.isCadre());
-			session.setAttribute("coeffCandidat", personne2.getCoeff());
-			session.setAttribute("salaireCandidat", personne2.getSalaire());
-			session.setAttribute("vivisteMedicaleCandidat", personne2.getVisiteMedicale());
-			session.setAttribute("montantTransportCandidat", personne2.getMontantTransport());
-			session.setAttribute("voitureCandidat", personne2.isVoiture());
-			session.setAttribute("nbCVCandidat", personne2.getNbCV());
-			session.setAttribute("nbKmCandidat", personne2.getNdKm());
-			session.setAttribute("mutuelleCandidat", personne2.isMutuelle());
+//			session.setAttribute("nomCandidat", personne2.getNom());
+//			session.setAttribute("prenomCandidat", personne2.getPrenom());
+//			session.setAttribute("emailCandidat", personne2.getEmail());
+//			session.setAttribute("adresseCandidat", personne2.getAdresse());
+//			session.setAttribute("cPCandidat", personne2.getcP());
+//			session.setAttribute("villeCandidat", personne2.getVille());
+//			session.setAttribute("telFixeCandidat", personne2.getTelFixe());
+//			session.setAttribute("telPortCandidat", personne2.getTelPort());
+//			session.setAttribute("faxCandidat", personne2.getFax());
+//			session.setAttribute("dateNaissCandidat", personne2.getDateNaissance());
+//			session.setAttribute("lieuNaissCandidat", personne2.getLieuNaissance());
+//			session.setAttribute("numSecuCandidat", personne2.getNumSecu());
+//			session.setAttribute("nationaliteCandidat", personne2.getNationalite());
+//			session.setAttribute("situationCandidat", personne2.getSituation());
+//			session.setAttribute("fonctionCandidat", personne2.getFonction());
+//			session.setAttribute("positionCandidat", personne2.getPosition());
+//			session.setAttribute("cadreCandidat", personne2.isCadre());
+//			session.setAttribute("coeffCandidat", personne2.getCoeff());
+//			session.setAttribute("salaireCandidat", personne2.getSalaire());
+//			session.setAttribute("vivisteMedicaleCandidat", personne2.getVisiteMedicale());
+//			session.setAttribute("montantTransportCandidat", personne2.getMontantTransport());
+//			session.setAttribute("voitureCandidat", personne2.isVoiture());
+//			session.setAttribute("nbCVCandidat", personne2.getNbCV());
+//			session.setAttribute("nbKmCandidat", personne2.getNdKm());
+//			session.setAttribute("mutuelleCandidat", personne2.isMutuelle());
 
 			this.getServletContext().getRequestDispatcher("/com/bait/jsp/grosTest.jsp").forward(request, response);
 
