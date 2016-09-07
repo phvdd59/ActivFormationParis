@@ -71,7 +71,7 @@
 
 			<div ID=formu38>
 
-				<label>Candidat : <%=session.getAttribute("NomCandidat")%> <%=session.getAttribute("prenomCandidat")%></label>
+				<label>Candidat : <%= personne.getNom()%> <%= personne.getPrenom() %></label>
 
 			</div>
 			<div style="overflow : auto; width : 680px; height : 480px">
