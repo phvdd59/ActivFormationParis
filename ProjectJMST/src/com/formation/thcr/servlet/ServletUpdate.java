@@ -60,17 +60,30 @@ public class ServletUpdate extends HttpServlet {
 		String sNbCv = request.getParameter("nbDeCV");
 		String sKmEstime = request.getParameter("kmMensuel");
 
+//		System.out.println(sFonction + " " + sPosition + " " + sCoefficient+ " " + sSalaire
+//				+ " " + sMutuelle+ " " + sTicketResto+ " " + sVisiteMedicale + " " + sTransport
+//				+ sVehicule + " " + sNbCv + " " + sKmEstime);
+
 		CtrlPersonne ctrl = new CtrlPersonne();
+		
+//		ctrl.ctrlFonction(sFonction) ; ctrl.ctrlCadre(sCadre) ; ctrl.ctrlPosition(sPosition)
+//		; ctrl.ctrlCoeff(sCoefficient) ; ctrl.ctrlSalaire(sSalaire) ; ctrl.ctrlMutuelle(sMutuelle)
+//		; ctrl.ctrlTicketResto(sTicketResto) ; ctrl.ctrlVisiteMedicale(sVisiteMedicale)
+//		; ctrl.ctrlMontantTransport(sTransport) ; ctrl.ctrlVoiture(sVehicule)
+//		; ctrl.ctrlNbCV(sNbCv) ; ctrl.ctrlNbKm(sKmEstime);
+		
 		DAOPersonne dao = new DAOPersonne();
 		ConversionPersonne conv = new ConversionPersonne();
 
-		if (ctrl.ctrlCadre(sCadre) && ctrl.ctrlFonction(sFonction) && ctrl.ctrlPosition(sPosition) && ctrl.ctrlCoeff(sCoefficient)
+		System.out.println(personne);
+
+		if (ctrl.ctrlFonction(sFonction) && ctrl.ctrlCadre(sCadre) && ctrl.ctrlPosition(sPosition) && ctrl.ctrlCoeff(sCoefficient)
 				&& ctrl.ctrlSalaire(sSalaire) && ctrl.ctrlMutuelle(sMutuelle) && ctrl.ctrlTicketResto(sTicketResto)
 				&& ctrl.ctrlVisiteMedicale(sVisiteMedicale) && ctrl.ctrlMontantTransport(sTransport) && ctrl.ctrlVoiture(sVehicule)
 				&& ctrl.ctrlNbCV(sNbCv) && ctrl.ctrlNbKm(sKmEstime)) {
-			
-			if (noSerieHtml.equals(noSerie)) {
-				
+
+			if (noSerieHtml == null || noSerie == null || noSerieHtml.equals(noSerie)) {
+
 				personne.setCadre(conv.conversionBoolean(sCadre));
 				personne.setFonction(sFonction);
 				personne.setPosition(sPosition);
@@ -83,14 +96,14 @@ public class ServletUpdate extends HttpServlet {
 				personne.setVoiture(conv.conversionBoolean(sVehicule));
 				personne.setNbCV(Integer.valueOf(sNbCv).intValue());
 				personne.setNbKm(sKmEstime);
-				
+
 				java.util.Date dateModificationUtil = new java.util.Date();
 				Timestamp dateModification = new Timestamp(dateModificationUtil.getTime());
 				personne.setDateModification(dateModification);
 				dao.update(personne);
 			}
 		}
-		
+
 		RequestDispatcher rd = getServletContext().getRequestDispatcher("/Servletmadeversmenu");
 		rd.forward(request, response);
 

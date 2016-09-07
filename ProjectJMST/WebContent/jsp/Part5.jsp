@@ -256,7 +256,7 @@ width:25%;
 							<span id="spanNbChevaux"></span></td>
 						<td style="width: 116px;">Km mensuel estimé</td>
 						<td style="width: 112px; height: 25px; color:;"><input
-							id="kmMensuel" type="text" name="kmMensuel "
+							id="kmMensuel" type="text" name="kmMensuel"
 							value='<%=personne.getNbKm()%>' onblur="ctrKmMensuel()"><br> <span
 							id=spanKmMensuel></span></td>
 					</tr>
