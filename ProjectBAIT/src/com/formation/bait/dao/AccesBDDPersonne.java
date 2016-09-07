@@ -323,6 +323,78 @@ public class AccesBDDPersonne {
 		return personne;
 	}
 
+	public Personne getPersonneEmpruntee(String Id) {
+		Personne personne = null;
+		Connection conn = null;
+		Statement stat = null;
+		try {
+			Class.forName(JDBC_DRIVER);
+			String url = DB_URL + "bait";
+			conn = DriverManager.getConnection(url, user, pass);
+			stat = conn.createStatement();
+
+			String sql = "SELECT * FROM listeUserEmpruntee WHERE IDPERSONNE ='" + Id + "';";
+
+			ResultSet resultat = stat.executeQuery(sql);
+			resultat.first();
+
+			String sIdentifiant = resultat.getString("identifiant");
+			String sMdp = resultat.getString("mdp");
+			personne = new Personne(sIdentifiant, sMdp);
+			personne.setIdPersonne(resultat.getInt("IDPersonne"));
+			personne.setEmail(resultat.getString("email"));
+			personne.setNom(resultat.getString("nom"));
+			personne.setPrenom(resultat.getString("prenom"));
+			personne.setAdresse(resultat.getString("adresse"));
+			personne.setcP(resultat.getString("cp"));
+			personne.setVille(resultat.getString("ville"));
+			personne.setTelFixe(resultat.getString("telFixe"));
+			personne.setTelPort(resultat.getString("telPort"));
+			personne.setFax(resultat.getString("fax"));
+			personne.setDateNaissance(resultat.getString("dateNaissance"));
+			personne.setLieuNaissance(resultat.getString("lieuNaissance"));
+			personne.setNumSecu(resultat.getString("numSecu"));
+			personne.setNationalite(resultat.getString("nationalite"));
+			personne.setSituation(resultat.getString("situation"));
+			personne.setFonction(resultat.getString("fonction"));
+			personne.setPosition(resultat.getString("positionEntreprise"));
+			personne.setCadre(resultat.getBoolean("cadre"));
+			personne.setCoeff(resultat.getString("coeff"));
+			personne.setSalaire(resultat.getString("salaire"));
+			personne.setVisiteMedicale(resultat.getString("visiteMedicale"));
+			personne.setMontantTransport(resultat.getString("montantTransport"));
+			personne.setVoiture(resultat.getBoolean("voiture"));
+			personne.setNbCV(resultat.getString("nbCV"));
+			personne.setNdKm(resultat.getString("nbKm"));
+			personne.setMutuelle(resultat.getBoolean("mutuelle"));
+			personne.setTicket(resultat.getBoolean("ticketResto"));
+			personne.setAdmin(resultat.getBoolean("admin"));
+			personne.setDateCreation(resultat.getString("dateCreation"));
+			personne.setDateModification(resultat.getString("dateModification"));
+			personne.setBloque(resultat.getBoolean("bloque"));
+			personne.setRaisonBlocage(resultat.getString("raisonBlocage"));
+
+			String sql2 = "SELECT * FROM listDocuments WHERE IDPERSONNE ='" + Id + "';";
+			ListeDoc lstDoc = personne.getListeDoc();
+			ResultSet resultat2 = stat.executeQuery(sql2);
+			while (resultat2.next()) {
+				String dIdPersonne = resultat.getString("IDPersonne");
+				String dIdDocument = resultat.getString("IDDocument");
+				DocPerso doc = new DocPerso(Integer.valueOf(dIdPersonne), Integer.valueOf(dIdDocument));
+				doc.setNomDocFile(resultat2.getString("nomDocFile"));
+				doc.setNomDocUtil(resultat2.getString("nomDocUtil"));
+				doc.setType(resultat2.getString("type"));
+				doc.setTime(resultat2.getString("time"));
+				doc.setCommentaire(resultat2.getString("commentaire"));
+				lstDoc.add(doc);
+			}
+			personne.setListeDoc(lstDoc);
+
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
+		return personne;
+	}
 	
 	public void afficherListeCandidats(HttpServletResponse response) throws IOException{
 		
@@ -336,6 +408,39 @@ public class AccesBDDPersonne {
 
 			response.getWriter().append("<div style=\"text-align: center; width:350px; max-height:420px; overflow:auto\">");
 			String sql = "SELECT * FROM listeUser Where admin=0 order by nom;";
+			ResultSet resultat = stat.executeQuery(sql);
+			char lettre = 'Z';
+			while (resultat.next()) {
+				if (!resultat.getString("nom").startsWith(Character.toString(lettre))) {
+					lettre = resultat.getString("nom").charAt(0);
+					response.getWriter().append("<div style=\"margin-top: 12px; font-size:150%;\">");
+					response.getWriter().append(lettre);
+					response.getWriter().append("</div>");
+				}
+				response.getWriter().append("<form method=\"post\" action=\"http://localhost:8080/ProjectBAIT/ServletPageExamCandidat2\">");
+				response.getWriter().append("<input type=\"hidden\" value=\"" + resultat.getString("IDPersonne") + "\" name=\"IDcandidat\" />");
+				response.getWriter().append("<input type=\"submit\" style=\"width: 250px;\" value=\"" + resultat.getString("nom") + " " + resultat.getString("prenom") + "\" name=\"" + resultat.getString("nom") + "\" /><br>");
+				response.getWriter().append("</form>");
+			}
+			response.getWriter().append("</div>");
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+public void afficherListeCandidatsEmpruntee(HttpServletResponse response) throws IOException{
+		
+		Connection conn = null;
+		Statement stat = null;
+		try {
+			Class.forName(JDBC_DRIVER);
+			String url = DB_URL + "bait";
+			conn = DriverManager.getConnection(url, user, pass);
+			stat = conn.createStatement();
+
+			response.getWriter().append("<div style=\"text-align: center; width:350px; max-height:420px; overflow:auto\">");
+			String sql = "SELECT * FROM listeUserEmpruntee Where admin=0 order by nom;";
 			ResultSet resultat = stat.executeQuery(sql);
 			char lettre = 'Z';
 			while (resultat.next()) {
