@@ -2,6 +2,9 @@ package com.formation.beans;
 
 import java.sql.Timestamp;
 
+import com.formation.thcr.metier.Personne;
+import com.formation.thcr.metier.Sexe;
+
 public class ConversionPersoToPersonne {
 
 	public Personne conv(Perso p) {

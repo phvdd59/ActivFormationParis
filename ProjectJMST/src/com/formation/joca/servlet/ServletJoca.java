@@ -18,7 +18,7 @@ import javax.xml.ws.Service;
 import com.formation.beans.ConversionPersoToPersonne;
 import com.formation.beans.InterPersoService;
 import com.formation.beans.Perso;
-import com.formation.beans.Personne;
+import com.formation.thcr.metier.Personne;
 
 /**
  * Servlet implementation class ServletJoca
