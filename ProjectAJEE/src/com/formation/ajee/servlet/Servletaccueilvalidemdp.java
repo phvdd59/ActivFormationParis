@@ -30,6 +30,12 @@ public class Servletaccueilvalidemdp extends HttpServlet {
 		super();
 	}
 
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		RequestDispatcher rd = req.getRequestDispatcher("//Servletidentification");
+		rd.forward(req, resp);
+	}
+	
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)

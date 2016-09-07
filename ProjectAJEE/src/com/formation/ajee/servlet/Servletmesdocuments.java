@@ -32,6 +32,12 @@ public class Servletmesdocuments extends HttpServlet {
 	public Servletmesdocuments() {
 		super();
 	}
+	
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		RequestDispatcher rd = req.getRequestDispatcher("//Servletidentification");
+		rd.forward(req, resp);
+	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");

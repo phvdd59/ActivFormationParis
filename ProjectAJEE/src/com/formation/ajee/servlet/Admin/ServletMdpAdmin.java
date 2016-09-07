@@ -31,6 +31,12 @@ public class ServletMdpAdmin extends HttpServlet {
 		// TODO Auto-generated constructor stub
 	}
 
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		RequestDispatcher rd = req.getRequestDispatcher("//Servletidentification");
+		rd.forward(req, resp);
+	}
+	
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request,
 	 *      HttpServletResponse response)
