@@ -157,7 +157,12 @@ public class AccesBDDPersonne {
 			while (resultat.next()) {
 				parameters[0] = resultat.getString("IDPersonne");
 				parameters[1] = resultat.getString("mdp");
-				parameters[2] = resultat.getString("bloque");
+				boolean blok = resultat.getBoolean("bloque");
+				if (blok) {
+					parameters[2]="True";
+				}else {
+					parameters[2]="False";
+				}
 				parameters[3] = resultat.getString("raisonBlocage");
 			}
 
