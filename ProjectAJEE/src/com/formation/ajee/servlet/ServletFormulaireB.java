@@ -236,8 +236,8 @@ public class ServletFormulaireB extends HttpServlet {
 //		response.getWriter().println(lst.get(0).toString());
 		
 		// print : formulaire bien enregistré
-		response.getWriter().println("Merci "+personne.getPrenom()+" "+personne.getNom()+".");
-		response.getWriter().println(pNomV);
+		//response.getWriter().println("Merci "+personne.getPrenom()+" "+personne.getNom()+".");
+		//response.getWriter().println(pNomV);
 		response.getWriter().println("Merci "+pPrenomV+" "+pNomV+".");
 		response.getWriter().println("Votre formulaire a bien ete enregistre.");
 		
