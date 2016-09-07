@@ -411,8 +411,8 @@ public class Servletlisteutilisateurs2 extends HttpServlet {
 						String ligne = "";
 						if (lstUser2.get(i).isBloque() == true) {
 							ligne = "<option style=\"color:red;\" value='%%value%%'></option>";
-							ligne = ligne.replace("%%value%%", lstUser.get(i).getNom() + lstUser2.get(i).getPrenom());
-							ligne = ligne.replace("></", ">" + lstUser.get(i).getNom() + " " + lstUser2.get(i).getPrenom() + " " + "  -  Identifiant : " + lstUser2.get(i).getIdentifiant() + " / Mot de passe : " + lstUser2.get(i).getMdp() + " / BLOQUE :" + lstUser2.get(i).getRaisonBlocage() + "</");
+							ligne = ligne.replace("%%value%%", lstUser2.get(i).getNom() + lstUser2.get(i).getPrenom());
+							ligne = ligne.replace("></", ">" + lstUser2.get(i).getNom() + " " + lstUser2.get(i).getPrenom() + " " + "  -  Identifiant : " + lstUser2.get(i).getIdentifiant() + " / Mot de passe : " + lstUser2.get(i).getMdp() + " / BLOQUE :" + lstUser2.get(i).getRaisonBlocage() + "</");
 							response.getWriter().println(ligne);
 						} else {
 							ligne = "<option value='%%value%%'></option>";
