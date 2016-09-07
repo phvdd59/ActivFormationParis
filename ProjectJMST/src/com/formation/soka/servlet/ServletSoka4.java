@@ -79,7 +79,7 @@ public class ServletSoka4 extends HttpServlet {
 		BufferedReader bIn = null;
 		bIn = new BufferedReader(new FileReader(file));
 
-		if (noSerieHtml.equals(noSerie)) {
+		if (noSerieHtml == null || noSerie == null || noSerieHtml.equals(noSerie)) {
 			noSerie = "24_" + noSerie;
 			session.setAttribute("noSerie", noSerie);
 			String line = bIn.readLine();

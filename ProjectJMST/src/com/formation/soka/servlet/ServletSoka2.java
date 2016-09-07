@@ -92,7 +92,7 @@ public class ServletSoka2 extends HttpServlet {
 		BufferedReader bIn = null;
 		bIn = new BufferedReader(new FileReader(file));
 
-		if (noSerieHtml.equals(noSerie)) {
+		if (noSerieHtml == null || noSerie == null || noSerieHtml.equals(noSerie)) {
 			session.setAttribute("noSerie", noSerie);
 			String line = bIn.readLine();
 			while (line != null) {

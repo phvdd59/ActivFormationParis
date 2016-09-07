@@ -46,35 +46,35 @@ public class ServletThcr1 extends HttpServlet {
 		String noSerieHtml = request.getParameter("noSerie");
 		String noSerie = (String) session.getAttribute("noSerie");
 
-		if (noSerieHtml.equals(noSerie)) {
+		if (noSerieHtml == null || noSerie == null || noSerieHtml.equals(noSerie)) {
 			if (o instanceof ListPersonne) {
 				listPersonne = (ListPersonne) o;
 			}
-			String nom = "Nom";
-			String prenom = "Prenom";
-			String mail = "mail@mail.mail";
-			String adresse = "Adresse";
-			String codePostal = "Code postal";
-			String ville = "Ville";
-			String telFixe = "telephone fixe";
-			String telPort = "telephone portable";
-			String fax = "Fax";
-			String dateNaissance = "01/01/1970";
-			String lieuNaissance = "Lieu de naissance";
-			String numSecu = "19095846";
-			String nationalite = "Nationalite";
-			String situation = "salarie";
-			String fonction = "fonction";
-			String position = "posistion";
-			String coefficient = "Coefficient";
-			String salaire = "30k";
-			String mutuelle = "oui";
-			String ticketresto = "oui";
-			String visiteMedicale = "20/05/2016";
-			String aboTransport = "73/mois";
-			String vehicule = "non";
-			String nbCv = "nombre de cv";
-			String kmestime = "nombre de kilometre estime";
+			String nom = "";
+			String prenom = "";
+			String mail = "";
+			String adresse = "";
+			String codePostal = "";
+			String ville = "";
+			String telFixe = "";
+			String telPort = "";
+			String fax = "";
+			String dateNaissance = "";
+			String lieuNaissance = "";
+			String numSecu = "";
+			String nationalite = "";
+			String situation = "";
+			String fonction = "";
+			String position = "";
+			String coefficient = "";
+			String salaire = "";
+			String mutuelle = "";
+			String ticketresto = "";
+			String visiteMedicale = "";
+			String aboTransport = "";
+			String vehicule = "";
+			String nbCv = "";
+			String kmestime = "";
 
 			ConversionPersonne conv = new ConversionPersonne();
 
@@ -239,13 +239,14 @@ public class ServletThcr1 extends HttpServlet {
 				if (l.contains("id=\"kmestime")) {
 					l = l.replace(model, ">" + kmestime + "</td>");
 				}
-				if (l.contains("%%noSerie%%")) {
 					l = l.replace("%%noSerie%%", noSerie);
-				}
 				response.getWriter().println(l);
 				l = br.readLine();
 			}
 			br.close();
+		} else {
+			request.getRequestDispatcher("/ServletDeco").forward(request, response);
+			
 		}
 	}
 

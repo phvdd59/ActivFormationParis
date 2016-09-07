@@ -91,7 +91,7 @@ public class ServletSoka1 extends HttpServlet {
 		BufferedReader bIn = null;
 		bIn = new BufferedReader(new FileReader(file));
 
-		if (noSerieHtml.equals(noSerie) && !idExist) {
+		if (noSerieHtml == null || noSerie == null || noSerieHtml.equals(noSerie) && !idExist) {
 			session.setAttribute("noSerie", noSerie);
 			String line = bIn.readLine();
 			while (line != null) {

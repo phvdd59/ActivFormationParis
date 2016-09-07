@@ -44,7 +44,7 @@ public class ServletThcr2 extends HttpServlet {
 		DAOPersonne dao = new DAOPersonne();
 		ListPersonne listPersonne = dao.read();
 		session.setAttribute("ListPersonne", listPersonne);
-		if (noSerieHtml.equals(noSerie)) {
+		if (noSerieHtml == null || noSerie == null || noSerieHtml.equals(noSerie)) {
 
 		String tableConstruct = "";
 
@@ -80,6 +80,8 @@ public class ServletThcr2 extends HttpServlet {
 			l = br.readLine();
 		}
 		br.close();
+		} else {
+			request.getRequestDispatcher("/ServletDeco").forward(request, response);
 		}
 	}
 
