@@ -144,13 +144,13 @@ input[type="submit"] {
 				<table border="1">
 
 					<tr>
-						<td>Date de naissance</td>
+						<td>Date de naissance *</td>
 						<td style="width: 273px; height: 25px; color:;"><input
 							id="dateDeNaissance" type="date" name="dateDeNaissance"
 							value='<%=conv.conversionSQLToUtil(new java.sql.Date(personne.getDateNaissance().getTime()))%>'
 							onblur="ctrDateDeNaissance()" style="width: 270px;"><br>
 							<span id="spanDateDeNaissance"></span></td>
-						<td style="width: 72px;">Lieu de naissance</td>
+						<td style="width: 72px;">Lieu de naissance *</td>
 						<td style="width: 112px; height: 25px; color:;"><input
 							id="lieuDeNaissance" type="text" name="lieuDeNaissance"
 							value='<%=personne.getLieuNaissance()%>'
@@ -158,7 +158,7 @@ input[type="submit"] {
 							id="spanLieuDeNaissance"></span></td>
 					</tr>
 					<tr>
-						<td>N° sécurité Social</td>
+						<td>N° sécurité Social *</td>
 						<td colspan="3" style="width: 229px; height: 25px; color:;"><input
 							id="noSecuriteSociale" type="text" name="numSecu"
 							value='<%=personne.getNumSecu()%>'
@@ -166,7 +166,7 @@ input[type="submit"] {
 							<span id="spanNoSecuriteSociale"></span></td>
 					</tr>
 					<tr>
-						<td>Nationalité</td>
+						<td>Nationalité *</td>
 						<td colspan="3" style="width: 229px; height: 25px; color:;"><input
 							id="nationalite" type="text" name="nationalite"
 							value='<%=personne.getNationalite()%>' onblur="ctrNationalite()"

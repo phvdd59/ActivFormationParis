@@ -162,7 +162,7 @@ width:25%;
 							id="spanCoefficient"></span></td>
 					</tr>
 					<tr>
-						<td>Salaire souhaité</td>
+						<td>Salaire souhaité *</td>
 						<td colspan="3" style="width: 229px; height: 25px; color:;"><input
 							id="salaireSouhaite" type="text" name="salaireSouhaite"
 							value='<%=personne.getSalaire()%>' onblur="ctrSalaireSouhaite()"
@@ -212,7 +212,7 @@ width:25%;
 						%>
 					</tr>
 					<tr>
-						<td>Date de la dernière visite médicale</td>
+						<td>Date de la dernière visite médicale *</td>
 						<td colspan="3" style="width: 229px; height: 25px; color:;"><input
 							id="dateVisiteMedicale" type="date" name="dateVisiteMedicale"
 							value='<%=conv.conversionSQLToUtil(new java.sql.Date(personne.getVisiteMedicale().getTime()))%>' 
@@ -460,7 +460,7 @@ width:25%;
 			var no = nbChevaux.value.length;
 			var pattNbChevaux = new RegExp("^[1-9][0-9]+$");
 			var spanNbChevaux = document.getElementById("spanNbChevaux");
-			if (nbChevaux.value==""){
+			if (nbChevaux.value=="0"){
 				nbChevaux.style.border = "inherit";
 				nbChevaux.style.backgroundColor = "#66ff99";
 				spanNbChevaux.innerHTML = "OK";

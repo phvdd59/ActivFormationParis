@@ -108,13 +108,13 @@ width:25%;
 				method='POST' onsubmit="return ctrAll()">
 				<table border="1">
 					<tr>
-						<td>Nom</td>
+						<td>Nom *</td>
 						<td style="width: 273px; height: 25px; color:;"><input
 							id="nom" type="text" name="nom" value='<%=personne.getNom()%>' 
 							style="width: 270px;" onblur="ctrNom(this)"><br> <span class=""
 							id="spanNom"></span></td>
 
-						<td style="width: 72px;">Prenom</td>
+						<td style="width: 72px;">Prenom *</td>
 						<td style="width: 112px; height: 25px; color:;"><input
 							id="prenom" type="text" name="prenom"
 							value='<%=personne.getPrenom()%>' onblur="ctrPrenom()" > <br>
@@ -159,7 +159,7 @@ width:25%;
 							id="fax" type="text" name="fax" value='<%=personne.getFax()%>' onblur="ctrFax()"
 							style="width: 270px;"><br>
 						<span id="spanFax"></span></td>
-						<td style="width: 72px;">Mail</td>
+						<td style="width: 72px;">Mail *</td>
 						<td style="width: 112px; height: 25px; color:;"><input
 							id="mail" type="text" name="mail"
 							value='<%=personne.getEmail()%>' onblur="ctrMail()"><br> <span
