@@ -43,18 +43,18 @@ public class Servletaccueilvalidemdp extends HttpServlet {
 		ListPersonne lstPersonne=new ListPersonne();
 		Personne utilisateur =(Personne) session.getAttribute("utilisateur");
 		Personne personne = (Personne) session.getAttribute("personne");
-		String sMdp=request.getParameter("mdpN");
-		VerifForm v = new VerifForm(); 
-		String mdpVerif = v.mdpVerif(sMdp);
-		personne.setMdp(mdpVerif);
-		personne.modifPersonne(personne.getIdPersonne());
 		Vue vue = new Vue();
-		String mdp1=(String) request.getParameter("mdpN");
-		String mdp2=(String) request.getParameter("mdpV");
+		VerifForm v = new VerifForm(); 
+		String sMdpN=(String) request.getParameter("mdpN");
+		String sMdpV=(String) request.getParameter("mdpV");
+		String mdpVerif = v.mdpVerif(sMdpN);
 		
-		if (mdp1==null ||mdp2 == null || !mdp1.equals(mdp2)) {
+		if (sMdpN==null ||sMdpV == null || !sMdpN.equals(sMdpV)) {
 			RequestDispatcher rd = request.getRequestDispatcher("//ServletMdpAdmin");
 			rd.forward(request, response);
+		} else {
+			personne.setMdp(mdpVerif);
+			personne.modifPersonne(personne.getIdPersonne());
 		}
 		
 		if (noSerie != null && personne != null&& personne.getIdentifiant() != null) {
