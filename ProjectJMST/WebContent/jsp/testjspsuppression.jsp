@@ -210,17 +210,17 @@ left: 45%;
 	</form>
 	
 	<br>
+	
+				<form action=http://localhost:8080/ProjectJMST/RetourMenu method="post">
+                    <input id="monInput"type="submit" value="Retour">
+                    <input type="hidden" name="noSerie" value="<%=noSerie%>">
+                </form>
 	<form action="http://localhost:8080/ProjectJMST/ServletDeco"
 					method="post">
 					<input id="monInput"type="submit" value="Deconnexion"
 						title="deconnexion session"><input type="hidden"
 						name="noSerie" value="<%=noSerie%>">
 				</form>
-				<form action=http://localhost:8080/ProjectJMST/RetourMenu method="post">
-                    <input id="monInput"type="submit" value="Retour">
-                    <input type="hidden" name="noSerie" value="<%=noSerie%>">
-                </form>
-	
 
 
 
