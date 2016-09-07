@@ -1,6 +1,18 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<style type="text/css">
+input[type="submit"]{
+width:50%;
+
+}
+div#menu1{
+position: relative;
+top:30%;
+left: 35%;
+
+}
+</style>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Login</title>
 <link href="http://www.activconsult-ing.com/Home.css" rel="stylesheet"
@@ -84,15 +96,15 @@
 						<p id="erreurLog" style="visibility:hidden"></p>
 					Identifiant :<br /> <input id="ident" type="text"
 						name="identifiant" onblur="verif_ident(this)" /><span
-						id="erreur2"></span><br /> Mot de passe :<br /> <input
+						id="erreur2"></span><br /><br> Mot de passe :<br /> <input
 						type="password" name="motdepasse" onblur="verif_mdp(this)"><span
-						id="erreur"></span><br /> <input type="submit" value="valider" /><br />
-					<INPUT type="button" name="recupMDP" value="récupérer mot de passe">
+						id="erreur"></span><br /> <br><input type="submit" value="valider" /><br />
+					<input style="width: 50%" type="button" name="recupMDP" value="récupérer mot de passe">
 					<input type="hidden" value="%%noSerie%%">
 				</form>
 				<form action="http://localhost:8080/ProjectJMST/ServletSoka0"
 					method="post">
-					<INPUT type="submit" name="inscription" value="inscription">
+					<input type="submit" name="inscription" value="inscription">
 				</form>
 			</div>
 		</div>
