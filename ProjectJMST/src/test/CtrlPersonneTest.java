@@ -293,7 +293,7 @@ public class CtrlPersonneTest {
 	@Test
 	public void testCtrlAdresseVide() {
 		String adresse="";
-		Assert.assertFalse(iCtrlPersonne.ctrlAdresse(adresse));
+		Assert.assertTrue(iCtrlPersonne.ctrlAdresse(adresse));
 	}
 	
 	@Test
@@ -335,7 +335,7 @@ public class CtrlPersonneTest {
 	@Test
 	public void testCtrlCpVide() {
 		String cp="";
-		Assert.assertFalse(iCtrlPersonne.ctrlCp(cp));
+		Assert.assertTrue(iCtrlPersonne.ctrlCp(cp));
 	}
 	
 	@Test
@@ -386,7 +386,7 @@ public class CtrlPersonneTest {
 	@Test
 	public void testCtrlVilleVide() {
 		String ville="";
-		Assert.assertFalse(iCtrlPersonne.ctrlVille(ville));
+		Assert.assertTrue(iCtrlPersonne.ctrlVille(ville));
 	}
 	
 	@Test
@@ -434,7 +434,7 @@ public class CtrlPersonneTest {
 	@Test
 	public void testCtrlTelFixeVide() {
 		String telFixe="";
-		Assert.assertFalse(iCtrlPersonne.ctrlTelFixe(telFixe));
+		Assert.assertTrue(iCtrlPersonne.ctrlTelFixe(telFixe));
 	}
 	
 	@Test
@@ -482,7 +482,7 @@ public class CtrlPersonneTest {
 	@Test
 	public void testCtrlTelPortVide() {
 		String telPort="";
-		Assert.assertFalse(iCtrlPersonne.ctrlTelPort(telPort));
+		Assert.assertTrue(iCtrlPersonne.ctrlTelPort(telPort));
 	}
 	
 	@Test
@@ -530,7 +530,7 @@ public class CtrlPersonneTest {
 	@Test
 	public void testCtrlFaxVide() {
 		String fax="";
-		Assert.assertFalse(iCtrlPersonne.ctrlFax(fax));
+		Assert.assertTrue(iCtrlPersonne.ctrlFax(fax));
 	}
 	
 	@Test
@@ -540,8 +540,38 @@ public class CtrlPersonneTest {
 	}
 //--------------------------------------------------DATENAISSANCE-------------------------------------------------
 	@Test
-	public void testCtrlDateNaissance() {
-		fail("Not yet implemented");
+	public void testCtrlDateNaissanceOk() {
+		String sDate="16-06-1989";
+		Assert.assertTrue(iCtrlPersonne.ctrlDateNaissance(sDate));
+	}
+	
+	@Test
+	public void testCtrlDateNaissanceOk2() {
+		String sDate="12-12-2012";
+		Assert.assertTrue(iCtrlPersonne.ctrlDateNaissance(sDate));
+	}
+	
+	@Test
+	public void testCtrlDateNaissanceKo() {
+		String sDate="12-12-12";
+		Assert.assertFalse(iCtrlPersonne.ctrlDateNaissance(sDate));
+	}
+	
+	@Test
+	public void testCtrlDateNaissanceKo2() {
+		String sDate="12/12/12";
+		Assert.assertFalse(iCtrlPersonne.ctrlDateNaissance(sDate));
+	}
+	@Test
+	public void testCtrlDateNaissanceVide() {
+		String sDate="";
+		Assert.assertFalse(iCtrlPersonne.ctrlDateNaissance(sDate));
+	}
+	
+	@Test
+	public void testCtrlDateNaissanceNull() {
+		String sDate=null;
+		Assert.assertFalse(iCtrlPersonne.ctrlDateNaissance(sDate));
 	}
 //-----------------------------------------------LIEUNAISSANCE------------------------------------------------------
 	@Test
@@ -715,7 +745,7 @@ public class CtrlPersonneTest {
 	@Test
 	public void testCtrlSituationVide() {
 		String situation="";
-		Assert.assertFalse("situation pas ok", iCtrlPersonne.ctrlSituation(situation));
+		Assert.assertTrue("situation pas ok", iCtrlPersonne.ctrlSituation(situation));
 	}
 	
 	@Test
@@ -770,7 +800,7 @@ public class CtrlPersonneTest {
 	@Test
 	public void testCtrlFonctionVide() {
 		String fonction="";
-		Assert.assertFalse("fonction pas ok", iCtrlPersonne.ctrlFonction(fonction));
+		Assert.assertTrue("fonction pas ok", iCtrlPersonne.ctrlFonction(fonction));
 	}
 	
 	@Test
@@ -799,19 +829,19 @@ public class CtrlPersonneTest {
 	
 //----------------------------------------------------------POSITION-------------------------------------------------
 	@Test
-	public void testCtrlPositionCapitalOk() {
-		String position="DIRECTEUR";
+	public void testCtrlPositionOk() {
+		String position="123";
 		Assert.assertTrue("position ok", iCtrlPersonne.ctrlPosition(position));
 	}
 
 	@Test
-	public void testCtrlPositionMinusculeOK() {
-		String position="directeur";
+	public void testCtrlPositionok2() {
+		String position="14";
 		Assert.assertTrue("position ok", iCtrlPersonne.ctrlPosition(position));
 	}
 	
 	@Test
-	public void testCtrlPositionCaracSpeciauxOk() {
+	public void testCtrlPositionCaracSpeciaux() {
 		String position="dirécteur ès -'";
 		Assert.assertFalse("position ok", iCtrlPersonne.ctrlPosition(position));
 	}
@@ -825,7 +855,7 @@ public class CtrlPersonneTest {
 	@Test
 	public void testCtrlPositionVide() {
 		String position="";
-		Assert.assertFalse("position pas ok", iCtrlPersonne.ctrlPosition(position));
+		Assert.assertTrue("position pas ok", iCtrlPersonne.ctrlPosition(position));
 	}
 	
 	@Test
@@ -836,13 +866,13 @@ public class CtrlPersonneTest {
 	
 	@Test
 	public void testCtrlPositionCourt() {
-		String position="e";
-		Assert.assertTrue("position pas ok", iCtrlPersonne.ctrlPosition(position));
+		String position="1";
+		Assert.assertFalse("position pas ok", iCtrlPersonne.ctrlPosition(position));
 	}
 	
 	@Test
 	public void testCtrlPositionLong() {
-		String position="eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee";
+		String position="14141414141414";
 		Assert.assertTrue("position pas ok", iCtrlPersonne.ctrlPosition(position));
 	}
 	
@@ -937,7 +967,7 @@ public class CtrlPersonneTest {
 		@Test
 		public void testCtrlCoeffVide() {
 			String coeff="";
-			Assert.assertFalse(iCtrlPersonne.ctrlCoeff(coeff));
+			Assert.assertTrue(iCtrlPersonne.ctrlCoeff(coeff));
 		}
 		
 		@Test
@@ -959,9 +989,9 @@ public class CtrlPersonneTest {
 		}
 
 		@Test
-		public void testCtrlSalaireKo() {
+		public void testCtrlSalaireok3() {
 			String salaire="9";
-			Assert.assertFalse(iCtrlPersonne.ctrlSalaire(salaire));
+			Assert.assertTrue(iCtrlPersonne.ctrlSalaire(salaire));
 		}
 		@Test
 		public void testCtrlSalaireKo2() {
@@ -982,7 +1012,7 @@ public class CtrlPersonneTest {
 		@Test
 		public void testCtrlSalaireCourt() {
 			String salaire="1";
-			Assert.assertFalse(iCtrlPersonne.ctrlSalaire(salaire));
+			Assert.assertTrue(iCtrlPersonne.ctrlSalaire(salaire));
 		}
 		
 		@Test
@@ -1003,10 +1033,41 @@ public class CtrlPersonneTest {
 			Assert.assertFalse(iCtrlPersonne.ctrlSalaire(salaire));
 		}
 //-----------------------------------------------------VISITEMEDICALE---------------------------------------------
-	@Test
-	public void testCtrlVisiteMedicale() {
-		fail("Not yet implemented");
-	}
+		@Test
+		public void testCtrlVisiteMedicaleOk() {
+			String sDate="16-06-1989";
+			Assert.assertTrue(iCtrlPersonne.ctrlVisiteMedicale(sDate));
+		}
+		
+		@Test
+		public void testCtrlVisiteMedicaleOk2() {
+			String sDate="12-12-2012";
+			Assert.assertTrue(iCtrlPersonne.ctrlVisiteMedicale(sDate));
+		}
+		
+		@Test
+		public void testCtrlVisiteMedicaleKo() {
+			String sDate="12-12-12";
+			Assert.assertFalse(iCtrlPersonne.ctrlVisiteMedicale(sDate));
+		}
+		
+		@Test
+		public void testCtrlVisiteMedicaleKo2() {
+			String sDate="12/12/12";
+			Assert.assertFalse(iCtrlPersonne.ctrlVisiteMedicale(sDate));
+		}
+		@Test
+		public void testCtrlVisiteMedicaleVide() {
+			String sDate="";
+			Assert.assertFalse(iCtrlPersonne.ctrlVisiteMedicale(sDate));
+		}
+		
+		@Test
+		public void testCtrlVisiteMedicaleNull() {
+			String sDate=null;
+			Assert.assertFalse(iCtrlPersonne.ctrlVisiteMedicale(sDate));
+		}
+
 //------------------------------------------------------MONTANTTRANSPORT------------------------------------------
 	@Test
 	public void testCtrlMontantTransportOk() {
@@ -1015,15 +1076,15 @@ public class CtrlPersonneTest {
 	}
 
 	@Test
-	public void testCtrlMontantTransportOk2() {
+	public void testCtrlMontantTransportko2() {
 		String montantTransport="0.00";
-		Assert.assertTrue(iCtrlPersonne.ctrlMontantTransport(montantTransport));
+		Assert.assertFalse(iCtrlPersonne.ctrlMontantTransport(montantTransport));
 	}
 
 	@Test
-	public void testCtrlMontantTransportOk3() {
+	public void testCtrlMontantTransportko3() {
 		String montantTransport="9.35";
-		Assert.assertTrue(iCtrlPersonne.ctrlMontantTransport(montantTransport));
+		Assert.assertFalse(iCtrlPersonne.ctrlMontantTransport(montantTransport));
 	}
 
 	@Test
@@ -1047,7 +1108,7 @@ public class CtrlPersonneTest {
 	@Test
 	public void testCtrlMontantTransportVide() {
 		String montantTransport="";
-		Assert.assertFalse(iCtrlPersonne.ctrlMontantTransport(montantTransport));
+		Assert.assertTrue(iCtrlPersonne.ctrlMontantTransport(montantTransport));
 	}
 	
 	@Test
@@ -1183,7 +1244,7 @@ public class CtrlPersonneTest {
 	@Test
 	public void testCtrlNbKmVide() {
 		String nbKm="";
-		Assert.assertFalse(iCtrlPersonne.ctrlNbKm(nbKm));
+		Assert.assertTrue(iCtrlPersonne.ctrlNbKm(nbKm));
 	}
 	
 	@Test
