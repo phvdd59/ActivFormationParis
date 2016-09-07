@@ -42,7 +42,7 @@ public class ServletMadeBlocage extends HttpServlet {
 		System.out.println("personne bloquee" + personneBloquee);
 		DAOPersonne dao = new DAOPersonne();
 		ListPersonne listePersonne = dao.read();
-		//if (noSerieSession.equals(noSerie)) {
+		if (noSerieSession == null || noSerie == null || noSerieSession.equals(noSerie)) {
 			for (Personne personne : listePersonne) {
 				System.out.println("le nom de la personne est " + personne.getNom());
 				System.out.println();
@@ -60,15 +60,16 @@ public class ServletMadeBlocage extends HttpServlet {
 				}
 
 			}
-			System.out.println("je forward");
-			RequestDispatcher dispatcher = request.getRequestDispatcher("jsp/testjspsuppression.jsp");
-			dispatcher.forward(request, response);
-		//}else{
+			response.sendRedirect("/jsp/testjspsuppression.jsp");
+//			System.out.println("je forward");
+//			RequestDispatcher dispatcher = request.getRequestDispatcher("jsp/testjspsuppression.jsp");
+//			dispatcher.forward(request, response);
+		}else{
 		System.out.println("je redirige");
 		RequestDispatcher dispatcher1 = request.getRequestDispatcher("/ServletJOCA1");
 		dispatcher1.forward(request, response);
 		}
-	//}
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
