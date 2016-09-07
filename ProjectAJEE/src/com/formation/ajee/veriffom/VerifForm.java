@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.regex.Pattern;
 
 import com.formation.ajee.metier.ListeDoc;
+import com.formation.ajee.metier.Personne;
 import com.formation.ajee.metier.SEXE;
 import com.formation.ajee.metier.SITUATION;
 
@@ -38,14 +39,14 @@ public class VerifForm {
 		return retour;
 	}
 
-	public SEXE sexeVerif(String sexe) {
-		SEXE retour = null;
+	public int sexeVerif(String sexe) {
+		int retour = 0;
 		try {
 			sexe = sexe.toUpperCase();
 			if (sexe.equals("MASCULIN")) {
-				retour = SEXE.MASCULIN;
+				retour = Personne.MASCULIN;
 			} else if (sexe.equals("FEMININ")) {
-				retour = SEXE.FEMINIM;
+				retour = Personne.FEMINIM;
 			}
 		} catch (Exception e) {
 
@@ -237,29 +238,29 @@ public class VerifForm {
 		return retour;
 	}
 
-	public SITUATION situationVerif(String situation) {
-		SITUATION retour = null;
+	public String situationVerif(String situation, String champsAutre) {
+		String retour = "";
+		champsAutre = this.lieuNaissanceVerif(champsAutre);
 		try {
-			situation = situation.toLowerCase();
 
 			switch (situation) {
 			case "salarie":
-				retour = SITUATION.SALARIE;
+				retour = Personne.SALARIE;
 				break;
 			case "autoEntrepreneur":
-				retour = SITUATION.AUTO_ENTREPRENEUR;
+				retour = Personne.AUTO_ENTREPRENEUR;
 				break;
 			case "freelance":
-				retour = SITUATION.FREELANCE;
+				retour = Personne.FREELANCE;
 				break;
 			case "demandeurDEmploi":
-				retour = SITUATION.DEMANDEUR;
+				retour = Personne.DEMANDEUR;
 				break;
 			case "retraite":
-				retour = SITUATION.RETRAITE;
+				retour = Personne.RETRAITE;
 				break;
 			case "autre":
-				retour = SITUATION.AUTRE;
+				retour = Personne.AUTRE + ":" + champsAutre;
 				break;
 			default:
 				break;

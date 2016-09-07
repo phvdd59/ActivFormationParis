@@ -75,8 +75,14 @@ public class ServletModificationFormulaire extends HttpServlet {
 
 				String nationalite = personne.getNationalite();
 
-				String situation = personne.getSituationString();
-
+				String situationTotal = personne.getSituationString();
+				String[] tabSituation = situationTotal.split(":");
+				String situation = tabSituation[0];
+				String champsAutre = "";
+				if (tabSituation.length>1){
+					champsAutre = tabSituation[1];
+				}
+				
 				String fonction = personne.getFonction();
 
 				String positionEntreprise = personne.getPositionEntreprise();
@@ -181,6 +187,9 @@ public class ServletModificationFormulaire extends HttpServlet {
 					if (lineDoc1.contains("%situation%")) {
 						lineDoc1 = lineDoc1.replace("%situation%", situation);
 					}
+					if (lineDoc1.contains("%autre%")) {
+						lineDoc1 = lineDoc1.replace("%autre%", champsAutre);
+					}
 
 					if (lineDoc1.contains("%position%")) {
 						lineDoc1 = lineDoc1.replace("%position%", positionEntreprise);
@@ -219,6 +228,8 @@ public class ServletModificationFormulaire extends HttpServlet {
 					if (lineDoc1.contains("%fonction%")) {
 						lineDoc1 = lineDoc1.replace("%fonction%", fonction);
 					}
+				
+					
 					response.getWriter().println(lineDoc1);
 					lineDoc1 = bufReadDoc1.readLine();
 				}

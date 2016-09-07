@@ -13,10 +13,17 @@ public class Personne implements Serializable {
 	public static final int FEMINIM = 0;
 	public static final int MASCULIN = 1;
 
+	public static final String SALARIE = "salarie";
+	public static final String AUTO_ENTREPRENEUR = "auto entrepreneur";
+	public static final String FREELANCE = "freelance";
+	public static final String DEMANDEUR = "demandeur d'emplois";
+	public static final String RETRAITE = "retraite";
+	public static final String AUTRE = "autre";
+
 	private int idPersonne;
 	private String nom;
 	private String prenom;
-	private SEXE sexe;
+	private int sexe;
 	private String identifiant;
 	private String mdp;
 	private String email;
@@ -33,7 +40,7 @@ public class Personne implements Serializable {
 	private String numSecu;
 	private String nationalite;
 
-	private SITUATION situation;
+	private String situation;
 	private String fonction;
 	private String positionEntreprise;
 	private boolean cadre;
@@ -62,8 +69,8 @@ public class Personne implements Serializable {
 		this.nom = nom;
 		this.prenom = prenom;
 		this.situation = null;
-		this.visiteMedicale = new Date(); 		
-	
+		this.visiteMedicale = new Date();
+
 	}
 
 	public Personne(int idPersonne, String nom, String prenom, String identifiant, String mdp, String email, String adresse, String cp, String ville, String telFixe, String telPort, String fax, Date dateNaissance, String lieuNaissance, String numSecu, String nationalite, String fonction,
@@ -103,9 +110,9 @@ public class Personne implements Serializable {
 		this.raisonBlocage = raisonBlocage;
 	}
 
-	public Personne(int idPersonne, String nom, String prenom, SEXE sexe, String identifiant, String mdp, String email, String adresse, String cp, String ville, String telFixe, String telPort, String fax, Date dateNaissance, String lieuNaissance, String numSecu, String nationalite,
-			SITUATION situation, String fonction, String positionEntreprise, boolean cadre, String coeff, String salaire, Date visiteMedicale, String montantTransport, boolean voiture, int nbCV, String nbKm, boolean mutuelle, boolean ticketResto, Date dateCreation, Date dateModification,
-			boolean bloque, String raisonBlocage, ListeDoc listeDoc) {
+	public Personne(int idPersonne, String nom, String prenom, int sexe, String identifiant, String mdp, String email, String adresse, String cp, String ville, String telFixe, String telPort, String fax, Date dateNaissance, String lieuNaissance, String numSecu, String nationalite, String situation,
+			String fonction, String positionEntreprise, boolean cadre, String coeff, String salaire, Date visiteMedicale, String montantTransport, boolean voiture, int nbCV, String nbKm, boolean mutuelle, boolean ticketResto, Date dateCreation, Date dateModification, boolean bloque,
+			String raisonBlocage, ListeDoc listeDoc) {
 		super();
 		this.idPersonne = idPersonne;
 		this.nom = nom;
@@ -226,11 +233,11 @@ public class Personne implements Serializable {
 		this.prenom = prenom;
 	}
 
-	public SEXE getSexe() {
+	public int getSexe() {
 		return sexe;
 	}
 
-	public void setSexe(SEXE sexe) {
+	public void setSexe(int sexe) {
 		this.sexe = sexe;
 	}
 
@@ -377,17 +384,22 @@ public class Personne implements Serializable {
 		this.nationalite = nationalite;
 	}
 
-	public SITUATION getSituation() {
+	public String getSituation() {
 		return situation;
 	}
+
 	public String getSituationString() {
-		String retour="";
-		if (situation!=null&&situation.getNom()!=null&&situation.getNom().toString()!=null) {
-			retour=situation.getNom().toString();
+
+		String retour = "";
+		if (situation != null || situation.equals(AUTO_ENTREPRENEUR) || situation.equals(RETRAITE) || situation.equals(AUTRE) || situation.equals(FREELANCE) || situation.equals(SALARIE) || situation.equals(DEMANDEUR)) {
+			
+			retour = situation;
 		}
+
 		return retour;
 	}
-	public void setSituation(SITUATION situation) {
+
+	public void setSituation(String situation) {
 		this.situation = situation;
 	}
 
@@ -453,7 +465,7 @@ public class Personne implements Serializable {
 			SimpleDateFormat formatDateJour = new SimpleDateFormat("dd/MM/yyyy");
 			visitemedicale = formatDateJour.format(dateNaissance);
 		}
-			return visitemedicale;
+		return visitemedicale;
 	}
 
 	public void setVisiteMedicale(Date visiteMedicale) {

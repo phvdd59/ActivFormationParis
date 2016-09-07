@@ -63,7 +63,7 @@ public class ServletModifieVerifie extends HttpServlet {
 			personne.setPrenom(pPrenomV);
 
 			String pSexe = request.getParameter("sexe");
-			SEXE pSexeV = verif.sexeVerif(pSexe);
+			int pSexeV = verif.sexeVerif(pSexe);
 			personne.setSexe(pSexeV);
 
 			String pAdresse = request.getParameter("adresse");
@@ -112,7 +112,8 @@ public class ServletModifieVerifie extends HttpServlet {
 			personne.setNationalite(pNationaliteV);
 
 			String pSituation = request.getParameter("situation");
-			SITUATION pSituationV = verif.situationVerif(pSituation);
+			String champsAutre = request.getParameter("autre");
+			String pSituationV = verif.situationVerif(pSituation,champsAutre);
 			personne.setSituation(pSituationV);
 
 			String pFonction = request.getParameter("fonction");
