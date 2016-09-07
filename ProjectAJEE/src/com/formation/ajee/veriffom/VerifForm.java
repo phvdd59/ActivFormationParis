@@ -227,8 +227,8 @@ public class VerifForm {
 	public String nationaliteVerif(String nationalite) {
 		String retour = "";
 		try {
-			nationalite = nationalite.toLowerCase();
-			if (nationalite.matches("[a-zאבגהחטיךכלםמןסעףפצשתûü\\-\\'\\s]*")) {
+			
+			if (nationalite.matches("[A-Za-zאבגהחטיךכלםמןסעףפצשתûü\\-\\'\\s]*")) {
 				retour = nationalite;
 			}
 		} catch (Exception e) {
