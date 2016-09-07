@@ -343,7 +343,7 @@ width:25%;
 		function ctrPosition() {
 			var position = document.getElementById("position");
 			var no = position.value.length;
-			var pattPosition = new RegExp("^[1-9][0-9]+$");
+			var pattPosition = new RegExp("^[1-9][0-9]{0,}$");
 			var spanPosition = document.getElementById("spanPosition");
 			if (position.value == "") {
 				position.style.border = "inherit";
@@ -391,7 +391,7 @@ width:25%;
 		function ctrSalaireSouhaite() {
 			var salaireSouhaite = document.getElementById("salaireSouhaite");
 			var no = salaireSouhaite.value.length;
-			var pattSalaireSouhaite = new RegExp("^[1-9][0-9]+$");
+			var pattSalaireSouhaite = new RegExp("^[1-9][0-9]{0,}$");
 			var spanSalaireSouhaite = document
 					.getElementById("spanSalaireSouhaite");
 			if (pattSalaireSouhaite.test(salaireSouhaite.value) == false) {
@@ -433,7 +433,7 @@ width:25%;
 			var montantTransport = document.getElementById("montantTransport");
 			var no = montantTransport.value.length;
 			var pattMontantTransport = new RegExp(
-					"[1-9][0-9]+");
+					"[1-9][0-9]{0,}");
 			var spanMontantTransport = document
 					.getElementById("spanMontantTransport");
 			if (montantTransport.value == "") {
@@ -458,7 +458,7 @@ width:25%;
 		function ctrNbChevaux() {
 			var nbChevaux = document.getElementById("nbChevaux");
 			var no = nbChevaux.value.length;
-			var pattNbChevaux = new RegExp("^[1-9][0-9]+$");
+			var pattNbChevaux = new RegExp("^[1-9][0-9]{0,}$");
 			var spanNbChevaux = document.getElementById("spanNbChevaux");
 			if (nbChevaux.value=="0"){
 				nbChevaux.style.border = "inherit";
@@ -482,7 +482,7 @@ width:25%;
 		function ctrKmMensuel() {
 			var kmMensuel = document.getElementById("kmMensuel");
 			var no = kmMensuel.value.length;
-			var pattKmMensuel = new RegExp("^[1-9][0-9]+$");
+			var pattKmMensuel = new RegExp("^[1-9][0-9]{0,}$");
 			var spanKmMensuel = document.getElementById("spanKmMensuel");
 			if (kmMensuel.value==""){
 				kmMensuel.style.border = "inherit";
