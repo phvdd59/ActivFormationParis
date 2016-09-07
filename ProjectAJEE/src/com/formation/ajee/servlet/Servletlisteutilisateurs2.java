@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -68,6 +69,7 @@ public class Servletlisteutilisateurs2 extends HttpServlet {
 		Object boutonSupp = request.getParameter("supprimer");
 		boolean existe = false;
 
+		if (oNoSerie != null && personne != null&& personne.getIdentifiant() != null) {
 		if (boutonAjouter != null) {
 			if (oNomA != "" && oPrenomA != "") {
 				String nomA = (String) oNomA;
@@ -427,5 +429,12 @@ public class Servletlisteutilisateurs2 extends HttpServlet {
 			/** Lecture bas de page */
 			vue.lecturePage(response, "BasPage");
 		}
+		
+		} else {
+			session.invalidate();
+			RequestDispatcher rd = request.getRequestDispatcher("//Servletidentification");
+			rd.forward(request, response);
+		}
 	}
+	
 }
