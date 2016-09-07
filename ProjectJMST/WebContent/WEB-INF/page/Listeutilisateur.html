@@ -2,7 +2,7 @@
 <html>
 <head>
 <style type="text/css">
-input[type="submit"]{
+input#monInput[type="submit"]{
 width:25%;
 }
 </style>
@@ -108,13 +108,13 @@ width:25%;
             </table>
                 <div id="retour">
                 <form action=http://localhost:8080/ProjectJMST/RetourMenu method="post">
-                    <input type="submit" value="Retour">
+                    <input id="monInput"type="submit" value="Retour">
                     <input type="hidden" name="noSerie" value="%%noSerie%%">
                 </form>
                 </div>
                 <div id="deco">
                 <form action=http://localhost:8080/ProjectJMST/ServletDeco method="post">
-                    <input type="submit" value="Deconnexion">
+                    <input id="monInput"type="submit" value="Deconnexion">
                     <input type="hidden" name="noSerie" value="%%noSerie%%">
                 </form>
                 </div>
