@@ -10,7 +10,7 @@
 			</tr>
 			<tr>
 				<td>Nom* : <input name="nom" id="nom" onblur="ecritureTexteNom()" placeholder="ex : Nom" type="texte" style="width: 200px; " required/></td>
-				<td>Prenom* : <input name="prenom" id="prenom" onblur="ecritureTextePrenom()" placeholder="ex : Prenom" type="texte" style="width: 200px; "/> </td>
+				<td>Prenom* : <input name="prenom" id="prenom" onblur="ecritureTextePrenom()" placeholder="ex : Prenom" type="texte" style="width: 200px; " required/> </td>
 			</tr>
 			<tr>
 				<td colspan="2" align="center">Sexe : <input name="sexe" type="radio" value="FEMININ" checked />F<input name="sexe" type="radio" value="MASCULIN" />M</td>
@@ -24,7 +24,7 @@
 				<td>Ville : <input name="ville" id="ville" onblur="ecritureTexteVille()" placeholder="ex : Paris" type="texte" style="width: 200px; "/></td>
 			</tr>
 			<tr>
-				<td>Telephone fixe* : <input name="telFixe" id="telFixe" onblur="ecritureNumTelFixe()" placeholder="ex : 0241424344" type="tel" style="width: 200px; "/></td>
+				<td>Telephone fixe* : <input name="telFixe" id="telFixe" onblur="ecritureNumTelFixe()" placeholder="ex : 0241424344" type="tel" style="width: 200px; " required/></td>
 				<td>Telephone portable : <input name="telPort" id="telPort" onblur="ecritureNumTelPort()" placeholder="ex : 0611121314" type="tel" style="width: 200px; "/></td>
 			</tr>
 			<tr>
@@ -35,7 +35,7 @@
 				<th colspan="2" align="center"><h4>ETAT CIVIL</h4></th>
 			</tr>
 			<tr>
-				<td>Date de naissance* : <input name="dateNaissance" id="dateNaissance" onclick="var toto = new calendar(this);" type="text" /></td>
+				<td>Date de naissance* : <input name="dateNaissance" id="dateNaissance" onclick="var toto = new calendar(this);" type="text" required value=""/></td>
 				<!-- onblur="ecritureDateNaiss()"  -->
 				<!-- class="JSFormulaireCalendrierListeDeroulante"  -->
 				<td>Lieu : <input name="lieuNaissance" id="lieuNaissance" onblur="ecritureTexteLieu()" type="texte" style="width: 200px; "/></td>
@@ -81,7 +81,7 @@
 					<input name="ticketResto" type="radio" value = "non"> Non</td>
 			</tr>
 			<tr>
-				<td colspan="2">Date de votre derniere visite medicale : <input name="visiteMedicale" id="visiteMedicale" onclick="var toto = new calendar(this);" onblur="ecritureDateDerVisMed()" type="texte" style="width: 200px; "/></td>
+				<td colspan="2">Date de votre derniere visite medicale : <input name="visiteMedicale" id="visiteMedicale" onclick="var toto = new calendar(this);" onblur="ecritureDateDerVisMed()" type="texte" style="width: 200px; " value=""/></td>
 			</tr>
 			<tr>
 				<td colspan="2">Montant carte d'abonnement transport : <input name="montantTransport" id="montantTransport" onblur="ecritureMontCarteAbonTransp()" type="texte" style="width: 200px; "/></td>
@@ -93,7 +93,10 @@
 			<tr>
 				<td colspan="2"; align="center">	<h3><input id = "b0" type = "submit" onclick = "return boutonEnregistrer()" value="Envoyer le formulaire" style="width: 400px; "/></h3></td>
 				<!--  value = "Enregister"  -->
-			</tr>	
+			</tr>
+				<td colspan="2"; align="center">*Champs requis</td>
+			<tr>
+			</tr>
 		</table>
 	</form>	
 </div>
