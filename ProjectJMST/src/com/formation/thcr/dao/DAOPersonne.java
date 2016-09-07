@@ -191,7 +191,6 @@ public class DAOPersonne {
 					} else {
 						personne.setSexe(new Sexe(Sexe.MASCULIN));
 					}
-					personne.setIdentifiant(result.getString("LP_IDENTIFIANT"));
 					personne.setMdp(result.getString("LP_MDP"));
 					personne.setEmail(result.getString("LP_EMAIL"));
 					personne.setAdresse(result.getString("LP_ADRESSE"));
@@ -267,7 +266,7 @@ public class DAOPersonne {
 			// |LP_DATEMODIFICATION |LP_BLOQUE |LP_RAISONBLOCAGE |
 			while (result.next()) {
 				Personne personne = new Personne();
-				personne.setIdPersonne(Integer.valueOf(result.getString("LP_IDPERSONNE")).intValue());
+				personne.setIdPersonne(result.getInt("LP_IDPERSONNE"));
 				personne.setNom(result.getString("LP_NOM"));
 				personne.setPrenom(result.getString("LP_PRENOM"));
 				if (result.getString("LP_SEXE").equals(Sexe.FEMININ)) {

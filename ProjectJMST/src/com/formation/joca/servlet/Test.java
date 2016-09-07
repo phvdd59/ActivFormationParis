@@ -42,7 +42,7 @@ public class Test extends HttpServlet {
 
 		String identifiant = request.getParameter("identifiant");
 		String motdepasse = request.getParameter("motdepasse");
-
+		
 		Personne utilisateur = new Personne();
 		utilisateur.setIdentifiant(identifiant);
 		DAOPersonne dao = new DAOPersonne();
@@ -131,6 +131,7 @@ public class Test extends HttpServlet {
 					line = lecture.readLine();
 				}
 				lecture.close();
+				response.sendRedirect("/ProjectJMST/Servletmadeversmenu");
 			} else if (utilisateur != null && !utilisateur.isBloque() && utilisateur.getMdp().equals(motdepasse)) {
 				session = request.getSession(true);
 				session.setAttribute("Personne", utilisateur);
@@ -150,6 +151,7 @@ public class Test extends HttpServlet {
 					line = lecture.readLine();
 				}
 				lecture.close();
+				response.sendRedirect("/ProjectJMST/Servletmadeversmenu");
 			} else {
 				BufferedReader lecture = null;
 				File page = new File("../GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/Login.html");
@@ -164,7 +166,6 @@ public class Test extends HttpServlet {
 					} else {
 						line = line.replace("hidden\"></p>", "visible; color:red;\">erreur de login</p>");
 					}
-					
 					response.getWriter().println(line);
 					line = lecture.readLine();
 				}
@@ -185,6 +186,8 @@ public class Test extends HttpServlet {
 			}
 			lecture.close();
 		}
+		
+		
 
 		// BufferedReader lecture = null;
 		// File page = new

@@ -38,10 +38,11 @@ public class ServletThcr2 extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		HttpSession session = request.getSession();
-		String noSerie = (String)session.getAttribute("noSerie");
+		String noSerie = (String) session.getAttribute("noSerie");
 		String noSerieHtml = request.getParameter("noSerie");
 		
 		DAOPersonne dao = new DAOPersonne();
+		
 		ListPersonne listPersonne = dao.read("personne");
 		session.setAttribute("ListPersonne", listPersonne);
 		if (noSerieHtml == null || noSerie == null || noSerieHtml.equals(noSerie)) {

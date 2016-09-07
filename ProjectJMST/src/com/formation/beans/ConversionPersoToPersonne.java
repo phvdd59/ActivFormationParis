@@ -9,6 +9,7 @@ public class ConversionPersoToPersonne {
 
 	public Personne conv(Perso p) {
 		Personne pers=new Personne();
+		pers.setIdPersonne(p.getIdPersonne());
 		pers.setNom(p.getNom());
 		pers.setPrenom(p.getPrenom());
 		if (p.getSexe()==Perso.FEMININ){
