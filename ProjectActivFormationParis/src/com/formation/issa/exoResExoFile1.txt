@@ -1,0 +1,8 @@
+issa:Algo
+
+issa testErreur : Appreciation [raison=Ne pas modifier le parametre d'entrée , note=-5]
+issa testErreur : Appreciation [raison=Ne comprend pas le sujet , note=-10]
+issa testNormal0 (0/20): KO | exo.solution(),
+Index: 0, Size: 0
+
+issa NOTE : (5 / 20) = 5,00 / 20

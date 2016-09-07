@@ -1,0 +1,14 @@
+phva:Algo
+
+phva testFTrop (1/1):    | exo.solution(tab, 2, 150),
+phva testAlea (2/2):    | exo.solution(tab, 2, 3),
+phva testNull (1/1):    | exo.solution(null, 2, 3),
+phva testPlus (1/1):    | exo.solution(tab, -1, 3),
+phva testZero (1/1):    | exo.solution(tab, 0, 3),
+phva testUn (1/1):    | exo.solution(tab, 1, 3),
+phva testFMoins (1/1):    | exo.solution(tab, 2, -1),
+phva testLength (1/1):    | exo.solution(tab, 20, 3),
+phva testMoins1 (1/1):    | exo.solution(tab, -1, 3),
+phva testNormal0 (2/2):    | exo.solution(tab, 2, 3),
+
+phva NOTE : (12 / 12) = 20,00 / 20

@@ -1,0 +1,5 @@
+thde:Algo
+
+thde testNormal0 (20/20):    | exo.solution(),
+
+thde NOTE : (20 / 20) = 20,00 / 20

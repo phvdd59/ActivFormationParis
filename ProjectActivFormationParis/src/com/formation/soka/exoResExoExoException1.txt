@@ -1,18 +1,18 @@
 soka:Exceptions
 
-soka testDebordeX (0/1): KO | exo.solution(10, 10, lst) --> BONJOUR (-1,4) H
+soka testDebordeX (1/1): KO | exo.solution(10, 10, lst) --> BONJOUR (-1,4) H
 -1
-soka testDebordeY (0/1): KO | exo.solution(10, 10, lst) --> BONJOUR (4,-1) V
+soka testDebordeY (1/1): KO | exo.solution(10, 10, lst) --> BONJOUR (4,-1) V
 -1
-soka testWidth (0/1): KO | exo.solution(-10, 10, lst)
+soka testWidth (1/1): KO | exo.solution(-10, 10, lst)
 null
 soka testNull (1/1): OK | exo.solution(10, 10, null)
 soka testCroisement (0/2): KO | exo.solution(10, 12, lst)
-soka testHeight (0/1): KO | exo.solution(10, -10, lst)
+soka testHeight (1/1): KO | exo.solution(10, -10, lst)
 null
 soka testNormal (1/1):  OK | solution(10,12,lst)
-soka testDebordeX (0/1): KO | exo.solution(10, 10, lst) --> BONJOUR (5,4) H
+soka testDebordeX (1/1): KO | exo.solution(10, 10, lst) --> BONJOUR (5,4) H
 10
-soka testDebordeY (0/1): KO | exo.solution(10, 10, lst) --> BONJOUR (4,5) V
+soka testDebordeY (1/1): KO | exo.solution(10, 10, lst) --> BONJOUR (4,5) V
 10
-soka NOTE : (2 / 10) = 4 / 20
+soka NOTE : (8 / 10) = 16 / 20

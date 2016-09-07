@@ -1,11 +1,11 @@
 Syntaxe:20
 Tableau:19.5
-Algo:8.67
+Algo:11.47
 Versionning:-1
 Objet:-1
 Enum:20
 UML:-1
-Collection:13.33
+Collection:15
 Tri:-1
 Exceptions:8
 Flux:17

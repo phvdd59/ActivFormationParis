@@ -1,3 +1,4 @@
+create database hibernate;
 USE marchandphva;
 drop table produit;
 drop table marchand;

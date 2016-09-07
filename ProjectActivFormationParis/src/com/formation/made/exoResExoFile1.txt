@@ -1,0 +1,5 @@
+made:Algo
+
+made testNormal0 (20/20):    | exo.solution(),
+
+made NOTE : (20 / 20) = 20,00 / 20

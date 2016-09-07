@@ -1,0 +1,8 @@
+beba:Algo
+
+beba testErreur : Appreciation [raison=étourderie enlever .xml, note=-3]
+beba testErreur : Appreciation [raison=étourderie * (doit controler en debug), note=-3]
+beba testNormal0 (0/20): KO | exo.solution(),
+Index: 0, Size: 0
+
+beba NOTE : (14 / 20) = 14,00 / 20

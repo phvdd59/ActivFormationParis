@@ -27,11 +27,11 @@ public class MainAnfrJDBC {
 		// m.removeFromTable();
 		// m.selectTable();
 		//m.superselect();
-		m.keyTables();
-		 m.selectTable();
+		//m.keyTables();
+		m.selectTable();
 	}
 
-	private void keyTables(){
+	private void keyTables() {
 		Connection conn = null;
 		Statement stat = null;
 		try {
@@ -44,7 +44,7 @@ public class MainAnfrJDBC {
 			e.printStackTrace();
 		}
 	}
-	
+
 	private void superselect() {
 		Connection conn = null;
 		Statement stat = null;
@@ -60,7 +60,6 @@ public class MainAnfrJDBC {
 			e.printStackTrace();
 		}
 
-		
 	}
 
 	private void updateTable() {
@@ -102,11 +101,11 @@ public class MainAnfrJDBC {
 		Statement stat = null;
 		try {
 			Class.forName(JDBC_DRIVER);
-			String url = DB_URL + "marchandanfr";
+			String url = DB_URL + "marchandphva";
 			conn = DriverManager.getConnection(url, user, pass);
 			stat = conn.createStatement();
 
-			String sql = "SELECT * FROM marchandANFR;";
+			String sql = "SELECT * FROM marchand;";
 			ResultSet resultat = stat.executeQuery(sql);
 			while (resultat.next()) {
 				String sNom = resultat.getString("nom");
@@ -115,7 +114,7 @@ public class MainAnfrJDBC {
 				System.out.println(sNom + sPrenom + sAge);
 			}
 
-			sql = "SELECT * FROM marchandANFR where nom='Vlac';";
+			sql = "SELECT * FROM marchand where nom='Vlac';";
 			resultat = stat.executeQuery(sql);
 			ResultSetMetaData meta = resultat.getMetaData();
 			int nb = meta.getColumnCount();
@@ -138,8 +137,7 @@ public class MainAnfrJDBC {
 			conn = DriverManager.getConnection(url, user, pass);
 			stat = conn.createStatement();
 
-			String[] tab = { "Pomme", "Poire", "Saucisson", "Caramel", "Lune", "Jeux", "Cartes", "Chaton", "Peigne",
-					"Disque", "Lumiere", "Etoile" };
+			String[] tab = { "Pomme", "Poire", "Saucisson", "Caramel", "Lune", "Jeux", "Cartes", "Chaton", "Peigne", "Disque", "Lumiere", "Etoile" };
 			int[] tab2 = { 1, 2, 3, 4, 5, 7, 8, 9, 11 };
 			for (int i = 0; i < tab2.length; i++) {
 				for (int k = 0; k < tab.length; k++) {
@@ -212,8 +210,7 @@ public class MainAnfrJDBC {
 			Driver driver = (Driver) e.nextElement();
 			int majorVersion = driver.getMajorVersion();
 			int minorVersion = driver.getMinorVersion();
-			System.out.println(
-					"Pilote = " + driver.getClass() + " version " + minorVersion + " majorVersion " + majorVersion);
+			System.out.println("Pilote = " + driver.getClass() + " version " + minorVersion + " majorVersion " + majorVersion);
 			DriverPropertyInfo[] props;
 			try {
 				props = driver.getPropertyInfo("url JDBC", null);

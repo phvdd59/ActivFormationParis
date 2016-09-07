@@ -1,0 +1,8 @@
+jeci:Algo
+
+jeci testErreur : Appreciation [raison=System.in ??? , note=-5]
+jeci testErreur : Appreciation [raison=Totalement Brouillon , note=-5]
+jeci testErreur : Appreciation [raison=Non tester en debug , note=-3]
+jeci testNormal0 (0/20): KO | exo.solution(), le programme est trop long
+
+jeci NOTE : (7 / 20) = 7,00 / 20

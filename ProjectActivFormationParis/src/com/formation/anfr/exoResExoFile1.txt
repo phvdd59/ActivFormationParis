@@ -1,0 +1,5 @@
+anfr:Algo
+
+anfr testNormal0 (20/20):    | exo.solution(),
+
+anfr NOTE : (20 / 20) = 20,00 / 20

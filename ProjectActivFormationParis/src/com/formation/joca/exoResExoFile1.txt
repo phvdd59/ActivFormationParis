@@ -1,0 +1,5 @@
+joca:Algo
+
+joca testNormal0 (20/20):    | exo.solution(),
+
+joca NOTE : (20 / 20) = 20,00 / 20

@@ -1,0 +1,9 @@
+emma:Algo
+
+emma testErreur : Appreciation [raison=Pas de récursif , note=-5]
+emma testErreur : Appreciation [raison=Ne traite qu'un seul niveau, note=-5]
+emma testErreur : Appreciation [raison=Pas de contrôle, note=-5]
+emma testNormal0 (0/20): KO | exo.solution(),
+Index: 0, Size: 0
+
+emma NOTE : (5 / 20) = 5,00 / 20
