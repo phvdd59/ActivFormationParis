@@ -2,8 +2,17 @@
 <html>
 <head>
 <style type="text/css">
-input#monInput[type="submit"]{
-width:25%;
+input#monInput[type="submit"] {
+	width: 25%;
+}
+
+#liste {
+	overflow: auto;
+	height: 550px;
+	width: 700px;
+}
+#boutons{
+	position: relative;
 }
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -84,16 +93,16 @@ width:25%;
 		<div id="info2">
 			<!-- zone disponible -->
 			<div id="main">
-            <div id="liste">
-            <table border="4">
-                <tr>
-                    <th>Login</th>
-                    <th>Prenom</th>
-                    <th>Nom</th>
-                    <th>Mail</th>
-                    <th>Link</th>
-                </tr>
-               <!-- <tr> 
+				<div id="liste">
+					<table border="4">
+						<tr>
+							<th>Login</th>
+							<th>Prenom</th>
+							<th>Nom</th>
+							<th>Mail</th>
+							<th>Link</th>
+						</tr>
+						<!-- <tr> 
                     <td id="login"><input type="hidden" value="login">login1</td>
                     <td id="prenom"><input type="hidden" value="prenom"> prenom1</td>
                     <td id="mail"><input type="hidden" value="mail"> mail1</td>
@@ -103,24 +112,28 @@ width:25%;
                     </form>
                 </tr>
                 -->
-                <tr id="consctructTable">
-                </tr>
-            </table>
-                <div id="retour">
-                <form action=http://localhost:8080/ProjectJMST/RetourMenu method="post">
-                    <input id="monInput"type="submit" value="Retour">
-                    <input type="hidden" name="noSerie" value="%%noSerie%%">
-                </form>
-                </div>
-                <div id="deco">
-                <form action=http://localhost:8080/ProjectJMST/ServletDeco method="post">
-                    <input id="monInput"type="submit" value="Deconnexion">
-                    <input type="hidden" name="noSerie" value="%%noSerie%%">
-                </form>
-                </div>
-            </div>
-        </div>
+						<tr id="consctructTable">
+						</tr>
+					</table>
 
+				</div>
+			</div>
+			<div id="boutons">
+				<div id="retour">
+					<form action=http://localhost:8080/ProjectJMST/RetourMenu
+						method="post">
+						<input id="monInput" type="submit" value="Retour"> <input
+							type="hidden" name="noSerie" value="%%noSerie%%">
+					</form>
+				</div>
+				<div id="deco">
+					<form action=http://localhost:8080/ProjectJMST/ServletDeco
+						method="post">
+						<input id="monInput" type="submit" value="Deconnexion"> <input
+							type="hidden" name="noSerie" value="%%noSerie%%">
+					</form>
+				</div>
+			</div>
 
 
 		</div>
@@ -140,6 +153,6 @@ width:25%;
 				représentation réservés | Mentions légales</div>
 		</div>
 	</div>
-	
+
 </body>
 </html>

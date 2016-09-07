@@ -193,8 +193,8 @@ public class ServletPageLogin3 extends HttpServlet {
 			// context.getRequestDispatcher("/ServletBDD");
 			// dispatcher.forward(request, response);
 		} else {
-			session.invalidate();
-			request.getSession();
+			//session.invalidate();
+			//request.getSession();
 			String msg = "Erreur : session invalide!";
 			session.setAttribute("message", msg);
 			RequestDispatcher rd = request.getRequestDispatcher("/ServletLoginFalse");

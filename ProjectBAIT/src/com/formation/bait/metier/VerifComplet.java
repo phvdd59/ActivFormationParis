@@ -11,9 +11,9 @@ public class VerifComplet {
 		if (!personne.getAdresse().equals("") && personne.getAdresse()!= null) {
 			somme+=1;
 		}
-		if (!personne.getCoeff().equals("") && personne.getCoeff()!=null) {
-			somme+=1;
-		}
+//		if (!personne.getCoeff().equals("") && personne.getCoeff()!=null) {
+//			somme+=1;
+//		}
 		if (personne.getDateNaissance().equals("")&& personne.getDateNaissance()!=null) {
 			somme+=1;
 		}
@@ -23,33 +23,36 @@ public class VerifComplet {
 		if (personne.getFonction().equals("") && personne.getFonction()!= null) {
 			somme+=1;
 		}
-		if (personne.getLieuNaissance().equals("") && personne.getLieuNaissance()!= null) {
-			somme+=1;
-		}
-		if (personne.getNationalite().equals("") && personne.getNationalite()!=null) {
-			somme+=1;
-		}
-		if (personne.getNumSecu().equals("") && personne.getNumSecu()!=null) {
-			somme+=1;
-		}
+//		if (personne.getLieuNaissance().equals("") && personne.getLieuNaissance()!= null) {
+//			somme+=1;
+//		}
+//		if (personne.getNationalite().equals("") && personne.getNationalite()!=null) {
+//			somme+=1;
+//		}
+//		if (personne.getNumSecu().equals("") && personne.getNumSecu()!=null) {
+//			somme+=1;
+//		}
 
-		if (personne.getPosition().equals("") && personne.getPosition()!=null) {
-			somme+=1;
-		}
-		if (personne.getSalaire().equals("") && personne.getSalaire()!=null) {
-			somme+=1;
-		}
-		if (personne.getSituation().equals("") && personne.getSituation()!=null) {
-			somme+=1;
-		}
+//		if (personne.getPosition().equals("") && personne.getPosition()!=null) {
+//			somme+=1;
+//		}
+//		if (personne.getSalaire().equals("") && personne.getSalaire()!=null) {
+//			somme+=1;
+//		}
+//		if (personne.getSituation().equals("") && personne.getSituation()!=null) {
+//			somme+=1;
+//		}
 		if ((personne.getTelFixe().equals("") || personne.getTelPort().equals(""))&&personne.getTelFixe() !=null && personne.getTelPort()!=null) {
 			somme+=1;
 		}
 		if (personne.getVille().equals("") && personne.getVille()!=null) {
 			somme+=1;
 		}
+		if (personne.getcP().equals("") && personne.getcP()!=null) {
+			somme+=1;
+		}
 		
-		if (somme==13) {
+		if (somme==7) {
 			ok=true;
 		}
 		
