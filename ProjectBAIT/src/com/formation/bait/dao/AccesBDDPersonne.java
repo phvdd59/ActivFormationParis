@@ -90,6 +90,58 @@ public class AccesBDDPersonne {
 		return result;
 	}
 
+	public boolean savePersonneEmpruntee(Personne personne) {
+		boolean result = false;
+
+		Connection conn = null;
+		Statement stat = null;
+		try {
+			Class.forName(JDBC_DRIVER);
+			String url = DB_URL + "bait";
+			conn = DriverManager.getConnection(url, user, pass);
+			stat = conn.createStatement();
+
+			String sql = "insert into listeUserEmpruntee (identifiant,mdp,email,nom,prenom,adresse,cp,ville," + //
+					"telFixe,telPort,fax,dateNaissance,lieuNaissance,numSecu,Nationalite,situation,fonction,positionEntreprise," + //
+					"cadre,coeff,salaire,visiteMedicale,montantTransport,voiture,nbCV,nbKm,mutuelle,ticketResto,admin," + //
+					"dateCreation,dateModification,bloque,raisonBlocage) values ('" + personne.getIdentifiant() + "','" + //
+					personne.getMdp() + "','" + personne.getEmail() + "','" + personne.getNom() + "','" + personne.getPrenom() + "','" + //
+					personne.getAdresse() + "','" + personne.getcP() + "','" + personne.getVille() + "','" + personne.getTelFixe() + "','" + //
+					personne.getTelPort() + "','" + personne.getFax() + "','" + personne.getDateNaissance() + "','" + //
+					personne.getLieuNaissance() + "','" + personne.getNumSecu() + "','" + personne.getNationalite() + "','" + personne.getSituation() + "','" + //
+					personne.getFonction() + "','" + personne.getPosition() + "','" + booleanConverter(personne.isCadre()) + "','" + personne.getCoeff() + "','" + //
+					personne.getSalaire() + "','" + personne.getVisiteMedicale() + "','" + personne.getMontantTransport() + "','" + //
+					booleanConverter(personne.isVoiture()) + "','" + personne.getNbCV() + "','" + personne.getNdKm() + "','" + booleanConverter(personne.isMutuelle()) + "','" + //
+					booleanConverter(personne.isTicket()) + "','" + booleanConverter(personne.isAdmin()) + "','" + personne.getDateCreation() + "','" + personne.getDateModification() + "','" + //
+					booleanConverter(personne.isBloque()) + "','" + personne.getRaisonBlocage() + "');";
+
+			stat.executeUpdate(sql);
+			result = true;
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	public void remplirListeUserEmpruntee(Personne[] tabPersonne) {
+		Connection conn = null;
+		Statement stat = null;
+		try {
+			Class.forName(JDBC_DRIVER);
+			String url = DB_URL + "bait";
+			conn = DriverManager.getConnection(url, user, pass);
+			stat = conn.createStatement();
+
+			String sql = "delete from listeUserEmpruntee";
+			stat.executeUpdate(sql);
+			for (Personne personne : tabPersonne) {
+				savePersonneEmpruntee(personne);
+			}
+
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
+	}
 
 	public boolean createNewPersonne(String identifiant, String mdp, String email, String nom, String prenom) {
 		boolean result = false;
