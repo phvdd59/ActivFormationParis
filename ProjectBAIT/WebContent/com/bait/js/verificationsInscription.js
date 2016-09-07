@@ -277,11 +277,11 @@ function verifInscription1(f) {
 	var alerttotal = "";
 	if (verifIdentifiant(f.identifiant) == false) {
 		alerttotal = alerttotal
-				+ "L'identifiant doit \352tre compos\351 de 4 \340 30 caractères \n";
+				+ "L'identifiant doit \352tre compos\351 de 4 \340 30 caract\350res \n";
 	}
 	if (verifMdp1(f.mdp1) == false) {
 		alerttotal = alerttotal
-				+ "Le mot de passe doit \352tre compos\351 de 6 \340 30 caractères dont une lettre et un chiffre \n";
+				+ "Le mot de passe doit \352tre compos\351 de 6 \340 30 caract\350res dont une lettre et un chiffre \n";
 	}
 	if (verifMdp2(f.mdp2) == false) {
 		alerttotal = alerttotal + "Les mots de passe ne sont pas identiques \n";
@@ -404,15 +404,15 @@ function verifRemuneration(f) {
 	}
 	if (verifMontantTransport(f.montantTransport) == false) {
 		alerttotal = alerttotal
-				+ "Le montant transports indiqué est invalide \n";
+				+ "Le montant transports indiqu\351 est invalide \n";
 	}
 
 	if (verifNbCV(f.nbCV) == false) {
-		alerttotal = alerttotal + "Le nombre de cv indiqué est invalide \n";
+		alerttotal = alerttotal + "Le nombre de cv indiqu\351 est invalide \n";
 	}
 	if (verifKmMensuel(f.nbKm) == false) {
 		alerttotal = alerttotal
-				+ "Le nombre de km mensuel indiqué est invalide \n";
+				+ "Le nombre de km mensuel indiqu\351 est invalide \n";
 	}
 
 	if (verifNom(f.fonction) == false || verifPosition(f.position) == false
