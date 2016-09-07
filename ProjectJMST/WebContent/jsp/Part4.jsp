@@ -145,7 +145,7 @@ width:25%;
 					String situation = personne.getSituation();
 			%>
 			<form action="http://localhost:8080/ProjectJMST/jsp/Part5.jsp"
-				method='post'>
+				method='post' onsubmit="return ctrAll()">
 				<table border="1">
 					<tr>
 						<td style="width: 272px; height: 25px;">Salarié</td>
@@ -226,12 +226,12 @@ width:25%;
 						%>
 						<td style="width: 272px; height: 25px;">Autre</td>
 						<%
-							if (personne.getSituation().equals("")) {
+							if (!situation.equals("retraite") && !situation.equals("Salarie") && !situation.equals("auto entrepreneur") && !situation.equals("demandeur d'emploi") && !situation.equals("freelance")) {
 						%>
 						<td><input type="radio" name="situation" value=""
 							checked="checked"></td>
 						<td><input id="autre" type="text" name="situationVal"
-							value="<%=personne.getSituation()%>" onblur="ctrAutre()"><span id="spanAutre"></span></td>
+							value="<%=situation%>" onblur="ctrAutre()"><span id="spanAutre"></span></td>
 						<%
 							} else {
 						%>

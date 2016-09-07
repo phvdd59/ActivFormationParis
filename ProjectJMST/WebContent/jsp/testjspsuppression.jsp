@@ -25,6 +25,10 @@ input{
 width: 50%;
 
 }
+input#monInput{
+width: 25%;
+}
+
 
 select{
 width: 45%;
@@ -147,7 +151,7 @@ left: 45%;
 		</select>
 		<input class="monInput" type="submit" value=" Bloquer personne"> 
 	<br>
-		<input id="raisonBlocage"type="text" name="raisonBlocage" maxlength="50" placeholder="motif " >
+		<input style="width:44% " id="raisonBlocage"type="text" name="raisonBlocage" maxlength="50" placeholder="motif " >
 		
 	
 					<input	type="hidden" name="noSerie" value="<%=noSerie%>">
@@ -206,17 +210,17 @@ left: 45%;
 	</form>
 	
 	<br>
+	
+				<form action=http://localhost:8080/ProjectJMST/RetourMenu method="post">
+                    <input id="monInput"type="submit" value="Retour">
+                    <input type="hidden" name="noSerie" value="<%=noSerie%>">
+                </form>
 	<form action="http://localhost:8080/ProjectJMST/ServletDeco"
 					method="post">
-					<input type="submit" value="Deconnexion"
+					<input id="monInput"type="submit" value="Deconnexion"
 						title="deconnexion session"><input type="hidden"
 						name="noSerie" value="<%=noSerie%>">
 				</form>
-				<form action=http://localhost:8080/ProjectJMST/RetourMenu method="post">
-                    <input type="submit" value="Retour">
-                    <input type="hidden" name="noSerie" value="<%=noSerie%>">
-                </form>
-	
 
 
 
