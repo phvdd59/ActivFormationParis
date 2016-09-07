@@ -46,7 +46,7 @@ public class Test extends HttpServlet {
 		Personne utilisateur = new Personne();
 		utilisateur.setIdentifiant(identifiant);
 		DAOPersonne dao = new DAOPersonne();
-		if (dao.read(utilisateur)) {
+		if (dao.read(utilisateur,"personne")) {
 			//		final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 			//		try {
 			//			final DocumentBuilder builder = factory.newDocumentBuilder();

@@ -40,7 +40,7 @@ public class ServletTestDAO2 extends HttpServlet {
 		
 
 		DAOPersonne dao = new DAOPersonne();
-		dao.create(personne);
+		dao.create(personne,"personne");
 	}
 
 	/**

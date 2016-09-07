@@ -42,7 +42,7 @@ public class ServletThcr2 extends HttpServlet {
 		String noSerieHtml = request.getParameter("noSerie");
 		
 		DAOPersonne dao = new DAOPersonne();
-		ListPersonne listPersonne = dao.read();
+		ListPersonne listPersonne = dao.read("personne");
 		session.setAttribute("ListPersonne", listPersonne);
 		if (noSerieHtml == null || noSerie == null || noSerieHtml.equals(noSerie)) {
 

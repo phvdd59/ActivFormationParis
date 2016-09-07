@@ -42,7 +42,7 @@ public class ServletMadeBlocage extends HttpServlet {
 		System.out.println("personne bloquee" + personneBloquee);
 		if (noSerieSession == null || noSerie == null || noSerieSession.equals(noSerie)) {
 			DAOPersonne dao = new DAOPersonne();
-			ListPersonne listePersonne = dao.read();
+			ListPersonne listePersonne = dao.read("personne");
 			for (Personne personne : listePersonne) {
 				System.out.println("le nom de la personne est " + personne.getNom());
 				System.out.println();
@@ -51,7 +51,7 @@ public class ServletMadeBlocage extends HttpServlet {
 						System.out.println("la personne est débloquée pour l'instant");
 						personne.setBloque(true);
 						personne.setRaisonBlocage(request.getParameter("raisonBlocage"));
-						dao.update(personne);
+						dao.update(personne,"personne");
 						System.out.println("la personne a été bloquée");
 					}
 

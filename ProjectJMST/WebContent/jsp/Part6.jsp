@@ -142,7 +142,7 @@
 					Date dateModificationUtil = new Date();
 					Timestamp dateModification = new Timestamp(dateModificationUtil.getTime());
 					personne.setDateModification(dateModification);
-					dao.update(personne);
+					dao.update(personne,"personne");
 					RequestDispatcher rd = getServletContext().getRequestDispatcher("/Servletmadeversmenu");
 					rd.forward(request, response);
 				} else {

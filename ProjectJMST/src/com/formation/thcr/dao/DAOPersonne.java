@@ -17,15 +17,15 @@ public class DAOPersonne {
 
 	public String user = "jmst";
 	public String pass = "erreurmade";
-
-	public void delete(Personne personne) {
+	
+	public void delete(Personne personne, String table) {
 		Connection con = null;
 		Statement statement = null;
 		try {
 			Class.forName(JDBC_DRIVER); // nom du driver
 			con = DriverManager.getConnection(DB_URL, user, pass);
 			statement = con.createStatement();
-			String sql = "DELETE FROM jmst.personne"//
+			String sql = "DELETE FROM jmst." + table//
 					+ "WHERE LP_EMAIL=" + "'" + personne.getEmail() + "';";
 			int result = statement.executeUpdate(sql);
 			if (result > 0) {
@@ -42,7 +42,7 @@ public class DAOPersonne {
 		}
 	}
 
-	public boolean update(Personne personne) {
+	public boolean update(Personne personne, String table) {
 		Connection con = null;
 		Statement statement = null;
 		boolean bool = false;
@@ -55,7 +55,7 @@ public class DAOPersonne {
 			// |LP_FAX |LP_DATENAISSANCE |LP_LIEUNAISSANCE |LP_NUMSECU
 			// |LP_NATIONALITE |LP_SITUATION |LP_FONCTION |LP_CADRE |LP_COEFF
 			// |LP_SALAIRE |LP_VISITEMEDICALE |LP_MONTANTTRANSPORT |LP_VOITURE
-			String sql = "UPDATE jmst.personne"//
+			String sql = "UPDATE jmst." + table//
 					+ " SET LP_NOM='" + personne.getNom() //
 					+ "', LP_PRENOM='" + personne.getPrenom()//
 					+ "', LP_SEXE='" + personne.getSexe().getSexe()//
@@ -110,7 +110,7 @@ public class DAOPersonne {
 		return bool;
 	}
 
-	public void create(Personne personne) {
+	public void create(Personne personne, String table) {
 		Connection con = null;
 		Statement statement = null;
 		try {
@@ -127,7 +127,7 @@ public class DAOPersonne {
 			// |LP_NBCV |LP_NBKM |LP_MUTUELLE |LP_TICKETRESTO |LP_ADMIN
 			// |LP_DATECREATION
 			// |LP_DATEMODIFICATION |LP_BLOQUE |LP_RAISONBLOCAGE |
-			String sql = "INSERT INTO jmst.personne"//
+			String sql = "INSERT INTO jmst." + table//
 					+ "(LP_NOM, LP_PRENOM, LP_SEXE, LP_IDENTIFIANT, LP_MDP, LP_EMAIL, LP_ADRESSE, LP_CP, LP_VILLE, LP_TELFIXE, "
 					+ "LP_TELPORT, LP_FAX, LP_DATENAISSANCE, LP_LIEUNAISSANCE, LP_NUMSECU, LP_NATIONALITE, "
 					+ "LP_SITUATION, LP_FONCTION, LP_POSITION,LP_CADRE, LP_COEFF, LP_SALAIRE, LP_VISITEMEDICALE, "
@@ -161,7 +161,7 @@ public class DAOPersonne {
 		}
 	}
 
-	public boolean read(Personne personne) {
+	public boolean read(Personne personne, String table) {
 		boolean check=false;
 		Connection con = null;
 		Statement statement = null;
@@ -169,7 +169,7 @@ public class DAOPersonne {
 			Class.forName(JDBC_DRIVER); // nom du driver
 			con = DriverManager.getConnection(DB_URL, user, pass);
 			statement = con.createStatement();
-			String sql = "SELECT * FROM jmst.personne";
+			String sql = "SELECT * FROM jmst."+table;
 			ResultSet result = statement.executeQuery(sql);
 			// TRAITER LES METADATA pour contrôler les erreurs
 			// LP_IDPERSONNE |LP_NOM |LP_SEXE |LP_IDENTIFIANT |LP_MDP
@@ -245,7 +245,7 @@ public class DAOPersonne {
 		return check;
 	}
 
-	public ListPersonne read() {
+	public ListPersonne read(String table) {
 		Connection con = null;
 		Statement statement = null;
 		ListPersonne list = new ListPersonne();
@@ -253,7 +253,7 @@ public class DAOPersonne {
 			Class.forName(JDBC_DRIVER); // nom du driver
 			con = DriverManager.getConnection(DB_URL, user, pass);
 			statement = con.createStatement();
-			String sql = "SELECT * FROM jmst.personne";
+			String sql = "SELECT * FROM jmst."+table;
 			ResultSet result = statement.executeQuery(sql);
 			boolean check = false;
 			// TRAITER LES METADATA pour contrôler les erreurs

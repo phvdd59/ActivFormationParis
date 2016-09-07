@@ -128,7 +128,7 @@ left: 45%;
 		Personne personne = new Personne();
 		ListPersonne listePersonne = new ListPersonne();
 		DAOPersonne dao = new DAOPersonne();
-		listePersonne = dao.read();
+		listePersonne = dao.read("personne");
 		if (noSerieHtml.equals(noSerie)) {//ne marche pas pour l'instant a voir donc(made)
 	%>
 

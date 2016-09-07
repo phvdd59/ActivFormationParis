@@ -40,7 +40,7 @@ public class ServletMadeDeblocage extends HttpServlet {
 		System.out.println("personne a  debloquer" + personneADebloquer);
 		if (noSerieSession == null || noSerie == null || noSerieSession.equals(noSerie)) {
 			DAOPersonne dao = new DAOPersonne();
-			ListPersonne listePersonne = dao.read();
+			ListPersonne listePersonne = dao.read("personne");
 			for (Personne personne : listePersonne) {
 				System.out.println("le nom de la personne est " + personne.getNom());
 				if (personne.getIdentifiant().equals(personneADebloquer)) {
@@ -49,7 +49,7 @@ public class ServletMadeDeblocage extends HttpServlet {
 						System.out.println("");
 						personne.setBloque(false);
 						personne.setRaisonBlocage("Personne debloquee");
-						dao.update(personne);
+						dao.update(personne,"personne");
 
 					}
 

@@ -100,7 +100,7 @@ public class ServletUpdate extends HttpServlet {
 				java.util.Date dateModificationUtil = new java.util.Date();
 				Timestamp dateModification = new Timestamp(dateModificationUtil.getTime());
 				personne.setDateModification(dateModification);
-				dao.update(personne);
+				dao.update(personne,"personne");
 			}
 		}
 

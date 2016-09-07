@@ -36,12 +36,12 @@
 
 		//identifiant = personne.getIdentifiant();
 
-		if (noSerie.equals(noSerieHtml) && dao.read(personne) && personne.getMdp().equals(ancienMdp) && mdp1.equals(mdp2)) {
+		if (noSerie.equals(noSerieHtml) && dao.read(personne,"personne") && personne.getMdp().equals(ancienMdp) && mdp1.equals(mdp2)) {
 			personne.setIdentifiant(personne.getIdentifiant());
 			personne.setMdp(mdp1);
 			Date dateModif = new Date();
 			personne.setDateModification(new Timestamp(dateModif.getTime()));
-			if (dao.update(personne)) {
+			if (dao.update(personne,"personne")) {
 	
 			out.write("mise à jour réussie, cliquer sur retour login");
 		%>

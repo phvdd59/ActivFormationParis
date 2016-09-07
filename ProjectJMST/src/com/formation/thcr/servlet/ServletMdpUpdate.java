@@ -51,7 +51,7 @@ public class ServletMdpUpdate extends HttpServlet {
 		DAOPersonne dao = new DAOPersonne();
 		java.util.Date dateModif = new java.util.Date();
 		personne.setDateModification(new Timestamp(dateModif.getTime()));
-		dao.update(personne);
+		dao.update(personne,"personne");
 		getServletContext().getRequestDispatcher("/ServletJOCA1").forward(request, response);
 		//REDIRECT TO LOGIN
 		//response.sendRedirect("/ServletJOCA1");

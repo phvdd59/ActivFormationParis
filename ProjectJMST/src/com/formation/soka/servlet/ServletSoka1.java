@@ -75,7 +75,7 @@ public class ServletSoka1 extends HttpServlet {
 		}
 		
 		DAOPersonne dao = new DAOPersonne();
-		ListPersonne list = dao.read();
+		ListPersonne list = dao.read("personne");
 		
 		for (Personne p : list) {
 			if (p.getIdentifiant().equals(perso.getIdentifiant())) {

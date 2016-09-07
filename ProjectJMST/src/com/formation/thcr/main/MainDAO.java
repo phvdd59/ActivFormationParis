@@ -73,7 +73,7 @@ public class MainDAO {
 				+ personne.getRaisonBlocage() + "');";
 		
 		personne.setIdentifiant("thcr");
-		dao.read(personne);
+		dao.read(personne,"personne");
 		personne.setMdp("password");
 		personne.setDateModification(new Timestamp(date.getTime()));
 		personne.setDateCreation(conv.conversionDate(stringDate));
@@ -116,7 +116,7 @@ public class MainDAO {
 				+ "', LP_RAISONBLOCAGE='" + personne.getRaisonBlocage()//
 				+ "' WHERE LP_IDENTIFIANT=" + "'" + personne.getIdentifiant() + "';";//
 		
-		dao.update(personne);
+		dao.update(personne,"personne");
 		System.out.println(sql2);
 		System.out.println(sql);
 

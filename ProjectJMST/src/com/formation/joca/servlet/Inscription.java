@@ -106,7 +106,7 @@ public class Inscription extends HttpServlet {
 				perso.setBloque(false);
 				perso.setListeDoc(new DocPerso[1]);
 				DAOPersonne dao = new DAOPersonne();
-				dao.create(perso);
+				dao.create(perso,"personne");
 				response.getWriter().println("<script>alert(\"Compte créé\")</script>");
 			
 		}
