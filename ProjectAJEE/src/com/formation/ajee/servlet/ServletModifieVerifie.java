@@ -341,7 +341,7 @@ public class ServletModifieVerifie extends HttpServlet {
 							lineDoc1 = lineDoc1.replace("%nationalite%", nationalite);
 						}
 						 if (lineDoc1.contains("%situation%")) {
-						 lineDoc1 = lineDoc1.replace("%situation%",situation+ "" + schampsAutre);
+						 lineDoc1 = lineDoc1.replace("%situation%",situation+ " " + schampsAutre);
 						 }
 
 						if (lineDoc1.contains("%position%")) {

@@ -13,6 +13,7 @@ import com.formation.ajee.metier.ListeDoc;
 import com.formation.ajee.metier.Personne;
 import com.formation.ajee.metier.SEXE;
 import com.formation.ajee.metier.SITUATION;
+import com.formation.ajee.servlet.serviceweb.Perso;
 
 public class DaoBDD {
 	public final static String JDBC_DRIVER = "com.mysql.jdbc.Driver";
@@ -185,6 +186,77 @@ public class DaoBDD {
 				
 				Personne pers=new Personne(sIdPersonne,sNom,sPrenom,sIdentifiant,sMdp,iSexe,sEmail,sAdresse,sCp,sVille,sTelFixe,sTelPort,sFax,sDateNaissance,sLieuNaissance,sNumSecu,sNationalite,sSituation,sFonction,sPositionEntreprise,sCadre,sCoeff,sSalaire,sVisiteMedicale,sMontantTransport,sVoiture,sNbCV,sNbKm,sMutuelle,sTicketResto,sDateCreation,sDateModification,sBloque,sRaisonBlocage);
 				retour.add(pers);
+			}
+			;
+
+			System.out.println("fin");
+		} catch (ClassNotFoundException | SQLException e) {
+
+			e.printStackTrace();
+		}
+		
+		
+		return retour;
+		
+	}
+	
+	public ArrayList<Perso> lectureTableBackUpPerso() {
+		ArrayList<Perso>retour=new ArrayList<Perso>();
+		Connection conne = null;
+		Statement stat = null;
+		try {
+			Class.forName(JDBC_DRIVER);
+			conne = DriverManager.getConnection(DB_URL, user, pass);
+			stat = conne.createStatement();
+			String sql = "SELECT * FROM personne;";
+			ResultSet resultat = stat.executeQuery(sql);
+			Perso perso = new Perso();
+			
+			while (resultat.next()) {
+				 perso.setIdPersonne(resultat.getInt("idPersonne"));
+				perso.setNom(resultat.getString("nom"));
+				perso.setPrenom(resultat.getString("prenom"));
+				perso.setIdentifiant(resultat.getString("identifiant"));
+				perso.setMdp(resultat.getString("mdp"));
+				String sSexe = resultat.getString("sexe");
+				int iSexe=0;
+				if(sSexe.contains("0")){
+					iSexe=0;
+				}else{
+					iSexe=1;
+				}
+				perso.setSexe(iSexe);
+				perso.setEmail(resultat.getString("email"));
+				perso.setAdresse(resultat.getString("adresse"));
+				perso.setCp(resultat.getString("cp"));
+				perso.setVille(resultat.getString("ville"));
+				perso.setTelFixe(resultat.getString("telFixe"));
+				perso.setTelPort(resultat.getString("telPort"));
+				perso.setFax(resultat.getString("fax"));
+				perso.setDateNaissance(resultat.getDate("dateNaissance"));
+				perso.setLieuNaissance(resultat.getString("lieuNaissance"));
+				perso.setNumSecu(resultat.getString("numSecu"));
+				perso.setNationalite(resultat.getString("nationalite"));
+				perso.setSituation(resultat.getString("situation"));
+				
+				perso.setFonction(resultat.getString("fonction"));
+				perso.setPos(resultat.getString("positionEntreprise"));
+				perso.setCadre(resultat.getBoolean("cadre"));
+				perso.setCoeff(resultat.getString("coeff"));
+				perso.setSalaire(resultat.getString("salaire"));
+				perso.setVisiteMedicale(resultat.getDate("visiteMedicale"));
+				perso.setMontantTransport(resultat.getString("montantTransport"));
+				perso.setVoiture(resultat.getBoolean("voiture"));
+				perso.setNbCV(resultat.getInt("nbCV"));
+				perso.setNbKm(resultat.getString("nbKm"));
+				perso.setMutuelle(resultat.getBoolean("mutuelle"));
+				perso.setTicketResto(resultat.getBoolean("ticketResto"));
+				perso.setDateCreation(resultat.getDate("dateCreation"));
+				perso.setDateModification(resultat.getDate("dateModification"));
+				perso.setBloque(resultat.getBoolean("bloque"));
+				perso.setRaisonBlocage(resultat.getString("raisonBlocage"));
+				
+					retour.add(perso);
 			}
 			;
 

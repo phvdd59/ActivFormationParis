@@ -52,7 +52,7 @@ public class Perso implements Serializable {
 	public Perso() {
 	}
 
-
+	
 	public int getIdPersonne() {
 		return idPersonne;
 	}
