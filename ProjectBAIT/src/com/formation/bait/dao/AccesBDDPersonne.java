@@ -397,6 +397,7 @@ public class AccesBDDPersonne {
 				}
 				response.getWriter().append("<form method=\"post\" action=\"http://localhost:8080/ProjectBAIT/ServletPageExamCandidat2\">");
 				response.getWriter().append("<input type=\"hidden\" value=\"" + resultat.getString("IDPersonne") + "\" name=\"IDcandidat\" />");
+				response.getWriter().append("<input type=\"hidden\" value=\"notre\" name=\"BDD\" />");
 				response.getWriter().append("<input type=\"submit\" style=\"width: 250px;\" value=\"" + resultat.getString("nom") + " " + resultat.getString("prenom") + "\" name=\"" + resultat.getString("nom") + "\" /><br>");
 				response.getWriter().append("</form>");
 			}
@@ -430,6 +431,7 @@ public class AccesBDDPersonne {
 				}
 				response.getWriter().append("<form method=\"post\" action=\"http://localhost:8080/ProjectBAIT/ServletPageExamCandidat2\">");
 				response.getWriter().append("<input type=\"hidden\" value=\"" + resultat.getString("IDPersonne") + "\" name=\"IDcandidat\" />");
+				response.getWriter().append("<input type=\"hidden\" value=\"empruntee\" name=\"BDD\" />");
 				response.getWriter().append("<input type=\"submit\" style=\"width: 250px;\" value=\"" + resultat.getString("nom") + " " + resultat.getString("prenom") + "\" name=\"" + resultat.getString("nom") + "\" /><br>");
 				response.getWriter().append("</form>");
 			}
