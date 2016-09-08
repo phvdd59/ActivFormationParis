@@ -1,4 +1,4 @@
-package com.formation.ajee.servlet.serviceweb;
+package com.formation.beans;
 
 import java.io.Serializable;
 import java.util.Date;

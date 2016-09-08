@@ -17,6 +17,8 @@ import com.formation.ajee.dao.DaoBDD;
 import com.formation.ajee.dao.DaoPersonne;
 import com.formation.ajee.metier.ListPersonne;
 import com.formation.ajee.metier.Personne;
+import com.formation.beans.InterPersoService;
+import com.formation.beans.Perso;
 
 /**
  * Servlet implementation class ProjectJmst

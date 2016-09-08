@@ -13,7 +13,7 @@ import com.formation.ajee.metier.ListeDoc;
 import com.formation.ajee.metier.Personne;
 import com.formation.ajee.metier.SEXE;
 import com.formation.ajee.metier.SITUATION;
-import com.formation.ajee.servlet.serviceweb.Perso;
+import com.formation.beans.Perso;
 
 public class DaoBDD {
 	public final static String JDBC_DRIVER = "com.mysql.jdbc.Driver";
