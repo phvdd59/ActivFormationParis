@@ -44,14 +44,14 @@ public class ServletFicheRempli extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
-		
+
 		HttpSession session = request.getSession();
 		Object oNoSerie = session.getAttribute("noSerie");
 		Personne personne = (Personne) session.getAttribute("personne");
 		Personne utilisateur = (Personne) session.getAttribute("utilisateur");
-		Vue vue=new Vue();
-		
-		if (oNoSerie != null && personne != null&& personne.getIdentifiant() != null) {
+		Vue vue = new Vue();
+
+		if (oNoSerie != null && personne != null && personne.getIdentifiant() != null) {
 			String nom = personne.getNom();
 
 			String prenom = personne.getPrenom();
@@ -63,7 +63,7 @@ public class ServletFicheRempli extends HttpServlet {
 			String ville = personne.getVille();
 
 			String telfixe = personne.getTelFixe();
-			
+
 			String telport = personne.getTelPort();
 
 			String fax = personne.getFax();
@@ -78,8 +78,13 @@ public class ServletFicheRempli extends HttpServlet {
 
 			String nationalite = personne.getNationalite();
 
-//			 String situation = personne.getSituationString();
-//			
+			String situationTotal = personne.getSituationString();
+			String[] tabSituation = situationTotal.split(":");
+			String situation = tabSituation[0];
+			String champsAutre = "";
+			if (situation == "autre" && tabSituation.length > 1) {
+				champsAutre = tabSituation[1];
+			}
 
 			String fonction = personne.getFonction();
 
@@ -131,8 +136,13 @@ public class ServletFicheRempli extends HttpServlet {
 
 				String unationalite = utilisateur.getNationalite();
 
-//				 String usituation = utilisateur.getSituationString();
-				
+				String usituationTotal = personne.getSituationString();
+				String[] utabSituation = usituationTotal.split(":");
+				String usituation = utabSituation[0];
+				String uchampsAutre = "";
+				if (usituation == "autre" && utabSituation.length > 1) {
+					uchampsAutre = utabSituation[1];
+				}
 
 				String ufonction = utilisateur.getFonction();
 
@@ -157,14 +167,14 @@ public class ServletFicheRempli extends HttpServlet {
 				String unbKm = utilisateur.getNbKm();
 
 				/** Lecture Haut de page HTML */
-				
+
 				vue.lecturePage(response, "HautPage");
 				response.getWriter().println("<link href=\"http://localhost:8080/ProjectAJEE/ajee/css/StyleFormulaire.css\" rel=\"stylesheet\" type=\"text/css\">");
 
 				/** A modifier seulement si notre page contient du JavaScript */
 
 				/** Lecture page ActivConsulting */
-				
+
 				vue.lecturePage(response, "MenuActiv");
 				/**
 				 * Seule Partie qui va vraiment changer selon les pages (penser
@@ -185,7 +195,6 @@ public class ServletFicheRempli extends HttpServlet {
 					lineDoc = bufReadDoc.readLine();
 				}
 				bufReadDoc.close();
-				
 
 				File fileDoc1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/FormulaireARemplirJECIAdmin.html");
 				BufferedReader bufReadDoc1 = null;
@@ -231,9 +240,12 @@ public class ServletFicheRempli extends HttpServlet {
 					if (lineDoc1.contains("%nationalite%")) {
 						lineDoc1 = lineDoc1.replace("%nationalite%", unationalite);
 					}
-//					 if (lineDoc1.contains("%situation%")) {
-//					 lineDoc1 = lineDoc1.replace("%situation%", usituation);
-//					 }
+					if (lineDoc1.contains("%situation%")) {
+						lineDoc1 = lineDoc1.replace("%situation%", usituation + " " + uchampsAutre);
+					}
+//					if (lineDoc1.contains("%autre%")) {
+//						lineDoc1 = lineDoc1.replace("%autre%", uchampsAutre);
+//					}
 					if (lineDoc1.contains("%fonction%")) {
 						lineDoc1 = lineDoc1.replace("%fonction%", ufonction);
 					}
@@ -267,7 +279,6 @@ public class ServletFicheRempli extends HttpServlet {
 					if (lineDoc1.contains("%km%")) {
 						lineDoc1 = lineDoc1.replace("%km%", unbKm);
 					}
-					
 
 					response.getWriter().println(lineDoc1);
 					lineDoc1 = bufReadDoc1.readLine();
@@ -275,12 +286,12 @@ public class ServletFicheRempli extends HttpServlet {
 				bufReadDoc1.close();
 
 				/** Lecture bas de page */
-				
+
 				vue.lecturePage(response, "BasPage");
 			} else if (utilisateur == null && personne.getIdentifiant().equals("Admin")) {
 				RequestDispatcher rd = request.getRequestDispatcher("//Servletaccueilchargementprofil");
 				rd.forward(request, response);
-			} else{
+			} else {
 				// utiliser le pseudo pour avoir la personne
 				/** Lecture Haut de page HTML */
 				vue.lecturePage(response, "HautPage");
@@ -351,9 +362,12 @@ public class ServletFicheRempli extends HttpServlet {
 					if (lineDoc1.contains("%nationalite%")) {
 						lineDoc1 = lineDoc1.replace("%nationalite%", nationalite);
 					}
-//					 if (lineDoc1.contains("%situation%")) {
-//					 lineDoc1 = lineDoc1.replace("%situation%", situation);
-//					 }
+					if (lineDoc1.contains("%situation%")) {
+						lineDoc1 = lineDoc1.replace("%situation%", situation+ " " + champsAutre);
+					}
+//					if (lineDoc1.contains("%autre%")) {
+//						lineDoc1 = lineDoc1.replace("%autre%", champsAutre);
+//					}
 					if (lineDoc1.contains("%fonction%")) {
 						lineDoc1 = lineDoc1.replace("%fonction%", fonction);
 					}

@@ -179,7 +179,13 @@ public ArrayList<Personne> lectureTable() {
 			String sPrenom  = resultat.getString("prenom");
 			String sIdentifiant = resultat.getString("identifiant");
 			String sMdp = resultat.getString("mdp");
-			int sSexe = resultat.getInt("sexe");
+			String sSexe = resultat.getString("sexe");
+			int iSexe=0;
+			if(sSexe.contains("0")){
+				iSexe=0;
+			}else{
+				iSexe=1;
+			}
 			
 			String sEmail= resultat.getString("email");
 			String sAdresse = resultat.getString("adresse");
@@ -213,7 +219,7 @@ public ArrayList<Personne> lectureTable() {
 			//String sListeDoc= resultat.getString("listeDoc");
 		
 			
-			Personne pers=new Personne(sIdPersonne,sNom,sPrenom,sIdentifiant,sMdp,sSexe,sEmail,sAdresse,sCp,sVille,sTelFixe,sTelPort,sFax,sDateNaissance,sLieuNaissance,sNumSecu,sNationalite,sSituation,sFonction,sPositionEntreprise,sCadre,sCoeff,sSalaire,sVisiteMedicale,sMontantTransport,sVoiture,sNbCV,sNbKm,sMutuelle,sTicketResto,sDateCreation,sDateModification,sBloque,sRaisonBlocage);
+			Personne pers=new Personne(sIdPersonne,sNom,sPrenom,sIdentifiant,sMdp,iSexe,sEmail,sAdresse,sCp,sVille,sTelFixe,sTelPort,sFax,sDateNaissance,sLieuNaissance,sNumSecu,sNationalite,sSituation,sFonction,sPositionEntreprise,sCadre,sCoeff,sSalaire,sVisiteMedicale,sMontantTransport,sVoiture,sNbCV,sNbKm,sMutuelle,sTicketResto,sDateCreation,sDateModification,sBloque,sRaisonBlocage);
 			retour.add(pers);
 		}
 		;

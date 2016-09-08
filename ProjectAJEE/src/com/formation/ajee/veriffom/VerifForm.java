@@ -421,10 +421,10 @@ public class VerifForm {
 	}
 
 	public Date dateCreationVerif(String dateCreation) {
-		Date retour = null;
+		Date retour = new Date();
 		try {
 			String s = dateCreation;
-			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy");
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 			retour = sdf.parse(s);
 		} catch (Exception e) {
 
@@ -433,12 +433,12 @@ public class VerifForm {
 		return retour;
 	}
 
-	public Timestamp dateModificationVerif(String dateModification) {
-		Timestamp retour = null;
+	public Date dateModificationVerif(String dateModification) {
+		Date retour = new Date();
 		try {
 			String s = dateModification;
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-			retour = (Timestamp) sdf.parse(s);
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			retour = sdf.parse(s);
 		} catch (Exception e) {
 
 		}

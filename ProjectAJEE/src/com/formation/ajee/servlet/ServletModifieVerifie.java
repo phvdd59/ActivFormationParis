@@ -199,9 +199,14 @@ public class ServletModifieVerifie extends HttpServlet {
 
 				String nationalite = personne.getNationalite();
 
-				 String situation = personne.getSituationString();
+				String situationTotal = personne.getSituationString();
+				String[] tabSituation = situationTotal.split(":");
+				String situation = tabSituation[0];
+				String schampsAutre = "";
+				if (situation == "autre" && tabSituation.length>1){
+					schampsAutre = tabSituation[1];
+				}
 				
-
 				String fonction = personne.getFonction();
 
 				String positionEntreprise = personne.getPositionEntreprise();
@@ -336,7 +341,7 @@ public class ServletModifieVerifie extends HttpServlet {
 							lineDoc1 = lineDoc1.replace("%nationalite%", nationalite);
 						}
 						 if (lineDoc1.contains("%situation%")) {
-						 lineDoc1 = lineDoc1.replace("%situation%",situation);
+						 lineDoc1 = lineDoc1.replace("%situation%",situation+ "" + schampsAutre);
 						 }
 
 						if (lineDoc1.contains("%position%")) {

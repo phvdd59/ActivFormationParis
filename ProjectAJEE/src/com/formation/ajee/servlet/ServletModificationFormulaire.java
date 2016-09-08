@@ -191,11 +191,11 @@ public class ServletModificationFormulaire extends HttpServlet {
 						lineDoc1 = lineDoc1.replace("%nationalite%", nationalite);
 					}
 					if (lineDoc1.contains("%situation%")) {
-						lineDoc1 = lineDoc1.replace("%situation%", situation);
+						lineDoc1 = lineDoc1.replace("%situation%", situation+ "" + champsAutre);
 					}
-					if (lineDoc1.contains("%autre%")) {
-						lineDoc1 = lineDoc1.replace("%autre%", champsAutre);
-					}
+//					if (lineDoc1.contains("%autre%")) {
+//						lineDoc1 = lineDoc1.replace("%autre%", champsAutre);
+//					}
 
 					if (lineDoc1.contains("%position%")) {
 						lineDoc1 = lineDoc1.replace("%position%", positionEntreprise);
