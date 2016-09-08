@@ -88,6 +88,10 @@ public class ServletListeCandidatsAdmin extends HttpServlet {
 		AccesBDDPersonne acces = new AccesBDDPersonne();
 		acces.afficherListeCandidats(response);
 
+		response.getWriter().append("<div style=\"margin-top:30px; margin-left:80px;\"> <form method=\"post\" action=\"http://localhost:8080/ProjectBAIT/ServletListeCandidatsAdmin2Empruntee\"> <input type=\"submit\" name=\"BDD AJEE\" value=\"BDD AJEE\"> </form> </div>");
+		response.getWriter().append("<div style=\"margin-top:30px; margin-left:80px;\"> <form method=\"post\" action=\"http://localhost:8080/ProjectBAIT/ServletListeCandidatsAdmin2Empruntee\"> <input type=\"submit\" name=\"BDD JMST\" value=\"BDD JMST\"> </form> </div>");
+		response.getWriter().append("<div style=\"margin-top:30px; margin-left:80px;\"> <form method=\"post\" action=\"http://localhost:8080/ProjectBAIT/ServletDeconnection\"> <input type=\"submit\" name=\"disconnect\" value=\"Deconnexion\"> </form> </div>");
+		
 		File file3 = new File("C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/basDePageActiv.html");
 		BufferedReader bIn3 = null;
 		InputStreamReader inputStreamReader3 = null;

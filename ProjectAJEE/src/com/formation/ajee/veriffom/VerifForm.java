@@ -276,7 +276,7 @@ public class VerifForm {
 	public String fonctionVerif(String fonction) {
 		String retour = "";
 		try {
-			if (fonction.matches("[a-zאבגהחטיךכלםמןסעףפצשתûü\\-\\'\\s]*")) {
+			if (fonction.matches("[A-Za-zאבגהחטיךכלםמןסעףפצשתûü\\-\\'\\s]*")) {
 				retour = fonction;
 			}
 		} catch (Exception e) {

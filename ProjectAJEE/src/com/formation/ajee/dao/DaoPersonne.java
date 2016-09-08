@@ -179,7 +179,7 @@ public ArrayList<Personne> lectureTable() {
 			String sPrenom  = resultat.getString("prenom");
 			String sIdentifiant = resultat.getString("identifiant");
 			String sMdp = resultat.getString("mdp");
-			//String sSexe = resultat.getString("sexe");
+			int sSexe = resultat.getInt("sexe");
 			
 			String sEmail= resultat.getString("email");
 			String sAdresse = resultat.getString("adresse");
@@ -192,8 +192,7 @@ public ArrayList<Personne> lectureTable() {
 			String sLieuNaissance =resultat.getString("lieuNaissance");
 			String sNumSecu = resultat.getString("numSecu");
 			String sNationalite = resultat.getString("nationalite");
-			//String sSituation = resultat.getString("situation");
-			//SITUATION ssSituation = SITUATION.valueOf(sSituation);
+			String sSituation = resultat.getString("situation");
 			
 			String sFonction = resultat.getString("fonction");
 			String sPositionEntreprise = resultat.getString("positionEntreprise");
@@ -212,10 +211,9 @@ public ArrayList<Personne> lectureTable() {
 			boolean sBloque = resultat.getBoolean("bloque");
 			String sRaisonBlocage = resultat.getString("raisonBlocage");
 			//String sListeDoc= resultat.getString("listeDoc");
+		
 			
-			//System.out.println(sIdentifiant + " " + sNom+ " " + sMdp);
-			
-			Personne pers=new Personne(sIdPersonne,sNom,sPrenom,sIdentifiant,sMdp,sEmail,sAdresse,sCp,sVille,sTelFixe,sTelPort,sFax,sDateNaissance,sLieuNaissance,sNumSecu,sNationalite,sFonction,sPositionEntreprise,sCadre,sCoeff,sSalaire,sVisiteMedicale,sMontantTransport,sVoiture,sNbCV,sNbKm,sMutuelle,sTicketResto,sDateCreation,sDateModification,sBloque,sRaisonBlocage);
+			Personne pers=new Personne(sIdPersonne,sNom,sPrenom,sIdentifiant,sMdp,sSexe,sEmail,sAdresse,sCp,sVille,sTelFixe,sTelPort,sFax,sDateNaissance,sLieuNaissance,sNumSecu,sNationalite,sSituation,sFonction,sPositionEntreprise,sCadre,sCoeff,sSalaire,sVisiteMedicale,sMontantTransport,sVoiture,sNbCV,sNbKm,sMutuelle,sTicketResto,sDateCreation,sDateModification,sBloque,sRaisonBlocage);
 			retour.add(pers);
 		}
 		;

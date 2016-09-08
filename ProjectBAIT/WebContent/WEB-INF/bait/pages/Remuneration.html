@@ -6,13 +6,13 @@
 		Fonction occup&eacute;e*: <input name="fonction" type="text" onblur="verifNom(this)" style="margin-left: 5px; margin-right: 10px" value="%%fonction%%"><label style="margin-left: 20px">Cadre: </label> <input ID="cadre" name="cadre" value="Cadre" type="radio" checked><label style="margin-left: 20px">Non cadre: </label><input ID="ncadre" name="Cadre" value="NCadre" type="radio">
 	</div>
 	<div ID="formu18">
-		Position: <input name="position" type="text" onblur="verifPosition(this)" style="margin-left: 55px" value="%%position%%"><label style="margin-left: 30px; margin-right: 10px"> Coefficient:</label><input name="Coefficient" onblur="verifCoefficient(this)" type="text" value="%%coefficient%%">
+		Position: <input name="position" type="text" onblur="verifPosition(this)" style="margin-left: 55px" value="%%position%%"><label style="margin-left: 30px; margin-right: 10px"> Coefficient:</label><input name="Coefficient" style="width: 70px" onblur="verifCoefficient(this)" type="text" value="%%coefficient%%">
 	</div>
 	<div ID="formu19">
 		Salaire souhait&eacute;: <input name="salaire" type="text" onblur="verifSalaire(this)" style="margin-left: 9px" value="%%salaire%%">
 	</div>
 	<div ID="formu20">
-		Mutuelle souhait&eacute;e: <label style="margin-left: 25px">oui</label> <input ID="checkOUI" name="mutuelle" value="oui" type="radio" checked> <label style="margin-left: 25px">non</label><input name="mutuelle" value="non" type="radio" ID="checkNON"> Ticket resto: <label style="margin-left: 25px">oui</label> <input ID="checkOUI" value="oui" name="resto" type="radio" checked> <label style="margin-left: 25px">non</label> <input 
+		Mutuelle souhait&eacute;e: <label style="margin-left: 15px">oui</label> <input ID="checkOUI" name="mutuelle" value="oui" type="radio" checked> <label style="margin-left: 25px">non</label><input name="mutuelle" value="non" type="radio" ID="checkNON"> <label style="margin-left: 15px">Ticket resto: </label> <label style="margin-left: 15px">oui</label> <input ID="checkOUI" value="oui" name="resto" type="radio" checked> <label style="margin-left: 25px">non</label> <input 
 			name="resto" value="non" type="radio" ID="checkNON">
 	</div>
 	<div ID="formu21">
@@ -22,9 +22,11 @@
 		Montant Carte d'abonnement transport: <input name="montantTransport" type="text" onblur="verifMontantTransport(this)" style="margin-left: 15px" value="%%montantTransport%%">
 	</div>
 	<div>
-		V&eacute;hicule personnel: <label style="margin-left: 25px">oui</label> <input ID="checkOUI" name="voiture" value="oui" type="radio" checked> <label style="margin-left: 25px">non</label><input name="voiture" value="non" type="radio" ID="checkNON"> 
-		<label style="margin-left: 30px; margin-right: 10px"> Nombre de CV: </label><input name="nbCV" type="text" onblur="verifNbCV(this)">
-		<label style="margin-left: 30px; margin-right: 10px">km mensuel estim&eacute;: </label> <input
+		<label style="margin-left: 100px;"></label> V&eacute;hicule personnel: <label style="margin-left: 15px">oui</label> <input ID="checkOUI" name="voiture" value="oui" type="radio" checked> <label style="margin-left: 25px">non</label><input name="voiture" value="non" type="radio" ID="checkNON"> 
+		<label style="margin-left: 30px; margin-right: 10px"> Nombre de CV: </label><input name="nbCV" style="width: 70px" type="text" onblur="verifNbCV(this)"><br>
+		</div>
+		<div style="margin-top: 5px">
+		<label style="margin-left: 100px; margin-right: 10px">km mensuel estim&eacute;: </label> <input
 			name="nbKm" type="text" onblur="verifKmMensuel(this)" value="%%nbKm%%">
 	</div>
 
