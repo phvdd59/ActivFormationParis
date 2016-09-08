@@ -247,13 +247,13 @@ public class VerifForm {
 			case "salarie":
 				retour = Personne.SALARIE;
 				break;
-			case "autoEntrepreneur":
+			case "auto entrepreneur":
 				retour = Personne.AUTO_ENTREPRENEUR;
 				break;
 			case "freelance":
 				retour = Personne.FREELANCE;
 				break;
-			case "demandeurDEmploi":
+			case "demandeur d'emploi":
 				retour = Personne.DEMANDEUR;
 				break;
 			case "retraite":
