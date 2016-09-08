@@ -1,3 +1,4 @@
+<%@page import="org.apache.jasper.tagplugins.jstl.core.If"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ page import="com.formation.bait.metier.Personne" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -79,7 +80,14 @@
 
 					<input type="submit" name="retour" value="Retour" style="margin-left : 300px">
 				</form>
-				<form method="post" action="http://localhost:8080/ProjectBAIT/ServletPageBloquer2" style="margin-bottom : 50px">
+				<% String test=request.getParameter("empruntee"); %>
+				<% String disab=""; %>
+				<% if(test==("empruntee")){
+					
+					disab="disabled";
+				}
+				%>
+				<form method="post" action="http://localhost:8080/ProjectBAIT/ServletPageBloquer2" <%= disab %> style="margin-bottom : 50px">
 					<input style="margin-left : 180px" type="submit" name="bloquer" value="Bloquer"><input type="text" name="raison" value="indiquer une raison" style="height : 50px;width : 200px"> 
 
 					
