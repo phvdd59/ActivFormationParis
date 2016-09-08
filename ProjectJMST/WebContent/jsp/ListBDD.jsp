@@ -26,7 +26,8 @@ input#inputDeco[type="submit"] {
 }
 
 #list {
-	overflow: auto height: 550px;
+	overflow: auto;
+	height: 550px;
 	width: 700px;
 }
 </style>
