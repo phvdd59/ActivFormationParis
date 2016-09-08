@@ -203,7 +203,7 @@ public class ServletModifieVerifie extends HttpServlet {
 				String[] tabSituation = situationTotal.split(":");
 				String situation = tabSituation[0];
 				String schampsAutre = "";
-				if (situation.contains("autre")){
+				if (situation.contains("autre") && tabSituation.length>1){
 					schampsAutre = tabSituation[1];
 				}
 				

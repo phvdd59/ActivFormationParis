@@ -396,6 +396,9 @@ public class Personne implements Serializable {
 	}
 
 	public String getSituation() {
+		if (situation == null || situation.equals("null")) {
+			situation = "";
+		}
 		return situation;
 	}
 

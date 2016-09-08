@@ -85,7 +85,7 @@ public class ServletModificationFormulaire extends HttpServlet {
 				String[] tabSituation = situationTotal.split(":");
 				String situation = tabSituation[0];
 				String champsAutre = "";
-				if (situation.contains("autre") ){
+				if (situation.contains("autre") && tabSituation.length>1 ){
 					champsAutre = tabSituation[1];
 				}
 				
