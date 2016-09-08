@@ -240,6 +240,9 @@ public class FonctionsCommune {
 		} else {
 			personne.setRaisonBlocage(perso.getMontantTransport());
 		}
+		if (personne.getIdentifiant().equals("Admin")) {
+			personne.setAdmin(true);
+		}
 		return personne;
 
 	}
