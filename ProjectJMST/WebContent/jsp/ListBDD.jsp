@@ -163,15 +163,15 @@ input#inputDeco[type="submit"] {
 					</tr>
 					<%
 						for (int i = 0; i < tabPerso.length; i++) {
-								Personne pers = conversion.conv(tabPerso[i]);
-								System.out.print(pers);
+// 								Personne pers = conversion.conv(tabPerso[i]);
+								System.out.print(tabPerso[i]);
 					%>
 
 					<tr>
-						<td><%=pers.getIdPersonne()%></td>
-						<td><%=pers.getIdentifiant()%></td>
-						<td><%=pers.getNom()%></td>
-						<td><%=pers.getPrenom()%></td>
+						<td><%=tabPerso[i].getIdPersonne()%></td>
+						<td><%=tabPerso[i].getIdentifiant()%></td>
+						<td><%=tabPerso[i].getNom()%></td>
+						<td><%=tabPerso[i].getPrenom()%></td>
 					</tr>
 
 					<%
