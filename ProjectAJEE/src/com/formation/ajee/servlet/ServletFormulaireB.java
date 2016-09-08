@@ -84,7 +84,7 @@ public class ServletFormulaireB extends HttpServlet {
 		bufReadJS.close();
 		
 	
-				
+				 
 		/** Lecture page ActivConsulting */
 		
 		File fileActiv = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/MenuActiv.html");
