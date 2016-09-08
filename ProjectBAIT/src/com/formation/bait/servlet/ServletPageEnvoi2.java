@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.formation.bait.dao.AccesBDDPersonne;
+import com.formation.bait.metier.FonctionsCommune;
 import com.formation.bait.metier.Personne;
 import com.formation.bait.metier.VerifComplet;
 
