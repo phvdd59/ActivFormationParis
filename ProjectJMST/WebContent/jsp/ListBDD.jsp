@@ -147,11 +147,24 @@ input#inputDeco[type="submit"] {
 			%>
 			<form action="ListBDD.jsp">
 				<select name="adresse">
+				<% if (sAdresse.equals("JMST")){
+				%>
 					<option value="JMST" selected>JMST</option>
 					<option value="BAIT">BAIT</option>
 					<option value="AJEE">AJEE</option>
-				</select> <input type="submit" value="valider">
+				<% } else if(sAdresse.equals("BAIT")){
+				%>	
+					<option value="JMST">JMST</option>
+					<option value="BAIT" selected>BAIT</option>
+					<option value="AJEE">AJEE</option>
+				<% } else if(sAdresse.equals("AJEE")){
+				%>
+					<option value="JMST">JMST</option>
+					<option value="BAIT">BAIT</option>
+					<option value="AJEE" selected>AJEE</option>
 				
+				<%} %>
+				</select> <input type="submit" value="valider">
 			</form>
 			<div id="list">
 				<table border="4">
