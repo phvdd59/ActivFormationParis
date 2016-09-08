@@ -73,7 +73,7 @@ public class Personne implements Serializable {
 		this.dateNaissance = new Date();
 	}
 
-	public Personne(int idPersonne, String nom, String prenom, String identifiant, String mdp, String email, String adresse, String cp, String ville, String telFixe, String telPort, String fax, Date dateNaissance, String lieuNaissance, String numSecu, String nationalite, String fonction,
+	public Personne(int idPersonne, String nom, String prenom, String identifiant, String mdp, int sexe, String email, String adresse, String cp, String ville, String telFixe, String telPort, String fax, Date dateNaissance, String lieuNaissance, String numSecu, String nationalite, String situation, String fonction,
 			String positionEntreprise, boolean cadre, String coeff, String salaire, Date visiteMedicale, String montantTransport, boolean voiture, int nbCV, String nbKm, boolean mutuelle, boolean ticketResto, Date dateCreation, Date dateModification, boolean bloque, String raisonBlocage) {
 		super();
 		this.idPersonne = idPersonne;
@@ -81,6 +81,7 @@ public class Personne implements Serializable {
 		this.prenom = prenom;
 		this.identifiant = identifiant;
 		this.mdp = mdp;
+		this.sexe=sexe;
 		this.email = email;
 		this.adresse = adresse;
 		this.cp = cp;
@@ -92,6 +93,7 @@ public class Personne implements Serializable {
 		this.lieuNaissance = lieuNaissance;
 		this.numSecu = numSecu;
 		this.nationalite = nationalite;
+		this.situation=situation;
 		this.fonction = fonction;
 		this.positionEntreprise = positionEntreprise;
 		this.cadre = cadre;
