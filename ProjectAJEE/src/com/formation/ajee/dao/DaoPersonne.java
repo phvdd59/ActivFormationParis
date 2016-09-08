@@ -92,8 +92,7 @@ public class DaoPersonne {
 					String sql29 = " update ajee.personne set nbKm = '" + personne.getNbKm() + "' where idPersonne = '" + personne.getIdPersonne() +"';";
 					String sql30 = " update ajee.personne set mutuelle = " + personne.isMutuelle() + " where idPersonne = '" + personne.getIdPersonne() +"';";
 					String sql31 = " update ajee.personne set ticketResto = " + personne.isTicketResto() + " where idPersonne = '" + personne.getIdPersonne() +"';";
-					String sql36 = " update ajee.personne set dateCreation = " + personne.getDateCreationString() + " where idPersonne = '" + personne.getIdPersonne() +"';";
-					String sql32 = " update ajee.personne set dateModification = " + personne.getDateModificationString()+ " where idPersonne = '" + personne.getIdPersonne() +"';";
+					String sql32 = " update ajee.personne set dateModification = '" + personne.getDateModificationString()+ "' where idPersonne = '" + personne.getIdPersonne() +"';";
 					String sql33 = " update ajee.personne set bloque = " + personne.isBloque() + " where idPersonne = '" + personne.getIdPersonne() +"';";
 					String sql34 = " update ajee.personne set raisonBlocage = '" + personne.getRaisonBlocage() + "' where idPersonne = '" + personne.getIdPersonne() +"';";
 					String sql35 = " update ajee.personne set listeDoc = '" + personne.getListeDoc() + "' where idPersonne = '" + personne.getIdPersonne() + "';";
@@ -127,7 +126,6 @@ public class DaoPersonne {
 					stat.executeUpdate(sql29);
 					stat.executeUpdate(sql30);
 					stat.executeUpdate(sql31);
-					stat.executeUpdate(sql36);
 					stat.executeUpdate(sql32);
 					stat.executeUpdate(sql33);
 					stat.executeUpdate(sql34);
