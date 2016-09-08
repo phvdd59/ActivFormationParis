@@ -39,32 +39,19 @@ public class AccesBDDPersonne {
 			conn = DriverManager.getConnection(url, user, pass);
 			stat = conn.createStatement();
 
-			String sql = "UPDATE listeUser set identifiant='" + personne.getIdentifiant() + "', mdp='"
-					+ personne.getMdp() + //
-					"', email='" + personne.getEmail() + "', nom='" + personne.getNom() + "', prenom='"
-					+ personne.getPrenom() + //
-					"', adresse='" + personne.getAdresse() + "', cp='" + personne.getcP() + "', ville='"
-					+ personne.getVille() + //
-					"', telFixe='" + personne.getTelFixe() + "', telPort='" + personne.getTelPort() + "', fax='"
-					+ personne.getFax() + //
-					"', dateNaissance='" + personne.getDateNaissance() + "', lieuNaissance='"
-					+ personne.getLieuNaissance() + //
-					"', numSecu='" + personne.getNumSecu() + "', Nationalite='" + personne.getNationalite()
-					+ "', situation='" + personne.getSituation() + "', fonction='" + //
-					personne.getFonction() + "', positionEntreprise='" + personne.getPosition() + "', cadre='"
-					+ booleanConverter(personne.isCadre()) + //
-					"', coeff='" + personne.getCoeff() + "', salaire='" + personne.getSalaire() + "', visiteMedicale='"
-					+ //
-					personne.getVisiteMedicale() + "', montantTransport='" + personne.getMontantTransport()
-					+ "', voiture='" + //
-					booleanConverter(personne.isVoiture()) + "', nbCV='" + personne.getNbCV() + "', nbKm='"
-					+ personne.getNdKm() + "', mutuelle='" + //
-					booleanConverter(personne.isMutuelle()) + "', ticketResto='" + booleanConverter(personne.isTicket())
-					+ "', admin='" + booleanConverter(personne.isAdmin()) + //
-					"', dateCreation='" + personne.getDateCreation() + "', dateModification='"
-					+ personne.getDateModification() + //
-					"', bloque='" + booleanConverter(personne.isBloque()) + "', raisonBlocage='"
-					+ personne.getRaisonBlocage() + "' WHERE IDPersonne=" + personne.getIdPersonne() + ";";
+			String sql = "UPDATE listeUser set identifiant='" + personne.getIdentifiant() + "', mdp='" + personne.getMdp() + //
+					"', email='" + personne.getEmail() + "', nom='" + personne.getNom() + "', prenom='" + personne.getPrenom() + //
+					"', adresse='" + personne.getAdresse() + "', cp='" + personne.getcP() + "', ville='" + personne.getVille() + //
+					"', telFixe='" + personne.getTelFixe() + "', telPort='" + personne.getTelPort() + "', fax='" + personne.getFax() + //
+					"', dateNaissance='" + personne.getDateNaissance() + "', lieuNaissance='" + personne.getLieuNaissance() + //
+					"', numSecu='" + personne.getNumSecu() + "', Nationalite='" + personne.getNationalite() + "', situation='" + personne.getSituation() + "', fonction='" + //
+					personne.getFonction() + "', positionEntreprise='" + personne.getPosition() + "', cadre='" + booleanConverter(personne.isCadre()) + //
+					"', coeff='" + personne.getCoeff() + "', salaire='" + personne.getSalaire() + "', visiteMedicale='" + //
+					personne.getVisiteMedicale() + "', montantTransport='" + personne.getMontantTransport() + "', voiture='" + //
+					booleanConverter(personne.isVoiture()) + "', nbCV='" + personne.getNbCV() + "', nbKm='" + personne.getNdKm() + "', mutuelle='" + //
+					booleanConverter(personne.isMutuelle()) + "', ticketResto='" + booleanConverter(personne.isTicket()) + "', admin='" + booleanConverter(personne.isAdmin()) + //
+					"', dateCreation='" + personne.getDateCreation() + "', dateModification='" + personne.getDateModification() + //
+					"', bloque='" + booleanConverter(personne.isBloque()) + "', raisonBlocage='" + personne.getRaisonBlocage() + "' WHERE IDPersonne=" + personne.getIdPersonne() + ";";
 			resultInt = stat.executeUpdate(sql);
 			System.out.println(sql);
 			result = true;
@@ -109,27 +96,17 @@ public class AccesBDDPersonne {
 			stat = conn.createStatement();
 
 			String sql = "insert into listeUserEmpruntee (identifiant,mdp,email,nom,prenom,adresse,cp,ville," + //
-					"telFixe,telPort,fax,dateNaissance,lieuNaissance,numSecu,Nationalite,situation,fonction,positionEntreprise,"
-					+ //
-					"cadre,coeff,salaire,visiteMedicale,montantTransport,voiture,nbCV,nbKm,mutuelle,ticketResto,admin,"
-					+ //
-					"dateCreation,dateModification,bloque,raisonBlocage) values ('" + personne.getIdentifiant() + "','"
-					+ //
-					personne.getMdp() + "','" + personne.getEmail() + "','" + personne.getNom() + "','"
-					+ personne.getPrenom() + "','" + //
-					personne.getAdresse() + "','" + personne.getcP() + "','" + personne.getVille() + "','"
-					+ personne.getTelFixe() + "','" + //
+					"telFixe,telPort,fax,dateNaissance,lieuNaissance,numSecu,Nationalite,situation,fonction,positionEntreprise," + //
+					"cadre,coeff,salaire,visiteMedicale,montantTransport,voiture,nbCV,nbKm,mutuelle,ticketResto,admin," + //
+					"dateCreation,dateModification,bloque,raisonBlocage) values ('" + personne.getIdentifiant() + "','" + //
+					personne.getMdp() + "','" + personne.getEmail() + "','" + personne.getNom() + "','" + personne.getPrenom() + "','" + //
+					personne.getAdresse() + "','" + personne.getcP() + "','" + personne.getVille() + "','" + personne.getTelFixe() + "','" + //
 					personne.getTelPort() + "','" + personne.getFax() + "','" + personne.getDateNaissance() + "','" + //
-					personne.getLieuNaissance() + "','" + personne.getNumSecu() + "','" + personne.getNationalite()
-					+ "','" + personne.getSituation() + "','" + //
-					personne.getFonction() + "','" + personne.getPosition() + "','"
-					+ booleanConverter(personne.isCadre()) + "','" + personne.getCoeff() + "','" + //
-					personne.getSalaire() + "','" + personne.getVisiteMedicale() + "','"
-					+ personne.getMontantTransport() + "','" + //
-					booleanConverter(personne.isVoiture()) + "','" + personne.getNbCV() + "','" + personne.getNdKm()
-					+ "','" + booleanConverter(personne.isMutuelle()) + "','" + //
-					booleanConverter(personne.isTicket()) + "','" + booleanConverter(personne.isAdmin()) + "','"
-					+ personne.getDateCreation() + "','" + personne.getDateModification() + "','" + //
+					personne.getLieuNaissance() + "','" + personne.getNumSecu() + "','" + personne.getNationalite() + "','" + personne.getSituation() + "','" + //
+					personne.getFonction() + "','" + personne.getPosition() + "','" + booleanConverter(personne.isCadre()) + "','" + personne.getCoeff() + "','" + //
+					personne.getSalaire() + "','" + personne.getVisiteMedicale() + "','" + personne.getMontantTransport() + "','" + //
+					booleanConverter(personne.isVoiture()) + "','" + personne.getNbCV() + "','" + personne.getNdKm() + "','" + booleanConverter(personne.isMutuelle()) + "','" + //
+					booleanConverter(personne.isTicket()) + "','" + booleanConverter(personne.isAdmin()) + "','" + personne.getDateCreation() + "','" + personne.getDateModification() + "','" + //
 					booleanConverter(personne.isBloque()) + "','" + personne.getRaisonBlocage() + "');";
 
 			stat.executeUpdate(sql);
@@ -176,27 +153,17 @@ public class AccesBDDPersonne {
 			stat = conn.createStatement();
 
 			String sql = "insert into listeUser (identifiant,mdp,email,nom,prenom,adresse,cp,ville," + //
-					"telFixe,telPort,fax,dateNaissance,lieuNaissance,numSecu,Nationalite,situation,fonction,positionEntreprise,"
-					+ //
-					"cadre,coeff,salaire,visiteMedicale,montantTransport,voiture,nbCV,nbKm,mutuelle,ticketResto,admin,"
-					+ //
-					"dateCreation,dateModification,bloque,raisonBlocage) values ('" + personne.getIdentifiant() + "','"
-					+ //
-					personne.getMdp() + "','" + personne.getEmail() + "','" + personne.getNom() + "','"
-					+ personne.getPrenom() + "','" + //
-					personne.getAdresse() + "','" + personne.getcP() + "','" + personne.getVille() + "','"
-					+ personne.getTelFixe() + "','" + //
+					"telFixe,telPort,fax,dateNaissance,lieuNaissance,numSecu,Nationalite,situation,fonction,positionEntreprise," + //
+					"cadre,coeff,salaire,visiteMedicale,montantTransport,voiture,nbCV,nbKm,mutuelle,ticketResto,admin," + //
+					"dateCreation,dateModification,bloque,raisonBlocage) values ('" + personne.getIdentifiant() + "','" + //
+					personne.getMdp() + "','" + personne.getEmail() + "','" + personne.getNom() + "','" + personne.getPrenom() + "','" + //
+					personne.getAdresse() + "','" + personne.getcP() + "','" + personne.getVille() + "','" + personne.getTelFixe() + "','" + //
 					personne.getTelPort() + "','" + personne.getFax() + "','" + personne.getDateNaissance() + "','" + //
-					personne.getLieuNaissance() + "','" + personne.getNumSecu() + "','" + personne.getNationalite()
-					+ "','" + personne.getSituation() + "','" + //
-					personne.getFonction() + "','" + personne.getPosition() + "','"
-					+ booleanConverter(personne.isCadre()) + "','" + personne.getCoeff() + "','" + //
-					personne.getSalaire() + "','" + personne.getVisiteMedicale() + "','"
-					+ personne.getMontantTransport() + "','" + //
-					booleanConverter(personne.isVoiture()) + "','" + personne.getNbCV() + "','" + personne.getNdKm()
-					+ "','" + booleanConverter(personne.isMutuelle()) + "','" + //
-					booleanConverter(personne.isTicket()) + "','" + booleanConverter(personne.isAdmin()) + "','"
-					+ personne.getDateCreation() + "','" + personne.getDateModification() + "','" + //
+					personne.getLieuNaissance() + "','" + personne.getNumSecu() + "','" + personne.getNationalite() + "','" + personne.getSituation() + "','" + //
+					personne.getFonction() + "','" + personne.getPosition() + "','" + booleanConverter(personne.isCadre()) + "','" + personne.getCoeff() + "','" + //
+					personne.getSalaire() + "','" + personne.getVisiteMedicale() + "','" + personne.getMontantTransport() + "','" + //
+					booleanConverter(personne.isVoiture()) + "','" + personne.getNbCV() + "','" + personne.getNdKm() + "','" + booleanConverter(personne.isMutuelle()) + "','" + //
+					booleanConverter(personne.isTicket()) + "','" + booleanConverter(personne.isAdmin()) + "','" + personne.getDateCreation() + "','" + personne.getDateModification() + "','" + //
 					booleanConverter(personne.isBloque()) + "','" + personne.getRaisonBlocage() + "');";
 
 			stat.executeUpdate(sql);
@@ -422,8 +389,7 @@ public class AccesBDDPersonne {
 			conn = DriverManager.getConnection(url, user, pass);
 			stat = conn.createStatement();
 
-			response.getWriter().append(
-					"<div style=\"text-align: center; margin-left:80px; width:350px; max-height:420px; overflow:auto\">");
+			response.getWriter().append("<div style=\"text-align: center; margin-left:80px; width:350px; max-height:420px; overflow:auto\">");
 			String sql = "SELECT * FROM listeUser Where admin=0 order by nom;";
 			ResultSet resultat = stat.executeQuery(sql);
 			char lettre = 'Z';
@@ -434,15 +400,10 @@ public class AccesBDDPersonne {
 					response.getWriter().append(lettre);
 					response.getWriter().append("</div>");
 				}
-				response.getWriter().append(
-						"<form method=\"post\" action=\"http://"+FonctionsCommune.HOST+":8080/ProjectBAIT/ServletPageExamCandidat2\">");
-				response.getWriter().append("<input type=\"hidden\" value=\"" + resultat.getString("IDPersonne")
-						+ "\" name=\"IDcandidat\" />");
+				response.getWriter().append("<form method=\"post\" action=\"http://" + FonctionsCommune.HOST + ":8080/ProjectBAIT/ServletPageExamCandidat2\">");
+				response.getWriter().append("<input type=\"hidden\" value=\"" + resultat.getString("IDPersonne") + "\" name=\"IDcandidat\" />");
 				response.getWriter().append("<input type=\"hidden\" value=\"notre\" name=\"BDDorigine\" />");
-				response.getWriter()
-						.append("<input type=\"submit\" style=\"width: 250px;\" value=\"" + resultat.getString("nom")
-								+ " " + resultat.getString("prenom") + "\" name=\"" + resultat.getString("nom")
-								+ "\" /><br>");
+				response.getWriter().append("<input type=\"submit\" style=\"width: 250px;\" value=\"" + resultat.getString("nom") + " " + resultat.getString("prenom") + "\" name=\"" + resultat.getString("nom") + "\" /><br>");
 				response.getWriter().append("</form>");
 			}
 			response.getWriter().append("</div>");
@@ -462,27 +423,22 @@ public class AccesBDDPersonne {
 			conn = DriverManager.getConnection(url, user, pass);
 			stat = conn.createStatement();
 
-			response.getWriter().append(
-					"<div style=\"text-align: center; margin-left:80px; width:350px; max-height:420px; overflow:auto\">");
+			response.getWriter().append("<div style=\"text-align: center; margin-left:80px; width:350px; max-height:420px; overflow:auto\">");
 			String sql = "SELECT * FROM listeUserEmpruntee Where admin=0 order by nom;";
 			ResultSet resultat = stat.executeQuery(sql);
 			char lettre = 'Z';
 			while (resultat.next()) {
 				if (!resultat.getString("nom").startsWith(Character.toString(lettre))) {
+
 					lettre = resultat.getString("nom").charAt(0);
 					response.getWriter().append("<div style=\"margin-top: 12px; font-size:150%;\">");
 					response.getWriter().append(lettre);
 					response.getWriter().append("</div>");
 				}
-				response.getWriter().append(
-						"<form method=\"post\" action=\"http://"+FonctionsCommune.HOST+":8080/ProjectBAIT/ServletPageExamCandidat2\">");
-				response.getWriter().append("<input type=\"hidden\" value=\"" + resultat.getString("IDPersonne")
-						+ "\" name=\"IDcandidat\" />");
+				response.getWriter().append("<form method=\"post\" action=\"http://" + FonctionsCommune.HOST + ":8080/ProjectBAIT/ServletPageExamCandidat2\">");
+				response.getWriter().append("<input type=\"hidden\" value=\"" + resultat.getString("IDPersonne") + "\" name=\"IDcandidat\" />");
 				response.getWriter().append("<input type=\"hidden\" value=\"empruntee\" name=\"BDDorigine\" />");
-				response.getWriter()
-						.append("<input type=\"submit\" style=\"width: 250px;\" value=\"" + resultat.getString("nom")
-								+ " " + resultat.getString("prenom") + "\" name=\"" + resultat.getString("nom")
-								+ "\" /><br>");
+				response.getWriter().append("<input type=\"submit\" style=\"width: 250px;\" value=\"" + resultat.getString("nom") + " " + resultat.getString("prenom") + "\" name=\"" + resultat.getString("nom") + "\" /><br>");
 				response.getWriter().append("</form>");
 			}
 			response.getWriter().append("</div>");
