@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <data-sources>
-	<data-source id="mysql3-156eafee9fa-68acf22495ce8dde" provider="generic" driver="mysql3" name="MySQL 3.x - ajee" create-date="1472821422682" save-password="true" show-system-objects="true" read-only="false">
+	<data-source id="mysql3-156eafee9fa-68acf22495ce8dde" provider="generic" driver="mysql3" name="MySQL 3.x - ajee" create-date="1472821422682" login-date="1473324143939" save-password="true" show-system-objects="true" read-only="false">
 		<connection host="www.psyeval.fr" port="3306" server="" database="ajee" url="jdbc:mysql://www.psyeval.fr:3306/ajee" user="ajee" password="FhYUJVRRQQICE2bf" type="dev">
 			<network-handler type="TUNNEL" id="ssh_tunnel" enabled="false" user="" save-password="false">
 				<property name="port" value="22"/>
@@ -14,5 +14,51 @@
 			</network-handler>
 			<bootstrap/>
 		</connection>
+		<virtual-meta-data>
+			<container name="model">
+				<container name="ajee">
+					<entity name="emma">
+						<constraint name="PRIMARY" type="VIRTUAL KEY">
+							<attribute name="idPersonne"/>
+							<attribute name="nom"/>
+							<attribute name="prenom"/>
+							<attribute name="sexe"/>
+							<attribute name="identifiant"/>
+							<attribute name="mdp"/>
+							<attribute name="email"/>
+							<attribute name="adresse"/>
+							<attribute name="cp"/>
+							<attribute name="ville"/>
+							<attribute name="telFixe"/>
+							<attribute name="telPort"/>
+							<attribute name="fax"/>
+							<attribute name="dateNaissance"/>
+							<attribute name="lieuNaissance"/>
+							<attribute name="numSecu"/>
+							<attribute name="nationalite"/>
+							<attribute name="situation"/>
+							<attribute name="fonction"/>
+							<attribute name="positionEntreprise"/>
+							<attribute name="cadre"/>
+							<attribute name="coeff"/>
+							<attribute name="salaire"/>
+							<attribute name="visiteMedicale"/>
+							<attribute name="montantTransport"/>
+							<attribute name="voiture"/>
+							<attribute name="nbCV"/>
+							<attribute name="nbKm"/>
+							<attribute name="mutuelle"/>
+							<attribute name="ticketResto"/>
+							<attribute name="dateCreation"/>
+							<attribute name="dateModification"/>
+							<attribute name="bloque"/>
+							<attribute name="raisonBlocage"/>
+							<attribute name="listeDoc"/>
+						</constraint>
+					</entity>
+				</container>
+			</container>
+		</virtual-meta-data>
+		<custom-property name="resultset.edit.key.use_all_columns" value="false"/>
 	</data-source>
 </data-sources>

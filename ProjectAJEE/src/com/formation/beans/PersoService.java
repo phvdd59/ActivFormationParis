@@ -13,23 +13,23 @@ public class PersoService implements InterPersoService {
 
 	@Override
 	public Perso getPerso(int id) {
-		Perso perso=new Perso();
+		Perso perso = new Perso();
 		perso.setIdPersonne(id);
 		perso.setNom("yoollllooo");
-		
+
 		return perso;
 	}
 
 	@Override
 	public Perso[] getPersos() {
-DaoBDD dao1=new DaoBDD();
-		ArrayList<Perso> lst=dao1.lectureTableBackUpPerso();
+		DaoBDD dao1 = new DaoBDD();
+		ArrayList<Perso> lst = dao1.lectureTableBackUpPerso();
 
-		Perso[] tabPerso=new Perso[lst.size()];
-	
-	for (int i = 0; i < tabPerso.length; i++) {
-		tabPerso[i]=lst.get(i);
-	}
+		Perso[] tabPerso = new Perso[lst.size()];
+
+		for (int i = 0; i < tabPerso.length; i++) {
+			tabPerso[i] = lst.get(i);
+		}
 		return tabPerso;
 	}
 }

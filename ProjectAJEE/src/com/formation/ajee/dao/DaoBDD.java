@@ -66,7 +66,7 @@ public class DaoBDD {
 			connexion = DriverManager.getConnection(DB_URL, user, pass);
 			statement = connexion.createStatement();
 
-			String sql = "insert into bdd " + " (nom, prenom, sexe, identifiant, mdp, email, adresse, cp, ville, telFixe, telPort, fax,"
+			String sql = "insert into personne " + " (nom, prenom, sexe, identifiant, mdp, email, adresse, cp, ville, telFixe, telPort, fax,"
 					+ " dateNaissance, lieuNaissance, numSecu, " + "nationalite, situation, fonction, positionEntreprise, cadre, coeff,"
 					+ " salaire, visiteMedicale, montantTransport, voiture, nbCV, nbKm, mutuelle, " + "ticketResto, dateCreation,"
 					+ " dateModification, bloque, raisonBlocage, listeDoc) values ('" 
@@ -99,7 +99,7 @@ public class DaoBDD {
 			Class.forName(JDBC_DRIVER);
 			conn = DriverManager.getConnection(DB_URL, user, pass);
 			stat = conn.createStatement();
-			String sql = "DELETE from ajee.bdd;";
+			String sql = "DELETE from ajee.personne where idPersonne > 1;";
 			stat.executeUpdate(sql);
 			System.out.println("Delete terminer");
 		} catch (ClassNotFoundException e) {
@@ -117,7 +117,7 @@ public class DaoBDD {
 			Class.forName(JDBC_DRIVER);
 			conn = DriverManager.getConnection(DB_URL, user, pass);
 			stat = conn.createStatement();
-			String sql = "DELETE from ajee.backup;";
+			String sql = "DELETE from ajee.backup where ;";
 			stat.executeUpdate(sql);
 			System.out.println("Delete terminer");
 		} catch (ClassNotFoundException e) {
@@ -136,7 +136,7 @@ public class DaoBDD {
 			Class.forName(JDBC_DRIVER);
 			conne = DriverManager.getConnection(DB_URL, user, pass);
 			stat = conne.createStatement();
-			String sql = "SELECT * FROM personne;";
+			String sql = "SELECT * FROM backup;";
 			ResultSet resultat = stat.executeQuery(sql);
 			while (resultat.next()) {
 				int sIdPersonne = resultat.getInt("idPersonne");
@@ -210,9 +210,10 @@ public class DaoBDD {
 			stat = conne.createStatement();
 			String sql = "SELECT * FROM personne;";
 			ResultSet resultat = stat.executeQuery(sql);
-			Perso perso = new Perso();
+			
 			
 			while (resultat.next()) {
+				Perso perso = new Perso();
 				 perso.setIdPersonne(resultat.getInt("idPersonne"));
 				perso.setNom(resultat.getString("nom"));
 				perso.setPrenom(resultat.getString("prenom"));
