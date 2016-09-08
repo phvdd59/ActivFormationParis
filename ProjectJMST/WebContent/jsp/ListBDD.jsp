@@ -133,9 +133,7 @@ input#inputDeco[type="submit"] {
 				Service service = Service.create(wsdlURL, qname);
 				InterPersoService ps = service.getPort(InterPersoService.class);
 				Perso[] tabPerso = ps.getPersos();
-
-				System.out.println(Arrays.toString(tabPerso));
-				System.out.println(wsdlURL);
+				session.setAttribute("tabPerso", tabPerso);
 
 				ConversionPersoToPersonne conversion = new ConversionPersoToPersonne();
 
@@ -148,25 +146,32 @@ input#inputDeco[type="submit"] {
 			%>
 			<form action="ListBDD.jsp">
 				<select name="adresse">
-				<% if (sAdresse.equals("JMST")){
-				%>
+					<%
+						if (sAdresse.equals("JMST")) {
+					%>
 					<option value="JMST" selected>JMST</option>
 					<option value="BAIT">BAIT</option>
 					<option value="AJEE">AJEE</option>
-				<% } else if(sAdresse.equals("BAIT")){
-				%>	
+					<%
+						} else if (sAdresse.equals("BAIT")) {
+					%>
 					<option value="JMST">JMST</option>
 					<option value="BAIT" selected>BAIT</option>
 					<option value="AJEE">AJEE</option>
-				<% } else if(sAdresse.equals("AJEE")){
-				%>
+					<%
+						} else if (sAdresse.equals("AJEE")) {
+					%>
 					<option value="JMST">JMST</option>
 					<option value="BAIT">BAIT</option>
 					<option value="AJEE" selected>AJEE</option>
-				
-				<%} %>
+
+					<%
+						}
+					%>
 				</select> <input type="submit" value="valider">
 			</form>
+			<form action="ServletJoca"></form>
+			<input type="submit" value="Ecrire sur BDD">
 			<div id="list">
 				<table border="4">
 					<tr>
@@ -177,7 +182,7 @@ input#inputDeco[type="submit"] {
 					</tr>
 					<%
 						for (int i = 0; i < tabPerso.length; i++) {
-// 								Personne pers = conversion.conv(tabPerso[i]);
+								// 								Personne pers = conversion.conv(tabPerso[i]);
 								System.out.print(tabPerso[i]);
 					%>
 
