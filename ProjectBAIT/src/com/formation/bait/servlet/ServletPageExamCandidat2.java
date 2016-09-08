@@ -40,8 +40,6 @@ public class ServletPageExamCandidat2 extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		String sNoSuiviClient = request.getParameter("suiviClient");
-		String sNbAppelClient = request.getParameter("nbAppelClient");
 		AccesBDDPersonne bddPersonne = new AccesBDDPersonne();
 		Personne personne = new Personne();
 

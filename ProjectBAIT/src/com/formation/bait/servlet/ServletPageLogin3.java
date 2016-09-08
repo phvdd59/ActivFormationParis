@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.formation.bait.dao.AccesBDDPersonne;
+import com.formation.bait.metier.FonctionsCommune;
 
 /**
  * Servlet implementation class Servlet1
@@ -39,7 +40,7 @@ public class ServletPageLogin3 extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		FonctionsCommune fct = new FonctionsCommune();
 		HttpSession session = request.getSession(true);
 		String noSuivi = "";
 		for (int i = 0; i < 2; i++) {
@@ -55,32 +56,7 @@ public class ServletPageLogin3 extends HttpServlet {
 		session.setAttribute("nbAppel", new Integer(0));
 		session.setAttribute("servlet", "Login");
 		session.setAttribute("methode", "GET");
-
-		File file = new File(
-				"C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/hautDePageActiv.html");
-		BufferedReader bIn = null;
-		InputStreamReader inputStreamReader = null;
-		try {
-			inputStreamReader = new InputStreamReader(new FileInputStream(file), "UTF-8"); // pour
-			// texte
-			bIn = new BufferedReader(inputStreamReader);
-			String line = bIn.readLine();
-			while (line != null) {
-				// System.out.println(line);
-				response.getWriter().append(line + "\n");
-				line = bIn.readLine();
-			}
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				bIn.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
+		fct.AfficherHautDePage(response);
 		File file2 = new File(
 				"C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/Login.html");
 		BufferedReader bIn2 = null;
@@ -106,47 +82,14 @@ public class ServletPageLogin3 extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		File file3 = new File(
-				"C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/basDePageActiv.html");
-		BufferedReader bIn3 = null;
-		InputStreamReader inputStreamReader3 = null;
-		try
-
-		{
-			inputStreamReader3 = new InputStreamReader(new FileInputStream(file3), "UTF-8");
-			bIn3 = new BufferedReader(inputStreamReader3);
-			String line3 = bIn3.readLine();
-			while (line3 != null) {
-				// System.out.println(line);
-				response.getWriter().append(line3);
-				line3 = bIn3.readLine();
-			}
-		} catch (
-
-		FileNotFoundException e)
-
-		{
-			e.printStackTrace();
-		} catch (
-
-		IOException e)
-
-		{
-			e.printStackTrace();
-		} finally
-
-		{
-			try {
-				bIn3.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
+		fct.AfficherBasDePage(response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		HttpSession session = request.getSession();
+		HttpSession session = request.getSession();		
+		FonctionsCommune fonctions = new FonctionsCommune();
+
 		Object oNoSuivi = session.getAttribute("suivi");
 		if (oNoSuivi != null) {
 			String IdPersonne = request.getParameter("nom");

@@ -49,8 +49,6 @@ public class ServletPageSituation2 extends HttpServlet {
 			throws ServletException, IOException {
 		FonctionsCommune fonctions = new FonctionsCommune();
 		HttpSession session = request.getSession();
-		String sNoSuiviClient = request.getParameter("suiviClient");
-		String sNbAppelClient = request.getParameter("nbAppelClient");
 		Object oNoSuivi = session.getAttribute("suivi");
 		if (oNoSuivi != null) {
 			session.setAttribute("servlet", "Situation");

@@ -48,6 +48,7 @@ public class ServletPageBloquer2 extends HttpServlet {
 
 		Object oNoSuivi = session.getAttribute("suivi");
 		if (session != null && oNoSuivi != null) {
+			
 			personne = (Personne) session.getAttribute("Personne");
 			// System.out.println("Personne : " +personne.getIdPersonne());
 			int nbAppel = ((Integer) session.getAttribute("nbAppel")).intValue();
@@ -62,7 +63,7 @@ public class ServletPageBloquer2 extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher("//ServletListeCandidatsAdmin");
 			rd.forward(request, response);
 			
-
+			
 		} else {
 			session.invalidate();
 			RequestDispatcher rd = request.getRequestDispatcher("//ServletPageLogin3");

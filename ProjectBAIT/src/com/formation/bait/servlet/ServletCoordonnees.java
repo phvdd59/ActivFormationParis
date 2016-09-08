@@ -48,8 +48,6 @@ public class ServletCoordonnees extends HttpServlet {
 			throws ServletException, IOException {
 		FonctionsCommune fonctions = new FonctionsCommune();
 		HttpSession session = request.getSession();
-		String sNoSuiviClient = request.getParameter("suiviClient");
-		String sNbAppelClient = request.getParameter("nbAppelClient");
 		Object oNoSuivi = session.getAttribute("suivi");
 		if (oNoSuivi != null) {
 			session.setAttribute("servlet", "Coordonees");
@@ -107,7 +105,7 @@ public class ServletCoordonnees extends HttpServlet {
 			fonctions.AfficherBasDePage(response);
 
 		} else {
-			//session.invalidate();
+			session.invalidate();
 			RequestDispatcher rd = request.getRequestDispatcher("//ServletLogin3");
 			rd.forward(request, response);
 		}

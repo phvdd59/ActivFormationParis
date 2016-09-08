@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.formation.bait.dao.AccesBDDPersonne;
+import com.formation.bait.metier.FonctionsCommune;
 
 /**
  * Servlet implementation class Servlet1
@@ -36,95 +37,42 @@ public class ServletListeCandidatsAdmin2Empruntee extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
 		RequestDispatcher rd = request.getRequestDispatcher("//ServletLogin3");
 		rd.forward(request, response);
 
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession(true);
-		String noSuivi = "";
-		for (int i = 0; i < 2; i++) {
-			int k = (int) (Math.random() * 26) + 1;
-			noSuivi += String.valueOf((char) (k + 64));
-		}
-		noSuivi += "_";
-		for (int i = 0; i < 8; i++) {
-			int k = (int) (Math.random() * 10);
-			noSuivi += k;
-		}
-		session.setAttribute("suivi", noSuivi);
-		session.setAttribute("nbAppel", new Integer(0));
-		session.setAttribute("servlet", "Login");
-		session.setAttribute("methode", "GET");
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		FonctionsCommune fct = new FonctionsCommune();
+		HttpSession session = request.getSession();
+		Object oNoSuivi = session.getAttribute("suivi");
+		if (oNoSuivi != null) {
+			session.setAttribute("servlet", "ListeCandidats");
+			session.setAttribute("methode", "POST");
+			String bdd =request.getParameter("BDD");
+			int nbAppel = ((Integer) session.getAttribute("nbAppel")).intValue();
+			nbAppel++;
+			session.setAttribute("nbAppel", Integer.valueOf(nbAppel));
+			fct.AfficherHautDePage(response);
+			// ___ Afficher la liste ___
+			AccesBDDPersonne acces = new AccesBDDPersonne();
+			acces.accesAutresBDD(bdd);
+			acces.afficherListeCandidatsEmpruntee(response);
 
-		File file = new File("C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/hautDePageActiv.html");
-		BufferedReader bIn = null;
-		InputStreamReader inputStreamReader = null;
-		try {
-			inputStreamReader = new InputStreamReader(new FileInputStream(file), "UTF-8"); // pour
-			// texte
-			bIn = new BufferedReader(inputStreamReader);
-			String line = bIn.readLine();
-			while (line != null) {
-				// System.out.println(line);
-				response.getWriter().append(line + "\n");
-				line = bIn.readLine();
-			}
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				bIn.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-		// ___ Afficher la liste ___
-		AccesBDDPersonne acces = new AccesBDDPersonne();
-		acces.afficherListeCandidatsEmpruntee(response);
+			response.getWriter().append(
+					"<div style=\"margin-top:30px; margin-left:80px;\"> <form method=\"post\" action=\"http://localhost:8080/ProjectBAIT/ServletListeCandidatsAdmin\"> <input type=\"submit\" name=\"BDD BAIT\" value=\"BDD BAIT\"> </form> </div>");
+			response.getWriter().append(
+					"<div style=\"margin-top:30px; margin-left:80px;\"> <form method=\"post\" action=\"http://localhost:8080/ProjectBAIT/ServletDeconnection\"> <input type=\"submit\" name=\"disconnect\" value=\"Deconnexion\"> </form> </div>");
 
-		response.getWriter().append("<div style=\"margin-top:30px; margin-left:80px;\"> <form method=\"post\" action=\"http://localhost:8080/ProjectBAIT/ServletListeCandidatsAdmin\"> <input type=\"submit\" name=\"BDD BAIT\" value=\"BDD BAIT\"> </form> </div>");
-		response.getWriter().append("<div style=\"margin-top:30px; margin-left:80px;\"> <form method=\"post\" action=\"http://localhost:8080/ProjectBAIT/ServletDeconnection\"> <input type=\"submit\" name=\"disconnect\" value=\"Deconnexion\"> </form> </div>");
-		
-		File file3 = new File("C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/basDePageActiv.html");
-		BufferedReader bIn3 = null;
-		InputStreamReader inputStreamReader3 = null;
-		try
-
-		{
-			inputStreamReader3 = new InputStreamReader(new FileInputStream(file3), "UTF-8");
-			bIn3 = new BufferedReader(inputStreamReader3);
-			String line3 = bIn3.readLine();
-			while (line3 != null) {
-				// System.out.println(line);
-				response.getWriter().append(line3);
-				line3 = bIn3.readLine();
-			}
-		} catch (
-
-		FileNotFoundException e)
-
-		{
-			e.printStackTrace();
-		} catch (
-
-		IOException e)
-
-		{
-			e.printStackTrace();
-		} finally
-
-		{
-			try {
-				bIn3.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+			fct.AfficherBasDePage(response);
+		} else {
+			session.invalidate();
+			RequestDispatcher rd = request.getRequestDispatcher("//ServletLogin3");
+			rd.forward(request, response);
 		}
 	}
 

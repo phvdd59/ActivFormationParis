@@ -48,8 +48,6 @@ public class ServletPageRemuneration2 extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		FonctionsCommune fonctions = new FonctionsCommune();
-		String sNoSuiviClient = request.getParameter("suiviClient");
-		String sNbAppelClient = request.getParameter("nbAppelClient");
 		Object oNoSuivi = session.getAttribute("suivi");
 		if (oNoSuivi != null) {
 			session.setAttribute("servlet", "Remuneration");
