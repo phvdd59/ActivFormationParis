@@ -13,6 +13,7 @@ public class Elmt implements Comparable<Elmt> {
 	private float largeur;
 	private float hauteur;
 	private ArrayList<MATERIAUX> materiaux;
+	
 
 	public Elmt(TRI tri, int numero, String nom, int nb, String unite, float longueur, float largeur, float hauteur) {
 		this.tri = tri;
