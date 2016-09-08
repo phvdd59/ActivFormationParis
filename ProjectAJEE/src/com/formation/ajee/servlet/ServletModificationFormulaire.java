@@ -191,7 +191,7 @@ public class ServletModificationFormulaire extends HttpServlet {
 						lineDoc1 = lineDoc1.replace("%nationalite%", nationalite);
 					}
 					if (lineDoc1.contains("%situation%")) {
-						lineDoc1 = lineDoc1.replace("%situation%", situation+ " " + champsAutre);
+						lineDoc1 = lineDoc1.replace("%situation%", situation);
 					}
 					if (lineDoc1.contains("%autre%")) {
 						lineDoc1 = lineDoc1.replace("%autre%", champsAutre);
