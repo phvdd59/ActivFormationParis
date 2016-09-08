@@ -2,7 +2,7 @@ package com.formation.soka.exo;
 
 import java.util.ArrayList;
 
-import com.formation.soka.a.TRI;
+import com.formation.soka.exo.TRI;
 
 public class Elmt implements Comparable<Elmt> {
 	private TRI tri;

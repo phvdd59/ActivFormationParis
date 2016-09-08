@@ -4,7 +4,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import com.formation.soka.a.TRI;
+import com.formation.soka.exo.TRI;
 
 public class ListeMeuble extends ArrayList<Meuble> implements Comparable<Meuble> {
 	private TRI tri;
