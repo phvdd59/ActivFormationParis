@@ -176,7 +176,7 @@ public class Personne implements Serializable {
 		texte = texte.replaceAll("η", "c");
 		texte = texte.replaceAll("τυ", "o");
 		texte = texte.replaceAll("[ξο]", "i");
-		texte = texte.replaceAll("\\s+", " ");
+		texte = texte.replaceAll("\\s+", "");
 		return texte;
 	}
 
