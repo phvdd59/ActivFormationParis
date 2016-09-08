@@ -1,5 +1,5 @@
 <div>
-	<form action="http://localhost:8080/ProjectBAIT/ServletLogin3" method="post" onsubmit="return verifForm(this)">
+	<form action="ServletLogin3" method="post" onsubmit="return verifForm(this)">
 		<input type="hidden" name="nSession" value="%%noS%%" />
 		<H2>Identification</H2>
 		<div ID="formu21">
@@ -9,11 +9,11 @@
 			<label>Mot de Passe :</label> <input id="mdp" type="password" value="" name="mdp" onblur="verifMdp(this)" style="width: 250px; margin-left: 41px" />
 		</div>
 		<div ID="formu23">
-			<input type="submit" name="subm" value="Login" style="width: 100px" /> <a href="http://localhost:8080/ProjectBAIT/ServletMDPOublie" style="margin-left: 50px">mot de passe oubli&eacute; ?</a>
+			<input type="submit" name="subm" value="Login" style="width: 100px" /> <a href="ServletMDPOublie" style="margin-left: 50px">mot de passe oubli&eacute; ?</a>
 		</div>
 	</form>
 	<div ID="formu24">
-		<form action="http://localhost:8080/ProjectBAIT/ServletNouvelleInscription2" method="get" style="margin-top: 4px">
+		<form action="ServletNouvelleInscription2" method="get" style="margin-top: 4px">
 			<input type="submit" name="inscription" value="Nouvelle Inscription" style="width: 300px;" />
 
 		</form>

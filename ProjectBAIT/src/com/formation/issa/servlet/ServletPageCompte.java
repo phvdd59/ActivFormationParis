@@ -36,7 +36,7 @@ public class ServletPageCompte extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		File file=new File("C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/PageCompte.html");
+		File file=new File(FonctionsCommune.LOCAL+"WEB-INF/bait/pages/PageCompte.html");
 		BufferedReader bIn = null;
 		InputStreamReader inputStreamReader = null;
 		try {

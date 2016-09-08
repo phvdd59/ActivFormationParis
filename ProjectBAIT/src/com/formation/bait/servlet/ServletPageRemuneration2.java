@@ -59,7 +59,7 @@ public class ServletPageRemuneration2 extends HttpServlet {
 			fonctions.AfficherHautDePage(response);
 
 			File file2 = new File(
-					"C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/Remuneration.html");
+					FonctionsCommune.LOCAL+"WEB-INF/bait/pages/Remuneration.html");
 			BufferedReader bIn2 = null;
 			Personne personne = (Personne) session.getAttribute("Personne");
 			InputStreamReader inputStreamReader2 = null;

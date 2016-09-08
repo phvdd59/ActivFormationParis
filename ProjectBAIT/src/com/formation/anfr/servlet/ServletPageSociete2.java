@@ -35,7 +35,7 @@ public class ServletPageSociete2 extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		File file = new File("C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/hautDePageActiv.html");
+		File file = new File(FonctionsCommune.LOCAL+"WEB-INF/bait/pages/hautDePageActiv.html");
 		BufferedReader bIn = null;
 		InputStreamReader inputStreamReader = null;
 		try {
@@ -60,7 +60,7 @@ public class ServletPageSociete2 extends HttpServlet {
 			}
 		}
 
-		File file2 = new File("C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/PageSociete.html");
+		File file2 = new File(FonctionsCommune.LOCAL+"WEB-INF/bait/pages/PageSociete.html");
 		BufferedReader bIn2 = null;
 		InputStreamReader inputStreamReader2 = null;
 		try {
@@ -83,7 +83,7 @@ public class ServletPageSociete2 extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		File file3 = new File("C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/basDePageActiv.html");
+		File file3 = new File(FonctionsCommune.LOCAL+"WEB-INF/bait/pages/basDePageActiv.html");
 		BufferedReader bIn3 = null;
 		InputStreamReader inputStreamReader3 = null;
 		try
@@ -121,7 +121,7 @@ public class ServletPageSociete2 extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		File file = new File("C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/hautDePageActiv.html");
+		File file = new File(FonctionsCommune.LOCAL+"WEB-INF/bait/pages/hautDePageActiv.html");
 		BufferedReader bIn = null;
 		InputStreamReader inputStreamReader = null;
 		try {

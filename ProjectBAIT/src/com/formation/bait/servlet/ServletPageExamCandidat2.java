@@ -99,7 +99,7 @@ public class ServletPageExamCandidat2 extends HttpServlet {
 
 		} else {
 			session.invalidate();
-			RequestDispatcher rd = request.getRequestDispatcher("C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/grosTest.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher(FonctionsCommune.LOCAL+"WEB-INF/bait/pages/grosTest.jsp");
 			rd.forward(request, response);
 		}
 	}

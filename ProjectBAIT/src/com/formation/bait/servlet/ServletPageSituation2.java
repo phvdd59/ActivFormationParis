@@ -60,7 +60,7 @@ public class ServletPageSituation2 extends HttpServlet {
 			fonctions.AfficherHautDePage(response);
 
 			File file2 = new File(
-					"C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/Situation.html");
+					FonctionsCommune.LOCAL+"WEB-INF/bait/pages/Situation.html");
 			BufferedReader bIn2 = null;
 			InputStreamReader inputStreamReader2 = null;
 			try {

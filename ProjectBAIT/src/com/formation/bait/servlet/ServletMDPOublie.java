@@ -41,7 +41,7 @@ public class ServletMDPOublie extends HttpServlet {
 		fctC.AfficherHautDePage(response);
 
 		File file2 = new File(
-				"C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/mdpoublie.html");
+				FonctionsCommune.LOCAL+"WEB-INF/bait/pages/mdpoublie.html");
 		BufferedReader bIn2 = null;
 		InputStreamReader inputStreamReader2 = null;
 		try {
@@ -83,7 +83,7 @@ public class ServletMDPOublie extends HttpServlet {
 		fctC.AfficherHautDePage(response);
 
 		File file2 = new File(
-				"C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/mdpoublie.html");
+				FonctionsCommune.LOCAL+"WEB-INF/bait/pages/mdpoublie.html");
 		BufferedReader bIn2 = null;
 		InputStreamReader inputStreamReader2 = null;
 		try {

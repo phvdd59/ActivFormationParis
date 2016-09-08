@@ -32,7 +32,7 @@ public class ServletEtatCivil extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		File file=new File("C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/EtatCivil.html");
+		File file=new File(FonctionsCommune.LOCAL+"WEB-INF/bait/pages/EtatCivil.html");
 		BufferedReader bIn = null;
 		InputStreamReader inputStreamReader = null;
 		try {

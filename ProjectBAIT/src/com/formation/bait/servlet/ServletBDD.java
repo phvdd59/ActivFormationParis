@@ -191,7 +191,7 @@ public class ServletBDD extends HttpServlet {
 			}
 
 			// File file2 = new File(
-			// "C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/Sauvegarde.html");
+			// FonctionsCommune.LOCAL+"WEB-INF/bait/pages/Sauvegarde.html");
 			// BufferedReader bIn = null;
 			// InputStreamReader inputStreamReader = null;
 			// try {

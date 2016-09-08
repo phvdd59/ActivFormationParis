@@ -47,7 +47,7 @@ public class ServletLogFalse extends HttpServlet {
 		HttpSession session = request.getSession();
 		fctC.AfficherHautDePage(response);
 
-		File file2 = new File("C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/Login.html");
+		File file2 = new File(FonctionsCommune.LOCAL+"WEB-INF/bait/pages/Login.html");
 		BufferedReader bIn2 = null;
 		InputStreamReader inputStreamReader2 = null;
 		try {

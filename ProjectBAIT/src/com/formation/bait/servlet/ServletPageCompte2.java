@@ -61,7 +61,7 @@ public class ServletPageCompte2 extends HttpServlet {
 			session.setAttribute("nbAppel", Integer.valueOf(nbAppel));
 			fonctions.AfficherHautDePage(response);
 
-			File file2 = new File("C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/PageCompte.html");
+			File file2 = new File(FonctionsCommune.LOCAL+"WEB-INF/bait/pages/PageCompte.html");
 			BufferedReader bIn2 = null;
 			InputStreamReader inputStreamReader2 = null;
 

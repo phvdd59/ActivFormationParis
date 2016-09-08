@@ -34,12 +34,21 @@ public class ServletPageLogin3 extends HttpServlet {
 		// TODO Auto-generated constructor stub
 	}
 
+
+	@Override
+	public void init() throws ServletException {
+		FonctionsCommune.INIT();
+	}
+
+
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		FonctionsCommune fct = new FonctionsCommune();
 		HttpSession session = request.getSession(true);
 		String noSuivi = "";
@@ -58,7 +67,7 @@ public class ServletPageLogin3 extends HttpServlet {
 		session.setAttribute("methode", "GET");
 		fct.AfficherHautDePage(response);
 		File file2 = new File(
-				"C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/Login.html");
+				FonctionsCommune.LOCAL+"WEB-INF/bait/pages/Login.html");
 		BufferedReader bIn2 = null;
 		InputStreamReader inputStreamReader2 = null;
 		try {
@@ -146,5 +155,4 @@ public class ServletPageLogin3 extends HttpServlet {
 		}
 
 	}
-
 }

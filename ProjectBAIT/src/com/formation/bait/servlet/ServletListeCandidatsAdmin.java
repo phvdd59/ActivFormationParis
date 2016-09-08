@@ -62,11 +62,11 @@ public class ServletListeCandidatsAdmin extends HttpServlet {
 			acces.afficherListeCandidats(response);
 
 			response.getWriter().append(
-					"<div style=\"margin-top:30px; margin-left:80px;\"> <form method=\"post\" action=\"http://localhost:8080/ProjectBAIT/ServletListeCandidatsAdmin2Empruntee\"> <input type=\"submit\" name=\"BDD\" value=\"BDDAJEE\"> </form> </div>");
+					"<div style=\"margin-top:30px; margin-left:80px;\"> <form method=\"post\" action=\"http://"+FonctionsCommune.HOST+":8080/ProjectBAIT/ServletListeCandidatsAdmin2Empruntee\"> <input type=\"submit\" name=\"BDD\" value=\"BDDAJEE\"> </form> </div>");
 			response.getWriter().append(
-					"<div style=\"margin-top:30px; margin-left:80px;\"> <form method=\"post\" action=\"http://localhost:8080/ProjectBAIT/ServletListeCandidatsAdmin2Empruntee\"> <input type=\"submit\" name=\"BDD\" value=\"BDDJMST\"> </form> </div>");
+					"<div style=\"margin-top:30px; margin-left:80px;\"> <form method=\"post\" action=\"http://"+FonctionsCommune.HOST+":8080/ProjectBAIT/ServletListeCandidatsAdmin2Empruntee\"> <input type=\"submit\" name=\"BDD\" value=\"BDDJMST\"> </form> </div>");
 			response.getWriter().append(
-					"<div style=\"margin-top:30px; margin-left:80px;\"> <form method=\"post\" action=\"http://localhost:8080/ProjectBAIT/ServletDeconnection\"> <input type=\"submit\" name=\"disconnect\" value=\"Deconnexion\"> </form> </div>");
+					"<div style=\"margin-top:30px; margin-left:80px;\"> <form method=\"post\" action=\"http://"+FonctionsCommune.HOST+":8080/ProjectBAIT/ServletDeconnection\"> <input type=\"submit\" name=\"disconnect\" value=\"Deconnexion\"> </form> </div>");
 
 			fct.AfficherBasDePage(response);
 		}else {

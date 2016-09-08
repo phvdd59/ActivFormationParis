@@ -36,7 +36,7 @@ public class ServletCompte extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		File file = new File(
-				"C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/com/formation/anfr/pages/hautDePageActiv.html");
+				FonctionsCommune.LOCAL+"WEB-INF/com/formation/anfr/pages/hautDePageActiv.html");
 		BufferedReader bIn = null;
 		InputStreamReader inputStreamReader = null;
 		try {
@@ -61,7 +61,7 @@ public class ServletCompte extends HttpServlet {
 			}
 		}
 		File file2 = new File(
-				"C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/com/formation/bait/pages/candidat.html");
+				FonctionsCommune.LOCAL+"WEB-INF/com/formation/bait/pages/candidat.html");
 		BufferedReader bIn2 = null;
 		InputStreamReader inputStreamReader2 = null;
 		try {
@@ -86,7 +86,7 @@ public class ServletCompte extends HttpServlet {
 		}
 
 		File file3 = new File(
-				"C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/com/formation/anfr/pages/basDePageActiv.html");
+				FonctionsCommune.LOCAL+"WEB-INF/com/formation/anfr/pages/basDePageActiv.html");
 		BufferedReader bIn3 = null;
 		InputStreamReader inputStreamReader3 = null;
 

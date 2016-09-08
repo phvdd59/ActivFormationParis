@@ -6,15 +6,39 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.InvalidPropertiesFormatException;
+import java.util.Properties;
 
 import javax.servlet.http.HttpServletResponse;
 
 import com.formation.beans.Perso;
 
 public class FonctionsCommune {
+	public static String HOST="qsdflocalhost";
+	public static String LOCAL="../GITActivFormationParis/ProjectBAIT/WebContent/";
+	
+	public static void INIT() {
+		Properties props = new Properties();
+		try {
+			props.loadFromXML(new FileInputStream(new File("propsBAIT.xml")));
+			HOST=props.getProperty("HOST");
+			LOCAL=props.getProperty("LOCAL");
+		} catch (InvalidPropertiesFormatException e) {
+		} catch (FileNotFoundException e) {
+		} catch (IOException e) {
+		}
+	}
+	
 
 	public void AfficherHautDePage(HttpServletResponse response) {
-		File file = new File("C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/hautDePageActiv.html");
+		File f=new File("");
+				try {
+					System.out.println(f.getCanonicalPath());
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+		File file = new File(FonctionsCommune.LOCAL+"WEB-INF/bait/pages/hautDePageActiv.html");
 		BufferedReader bIn = null;
 		InputStreamReader inputStreamReader = null;
 		try {
@@ -41,7 +65,7 @@ public class FonctionsCommune {
 	}
 
 	public void AfficherBasDePage(HttpServletResponse response) {
-		File file3 = new File("C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/basDePageActiv.html");
+		File file3 = new File(FonctionsCommune.LOCAL+"WEB-INF/bait/pages/basDePageActiv.html");
 		BufferedReader bIn3 = null;
 		InputStreamReader inputStreamReader3 = null;
 		try

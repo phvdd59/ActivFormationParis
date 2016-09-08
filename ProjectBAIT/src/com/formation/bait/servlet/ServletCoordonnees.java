@@ -60,7 +60,7 @@ public class ServletCoordonnees extends HttpServlet {
 			fonctions.AfficherHautDePage(response);
 
 			File file2 = new File(
-					"C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/Coordonnees.html");
+					FonctionsCommune.LOCAL+"WEB-INF/bait/pages/Coordonnees.html");
 			BufferedReader bIn = null;
 			InputStreamReader inputStreamReader = null;
 			try {

@@ -40,7 +40,7 @@ public class ServletLoginTest extends HttpServlet {
 		session.setAttribute("servlet", "Login");
 		session.setAttribute("methode", "GET");
 		File file2 = new File(
-				"C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/anfr/pages/Login.html");
+				FonctionsCommune.LOCAL+"WEB-INF/anfr/pages/Login.html");
 		BufferedReader bIn2 = null;
 		InputStreamReader inputStreamReader2 = null;
 		try {
@@ -84,7 +84,7 @@ public class ServletLoginTest extends HttpServlet {
 
 			String pseudo = request.getParameter("nom");
 			File file2 = new File(
-					"C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/Login.html");
+					FonctionsCommune.LOCAL+"WEB-INF/bait/pages/Login.html");
 			BufferedReader bIn2 = null;
 			InputStreamReader inputStreamReader2 = null;
 		System.out.println(session.getId());

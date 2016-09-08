@@ -41,7 +41,7 @@ public class ServletDeconnection extends HttpServlet {
 		fctC.AfficherHautDePage(response);
 
 		File file2 = new File(
-				"C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/deconnection.html");
+				FonctionsCommune.LOCAL+"WEB-INF/bait/pages/deconnection.html");
 		BufferedReader bIn2 = null;
 		InputStreamReader inputStreamReader2 = null;
 		try {
@@ -85,7 +85,7 @@ public class ServletDeconnection extends HttpServlet {
 		fctC.AfficherHautDePage(response);
 		
 		File file2 = new File(
-				"C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/deconnection.html");
+				FonctionsCommune.LOCAL+"WEB-INF/bait/pages/deconnection.html");
 		BufferedReader bIn2 = null;
 		InputStreamReader inputStreamReader2 = null;
 		try {

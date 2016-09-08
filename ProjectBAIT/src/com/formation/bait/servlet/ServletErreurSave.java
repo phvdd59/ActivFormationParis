@@ -58,7 +58,7 @@ public class ServletErreurSave extends HttpServlet {
 			fonctions.AfficherHautDePage(response);
 			String sProvenance = (String) session.getAttribute("servlet");
 			File file2 = new File(
-					"C:/DevFormation/GITActivFormationParis/ProjectBAIT/WebContent/WEB-INF/bait/pages/redirection.html");
+					FonctionsCommune.LOCAL+"WEB-INF/bait/pages/redirection.html");
 			BufferedReader bIn2 = null;
 			InputStreamReader inputStreamReader2 = null;
 			try {
@@ -71,24 +71,24 @@ public class ServletErreurSave extends HttpServlet {
 					if (line2.contains("%%redirection%%")) {
 						if (sProvenance.equals("EtatCivil")) {
 							line2 = line2.replace("%%redirection%%",
-									"http://localhost:8080/ProjectBAIT/ServletEtatCivil2");
+									"http://"+FonctionsCommune.HOST+":8080/ProjectBAIT/ServletEtatCivil2");
 
 						}
 
 						else if (sProvenance == "Coordonees") {
 							line2 = line2.replace("%%redirection%%",
-									"http://localhost:8080/ProjectBAIT/ServletCoordonnees2");
+									"http://"+FonctionsCommune.HOST+":8080/ProjectBAIT/ServletCoordonnees2");
 
 						}
 
 						else if (sProvenance.equals("Situation")) {
 							line2 = line2.replace("%%redirection%%",
-									"http://localhost:8080/ProjectBAIT/ServletSituation2");
+									"http://"+FonctionsCommune.HOST+":8080/ProjectBAIT/ServletSituation2");
 						}
 
 						else if (sProvenance.equals("Remuneration")) {
 							line2 = line2.replace("%%redirection%%",
-									"http://localhost:8080/ProjectBAIT/ServletRemuneration2");
+									"http://"+FonctionsCommune.HOST+":8080/ProjectBAIT/ServletRemuneration2");
 
 						}
 					}

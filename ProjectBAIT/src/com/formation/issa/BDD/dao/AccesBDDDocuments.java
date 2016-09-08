@@ -7,12 +7,13 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import com.formation.bait.metier.DocPerso;
+import com.formation.bait.metier.FonctionsCommune;
 import com.formation.bait.metier.ListeDoc;
 
 public class AccesBDDDocuments {
 
 	public final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-	public final String DB_URL = "jdbc:mysql://localhost/";
+	public final String DB_URL = "jdbc:mysql://www.psyeval.fr/";
 
 	public String user = "root";
 	public String pass = "";
