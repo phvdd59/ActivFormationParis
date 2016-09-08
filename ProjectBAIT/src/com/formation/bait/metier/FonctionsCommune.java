@@ -81,69 +81,175 @@ public class FonctionsCommune {
 	public Personne PersoVersPerso(Perso tabPerso) {
 
 		;
-		
-			Personne personne = new Personne();
-			Perso perso = tabPerso;
-			personne.setIdPersonne(perso.getIdPersonne());
-			personne.setNom(perso.getNom());
-			personne.setPrenom(perso.getPrenom());
-			personne.setIdentifiant(perso.getIdentifiant());
-			personne.setMdp(perso.getMdp());
-			personne.setEmail(perso.getEmail());
-			personne.setAdresse(perso.getAdresse());
-			personne.setcP(perso.getCp());
-			personne.setVille(perso.getVille());
-			personne.setTelFixe(perso.getTelFixe());
-			personne.setTelPort(perso.getTelPort());
-			personne.setFax(perso.getFax());
-			personne.setDateNaissance(perso.getDateNaissance().toString());
-			personne.setLieuNaissance(perso.getLieuNaissance());
-			personne.setNumSecu(perso.getNumSecu());
-			personne.setNationalite(perso.getNationalite());
-			personne.setSituation(perso.getSituation());
-			personne.setFonction(perso.getFonction());
-			personne.setPosition(perso.getPos());
-			personne.setCadre(perso.isCadre());
-			personne.setCoeff(perso.getCoeff());
-			personne.setSalaire(perso.getSalaire());
-			personne.setVisiteMedicale(perso.getVisiteMedicale().toString());
-			personne.setMontantTransport(perso.getMontantTransport());
-			personne.setVoiture(perso.isVoiture());
-			personne.setNbCV(Integer.toString(perso.getNbCV()));
-			personne.setNdKm(perso.getNbKm());
-			personne.setMutuelle(perso.isMutuelle());
-			personne.setTicket(perso.isTicketResto());
-			personne.setAdmin(perso.isAdmin());
-			personne.setDateCreation(perso.getDateCreation().toString());
-			personne.setDateModification(perso.getDateModification().toString());
-			personne.setBloque(perso.isBloque());
-			personne.setRaisonBlocage(perso.getMontantTransport());
 
+		Personne personne = new Personne();
+		Perso perso = tabPerso;
+
+		personne.setIdPersonne(perso.getIdPersonne());
+		if (perso.getNom() == null) {
+			personne.setNom("");
+		} else {
+			personne.setNom(perso.getNom());
+		}
+		if (perso.getPrenom() == null) {
+			personne.setPrenom("");
+		} else {
+			personne.setPrenom(perso.getPrenom());
+		}
+		if (perso.getIdentifiant() == null) {
+			personne.setIdentifiant("");
+		} else {
+			personne.setIdentifiant(perso.getIdentifiant());
+		}
+		if (perso.getMdp() == null) {
+			personne.setMdp("12345");
+		} else {
+			personne.setMdp(perso.getMdp());
+		}
+		if (perso.getEmail() == null) {
+			personne.setEmail("");
+		} else {
+			personne.setEmail(perso.getEmail());
+		}
+		if (perso.getAdresse() == null) {
+			personne.setAdresse("");
+		} else {
+			personne.setAdresse(perso.getAdresse());
+		}
+		if (perso.getCp() == null) {
+			personne.setcP("");
+		} else {
+			personne.setcP(perso.getCp());
+		}
+		if (perso.getVille() == null) {
+			personne.setVille("");
+		} else {
+			personne.setVille(perso.getVille());
+		}
+		if (perso.getTelFixe() == null) {
+			personne.setTelFixe("");
+		} else {
+			personne.setTelFixe(perso.getTelFixe());
+		}
+		if (perso.getTelPort() == null) {
+			personne.setTelPort("");
+		} else {
+			personne.setTelPort(perso.getTelPort());
+		}
+		if (perso.getFax() == null) {
+			personne.setFax("");
+		} else {
+			personne.setFax(perso.getFax());
+		}
+		if (perso.getDateNaissance() == null) {
+			personne.setDateNaissance("");
+		} else {
+			personne.setDateNaissance(perso.getDateNaissance().toString());
+		}
+		if (perso.getLieuNaissance() == null) {
+			personne.setLieuNaissance("");
+		} else {
+			personne.setLieuNaissance(perso.getLieuNaissance());
+		}
+		if (perso.getNumSecu() == null) {
+			personne.setNumSecu("");
+		} else {
+			personne.setNumSecu(perso.getNumSecu());
+		}
+		if (perso.getNationalite() == null) {
+			personne.setNationalite("");
+		} else {
+			personne.setNationalite(perso.getNationalite());
+		}
+		if (perso.getSituation() == null) {
+			personne.setSituation(SITUATION.SALARIE);
+		} else {
+			personne.setSituation(perso.getSituation());
+		}
+		if (perso.getFonction() == null) {
+			personne.setFonction("");
+		} else {
+			personne.setFonction(perso.getFonction());
+		}
+		if (perso.getPos() == null) {
+			personne.setPosition("");
+		} else {
+			personne.setPosition(perso.getPos());
+		}
+		personne.setCadre(perso.isCadre());
+		if (perso.getCoeff() == null) {
+			personne.setCoeff("");
+		} else {
+			personne.setCoeff(perso.getCoeff());
+		}
+		if (perso.getSalaire() == null) {
+			personne.setSalaire("");
+		} else {
+			personne.setSalaire(perso.getSalaire());
+		}
+		if (perso.getVisiteMedicale() == null) {
+			personne.setVisiteMedicale("");
+		} else {
+			personne.setVisiteMedicale(perso.getVisiteMedicale().toString());
+		}
+		if (perso.getMontantTransport() == null) {
+			personne.setMontantTransport("");
+		} else {
+			personne.setMontantTransport(perso.getMontantTransport());
+		}
+		personne.setVoiture(perso.isVoiture());
+		personne.setNbCV(Integer.toString(perso.getNbCV()));
+		if (perso.getNbKm() == null) {
+			personne.setNdKm("");
+		} else {
+			personne.setNdKm(perso.getNbKm());
+		}
+		personne.setMutuelle(perso.isMutuelle());
+		personne.setTicket(perso.isTicketResto());
+		personne.setAdmin(perso.isAdmin());
+		if (perso.getDateCreation() == null) {
+			personne.setDateCreation("");
+		} else {
+			personne.setDateCreation(perso.getDateCreation().toString());
+		}
+		if (perso.getDateModification() == null) {
+			personne.setDateModification("");
+		} else {
+			personne.setDateModification(perso.getDateModification().toString());
+		}
+		personne.setBloque(perso.isBloque());
+		if (perso.getMontantTransport() == null) {
+			personne.setMontantTransport("");
+		} else {
+			personne.setRaisonBlocage(perso.getMontantTransport());
+		}
 		return personne;
 
 	}
-//	public Perso[] recupBDDAJEE(){
-//		URL wsdlURL = new URL("http://192.168.33.145:8888/ws/jax?wsdl");
-//		QName qname = new QName("http://beans.formation.com/", "PersoServiceService");
-//		Service service = Service.create(wsdlURL, qname);
-//		InterPersoService ps = service.getPort(InterPersoService.class);
-//		
-//		Perso[] pA= ps.getPersos();
-//		
-//		
-//		return pA;
-//		
-//	}
-//	public Perso[] recupBDDJMST(){
-//		URL wsdlURL = new URL("http://192.168.33.145:8888/ws/jax?wsdl");
-//		QName qname = new QName("http://beans.formation.com/", "PersoServiceService");
-//		Service service = Service.create(wsdlURL, qname);
-//		InterPersoService ps = service.getPort(InterPersoService.class);
-//		
-//		Perso[] pA= ps.getPersos();
-//		
-//		
-//		return pA;
-//		
-//	}
+	// public Perso[] recupBDDAJEE(){
+	// URL wsdlURL = new URL("http://192.168.33.145:8888/ws/jax?wsdl");
+	// QName qname = new QName("http://beans.formation.com/",
+	// "PersoServiceService");
+	// Service service = Service.create(wsdlURL, qname);
+	// InterPersoService ps = service.getPort(InterPersoService.class);
+	//
+	// Perso[] pA= ps.getPersos();
+	//
+	//
+	// return pA;
+	//
+	// }
+	// public Perso[] recupBDDJMST(){
+	// URL wsdlURL = new URL("http://192.168.33.145:8888/ws/jax?wsdl");
+	// QName qname = new QName("http://beans.formation.com/",
+	// "PersoServiceService");
+	// Service service = Service.create(wsdlURL, qname);
+	// InterPersoService ps = service.getPort(InterPersoService.class);
+	//
+	// Perso[] pA= ps.getPersos();
+	//
+	//
+	// return pA;
+	//
+	// }
 }
