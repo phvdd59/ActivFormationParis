@@ -31,13 +31,6 @@ public class FonctionsCommune {
 	
 
 	public void AfficherHautDePage(HttpServletResponse response) {
-		File f=new File("");
-				try {
-					System.out.println(f.getCanonicalPath());
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
 		File file = new File(FonctionsCommune.LOCAL+"WEB-INF/bait/pages/hautDePageActiv.html");
 		BufferedReader bIn = null;
 		InputStreamReader inputStreamReader = null;
