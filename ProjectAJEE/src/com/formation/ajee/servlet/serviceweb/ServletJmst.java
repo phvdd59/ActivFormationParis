@@ -17,16 +17,16 @@ import com.formation.ajee.metier.ListPersonne;
 import com.formation.ajee.metier.Personne;
 
 /**
- * Servlet implementation class ServletBait
+ * Servlet implementation class ProjectJmst
  */
-@WebServlet("/ServletBait")
-public class ServletBait extends HttpServlet {
+@WebServlet("/ProjectJmst")
+public class ServletJmst extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public ServletBait() {
+	public ServletJmst() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -45,6 +45,7 @@ public class ServletBait extends HttpServlet {
 	 *      response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		ListPersonne lstPersonne = new ListPersonne();
 		ListPersonne lstPersonnesave = new ListPersonne(1);
 
