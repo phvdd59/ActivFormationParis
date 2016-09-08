@@ -54,14 +54,20 @@ public class ServletPageExamCandidat2 extends HttpServlet {
 			Personne personne2 = new Personne();
 			if (request.getParameter("BDD").equals("empruntee")) {
 				personne2 = (Personne) acces.getPersonneEmpruntee(request.getParameter("IDcandidat"));
+				session.setAttribute("candidat", personne2);
+				session.setAttribute("NomAdmin", personne.getPrenom() + " " + personne.getNom());
+				this.getServletContext().getRequestDispatcher("/com/bait/jsp/VisuCandidatEmpruntee.jsp").forward(request, response);
 			} else {
-				personne2 = (Personne) acces.getPersonne(request.getParameter("IDcandidat"));
+			personne2 = (Personne) acces.getPersonne(request.getParameter("IDcandidat"));
+			session.setAttribute("candidat", personne2);
+			session.setAttribute("NomAdmin", personne.getPrenom() + " " + personne.getNom());
+			this.getServletContext().getRequestDispatcher("/com/bait/jsp/VisuCandidat.jsp").forward(request, response);
 			}
 
 			// getAttribute("IDcandidat").toString());
-			session.setAttribute("candidat", personne2);
-
-			session.setAttribute("NomAdmin", personne.getPrenom() + " " + personne.getNom());
+//			session.setAttribute("candidat", personne2);
+//
+//			session.setAttribute("NomAdmin", personne.getPrenom() + " " + personne.getNom());
 
 			//			session.setAttribute("nomCandidat", personne2.getNom());
 			//			session.setAttribute("prenomCandidat", personne2.getPrenom());
@@ -89,7 +95,7 @@ public class ServletPageExamCandidat2 extends HttpServlet {
 			//			session.setAttribute("nbKmCandidat", personne2.getNdKm());
 			//			session.setAttribute("mutuelleCandidat", personne2.isMutuelle());
 
-			this.getServletContext().getRequestDispatcher("/com/bait/jsp/grosTest.jsp").forward(request, response);
+//			this.getServletContext().getRequestDispatcher("/com/bait/jsp/grosTest.jsp").forward(request, response);
 
 		} else {
 			session.invalidate();

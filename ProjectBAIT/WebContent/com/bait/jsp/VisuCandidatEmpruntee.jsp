@@ -80,12 +80,6 @@
 
 					<input type="submit" name="retour" value="Retour" style="margin-left : 300px">
 				</form>
-				
-				<form method="post" action="http://localhost:8080/ProjectBAIT/ServletPageBloquer2" style="margin-bottom : 50px">
-					<input style="margin-left : 180px" type="submit" name="bloquer" value="Bloquer"><input type="text" name="raison" value="indiquer une raison" style="height : 50px;width : 200px"> 
-
-					
-				</form>
 
 				<table>
 					<caption>Etat civil</caption>
