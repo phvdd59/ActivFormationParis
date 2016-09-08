@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.formation.beans.Perso;
 
 public class FonctionsCommune {
-	public static String HOST="qsdflocalhost";
+	public static String HOST="localhost";
 	public static String LOCAL="../GITActivFormationParis/ProjectBAIT/WebContent/";
 	
 	public static void INIT() {
