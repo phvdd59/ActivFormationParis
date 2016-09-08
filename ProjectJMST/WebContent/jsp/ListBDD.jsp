@@ -32,7 +32,7 @@ input#inputDeco[type="submit"] {
 }
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Formulaire</title>
+<title>ListBDD</title>
 <link href="http://www.activconsult-ing.com/Home.css" rel="stylesheet"
 	type="text/css">
 </head>
