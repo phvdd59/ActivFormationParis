@@ -277,7 +277,10 @@ public class ServletFicheRempli extends HttpServlet {
 				/** Lecture bas de page */
 				
 				vue.lecturePage(response, "BasPage");
-			} else {
+			} else if (utilisateur == null && personne.getIdentifiant().equals("Admin")) {
+				RequestDispatcher rd = request.getRequestDispatcher("//Servletaccueilchargementprofil");
+				rd.forward(request, response);
+			} else{
 				// utiliser le pseudo pour avoir la personne
 				/** Lecture Haut de page HTML */
 				vue.lecturePage(response, "HautPage");
