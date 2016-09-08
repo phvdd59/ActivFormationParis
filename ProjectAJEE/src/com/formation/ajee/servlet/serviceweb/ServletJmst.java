@@ -3,11 +3,13 @@ package com.formation.ajee.servlet.serviceweb;
 import java.io.IOException;
 import java.net.URL;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
 
@@ -45,7 +47,10 @@ public class ServletJmst extends HttpServlet {
 	 *      response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		HttpSession session = request.getSession();
+		
 		ListPersonne lstPersonne = new ListPersonne();
 		ListPersonne lstPersonnesave = new ListPersonne(1);
 
@@ -106,7 +111,9 @@ public class ServletJmst extends HttpServlet {
 			}
 
 		}
-
+		session.invalidate();
+		RequestDispatcher rd = request.getRequestDispatcher("//Servletidentification");
+		rd.forward(request, response);
 	}
 
 }

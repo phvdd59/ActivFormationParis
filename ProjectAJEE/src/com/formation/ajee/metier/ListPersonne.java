@@ -19,7 +19,7 @@ public class ListPersonne extends ArrayList<Personne> {
 	}
 	public ListPersonne(int num) {
 
-		ArrayList<Personne> listepersonne = dao.lectureTableBackUp();
+		ArrayList<Personne> listepersonne = dao1.lectureTableBackUp();
 		this.addAll(listepersonne);
 	}
 }
