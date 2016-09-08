@@ -1,11 +1,9 @@
-package com.formation.issa.pagesDeVerification;
+package com.formation.bait.metier;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-
-import com.formation.issa.beans.Candidat;
 
 public class Coordonnees {
 	private static String CHAMP_ADRESSE = "adresse";
@@ -27,7 +25,7 @@ public class Coordonnees {
 		return erreurs;
 	}
 
-	public Candidat definirCoordonnees(HttpServletRequest request) {
+	public Personne definirCoordonnees(HttpServletRequest request) {
 		String adresse = getValeurChamp(request, CHAMP_ADRESSE);
 		String CP = getValeurChamp(request, CHAMP_CP);
 		String ville = getValeurChamp(request, CHAMP_VILLE);
@@ -35,7 +33,7 @@ public class Coordonnees {
 		String telPort = getValeurChamp(request, CHAMP_TELPORT);
 		String fax = getValeurChamp(request, CHAMP_FAX);
 		String email = getValeurChamp(request, CHAMP_EMAIL);
-		Candidat candidat = new Candidat();
+		Personne Personne = new Personne();
 		try {
 			validationAdresse(adresse);
 		} catch (Exception e) {
@@ -72,7 +70,7 @@ public class Coordonnees {
 		} catch (Exception e) {
 			setErreur(CHAMP_EMAIL, e.getMessage());
 		}
-		return candidat;
+		return Personne;
 
 	}
 

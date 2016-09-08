@@ -1,11 +1,9 @@
-package com.formation.issa.pagesDeVerification;
+package com.formation.bait.metier;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-
-import com.formation.issa.beans.Candidat;
 
 public final class Inscription {
 
@@ -23,11 +21,11 @@ public final class Inscription {
 		return erreurs;
 	}
 
-	public Candidat inscrireCandidat(HttpServletRequest request) {
+	public Personne inscrirePersonne(HttpServletRequest request) {
 		String identifiant = getValeurChamp(request, CHAMP_ID);
 		String motDePasse = getValeurChamp(request, CHAMP_MOTDEPASSE);
 		String verifMotDePasse = getValeurChamp(request, CHAMP_CONFIRMATION);
-		Candidat candidat = new Candidat();
+		Personne Personne = new Personne();
 		try {
 			validationMotsdePasse(motDePasse, verifMotDePasse);
 		} catch (Exception e) {
@@ -40,7 +38,7 @@ public final class Inscription {
 			setErreur(CHAMP_ID, e.getMessage());
 		}
 
-		return candidat;
+		return Personne;
 
 	}
 

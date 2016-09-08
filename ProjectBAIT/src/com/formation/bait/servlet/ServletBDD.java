@@ -11,11 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.formation.bait.dao.AccesBDDPersonne;
+import com.formation.bait.metier.Coordonnees;
+import com.formation.bait.metier.EtatCivil;
 import com.formation.bait.metier.Personne;
 import com.formation.bait.metier.SITUATION;
-import com.formation.issa.pagesDeVerification.Coordonnees;
-import com.formation.issa.pagesDeVerification.EtatCivil;
-import com.formation.issa.pagesDeVerification.SituationRemuneration;
+import com.formation.bait.metier.SituationRemuneration;
 
 /**
  * Servlet implementation class ServletSauvegarde
@@ -36,39 +36,38 @@ public class ServletBDD extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher rd = request.getRequestDispatcher("//ServletLogin3");
 		rd.forward(request, response);
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 
 		AccesBDDPersonne bddPersonne = new AccesBDDPersonne();
 		Personne personne = (Personne) session.getAttribute("Personne");
 		boolean retour = true;
 		Object oNoSuivi = session.getAttribute("suivi");
-		if (oNoSuivi != null || personne!=null) {
+		if (oNoSuivi != null || personne != null) {
 			String origine = (String) session.getAttribute("servlet");
 			if (origine.equals("Login") || origine.equals("Compte")) {
 				personne = bddPersonne.getPersonne(session.getAttribute("idPersonne").toString());
 			} else if (origine.equals("Situation")) {
 				String sSituation = request.getParameter("sit");
 				String sAutre = request.getParameter("aut");
-				if (sSituation != null){
-				if (sSituation.equals("salarie")) {
-					personne.setSituation(SITUATION.SALARIE);
-				} else if (sSituation.equals("demandeur")) {
-					personne.setSituation(SITUATION.DEMANDEUR);
-				} else if (sSituation.equals("freelance")) {
-					personne.setSituation(SITUATION.FREELANCE);
-				} else if (sSituation.equals("retraite")) {
-					personne.setSituation(SITUATION.RETRAITE);
-				} else {
-					personne.setSituation(sAutre);
-				}}
+				if (sSituation != null) {
+					if (sSituation.equals("salarie")) {
+						personne.setSituation(SITUATION.SALARIE);
+					} else if (sSituation.equals("demandeur")) {
+						personne.setSituation(SITUATION.DEMANDEUR);
+					} else if (sSituation.equals("freelance")) {
+						personne.setSituation(SITUATION.FREELANCE);
+					} else if (sSituation.equals("retraite")) {
+						personne.setSituation(SITUATION.RETRAITE);
+					} else {
+						personne.setSituation(sAutre);
+					}
+				}
 				retour = bddPersonne.savePersonne(personne);
 			} else if (origine.equals("EtatCivil")) {
 				EtatCivil verifEtat = new EtatCivil();
@@ -97,7 +96,7 @@ public class ServletBDD extends HttpServlet {
 					personne.setNumSecu(sSecu);
 				}
 				retour = bddPersonne.savePersonne(personne);
-			} else if (origine.equals( "Coordonees")) {
+			} else if (origine.equals("Coordonees")) {
 				Coordonnees verfiCoord = new Coordonnees();
 				String sAdresse = request.getParameter("adresse");
 				String sCp = request.getParameter("cp");
@@ -129,7 +128,7 @@ public class ServletBDD extends HttpServlet {
 				}
 				retour = bddPersonne.savePersonne(personne);
 
-			} else if (origine.equals( "Remuneration")) {
+			} else if (origine.equals("Remuneration")) {
 				SituationRemuneration verifRemun = new SituationRemuneration();
 				String sFonction = request.getParameter("fonction");
 				String sCadre = request.getParameter("cadre");
@@ -142,42 +141,48 @@ public class ServletBDD extends HttpServlet {
 				String sMontant = request.getParameter("montantTransport");
 				String sNbCv = request.getParameter("nbCV");
 				String sNbKm = request.getParameter("nbKm");
-				if (verifRemun.validationFonction(sFonction)){
-				personne.setFonction(sFonction);}
-				if (verifRemun.validationPosition(sPosition)){
-				personne.setPosition(sPosition);}
-				if (verifRemun.validationCoeff(sCoeff)){
-				personne.setCoeff(sCoeff);}
-				if (verifRemun.validationSalaire(sSalaire)){
-				personne.setSalaire(sSalaire);}
-				if (verifRemun.validationDateVisiteMedicale(sVisiteMed)){
+				if (verifRemun.validationFonction(sFonction)) {
+					personne.setFonction(sFonction);
+				}
+				if (verifRemun.validationPosition(sPosition)) {
+					personne.setPosition(sPosition);
+				}
+				if (verifRemun.validationCoeff(sCoeff)) {
+					personne.setCoeff(sCoeff);
+				}
+				if (verifRemun.validationSalaire(sSalaire)) {
+					personne.setSalaire(sSalaire);
+				}
+				if (verifRemun.validationDateVisiteMedicale(sVisiteMed)) {
 					personne.setVisiteMedicale(sVisiteMed);
 				}
-				if (verifRemun.validationMontantCarteTransport(sMontant)){
+				if (verifRemun.validationMontantCarteTransport(sMontant)) {
 					personne.setMontantTransport(sMontant);
 				}
-				if (verifRemun.validationNbCV(sNbCv)){
+				if (verifRemun.validationNbCV(sNbCv)) {
 					personne.setNbCV(sNbCv);
 				}
-				if (verifRemun.validationNbKm(sNbKm)){
+				if (verifRemun.validationNbKm(sNbKm)) {
 					personne.setNdKm(sNbKm);
 				}
-				if (sCadre != null){
-				if (sCadre.equals("Cadre")) {
-					personne.setCadre(true);
-				} else {
-					personne.setCadre(false);
-				}}
-				if (sTicket !=null){
-				if (sTicket.equals("oui")) {
-					personne.setTicket(true);
-				} else {
-					personne.setTicket(false);
-				}}
-				if (sMutuelle != null){
-					if (sMutuelle.equals("oui")){
+				if (sCadre != null) {
+					if (sCadre.equals("Cadre")) {
+						personne.setCadre(true);
+					} else {
+						personne.setCadre(false);
+					}
+				}
+				if (sTicket != null) {
+					if (sTicket.equals("oui")) {
+						personne.setTicket(true);
+					} else {
+						personne.setTicket(false);
+					}
+				}
+				if (sMutuelle != null) {
+					if (sMutuelle.equals("oui")) {
 						personne.setMutuelle(true);
-					}else {
+					} else {
 						personne.setMutuelle(false);
 					}
 				}
@@ -228,7 +233,7 @@ public class ServletBDD extends HttpServlet {
 			}
 
 		} else {
-			//session.invalidate();
+			// session.invalidate();
 			RequestDispatcher rd = request.getRequestDispatcher("//ServletLogin3");
 			rd.forward(request, response);
 		}

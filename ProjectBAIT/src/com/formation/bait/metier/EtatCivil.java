@@ -1,4 +1,4 @@
-package com.formation.issa.pagesDeVerification;
+package com.formation.bait.metier;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -8,8 +8,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-
-import com.formation.issa.beans.Candidat;
 
 public class EtatCivil {
 	private static String CHAMP_NOM = "nom";
@@ -30,14 +28,14 @@ public class EtatCivil {
 		return erreurs;
 	}
 
-	public Candidat definirEtatCivil(HttpServletRequest request) {
+	public Personne definirEtatCivil(HttpServletRequest request) {
 		String nom = getValeurChamp(request, CHAMP_NOM);
 		String prenom = getValeurChamp(request, CHAMP_PRENOM);
 		String dateDeNaissance = getValeurChamp(request, CHAMP_DATE);
 		String lieuNaissance = getValeurChamp(request, CHAMP_LIEU);
 		String nationalite = getValeurChamp(request, CHAMP_NATIONALITE);
 		String numSecu = getValeurChamp(request, CHAMP_NUMEROSECU);
-		Candidat candidat = new Candidat();
+		Personne Personne = new Personne();
 
 		try {
 			validationNom(nom);
@@ -70,7 +68,7 @@ public class EtatCivil {
 		} catch (Exception e) {
 			setErreur(CHAMP_NUMEROSECU, e.getMessage());
 		}
-		return candidat;
+		return Personne;
 	}
 
 	private void setErreur(String champ, String message) {

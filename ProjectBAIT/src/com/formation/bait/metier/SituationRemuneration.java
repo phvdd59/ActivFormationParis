@@ -1,4 +1,4 @@
-package com.formation.issa.pagesDeVerification;
+package com.formation.bait.metier;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -8,8 +8,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-
-import com.formation.issa.beans.Candidat;
 
 public class SituationRemuneration {
 	String situation;
@@ -29,14 +27,14 @@ public class SituationRemuneration {
 		return erreurs;
 	}
 
-	public Candidat detaillerSituation(HttpServletRequest request) {
+	public Personne detaillerSituation(HttpServletRequest request) {
 		String situation = getValeurChamp(request, CHAMP_SITUATION);
 		String fonction = getValeurChamp(request, CHAMP_FONCTION);
 		String position = getValeurChamp(request, CHAMP_POSITION);
 		String coeff = getValeurChamp(request, CHAMP_COEFF);
 		String salaire = getValeurChamp(request, CHAMP_SALAIRE);
 		
-		Candidat candidat = new Candidat();
+		Personne Personne = new Personne();
 		try {
 			validationSituation(situation);
 		} catch (Exception e) {
@@ -63,7 +61,7 @@ public class SituationRemuneration {
 			setErreur(CHAMP_SALAIRE, e.getMessage());
 		}
 			
-		return candidat;
+		return Personne;
 
 	}
 
