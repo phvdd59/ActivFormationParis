@@ -27,7 +27,7 @@ input#inputDeco[type="submit"] {
 
 #list {
 	overflow: auto;
-	height: 550px;
+	height: 525px;
 	width: 700px;
 }
 </style>
@@ -124,7 +124,7 @@ input#inputDeco[type="submit"] {
 				if (sAdresse.equals("JMST")) {
 					lien = "localhost";
 				} else if (sAdresse.equals("BAIT")) {
-					lien = "192.168.33.155";
+					lien = "192.168.33.144";
 				} else if (sAdresse.equals("AJEE")) {
 					lien = "192.168.33.141";
 				}
@@ -170,8 +170,9 @@ input#inputDeco[type="submit"] {
 					%>
 				</select> <input type="submit" value="valider">
 			</form>
-			<form action="ServletJoca"></form>
+			<form action="/ProjectJMST/ServletJoca">
 			<input type="submit" value="Ecrire sur BDD">
+			</form>
 			<div id="list">
 				<table border="4">
 					<tr>

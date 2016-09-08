@@ -1,6 +1,7 @@
 package com.formation.beans;
 
 import java.sql.Timestamp;
+import java.util.Date;
 
 import com.formation.thcr.conversion.ConversionPersonne;
 import com.formation.thcr.metier.Personne;
@@ -28,9 +29,8 @@ public class ConversionPersoToPersonne {
 		pers.setTelFixe(p.getTelFixe());
 		pers.setTelPort(p.getTelPort());
 		pers.setFax(p.getFax());
-		java.sql.Date date = new java.sql.Date(p.getDateNaissance().getTime());
-		
 		try {
+			java.sql.Date date = new java.sql.Date(p.getDateNaissance().getTime());
 			pers.setDateNaissance(date);
 		} catch (Exception e) {
 			pers.setDateNaissance(conv.conversionDate("01-01-1970"));
@@ -44,8 +44,9 @@ public class ConversionPersoToPersonne {
 		pers.setCadre(p.isCadre());
 		pers.setCoeff(p.getCoeff());
 		pers.setSalaire(p.getSalaire());
-		java.sql.Date date2 = new java.sql.Date(p.getVisiteMedicale().getTime());
+		
 		try {
+			java.sql.Date date2 = new java.sql.Date(p.getVisiteMedicale().getTime());
 			pers.setVisiteMedicale(date2);
 		} catch (Exception e) {
 			pers.setVisiteMedicale(conv.conversionDate("01-01-1970"));
@@ -57,16 +58,18 @@ public class ConversionPersoToPersonne {
 		pers.setMutuelle(p.isMutuelle());
 		pers.setTicketResto(p.isTicketResto());
 		pers.setAdmin(p.isAdmin());
-		java.sql.Date date3 = new java.sql.Date(p.getDateCreation().getTime());
 		try {
+			java.sql.Date date3 = new java.sql.Date(p.getDateCreation().getTime());
 			pers.setDateCreation(date3);
 		} catch (Exception e) {
 			pers.setDateCreation(conv.conversionDate("01-01-1970"));
 		}
 		try {
+			java.sql.Date date4 = new java.sql.Date(p.getDateCreation().getTime());
 			pers.setDateModification(new Timestamp(p.getDateModification().getTime()));
 		} catch (Exception e) {
-			pers.setDateModification(conv.conversionTimestamp("01-01-1970"));
+			Date date = new Date();
+			pers.setDateModification(new Timestamp(date.getTime()));
 		} //
 		pers.setBloque(p.isBloque());
 		pers.setRaisonBlocage(p.getRaisonBlocage());

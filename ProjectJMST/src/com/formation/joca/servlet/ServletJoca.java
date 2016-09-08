@@ -59,13 +59,9 @@ public class ServletJoca extends HttpServlet {
 
 		for (int i = 0; i < tabPerso.length; i++) {
 			Personne personne = conversion.conv(tabPerso[i]);
-			for (Personne perso : listp) {
-				if (!perso.getIdentifiant().equals(personne.getIdentifiant())) {
-					dao.create(personne, "personneWS");
-				}
-			}
-
+			dao.create(personne, "personneWS");
 		}
+		response.sendRedirect("/ProjectJMST/jsp/ListBDD.jsp");
 	}
 
 	/**
