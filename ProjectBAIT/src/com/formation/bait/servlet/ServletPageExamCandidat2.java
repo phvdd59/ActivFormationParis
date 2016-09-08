@@ -52,7 +52,7 @@ public class ServletPageExamCandidat2 extends HttpServlet {
 			// personne2 = (Personne) session.getAttribute("Candidat");
 
 			Personne personne2 = new Personne();
-			if (request.getParameter("BDD").equals("empruntee")) {
+			if (request.getParameter("BDDorigine").equals("empruntee")) {
 				personne2 = (Personne) acces.getPersonneEmpruntee(request.getParameter("IDcandidat"));
 				session.setAttribute("candidat", personne2);
 				session.setAttribute("NomAdmin", personne.getPrenom() + " " + personne.getNom());

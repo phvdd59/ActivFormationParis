@@ -438,7 +438,7 @@ public class AccesBDDPersonne {
 						"<form method=\"post\" action=\"http://localhost:8080/ProjectBAIT/ServletPageExamCandidat2\">");
 				response.getWriter().append("<input type=\"hidden\" value=\"" + resultat.getString("IDPersonne")
 						+ "\" name=\"IDcandidat\" />");
-				response.getWriter().append("<input type=\"hidden\" value=\"notre\" name=\"BDD\" />");
+				response.getWriter().append("<input type=\"hidden\" value=\"notre\" name=\"BDDorigine\" />");
 				response.getWriter()
 						.append("<input type=\"submit\" style=\"width: 250px;\" value=\"" + resultat.getString("nom")
 								+ " " + resultat.getString("prenom") + "\" name=\"" + resultat.getString("nom")
@@ -478,7 +478,7 @@ public class AccesBDDPersonne {
 						"<form method=\"post\" action=\"http://localhost:8080/ProjectBAIT/ServletPageExamCandidat2\">");
 				response.getWriter().append("<input type=\"hidden\" value=\"" + resultat.getString("IDPersonne")
 						+ "\" name=\"IDcandidat\" />");
-				response.getWriter().append("<input type=\"hidden\" value=\"empruntee\" name=\"BDD\" />");
+				response.getWriter().append("<input type=\"hidden\" value=\"empruntee\" name=\"BDDorigine\" />");
 				response.getWriter()
 						.append("<input type=\"submit\" style=\"width: 250px;\" value=\"" + resultat.getString("nom")
 								+ " " + resultat.getString("prenom") + "\" name=\"" + resultat.getString("nom")
