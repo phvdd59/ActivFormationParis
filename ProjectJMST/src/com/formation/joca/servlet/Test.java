@@ -6,7 +6,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -42,74 +41,11 @@ public class Test extends HttpServlet {
 
 		String identifiant = request.getParameter("identifiant");
 		String motdepasse = request.getParameter("motdepasse");
-		
+
 		Personne utilisateur = new Personne();
 		utilisateur.setIdentifiant(identifiant);
 		DAOPersonne dao = new DAOPersonne();
-		if (dao.read(utilisateur,"personne")) {
-			//		final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-			//		try {
-			//			final DocumentBuilder builder = factory.newDocumentBuilder();
-			//			File xmlFile = new File("C:/DevFormation/GITActivFormationParis/ProjectJMST/WebContent/Data2.xml");
-			//
-			//			final Document document = builder.parse(xmlFile);
-			//
-			//			final Element eListPersonne = document.getDocumentElement();
-			//
-			//			if (eListPersonne.getNodeName().equals("ListPersonne")) {
-			//
-			//				final NodeList nListPersonne = eListPersonne.getChildNodes();
-			//				final int nbracinenoeuds = nListPersonne.getLength();
-			//				for (int i = 0; i < nbracinenoeuds; i++) {
-			//					final Node nodePersonne = nListPersonne.item(i);
-			//					if (nodePersonne.getNodeType() == Node.ELEMENT_NODE) {
-			//						final Element ePersonne = (Element) nodePersonne;
-			//						String nom = ePersonne.getTextContent();
-			//						nom = nom.trim();
-			//						String login = ePersonne.getAttribute("login");
-			//						String password = ePersonne.getAttribute("password");
-			//						String adminString = ePersonne.getAttribute("admin");
-			//						String mail = ePersonne.getAttribute("mail");
-			//						String prenom = ePersonne.getAttribute("prenom");
-			//						String nationalite = ePersonne.getAttribute("nationalite");
-			//						String adresse = ePersonne.getAttribute("adresse");
-			//						String situation = ePersonne.getAttribute("situation");
-			//						boolean admin = false;
-			//						if (adminString.equals("true")) {
-			//							admin = true;
-			//						}
-			//						Personne personne = new Personne();
-			//						personne.setIdentifiant(login);
-			//						personne.setMdp(password);
-			//						personne.setAdmin(admin);
-			//						personne.setEmail(mail);
-			//						personne.setNom(nom);
-			//						personne.setPrenom(prenom);
-			//						personne.setNationalite(nationalite);
-			//						personne.setAdresse(adresse);
-			//						personne.setSituation(situation);
-			//						synchronized (listPersonne) {
-			//							listPersonne.add(personne);
-			//						}
-			//					}
-			//				}
-			//			}
-			//		} catch (ParserConfigurationException e) {
-			//			e.printStackTrace();
-			//		} catch (SAXException e) {
-			//			e.printStackTrace();
-			//		}
-			//
-			//		Personne utilisateur = null;
-			//
-			//		for (Personne personne : listPersonne) {
-			//			if (personne.getIdentifiant().equals(identifiant) && personne.getMdp().equals(motdepasse)) {
-			//				session = request.getSession(true);
-			//				utilisateur = personne;
-			//				break;
-			//			}
-			//		}
-			//		
+		if (dao.read(utilisateur, "personne")) {
 
 			if (utilisateur != null && utilisateur.isAdmin() && utilisateur.getMdp().equals(motdepasse) && !utilisateur.isBloque()) {
 				session = request.getSession(true);
@@ -159,10 +95,8 @@ public class Test extends HttpServlet {
 				lecture = new BufferedReader(input);
 				String line = lecture.readLine();
 				while (line != null) {
-					if (line.contains("<p id=\"erreurLog\" style=\"visibility:hidden\"></p>") && utilisateur.isBloque()) {
+					if (utilisateur.isBloque()) {
 						line = line.replace("hidden\"></p>", "visible; color:red;\">utilisateur bloque</p>");
-					}else if (line.contains("<p id=\"erreurLog\" style=\"visibility:hidden\"></p>") && !utilisateur.getMdp().equals(motdepasse)) {
-						line = line.replace("hidden\"></p>", "visible; color:red;\">mauvais mot de passe</p>");
 					} else {
 						line = line.replace("hidden\"></p>", "visible; color:red;\">erreur de login</p>");
 					}
@@ -178,7 +112,7 @@ public class Test extends HttpServlet {
 			lecture = new BufferedReader(input);
 			String line = lecture.readLine();
 			while (line != null) {
-				if (line.contains("<p id=\"erreurLog\" style=\"visibility:hidden\"></p>")) {
+				if(line.contains("id=\"erreurLog\"")){
 					line = line.replace("hidden\"></p>", "visible; color:red;\">login inexistant</p>");
 				}
 				response.getWriter().println(line);
@@ -186,8 +120,6 @@ public class Test extends HttpServlet {
 			}
 			lecture.close();
 		}
-		
-		
 
 		// BufferedReader lecture = null;
 		// File page = new

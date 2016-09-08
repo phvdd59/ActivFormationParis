@@ -69,7 +69,7 @@ public class ServletSoka4 extends HttpServlet {
 				}
 				// perso.setSituation(sSituation);
 			} else {
-				//JSP to deco
+				request.getRequestDispatcher("/ServletDeco").forward(request, response);
 			}
 		}
 

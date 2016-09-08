@@ -126,7 +126,7 @@ input#inputDeco[type="submit"] {
 				} else if (sAdresse.equals("BAIT")) {
 					lien = "192.168.33.144";
 				} else if (sAdresse.equals("AJEE")) {
-					lien = "192.168.33.141";
+					lien = "192.168.33.159";
 				}
 				URL wsdlURL = new URL("http://" + lien + ":8888/ws/jax?wsdl");
 				QName qname = new QName("http://beans.formation.com/", "PersoServiceService");

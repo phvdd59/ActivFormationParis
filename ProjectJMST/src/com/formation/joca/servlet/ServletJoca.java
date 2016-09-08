@@ -57,10 +57,6 @@ public class ServletJoca extends HttpServlet {
 		Perso[] tabPerso = (Perso[]) session.getAttribute("tabPerso");
 
 		ConversionPersoToPersonne conversion = new ConversionPersoToPersonne();
-		DAOPersonne dao = new DAOPersonne();
-
-		ListPersonne listp = dao.read("personneWS");
-
 
 		final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 		final String DB_URL = "jdbc:mysql://www.psyeval.fr/jmst";
@@ -74,7 +70,6 @@ public class ServletJoca extends HttpServlet {
 			System.out.println(JDBC_DRIVER);
 			Class.forName(JDBC_DRIVER); // nom du driver
 			con = DriverManager.getConnection(DB_URL, user, pass);
-			
 
 			for (int i = 0; i < tabPerso.length; i++) {
 				statement = con.createStatement();

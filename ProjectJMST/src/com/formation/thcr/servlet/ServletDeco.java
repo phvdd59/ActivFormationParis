@@ -36,8 +36,7 @@ public class ServletDeco extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		session.invalidate();
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/ServletJOCA1");
-		dispatcher.forward(request, response);
+		response.sendRedirect("/ProjectJMST/ServletJOCA1");
 		
 	}
 
