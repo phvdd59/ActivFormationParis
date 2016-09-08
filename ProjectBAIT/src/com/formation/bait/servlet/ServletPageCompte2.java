@@ -15,7 +15,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.formation.bait.dao.AccesBDDPersonne;
 import com.formation.bait.metier.FonctionsCommune;
 import com.formation.bait.metier.Personne;
 import com.formation.bait.metier.VerifComplet;
@@ -52,11 +51,11 @@ public class ServletPageCompte2 extends HttpServlet {
 		FonctionsCommune fonctions = new FonctionsCommune();
 
 		Object oNoSuivi = session.getAttribute("suivi");
-		if (session!= null && oNoSuivi != null) {
+		if (session != null && oNoSuivi != null) {
 			session.setAttribute("servlet", "Compte");
 			session.setAttribute("methode", "POST");
 			personne = (Personne) session.getAttribute("Personne");
-			//System.out.println("Personne : " +personne.getIdPersonne());
+			// System.out.println("Personne : " +personne.getIdPersonne());
 			int nbAppel = ((Integer) session.getAttribute("nbAppel")).intValue();
 			nbAppel++;
 			session.setAttribute("nbAppel", Integer.valueOf(nbAppel));
@@ -74,16 +73,37 @@ public class ServletPageCompte2 extends HttpServlet {
 				while (line2 != null) {
 					// System.out.println(line2);
 
-					line2 = line2.replace("en tant que :", "en tant que :      " + personne.getPrenom() +" "+ personne.getNom());
+					line2 = line2.replace("en tant que :", "en tant que :      " + personne.getPrenom() + " " + personne.getNom());
 					boolean test = verif.validTotal(session);
 					if (line2.contains("disabled")) {
 						if (verif.validTotal(session)) {
 							line2 = line2.replace("disabled=\"disabled\"", "");
 						}
-						
+					}
+					if (line2.contains("Etat civil\">")) {
+						if (verif.validECiv(session)) {
+							line2 = line2.replace("Etat civil\">", "Etat civil\"> <label style=\"color: green\">OK</label>");
+						}
+					}
+					
+					if (line2.contains("Coordonnees\">")) {
+						if (verif.validCoord(session)) {
+							line2 = line2.replace("Coordonnees\">", "Coordonnees\"> <label style=\"color: green\">OK</label>");
+						}
+					}
+					if (line2.contains("ctuelle\">")) {
+						if (verif.validSitu(session)) {
+							line2 = line2.replace("ctuelle\">", "ctuelle\"> <label style=\"color: green\">OK</label>");
+						}
+					}
+					if (line2.contains("ouhaitee\">")) {
+						if (verif.validSalaire(session)) {
+							line2 = line2.replace("ouhaitee\">", "ouhaitee\"> <label style=\"color: green\">OK</label>");
+						}
 					}
 					response.getWriter().append(line2 + "\n");
 					line2 = bIn2.readLine();
+
 				}
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
@@ -98,7 +118,7 @@ public class ServletPageCompte2 extends HttpServlet {
 			}
 			fonctions.AfficherBasDePage(response);
 		} else {
-			//session.invalidate();
+			// session.invalidate();
 			RequestDispatcher rd = request.getRequestDispatcher("//ServletPageLogin3");
 			rd.forward(request, response);
 		}
