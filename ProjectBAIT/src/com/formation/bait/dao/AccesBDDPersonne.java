@@ -16,10 +16,10 @@ import javax.xml.ws.Service;
 
 import com.formation.bait.metier.DocPerso;
 import com.formation.bait.metier.FonctionsCommune;
-import com.formation.bait.metier.InterPersoService;
 import com.formation.bait.metier.ListeDoc;
-import com.formation.bait.metier.Perso;
 import com.formation.bait.metier.Personne;
+import com.formation.beans.InterPersoService;
+import com.formation.beans.Perso;
 
 public class AccesBDDPersonne {
 	public final String JDBC_DRIVER = "com.mysql.jdbc.Driver";

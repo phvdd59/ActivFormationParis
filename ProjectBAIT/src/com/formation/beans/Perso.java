@@ -1,4 +1,4 @@
-package com.formation.bait.metier;
+package com.formation.beans;
 
 import java.io.Serializable;
 import java.util.Date;

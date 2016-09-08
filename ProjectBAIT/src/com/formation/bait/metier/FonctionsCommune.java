@@ -9,6 +9,8 @@ import java.io.InputStreamReader;
 
 import javax.servlet.http.HttpServletResponse;
 
+import com.formation.beans.Perso;
+
 public class FonctionsCommune {
 
 	public void AfficherHautDePage(HttpServletResponse response) {
