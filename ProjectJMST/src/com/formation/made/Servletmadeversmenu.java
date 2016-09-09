@@ -73,6 +73,8 @@ public class Servletmadeversmenu extends HttpServlet {
 			} else {
 				request.getRequestDispatcher("/ServletDeco").forward(request, response);
 			}
+		}  else {
+			request.getRequestDispatcher("/ServletDeco").forward(request, response);
 		}
 
 	}

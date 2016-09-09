@@ -106,7 +106,7 @@ left: 82%;
 
 				CtrlPersonne ctrl = new CtrlPersonne();
 
-				if (noSerie.equals(noSerieHtml)) {
+				if (noSerieHtml != null && noSerie != null && noSerieHtml.equals(noSerie)) {
 			
 			%>
 			<form action="http://localhost:8080/ProjectJMST/jsp/Part3.jsp"
@@ -204,7 +204,7 @@ left: 82%;
 				représentation réservés | Mentions légales</div>
 		</div>
 		<%}else{
-			
+			response.sendRedirect("http://localhost:8080/ProjectJMST/ServletDeco");
 		}%>
 	
 	</div>

@@ -82,7 +82,7 @@ public class ServletUpdate extends HttpServlet {
 				&& ctrl.ctrlVisiteMedicale(sVisiteMedicale) && ctrl.ctrlMontantTransport(sTransport) && ctrl.ctrlVoiture(sVehicule)
 				&& ctrl.ctrlNbCV(sNbCv) && ctrl.ctrlNbKm(sKmEstime)) {
 
-			if (noSerieHtml == null || noSerie == null || noSerieHtml.equals(noSerie)) {
+			if (noSerieHtml != null && noSerie != null && noSerieHtml.equals(noSerie)) {
 
 				personne.setCadre(conv.conversionBoolean(sCadre));
 				personne.setFonction(sFonction);

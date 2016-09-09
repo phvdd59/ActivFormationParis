@@ -141,8 +141,8 @@ input#inputDeco[type="submit"] {
 				// 					Personne pers = conversion.conv(tabPerso[i]);
 				// 					dao.create(pers, "personneWS");
 				// 				}
-
-				if (noSerieHtml != null || noSerie != null || noSerieHtml.equals(noSerie)) {//ne marche pas pour l'instant a voir donc(made)
+				
+				if (noSerieHtml != null && noSerie != null && noSerieHtml.equals(noSerie)) {//ne marche pas pour l'instant a voir donc(made)
 			%>
 			<form action="ListBDD.jsp">
 				<select name="adresse">
@@ -197,7 +197,7 @@ input#inputDeco[type="submit"] {
 					<%
 						}
 						} else {
-							response.sendRedirect("http://localhost:8080/ProjectJMST/ServletJOCA1");
+							response.sendRedirect("http://localhost:8080/ProjectJMST/ServletDeco");
 						}
 					%>
 				</table>

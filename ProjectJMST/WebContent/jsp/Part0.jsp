@@ -110,7 +110,7 @@ left: 80%;
 		personne = (Personne) p;
 	}
 
-	if (noSerie.equals(noSerieHtml)) {
+	if (noSerieHtml != null && noSerie != null && noSerieHtml.equals(noSerie)) {
 	%>	
 					
 					<tr>
@@ -162,7 +162,7 @@ left: 80%;
 		</div>
 <% 	
 	}else{
-// 		forward();
+		response.sendRedirect("http://localhost:8080/ProjectJMST/ServletDeco");
 	}%>
 		<script type="text/javascript" src="Test.js"></script>
 </div>

@@ -48,7 +48,7 @@ public class ServletJOCA2 extends HttpServlet {
 			perso = (Personne) personne;
 		}
 		
-		if (noSerieHtml == null || noSerie == null || noSerieHtml.equals(noSerie)) {
+		if (noSerieHtml != null && noSerie != null && noSerieHtml.equals(noSerie)) {
 			BufferedReader lecture = null;
 			File page = new File(
 					"C:/DevFormation/GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/Gestiondocuments.html");

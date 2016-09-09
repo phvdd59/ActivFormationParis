@@ -45,7 +45,7 @@ public class ServletThcr2 extends HttpServlet {
 		
 		ListPersonne listPersonne = dao.read("personne");
 		session.setAttribute("ListPersonne", listPersonne);
-		if (noSerieHtml == null || noSerie == null || noSerieHtml.equals(noSerie)) {
+		if (noSerieHtml != null && noSerie != null && noSerieHtml.equals(noSerie)) {
 
 		String tableConstruct = "";
 

@@ -45,8 +45,7 @@ public class ServletThcr1 extends HttpServlet {
 
 		String noSerieHtml = request.getParameter("noSerie");
 		String noSerie = (String) session.getAttribute("noSerie");
-
-		if (noSerieHtml == null || noSerie == null || noSerieHtml.equals(noSerie)) {
+		if (noSerieHtml != null && noSerie != null && noSerieHtml.equals(noSerie)) {
 			if (o instanceof ListPersonne) {
 				listPersonne = (ListPersonne) o;
 			}
