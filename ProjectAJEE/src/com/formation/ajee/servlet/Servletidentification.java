@@ -262,6 +262,9 @@ public class Servletidentification extends HttpServlet {
 							}
 							bufReadBas.close();
 
+						} else{
+							session.invalidate();
+							doGet(request, resp);
 						}
 					} else {
 						session.invalidate();
