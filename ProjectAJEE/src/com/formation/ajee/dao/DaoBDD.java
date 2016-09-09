@@ -117,7 +117,7 @@ public class DaoBDD {
 			Class.forName(JDBC_DRIVER);
 			conn = DriverManager.getConnection(DB_URL, user, pass);
 			stat = conn.createStatement();
-			String sql = "DELETE from ajee.backup where ;";
+			String sql = "DELETE from ajee.backup;";
 			stat.executeUpdate(sql);
 			System.out.println("Delete terminer");
 		} catch (ClassNotFoundException e) {

@@ -52,7 +52,7 @@ public class ServletAjee extends HttpServlet {
 		DaoPersonne dao = new DaoPersonne();
 		DaoBDD dao1 = new DaoBDD();
 
-		if (lstPersonnesave.get(0) != null) {
+		if (lstPersonnesave.size() != 0) {
 			dao1.deleteTableBdd();
 			for (int i = 0; i < lstPersonnesave.size(); i++) {
 				dao.insertPersonne(lstPersonnesave.get(i));
