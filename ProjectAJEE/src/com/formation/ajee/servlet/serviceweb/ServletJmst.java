@@ -58,7 +58,7 @@ public class ServletJmst extends HttpServlet {
 
 		DaoPersonne dao = new DaoPersonne();
 		DaoBDD dao1 = new DaoBDD();
-		URL wsdlURL = new URL("http://192.168.33.159:8888/ws/jax?wsdl");
+		URL wsdlURL = new URL("http://192.168.33.145:8888/ws/jax?wsdl");
 		QName qname = new QName("http://beans.formation.com/", "PersoServiceService");
 		Service service = Service.create(wsdlURL, qname);
 		InterPersoService ps = service.getPort(InterPersoService.class);

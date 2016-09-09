@@ -52,67 +52,67 @@ public class ServletBait extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
-		
+
 		ListPersonne lstPersonne = new ListPersonne();
 		ListPersonne lstPersonnesave = new ListPersonne(1);
 
 		DaoPersonne dao = new DaoPersonne();
 		DaoBDD dao1 = new DaoBDD();
-		URL wsdlURL = new URL("http://192.168.33.144:8888/ws/jax?wsdl");
+		URL wsdlURL = new URL("http://192.168.33.145:8888/ws/jax?wsdl");
 		QName qname = new QName("http://beans.formation.com/", "PersoServiceService");
 		Service service = Service.create(wsdlURL, qname);
 		InterPersoService ps = service.getPort(InterPersoService.class);
 		Perso[] p = ps.getPersos();
 
-		if (lstPersonnesave.get(0) == null) {
+		if (lstPersonnesave.size() == 0) {
 			for (int i = 0; i < lstPersonne.size(); i++) {
 				dao1.insertPersBackup(lstPersonne.get(i));
 			}
-
-		} else {
-			if (p != null) {
-				dao1.deleteTableBdd();
-				for (int i = 0; i < p.length; i++) {
-					Personne pers = new Personne();
-					pers.setAdresse(p[i].getAdresse());
-					pers.setNom(p[i].getNom());
-					pers.setPrenom(p[i].getPrenom());
-					pers.setSexe(p[i].getSexe());
-					pers.setIdentifiant(p[i].getIdentifiant());
-					pers.setMdp(p[i].getMdp());
-					pers.setEmail(p[i].getEmail());
-					pers.setCp(p[i].getCp());
-					pers.setVille(p[i].getVille());
-					pers.setTelFixe(p[i].getTelFixe());
-					pers.setTelPort(p[i].getTelPort());
-					pers.setFax(p[i].getFax());
-					pers.setDateNaissance(p[i].getDateNaissance());
-					pers.setLieuNaissance(p[i].getLieuNaissance());
-					pers.setNumSecu(p[i].getNumSecu());
-					pers.setNationalite(p[i].getNationalite());
-					pers.setSituation(p[i].getSituation());
-					pers.setFonction(p[i].getFonction());
-					pers.setPositionEntreprise(p[i].getPos());
-					pers.setCadre(p[i].isCadre());
-					pers.setCoeff(p[i].getCoeff());
-					pers.setSalaire(p[i].getSalaire());
-					pers.setVisiteMedicale(p[i].getVisiteMedicale());
-					pers.setMontantTransport(p[i].getMontantTransport());
-					pers.setVoiture(p[i].isVoiture());
-					pers.setNbCV(p[i].getNbCV());
-					pers.setNbKm(p[i].getNbKm());
-					pers.setMutuelle(p[i].isMutuelle());
-					pers.setTicketResto(p[i].isTicketResto());
-					pers.setDateCreation(p[i].getDateCreation());
-					pers.setDateModification(p[i].getDateModification());
-					pers.setBloque(p[i].isBloque());
-					pers.setRaisonBlocage(p[i].getRaisonBlocage());
-
-					dao.insertPersonne(pers);
-				}
-			}
-
 		}
+		// } else {
+		if (p != null) {
+			dao1.deleteTableBdd();
+			for (int i = 0; i < p.length; i++) {
+				Personne pers = new Personne();
+				pers.setAdresse(p[i].getAdresse());
+				pers.setNom(p[i].getNom());
+				pers.setPrenom(p[i].getPrenom());
+				pers.setSexe(p[i].getSexe());
+				pers.setIdentifiant(p[i].getIdentifiant());
+				pers.setMdp(p[i].getMdp());
+				pers.setEmail(p[i].getEmail());
+				pers.setCp(p[i].getCp());
+				pers.setVille(p[i].getVille());
+				pers.setTelFixe(p[i].getTelFixe());
+				pers.setTelPort(p[i].getTelPort());
+				pers.setFax(p[i].getFax());
+				pers.setDateNaissance(p[i].getDateNaissance());
+				pers.setLieuNaissance(p[i].getLieuNaissance());
+				pers.setNumSecu(p[i].getNumSecu());
+				pers.setNationalite(p[i].getNationalite());
+				pers.setSituation(p[i].getSituation());
+				pers.setFonction(p[i].getFonction());
+				pers.setPositionEntreprise(p[i].getPos());
+				pers.setCadre(p[i].isCadre());
+				pers.setCoeff(p[i].getCoeff());
+				pers.setSalaire(p[i].getSalaire());
+				pers.setVisiteMedicale(p[i].getVisiteMedicale());
+				pers.setMontantTransport(p[i].getMontantTransport());
+				pers.setVoiture(p[i].isVoiture());
+				pers.setNbCV(p[i].getNbCV());
+				pers.setNbKm(p[i].getNbKm());
+				pers.setMutuelle(p[i].isMutuelle());
+				pers.setTicketResto(p[i].isTicketResto());
+				pers.setDateCreation(p[i].getDateCreation());
+				pers.setDateModification(p[i].getDateModification());
+				pers.setBloque(p[i].isBloque());
+				pers.setRaisonBlocage(p[i].getRaisonBlocage());
+
+				dao.insertPersonne(pers);
+			}
+		}
+
+		// }
 		session.invalidate();
 		RequestDispatcher rd = request.getRequestDispatcher("//Servletidentification");
 		rd.forward(request, response);
