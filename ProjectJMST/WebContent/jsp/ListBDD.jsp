@@ -169,9 +169,13 @@ input#inputDeco[type="submit"] {
 						}
 					%>
 				</select> <input type="submit" value="valider">
+				 <input type="hidden" name="noSerie"
+						value="<%=noSerie%>">
 			</form>
 			<form action="/ProjectJMST/ServletJoca">
 			<input type="submit" value="Ecrire sur BDD">
+			 <input type="hidden" name="noSerie"
+						value="<%=noSerie%>">
 			</form>
 			<div id="list">
 				<table border="4">
@@ -207,7 +211,7 @@ input#inputDeco[type="submit"] {
 					method="post">
 					<input class="boutonRetourDeco" id="inputDeco" type="submit"
 						value="Deconnexion"> <input type="hidden" name="noSerie"
-						value="%%noSerie%%">
+						value="<%=noSerie%>">
 				</form>
 			</div>
 		</div>
