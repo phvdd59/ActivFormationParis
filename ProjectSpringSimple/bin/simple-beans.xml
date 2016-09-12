@@ -4,4 +4,18 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 	http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+	<bean id="chefDeveloppeur1" class="com.formation.phva.beans.Developpeur">
+		<property name="nom" value="Frank"/>
+		<property name="anneesExperience" value="10"/>
+	</bean>
+	<bean id="developpeur1" class="com.formation.phva.beans.Developpeur">
+ 		<property name="nom" value="Olivier"></property>
+		<property name="anneesExperience">
+			<value>7</value>
+		</property>
+	</bean>
+	<bean id="societeDevLogiciel" class="com.formation.phva.beans.SocieteDevLogiciel">
+		<property name="chefDeveloppeur" ref="chefDeveloppeur1"/>
+		<property name="developpeur" ref="developpeur1"/>
+	</bean>
 </beans>
