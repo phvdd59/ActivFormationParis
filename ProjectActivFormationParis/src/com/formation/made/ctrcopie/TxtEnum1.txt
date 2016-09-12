@@ -1,0 +1,34 @@
+durée : 30 minutes
+	IKAE pour ses meubles utilise toujours des types de matériaux donnés avec pour chaque
+	matériaux la densité.
+	A chaque type de matériaux lui correspond un niveau de SOLIDITE (NORMAL,SOLIDE,FRAGILE).
+	Chaque élément constituant un meuble contient le pourcentage de ce type de matériaux jusqu'à concurrence
+	de 100%.
+	
+	Créer deux ENUM :
+	
+		- ENUM SOLIDITE
+			comprenant   (NORMAL,SOLIDE,FRAGILE)
+			
+		- ENUM MATERIAUX 
+			comprenant pour chaque type 
+				- 	densite en flotant
+				-   solidite en SOLIDITE
+				-	pourcent en entier
+
+			voici les densités de chaque matériaux : 
+				- BOIS -> 0.6
+				- COMPENSE -> 0.9
+				- STRATIFIE -> 0.8
+				- FER -> 7.4
+				- BRONZE -> 9.2
+				- VERRE -> 2.5
+				- TISSU -> 1.1	
+				- CARTON -> 0.5
+				- VIDE -> 0
+				- PLASTIQUE -> 0.5
+				- CAOUTCHOUC -> 1.1
+				- BAMBOU -> 0.6
+	
+			Les matériaux SOLIDE  sont : FER,BRONZE,TISSU
+			Les matériaux FRAGILE sont : VERRE,CARTON,VIDE,BAMBOU

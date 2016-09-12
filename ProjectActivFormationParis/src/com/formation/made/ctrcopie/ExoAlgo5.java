@@ -1,8 +1,9 @@
-package com.formation.made.ctr;
+package com.formation.made.ctrcopie;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
@@ -44,13 +45,19 @@ public class ExoAlgo5 implements com.formation.phva.inter.InterAlgo5 {
 							}
 						}
 					}
+					TreeMap<Integer, String> treeMapInverse=new TreeMap<Integer,String>();
 					Set<String> keys = treeMapMeubles.keySet();
-					ArrayList<String> listNbMeublesrangees=new ArrayList<String>();
-					int i=0;
-					for (String key : keys) {
-						tabMeublesVendus[i]=key;
+					Collections.sort((ArrayList<String>)keys);
+					for (String string : (ArrayList<String>)keys) {
+						treeMapInverse.put(treeMapMeubles.get(string), string);
 					}
+				for (int i = 0; i < n; i++) {
+					
+					//tabMeublesVendus[i]=treeMapInverse;
+				}	
+				
 				}
+				
 			}
 		}
 
