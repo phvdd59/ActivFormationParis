@@ -243,7 +243,7 @@ public class FonctionsCommune {
 		if (personne.getIdentifiant().equals("Admin")) {
 			personne.setAdmin(true);
 		}
-		return personne;
+		return personne; 
 
 	}
 	// public Perso[] recupBDDAJEE(){
