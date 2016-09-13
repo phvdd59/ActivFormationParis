@@ -1,6 +1,6 @@
 package com.formation.made.ctrcopie;
 
-import com.formation.made.ctr.SOLIDITE;
+import com.formation.made.ctrcopie.SOLIDITE;
 
 @SuppressWarnings("unused")
 public enum MATERIAUX {
