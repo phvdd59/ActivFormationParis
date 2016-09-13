@@ -2,8 +2,6 @@ package com.formation.made.ctrcopie;
 
 import java.util.ArrayList;
 
-import com.formation.made.ctr.TRI;
-
 public class Elmt implements Comparable<Elmt> {
 	public static TRI tri;
 
@@ -15,7 +13,7 @@ public class Elmt implements Comparable<Elmt> {
 	private float hauteur;
 
 	private ArrayList<MATERIAUX> materiaux;
-
+	
 	public Elmt() {
 	}
 
@@ -147,7 +145,7 @@ public class Elmt implements Comparable<Elmt> {
 	}
 
 	public float volumeL() {
-		return longueur * largeur * hauteur / 1000f;
+		return longueur * largeur * hauteur / 1000000f;
 	}
 
 	public float poidMat(MATERIAUX mat) {
@@ -155,7 +153,11 @@ public class Elmt implements Comparable<Elmt> {
 	}
 
 	public float poid() {
-		return 0;
+		float pdTotal=0f;
+		for (MATERIAUX mat : materiaux) {
+			pdTotal+=poidMat(mat);
+		}
+		return pdTotal;
 	}
 
 	public float prixFarication(float[] prMats) {
