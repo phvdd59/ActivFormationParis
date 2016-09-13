@@ -5,6 +5,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
 
+import com.formation.joca.ctr.ExoAlgo7;
 import com.formation.joca.exo.CleDico;
 import com.formation.joca.exo.Dico;
 import com.formation.joca.exo.ExoAlgo1;
@@ -25,14 +26,23 @@ public class MainActiveFormationParisJoca {
 
 	public static void main(String[] arg) {
 		MainActiveFormationParisJoca test = new MainActiveFormationParisJoca();
-		//test.init16();
+		// test.init16();
 		test.init17();
 
 	}
 
 	private void init17() {
-		// TODO Auto-generated method s
-		
+		ExoAlgo7 ex = new ExoAlgo7();
+		int[] tab = { 8, 8, 5, 7, 9, 8, 7, 4, 8, 5, 7, 6, 2, 2, 5, 1, 4 };
+		int[] tab2 = null;
+		int[] tab3 = { 0 };
+		int[] tab4 = { 0, -5, 6 };
+		int[] tab5 = { 0, 0, 0, 0 };
+		System.out.println(ex.solution(tab) + " reponse 14");
+		System.out.println(ex.solution(tab2) + " reponse 0");
+		System.out.println(ex.solution(tab3) + " reponse 0");
+		System.out.println(ex.solution(tab4) + " reponse 0");
+		System.out.println(ex.solution(tab5) + " reponse 0");
 	}
 
 	private void init16() {
