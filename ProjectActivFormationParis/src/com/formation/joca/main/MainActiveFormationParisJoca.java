@@ -33,7 +33,8 @@ public class MainActiveFormationParisJoca {
 
 	private void init17() {
 		ExoAlgo7 ex = new ExoAlgo7();
-		int[] tab = { 8, 8, 5, 7, 9, 8, 7, 4, 8 };
+		int[] tab = { 8, 8, 5, 7, 9, 7, 9, 4, 8 };
+		int[] tab6 = { 8, 0, 5 };
 		int[] tab2 = null;
 		int[] tab3 = { 0 };
 		int[] tab4 = { 0, -5, 6 };
@@ -43,6 +44,7 @@ public class MainActiveFormationParisJoca {
 		System.out.println(ex.solution(tab3) + " reponse 0");
 		System.out.println(ex.solution(tab4) + " reponse 0");
 		System.out.println(ex.solution(tab5) + " reponse 0");
+		System.out.println(ex.solution(tab6) + " reponse 2");
 	}
 
 	private void init16() {
