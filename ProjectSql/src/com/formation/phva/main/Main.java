@@ -25,18 +25,18 @@ public class Main implements Runnable {
 	}
 
 	public void init() throws IOException, InterruptedException {
-		selectTable();
-		//monPerso();
+		//selectTable();
+		monPerso();
 	}
 
 	public void monPerso() throws InterruptedException {
-		Perso p = null;
+		Perso1 p = null;
 		dateEncours = new Date();
 		datePromo = new Date(new Date().getTime() - 10l * 24l * 60l * 60l * 1000l);
 		Thread t = new Thread(this);
 		t.start();
 		try {
-			p = new Perso("VDD", dateEncours, datePromo);
+			p = new Perso1("VDD", dateEncours, datePromo);
 			Thread.sleep(200);
 			System.out.println(p.toString());
 		} catch (IllegalArgumentException e) {

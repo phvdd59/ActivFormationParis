@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <data-sources>
-	<data-source id="mysql3-156d5898680-4ae8dfe7f284287e" provider="generic" driver="mysql3" name="MySQL 3.x - localhost" create-date="1472461418165" login-date="1472843648264" save-password="true" show-system-objects="true" read-only="false">
+	<data-source id="mysql3-156d5898680-4ae8dfe7f284287e" provider="generic" driver="mysql3" name="MySQL 3.x - localhost" create-date="1472461418165" login-date="1473403723922" save-password="true" show-system-objects="true" read-only="false">
 		<connection host="localhost" port="3306" server="" database="" url="jdbc:mysql://localhost:3306/" user="root" type="dev">
 			<network-handler type="TUNNEL" id="ssh_tunnel" enabled="false" user="" save-password="false">
 				<property name="port" value="22"/>
@@ -11,6 +11,21 @@
 			<network-handler type="PROXY" id="socks_proxy" enabled="false" user="" save-password="false">
 				<property name="socks-host" value=""/>
 				<property name="socks-port" value="1080"/>
+			</network-handler>
+			<bootstrap/>
+		</connection>
+	</data-source>
+	<data-source id="mysql3-1570dc21170-4adbc5db48bc843c" provider="generic" driver="mysql3" name="MySQL 3.x - www.psyeval.fr" create-date="1473404633069" save-password="true" show-system-objects="true" read-only="false">
+		<connection host="www.psyeval.fr" port="3306" server="" database="" url="jdbc:mysql://www.psyeval.fr:3306/" user="bait" password="FhYUJVRRUB4BF2bf" type="dev">
+			<network-handler type="PROXY" id="socks_proxy" enabled="false" user="" save-password="false">
+				<property name="socks-host" value=""/>
+				<property name="socks-port" value="1080"/>
+			</network-handler>
+			<network-handler type="TUNNEL" id="ssh_tunnel" enabled="false" user="" save-password="false">
+				<property name="port" value="22"/>
+				<property name="keyPath" value=""/>
+				<property name="host" value=""/>
+				<property name="authType" value="PASSWORD"/>
 			</network-handler>
 			<bootstrap/>
 		</connection>

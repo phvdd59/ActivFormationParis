@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.Driver;
 import java.sql.DriverManager;
 import java.sql.DriverPropertyInfo;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
@@ -25,8 +26,9 @@ public class MainJDBC {
 		//m.selectTable();
 		//m.insertTable();
 		//m.selectMetaData();
-		m.updateTable();
-		m.selectTable();
+		//m.updateTable();
+		//m.selectTable();
+		m.selectSecure();
 	}
 
 	public void create() {
@@ -142,6 +144,36 @@ public class MainJDBC {
 				String sPrenom = resultat.getString("prenom");
 				String sAge = resultat.getString("age");
 				System.out.println(sNom + " " + sPrenom + " " + sAge);
+			}
+
+			System.out.println("FIN");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void selectSecure() {
+		Connection conn = null;
+		Statement stat = null;
+		try {
+			Class.forName(JDBC_DRIVER);
+			conn = DriverManager.getConnection(DB_URL, user, pass);
+			stat = conn.createStatement();
+
+			PreparedStatement stmt = conn.prepareStatement("SELECT * FROM marchand WHERE idMarchand=? or nomMarchand=?");
+			stmt.setString(1,"1");
+			stmt.setString(2,"jeci");
+			
+//			String sql = "SELECT * FROM marchand; ";
+//			ResultSet resultat = stat.executeQuery(sql);
+			ResultSet resultat = stmt.executeQuery();
+			while (resultat.next()) {
+				String sNomMarchand = resultat.getString("nomMarchand");
+				String sAgeMarchand = resultat.getString("ageMarchand");
+				String sIdMarchand = resultat.getString("idMarchand");
+				System.out.println(sNomMarchand + " " + sAgeMarchand + " " + sIdMarchand);
 			}
 
 			System.out.println("FIN");

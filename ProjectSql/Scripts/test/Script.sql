@@ -143,6 +143,21 @@ USE marchandphva;
 SELECT * FROM marchand as m where nomMarchand = "ambr" 
 select * from marchand as m where nomMarchand = "anfr";
 
+create database marchandphvasave;
+use marchandphvasave;
+create table marchand (
+	idMarchand bigint primary key auto_increment,
+	nomMarchand varchar(30),
+	ageMarchand varchar(3)
+);
+
+insert into marchandphvasave.marchand 
+select * from marchandphva.marchand;
+
+use marchandphvasave;
+
+UPDATE marchand set ageMarchand=3, nomMarchand='ambr', nomMarchand='toto' WHERE idMarchand=1;
+
 
 	
 	
