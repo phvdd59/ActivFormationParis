@@ -7,3 +7,6 @@
 /src/com/formation/phva/main/
 /src/com/formation/phva/doss/
 /src/com/formation/phva/metier/
+/.settings/
+/.project
+/.classpath
