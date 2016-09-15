@@ -3,6 +3,7 @@ package com.formation.jeci.main;
 import java.awt.Point;
 import java.util.ArrayList;
 
+import com.formation.jeci.ctr.ExoAlgo7;
 import com.formation.jeci.exo.Dico;
 import com.formation.jeci.exo.ExoAlgo4;
 import com.formation.jeci.exo.ExoFlux1;
@@ -17,8 +18,16 @@ public class Main {
 		// tab.init();
 //		tab.init2();
 	//	tab.init3();
-		tab.init4();
+//		tab.init4();
+		tab.init5();
 
+	}
+
+	private void init5() {
+	ExoAlgo7 test=new ExoAlgo7();
+		int [] tab={8,5};
+		int a=test.solution(tab);
+		System.out.println(a);
 	}
 
 	private void init4() {
