@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Angularjs MVC1</title>
+<script src="lib/angular.min.js"></script>
+<link type='text/css' rel="stylesheet" href="css/ang.css">
+</head>
+<body ng-app="monApp">
+	<div id="tout">
+		<div id="header" class="fenetre" ng-controller="ctrHeader" class="form-horizontal">
+		</div>
+		<div id="menu" class="fenetre" ng-controller="ctrMenu">
+			<button id="ident" ng-click="getDataFromServer()" class="bouton">CHARGER</button>
+			<button ng-repeat="c in eleves" id="{{c}}" class="bouton"
+				value="{{c}}">{{c}}</button>
+		</div>
+		<div id="content" class="fenetre" ng-controller="ctrContent">
+			<h3>{{nom}}</h3>
+		</div>
+		<div id="footer" class="fenetre" ng-controller="ctrFooter"></div>
+	</div>
+	<script>
+		var app = angular.module('monApp', []);
+		
+
+		app.controller('ctrHeader', function($scope) {
+		});
+
+		app.controller('ctrMenu', function($scope, $http) {
+
+			$scope.getDataFromServer = function() {
+				$http({
+					method : 'GET',
+					url : 'http://127.0.0.1:8080/ProjectAngular/ServletJson'
+				}).success(function(data, status, headers, config) {
+					$scope.info = "";
+					$scope.eleves = data;
+				}).error(function(data, status, headers, config) {
+					$scope.info = status;
+					$scope.eleves = [];
+				});
+			};
+		});
+
+		app.controller('ctrContent', function($scope) {
+		});
+		app.controller('ctrFooter', function($scope) {
+		});
+</body>
+</html>

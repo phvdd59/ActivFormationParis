@@ -1,0 +1,145 @@
+@CHARSET "UTF-8";
+body {
+	background: linear-gradient(
+	to right, #FFF, #EEF);
+}
+
+h1 {
+	padding: 0px;
+	width: 800px;
+	margin: auto;
+}
+
+form {
+	margin: 5px;
+}
+label {
+	margin: 10px;
+}
+
+input {
+  border-radius: 5px 5px 5px 5px;
+}
+.divLab {
+	position: absolute;
+	width: 180px;
+	height: 30px;
+	left: 0px;
+	visibility: visible; 
+}
+.divInput {
+	position: absolute;
+	width: 300px;
+	height: 30px;
+	left: 180px;	
+	top: 0px;
+	visibility: visible; 
+}
+
+#d1,#i1 {
+	top: 10px;
+}
+#d2,#i2 {
+	top: 40px;
+}
+#d3,#i3 {
+	top: 70px;
+}
+#d4 {
+	top: 100px;
+	left: 250px;
+}
+#validateHeader {
+	width: 78px;
+}
+
+.inputOK {
+	border-color: #000;
+	background-color: #FFF;
+}
+
+.inputKO {
+	border-color: #F00;
+	background-color: #FDD;
+}
+
+.erreur {
+	color: #F00;
+}
+
+.fenetre {
+	position: absolute; 
+	border-width : 1px;
+	border-style: solid;
+	border-color: #AAA";
+	border-width: 1px;
+}
+
+.form-group {
+	position: relative; 
+	width: 500px;
+	height: 30px;
+	left: 10px;
+	top:0px;
+	border: 0px;
+}
+
+.bouton {
+	position:relative;
+	background: linear-gradient(
+	to bottom, #888, #444);
+	width: 150px;
+	height: 30px;
+	left:15px;
+	font-family: 'Verdana';
+	font-weight: bold;
+	font-size: 30sx;
+	font-style: italic;
+	color: #FFF;
+	margin: 3px 3px 5px 10px;
+}
+#tout {
+	position:relative;
+	top: 0px;
+	left: 0px;
+	width: 800px;
+	height: 800px;
+	border-width: 0px;
+	margin: auto; 
+}
+
+#header {
+	top: 0px;
+	left: 0px;
+	width: 800px;
+	height: 200px;
+	background: linear-gradient(
+	to bottom, #FFF, #AAA);
+}
+
+#menu {
+	position:absolute;
+	top: 200px;
+	left: 0px;
+	width: 200px;
+	height: 600px;
+	background: linear-gradient(
+	to right, #AAA, #AAA);
+}
+
+#footer {
+	top: 800px;
+	left: 0px;
+	width: 800px;
+	height: 100px;
+	background: linear-gradient(
+	to bottom, #AAA, #CCC);
+}
+
+#content {
+	top: 200px;
+	left: 200px;
+	width: 600px;
+	height: 600px;
+	background: #FFF;
+}
