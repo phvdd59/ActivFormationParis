@@ -119,7 +119,7 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       <wsdl:port binding="impl:ServiceProjectSoapBinding" name="ServiceProject">
 
-         <wsdlsoap:address location="http://localhost:8080/ProjectTst/services/ServiceProject"/>
+         <wsdlsoap:address location="http://127.0.0.1:8080/ProjectTst/services/ServiceProject"/>
 
       </wsdl:port>
 
