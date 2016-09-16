@@ -71,7 +71,7 @@ public class ServletRechercheProfil extends HttpServlet {
 					rd.forward(request, response);
 				}
 				/** Lecture Haut de page HTML */
-				File fileHaut = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/HautPage.html");
+				File fileHaut = new File(FonctionsCommune.LOCAL+"ajee/page1/HautPage.html");
 				BufferedReader bufReadHaut = null;
 				bufReadHaut = new BufferedReader(new FileReader(fileHaut));
 				String lineHaut = bufReadHaut.readLine();
@@ -85,7 +85,7 @@ public class ServletRechercheProfil extends HttpServlet {
 				bufReadHaut.close();
 
 				/** A modifier seulement si notre page contient du JavaScript */
-				File fileJS = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/js/JSAccueilAdmin.html");
+				File fileJS = new File(FonctionsCommune.LOCAL+"ajee/js/JSAccueilAdmin.html");
 				BufferedReader bufReadJS = null;
 				bufReadJS = new BufferedReader(new FileReader(fileJS));
 				String lineJS = bufReadJS.readLine();
@@ -96,7 +96,7 @@ public class ServletRechercheProfil extends HttpServlet {
 				bufReadJS.close();
 
 				/** Lecture page ActivConsulting */
-				File fileActiv = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/MenuActiv.html");
+				File fileActiv = new File(FonctionsCommune.LOCAL+"ajee/page1/MenuActiv.html");
 				BufferedReader bufReadActiv = null;
 				bufReadActiv = new BufferedReader(new FileReader(fileActiv));
 				String lineActiv = bufReadActiv.readLine();
@@ -111,7 +111,7 @@ public class ServletRechercheProfil extends HttpServlet {
 				 * aux controles si necessaire)
 				 */
 
-				File fileDoc = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/BandeauAdmin.html");
+				File fileDoc = new File(FonctionsCommune.LOCAL+"ajee/page1/BandeauAdmin.html");
 				BufferedReader bufReadDoc = null;
 				bufReadDoc = new BufferedReader(new FileReader(fileDoc));
 				String lineDoc = bufReadDoc.readLine();
@@ -127,7 +127,7 @@ public class ServletRechercheProfil extends HttpServlet {
 				}
 				bufReadDoc.close();
 
-				File fileDoc1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/AccueilAdmin.html");
+				File fileDoc1 = new File(FonctionsCommune.LOCAL+"ajee/page1/AccueilAdmin.html");
 				BufferedReader bufReadDoc1 = null;
 				bufReadDoc1 = new BufferedReader(new FileReader(fileDoc1));
 				String lineDoc1 = bufReadDoc1.readLine();
@@ -147,7 +147,7 @@ public class ServletRechercheProfil extends HttpServlet {
 				bufReadDoc1.close();
 
 				/** Lecture bas de page */
-				File fileBas = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/BasPage.html");
+				File fileBas = new File(FonctionsCommune.LOCAL+"ajee/page1/BasPage.html");
 				BufferedReader bufReadBas = null;
 				bufReadBas = new BufferedReader(new FileReader(fileBas));
 				String lineBas = bufReadBas.readLine();
