@@ -8,6 +8,8 @@ import java.io.IOException;
 
 import javax.servlet.http.HttpServletResponse;
 
+import com.formation.ajee.metier.FonctionsCommune;
+
 public class Vue {
 	public static final String rep = FonctionsCommune.LOCAL+"ajee/page1/";
 	public static final String rep1 = FonctionsCommune.LOCAL+"ajee/js/";

@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.formation.ajee.metier.FonctionsCommune;
 import com.formation.ajee.metier.ListPersonne;
 import com.formation.ajee.metier.Personne;
 import com.formation.ajee.veriffom.Vue;
