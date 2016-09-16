@@ -62,7 +62,7 @@ public class ServletMdpAdmin extends HttpServlet {
 				vue.lecturePage(response, "MenuActiv");
 				
 				/** Lecture Haut de page HTML */
-				File fileDoc = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/BandeauAdmin.html");
+				File fileDoc = new File(FonctionsCommune.LOCAL+"ajee/page1/BandeauAdmin.html");
 				BufferedReader bufReadDoc = null;
 				bufReadDoc = new BufferedReader(new FileReader(fileDoc));
 				String lineDoc = bufReadDoc.readLine();
@@ -92,7 +92,7 @@ public class ServletMdpAdmin extends HttpServlet {
 				vue.lecturePage(response, "MenuActiv");
 				
 				/** Lecture Haut de page HTML */
-				File fileDoc = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/Bandeau.html");
+				File fileDoc = new File(FonctionsCommune.LOCAL+"ajee/page1/Bandeau.html");
 				BufferedReader bufReadDoc = null;
 				bufReadDoc = new BufferedReader(new FileReader(fileDoc));
 				String lineDoc = bufReadDoc.readLine();

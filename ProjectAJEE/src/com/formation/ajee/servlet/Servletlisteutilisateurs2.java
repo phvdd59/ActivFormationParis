@@ -96,7 +96,7 @@ public class Servletlisteutilisateurs2 extends HttpServlet {
 				vue.lecturePage(response, "JSBandeauAdmin");
 
 				/** Lecture page ActivConsulting */
-				File fileActiv = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/MenuActiv.html");
+				File fileActiv = new File(FonctionsCommune.LOCAL+"ajee/page1/MenuActiv.html");
 				BufferedReader bufReadActiv = null;
 				bufReadActiv = new BufferedReader(new FileReader(fileActiv));
 				String lineActiv = bufReadActiv.readLine();
@@ -113,7 +113,7 @@ public class Servletlisteutilisateurs2 extends HttpServlet {
 				bufReadActiv.close();
 
 				/** Lecture bandeau */
-				File fileDoc = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/BandeauAdmin.html");
+				File fileDoc = new File(FonctionsCommune.LOCAL+"ajee/page1/BandeauAdmin.html");
 				BufferedReader bufReadDoc = null;
 				bufReadDoc = new BufferedReader(new FileReader(fileDoc));
 				String lineDoc = bufReadDoc.readLine();
@@ -174,7 +174,7 @@ public class Servletlisteutilisateurs2 extends HttpServlet {
 				vue.lecturePage(response, "MenuActiv");
 
 				/** Lecture bandeau */
-				File fileDoc = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/BandeauAdmin.html");
+				File fileDoc = new File(FonctionsCommune.LOCAL+"ajee/page1/BandeauAdmin.html");
 				BufferedReader bufReadDoc = null;
 				bufReadDoc = new BufferedReader(new FileReader(fileDoc));
 				String lineDoc = bufReadDoc.readLine();
@@ -253,7 +253,7 @@ public class Servletlisteutilisateurs2 extends HttpServlet {
 				vue.lecturePage(response, "JSBandeauAdmin");
 
 				/** Lecture page ActivConsulting */
-				File fileActiv = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/MenuActiv.html");
+				File fileActiv = new File(FonctionsCommune.LOCAL+"ajee/page1/MenuActiv.html");
 				BufferedReader bufReadActiv = null;
 				bufReadActiv = new BufferedReader(new FileReader(fileActiv));
 				String lineActiv = bufReadActiv.readLine();
@@ -270,7 +270,7 @@ public class Servletlisteutilisateurs2 extends HttpServlet {
 				bufReadActiv.close();
 
 				/** Lecture bandeau */
-				File fileDoc = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/BandeauAdmin.html");
+				File fileDoc = new File(FonctionsCommune.LOCAL+"ajee/page1/BandeauAdmin.html");
 				BufferedReader bufReadDoc = null;
 				bufReadDoc = new BufferedReader(new FileReader(fileDoc));
 				String lineDoc = bufReadDoc.readLine();
@@ -328,7 +328,7 @@ public class Servletlisteutilisateurs2 extends HttpServlet {
 				vue.lecturePage(response, "MenuActiv");
 
 				/** Lecture bandeau */
-				File fileDoc = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/BandeauAdmin.html");
+				File fileDoc = new File(FonctionsCommune.LOCAL+"ajee/page1/BandeauAdmin.html");
 				BufferedReader bufReadDoc = null;
 				bufReadDoc = new BufferedReader(new FileReader(fileDoc));
 				String lineDoc = bufReadDoc.readLine();
@@ -384,7 +384,7 @@ public class Servletlisteutilisateurs2 extends HttpServlet {
 			vue.lecturePage(response, "MenuActiv");
 
 			/** Lecture bandeau */
-			File fileDoc = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/BandeauAdmin.html");
+			File fileDoc = new File(FonctionsCommune.LOCAL+"ajee/page1/BandeauAdmin.html");
 			BufferedReader bufReadDoc = null;
 			bufReadDoc = new BufferedReader(new FileReader(fileDoc));
 			String lineDoc = bufReadDoc.readLine();

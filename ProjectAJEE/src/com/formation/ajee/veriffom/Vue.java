@@ -9,8 +9,8 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletResponse;
 
 public class Vue {
-	public static final String rep = "C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/";
-	public static final String rep1 = "C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/js/";
+	public static final String rep = FonctionsCommune.LOCAL+"ajee/page1/";
+	public static final String rep1 = FonctionsCommune.LOCAL+"ajee/js/";
 
 	public void lecturePage(HttpServletResponse resp, String sPage) {
 		File file = new File(rep + sPage + ".html");

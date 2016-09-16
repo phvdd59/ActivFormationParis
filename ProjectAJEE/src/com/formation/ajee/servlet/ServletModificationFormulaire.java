@@ -115,7 +115,7 @@ public class ServletModificationFormulaire extends HttpServlet {
 				vue.lecturePage(response, "HautPage");
 
 				/** A modifier seulement si notre page contient du JavaScript */
-				File fileJS = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/css/FormulaireCalendrierListeDeroulante.html");
+				File fileJS = new File(FonctionsCommune.LOCAL+"ajee/css/FormulaireCalendrierListeDeroulante.html");
 				BufferedReader bufReadJS = null;
 				bufReadJS = new BufferedReader(new FileReader(fileJS));
 				String lineJS = bufReadJS.readLine();
@@ -135,7 +135,7 @@ public class ServletModificationFormulaire extends HttpServlet {
 				 * Seule Partie qui va vraiment changer selon les pages (penser
 				 * aux controles si necessaire)
 				 */
-				File fileDoc = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/Bandeau.html");
+				File fileDoc = new File(FonctionsCommune.LOCAL+"ajee/page1/Bandeau.html");
 				BufferedReader bufReadDoc = null;
 				bufReadDoc = new BufferedReader(new FileReader(fileDoc));
 				String lineDoc = bufReadDoc.readLine();
@@ -148,7 +148,7 @@ public class ServletModificationFormulaire extends HttpServlet {
 				}
 				bufReadDoc.close();
 
-				File fileDoc1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/ModificationFormulaireJECI.html");
+				File fileDoc1 = new File(FonctionsCommune.LOCAL+"ajee/page1/ModificationFormulaireJECI.html");
 				BufferedReader bufReadDoc1 = null;
 				bufReadDoc1 = new BufferedReader(new FileReader(fileDoc1));
 				String lineDoc1 = bufReadDoc1.readLine();

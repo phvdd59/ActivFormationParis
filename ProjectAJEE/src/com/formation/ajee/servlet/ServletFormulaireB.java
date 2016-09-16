@@ -59,7 +59,7 @@ public class ServletFormulaireB extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		
 		/** Lecture Haut de page HTML */
-		File fileHaut = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/HautPage.html");
+		File fileHaut = new File(FonctionsCommune.LOCAL+"ajee/page1/HautPage.html");
 		BufferedReader bufReadHaut = null;
 		bufReadHaut = new BufferedReader(new FileReader(fileHaut));
 		String lineHaut = bufReadHaut.readLine();
@@ -73,7 +73,7 @@ public class ServletFormulaireB extends HttpServlet {
 		 * A modifier seulement si notre page contient du JavaScript
 		 */
 		
-		File fileJS = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/js/JSFormulaireARemplir.html");
+		File fileJS = new File(FonctionsCommune.LOCAL+"ajee/js/JSFormulaireARemplir.html");
 		BufferedReader bufReadJS = null;
 		bufReadJS= new BufferedReader(new FileReader(fileJS));
 		String lineJS= bufReadJS.readLine();
@@ -87,7 +87,7 @@ public class ServletFormulaireB extends HttpServlet {
 				 
 		/** Lecture page ActivConsulting */
 		
-		File fileActiv = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/MenuActiv.html");
+		File fileActiv = new File(FonctionsCommune.LOCAL+"ajee/page1/MenuActiv.html");
 		BufferedReader bufReadActiv = null;
 		bufReadActiv= new BufferedReader(new FileReader(fileActiv));
 		String lineActiv= bufReadActiv.readLine();
@@ -102,7 +102,7 @@ public class ServletFormulaireB extends HttpServlet {
 		 * aux controles si necessaire)
 		 */
 		
-//		File fileDoc = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/Bandeau.html");
+//		File fileDoc = new File(FonctionsCommune.LOCAL+"ajee/page1/Bandeau.html");
 //		BufferedReader bufReadDoc = null;
 //		bufReadDoc = new BufferedReader(new FileReader(fileDoc));
 //		String lineDoc = bufReadDoc.readLine();
@@ -252,7 +252,7 @@ public class ServletFormulaireB extends HttpServlet {
 		
 		
 		/** Lecture FormulaireEnregistre */
-		File fileForm = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/FormulaireEnregistre.html");
+		File fileForm = new File(FonctionsCommune.LOCAL+"ajee/page1/FormulaireEnregistre.html");
 		BufferedReader bufReadForm = null;
 		bufReadForm = new BufferedReader(new FileReader(fileForm));
 		String lineForm = bufReadForm.readLine();
@@ -267,7 +267,7 @@ public class ServletFormulaireB extends HttpServlet {
 		bufReadForm.close();
 		
 		/** Lecture bas de page */
-		File fileBas = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/BasPage.html");
+		File fileBas = new File(FonctionsCommune.LOCAL+"ajee/page1/BasPage.html");
 		BufferedReader bufReadBas = null;
 		bufReadBas = new BufferedReader(new FileReader(fileBas));
 		String lineBas = bufReadBas.readLine();

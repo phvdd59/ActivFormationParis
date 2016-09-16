@@ -73,7 +73,7 @@ public class Servletaccueilvalidemdp extends HttpServlet {
 				vue.lecturePage(response, "MenuActiv");
 
 				/**Lecture corp de page */
-				File fileDoc = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/BandeauAdmin.html");
+				File fileDoc = new File(FonctionsCommune.LOCAL+"ajee/page1/BandeauAdmin.html");
 				BufferedReader bufReadDoc = null;
 				bufReadDoc = new BufferedReader(new FileReader(fileDoc));
 				String lineDoc = bufReadDoc.readLine();
@@ -89,7 +89,7 @@ public class Servletaccueilvalidemdp extends HttpServlet {
 				}
 				bufReadDoc.close();
 
-				File fileDoc1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/MdpEnregistrer.html");
+				File fileDoc1 = new File(FonctionsCommune.LOCAL+"ajee/page1/MdpEnregistrer.html");
 				BufferedReader bufReadDoc1 = null;
 				bufReadDoc1 = new BufferedReader(new FileReader(fileDoc1));
 				String lineDoc1 = bufReadDoc1.readLine();
@@ -117,7 +117,7 @@ public class Servletaccueilvalidemdp extends HttpServlet {
 				vue.lecturePage(response, "MenuActiv");
 
 				/**Lecture corp de page */
-				File fileDoc = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/Bandeau.html");
+				File fileDoc = new File(FonctionsCommune.LOCAL+"ajee/page1/Bandeau.html");
 				BufferedReader bufReadDoc = null;
 				bufReadDoc = new BufferedReader(new FileReader(fileDoc));
 				String lineDoc = bufReadDoc.readLine();

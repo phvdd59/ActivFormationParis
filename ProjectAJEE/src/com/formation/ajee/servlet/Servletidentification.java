@@ -42,7 +42,7 @@ public class Servletidentification extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		
 
-		File file = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/WEB-INF/com/formation/ajee/page/Identification.html");
+		File file = new File(FonctionsCommune.LOCAL+"WEB-INF/com/formation/ajee/page/Identification.html");
 	
 
 		HttpSession session = request.getSession(true); // true pour garder le
@@ -112,7 +112,7 @@ public class Servletidentification extends HttpServlet {
 							 * A modifier seulement si notre page contient du
 							 * JavaScript
 							 */
-							File fileJS = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/js/JSAccueilAdmin.html");
+							File fileJS = new File(FonctionsCommune.LOCAL+"ajee/js/JSAccueilAdmin.html");
 							BufferedReader bufReadJS = null;
 							bufReadJS = new BufferedReader(new FileReader(fileJS));
 							String lineJS = bufReadJS.readLine();
@@ -122,7 +122,7 @@ public class Servletidentification extends HttpServlet {
 							}
 							bufReadJS.close();
 
-							File fileJS1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/js/JSBandeauAdmin.html");
+							File fileJS1 = new File(FonctionsCommune.LOCAL+"ajee/js/JSBandeauAdmin.html");
 							BufferedReader bufReadJS1 = null;
 							bufReadJS1 = new BufferedReader(new FileReader(fileJS1));
 							String lineJS1 = bufReadJS1.readLine();
@@ -133,7 +133,7 @@ public class Servletidentification extends HttpServlet {
 							bufReadJS1.close();
 
 							/** Lecture page ActivConsulting */
-							File fileActiv = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/MenuActiv.html");
+							File fileActiv = new File(FonctionsCommune.LOCAL+"ajee/page1/MenuActiv.html");
 							BufferedReader bufReadActiv = null;
 							bufReadActiv = new BufferedReader(new FileReader(fileActiv));
 							String lineActiv = bufReadActiv.readLine();
@@ -147,7 +147,7 @@ public class Servletidentification extends HttpServlet {
 							 * Seule Partie qui va vraiment changer selon les
 							 * pages (penser aux controles si necessaire)
 							 */
-							File fileDoc = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/BandeauAdmin.html");
+							File fileDoc = new File(FonctionsCommune.LOCAL+"ajee/page1/BandeauAdmin.html");
 							BufferedReader bufReadDoc = null;
 							bufReadDoc = new BufferedReader(new FileReader(fileDoc));
 							String lineDoc = bufReadDoc.readLine();
@@ -163,7 +163,7 @@ public class Servletidentification extends HttpServlet {
 							}
 							bufReadDoc.close();
 
-							File fileDoc1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/AccueilAdmin.html");
+							File fileDoc1 = new File(FonctionsCommune.LOCAL+"ajee/page1/AccueilAdmin.html");
 							BufferedReader bufReadDoc1 = null;
 							bufReadDoc1 = new BufferedReader(new FileReader(fileDoc1));
 							String lineDoc1 = bufReadDoc1.readLine();
@@ -183,7 +183,7 @@ public class Servletidentification extends HttpServlet {
 							bufReadDoc1.close();
 
 							/** Lecture bas de page */
-							File fileBas = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/BasPage.html");
+							File fileBas = new File(FonctionsCommune.LOCAL+"ajee/page1/BasPage.html");
 							BufferedReader bufReadBas = null;
 							bufReadBas = new BufferedReader(new FileReader(fileBas));
 							String lineBas = bufReadBas.readLine();
@@ -199,7 +199,7 @@ public class Servletidentification extends HttpServlet {
 							// atention quand personne supp avec boolean
 
 							/** Lecture Haut de page HTML */
-							File fileHaut = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/HautPage.html");
+							File fileHaut = new File(FonctionsCommune.LOCAL+"ajee/page1/HautPage.html");
 							BufferedReader bufReadHaut = null;
 							bufReadHaut = new BufferedReader(new FileReader(fileHaut));
 							String lineHaut = bufReadHaut.readLine();
@@ -215,7 +215,7 @@ public class Servletidentification extends HttpServlet {
 							 */
 
 							/** Lecture page ActivConsulting */
-							File fileActiv = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/MenuActiv.html");
+							File fileActiv = new File(FonctionsCommune.LOCAL+"ajee/page1/MenuActiv.html");
 							BufferedReader bufReadActiv = null;
 							bufReadActiv = new BufferedReader(new FileReader(fileActiv));
 							String lineActiv = bufReadActiv.readLine();
@@ -229,7 +229,7 @@ public class Servletidentification extends HttpServlet {
 							 * Seule Partie qui va vraiment changer selon les
 							 * pages (penser aux controles si necessaire)
 							 */
-							File fileDoc = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/Bandeau.html");
+							File fileDoc = new File(FonctionsCommune.LOCAL+"ajee/page1/Bandeau.html");
 							BufferedReader bufReadDoc = null;
 							bufReadDoc = new BufferedReader(new FileReader(fileDoc));
 							String lineDoc = bufReadDoc.readLine();
@@ -242,7 +242,7 @@ public class Servletidentification extends HttpServlet {
 							}
 							bufReadDoc.close();
 
-							File fileDoc1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/Accueil.html");
+							File fileDoc1 = new File(FonctionsCommune.LOCAL+"ajee/page1/Accueil.html");
 							BufferedReader bufReadDoc1 = null;
 							bufReadDoc1 = new BufferedReader(new FileReader(fileDoc1));
 							String lineDoc1 = bufReadDoc1.readLine();
@@ -253,7 +253,7 @@ public class Servletidentification extends HttpServlet {
 							bufReadDoc1.close();
 
 							/** Lecture bas de page */
-							File fileBas = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/BasPage.html");
+							File fileBas = new File(FonctionsCommune.LOCAL+"ajee/page1/BasPage.html");
 							BufferedReader bufReadBas = null;
 							bufReadBas = new BufferedReader(new FileReader(fileBas));
 							String lineBas = bufReadBas.readLine();
@@ -278,7 +278,7 @@ public class Servletidentification extends HttpServlet {
 			} else if (boutonInscription != null) {
 
 				/** Lecture Haut de page HTML */
-				File fileHaut = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/HautPage.html");
+				File fileHaut = new File(FonctionsCommune.LOCAL+"ajee/page1/HautPage.html");
 				BufferedReader bufReadHaut = null;
 				bufReadHaut = new BufferedReader(new FileReader(fileHaut));
 				String lineHaut = bufReadHaut.readLine();
@@ -287,7 +287,7 @@ public class Servletidentification extends HttpServlet {
 					lineHaut = bufReadHaut.readLine();
 				}
 				bufReadHaut.close();
-				File fileJS1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/css/FormulaireCalendrierListeDeroulante.html");
+				File fileJS1 = new File(FonctionsCommune.LOCAL+"ajee/css/FormulaireCalendrierListeDeroulante.html");
 				BufferedReader bufReadJS1 = null;
 				bufReadJS1 = new BufferedReader(new FileReader(fileJS1));
 				String lineJS1 = bufReadJS1.readLine();
@@ -299,7 +299,7 @@ public class Servletidentification extends HttpServlet {
 				
 				resp.getWriter().println("<link href=\"http://127.0.0.1:8080/ProjectAJEE/ajee/css/StyleFormulaire.css\" rel=\"stylesheet\" type=\"text/css\">");
 				
-				File fileJS2 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/js/JSFormulaireCalendrierListeDeroulante.html");
+				File fileJS2 = new File(FonctionsCommune.LOCAL+"ajee/js/JSFormulaireCalendrierListeDeroulante.html");
 				BufferedReader bufReadJS2 = null;
 				bufReadJS2 = new BufferedReader(new FileReader(fileJS2));
 				String lineJS2 = bufReadJS2.readLine();
@@ -320,7 +320,7 @@ public class Servletidentification extends HttpServlet {
 				bufReadDoc1.close();
 				
 				/** Lecture page ActivConsulting */
-				File fileActiv = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/MenuActiv.html");
+				File fileActiv = new File(FonctionsCommune.LOCAL+"ajee/page1/MenuActiv.html");
 				BufferedReader bufReadActiv = null;
 				bufReadActiv = new BufferedReader(new FileReader(fileActiv));
 				String lineActiv = bufReadActiv.readLine();
@@ -332,7 +332,7 @@ public class Servletidentification extends HttpServlet {
 
 				/** Lecture formulaire */
 
-				File fileDoc2 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/FormulaireARemplir.html");
+				File fileDoc2 = new File(FonctionsCommune.LOCAL+"ajee/page1/FormulaireARemplir.html");
 				BufferedReader bufReadDoc2 = null;
 				bufReadDoc2 = new BufferedReader(new FileReader(fileDoc2));
 				String lineDoc2 = bufReadDoc2.readLine();
@@ -343,7 +343,7 @@ public class Servletidentification extends HttpServlet {
 				bufReadDoc2.close();
 
 				/** Lecture bas de page */
-				File fileBas = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/BasPage.html");
+				File fileBas = new File(FonctionsCommune.LOCAL+"ajee/page1/BasPage.html");
 				BufferedReader bufReadBas = null;
 				bufReadBas = new BufferedReader(new FileReader(fileBas));
 				String lineBas = bufReadBas.readLine();
