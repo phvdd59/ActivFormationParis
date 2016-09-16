@@ -124,7 +124,7 @@ public class ServletModificationFormulaire extends HttpServlet {
 					lineJS = bufReadJS.readLine();
 				}
 				bufReadJS.close();
-				response.getWriter().println("<link href=\"http://localhost:8080/ProjectAJEE/ajee/css/StyleFormulaire.css\" rel=\"stylesheet\" type=\"text/css\">");
+				response.getWriter().println("<link href=\"http://127.0.0.1:8080/ProjectAJEE/ajee/css/StyleFormulaire.css\" rel=\"stylesheet\" type=\"text/css\">");
 
 				vue.lectureJS(response, "JSFormulaireCalendrierListeDeroulante");
 

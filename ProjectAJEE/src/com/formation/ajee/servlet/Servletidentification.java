@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.formation.ajee.metier.FonctionsCommune;
 import com.formation.ajee.metier.ListPersonne;
 import com.formation.ajee.metier.Personne;
 import com.formation.ajee.veriffom.Vue;
@@ -296,7 +297,7 @@ public class Servletidentification extends HttpServlet {
 				}
 				bufReadJS1.close();
 				
-				resp.getWriter().println("<link href=\"http://localhost:8080/ProjectAJEE/ajee/css/StyleFormulaire.css\" rel=\"stylesheet\" type=\"text/css\">");
+				resp.getWriter().println("<link href=\"http://127.0.0.1:8080/ProjectAJEE/ajee/css/StyleFormulaire.css\" rel=\"stylesheet\" type=\"text/css\">");
 				
 				File fileJS2 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/js/JSFormulaireCalendrierListeDeroulante.html");
 				BufferedReader bufReadJS2 = null;
@@ -308,7 +309,7 @@ public class Servletidentification extends HttpServlet {
 				}
 				bufReadJS2.close();
 			
-				File fileDoc1 = new File("C:/DevFormation/GITActivFormationParis/ProjectAJEE/WebContent/ajee/js/JSFormulaireARemplir.html");
+				File fileDoc1 = new File(FonctionsCommune.LOCAL+"ajee/js/JSFormulaireARemplir.html");
 				BufferedReader bufReadDoc1 = null;
 				bufReadDoc1 = new BufferedReader(new FileReader(fileDoc1));
 				String lineDoc1 = bufReadDoc1.readLine();
