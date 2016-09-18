@@ -1,12 +1,16 @@
 package com.formation.thcr.main;
 
+import java.sql.Connection;
 import java.sql.Date;
+import java.sql.DriverManager;
+import java.sql.Statement;
 import java.sql.Timestamp;
 
 import com.formation.thcr.conversion.ConversionPersonne;
 import com.formation.thcr.dao.DAOPersonne;
 import com.formation.thcr.metier.Personne;
 import com.formation.thcr.metier.Sexe;
+import com.mysql.jdbc.PreparedStatement;
 
 public class MainDAO {
 
@@ -50,6 +54,17 @@ public class MainDAO {
 		personne.setVille("Ville test");
 		personne.setVisiteMedicale(conv.conversionDate(stringDate));
 		personne.setVoiture(false);
+		
+		Connection con = null;
+		Statement statement = null;
+		try {
+			Class.forName("com.mysql.jdbc.Driver"); // nom du driver
+			con = DriverManager.getConnection("jdbc:mysql://www.psyeval.fr/jmst", "jmst", "erreurmade");
+//			java.sql.PreparedStatement stat = con.prepareStatement("SELECT * FROM jmst.personne WHERE ID = ? or name = ?;");
+//			stat.setString(parameterIndex, x);
+		} catch (Exception e){
+			
+		}
 		
 		//dao.create(personne);
 

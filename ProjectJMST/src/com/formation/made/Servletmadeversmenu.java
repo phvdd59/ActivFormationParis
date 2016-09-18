@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.formation.thcr.fonction.FonctionCommune;
 import com.formation.thcr.metier.Personne;
 
 /**
@@ -39,7 +40,7 @@ public class Servletmadeversmenu extends HttpServlet {
 		Object objNoSerieSession = session.getAttribute("noSerie");
 		Object objPersonne = session.getAttribute("Personne");
 		String noSeriePageAdmin = request.getParameter("noSerie");// ajouter le name noSerie dans l'html
-		
+
 		if (objPersonne instanceof Personne && objNoSerieSession instanceof String) {
 			String strNoSerieSession = (String) objNoSerieSession;
 			Personne pPersonne = (Personne) objPersonne;
@@ -47,8 +48,8 @@ public class Servletmadeversmenu extends HttpServlet {
 				BufferedReader bIn = null;
 
 				if (pPersonne.isAdmin()) {
-					File file = new File("../GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/pagecompteadministrateur.html");
-					bIn = new BufferedReader(new FileReader(file));
+					File page = new File(FonctionCommune.LOCAL + "/WEB-INF/page/pagecompteadministrateur.html");
+					bIn = new BufferedReader(new FileReader(page));
 					String maLigne = bIn.readLine();
 					while (maLigne != null) {
 						if (maLigne.contains("%%noSerie%%")) {
@@ -58,8 +59,8 @@ public class Servletmadeversmenu extends HttpServlet {
 						maLigne = bIn.readLine();
 					}
 				} else if (!pPersonne.isAdmin()) {
-					File file = new File("../GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/pagecompteutilisateur.html");
-					bIn = new BufferedReader(new FileReader(file));
+					File page = new File(FonctionCommune.LOCAL + "/WEB-INF/page/pagecompteutilisateur.html");
+					bIn = new BufferedReader(new FileReader(page));
 					String maLigne = bIn.readLine();
 					while (maLigne != null) {
 						if (maLigne.contains("%%noSerie%%")) {
@@ -73,7 +74,7 @@ public class Servletmadeversmenu extends HttpServlet {
 			} else {
 				request.getRequestDispatcher("/ServletDeco").forward(request, response);
 			}
-		}  else {
+		} else {
 			request.getRequestDispatcher("/ServletDeco").forward(request, response);
 		}
 

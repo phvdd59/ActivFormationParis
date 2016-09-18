@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 
 import com.formation.joca.controleur.CtrlPersonne;
 import com.formation.thcr.conversion.ConversionPersonne;
+import com.formation.thcr.fonction.FonctionCommune;
 import com.formation.thcr.metier.Personne;
 
 /**
@@ -90,12 +91,9 @@ public class ServletSoka2 extends HttpServlet {
 				request.getRequestDispatcher("/ServletDeco").forward(request, response);
 			}
 
-			File file = new File("C:/DevFormation/" + //
-					"GITActivFormationParis/ProjectJMST/" + //
-					"WebContent/WEB-INF/" + //
-					"page/pageActiveFormulaire_part3_etat_civil.html");
+			File page = new File(FonctionCommune.LOCAL + "t/WEB-INF/page/pageActiveFormulaire_part3_etat_civil.html");
 			BufferedReader bIn = null;
-			bIn = new BufferedReader(new FileReader(file));
+			bIn = new BufferedReader(new FileReader(page));
 
 			session.setAttribute("noSerie", noSerie);
 			String line = bIn.readLine();

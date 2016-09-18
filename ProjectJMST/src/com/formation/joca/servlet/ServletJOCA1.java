@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.formation.thcr.fonction.FonctionCommune;
+
 //Servlet utilis� pour g�n�rer la page login par la methode doPost
 /**
  * Servlet implementation class ServletJOCA1
@@ -33,17 +35,17 @@ public class ServletJOCA1 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		HttpSession session=request.getSession();
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
 		session.invalidate();
 		BufferedReader lecture = null;
-		File page = new File("../GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/Login.html");
+		File page = new File(FonctionCommune.LOCAL + "/WEB-INF/page/Login.html");
 		InputStreamReader input = new InputStreamReader(new FileInputStream(page));
 		lecture = new BufferedReader(input);
 		String line = lecture.readLine();
 		while (line != null) {
 			response.getWriter().println(line);
+			line = line.replace("%%host%%", FonctionCommune.HOST + ":8080");
 			line = lecture.readLine();
 		}
 		lecture.close();
@@ -53,8 +55,7 @@ public class ServletJOCA1 extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
 
