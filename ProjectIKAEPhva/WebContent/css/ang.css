@@ -19,6 +19,33 @@ label {
 
 input {
   border-radius: 5px 5px 5px 5px;
+  margin: 5px;
+}
+
+#divModif {
+	position: absolute;
+	width: 100px;
+	height: 30px;
+	left: 520px;
+	border-color: #CCC;
+}
+
+p {
+	margin-left: 5px;
+}
+
+.divVolume {
+	position: absolute;
+	width: 180px;
+	height: 150px;
+	left: 0px;
+	margin: 0px;
+}
+.divNotice {
+	position: absolute;
+	width: 500px;
+	height: 300px;
+	left: 170px;
 }
 .divLab {
 	position: absolute;
@@ -73,6 +100,26 @@ input {
 	border-style: solid;
 	border-color: #AAA";
 	border-width: 1px;
+}
+
+.Test0 {
+	position: absolute;
+	width: 500px;
+	height: 300px;
+	top: 0px;
+	left: 820px;
+}
+.Test1 {
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	top: 0px;
+	left: -200px;
+	background-color: blue;
+}
+
+.formHeader {
+	visibility: hidden;
 }
 
 .form-group {
@@ -142,4 +189,30 @@ input {
 	width: 600px;
 	height: 600px;
 	background: #FFF;
+}
+
+.test {
+	position:absolute;
+	top: 0px;
+	left: 800px;
+	width: 600px;
+	height: 600px;
+	background: #88F;
+}
+
+.strike {
+    text-decoration: line-through;
+}
+.bold {
+    font-weight: bold;
+}
+.red {
+    color: red;
+}
+.has-error {
+    color: red;
+    background-color: yellow;
+}
+.orange {
+    color: orange;
 }

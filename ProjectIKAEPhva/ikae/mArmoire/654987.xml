@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ListeMeuble [
+	<!ELEMENT ListeMeuble (Meuble)+>
+		<!ELEMENT Meuble (Elmt*,Notice?)+>
+			<!ATTLIST Meuble nom CDATA #IMPLIED>
+			<!ATTLIST Meuble ref CDATA #REQUIRED>
+			<!ATTLIST Meuble unite (mm|cm|m|i) "mm">
+			<!ATTLIST Meuble lng CDATA #REQUIRED>
+			<!ATTLIST Meuble lar CDATA #REQUIRED>
+			<!ATTLIST Meuble hau CDATA #REQUIRED>
+			<!ELEMENT Notice (#PCDATA)>
+			<!ELEMENT Elmt (Materiaux)+>
+				<!ATTLIST Elmt num CDATA #REQUIRED>
+				<!ATTLIST Elmt nom CDATA #REQUIRED>
+				<!ATTLIST Elmt nb CDATA #IMPLIED>
+				<!ATTLIST Elmt unite (mm|cm|m|i) "mm">
+				<!ATTLIST Elmt lng CDATA #REQUIRED>
+				<!ATTLIST Elmt lar CDATA #REQUIRED>
+				<!ATTLIST Elmt hau CDATA #REQUIRED>
+				<!ELEMENT Materiaux EMPTY>
+					<!ATTLIST Materiaux type (BOIS|COMPENSE|STRATIFIE|FER|BRONZE|VERRE|TISSU|CARTON|VIDE|PLASTIQUE|CAOUTCHOU|BAMBOU) "BOIS">
+					<!ATTLIST Materiaux pc CDATA #REQUIRED>
+]>
+
+<ListeMeuble>
+	<Meuble nom="Armoire Simple" ref="001" lng="120" lar="80" hau="70">
+		<Elmt nom="fond" num="1" unite="mm" lng="1200" lar="700"
+			hau="5">
+			<Materiaux type="CARTON" pc="100" />
+		</Elmt>
+		<Elmt nom="lateraux" nb="2" num="2" unite="mm" lng="800"
+			lar="700" hau="18">
+			<Materiaux type="COMPENSE" pc="100" />
+		</Elmt>
+		<Elmt nom="plateau" num="3" unite="mm" lng="1200" lar="800"
+			hau="18">
+			<Materiaux type="COMPENSE" pc="100" />
+		</Elmt>
+		<Elmt nom="portes" num="4" nb="2" unite="mm" lng="600" lar="800"
+			hau="18">
+			<Materiaux type="COMPENSE" pc="100" />
+			<Materiaux type="PLASTIQUE" pc="100" />
+		</Elmt>
+	</Meuble>
+</ListeMeuble>

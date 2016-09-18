@@ -2,50 +2,155 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Angularjs MVC1</title>
+<title>Angularjs MVC3</title>
 <script src="lib/angular.min.js"></script>
+<script src="lib/angular-messages.min.js"></script>
 <link type='text/css' rel="stylesheet" href="css/ang.css">
 </head>
 <body ng-app="monApp">
-	<div id="tout">
-		<div id="header" class="fenetre" ng-controller="ctrHeader" class="form-horizontal">
+	<div id="tout" ng-init="monTest=true" ng-controller="ctrTout">
+	<!-- header -->
+		<div id="header" class="fenetre" class="formHeader">
+			<form id="formH" ng-submit="che()" class="formHeader" name="formH">
+			
+				<div id="d1" class="divLab"><label for="Email"> Mon compte :</label></div>
+				<div id="i1" class="divInput"><input id="Email" type="email" class="form-control" 
+					name="Email" ng-model="Email" required/>
+				</div>
+				<div id="d2" class="divLab"><label for="Password">Mot de passe :</label></div>
+				<div id="i2" class="divInput">
+					<input id="Password" type="password" class="inputOK" 
+						ng-class="{'InputKO': formH.$dirty && formH.Password.$invalid, 'InputOK': formH.Password.$valid}"
+						name="Password" ng-model="Password" required ng-minlength="6"/>
+					<span class="erreur" ng-show="formH.Password.$error.minlength">(6 caractères Mini)</span>
+				</div>
+				<div id="d3" class="divLab"><label for="ConfirmPassword">Confirmer mot de passe :</label></div>
+				<div id="i3" class="divInput"><input id="ConfirmPassword" type="password" class="form-control" 
+					name="ConfirmPassword" ng-model="ConfirmPassword" required equals-to="formH.Password"/>
+				</div>
+				<div id="d4" class="divLab">
+					<input id="validateHeader" type="submit" name="vHeader" ng-model="valid" value="OK" ng-disabled="formH.$invalid"/>
+				</div>
+			</form>
 		</div>
-		<div id="menu" class="fenetre" ng-controller="ctrMenu">
-			<button id="ident" ng-click="getDataFromServer()" class="bouton">CHARGER</button>
-			<button ng-repeat="c in eleves" id="{{c}}" class="bouton"
-				value="{{c}}">{{c}}</button>
+	<!-- menu -->
+		<div id="menu" class="fenetre" >
+			<form name="formMenu" ng-init="bCharger = false;">
+				<button id="charger" name="charger" ng-click="getDataFromServer()" class="bouton" required ng-show="bCharger">CHARGER</button>
+				<button ng-repeat="c in eleves" id="{{c}}" class="bouton" value="{{c}}">{{c}}</button>
+			</form>
 		</div>
-		<div id="content" class="fenetre" ng-controller="ctrContent">
-			<h3>{{nom}}</h3>
+	<!-- content -->
+		<div id="content"  class="fenetre" ng-init="">
+			<form action="#" class="formContent" name="fContent">
+				<div id="divModif">
+					Modif<input type="checkbox" ng-model="modif" aria-label="Toggle ngHide">
+				</div>
+				<div ng-hide="modif">
+					<h3>IKAE Meuble</h3>
+					<p> ref: {{refAbrege}} <span >{{nomCommercial}}</span></p>
+					<p></p>
+					<p><input type="radio" name="unité" value="mm" ng-model="mmetre" />millimetre
+					<input type="radio" name="unité" value="inch" ng-model="inch"/>inch
+					<input type="radio" name="unité" value="cm" ng-model="cmetre"/>centimetre
+					<input type="radio" name="unité" value="m" ng-model="metre"/>metre</p>
+					<div class="divVolume">
+						<p>longueur :{{longueur}}</p>
+						<p>largeur  :{{largeur}}</p>
+						<p>hauteur  :{{hauteur}}</p>
+						<p>volume   :{{volumeMeuble()}}</p>
+					</div>
+					<div class="divNotice">
+	 						<textarea rows="11" cols="50" name="notice" ng-model="notice" >
+									
+							</textarea> 
+					</div>
+					<div>
+						<ul>
+							<li ng-repeat="e on elmts"/>
+						</ul>
+					</div>
+				</div>
+				<div ng-show="modif" ng-init="longueur=0;largeur=0;hauteur=0;mmetre='true'">
+					<h3>IKAE Meuble</h3>
+					<p> ref: {{refAbrege}} <span >{{nomCommercial}}</span></p>
+					<p><input type="text" name="refAbrege" ng-model="refAbrege" /><input type="text" name="nomCommercial" ng-model="nomCommercial" /></p>
+					<p><input type="radio" name="unité" value="mm" ng-model="mmetre" />millimetre
+					<input type="radio" name="unité" value="inch" ng-model="inch"/>inch
+					<input type="radio" name="unité" value="cm" ng-model="cmetre"/>centimetre
+					<input type="radio" name="unité" value="m" ng-model="metre"/>metre</p>
+					<div class="divVolume">
+						<p><input type="number" name="longueur" ng-model="longueur" /></p>
+						<p><input type="number" name="largeur" ng-model="largeur" /></p>
+						<p><input type="number" name="hauteur" ng-model="hauteur" /></p>
+						<p>{{volumeMeuble()}}</p>
+					</div>
+					<div class="divNotice">
+	 						<textarea rows="11" cols="50" name="notice" ng-model="notice" >
+									
+							</textarea> 
+					</div>
+					<div>
+						<ul>
+							<li ng-repeat="e on elmts"/>
+						</ul>
+					</div>
+				</div>
+			</form>
 		</div>
-		<div id="footer" class="fenetre" ng-controller="ctrFooter"></div>
+	<!-- footer -->
+		<div id="footer" class="fenetre" >
+		</div>
 	</div>
+	<!-- ----------------------------------------------------------------- -->
 	<script>
-		var app = angular.module('monApp', []);
-		
+		var app = angular.module('monApp', ['ngMessages']);
 
-		app.controller('ctrHeader', function($scope) {
-		});
+		app.controller('ctrTout', function($scope, $http) {
+			$scope.minlength = 6;
 
-		app.controller('ctrMenu', function($scope, $http) {
+			$scope.che = function() {
+				$scope.bCharger=true;
+				//return $scope.longueur*$scope.largeur*$scope.hauteur;
+			}
+
+
+			app.directive('equalsTo', [function () {
+			       return {
+			           restrict: 'A',
+			           scope: true,
+			           require: 'ngModel',
+			           link: function (scope, elem, attrs, control) {
+			               var check = function () {
+			               var v1 = scope.$eval(attrs.ngModel);
+			               var v2 = scope.$eval(attrs.equalsTo).$viewValue;
+			               return v1 == v2;
+			           };
+
+			           scope.$watch(check, function (isValid) {
+			               control.$setValidity("equalsTo", isValid);
+			           });
+			       }
+			   };
+			}]);
 
 			$scope.getDataFromServer = function() {
 				$http({
 					method : 'GET',
-					url : 'http://127.0.0.1:8080/ProjectAngular/ServletJson'
+					url : 'http://localhost:8080/ProjectIKAEPhva/ServletJson'
 				}).success(function(data, status, headers, config) {
-					$scope.info = "";
 					$scope.eleves = data;
+					$scope.info=config;
 				}).error(function(data, status, headers, config) {
 					$scope.info = status;
 					$scope.eleves = [];
 				});
 			};
+		
+ 			$scope.volumeMeuble = function() {
+				return $scope.longueur*$scope.largeur*$scope.hauteur;
+			}
 		});
-
-		app.controller('ctrContent', function($scope) {
-		});
-		app.controller('ctrFooter', function($scope) {
-		});
+	</script>
 </body>
 </html>
