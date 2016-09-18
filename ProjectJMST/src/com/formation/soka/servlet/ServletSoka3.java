@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 
 import com.formation.joca.controleur.CtrlPersonne;
 import com.formation.thcr.conversion.ConversionPersonne;
+import com.formation.thcr.fonction.FonctionCommune;
 import com.formation.thcr.metier.Personne;
 import com.formation.thcr.metier.Sexe;
 
@@ -78,11 +79,9 @@ public class ServletSoka3 extends HttpServlet {
 				// JSP DECO
 			}
 		}
-		File file = new File("C:/DevFormation/GITActivFormationParis/" + //
-				"ProjectJMST/WebContent/WEB-INF/" + //
-				"page/pageActiveFormulaire_part4_situation_actuelle.html");
+		File page = new File(FonctionCommune.LOCAL + "/WEB-INF/page/pageActiveFormulaire_part4_situation_actuelle.html");
 		BufferedReader bIn = null;
-		bIn = new BufferedReader(new FileReader(file));
+		bIn = new BufferedReader(new FileReader(page));
 
 		if (noSerieHtml == null || noSerie == null || noSerieHtml.equals(noSerie)) {
 			String line = bIn.readLine();

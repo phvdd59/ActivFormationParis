@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.formation.thcr.fonction.FonctionCommune;
 import com.formation.thcr.metier.Personne;
 
 /**
@@ -53,7 +54,7 @@ public class RetourMenu extends HttpServlet {
 			if (perso.isAdmin()) {
 				BufferedReader lecture = null;
 				File page = new File(
-						"../GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/pagecompteadministrateur.html");
+						FonctionCommune.LOCAL+"/WEB-INF/page/pagecompteadministrateur.html");
 				InputStreamReader input = new InputStreamReader(new FileInputStream(page));
 				lecture = new BufferedReader(input);
 

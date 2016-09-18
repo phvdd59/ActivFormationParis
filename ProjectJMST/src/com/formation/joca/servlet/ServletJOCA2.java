@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.formation.thcr.fonction.FonctionCommune;
 import com.formation.thcr.metier.Personne;
 
 //Servlet utilis� pour generer la page gestion fichier par la methode doPost
@@ -35,23 +36,21 @@ public class ServletJOCA2 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		HttpSession session = request.getSession();
 		String noSerieHtml = request.getParameter("noSerie");
 		String noSerie = (String) session.getAttribute("noSerie");
-		
+
 		Object personne = session.getAttribute("Personne");
 		Personne perso = null;
 		if (personne instanceof Personne) {
 			perso = (Personne) personne;
 		}
-		
+
 		if (noSerieHtml != null && noSerie != null && noSerieHtml.equals(noSerie)) {
 			BufferedReader lecture = null;
-			File page = new File(
-					"C:/DevFormation/GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/Gestiondocuments.html");
+			File page = new File(FonctionCommune.LOCAL + "/WEB-INF/page/Gestiondocuments.html");
 			lecture = new BufferedReader(new FileReader(page));
 			String line = lecture.readLine();
 			while (line != null) {
@@ -73,8 +72,7 @@ public class ServletJOCA2 extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		doGet(request, response);
 

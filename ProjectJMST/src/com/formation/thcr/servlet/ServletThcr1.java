@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.formation.thcr.conversion.ConversionPersonne;
+import com.formation.thcr.fonction.FonctionCommune;
 import com.formation.thcr.metier.ListPersonne;
 import com.formation.thcr.metier.Personne;
 
@@ -154,8 +155,8 @@ public class ServletThcr1 extends HttpServlet {
 			//			e.printStackTrace();
 			//		}
 
-			File affichage = new File("C:/DevFormation/GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/Infoutilisateur.html");
-			BufferedReader br = new BufferedReader(new FileReader(affichage));
+			File page = new File(FonctionCommune.LOCAL + "/WEB-INF/page/Infoutilisateur.html");
+			BufferedReader br = new BufferedReader(new FileReader(page));
 
 			//		Cookie cookie = new Cookie("nomCookie", "info");
 			//		System.out.println(session.getMaxInactiveInterval());

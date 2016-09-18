@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.formation.thcr.fonction.FonctionCommune;
 import com.formation.thcr.metier.Personne;
 
 /**
@@ -86,11 +87,9 @@ public class ServletSoka0 extends HttpServlet {
 			
 		}
 
-		File file = new File("C:/DevFormation/GITActivFormationParis/" + //
-				"ProjectJMST/WebContent/WEB-INF/" + //
-				"page/pageActiveFormulaire_part1_ident_mdp.html");
+		File page = new File(FonctionCommune.LOCAL + "/WEB-INF/page/pageActiveFormulaire_part1_ident_mdp.html");
 		BufferedReader bIn = null;
-		bIn = new BufferedReader(new FileReader(file));
+		bIn = new BufferedReader(new FileReader(page));
 		String noSerie = Integer.toString(((int) (Math.random() * Integer.MAX_VALUE)));
 		noSerie = "20_" + noSerie;
 		session.setAttribute("noSerie", noSerie);

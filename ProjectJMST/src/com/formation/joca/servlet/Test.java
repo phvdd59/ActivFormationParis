@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.formation.thcr.dao.DAOPersonne;
+import com.formation.thcr.fonction.FonctionCommune;
 import com.formation.thcr.metier.Personne;
 
 /**
@@ -52,7 +53,7 @@ public class Test extends HttpServlet {
 				session.setAttribute("Personne", utilisateur);
 
 				BufferedReader lecture = null;
-				File page = new File("../GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/pagecompteadministrateur.html");
+				File page = new File(FonctionCommune.LOCAL+"/WEB-INF/page/pagecompteadministrateur.html");
 				InputStreamReader input = new InputStreamReader(new FileInputStream(page));
 				lecture = new BufferedReader(input);
 				String noSerie = Integer.toString(((int) (Math.random() * Integer.MAX_VALUE)));

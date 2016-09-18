@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.formation.thcr.dao.DAOPersonne;
+import com.formation.thcr.fonction.FonctionCommune;
 import com.formation.thcr.metier.ListPersonne;
 import com.formation.thcr.metier.Personne;
 
@@ -66,8 +67,8 @@ public class ServletThcr2 extends HttpServlet {
 		//			noSerie = (String) noSerie;
 		//		}
 		
-		File selectionUtilisateur = new File("C:/DevFormation/GITActivFormationParis/ProjectJMST/WebContent/WEB-INF/page/Listeutilisateur.html");
-		BufferedReader br = new BufferedReader(new FileReader(selectionUtilisateur));
+		File page = new File(FonctionCommune.LOCAL + "/WEB-INF/page/Listeutilisateur.html");
+		BufferedReader br = new BufferedReader(new FileReader(page));
 		String l = br.readLine();
 		while (l != null) {
 			if (l.contains("id=\"consctructTable")) {
