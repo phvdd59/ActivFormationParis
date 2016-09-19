@@ -1,0 +1,4 @@
+@CHARSET "ISO-8859-1";
+table {border : medium double;}
+td {border: thin dotted;}
+th {border : thin solid;}

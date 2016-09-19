@@ -1,0 +1,5 @@
+thcr:Algo
+
+thcr testTemps (0/2): KO | exo.solution(tab), résultat incorrect
+
+thcr NOTE : (0 / 2) = 0,00 / 20

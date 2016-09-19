@@ -1,0 +1,5 @@
+issa:Algo
+
+issa testTemps (0/2): KO | exo.solution(tab), résultat incorrect
+
+issa NOTE : (0 / 2) = 0,00 / 20

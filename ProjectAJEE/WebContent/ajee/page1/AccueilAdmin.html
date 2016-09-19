@@ -11,7 +11,7 @@
 </div>
 
 <form id="AccueilAdmin" name="AccueilAdmin"
-					action="http://127.0.0.1:8080/ProjectAJEE/ServletRechercheProfil"
+					action="ServletRechercheProfil"
 					method="POST">
 <label for="choix_invite" style= "margin-left: 160px">Choisissez le profil :</label>
 <input id="choix_invite" list="invite"  type="text" name="utilisateur" value="" >
@@ -23,23 +23,23 @@
 				</form>
 				<div><h4></br>
 				      </h4></div>
-			<div><h4 align="center" style= "margin-left: 30px">Pour voir les informations d'une autre base de données, veuillez la selectionner ci-dessous  :</h4></div>
+			<div><h4 align="center" style= "margin-left: 30px">Pour voir les informations d'une autre base de donn&eacute;es, veuillez la selectionner ci-dessous  :</h4></div>
 		
-<form action="http://127.0.0.1:8080/ProjectAJEE/ServletAjee" method="POST">
+<form action="ServletAjee" method="POST">
 			<div align="center">
 				<input type = "submit" value = "AJEE" name="ajee" style="width: 100px;" disabled />
 				
 			</div>
 		</form>
 		
-		<form action="http://127.0.0.1:8080/ProjectAJEE/ServletBait" method="POST">
+		<form action="ServletBait" method="POST">
 			<div align="center">
 				
 				<input type = "submit" value = "BAIT" name="bait"  style="width: 100px" disabled />
 			</div>
 		</form>
 		
-		<form action="http://127.0.0.1:8080/ProjectAJEE/ProjectJmst" method="POST">
+		<form action="ProjectJmst" method="POST">
 			<div align="center">
 		
 				<input type = "submit" value = "JMST" name="jmst" style="width: 100px" disabled />

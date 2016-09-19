@@ -1,0 +1,5 @@
+made:Algo
+
+made testTemps (0/2): KO | exo.solution(tab), résultat incorrect
+
+made NOTE : (0 / 2) = 0,00 / 20

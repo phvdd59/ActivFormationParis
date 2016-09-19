@@ -1,0 +1,5 @@
+ambr:Algo
+
+ambr testTemps (0/2): KO | exo.solution(tab), résultat incorrect
+
+ambr NOTE : (0 / 2) = 0,00 / 20

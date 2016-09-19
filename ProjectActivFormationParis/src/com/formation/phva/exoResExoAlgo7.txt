@@ -1,0 +1,5 @@
+phva:Algo
+
+phva testNormal0 (0/2): KO | exo.solution(tab), résultat incorrect
+
+phva NOTE : (0 / 2) = 0,00 / 20

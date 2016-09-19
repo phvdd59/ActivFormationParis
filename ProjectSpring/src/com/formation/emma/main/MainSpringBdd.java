@@ -15,7 +15,7 @@ public class MainSpringBdd {
 
 	private void init() {
 		ApplicationContext app = new ClassPathXmlApplicationContext("Spring_Customer.xml");
-		Customer customer = new Customer(3, "Alphonce", 18);
+		Customer customer = new Customer(8, "Alphonce", 18);
 		CustomerDAO customerDAO = (CustomerDAO) app.getBean("customerDAO");
 		customerDAO.insertCustomer(customer);
 		Customer customerRecup = customerDAO.findCustomerById(1);

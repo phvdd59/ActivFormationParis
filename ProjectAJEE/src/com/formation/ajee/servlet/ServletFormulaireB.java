@@ -238,7 +238,7 @@ public class ServletFormulaireB extends HttpServlet {
 		
 		
 		// retour page accueil en bas de page (bouton)
-//		String html = "<form action='http://127.0.0.1:8080/ProjectAJEE/Servletidentification'>";
+//		String html = "<form action='http://"+FonctionsCommune.HOST+":8080/ProjectAJEE/Servletidentification'>";
 //		response.getWriter().println(html);
 		
 		// print : formulaire bien enregistré

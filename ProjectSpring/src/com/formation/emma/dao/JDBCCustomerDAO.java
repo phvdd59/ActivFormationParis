@@ -44,32 +44,29 @@ public class JDBCCustomerDAO implements CustomerDAO {
 	}
 
 	public void insertCustomer(Customer customer) {
-		//insert into customer (cust_id,name,age) values (? , ? , ?);
-		String sql = "INSERT INTO CUSTOMER (NAME,AGE) values(?,?);"; //"?" permet de securiser les valeurs qu'on entre dans le sql
+		String sql = "INSERT INTO CUSTOMER " + "(CUST_ID, NAME, AGE) VALUES (?, ?, ?)";
 		Connection conn = null;
-		PreparedStatement stat = null;
+		PreparedStatement ps = null;
 
 		try {
 			conn = dataSource.getConnection();
-			stat = conn.prepareStatement(sql); //initialise l'entrée des valeurs
+			ps = conn.prepareStatement(sql); //initialise l'entrée des valeurs
+			ps.setInt(1, customer.getCust_Id()); // charge les valeurs dans le sql
+			ps.setString(2, customer.getName());
+			ps.setInt(3, customer.getAge());
+			System.out.println(ps.toString());
 
-			//stat.setInt(1, customer.getCust_Id()); // charge les valeurs dans le sql
-			stat.setString(1, customer.getName());
-			stat.setInt(2, customer.getAge());
-			System.out.println(stat.toString());
-
-			stat.executeUpdate(sql); // execute sql dans la bdd
+			ps.executeUpdate(); // execute sql dans la bdd
 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			try {
-				stat.close();
+				ps.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 		}
-
 	}
 
 	public void setDataSource(DataSource dataSource) {

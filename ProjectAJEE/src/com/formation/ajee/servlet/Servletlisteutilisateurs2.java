@@ -68,7 +68,7 @@ public class Servletlisteutilisateurs2 extends HttpServlet {
 		Object boutonSupp = request.getParameter("supprimer");
 		boolean existe = false;
 		lstUser2 = new ListPersonne();
-		
+		//System.out.println(lstUser2.size());
 		if (oNoSerie != null && personne != null&& personne.getIdentifiant() != null) {
 		if (boutonAjouter != null) {
 			if (oNomA != "" && oPrenomA != "") {
@@ -130,7 +130,7 @@ public class Servletlisteutilisateurs2 extends HttpServlet {
 				bufReadDoc.close();
 
 				/** Lecture page liste utilisateurs */
-				File file = new File("../GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/ListeUtilisateurs2.html");
+				File file = new File(FonctionsCommune.LOCAL+"ajee/page1/ListeUtilisateurs2.html");
 				BufferedReader bIn = new BufferedReader(new FileReader(file));
 				String line = bIn.readLine();
 
@@ -191,7 +191,7 @@ public class Servletlisteutilisateurs2 extends HttpServlet {
 				bufReadDoc.close();
 
 				/** Lecture page liste utilisateurs */
-				File file = new File("../GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/ListeUtilisateurs2.html");
+				File file = new File(FonctionsCommune.LOCAL+"ajee/page1/ListeUtilisateurs2.html");
 				BufferedReader bIn = new BufferedReader(new FileReader(file));
 				String line = bIn.readLine();
 
@@ -287,7 +287,7 @@ public class Servletlisteutilisateurs2 extends HttpServlet {
 				bufReadDoc.close();
 
 				/** Lecture page liste utilisateurs */
-				File file = new File("../GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/ListeUtilisateurs2.html");
+				File file = new File(FonctionsCommune.LOCAL+"ajee/page1/ListeUtilisateurs2.html");
 				BufferedReader bIn = new BufferedReader(new FileReader(file));
 				String line = bIn.readLine();
 
@@ -345,7 +345,7 @@ public class Servletlisteutilisateurs2 extends HttpServlet {
 				bufReadDoc.close();
 
 				/** Lecture page liste utilisateurs */
-				File file = new File("../GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/ListeUtilisateurs2.html");
+				File file = new File(FonctionsCommune.LOCAL+"ajee/page1/ListeUtilisateurs2.html");
 				BufferedReader bIn = new BufferedReader(new FileReader(file));
 				String line = bIn.readLine();
 
@@ -401,7 +401,7 @@ public class Servletlisteutilisateurs2 extends HttpServlet {
 			bufReadDoc.close();
 
 			/** Lecture page liste utilisateurs */
-			File file = new File("../GITActivFormationParis/ProjectAJEE/WebContent/ajee/page1/ListeUtilisateurs2.html");
+			File file = new File(FonctionsCommune.LOCAL+"ajee/page1/ListeUtilisateurs2.html");
 			BufferedReader bIn = new BufferedReader(new FileReader(file));
 			String line = bIn.readLine();
 

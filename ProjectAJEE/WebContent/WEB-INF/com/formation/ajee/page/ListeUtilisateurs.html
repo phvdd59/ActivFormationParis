@@ -4,38 +4,38 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Liste des utilisateurs</title>
 		<link href="http://www.activconsult-ing.com/Home.css" rel="stylesheet"	type="text/css">
-		<link href="http://127.0.0.1:8080/ProjectAJEE/ajee/css/menuderoulant.css" rel="stylesheet" type="text/css">
+		<link href="ajee/css/menuderoulant.css" rel="stylesheet" type="text/css">
 	
 <script type="text/javascript">
 
 
 function appelPostFiche() {
 	//document.getElementById("form1").action = "http://127.0.0.1:8080/ProjectEtudiant/ServletPhva1";
-	document.formFiche.action = "http://127.0.0.1:8080/ProjectAJEE/ServletFicheRempli";
+	document.formFiche.action = "ServletFicheRempli";
 	document.formFiche.submit();
 }
 
 function appelPostMdp() {
 	//document.getElementById("form1").action = "http://127.0.0.1:8080/ProjectEtudiant/ServletPhva1";
-	document.formMdp.action = "http://127.0.0.1:8080/ProjectAJEE/ServletMdpAdmin";
+	document.formMdp.action = "ServletMdpAdmin";
 	document.formMdp.submit();
 }
 
 function appelPostAccueil() {
 	//document.getElementById("form1").action = "http://127.0.0.1:8080/ProjectEtudiant/ServletPhva1";
-	document.formAccueil.action = "http://127.0.0.1:8080/ProjectAJEE/Servletaccueilchargementprofil";
+	document.formAccueil.action = "Servletaccueilchargementprofil";
 	document.formAccueil.submit();
 }
 
 function appelPostDoc() {
 	//document.getElementById("form1").action = "http://127.0.0.1:8080/ProjectEtudiant/ServletPhva1";
-	document.formDoc.action = "http://127.0.0.1:8080/ProjectAJEE/MesDocuments";
+	document.formDoc.action = "MesDocuments";
 	document.formDoc.submit();
 }
 
 function appelPostDeco() {
 	//document.getElementById("form1").action = "http://127.0.0.1:8080/ProjectEtudiant/ServletPhva1";
-	document.formDeco.action = "http://127.0.0.1:8080/ProjectAJEE/ServletDecoAdmin";
+	document.formDeco.action = "ServletDecoAdmin";
 	document.formDeco.submit();
 }
 </script>
@@ -67,14 +67,14 @@ function appelPostDeco() {
 
 			<li>
 				<form id="formMdp" name="formMdp"
-					action="http://127.0.0.1:8080/ProjectAJEE/ServletMdpAdmin"
+					action="ServletMdpAdmin"
 					method="POST">
 					<input type="submit" value="Changement de mot de passe" style="width: 200px">
 				</form>
 			</li>
 			<li>
 				<form id="formAccueil" name="formAccueil"
-					action="http://127.0.0.1:8080/ProjectAJEE/Servletaccueilchargementprofil"
+					action="Servletaccueilchargementprofil"
 					method="POST">
 					<input type="submit" value="Accueil-chargement profil" style="width: 200px">
 				</form>
@@ -82,19 +82,19 @@ function appelPostDeco() {
 		</ul></li>
 	<li><a style="width: 200px">Documents de : %utilisateur%</a>
 	<ul><li><form id="formDoc" name="formDoc"
-			action="http://127.0.0.1:8080/ProjectAJEE/MesDocuments" method="POST">
+			action="MesDocuments" method="POST">
 			<input type="submit" style="width: 200px" value="Gestion des documents">
 		</form>
 		</li><li>
 				<form id="formFiche" name="formFiche"
-					action="http://127.0.0.1:8080/ProjectAJEE/ServletFicheRempli"
+					action="ServletFicheRempli"
 					method="POST">
 					<input type="submit" value="Fiche d'identification" style="width: 200px">
 				</form>
 			</li>
 			<li>
 				<form id="formLstUtilisateur" name="formLstUtilisateur"
-					action="http://127.0.0.1:8080/ProjectAJEE/Servletlisteutilisateurs"
+					action="Servletlisteutilisateurs"
 					method="POST">
 					<input type="submit" value="Gestion des utilisateurs" style="width: 200px">
 				</form>
@@ -104,7 +104,7 @@ function appelPostDeco() {
 	<!-- -->
 	<li>
 		<form id="formDeco" name="formDeco"
-			action="http://127.0.0.1:8080/ProjectAJEE/ServletDecoAdmin"
+			action="ServletDecoAdmin"
 			method="POST">
 			<input type="submit" value="D&eacute;connexion">
 		</form>
@@ -112,7 +112,7 @@ function appelPostDeco() {
 	</li>
 </ul>
 		                      
-<form action="http://127.0.0.1:8080/ProjectAJEE/Servletlisteutilisateurs" method="POST">
+<form action="Servletlisteutilisateurs" method="POST">
 		
 		<table align = "center" > 
 			

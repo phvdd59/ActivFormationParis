@@ -8,8 +8,10 @@ import java.util.InvalidPropertiesFormatException;
 import java.util.Properties;
 
 public class FonctionsCommune {
-	public static String HOST = "127.0.0.1";
-	public static String LOCAL = "../GITActivFormationParis/ProjectAJEE/WebContent/";
+	public static String HOST = "www.psyeval.fr";
+	public static String LOCAL = "/home/psyeval/www/ProjectAJEE/";
+//	public static String HOST = "127.0.0.1";
+//	public static String LOCAL = "../GITActivFormationParis/ProjectAJEE/WebContent/";
 
 	public static void INIT() {
 		Properties props = new Properties();

@@ -1,0 +1,5 @@
+anfr:Algo
+
+anfr testTemps (0/2): KO | exo.solution(tab), résultat incorrect
+
+anfr NOTE : (0 / 2) = 0,00 / 20

@@ -17,7 +17,7 @@ import com.formation.beans.Perso;
 
 public class DaoBDD {
 	public final static String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-	public final static String DB_URL = "jdbc:mysql://www.psyeval.fr/ajee";
+	public final static String DB_URL = "jdbc:mysql:/www.psyeval.fr/ajee";
 
 	public String user= "ajee";
 	public String pass= "erreuretga";

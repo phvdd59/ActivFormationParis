@@ -170,7 +170,7 @@ public class ServletFicheRempli extends HttpServlet {
 				/** Lecture Haut de page HTML */
 
 				vue.lecturePage(response, "HautPage");
-				response.getWriter().println("<link href=\"http://127.0.0.1:8080/ProjectAJEE/ajee/css/StyleFormulaire.css\" rel=\"stylesheet\" type=\"text/css\">");
+				response.getWriter().println("<link href=\"http://"+FonctionsCommune.HOST+":8080/ProjectAJEE/ajee/css/StyleFormulaire.css\" rel=\"stylesheet\" type=\"text/css\">");
 
 				/** A modifier seulement si notre page contient du JavaScript */
 
@@ -296,7 +296,7 @@ public class ServletFicheRempli extends HttpServlet {
 				// utiliser le pseudo pour avoir la personne
 				/** Lecture Haut de page HTML */
 				vue.lecturePage(response, "HautPage");
-				response.getWriter().println("<link href=\"http://127.0.0.1:8080/ProjectAJEE/ajee/css/StyleFormulaire.css\" rel=\"stylesheet\" type=\"text/css\">");
+				response.getWriter().println("<link href=\"http://"+FonctionsCommune.HOST+":8080/ProjectAJEE/ajee/css/StyleFormulaire.css\" rel=\"stylesheet\" type=\"text/css\">");
 				/** A modifier seulement si notre page contient du JavaScript */
 
 				/** Lecture page ActivConsulting */

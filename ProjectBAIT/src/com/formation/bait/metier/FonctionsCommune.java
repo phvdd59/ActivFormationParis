@@ -20,6 +20,9 @@ public class FonctionsCommune {
 	public static void INIT() {
 		Properties props = new Properties();
 		try {
+			File file=new File("");
+			String s="BAIT : "+file.getCanonicalPath();
+			System.out.println(s);
 			props.loadFromXML(new FileInputStream(new File("propsBAIT.xml")));
 			HOST=props.getProperty("HOST");
 			LOCAL=props.getProperty("LOCAL");

@@ -1,0 +1,5 @@
+thde:Algo
+
+thde testTemps (0/2): KO | exo.solution(tab), résultat incorrect
+
+thde NOTE : (0 / 2) = 0,00 / 20

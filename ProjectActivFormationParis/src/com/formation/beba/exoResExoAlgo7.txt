@@ -1,0 +1,5 @@
+beba:Algo
+
+beba testTemps (2/2):    | exo.solution(tab),
+
+beba NOTE : (2 / 2) = 20,00 / 20
