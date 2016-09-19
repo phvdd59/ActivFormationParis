@@ -219,7 +219,7 @@ left: 85%;
 					<tr>
 						<td>Date de la dernière visite médicale *</td>
 						<td colspan="3" style="width: 229px; height: 25px; color:;"><input
-							id="dateVisiteMedicale" type="date" name="dateVisiteMedicale"
+							id="dateVisiteMedicale" type="text" name="dateVisiteMedicale"
 							value='<%=conv.conversionSQLToUtil(new java.sql.Date(personne.getVisiteMedicale().getTime()))%>' 
 							onblur="ctrDateVisiteMedicale()" style="width: 615px;"><br>
 							<span id="spanDateVisiteMedicale"></span></td>

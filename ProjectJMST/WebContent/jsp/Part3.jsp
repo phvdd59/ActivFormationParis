@@ -151,7 +151,7 @@ left: 83%;
 					<tr>
 						<td>Date de naissance *</td>
 						<td style="width: 273px; height: 25px; color:;"><input
-							id="dateDeNaissance" type="date" name="dateDeNaissance"
+							id="dateDeNaissance" type="text" name="dateDeNaissance"
 							value='<%=conv.conversionSQLToUtil(new java.sql.Date(personne.getDateNaissance().getTime()))%>'
 							onblur="ctrDateDeNaissance()" style="width: 270px;"><br>
 							<span id="spanDateDeNaissance"></span></td>
