@@ -1,5 +1,14 @@
 package com.formation.phva.metier;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "materiaux")
 public class Materiaux {
 	public static final Materiaux BOIS = new Materiaux("BOIS", 0.6f, SOLIDITE.NORMAL, 0);
 	public static final Materiaux COMPENSE = new Materiaux("COMPENSE", 0.9f, SOLIDITE.NORMAL, 0);
@@ -54,9 +63,18 @@ public class Materiaux {
 		return mat;
 	}
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id")
+	private long id;
+	
+	@Column(name = "nom", nullable = false)
 	private String nom;
+	@Column(name = "densite", nullable = false)
 	private float densite;
+	@Column(name = "solidite", nullable = false)
 	private int solidite;
+	@Column(name = "pourcent", nullable = true)
 	private int pourcent;
 
 	public Materiaux(String nom, float densite, int solidite, int pourcent) {
