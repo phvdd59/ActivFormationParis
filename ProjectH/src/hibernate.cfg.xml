@@ -22,6 +22,7 @@
         
         <mapping class="com.formation.phva.metier.Materiaux"/>
         <mapping class="com.formation.phva.metier.Elmt"/>
+        <mapping class="com.formation.phva.metier.Meuble"/>
   		
     </session-factory>
 </hibernate-configuration>

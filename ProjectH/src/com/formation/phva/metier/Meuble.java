@@ -1,7 +1,20 @@
 package com.formation.phva.metier;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "meuble")
 public class Meuble implements Comparable<Meuble> {
 	public static final int TRI_REF = 0;
 	public static final int TRI_ALPHA = 1;
@@ -14,6 +27,11 @@ public class Meuble implements Comparable<Meuble> {
 		}
 	}
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id_meuble")
+	private long id_meuble;
+
 	public int tri;
 
 	private String nomCommercial;
@@ -23,7 +41,9 @@ public class Meuble implements Comparable<Meuble> {
 	private float largeur;
 	private float hauteur;
 
-	private ListeElmt lstElmt;
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "meuble")
+	private Set<Elmt> lstElmt;
+
 	private String Notice;
 
 	public Meuble(int tri, String nomCommercial, String refAbrege, String unite, float longueur, float largeur, float hauteur) throws Exception {
@@ -57,7 +77,7 @@ public class Meuble implements Comparable<Meuble> {
 			this.hauteur = hauteur / 25.4f;
 			break;
 		}
-		lstElmt = new ListeElmt();
+		this.lstElmt = new HashSet<Elmt>(0);
 	}
 
 	public Meuble(int tri, String nomCommercial, String refAbrege, float longueur, float largeur, float hauteur) {
@@ -72,7 +92,7 @@ public class Meuble implements Comparable<Meuble> {
 		this.longueur = longueur;
 		this.largeur = largeur;
 		this.hauteur = hauteur;
-		lstElmt = new ListeElmt();
+		this.lstElmt = new HashSet<Elmt>(0);
 	}
 
 	public String getNomCommercial() {
@@ -115,12 +135,8 @@ public class Meuble implements Comparable<Meuble> {
 		this.hauteur = hauteur;
 	}
 
-	public ListeElmt getLstElmt() {
+	public Set<Elmt> getLstElmt() {
 		return lstElmt;
-	}
-
-	public void setLstElement(ListeElmt lstElmt) {
-		this.lstElmt = lstElmt;
 	}
 
 	public String getNotice() {
@@ -139,7 +155,7 @@ public class Meuble implements Comparable<Meuble> {
 		this.longueur = longueur;
 	}
 
-	public void setLstElmt(ListeElmt lstElmt) {
+	public void setLstElmt(Set<Elmt> lstElmt) {
 		this.lstElmt = lstElmt;
 	}
 
