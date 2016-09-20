@@ -65,8 +65,8 @@ public class Materiaux {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id")
-	private long id;
+	@Column(name = "id_materiaux")
+	private long id_materiaux;
 	
 	@Column(name = "nom", nullable = false)
 	private String nom;

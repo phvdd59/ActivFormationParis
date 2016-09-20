@@ -1,22 +1,43 @@
 package com.formation.phva.metier;
 
-import java.util.ArrayList;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "elmt")
 public class Elmt implements Comparable<Elmt> {
 	public static final int TRI_REF = 0;
 	public static final int TRI_ALPHA = 1;
 	public static final int TRI_VOLUME = 2;
 	public static int tri;
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id_elmt")
+	private long id_elmt;
+	
+	@Column(name = "numero", nullable = false)
 	private int numero;
+	@Column(name = "nom", nullable = true)
 	private String nom;
+	@Column(name = "nb", nullable = true)
 	private int nb;
+	@Column(name = "longueur", nullable = true)
 	private float longueur;
+	@Column(name = "largeur", nullable = true)
 	private float largeur;
+	@Column(name = "hauteur", nullable = true)
 	private float hauteur;
 
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "id_materiaux")
 	private ListeMateriaux listeMateriaux;
-	
+
 	public Elmt() {
 	}
 
@@ -152,13 +173,13 @@ public class Elmt implements Comparable<Elmt> {
 	}
 
 	public float poidMat(Materiaux mat) {
-		return volumeL()*mat.getDensite()*mat.getPourcent()/100f;
+		return volumeL() * mat.getDensite() * mat.getPourcent() / 100f;
 	}
 
 	public float poid() {
-		float pdTotal=0f;
+		float pdTotal = 0f;
 		for (Materiaux mat : listeMateriaux) {
-			pdTotal+=poidMat(mat);
+			pdTotal += poidMat(mat);
 		}
 		return pdTotal;
 	}
