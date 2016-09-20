@@ -25,21 +25,15 @@ public class Elmt implements Comparable<Elmt> {
 	@Column(name = "id_elmt")
 	private long id_elmt;
 
-	@Column(name = "numero", nullable = true)
 	private int numero;
-	@Column(name = "nom", nullable = true)
 	private String nom;
-	@Column(name = "nb", nullable = true)
 	private int nb;
-	@Column(name = "longueur", nullable = true)
 	private float longueur;
-	@Column(name = "largeur", nullable = true)
 	private float largeur;
-	@Column(name = "hauteur", nullable = true)
 	private float hauteur;
 
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "id_materiaux")
-	private Set<Materiaux> listeMateriaux = new HashSet<Materiaux>(0);
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "elmt")
+	private Set<Materiaux> listeMateriaux;
 
 	public Elmt() {
 	}

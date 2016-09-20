@@ -1,10 +1,12 @@
 package com.formation.phva.metier;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -68,17 +70,16 @@ public class Materiaux {
 	@Column(name = "id_materiaux")
 	private long id_materiaux;
 
-	@Column(name = "nom", nullable = true)
 	private String nom;
-	@Column(name = "densite", nullable = true)
 	private float densite;
-	@Column(name = "solidite", nullable = true)
 	private int solidite;
-	@Column(name = "pourcent", nullable = true)
 	private int pourcent;
 
-	//	@ManyToOne(cascade = CascadeType.ALL)
-	//	private Elmt elmt;
+	@ManyToOne(cascade = CascadeType.ALL)
+	private Elmt elmt;
+	
+	public Materiaux() {
+	}
 
 	public Materiaux(String nom, float densite, int solidite, int pourcent) {
 		super();
@@ -139,11 +140,11 @@ public class Materiaux {
 		this.id_materiaux = id_materiaux;
 	}
 
-	//	public Elmt getElmt() {
-	//		return elmt;
-	//	}
-	//
-	//	public void setElmt(Elmt elmt) {
-	//		this.elmt = elmt;
-	//	}
+	public Elmt getElmt() {
+		return elmt;
+	}
+
+	public void setElmt(Elmt elmt) {
+		this.elmt = elmt;
+	}
 }
