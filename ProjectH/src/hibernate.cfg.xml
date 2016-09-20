@@ -21,6 +21,7 @@
         <property name="hbm2ddl.auto">create</property>
         
         <mapping class="com.formation.phva.metier.Materiaux"/>
+        <mapping class="com.formation.phva.metier.Elmt"/>
   		
     </session-factory>
 </hibernate-configuration>

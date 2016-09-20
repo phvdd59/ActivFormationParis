@@ -7,6 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import com.formation.phva.metier.Elmt;
 import com.formation.phva.metier.Materiaux;
 
 public class Main {
@@ -18,7 +19,9 @@ public class Main {
 
 	public void init() {
 
+		Elmt e=new Elmt(1,"planche",1,100,100,100);
 		Materiaux mat = Materiaux.BOIS.getMateriaux(100);
+		e.getListeMateriaux().add(mat);
 		File file = new File("hibernate.cfg.xml");
 		Configuration configuration = new Configuration().configure();
 		SessionFactory sessionFactory = configuration.buildSessionFactory();

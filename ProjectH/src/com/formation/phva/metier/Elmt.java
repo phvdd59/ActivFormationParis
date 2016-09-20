@@ -1,5 +1,7 @@
 package com.formation.phva.metier;
 
+import java.util.ArrayList;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,7 +23,7 @@ public class Elmt implements Comparable<Elmt> {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id_elmt")
 	private long id_elmt;
-	
+
 	@Column(name = "numero", nullable = false)
 	private int numero;
 	@Column(name = "nom", nullable = true)
@@ -36,7 +38,7 @@ public class Elmt implements Comparable<Elmt> {
 	private float hauteur;
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "id_materiaux")
-	private ListeMateriaux listeMateriaux;
+	private ArrayList<Materiaux> listeMateriaux = new ArrayList<Materiaux>();
 
 	public Elmt() {
 	}
@@ -112,11 +114,11 @@ public class Elmt implements Comparable<Elmt> {
 		this.hauteur = hauteur;
 	}
 
-	public ListeMateriaux getListeMateriaux() {
+	public ArrayList<Materiaux> getListeMateriaux() {
 		return listeMateriaux;
 	}
 
-	public void setListeMateriaux(ListeMateriaux listeMateriaux) {
+	public void setListeMateriaux(ArrayList<Materiaux> listeMateriaux) {
 		this.listeMateriaux = listeMateriaux;
 	}
 
