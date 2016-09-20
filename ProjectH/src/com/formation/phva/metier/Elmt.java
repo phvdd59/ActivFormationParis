@@ -1,6 +1,7 @@
 package com.formation.phva.metier;
 
-import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -24,7 +25,7 @@ public class Elmt implements Comparable<Elmt> {
 	@Column(name = "id_elmt")
 	private long id_elmt;
 
-	@Column(name = "numero", nullable = false)
+	@Column(name = "numero", nullable = true)
 	private int numero;
 	@Column(name = "nom", nullable = true)
 	private String nom;
@@ -38,7 +39,7 @@ public class Elmt implements Comparable<Elmt> {
 	private float hauteur;
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "id_materiaux")
-	private ArrayList<Materiaux> listeMateriaux = new ArrayList<Materiaux>();
+	private Set<Materiaux> listeMateriaux = new HashSet<Materiaux>(0);
 
 	public Elmt() {
 	}
@@ -72,14 +73,13 @@ public class Elmt implements Comparable<Elmt> {
 	}
 
 	public Elmt(int numero, String nom, int nb, float longueur, float largeur, float hauteur) {
-		super();
 		this.nom = nom;
 		this.nb = nb;
 		this.numero = numero;
 		this.longueur = longueur;
 		this.largeur = largeur;
 		this.hauteur = hauteur;
-		this.listeMateriaux = new ListeMateriaux();
+		this.listeMateriaux = new HashSet<Materiaux>(0);
 	}
 
 	public int getNumero() {
@@ -112,14 +112,6 @@ public class Elmt implements Comparable<Elmt> {
 
 	public void setHauteur(float hauteur) {
 		this.hauteur = hauteur;
-	}
-
-	public ArrayList<Materiaux> getListeMateriaux() {
-		return listeMateriaux;
-	}
-
-	public void setListeMateriaux(ArrayList<Materiaux> listeMateriaux) {
-		this.listeMateriaux = listeMateriaux;
 	}
 
 	public int getNb() {
@@ -188,5 +180,21 @@ public class Elmt implements Comparable<Elmt> {
 
 	public float prixFarication(float[] prMats) {
 		return 0;
+	}
+
+	public long getId_elmt() {
+		return id_elmt;
+	}
+
+	public void setId_elmt(long id_elmt) {
+		this.id_elmt = id_elmt;
+	}
+
+	public Set<Materiaux> getListeMateriaux() {
+		return listeMateriaux;
+	}
+
+	public void setListeMateriaux(Set<Materiaux> listeMateriaux) {
+		this.listeMateriaux = listeMateriaux;
 	}
 }

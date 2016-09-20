@@ -19,9 +19,10 @@ public class Main {
 
 	public void init() {
 
-		Elmt e=new Elmt(1,"planche",1,100,100,100);
+		Elmt e = new Elmt(1, "planche", 1, 100, 100, 100);
 		Materiaux mat = Materiaux.BOIS.getMateriaux(100);
 		e.getListeMateriaux().add(mat);
+		//mat.setElmt(e);
 		File file = new File("hibernate.cfg.xml");
 		Configuration configuration = new Configuration().configure();
 		SessionFactory sessionFactory = configuration.buildSessionFactory();
