@@ -38,9 +38,9 @@ public class Elmt implements Comparable<Elmt> {
 	private float largeur;
 	private float hauteur;
 
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "elmt")
-	@Fetch(FetchMode.JOIN)
-	//	@OneToMany(cascade = CascadeType.ALL, mappedBy = "elmt")
+//	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "elmt")
+//	@Fetch(FetchMode.JOIN)
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "elmt")
 	private Set<Materiaux> listeMateriaux;
 
 	@ManyToOne(cascade = CascadeType.ALL)
@@ -201,5 +201,13 @@ public class Elmt implements Comparable<Elmt> {
 
 	public void setListeMateriaux(Set<Materiaux> listeMateriaux) {
 		this.listeMateriaux = listeMateriaux;
+	}
+
+	public Meuble getMeuble() {
+		return meuble;
+	}
+
+	public void setMeuble(Meuble meuble) {
+		this.meuble = meuble;
 	}
 }
