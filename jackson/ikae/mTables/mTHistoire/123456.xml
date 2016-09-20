@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ListeMeuble>
+	<Meuble nom="Table Louis XIV" ref="001" unite="cm" lng="120" lar="80" hau="2">
+		<Elmt nom="plateau" num="1" unite="cm" lng="120" lar="80" hau="2">
+			<Materiaux type="PLASTIQUE" pc="10"/>
+			<Materiaux type="VERRE" pc="30"/>
+			<Materiaux type="BRONZE" pc="60"/>
+		</Elmt> 
+	</Meuble>
+</ListeMeuble>

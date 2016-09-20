@@ -1,0 +1,26 @@
+package com.formation.phva.jackson;
+public class PersonData {
+
+        private String firstName;
+        private String lastName;
+        
+        public PersonData() {
+        }
+
+        public String getFirstName() {
+                return firstName;
+        }
+
+        public void setFirstName(String firstName) {
+                this.firstName = firstName;
+        }
+
+        public String getLastName() {
+                return lastName;
+        }
+
+        public void setLastName(String lastName) {
+                this.lastName = lastName;
+        }
+
+}
