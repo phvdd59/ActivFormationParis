@@ -12,10 +12,14 @@ import com.formation.phva.metier.Materiaux;
 public class Main {
 
 	public static void main(String[] args) throws FileNotFoundException {
+		Main m = new Main();
+		m.init();
+	}
+
+	public void init() {
 
 		Materiaux mat = Materiaux.BOIS.getMateriaux(100);
-		File file = new File("./hibernate.cfg.xml");
-		// Configuration configuration = new Configuration().configure(file);
+		File file = new File("hibernate.cfg.xml");
 		Configuration configuration = new Configuration().configure();
 		SessionFactory sessionFactory = configuration.buildSessionFactory();
 		Session session = sessionFactory.openSession();
