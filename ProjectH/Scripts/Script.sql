@@ -20,3 +20,6 @@ SELECT b.id_meuble,b.refAbrege,b.nomCommercial,e.id_elmt,e.nom,m.id_materiaux,m.
 		FROM materiaux as m
                 INNER JOIN elmt as e ON (m.elmt_id_elmt = e.id_elmt) 
                 INNER JOIN meuble ON (e.meuble_id_meuble = b.id_meuble);
+
+                
+// https://docs.jboss.org/hibernate/orm/3.3/reference/fr-FR/html/querycriteria.html
