@@ -147,4 +147,9 @@ public class Materiaux {
 	public void setElmt(Elmt elmt) {
 		this.elmt = elmt;
 	}
+
+	@Override
+	public String toString() {
+		return nom+":"+id_materiaux;
+	}
 }

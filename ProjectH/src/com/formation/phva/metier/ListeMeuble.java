@@ -111,10 +111,12 @@ public class ListeMeuble extends ArrayList<Meuble> {
 													}
 													mat.setPourcent(Integer.valueOf(sPc).intValue());
 													e.getListeMateriaux().add(mat);
+													mat.setElmt(e);
 												}
 											}
 										}
 										meuble.getLstElmt().add(e);
+										e.setMeuble(meuble);
 									}
 								}
 							}

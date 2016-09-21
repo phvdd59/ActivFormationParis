@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ListeMeuble>
+	<Meuble nom="Ecran TV" ref="001" unite="i" lng="12" lar="8" hau="0.2">
+		<Elmt nom="ecran" num="1" unite="i" lng="12" lar="8" hau="0.2">
+			<Materiaux type="PLASTIQUE" pc="60"/>
+			<Materiaux type="VERRE" pc="30"/>
+			<Materiaux type="FER" pc="10"/>
+		</Elmt> 
+	</Meuble>
+</ListeMeuble>

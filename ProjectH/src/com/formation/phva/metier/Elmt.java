@@ -6,17 +6,12 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
-
 
 @Entity
 @Table(name = "elmt")
@@ -38,8 +33,8 @@ public class Elmt implements Comparable<Elmt> {
 	private float largeur;
 	private float hauteur;
 
-//	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "elmt")
-//	@Fetch(FetchMode.JOIN)
+	//	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "elmt")
+	//	@Fetch(FetchMode.JOIN)
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "elmt")
 	private Set<Materiaux> listeMateriaux;
 
@@ -209,5 +204,10 @@ public class Elmt implements Comparable<Elmt> {
 
 	public void setMeuble(Meuble meuble) {
 		this.meuble = meuble;
+	}
+
+	@Override
+	public String toString() {
+		return "Elmt [id_elmt=" + id_elmt + ", numero=" + numero + ", nom=" + nom + "]";
 	}
 }

@@ -46,6 +46,9 @@ public class Meuble implements Comparable<Meuble> {
 
 	private String Notice;
 
+	public Meuble() {
+	}
+	
 	public Meuble(int tri, String nomCommercial, String refAbrege, String unite, float longueur, float largeur, float hauteur) throws Exception {
 		super();
 		tri = TRI_REF;
